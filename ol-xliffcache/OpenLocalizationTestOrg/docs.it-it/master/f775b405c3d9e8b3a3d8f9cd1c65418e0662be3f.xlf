@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f775b405c3d9e8b3a3d8f9cd1c65418e0662be3f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\events\how-to-implement-an-observer.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">80a402d0c95210f16cc80e4aad7059ac594cb9ca</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8fd296f9c57c7635535c43755daade979374c302</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Implement an Observer | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Implement an Observer</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The observer design pattern requires a division between an observer, which registers for notifications, and a provider, which monitors data and sends notifications to one or more observers.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic discusses how to create an observer.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>A related topic, <bpt id="p1">[</bpt>How to: Implement a Provider<ept id="p1">](../../../docs/standard/events/how-to-implement-a-provider.md)</ept>, discusses how to create an provider.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To create an observer</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Define the observer, which is a type that implements the <ph id="ph1">&lt;xref:System.IObserver%601?displayProperty=fullName&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For example, the following code defines a type named <ph id="ph1">`TemperatureReporter`</ph> that is a constructed <ph id="ph2">&lt;xref:System.IObserver%601?displayProperty=fullName&gt;</ph> implementation with a generic type argument of <ph id="ph3">`Temperature`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.ObserverDesign.HowTo#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesign.howto/cs/observer.cs#8)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.ObserverDesign.HowTo#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesign.howto/vb/observer.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the observer can stop receiving notifications before the provider calls its <ph id="ph1">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph> implementation, define a private variable that will hold the <ph id="ph2">&lt;xref:System.IDisposable&gt;</ph> implementation returned by the provider's <ph id="ph3">&lt;xref:System.IObservable%601.Subscribe%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You should also define a subscription method that calls the provider's <ph id="ph1">&lt;xref:System.IObservable%601.Subscribe%2A&gt;</ph> method and stores the returned <ph id="ph2">&lt;xref:System.IDisposable&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, the following code defines a private variable named <ph id="ph1">`unsubscriber`</ph> and defines a <ph id="ph2">`Subscribe`</ph> method that calls the provider's <ph id="ph3">&lt;xref:System.IObservable%601.Subscribe%2A&gt;</ph> method and assigns the returned object to the <ph id="ph4">`unsubscriber`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.ObserverDesign.HowTo#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesign.howto/cs/observer.cs#9)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.ObserverDesign.HowTo#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesign.howto/vb/observer.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Define a method that enables the observer to stop receiving notifications before the provider calls its <ph id="ph1">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph> implementation, if this feature is required.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following example defines an <ph id="ph1">`Unsubscribe`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.ObserverDesign.HowTo#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesign.howto/cs/observer.cs#10)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.ObserverDesign.HowTo#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesign.howto/vb/observer.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Provide implementations of the three methods defined by the <ph id="ph1">&lt;xref:System.IObserver%601&gt;</ph> interface: <ph id="ph2">&lt;xref:System.IObserver%601.OnNext%2A?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.IObserver%601.OnError%2A?displayProperty=fullName&gt;</ph>, and <ph id="ph4">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Depending on the provider and the needs of the application, the <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IObserver%601.OnCompleted%2A&gt;</ph> methods can be stub implementations.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Note that the <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method should not handle the passed <ph id="ph2">&lt;xref:System.Exception&gt;</ph> object as an exception, and the <ph id="ph3">&lt;xref:System.IObserver%601.OnCompleted%2A&gt;</ph> method is free to call the provider's <ph id="ph4">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following example shows the <ph id="ph1">&lt;xref:System.IObserver%601&gt;</ph> implementation of the <ph id="ph2">`TemperatureReporter`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.ObserverDesign.HowTo#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesign.howto/cs/observer.cs#11)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.ObserverDesign.HowTo#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesign.howto/vb/observer.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following example contains the complete source code for the <ph id="ph1">`TemperatureReporter`</ph> class, which provides the <ph id="ph2">&lt;xref:System.IObserver%601&gt;</ph> implementation for a temperature monitoring application.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.ObserverDesign.HowTo#12<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesign.howto/cs/observer.cs#12)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.ObserverDesign.HowTo#12<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesign.howto/vb/observer.vb#12)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Observer Design Pattern<ept id="p1">](../../../docs/standard/events/observer-design-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Implement a Provider<ept id="p1">](../../../docs/standard/events/how-to-implement-a-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Observer Design Pattern Best Practices<ept id="p1">](../../../docs/standard/events/observer-design-pattern-best-practices.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0566b549779f87f32dff73036087761ea68fc727</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\events\index.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e9a69d6af111773c330f59c84188e8fb63853b29</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6176e9520e6e01f6a22436549342e7fdfd51cdff</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Handling and Raising Events | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Handling and Raising Events</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Events in the .NET Framework are based on the delegate model.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The delegate model follows the observer design pattern, which enables a subscriber to register with, and receive notifications from, a provider.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>An event sender pushes a notification that an event has happened, and an event receiver receives that notification and defines a response to it.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This article describes the major components of the delegate model, how to consume events in applications, and how to implement events in your code.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For information about handling events in <ph id="ph1">[!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)]</ph> apps, see <bpt id="p1">[</bpt>Events and routed events overview (Windows store apps)<ept id="p1">](http://go.microsoft.com/fwlink/p/?LinkId=261485)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Events</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>An event is a message sent by an object to signal the occurrence of an action.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The action could be caused by user interaction, such as a button click, or it could be raised by some other program logic, such as changing a property’s value.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The object that raises the event is called the <bpt id="p1">*</bpt>event sender<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The event sender doesn't know which object or method will receive (handle) the events it raises.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The event is typically a member of the event sender; for example, the <ph id="ph1">&lt;xref:System.Web.UI.WebControls.Button.Click&gt;</ph> event is a member of the <ph id="ph2">&lt;xref:System.Web.UI.WebControls.Button&gt;</ph> class, and the <ph id="ph3">&lt;xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged&gt;</ph> event is a member of the class that implements the <ph id="ph4">&lt;xref:System.ComponentModel.INotifyPropertyChanged&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>To define an event, you use the <ph id="ph1">`event`</ph> (in C#) or <ph id="ph2">`Event`</ph> (in Visual Basic) keyword in the signature of your event class, and specify the type of delegate for the event.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Delegates are described in the next section.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Typically, to raise an event, you add a method that is marked as <ph id="ph1">`protected`</ph> and <ph id="ph2">`virtual`</ph> (in C#) or <ph id="ph3">`Protected`</ph> and <ph id="ph4">`Overridable`</ph> (in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Name this method <ph id="ph1">`On`</ph><bpt id="p1">*</bpt>EventName<ept id="p1">*</ept>; for example, <ph id="ph2">`OnDataReceived`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The method should take one parameter that specifies an event data object.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You provide this method to enable derived classes to override the logic for raising the event.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A derived class should always call the <ph id="ph1">`On`</ph><bpt id="p1">*</bpt>EventName<ept id="p1">*</ept> method of the base class to ensure that registered delegates receive the event.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following example shows how to declare an event named <ph id="ph1">`ThresholdReached`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The event is associated with the <ph id="ph1">&lt;xref:System.EventHandler&gt;</ph> delegate and raised in a method named <ph id="ph2">`OnThresholdReached`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>EventsOverview#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/eventsoverview/cs/programtruncated.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>EventsOverview#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/eventsoverview/vb/module1truncated.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Delegates</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A delegate is a type that holds a reference to a method.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A delegate is declared with a signature that shows the return type and parameters for the methods it references, and can hold references only to methods that match its signature.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A delegate is thus equivalent to a type-safe function pointer or a callback.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A delegate declaration is sufficient to define a delegate class.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Delegates have many uses in the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In the context of events, a delegate is an intermediary (or pointer-like mechanism) between the event source and the code that handles the event.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>You associate a delegate with an event by including the delegate type in the event declaration, as shown in the example in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information about delegates, see the <ph id="ph1">&lt;xref:System.Delegate&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The .NET Framework provides the <ph id="ph1">&lt;xref:System.EventHandler&gt;</ph> and <ph id="ph2">&lt;xref:System.EventHandler%601&gt;</ph> delegates to support most event scenarios.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.EventHandler&gt;</ph> delegate for all events that do not include event data.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.EventHandler%601&gt;</ph> delegate for events that include data about the event.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>These delegates have no return type value and take two parameters (an object for the source of the event and an object for event data).</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Delegates are multicast, which means that they can hold references to more than one event-handling method.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For details, see the <ph id="ph1">&lt;xref:System.Delegate&gt;</ph> reference page.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Delegates provide flexibility and fine-grained control in event handling.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>A delegate acts as an event dispatcher for the class that raises the event by maintaining a list of registered event handlers for the event.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For scenarios where the <ph id="ph1">&lt;xref:System.EventHandler&gt;</ph> and <ph id="ph2">&lt;xref:System.EventHandler%601&gt;</ph> delegates do not work, you can define a delegate.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Scenarios that require you to define a delegate are very rare, such as when you must work with code that does not recognize generics.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>You mark a delegate with the <ph id="ph1">`delegate`</ph> in (C#) and <ph id="ph2">`Delegate`</ph> (in Visual Basic) keyword in the declaration.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The following example shows how to declare a delegate named <ph id="ph1">`ThresholdReachedEventHandler`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>EventsOverview#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/eventsoverview/cs/programtruncated.cs#4)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>EventsOverview#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/eventsoverview/vb/module1truncated.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Event Data</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Data that is associated with an event can be provided through an event data class.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The .NET Framework provides many event data classes that you can use in your applications.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.IO.Ports.SerialDataReceivedEventArgs&gt;</ph> class is the event data class for the <ph id="ph2">&lt;xref:System.IO.Ports.SerialPort.DataReceived?displayProperty=fullName&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The .NET Framework follows a naming pattern of ending all event data classes with <ph id="ph1">`EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You determine which event data class is associated with an event by looking at the delegate for the event.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.IO.Ports.SerialDataReceivedEventHandler&gt;</ph> delegate includes the <ph id="ph2">&lt;xref:System.IO.Ports.SerialDataReceivedEventArgs&gt;</ph> class as one of its parameters.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class is the base type for all event data classes.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> is also the class you use when an event does not have any data associated with it.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>When you create an event that is only meant to notify other classes that something happened and does not need to pass any data, include the <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class as the second parameter in the delegate.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can pass the <ph id="ph1">&lt;xref:System.EventArgs.Empty?displayProperty=fullName&gt;</ph> value when no data is provided.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.EventHandler&gt;</ph> delegate includes the <ph id="ph2">&lt;xref:System.EventArgs&gt;</ph> class as a parameter.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>When you want to create a customized event data class, create a class that derives from <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph>, and then provide any members needed to pass data that is related to the event.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Typically, you should use the same naming pattern as the .NET Framework and end your event data class name with <ph id="ph1">`EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The following example shows an event data class named <ph id="ph1">`ThresholdReachedEventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>It contains properties that are specific to the event being raised.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>EventsOverview#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/eventsoverview/cs/programtruncated.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>EventsOverview#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/eventsoverview/vb/module1truncated.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Event Handlers</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>To respond to an event, you define an event handler method in the event receiver.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This method must match the signature of the delegate for the event you are handling.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In the event handler, you perform the actions that are required when the event is raised, such as collecting user input after the user clicks a button.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>To receive notifications when the event occurs, your event handler method must subscribe to the event.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The following example shows an event handler method named <ph id="ph1">`c_ThresholdReached`</ph> that matches the signature for the <ph id="ph2">&lt;xref:System.EventHandler&gt;</ph> delegate.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The method subscribes to the <ph id="ph1">`ThresholdReached`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>EventsOverview#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/eventsoverview/cs/programtruncated.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>EventsOverview#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/eventsoverview/vb/module1truncated.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Static and Dynamic Event Handlers</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The .NET Framework allows subscribers to register for event notifications either statically or dynamically.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Static event handlers are in effect for the entire life of the class whose events they handle.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Dynamic event handlers are explicitly activated and deactivated during program execution, usually in response to some conditional program logic.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>For example, they can be used if event notifications are needed only under certain conditions or if an application provides multiple event handlers and run-time conditions define the appropriate one to use.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The example in the previous section shows how to dynamically add an event handler.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Events<ept id="p1">](../../visual-basic/programming-guide/language-features/events/index.md)</ept> and <bpt id="p2">[</bpt>Events<ept id="p2">](../../csharp/programming-guide/events/index.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Raising Multiple Events</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If your class raises multiple events, the compiler generates one field per event delegate instance.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If the number of events is large, the storage cost of one field per delegate may not be acceptable.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For those situations, the .NET Framework provides event properties that you can use with another data structure of your choice to store event delegates.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Event properties consist of event declarations accompanied by event accessors.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Event accessors are methods that you define to add or remove event delegate instances from the storage data structure.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Note that event properties are slower than event fields, because each event delegate must be retrieved before it can be invoked.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The trade-off is between memory and speed.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If your class defines many events that are infrequently raised, you will want to implement event properties.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Handle Multiple Events Using Event Properties<ept id="p1">](../../../docs/standard/events/how-to-handle-multiple-events-using-event-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Related Topics</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Title</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Raise and Consume Events<ept id="p1">](../../../docs/standard/events/how-to-raise-and-consume-events.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Contains examples of raising and consuming events.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Handle Multiple Events Using Event Properties<ept id="p1">](../../../docs/standard/events/how-to-handle-multiple-events-using-event-properties.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Shows how to use event properties to handle multiple events.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Observer Design Pattern<ept id="p1">](../../../docs/standard/events/observer-design-pattern.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Describes the design pattern that enables a subscriber to register with, and receive notifications from, a provider.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Consume Events in a Web Forms Application<ept id="p1">](../../../docs/standard/events/how-to-consume-events-in-a-web-forms-application.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Shows how to handle an event that is raised by a Web Forms control.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Events and routed events overview (Windows store apps)<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=261485)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Events (Visual Basic)<ept id="p1">](../../visual-basic/programming-guide/language-features/events/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Events (C# Programming Guide)<ept id="p1">](../../csharp/programming-guide/events/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

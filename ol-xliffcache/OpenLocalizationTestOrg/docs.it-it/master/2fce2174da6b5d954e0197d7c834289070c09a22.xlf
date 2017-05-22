@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2fce2174da6b5d954e0197d7c834289070c09a22</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\app-domains\delay-sign-assembly.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c1d265beaf4f2d079d8dd9b7c636cf5c70ae7b70</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2a9b07ea13b53a702113d42c77d0452a664d165f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Delay Signing an Assembly | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Delay Signing an Assembly</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>An organization can have a closely guarded key pair that developers do not have access to on a daily basis.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The public key is often available, but access to the private key is restricted to only a few individuals.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When developing assemblies with strong names, each assembly that references the strong-named target assembly contains the token of the public key used to give the target assembly a strong name.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This requires that the public key be available during the development process.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You can use delayed or partial signing at build time to reserve space in the portable executable (PE) file for the strong name signature, but defer the actual signing until some later stage (typically just before shipping the assembly).</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The following steps outline the process to delay sign an assembly:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Obtain the public key portion of the key pair from the organization that will do the eventual signing.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Typically this key is in the form of an .snk file, which can be created using the <bpt id="p1">[</bpt>Strong Name tool (Sn.exe)<ept id="p1">](../../../docs/framework/tools/sn-exe-strong-name-tool.md)</ept> provided by the <ph id="ph1">[!INCLUDE[winsdklong](../../../includes/winsdklong-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Annotate the source code for the assembly with two custom attributes from <ph id="ph1">&lt;xref:System.Reflection&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Reflection.AssemblyKeyFileAttribute&gt;</ph>, which passes the name of the file containing the public key as a parameter to its constructor.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Reflection.AssemblyDelaySignAttribute&gt;</ph>, which indicates that delay signing is being used by passing <bpt id="p1">**</bpt>true<ept id="p1">**</ept> as a parameter to its constructor.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>AssemblyDelaySignAttribute#4<ept id="p2">](../../../samples/snippets/cpp/VS_Snippets_CLR/AssemblyDelaySignAttribute/cpp/source2.cpp#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>AssemblyDelaySignAttribute#4<ept id="p4">](../../../samples/snippets/csharp/VS_Snippets_CLR/AssemblyDelaySignAttribute/cs/source2.cs#4)</ept><ept id="p3">]</ept>  <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>AssemblyDelaySignAttribute#4<ept id="p6">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/AssemblyDelaySignAttribute/vb/source2.vb#4)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The compiler inserts the public key into the assembly manifest and reserves space in the PE file for the full strong name signature.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The real public key must be stored while the assembly is built so that other assemblies that reference this assembly can obtain the key to store in their own assembly reference.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Because the assembly does not have a valid strong name signature, the verification of that signature must be turned off.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You can do this by using the <bpt id="p1">**</bpt>–Vr<ept id="p1">**</ept> option with the Strong Name tool.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following example turns off verification for an assembly called <ph id="ph1">`myAssembly.dll`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To turn off verification on platforms where you can’t run the Strong Name tool, such as Advanced RISC Machine (ARM) microprocessors, use the <bpt id="p1">**</bpt>–Vk<ept id="p1">**</ept> option to create a registry file.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Import the registry file into the registry on the computer where you want to turn off verification.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following example creates a registry file for <ph id="ph1">`myAssembly.dll`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>With either the <bpt id="p1">**</bpt>–Vr<ept id="p1">**</ept> or <bpt id="p2">**</bpt>–Vk<ept id="p2">**</ept> option, you can optionally include an .snk file for test key signing.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Use the <bpt id="p1">**</bpt>-Vr<ept id="p1">**</ept> or <bpt id="p2">**</bpt>–Vk<ept id="p2">**</ept> option only during development.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Adding an assembly to the skip verification list creates a security vulnerability.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A malicious assembly could use the fully specified assembly name (assembly name, version, culture, and public key token) of the assembly added to the skip verification list to fake its identity.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This would allow the malicious assembly to also skip verification.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If you use delay signing during development with Visual Studio on a 64-bit computer, and you compile an assembly for <bpt id="p1">**</bpt>Any CPU<ept id="p1">**</ept>, you might have to apply the <bpt id="p2">**</bpt>-Vr<ept id="p2">**</ept> option twice.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>(In Visual Studio, <bpt id="p1">**</bpt>Any CPU<ept id="p1">**</ept> is a value of the <bpt id="p2">**</bpt>Platform Target<ept id="p2">**</ept> build property; when you compile from the command line, it is the default.) To run your application from the command line or from File Explorer, use the 64-bit version of the <bpt id="p3">[</bpt>Sn.exe (Strong Name Tool)<ept id="p3">](../../../docs/framework/tools/sn-exe-strong-name-tool.md)</ept> to apply the <bpt id="p4">**</bpt>-Vr<ept id="p4">**</ept> option to the assembly.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To load the assembly into Visual Studio at design time (for example, if the assembly contains components that are used by other assemblies in your application), use the 32-bit version of the strong-name tool.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This is because the just-in-time (JIT) compiler compiles the assembly to 64-bit native code when the assembly is run from the command line, and to 32-bit native code when the assembly is loaded into the design-time environment.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Later, usually just before shipping, you submit the assembly to your organization's signing authority for the actual strong name signing using the <bpt id="p1">**</bpt>–R<ept id="p1">**</ept> option with the Strong Name tool.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The following example signs an assembly called <ph id="ph1">`myAssembly.dll`</ph> with a strong name using the <ph id="ph2">`sgKey.snk`</ph> key pair.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Creating Assemblies<ept id="p1">](../../../docs/framework/app-domains/create-assemblies.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a Public-Private Key Pair<ept id="p1">](../../../docs/framework/app-domains/how-to-create-a-public-private-key-pair.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Sn.exe (Strong Name Tool)<ept id="p1">](../../../docs/framework/tools/sn-exe-strong-name-tool.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Programming with Assemblies<ept id="p1">](../../../docs/framework/app-domains/programming-with-assemblies.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

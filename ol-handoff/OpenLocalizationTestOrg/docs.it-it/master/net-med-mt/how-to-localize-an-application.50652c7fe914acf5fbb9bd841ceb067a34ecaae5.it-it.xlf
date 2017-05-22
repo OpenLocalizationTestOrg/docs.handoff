@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8256e7e7600d174cf0dc8673ed657a33627332b9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\how-to-localize-an-application.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cccee6c009bdb7457f64ba0b5195ea56a76ce505</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e14bd372617190b4cfe1ec98a7b6824d5e53bd57</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Localize an Application | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Localize an Application</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This tutorial explains how to create a localized application by using the LocBaml tool.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The LocBaml tool is not a production-ready application.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>It is presented as a sample that uses some of the localization APIs and illustrates how you might write a localization tool.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Overview</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This discussion gives you a step-by-step approach to localizing an application.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>First, you will prepare your application so that the text that will be translated can be extracted.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>After the text is translated, you will merge the translated text into a new copy of the original application.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Requirements</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Over the course of this discussion, you will use                  <ph id="ph1">[!INCLUDE[TLA#tla_msbuild](../../../../includes/tlasharptla-msbuild-md.md)]</ph>, which is a compiler that runs from the command line.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Also, you will be instructed to use a project file.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For instructions on how to use                  <ph id="ph1">[!INCLUDE[TLA2#tla_msbuild](../../../../includes/tla2sharptla-msbuild-md.md)]</ph> and project files, see                  <bpt id="p1">[</bpt>Build and Deploy<ept id="p1">](../../../../docs/framework/wpf/app-development/building-and-deploying-wpf-applications.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>All the examples in this discussion use en-US (English-US) as the culture.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This enables you to work through the steps of the examples without installing a different language.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Create a Sample Application</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In this step, you will prepare your application for localization.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In the                  <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> samples, a HelloApp sample is supplied that will be used for the code examples in this discussion.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If you would like to use this sample, download the                  <ph id="ph1">[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]</ph> files from the                  <bpt id="p1">[</bpt>LocBaml Tool Sample<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=160016)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Develop your application to the point where you want to start localization.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Specify the development language in the project file so that                          <ph id="ph1">[!INCLUDE[TLA2#tla_msbuild](../../../../includes/tla2sharptla-msbuild-md.md)]</ph> generates a main assembly and a satellite assembly (a file with the .resources.dll extension) to contain the neutral language resources.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The project file in the HelloApp sample is HelloApp.csproj.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In that file, you will find the development language identified as follows:</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Add Uids to your                          <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> files.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Uids are used to keep track of changes to files and to identify items that must be translated.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To add Uids to your files, run                          <bpt id="p1">**</bpt>updateuid<ept id="p1">**</ept> on your project file:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>msbuild /t:updateuid helloapp.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>To verify that you have no missing or duplicate Uids, run                          <bpt id="p1">**</bpt>checkuid<ept id="p1">**</ept>:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>msbuild /t:checkuid helloapp.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>After running                          <bpt id="p1">**</bpt>updateuid<ept id="p1">**</ept>, your files should contain Uids.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For example, in the Pane1.xaml file of HelloApp, you should find the following:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Create the Neutral Language Resources Satellite Assembly</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>After the application is configured to generate a neutral language resources satellite assembly, you build the application.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>This generates the main application assembly, as well as the neutral language resources satellite assembly that is required by LocBaml for localization.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>To build the application:</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Compile HelloApp to create a                          <ph id="ph1">[!INCLUDE[TLA#tla_dll](../../../../includes/tlasharptla-dll-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>msbuild helloapp.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The newly created main application assembly, HelloApp.exe, is created in the following folder:</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The newly created neutral language resources satellite assembly, HelloApp.resources.dll, is created in the following folder:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Build the LocBaml Tool</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>All the files necessary to build LocBaml are located in the                          <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Download the                          <ph id="ph1">[!INCLUDE[TLA#tla_lhcshrp](../../../../includes/tlasharptla-lhcshrp-md.md)]</ph> files from the                          <bpt id="p1">[</bpt>LocBaml Tool Sample<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=160016)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>From the command line, run the project file (locbaml.csproj) to build the tool:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>msbuild locbaml.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Go to the Bin\Release directory to find the newly created executable file (locbaml.exe).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Example:C:\LocBaml\Bin\Release\locbaml.exe.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The options that you can specify when you run LocBaml are as follows:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>parse<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-p:<ept id="p2">**</ept> Parses Baml, resources, or                                  <ph id="ph1">[!INCLUDE[TLA2#tla_dll](../../../../includes/tla2sharptla-dll-md.md)]</ph> files to generate a .csv or .txt file.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>generate<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-g:<ept id="p2">**</ept> Generates a localized binary file by using a translated file.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>out<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-o<ept id="p2">**</ept> [                                 <bpt id="p3">*</bpt>filedirectory<ept id="p3">*</ept>]                                 <bpt id="p4">**</bpt>:<ept id="p4">**</ept> Output file name.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>culture<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-cul<ept id="p2">**</ept> [                                 <bpt id="p3">*</bpt>culture<ept id="p3">*</ept>]                                 <bpt id="p4">**</bpt>:<ept id="p4">**</ept> Locale of output assemblies.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>translation<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-trans<ept id="p2">**</ept> [                                 <bpt id="p3">*</bpt>translation.csv<ept id="p3">*</ept>]                                 <bpt id="p4">**</bpt>:<ept id="p4">**</ept> Translated or localized file.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>asmpath<ept id="p1">**</ept> or                                  <bpt id="p2">**</bpt>-asmpath:<ept id="p2">**</ept> [                                 <bpt id="p3">*</bpt>filedirectory<ept id="p3">*</ept>]                                 <bpt id="p4">**</bpt>:<ept id="p4">**</ept> If your                                  <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> code contains custom controls, you must supply the                                  <bpt id="p5">**</bpt>asmpath<ept id="p5">**</ept> to the custom control assembly.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>nologo:<ept id="p1">**</ept> Displays no logo or copyright information.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>verbose:<ept id="p1">**</ept> Displays verbose mode information.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If you need a list of the options when you are running the tool, type                              <bpt id="p1">**</bpt>LocBaml.exe<ept id="p1">**</ept> and press ENTER.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Use LocBaml to Parse a File</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Now that you have created the LocBaml tool, you are ready to use it to parse HelloApp.resources.dll to extract the text content that will be localized.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Copy LocBaml.exe to your application's bin\debug folder, where the main application assembly was created.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>To parse the satellite assembly file and store the output as a .csv file, use the following command:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LocBaml.exe /parse HelloApp.resources.dll /out:Hello.csv<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If the input file, HelloApp.resources.dll, is not in the same directory as LocBaml.exe move one of the files so that both files are in the same directory.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>When you run LocBaml to parse files, the output consists of seven fields delimited by commas (.csv files) or tabs (.txt files).</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The following shows the parsed .csv file for the HelloApp.resources.dll:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml,Stack1:System.Windows.Controls.StackPanel.$Content,Ignore,FALSE, FALSE,,#Text1;#Text2;</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml,Text1:System.Windows.Controls.TextBlock.$Content,None,TRUE, TRUE,,Hello World</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml,Text2:System.Windows.Controls.TextBlock.$Content,None,TRUE, TRUE,,Goodbye World</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The seven fields are:</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>BAML Name<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The name of the BAML resource with respect to the source language satellite assembly.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Resource Key<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The localized resource identifier.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Category<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The value type.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>See                                  <bpt id="p1">[</bpt>Localization Attributes and Comments<ept id="p1">](../../../../docs/framework/wpf/advanced/localization-attributes-and-comments.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Readability<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Whether the value can be read by a localizer.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>See                                  <bpt id="p1">[</bpt>Localization Attributes and Comments<ept id="p1">](../../../../docs/framework/wpf/advanced/localization-attributes-and-comments.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Modifiability<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Whether the value can be modified by a localizer.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>See                                  <bpt id="p1">[</bpt>Localization Attributes and Comments<ept id="p1">](../../../../docs/framework/wpf/advanced/localization-attributes-and-comments.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Comments<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Additional description of the value to help determine how a value is localized.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>See                                  <bpt id="p1">[</bpt>Localization Attributes and Comments<ept id="p1">](../../../../docs/framework/wpf/advanced/localization-attributes-and-comments.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Value<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The text value to translate to the desired culture.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The following table shows how these fields map to the delimited values of the .csv file:</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>BAML name</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Resource key</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Category</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Readability</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Modifiability</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Comments</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Stack1:System.Windows.Controls.StackPanel.$Content</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Ignore</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>FALSE</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>FALSE</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>#Text1;#Text2</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Text1:System.Windows.Controls.TextBlock.$Content</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>None</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>TRUE</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>TRUE</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Hello World</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>HelloApp.g.en-US.resources:window1.baml</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Text2:System.Windows.Controls.TextBlock.$Content</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>None</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>TRUE</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>TRUE</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Goodbye World</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Notice that all the values for the                          <bpt id="p1">**</bpt>Comments<ept id="p1">**</ept> field contain no values; if a field doesn't have a value, it is empty.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Also notice that the item in the first row is neither readable nor modifiable, and has "Ignore" as its                          <bpt id="p1">**</bpt>Category<ept id="p1">**</ept> value, all of which indicates that the value is not localizable.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>To facilitate discovery of localizable items in parsed files, particularly in large files, you can sort or filter the items by                          <bpt id="p1">**</bpt>Category<ept id="p1">**</ept>,                          <bpt id="p2">**</bpt>Readability<ept id="p2">**</ept>, and                          <bpt id="p3">**</bpt>Modifiability<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>For example, you can filter out unreadable and unmodifiable values.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Translate the Localizable Content</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Use any tool that you have available to translate the extracted content.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>A good way to do this is to write the resources to a .csv file and view them in                  <ph id="ph1">[!INCLUDE[TLA#tla_xl](../../../../includes/tlasharptla-xl-md.md)]</ph>, making translation changes to the last column (value).</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Use LocBaml to Generate a New .resources.dll File</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The content that was identified by parsing HelloApp.resources.dll with LocBaml has been translated and must be merged back into the original application.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Use the                  <bpt id="p1">**</bpt>generate<ept id="p1">**</ept> or                  <bpt id="p2">**</bpt>-g<ept id="p2">**</ept> option to generate a new .resources.dll file.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Use the following syntax to generate a new HelloApp.resources.dll file.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Mark the culture as en-US (/cul:en-US).</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LocBaml.exe /generate HelloApp.resources.dll /trans:Hello.csv /out:c:\ /cul:en-US<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>If the input file, Hello.csv, is not in the same directory as the executable, LocBaml.exe, move one of the files so that both files are in the same directory.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Replace the old HelloApp.resources.dll file in the C:\HelloApp\Bin\Debug\en-US\HelloApp.resources.dll directory with your newly created HelloApp.resources.dll file.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>"Hello World" and "Goodbye World" should now be translated in your application.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>To translate to a different culture, use the culture of the language that you are translating to.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The following example shows how to translate to French-Canadian:</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LocBaml.exe /generate HelloApp.resources.dll /trans:Hellofr-CA.csv /out:c:\ /cul:fr-CA<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>In the same assembly as the main application assembly, create a new culture-specific folder to house the new satellite assembly.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>For French-Canadian, the folder would be fr-CA.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Copy the generated satellite assembly to the new folder.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>To test the new satellite assembly, you need to change the culture under which your application will run.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>You can do this in one of two ways:</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Change your operating system's regional settings (                                 <bpt id="p1">**</bpt>Start<ept id="p1">**</ept> &amp;#124;                                  <bpt id="p2">**</bpt>Control Panel<ept id="p2">**</ept> &amp;#124;                                  <bpt id="p3">**</bpt>Regional and Language Options<ept id="p3">**</ept>).</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>In your application, add the following code to App.xaml.cs:</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>LocBamlChangeCultureSnippets#LocBamlChangeCultureMARKUP<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/LocBamlChangeCultureSnippets/CSharp/App.xaml#locbamlchangeculturemarkup)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>LocBamlChangeCultureSnippets#LocBamlChangeCultureCODEBEHIND<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/LocBamlChangeCultureSnippets/CSharp/App.xaml.cs#locbamlchangeculturecodebehind)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>LocBamlChangeCultureSnippets#LocBamlChangeCultureCODEBEHIND<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/LocBamlChangeCultureSnippets/VisualBasic/Application.xaml.vb#locbamlchangeculturecodebehind)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Some Tips for Using LocBaml</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>All dependent assemblies that define custom controls must be copied into the local directory of LocBaml or installed into the GAC.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>This is necessary because the localization API must have access to the dependent assemblies when it reads the                          <ph id="ph1">[!INCLUDE[TLA#tla_baml](../../../../includes/tlasharptla-baml-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>If the main assembly is signed, the generated resource DLL must also be signed in order for it to be loaded.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>The version of the localized resource DLL needs to be synchronized with the main assembly.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>What's Next</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>You should now have a basic understanding of how to use the LocBaml tool.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>You should be able to make a file that contains Uids.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>By using the LocBaml tool, you should be able to parse a file to extract the localizable content, and after the content is translated, you should be able to generate a .resources.dll file that merges the translated content.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>This topic does not include every possible detail, but you now have the knowledge necessary to use LocBaml for localizing your applications.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Globalization for WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/globalization-for-wpf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Use Automatic Layout Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/use-automatic-layout-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

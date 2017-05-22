@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0d260cb090a976ea754e94c3fec2b9de33447693</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\securing-wrapper-code.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">93c883fc96f6f2ec69ed88ff26b49a259fe4f7ed</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">880f45d1f106a5b65ecaf16f6e1059a6cfd51f06</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Securing Wrapper Code | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Securing Wrapper Code</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Wrapper code, especially where the wrapper has higher trust than code that uses it, can open a unique set of security weaknesses.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Anything done on behalf of a caller, where the caller's limited permissions are not included in the appropriate security check, is a potential weakness to be exploited.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Never enable something through the wrapper that the caller could not do itself.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This is a special danger when doing something that involves a limited security check, as opposed to a full stack walk demand.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>When single-level checks are involved, interposing the wrapper code between the real caller and the API element in question can easily cause the security check to succeed when it should not, thereby weakening security.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Delegates</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Delegate security differs between versions of the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This section describes the different delegate behaviors and associated security considerations.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>In version 1.0 and 1.1 of the .NET Framework</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Version 1.0 and 1.1 of the .NET Framework perform the following security actions against a delegate creator and a delegate caller.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>When a delegate is created, security link demands on the delegate target method are performed against the grant set of the delegate creator.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Failure to satisfy the security action results in a <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>When the delegate is invoked, any existing security demands on the delegate caller are performed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Whenever your code takes a <ph id="ph1">&lt;xref:System.Delegate&gt;</ph> from less-trusted code that might call it, make sure that you are not enabling the less-trusted code to escalate its permissions.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If you take a delegate and use it later, the code that created the delegate is not on the call stack and its permissions will not be tested if code in or under the delegate attempts a protected operation.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If your code and the caller code have higher privileges than the creator, the creator can orchestrate the call path without being part of the call stack.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In version 2.0 and later versions of the .NET Framework</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Unlike previous versions, version 2.0 and later versions of the .NET Framework performs security action against the delegate creator when the delegate is created and called.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When a delegate is created, security link demands on the delegate target method are performed against the grant set of the delegate creator.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Failure to satisfy the security action results in a <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The delegate creator's grant set is also captured during delegate creation and stored with the delegate.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When the delegate is invoked, the delegate creator's captured grant set is first evaluated against any demands in the current context if the delegate creator and caller belong to different assemblies.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Next, any existing security demands on the delegate caller are performed.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Link demands and wrappers</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A special protection case with link demands has been strengthened in the security infrastructure, but it is still a source of possible weakness in your code.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If fully trusted code calls a property, event, or method protected by a <bpt id="p1">[</bpt>LinkDemand<ept id="p1">](../../../docs/framework/misc/link-demands.md)</ept>, the call succeeds if the <bpt id="p2">**</bpt>LinkDemand<ept id="p2">**</ept> permission check for the caller is satisfied.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Additionally, if the fully trusted code exposes a class that takes the name of a property and calls its <bpt id="p1">**</bpt>get<ept id="p1">**</ept> accessor using reflection, that call to the <bpt id="p2">**</bpt>get<ept id="p2">**</ept> accessor succeeds even though the user code does not have the right to access this property.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This is because the <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> checks only the immediate caller, which is the fully trusted code.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In essence, the fully trusted code is making a privileged call on behalf of user code without making sure that the user code has the right to make that call.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>To help prevent such security holes, the common language runtime extends the check into a full stack-walking demand on any indirect call to a method, constructor, property, or event protected by a <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This protection incurs some performance costs and changes the semantics of the security check; the full stack-walk demand might fail where the faster, one-level check would have passed.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Assembly loading wrappers</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Several methods used to load managed code, including <ph id="ph1">&lt;xref:System.Reflection.Assembly.Load%2A?displayProperty=fullName&gt;</ph>, load assemblies with the evidence of the caller.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If you wrap any of these methods, the security system could use your code's permission grant, instead of the permissions of the caller to your wrapper, to load the assemblies.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You should not allow less-trusted code to load code that is granted higher permissions than those of the caller to your wrapper.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Any code that has full trust or significantly higher trust than a potential caller (including an Internet-permissions-level caller) could weaken security in this way.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If your code has a public method that takes a byte array and passes it to <bpt id="p1">**</bpt>Assembly.Load<ept id="p1">**</ept>, thereby creating an assembly on the caller's behalf, it might break security.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This issue applies to the following API elements:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Demand vs. LinkDemand</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Declarative security offers two kinds of security checks that are similar but perform very different checks.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>You should understand both forms because the wrong choice can result in weak security or performance loss.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Declarative security offers the following security checks:</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> specifies the code access security stack walk.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>All callers on the stack must have the specified permission or identity to pass.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Demand<ept id="p1">**</ept> occurs on every call because the stack might contain different callers.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>If you call a method repeatedly, this security check occurs each time.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Demand<ept id="p1">**</ept> is good protection against luring attacks; unauthorized code trying to get through it will be detected.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>LinkDemand<ept id="p1">](../../../docs/framework/misc/link-demands.md)</ept> happens at just-in-time (JIT) compilation time and checks only the immediate caller.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This security check does not check the caller's caller.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Once this check passes, there is no additional security overhead no matter how many times the caller might call.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>However, there is also no protection from luring attacks.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>With <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept>, any code that passes the test and can reference your code can potentially break security by allowing malicious code to call using the authorized code.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Therefore, do not use <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> unless all the possible weaknesses can be thoroughly avoided.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, link demands have been replaced by the <ph id="ph2">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph> attribute in <ph id="ph3">&lt;xref:System.Security.SecurityRuleSet&gt;</ph> assemblies.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph> is equivalent to a link demand for full trust; however, it also affects inheritance rules.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>For more information about this change, see <bpt id="p1">[</bpt>Security-Transparent Code, Level 2<ept id="p1">](../../../docs/framework/misc/security-transparent-code-level-2.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The extra precautions required when using <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> must be programmed individually; the security system can help with enforcement.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Any mistake opens a security weakness.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>All authorized code that uses your code must be responsible for implementing additional security by doing the following:</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Restricting the calling code's access to the class or assembly.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Placing the same security checks on the calling code that appear on the code being called and obligating its callers to do so.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For example, if you write code that calls a method that is protected with a <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> for the <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> flag specified, your method should also make a <bpt id="p2">**</bpt>LinkDemand<ept id="p2">**</ept> (or <bpt id="p3">**</bpt>Demand<ept id="p3">**</ept>, which is stronger) for this permission.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The exception is if your code uses the <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept>-protected method in a limited way that you decide is safe, given other security protection mechanisms (such as demands) in your code.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In this exceptional case, the caller takes responsibility in weakening the security protection on the underlying code.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Ensuring that your code's callers cannot trick your code into calling the protected code on their behalf.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In other words, callers cannot force the authorized code to pass specific parameters to the protected code, or to get results back from it.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Interfaces and Link Demands</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>If a virtual method, property, or event with <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> overrides a base class method, the base class method must also have the same <bpt id="p2">**</bpt>LinkDemand<ept id="p2">**</ept> for the overridden method in order to be effective.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>It is possible for malicious code to cast back to the base type and call the base class method.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Also note that link demands can be added implicitly to assemblies that do not have the <ph id="ph1">&lt;xref:System.Security.AllowPartiallyTrustedCallersAttribute&gt;</ph> assembly-level attribute.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>It is a good practice to protect method implementations with link demands when interface methods also have link demands.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Note the following about using link demands with interfaces:</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>If you place a <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> on a public method of a class that implements an interface method, the <bpt id="p2">**</bpt>LinkDemand<ept id="p2">**</ept> will not be enforced if you then cast to the interface and call the method.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>In this case, because you linked against the interface, only the <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> on the interface is honored.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Review the following items for security issues:</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Explicit link demands on interface methods.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Make sure these link demands offer the expected protection.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Determine whether malicious code can use a cast to get around the link demands as described previously.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Virtual methods with link demands applied.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Types and the interfaces they implement.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>These should use link demands consistently.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

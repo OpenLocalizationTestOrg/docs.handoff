@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">54ae2d554797efe265c3970d1b658927a0da8193</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\reflection-and-codedom\walkthrough-emitting-code-in-partial-trust-scenarios.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">54ef31dda7ccca3b5812c825f549884cdbd76761</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0e1cea12c626f5296c7381fcb91e9c7f9935ace9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Emitting Code in Partial Trust Scenarios | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Emitting Code in Partial Trust Scenarios</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Reflection emit uses the same API set in full or partial trust, but some features require special permissions in partially trusted code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In addition, reflection emit has a feature, anonymously hosted dynamic methods, that is designed to be used with partial trust and by security-transparent assemblies.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Before <ph id="ph1">[!INCLUDE[net_v35_long](../../../includes/net-v35-long-md.md)]</ph>, emitting code required <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This permission is included by default in the <ph id="ph1">`FullTrust`</ph> and <ph id="ph2">`Intranet`</ph> named permission sets, but not in the <ph id="ph3">`Internet`</ph> permission set.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Therefore, a library could be used from partial trust only if it had the <ph id="ph1">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph> attribute and also executed an <ph id="ph2">&lt;xref:System.Security.PermissionSet.Assert%2A&gt;</ph> method for <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Such libraries require careful security review because coding errors could result in security holes.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[net_v35_short](../../../includes/net-v35-short-md.md)]</ph> allows code to be emitted in partial trust scenarios without issuing any security demands, because generating code is not inherently a privileged operation.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>That is, the generated code has no more permissions than the assembly that emits it.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This enables libraries that emit code to be security-transparent and removes the need to assert <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph>, so that writing a secure library does not require such a thorough security review.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This walkthrough illustrates the following tasks:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Setting up a simple sandbox for testing partially trusted code<ept id="p1">](#Setting_up)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This is a simple way to experiment with code in partial trust.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To run code that actually comes from untrusted locations, see <bpt id="p1">[</bpt>How to: Run Partially Trusted Code in a Sandbox<ept id="p1">](../../../docs/framework/misc/how-to-run-partially-trusted-code-in-a-sandbox.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Running code in partially trusted application domains<ept id="p1">](#Running_code)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Using anonymously hosted dynamic methods to emit and execute code in partial trust<ept id="p1">](#Using_methods)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For more information about emitting code in partial trust scenarios, see <bpt id="p1">[</bpt>Security Issues in Reflection Emit<ept id="p1">](../../../docs/framework/reflection-and-codedom/security-issues-in-reflection-emit.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For a complete listing of the code shown in these procedures, see the <bpt id="p1">[</bpt>Example section<ept id="p1">](#Example)</ept> at the end of this walkthrough.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Setting up Partially Trusted Locations</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following two procedures show how to set up locations from which you can test code with partial trust.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The first procedure shows how to create a sandboxed application domain in which code is granted Internet permissions.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The second procedure shows how to add <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag to a partially trusted application domain, to enable access to private data in assemblies of equal or lesser trust.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Creating Sandboxed Application Domains</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To create an application domain in which your assemblies run with partial trust, you must specify the set of permissions to be granted to the assemblies by using the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29?displayProperty=fullName&gt;</ph> method overload to create the application domain.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The easiest way to specify the grant set is to retrieve a named permission set from security policy.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The following procedure creates a sandboxed application domain that runs your code with partial trust, to test scenarios in which emitted code can access only public members of public types.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A subsequent procedure shows how to add <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph>, to test scenarios in which emitted code can access nonpublic types and members in assemblies that are granted equal or lesser permissions.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>To create an application domain with partial trust</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Create a permission set to grant to the assemblies in the sandboxed application domain.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In this case, the permission set of the Internet zone is used.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Create an <ph id="ph1">&lt;xref:System.AppDomainSetup&gt;</ph> object to initialize the application domain with an application path.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For simplicity, this code example uses the current folder.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>To run code that actually comes from the Internet, use a separate folder for the untrusted code, as described in <bpt id="p1">[</bpt>How to: Run Partially Trusted Code in a Sandbox<ept id="p1">](../../../docs/framework/misc/how-to-run-partially-trusted-code-in-a-sandbox.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Create the application domain, specifying the application domain setup information and the grant set for all assemblies that execute in the application domain.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The last parameter of the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29?displayProperty=fullName&gt;</ph> method overload enables you to specify a set of assemblies that are to be granted full trust, instead of the grant set of the application domain.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>You do not have to specify the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> assemblies that your application uses, because those assemblies are in the global assembly cache.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Assemblies in the global assembly cache are always fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>You can use this parameter to specify strong-named assemblies that are not in the global assembly cache.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Adding RestrictedMemberAccess to Sandboxed Domains</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Host applications can allow anonymously hosted dynamic methods to have access to private data in assemblies that have trust levels equal to or less than the trust level of the assembly that emits the code.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>To enable this restricted ability to skip just-in-time (JIT) visibility checks, the host application adds a <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> object with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> (RMA) flag to the grant set.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For example, a host might grant Internet applications Internet permissions plus RMA, so that an Internet application can emit code that accesses private data in its own assemblies.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Because the access is limited to assemblies of equal or lesser trust, an Internet application cannot access members of fully trusted assemblies such as <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> assemblies.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To prevent elevation of privilege, stack information for the emitting assembly is included when anonymously hosted dynamic methods are constructed.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>When the method is invoked, the stack information is checked.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Thus, an anonymously hosted dynamic method that is invoked from fully trusted code is still limited to the trust level of the emitting assembly.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>To create an application domain with partial trust plus RMA</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> object with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph> (RMA) flag, and use the <ph id="ph3">&lt;xref:System.Security.PermissionSet.SetPermission%2A?displayProperty=fullName&gt;</ph> method to add the permission to the grant set.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#7)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.PermissionSet.AddPermission%2A&gt;</ph> method adds the permission to the grant set if it is not already included.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If the permission is already included in the grant set, the specified flags are added to the existing permission.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>RMA is a feature of anonymously hosted dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>When ordinary dynamic methods skip JIT visibility checks, the emitted code requires full trust.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Create the application domain, specifying the application domain setup information and the grant set.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#8)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Running Code in Sandboxed Application Domains</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The following procedure explains how to define a class by using methods that can be executed in an application domain, how to create an instance of the class in the domain, and how to execute its methods.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>To define and execute a method in an application domain</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Define a class that derives from <ph id="ph1">&lt;xref:System.MarshalByRefObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This enables you to create instances of the class in other application domains and to make method calls across application domain boundaries.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The class in this example is named <ph id="ph1">`Worker`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#10)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Define a public method that contains the code you want to execute.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In this example, the code emits a simple dynamic method, creates a delegate to execute the method, and invokes the delegate.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#11)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>In your main program, get the display name of your assembly.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>This name is used when you create instances of the <ph id="ph1">`Worker`</ph> class in the sandboxed application domain.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#14<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#14)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#14<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#14)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>In your main program, create a sandboxed application domain, as described in <bpt id="p1">[</bpt>the first procedure<ept id="p1">](#Setting_up)</ept> in this walkthrough.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>You do not have to add any permissions to the <ph id="ph1">`Internet`</ph> permission set, because the <ph id="ph2">`SimpleEmitDemo`</ph> method uses only public methods.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>In your main program, create an instance of the <ph id="ph1">`Worker`</ph> class in the sandboxed application domain.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#12<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#12)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#12<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#12)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.AppDomain.CreateInstanceAndUnwrap%2A&gt;</ph> method creates the object in the target application domain and returns a proxy that can be used to call the properties and methods of the object.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If you use this code in <ph id="ph1">[!INCLUDE[vsprvs](../../../includes/vsprvs-md.md)]</ph>, you must change the name of the class to include the namespace.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>By default, the namespace is the name of the project.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>For example, if the project is "PartialTrust", the class name must be "PartialTrust.Worker".</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Add code to call the <ph id="ph1">`SimpleEmitDemo`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The call is marshaled across the application domain boundary, and the code is executed in the sandboxed application domain.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#13<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#13)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#13<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#13)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Using Anonymously Hosted Dynamic Methods</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Anonymously hosted dynamic methods are associated with a transparent assembly that is provided by the system.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Therefore, the code they contain is transparent.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Ordinary dynamic methods, on the other hand, must be associated with an existing module (whether directly specified or inferred from an associated type), and take their security level from that module.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The only way to associate a dynamic method with the assembly that provides anonymous hosting is to use the constructors that are described in the following procedure.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>You cannot explicitly specify a module in the anonymous hosting assembly.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Ordinary dynamic methods have access to the internal members of the module they are associated with, or to the private members of the type they are associated with.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Because anonymously hosted dynamic methods are isolated from other code, they do not have access to private data.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>However, they do have a restricted ability to skip JIT visibility checks to gain access to private data.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>This ability is limited to assemblies that have trust levels equal to or less than the trust level of the assembly that emits the code.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>To prevent elevation of privilege, stack information for the emitting assembly is included when anonymously hosted dynamic methods are constructed.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>When the method is invoked, the stack information is checked.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>An anonymously hosted dynamic method that is invoked from fully trusted code is still limited to the trust level of the assembly that emitted it.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>To use anonymously hosted dynamic methods</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Create an anonymously hosted dynamic method by using a constructor that does not specify an associated module or type.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#15<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#15)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#15<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#15)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>If an anonymously hosted dynamic method uses only public types and methods, it does not require restricted member access and does not have to skip JIT visibility checks.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>No special permissions are required to emit a dynamic method, but the emitted code requires the permissions that are demanded by the types and methods it uses.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>For example, if the emitted code calls a method that accesses a file, it requires <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>If the trust level does not include that permission, a security exception is thrown when the emitted code is executed.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The code shown here emits a dynamic method that uses only the <ph id="ph1">&lt;xref:System.Console.WriteLine%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Therefore, the code can be executed from partially trusted locations.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Alternatively, create an anonymously hosted dynamic method with restricted ability to skip JIT visibility checks, by using the <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod.%23ctor%28System.String%2CSystem.Type%2CSystem.Type%5B%5D%2CSystem.Boolean%29&gt;</ph> constructor and specifying <ph id="ph2">`true`</ph> for the <ph id="ph3">`restrictedSkipVisibility`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#16<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#16)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#16<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#16)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The restriction is that the anonymously hosted dynamic method can access private data only in assemblies with trust levels equal to or less than the trust level of the emitting assembly.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>For example, if the dynamic method is executing with Internet trust, it can access private data in other assemblies that are also executing with Internet trust, but it cannot access private data of <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> assemblies.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> assemblies are installed in the global assembly cache and are always fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Anonymously hosted dynamic methods can use this restricted ability to skip JIT visibility checks only if the host application grants <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>The demand for this permission is made when the method is invoked.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Call stack information for the emitting assembly is included when the dynamic method is constructed.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Therefore, the demand is made against the permissions of the emitting assembly instead of the assembly that invokes the method.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>This prevents the emitted code from being executed with elevated permissions.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>complete code example<ept id="p1">](#Example)</ept> at the end of this walkthrough demonstrates the use and limitations of restricted member access.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Its <ph id="ph1">`Worker`</ph> class includes a method that can create anonymously hosted dynamic methods with or without the restricted ability to skip visibility checks, and the example shows the result of executing this method in application domains that have different trust levels.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The restricted ability to skip visibility checks is a feature of anonymously hosted dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>When ordinary dynamic methods skip JIT visibility checks, they must be granted full trust.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The following code example demonstrates the use of the <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph> flag to allow anonymously hosted dynamic methods to skip JIT visibility checks, but only when the target member is at an equal or lower level of trust than the assembly that emits the code.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The example defines a <ph id="ph1">`Worker`</ph> class that can be marshaled across application domain boundaries.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The class has two <ph id="ph1">`AccessPrivateMethod`</ph> method overloads that emit and execute dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The first overload emits a dynamic method that calls the private <ph id="ph1">`PrivateMethod`</ph> method of the <ph id="ph2">`Worker`</ph> class, and it can emit the dynamic method with or without JIT visibility checks.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The second overload emits a dynamic method that accesses an <ph id="ph1">`internal`</ph> property (<ph id="ph2">`Friend`</ph> property in Visual Basic) of the <ph id="ph3">&lt;xref:System.String&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>The example uses a helper method to create a grant set limited to <ph id="ph1">`Internet`</ph> permissions, and then creates an application domain, using the <ph id="ph2">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29?displayProperty=fullName&gt;</ph> method overload to specify that all code that executes in the domain uses this grant set.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The example creates an instance of the <ph id="ph1">`Worker`</ph> class in the application domain, and executes the <ph id="ph2">`AccessPrivateMethod`</ph> method two times.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The first time the <ph id="ph1">`AccessPrivateMethod`</ph> method is executed, JIT visibility checks are enforced.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The dynamic method fails when it is invoked, because JIT visibility checks prevent it from accessing the private method.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The second time the <ph id="ph1">`AccessPrivateMethod`</ph> method is executed, JIT visibility checks are skipped.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>The dynamic method fails when it is compiled, because the <ph id="ph1">`Internet`</ph> grant set does not grant sufficient permissions to skip visibility checks.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>The example adds <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> to the grant set.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>The example then creates a second domain, specifying that all code that executes in the domain is granted the permissions in the new grant set.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>The example creates an instance of the <ph id="ph1">`Worker`</ph> class in the new application domain, and executes both overloads of the <ph id="ph2">`AccessPrivateMethod`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The first overload of the <ph id="ph1">`AccessPrivateMethod`</ph> method is executed, and JIT visibility checks are skipped.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The dynamic method compiles and executes successfully, because the assembly that emits the code is the same as the assembly that contains the private method.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Therefore, the trust levels are equal.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>If the application that contains the <ph id="ph1">`Worker`</ph> class had several assemblies, the same process would succeed for any one of those assemblies, because they would all be at the same trust level.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>The second overload of the <ph id="ph1">`AccessPrivateMethod`</ph> method is executed, and again JIT visibility checks are skipped.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>This time the dynamic method fails when it is compiled, because it tries to access the <ph id="ph1">`internal`</ph> <ph id="ph2">`FirstChar`</ph> property of the <ph id="ph3">&lt;xref:System.String&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>The assembly that contains the <ph id="ph1">&lt;xref:System.String&gt;</ph> class is fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Therefore, it is at a higher level of trust than the assembly that emits the code.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>This comparison shows how <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> enables partially trusted code to skip visibility checks for other partially trusted code without compromising the security of trusted code.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Code</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEmitCodeInPartialTrust#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/cs/source.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEmitCodeInPartialTrust#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEmitCodeInPartialTrust/vb/source.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Compiling the Code</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>If you build this code example in <ph id="ph1">[!INCLUDE[vsprvs](../../../includes/vsprvs-md.md)]</ph>, you must change the name of the class to include the namespace when you pass it to the <ph id="ph2">&lt;xref:System.AppDomain.CreateInstanceAndUnwrap%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>By default, the namespace is the name of the project.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>For example, if the project is "PartialTrust", the class name must be "PartialTrust.Worker".</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Security Issues in Reflection Emit<ept id="p1">](../../../docs/framework/reflection-and-codedom/security-issues-in-reflection-emit.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Run Partially Trusted Code in a Sandbox<ept id="p1">](../../../docs/framework/misc/how-to-run-partially-trusted-code-in-a-sandbox.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

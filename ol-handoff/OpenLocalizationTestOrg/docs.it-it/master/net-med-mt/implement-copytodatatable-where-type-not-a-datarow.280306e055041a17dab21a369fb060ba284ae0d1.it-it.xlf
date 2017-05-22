@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">12de4fde1d1c39459a6b1b06d737d5579aa3a02f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\implement-copytodatatable-where-type-not-a-datarow.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">38f8e2b4b2164aac051dc9b9d398cc2380411fb6</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8b750bf0d608728403896463051f8abe8ba81b58</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Implement CopyToDataTable<ph id="ph1">&amp;lt;</ph>T<ph id="ph2">&amp;gt;</ph> Where the Generic Type T Is Not a DataRow | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Implement CopyToDataTable<ph id="ph1">&amp;lt;</ph>T<ph id="ph2">&amp;gt;</ph> Where the Generic Type T Is Not a DataRow</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.DataTable&gt;</ph> object is often used for data binding.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.DataTableExtensions.CopyToDataTable%2A&gt;</ph> method takes the results of a query and copies the data into a <ph id="ph2">&lt;xref:System.Data.DataTable&gt;</ph>, which can then be used for data binding.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.DataTableExtensions.CopyToDataTable%2A&gt;</ph> methods, however, only operate on an <ph id="ph2">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph> source where the generic parameter <ph id="ph3">`T`</ph> is of type <ph id="ph4">&lt;xref:System.Data.DataRow&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Although this is useful, it does not allow tables to be created from a sequence of scalar types, from queries that project anonymous types, or from queries that perform table joins.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This topic describes how to implement two custom <ph id="ph1">`CopyToDataTable&lt;T&gt;`</ph> extension methods that accept a generic parameter <ph id="ph2">`T`</ph> of a type other than <ph id="ph3">&lt;xref:System.Data.DataRow&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The logic to create a <ph id="ph1">&lt;xref:System.Data.DataTable&gt;</ph> from an <ph id="ph2">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph> source is contained in the <ph id="ph3">`ObjectShredder&lt;T&gt;`</ph> class, which is then wrapped in two overloaded <ph id="ph4">`CopyToDataTable&lt;T&gt;`</ph> extension methods.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Shred`</ph> method of the <ph id="ph2">`ObjectShredder&lt;T&gt;`</ph> class returns the filled <ph id="ph3">&lt;xref:System.Data.DataTable&gt;</ph> and accepts three input parameters: an <ph id="ph4">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph> source, a <ph id="ph5">&lt;xref:System.Data.DataTable&gt;</ph>, and a <ph id="ph6">&lt;xref:System.Data.LoadOption&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The initial schema of the returned <ph id="ph1">&lt;xref:System.Data.DataTable&gt;</ph> is based on the schema of the type <ph id="ph2">`T`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>If an existing table is provided as input, the schema must be consistent with the schema of the type <ph id="ph1">`T`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Each public property and field of the type <ph id="ph1">`T`</ph> is converted to a <ph id="ph2">&lt;xref:System.Data.DataColumn&gt;</ph> in the returned table.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If the source sequence contains a type derived from <ph id="ph1">`T`</ph>, the returned table schema is expanded for any additional public properties or fields.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For examples of using the custom <ph id="ph1">`CopyToDataTable&lt;T&gt;`</ph> methods, see <bpt id="p1">[</bpt>Creating a DataTable From a Query<ept id="p1">](../../../../docs/framework/data/adonet/creating-a-datatable-from-a-query-linq-to-dataset.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To implement the custom CopyToDataTable<ph id="ph1">\&lt;</ph>T&gt; methods in your application</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">`ObjectShredder&lt;T&gt;`</ph> class to create a <ph id="ph2">&lt;xref:System.Data.DataTable&gt;</ph> from an <ph id="ph3">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph> source:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>DP Custom CopyToDataTable Examples#ObjectShredderClass<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DP Custom CopyToDataTable Examples/CS/Program.cs#objectshredderclass)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>DP Custom CopyToDataTable Examples#ObjectShredderClass<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DP Custom CopyToDataTable Examples/VB/Module1.vb#objectshredderclass)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Implement the custom <ph id="ph1">`CopyToDataTable&lt;T&gt;`</ph> extension methods in a class:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>DP Custom CopyToDataTable Examples#CustomCopyToDataTableMethods<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DP Custom CopyToDataTable Examples/CS/Program.cs#customcopytodatatablemethods)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>DP Custom CopyToDataTable Examples#CustomCopyToDataTableMethods<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DP Custom CopyToDataTable Examples/VB/Module1.vb#customcopytodatatablemethods)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`ObjectShredder&lt;T&gt;`</ph> class and <ph id="ph2">`CopyToDataTable&lt;T&gt;`</ph> extension methods to your application.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Creating a DataTable From a Query<ept id="p1">](../../../../docs/framework/data/adonet/creating-a-datatable-from-a-query-linq-to-dataset.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Programming Guide<ept id="p1">](../../../../docs/framework/data/adonet/programming-guide-linq-to-dataset.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

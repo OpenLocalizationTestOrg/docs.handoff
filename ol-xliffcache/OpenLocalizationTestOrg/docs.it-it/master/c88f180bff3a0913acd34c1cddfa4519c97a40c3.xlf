@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c88f180bff3a0913acd34c1cddfa4519c97a40c3</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\net-native\apis-that-rely-on-reflection.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8d32128534ec605d0f7027665243e3839d879d81</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bcfbec19456bbda4f70b139dac951e169b0b5bbc</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>APIs That Rely on Reflection | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>APIs That Rely on Reflection</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In some cases, the use of reflection in code isn't obvious, and so the <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> tool chain doesn't preserve metadata that is needed at run time.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic covers some common APIs or common programming patterns that aren't considered part of the reflection API but that rely on reflection to execute successfully.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If you use them in your source code, you can add information about them to the runtime directives (.rd.xml) file so that calls to these APIs do not throw a <bpt id="p1">[</bpt>MissingMetadataException<ept id="p1">](../../../docs/framework/net-native/missingmetadataexception-class-net-native.md)</ept> exception or some other exception at run time.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Type.MakeGenericType method</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You can dynamically instantiate a generic type <ph id="ph1">`AppClass&lt;T&gt;`</ph> by calling the <ph id="ph2">&lt;xref:System.Type.MakeGenericType%2A?displayProperty=fullName&gt;</ph> method by using code like this:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/type_makegenerictype1.cs#1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For this code to succeed at run time, several items of metadata are required.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The first is <ph id="ph1">`Browse`</ph> metadata for the uninstantiated generic type, <ph id="ph2">`AppClass&lt;T&gt;`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This allows the <ph id="ph1">&lt;xref:System.Type.GetType%28System.String%2CSystem.Boolean%29?displayProperty=fullName&gt;</ph> method call to succeed and return a valid <ph id="ph2">&lt;xref:System.Type&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>But even when you add metadata for the uninstantiated generic type, calling the <ph id="ph1">&lt;xref:System.Type.MakeGenericType%2A?displayProperty=fullName&gt;</ph> method throws a <bpt id="p1">[</bpt>MissingMetadataException<ept id="p1">](../../../docs/framework/net-native/missingmetadataexception-class-net-native.md)</ept> exception:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>You can add the following run-time directive to the runtime directives file to add <ph id="ph1">`Activate`</ph> metadata for the specific instantiation over <ph id="ph2">`AppClass&lt;T&gt;`</ph> of <ph id="ph3">&lt;xref:System.Int32?displayProperty=fullName&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Each different instantiation over <ph id="ph1">`AppClass&lt;T&gt;`</ph> requires a separate directive if it is being created with the <ph id="ph2">&lt;xref:System.Type.MakeGenericType%2A?displayProperty=fullName&gt;</ph> method and not used statically.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>MethodInfo.MakeGenericMethod method</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Given a class <ph id="ph1">`Class1`</ph> with a generic method <ph id="ph2">`GetMethod&lt;T&gt;(T t)`</ph>, <ph id="ph3">`GetMethod`</ph> can be invoked through reflection by using code like this:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/makegenericmethod1.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To run successfully, this code requires several items of metadata:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Browse`</ph> metadata for the type whose method you want to call.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Browse`</ph> metadata for the method you want to call.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If it is a public method, adding public <ph id="ph1">`Browse`</ph> metadata for the containing type includes the method, too.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Dynamic metadata for the method you want to call, so that the reflection invocation delegate is not removed by the <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> tool chain.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If dynamic metadata is missing for the method, the following exception is thrown when the <ph id="ph1">&lt;xref:System.Reflection.MethodInfo.MakeGenericMethod%2A?displayProperty=fullName&gt;</ph> method is called:</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The following runtime directives ensure that all required metadata is available:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`MethodInstantiation`</ph> directive is required for each different instantiation of the method that is dynamically invoked, and the <ph id="ph2">`Arguments`</ph> element is updated to reflect each different instantiation argument.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Array.CreateInstance and Type.MakeTypeArray methods</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The following example calls the <ph id="ph1">&lt;xref:System.Type.MakeArrayType%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Array.CreateInstance%2A?displayProperty=fullName&gt;</ph> methods on a type, <ph id="ph3">`Class1`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/array1.cs#3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If no array metadata is present, the following error results:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Browse`</ph> metadata for the array type is required to dynamically instantiate it.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The following runtime directive allows dynamic instantiation of <ph id="ph1">`Class1[]`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Getting Started<ept id="p1">](../../../docs/framework/net-native/getting-started-with-net-native.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Runtime Directives (rd.xml) Configuration File Reference<ept id="p1">](../../../docs/framework/net-native/runtime-directives-rd-xml-configuration-file-reference.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

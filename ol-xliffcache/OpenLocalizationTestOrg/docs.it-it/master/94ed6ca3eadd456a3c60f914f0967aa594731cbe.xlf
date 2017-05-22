@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">94ed6ca3eadd456a3c60f914f0967aa594731cbe</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\controls\guidelines-for-designing-stylable-controls.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bd98acdcfbb5855bfe9f72f74f52382ce4f9769f</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c67199feebf2de261ba88ab6f2951c3b6c5c7a07</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Guidelines for Designing Stylable Controls | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Guidelines for Designing Stylable Controls</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This document summarizes a set of best practices to consider when designing a control which you intend to be easily stylable and templatable.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>We came to this set of best practices through a lot of trial and error while working on the theme control styles for the built-in <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> control set.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>We learned that successful styling is as much a function of a well-designed object model as it is of the style itself.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The intended audience for this document is the control author, not the style author.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Terminology</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>"Styling and templating" refer to the suite of technologies that enable a control author to defer the visual aspects of the control to the style and template of the control.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This suite of technologies includes:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Styles (including property setters, triggers, and storyboards).</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Resources.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Control templates.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Data templates.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For an introduction to styling and templating, see <bpt id="p1">[</bpt>Styling and Templating<ept id="p1">](../../../../docs/framework/wpf/controls/styling-and-templating.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Before You Start: Understanding Your Control</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Before you jump into these guidelines, it is important to understand and have defined the common usage of your control.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Styling exposes an often unruly set of possibilities.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Controls that are written to be used broadly (in many applications, by many developers) face the challenge that styling can be used to make far-reaching changes to the visual appearance of the control.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In fact, the styled control may not even resemble the control author's intentions.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Since the flexibility offered by styling is essentially boundless, you can use the idea of common usage to help you scope your decisions.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To understand your control's common usage, it's good to think about the value proposition of the control.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>What does your control bring to the table that no other control can offer?</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Common usage does not imply any specific visual appearance, but rather the philosophy of the control and a reasonable set of expectations about its usage.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This understanding allows you to make some assumptions about the composition model and the style-defined behaviors of the control in the common case.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>In the case of <ph id="ph1">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>, for example, understanding the common usage won't give you any insight about whether a particular <ph id="ph2">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph> has rounded corners, but it will give you insight into the fact that the <ph id="ph3">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph> probably needs a pop-up window and some way of toggling whether it is open.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>General Guidelines</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Do not strictly enforce template contracts.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The template contract of a control might consist of elements, commands, bindings, triggers, or even property settings that are required or expected for a control to function properly.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Minimize contracts as much as possible.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Design around the expectation that during design time (that is, when using a design tool) it is common for a control template to be in an incomplete state.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> does not offer a "composing" state infrastructure, so controls have to be built with the expectation that such a state might be valid.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Do not throw exceptions when any aspect of a template contract is not followed.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Along these lines, panels should not throw exceptions if they have too many or too few children.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Factor peripheral functionality into template helper elements.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Each control should be focused on its core functionality and true value proposition and defined by the control's common usage.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>To that end, use composition and helper elements within the template to enable peripheral behaviors and visualizations, that is, those behaviors and visualizations that do not contribute to the core functionality of the control.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Helper elements fall into three categories:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Standalone<ept id="p1">**</ept> helper types are public and reusable controls or primitives that are used "anonymously" in a template, meaning that neither the helper element nor the styled control is aware of the other.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Technically, any element can be an anonymous type, but in this context the term describes those types that encapsulate specialized functionality to enable targeted scenarios.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Type-based<ept id="p1">**</ept> helper elements are new types that encapsulate specialized functionality.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>These elements are typically designed with a narrower range of functionality than common controls or primitives.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Unlike standalone helper elements, type-based helper elements are aware of the context in which they are used and typically must share data with the control to whose template they belong.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Named<ept id="p1">**</ept> helper elements are common controls or primitives that a control expects to find within its template by name.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>These elements are given a well-known name within the template, making it possible for a control to find the element and interact with it programmatically.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>There can only be one element with a given name in any template.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following table shows helper elements employed by control styles today (this list is not exhaustive):</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Element</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Type</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Used by</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Type-based</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.CheckBox&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.RadioButton&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.Controls.Frame&gt;</ph>, and so on (all <ph id="ph5">&lt;xref:System.Windows.Controls.ContentControl&gt;</ph> types)</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Type-based</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.ListBox&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Menu&gt;</ph>, and so on (all <ph id="ph4">&lt;xref:System.Windows.Controls.ItemsControl&gt;</ph> types)</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Named</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Standalone</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.ToolBar&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Menu&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.Controls.ToolTip&gt;</ph>, and so on</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Named</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.Slider&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.Primitives.ScrollBar&gt;</ph>, and so on</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Named</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Standalone</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.ListBox&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Menu&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.Controls.Frame&gt;</ph>, and so on</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Standalone</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Named</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Type-based</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Minimize required user-specified bindings or property settings on helper elements<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>It is common for a helper element to require certain bindings or property settings in order to function properly within the control template.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The helper element and templated control should, as much as possible, establish these settings.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>When setting properties or establishing bindings, care should be taken to not override values set by the user.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Specific best practices are as follows:</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Named helper elements should be identified by the parent and the parent should establish any required settings on the helper element.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Type-based helper elements should establish any required settings directly on themselves.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Doing this may require the helper element to query for information context in which it is being used, including its <ph id="ph1">`TemplatedParent`</ph> (the control type of the template in which it is being used).</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.Windows.Controls.ContentPresenter&gt;</ph> automatically binds the <ph id="ph2">`Content`</ph> property of its <ph id="ph3">`TemplatedParent`</ph> to its <ph id="ph4">&lt;xref:System.Windows.Controls.ContentPresenter.Content%2A&gt;</ph> property when used in a <ph id="ph5">&lt;xref:System.Windows.Controls.ContentControl&gt;</ph> derived type.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Standalone helper elements cannot be optimized in this way because, by definition, neither the helper element nor the parent knows about the other.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Use the Name property to flag elements within a template<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>A control that needs to find an element in its style in order to access it programmatically should do so using the <ph id="ph1">`Name`</ph> property and the <ph id="ph2">`FindName`</ph> paradigm.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>A control should not throw an exception when an element is not found, but silently and gracefully disable the functionality which required that element.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Use best practices for expressing control state and behavior in a style.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The following is an ordered list of best practices for expressing control state changes and behavior in a style.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>You should use the first item on the list that enables your scenario.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Property binding.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Example: binding between <ph id="ph1">&lt;xref:System.Windows.Controls.ComboBox.IsDropDownOpen%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.Controls.Primitives.ToggleButton.IsChecked%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Triggered property changes or property animations.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Example: the hover state of a <ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Command.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.ScrollBar.LineUpCommand&gt;</ph><ph id="ph2"> / </ph><ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.ScrollBar.LineDownCommand&gt;</ph> in <ph id="ph4">&lt;xref:System.Windows.Controls.Primitives.ScrollBar&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Standalone helper elements.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.TabPanel&gt;</ph> in <ph id="ph2">&lt;xref:System.Windows.Controls.TabControl&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Type-based helper types.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:System.Windows.Controls.ContentPresenter&gt;</ph> in <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.TickBar&gt;</ph> in <ph id="ph4">&lt;xref:System.Windows.Controls.Slider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Named helper elements.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:System.Windows.Controls.TextBox&gt;</ph> in <ph id="ph2">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Bubbled events from named helper types.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>If you listen for bubbled events from a style element, you should require that the element generating the event can be uniquely identified.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.Thumb&gt;</ph> in <ph id="ph2">&lt;xref:System.Windows.Controls.ToolBar&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Custom <ph id="ph1">`OnRender`</ph> behavior.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Example: <ph id="ph1">&lt;xref:Microsoft.Windows.Themes.ButtonChrome&gt;</ph> in <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Use style triggers (as opposed to template triggers) sparingly<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Triggers that affect properties on elements in the template must be declared in the template.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Triggers that affect properties on the control (no <ph id="ph1">`TargetName`</ph>) may be declared in the style unless you know that changing the template should also destroy the trigger.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Be consistent with existing styling patterns.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Many times there are multiple ways to solve a problem.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Be aware of and, when possible, consistent with existing control styling patterns.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>This is especially important for controls that derive from the same base type (for example, <ph id="ph1">&lt;xref:System.Windows.Controls.ContentControl&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Controls.ItemsControl&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.RangeBase&gt;</ph>, and so on).</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Expose properties to enable common customization scenarios without retemplating<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> does not support pluggable/customizable parts, so a control user is left with only two methods of customization: setting properties directly or setting properties using styles.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>With that in mind, it is appropriate to surface a limited number of properties targeted at very common, high-priority customization scenarios which would otherwise require the retemplating.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Here are best practices for when and how to enable customization scenarios:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Very common customizations should be exposed as properties on the control and consumed by the template.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Less common (though not rare) customizations should be exposed as attached properties and consumed by the template.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>It is acceptable for known but rare customizations to require retemplating.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Theme Considerations</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Theme styles should attempt to have consistent property semantics across all themes, but make no guarantee<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>As part of its documentation, your control should have a document describing the control's property semantics, that is, the "meaning" of a property for a control.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph> control should define the meaning of the <ph id="ph2">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> property within <ph id="ph3">&lt;xref:System.Windows.Controls.ComboBox&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>The default styles for your control should attempt to follow the semantics defined in that document across all themes.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Control users, on the other hand, should be aware that property semantics can change from theme to theme.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>In certain cases, a given property may not be expressible under the visual constraints required by a particular theme.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>(The Classic theme, for example, does not have a single border to which <ph id="ph1">`Thickness`</ph> can be applied for many controls.)</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Theme styles do not need to have consistent trigger semantics across all themes<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The behavior exposed by a control style through triggers or animations may vary from theme to theme.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Control users should be aware that a control will not necessarily employ the same mechanism to achieve a particular behavior across all themes.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>One theme, for example, may use an animation to express hover behavior where another theme uses a trigger.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>This can result in inconsistencies in behavior preservation on customized controls.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>(Changing the background property, for example, might not affect the hover state of the control if that state is expressed using a trigger.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>However, if the hover state is implemented using an animation, changing to background could irreparably break the animation and therefore the state transition.)</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Theme styles do not need to have consistent "layout" semantics across all themes<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>For example, the default style does not need to guarantee that a control will occupy the same amount of size in all themes or guarantee that a control will have the same content margins / padding across all themes.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Styling and Templating<ept id="p1">](../../../../docs/framework/wpf/controls/styling-and-templating.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Control Authoring Overview<ept id="p1">](../../../../docs/framework/wpf/controls/control-authoring-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

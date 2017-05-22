@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7045acdaf9070ad85ce7f851aa70d9553bb5675a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\code-access-security-basics.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f696883fed2104f381df5267eec5fe9e55d796ad</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">64185e9c8a3f3ad8eb90a69cece776d35a1de261</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Code Access Security Basics | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Code Access Security Basics</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Every application that targets the common language runtime (that is, every managed application) must interact with the runtime's security system.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When a managed application is loaded, its host automatically grants it a set of permissions.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These permissions are determined by the host's local security settings or by the sandbox the application is in.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Depending on these permissions, the application either runs properly or generates a security exception.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The default host for desktop applications allows code to run in full trust.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Therefore, if your application targets the desktop, it has an unrestricted permission set.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Other hosts or sandboxes provide a limited permission set for applications.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because the permission set can change from host to host, you must design your application to use only the permissions that your target host allows.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You must be familiar with the following code access security concepts in order to write effective applications that target the common language runtime:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Type-safe code<ept id="p1">**</ept>: Type-safe code is code that accesses types only in well-defined, allowable ways.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For example, given a valid object reference, type-safe code can access memory at fixed offsets that correspond to actual field members.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If the code accesses memory at arbitrary offsets outside the range of memory that belongs to that object's publicly exposed fields, it is not type-safe.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To enable code to benefit from code access security, you must use a compiler that generates verifiably type-safe code.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For more information, see the <bpt id="p1">[</bpt>Writing Verifiably Type-Safe Code<ept id="p1">](#typesafe_code)</ept> section later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Imperative and declarative syntax<ept id="p1">**</ept>: Code that targets the common language runtime can interact with the security system by requesting permissions, demanding that callers have specified permissions, and overriding certain security settings (given enough privileges).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>You use two forms of syntax to programmatically interact with the .NET Framework security system: declarative syntax and imperative syntax.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Declarative calls are performed using attributes; imperative calls are performed using new instances of classes within your code.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Some calls can be performed only imperatively, others can be performed only declaratively, and some calls can be performed in either manner.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Secure class libraries<ept id="p1">**</ept>: A secure class library uses security demands to ensure that the library's callers have permission to access the resources that the library exposes.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For example, a secure class library might have a method for creating files that would demand that its callers have permissions to create files.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The .NET Framework consists of secure class libraries.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You should be aware of the permissions required to access any library that your code uses.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For more information, see the <bpt id="p1">[</bpt>Using Secure Class Libraries<ept id="p1">](#secure_library)</ept> section later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Transparent code<ept id="p1">**</ept>: Starting with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, in addition to identifying specific permissions, you must also determine whether your code should run as security-transparent.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Security-transparent code cannot call types or members that are identified as security-critical.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This rule applies to full-trust applications as well as partially trusted applications.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Security-Transparent Code<ept id="p1">](../../../docs/framework/misc/security-transparent-code.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Writing Verifiably Type-Safe Code</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Just-in-time (JIT) compilation performs a verification process that examines code and tries to determine whether the code is type-safe.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Code that is proven during verification to be type-safe is called <bpt id="p1">*</bpt>verifiably type-safe code<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Code can be type-safe, yet might not be verifiably type-safe because of the limitations of the verification process or of the compiler.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Not all languages are type-safe, and some language compilers, such as Microsoft Visual C++, cannot generate verifiably type-safe managed code.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>To determine whether the language compiler you use generates verifiably type-safe code, consult the compiler's documentation.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If you use a language compiler that generates verifiably type-safe code only when you avoid certain language constructs, you might want to use the <bpt id="p1">[</bpt>PEVerify tool<ept id="p1">](../../../docs/framework/tools/peverify-exe-peverify-tool.md)</ept> to determine whether your code is verifiably type-safe.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Code that is not verifiably type-safe can attempt to execute if security policy allows the code to bypass verification.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>However, because type safety is an essential part of the runtime's mechanism for isolating assemblies, security cannot be reliably enforced if code violates the rules of type safety.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>By default, code that is not type-safe is allowed to run only if it originates from the local computer.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Therefore, mobile code should be type-safe.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Using Secure Class Libraries</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If your code requests and is granted the permissions required by the class library, it will be allowed to access the library and the resources that the library exposes will be protected from unauthorized access.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If your code does not have the appropriate permissions, it will not be allowed to access the class library, and malicious code will not be able to use your code to indirectly access protected resources.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Other code that calls your code must also have permission to access the library.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If it does not, your code will be restricted from running as well.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Code access security does not eliminate the possibility of human error in writing code.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>However, if your application uses secure class libraries to access protected resources, the security risk for application code is decreased, because class libraries are closely scrutinized for potential security problems.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Declarative Security</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Declarative security syntax uses <bpt id="p1">[</bpt>attributes<ept id="p1">](../../../docs/standard/attributes/index.md)</ept> to place security information into the <bpt id="p2">[</bpt>metadata<ept id="p2">](../../../docs/standard/metadata-and-self-describing-components.md)</ept> of your code.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Attributes can be placed at the assembly, class, or member level, to indicate the type of request, demand, or override you want to use.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Requests are used in applications that target the common language runtime to inform the runtime security system about the permissions that your application needs or does not want.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Demands and overrides are used in libraries to help protect resources from callers or to override default security behavior.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, there have been important changes to the .NET Framework security model and terminology.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For more information about these changes, see <bpt id="p1">[</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In order to use declarative security calls, you must initialize the state data of the permission object so that it represents the particular form of permission you need.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Every built-in permission has an attribute that is passed a <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> enumeration to describe the type of security operation you want to perform.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>However, permissions also accept their own parameters that are exclusive to them.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The following code fragment shows declarative syntax for requesting that your code's callers have a custom permission called <ph id="ph1">`MyPermission`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>This permission is a hypothetical custom permission and does not exist in the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In this example, the declarative call is placed directly before the class definition, specifying that this permission be applied to the class level.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The attribute is passed a <bpt id="p1">**</bpt>SecurityAction.Demand<ept id="p1">**</ept> structure to specify that callers must have this permission in order to run.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Imperative Security</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Imperative security syntax issues a security call by creating a new instance of the permission object you want to invoke.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>You can use imperative syntax to perform demands and overrides, but not requests.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Before you make the security call, you must initialize the state data of the permission object so that it represents the particular form of the permission you need.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>For example, when creating a <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph> object, you can use the constructor to initialize the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object so that it represents either unrestricted access to all files or no access to files.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Or, you can use a different <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object, passing parameters that indicate the type of access you want the object to represent (that is, read, append, or write) and what files you want the object to protect.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In addition to using imperative security syntax to invoke a single security object, you can use it to initialize a group of permissions in a permission set.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>For example, this technique is the only way to reliably perform <bpt id="p1">[</bpt>assert<ept id="p1">](../../../docs/framework/misc/using-the-assert-method.md)</ept> calls on multiple permissions in one method.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Security.PermissionSet&gt;</ph> and <ph id="ph2">&lt;xref:System.Security.NamedPermissionSet&gt;</ph> classes to create a group of permissions and then call the appropriate method to invoke the desired security call.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>You can use imperative syntax to perform demands and overrides, but not requests.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>You might use imperative syntax for demands and overrides instead of declarative syntax when information that you need in order to initialize the permission state becomes known only at run time.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For example, if you want to ensure that callers have permission to read a certain file, but you do not know the name of that file until run time, use an imperative demand.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>You might also choose to use imperative checks instead of declarative checks when you need to determine at run time whether a condition holds and, based on the result of the test, make a security demand (or not).</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The following code fragment shows imperative syntax for requesting that your code's callers have a custom permission called <ph id="ph1">`MyPermission`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This permission is a hypothetical custom permission and does not exist in the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>A new instance of <ph id="ph1">`MyPermision`</ph> is created in <ph id="ph2">`MyMethod`</ph>, guarding only this method with the security call.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Using Managed Wrapper Classes</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Most applications and components (except secure libraries) should not directly call unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>There are several reasons for this.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>If code calls unmanaged code directly, it will not be allowed to run in many circumstances because code must be granted a high level of trust to call native code.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>If policy is modified to allow such an application to run, it can significantly weaken the security of the system, leaving the application free to perform almost any operation.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Additionally, code that has permission to access unmanaged code can probably perform almost any operation by calling into an unmanaged API.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>For example, code that has permission to call unmanaged code does not need <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph> to access a file; it can just call an unmanaged (Win32) file API directly, bypassing the managed file API that requires <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>If managed code has permission to call into unmanaged code and does call directly into unmanaged code, the security system will be unable to reliably enforce security restrictions, since the runtime cannot enforce such restrictions on unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If you want your application to perform an operation that requires accessing unmanaged code, it should do so through a trusted managed class that wraps the required functionality (if such a class exists).</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Do not create a wrapper class yourself if one already exists in a secure class library.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The wrapper class, which must be granted a high degree of trust to be allowed to make the call into unmanaged code, is responsible for demanding that its callers have the appropriate permissions.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If you use the wrapper class, your code only needs to request and be granted the permissions that the wrapper class demands.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Assert<ept id="p1">](../../../docs/framework/misc/using-the-assert-method.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Code Access Security<ept id="p1">](../../../docs/framework/misc/code-access-security.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Code Access Security Basics<ept id="p1">](../../../docs/framework/misc/code-access-security-basics.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Attributes<ept id="p1">](../../../docs/standard/attributes/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Metadata and Self-Describing Components<ept id="p1">](../../../docs/standard/metadata-and-self-describing-components.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

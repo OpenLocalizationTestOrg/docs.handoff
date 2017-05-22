@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ce3d2919eb7d1bdbfc5a1932ac20bde6ec0b0b01</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\chunking-channel.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bd28090ae5741972abe892c30ebb6a13259e2b8d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">35620aee26ff9a8051c02e09cd03b844e124f756</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Chunking Channel | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Chunking Channel</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When sending large messages using <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>, it is often desirable to limit the amount of memory used to buffer those messages.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>One possible solution is to stream the message body (assuming the bulk of the data is in the body).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>However some protocols require buffering of the entire message.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Reliable messaging and security are two such examples.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Another possible solution is to divide up the large message into smaller messages called chunks, send those chunks one chunk at a time, and reconstitute the large message on the receiving side.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The application itself could do this chunking and de-chunking or it could use a custom channel to do it.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The chunking channel sample shows how a custom protocol or layered channel can be used to do chunking and de-chunking of arbitrarily large messages.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Chunking should always be employed only after the entire message to be sent has been constructed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>A chunking channel should always be layered below a security channel and a reliable session channel.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Chunking Channel Assumptions and Limitations</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Message Structure</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The chunking channel assumes the following message structure for messages to be chunked:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>When using the ServiceModel, contract operations that have 1 input parameter comply with this shape of message for their input message.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Similarly, contract operations that have 1 output parameter or return value comply with this shape of message for their output message.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The following are examples of such operations:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Sessions</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The chunking channel requires messages to be delivered exactly once, in ordered delivery of messages (chunks).</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This means the underlying channel stack must be sessionful.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Sessions can be provided by the transport (for example, TCP transport) or by a sessionful protocol channel (for example, ReliableSession channel).</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Asynchronous Send and Receive</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Asynchronous send and receive methods are not implemented in this version of the chunking channel sample.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Chunking Protocol</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The chunking channel defines a protocol that indicates the start and end of a series of chunks as well as the sequence number of each chunk.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The following three example messages demonstrate the start, chunk and end messages with comments that describe the key aspects of each.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Start Message</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Chunk Message</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>End Message</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Chunking Channel Architecture</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The chunking channel is an <ph id="ph1">`IDuplexSessionChannel`</ph> that, at a high level, follows the typical channel architecture.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>There is a <ph id="ph1">`ChunkingBindingElement`</ph> that can build a <ph id="ph2">`ChunkingChannelFactory`</ph> and a <ph id="ph3">`ChunkingChannelListener`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannelFactory`</ph> creates instances of <ph id="ph2">`ChunkingChannel`</ph> when it is asked to.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannelListener`</ph> creates instances of <ph id="ph2">`ChunkingChannel`</ph> when a new inner channel is accepted.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannel`</ph> itself is responsible for sending and receiving messages.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>At the next level down, <ph id="ph1">`ChunkingChannel`</ph> relies on several components to implement the chunking protocol.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>On the send side, the channel uses a custom <ph id="ph1">`XmlDictionaryWriter`</ph> called <ph id="ph2">`ChunkingWriter`</ph> that does the actual chunking.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ChunkingWriter`</ph> uses the inner channel directly to send chunks.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Using a custom <ph id="ph1">`XmlDictionaryWriter`</ph> allows us to send out chunks as the large body of the original message is being written.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This means we do not buffer the entire original message.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Chunking Channel<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/samples/media/chunkingchannel1.gif "</bpt>ChunkingChannel1<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>On the receive side, <ph id="ph1">`ChunkingChannel`</ph> pulls messages from the inner channel and hands them to a custom <ph id="ph2">`XmlDictionaryReader`</ph> called <ph id="ph3">`ChunkingReader`</ph>, which reconstitutes the original message from the incoming chunks.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ChunkingChannel`</ph> wraps this <ph id="ph2">`ChunkingReader`</ph> in a custom <ph id="ph3">`Message`</ph> implementation called <ph id="ph4">`ChunkingMessage`</ph> and returns this message to the layer above.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This combination of <ph id="ph1">`ChunkingReader`</ph> and <ph id="ph2">`ChunkingMessage`</ph> allows us to de-chunk the original message body as it is being read by the layer above instead of having to buffer the entire original message body.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ChunkingReader`</ph> has a queue where it buffers incoming chunks up to a maximum configurable number of buffered chunks.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>When this maximum limit is reached, the reader waits for messages to be drained from the queue by the layer above (that is, by just reading from the original message body) or until the maximum receive timeout is reached.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Chunking Channel<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/samples/media/chunkingchannel2.gif "</bpt>ChunkingChannel2<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Chunking Programming Model</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Service developers can specify which messages are to be chunked by applying the <ph id="ph1">`ChunkingBehavior`</ph> attribute to operations within the contract.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The attribute exposes an <ph id="ph1">`AppliesTo`</ph> property that allows the developer to specify whether chunking applies to the input message, the output message or both.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The following example shows the usage of <ph id="ph1">`ChunkingBehavior`</ph> attribute:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>From this programming model, the <ph id="ph1">`ChunkingBindingElement`</ph> compiles a list of action URIs that identify messages to be chunked.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The action of each outgoing message is compared against this list to determine if the message should be chunked or sent directly.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Implementing the Send Operation</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>At a high level, the Send operation first checks whether the outgoing message must be chunked and, if not, sends the message directly using the inner channel.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>If the message must be chunked, Send creates a new <ph id="ph1">`ChunkingWriter`</ph> and calls <ph id="ph2">`WriteBodyContents`</ph> on the outgoing message passing it this <ph id="ph3">`ChunkingWriter`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingWriter`</ph> then does the message chunking (including copying original message headers to the start chunk message) and sends chunks using the inner channel.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>A few details worth noting:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Send first calls <ph id="ph1">`ThrowIfDisposedOrNotOpened`</ph> to ensure the <ph id="ph2">`CommunicationState`</ph> is opened.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Sending is synchronized so that only one message can be sent at a time for each session.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>There is a <ph id="ph1">`ManualResetEvent`</ph> named <ph id="ph2">`sendingDone`</ph> that is reset when a chunked message is being sent.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Once the end chunk message is sent, this event is set.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The Send method waits for this event to be set before it tries to send the outgoing message.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Send locks the <ph id="ph1">`CommunicationObject.ThisLock`</ph> to prevent synchronized state changes while sending.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>See the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> documentation for more information about <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> states and state machine.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The timeout passed to Send is used as the timeout for the entire send operation which includes sending all of the chunks.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The custom <ph id="ph1">`XmlDictionaryWriter`</ph> design was chosen to avoid buffering the entire original message body.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>If we were to get an <ph id="ph1">`XmlDictionaryReader`</ph> on the body using <ph id="ph2">`message.GetReaderAtBodyContents`</ph> the entire body would be buffered.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Instead, we have a custom <ph id="ph1">`XmlDictionaryWriter`</ph> that is passed to <ph id="ph2">`message.WriteBodyContents`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>As the message calls WriteBase64 on the writer, the writer packages up chunks into messages and sends them using the inner channel.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>WriteBase64 blocks until the chunk is sent.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Implementing the Receive Operation</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>At a high level, the Receive operation first checks that the incoming message is not <ph id="ph1">`null`</ph> and that its action is the <ph id="ph2">`ChunkingAction`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If it does not meet both criteria, the message is returned unchanged from Receive.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Otherwise, Receive creates a new <ph id="ph1">`ChunkingReader`</ph> and a new <ph id="ph2">`ChunkingMessage`</ph> wrapped around it (by calling <ph id="ph3">`GetNewChunkingMessage`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Before returning that new <ph id="ph1">`ChunkingMessage`</ph>, Receive uses a threadpool thread to execute <ph id="ph2">`ReceiveChunkLoop`</ph>, which calls <ph id="ph3">`innerChannel.Receive`</ph> in a loop and hands off chunks to the <ph id="ph4">`ChunkingReader`</ph> until the end chunk message is received or the receive timeout is hit.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>A few details worth noting:</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Like Send, Receive first calls <ph id="ph1">`ThrowIfDisposedOrNotOepned`</ph> to ensure the <ph id="ph2">`CommunicationState`</ph> is Opened.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Receive is also synchronized so that only one message can be received at a time from the session.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This is especially important because once a start chunk message is received, all subsequent received messages are expected to be chunks within this new chunk sequence until an end chunk message is received.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Receive cannot pull messages from the inner channel until all chunks that belong to the message currently being de-chunked are received.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To accomplish this, Receive uses a <ph id="ph1">`ManualResetEvent`</ph> named <ph id="ph2">`currentMessageCompleted`</ph>, which is set when the end chunk message is received and reset when a new start chunk message is received.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Unlike Send, Receive does not prevent synchronized state transitions while receiving.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For example, Close can be called while receiving and waits until the pending receive of the original message is completed or the specified timeout value is reached.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The timeout passed to Receive is used as the timeout for the entire receive operation, which includes receiving all of the chunks.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>If the layer that consumes the message is consuming the message body at a rate lower than the rate of incoming chunk messages, the <ph id="ph1">`ChunkingReader`</ph> buffers those incoming chunks up to the limit specified by <ph id="ph2">`ChunkingBindingElement.MaxBufferedChunks`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Once that limit is reached, no more chunks are pulled from the lower layer until either a buffered chunk is consumed or the receive timeout is reached.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>CommunicationObject Overrides</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>OnOpen</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`OnOpen`</ph> calls <ph id="ph2">`innerChannel.Open`</ph> to open the inner channel.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>OnClose</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`OnClose`</ph> first sets <ph id="ph2">`stopReceive`</ph> to <ph id="ph3">`true`</ph> to signal the pending <ph id="ph4">`ReceiveChunkLoop`</ph> to stop.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>It then waits for the <ph id="ph1">`receiveStopped``ManualResetEvent`</ph>, which is set when <ph id="ph2">`ReceiveChunkLoop`</ph> stops.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Assuming the <ph id="ph1">`ReceiveChunkLoop`</ph> stops within the specified timeout, <ph id="ph2">`OnClose`</ph> calls <ph id="ph3">`innerChannel.Close`</ph> with the remaining timeout.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>OnAbort</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`OnAbort`</ph> calls <ph id="ph2">`innerChannel.Abort`</ph> to abort the inner channel.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If there is a pending <ph id="ph1">`ReceiveChunkLoop`</ph> it gets an exception from the pending <ph id="ph2">`innerChannel.Receive`</ph> call.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>OnFaulted</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannel`</ph> does not require special behavior when the channel is faulted so <ph id="ph2">`OnFaulted`</ph> is not overridden.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Implementing Channel Factory</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannelFactory`</ph> is responsible for creating instances of <ph id="ph2">`ChunkingDuplexSessionChannel`</ph> and for cascading state transitions to the inner channel factory.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`OnCreateChannel`</ph> uses the inner channel factory to create an <ph id="ph2">`IDuplexSessionChannel`</ph> inner channel.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>It then creates a new <ph id="ph1">`ChunkingDuplexSessionChannel`</ph> passing it this inner channel along with the list of message actions to be chunked and the maximum number of chunks to buffer upon receive.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The list of message actions to be chunked and the maximum number of chunks to buffer are two parameters passed to <ph id="ph1">`ChunkingChannelFactory`</ph> in its constructor.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The section on <ph id="ph1">`ChunkingBindingElement`</ph> describes where these values come from.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`OnOpen`</ph>, <ph id="ph2">`OnClose`</ph>, <ph id="ph3">`OnAbort`</ph> and their asynchronous equivalents call the corresponding state transition method on the inner channel factory.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Implementing Channel Listener</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingChannelListener`</ph> is a wrapper around an inner channel listener.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Its main function, besides delegate calls to that inner channel listener, is to wrap new <ph id="ph1">`ChunkingDuplexSessionChannels`</ph> around channels accepted from the inner channel listener.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>This is done in <ph id="ph1">`OnAcceptChannel`</ph> and <ph id="ph2">`OnEndAcceptChannel`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>The newly created <ph id="ph1">`ChunkingDuplexSessionChannel`</ph> is passed the inner channel along with the other parameters previously described.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Implementing Binding Element and Binding</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ChunkingBindingElement`</ph> is responsible for creating the <ph id="ph2">`ChunkingChannelFactory`</ph> and <ph id="ph3">`ChunkingChannelListener`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingBindingElement`</ph> checks whether T in <ph id="ph2">`CanBuildChannelFactory`</ph><ph id="ph3">\&lt;</ph>T&gt; and <ph id="ph4">`CanBuildChannelListener`</ph><ph id="ph5">\&lt;</ph>T&gt; is of type <ph id="ph6">`IDuplexSessionChannel`</ph> (the only channel supported by the chunking channel) and that the other binding elements in the binding support this channel type.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`BuildChannelFactory`</ph><ph id="ph2">\&lt;</ph>T&gt; first checks that the requested channel type can be built and then gets a list of message actions to be chunked.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>For more information, see the following section.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>It then creates a new <ph id="ph1">`ChunkingChannelFactory`</ph> passing it the inner channel factory (as returned from <ph id="ph2">`context.BuildInnerChannelFactory&lt;IDuplexSessionChannel&gt;`</ph>), the list of message actions, and the maximum number of chunks to buffer.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The maximum number of chunks comes from a property called <ph id="ph1">`MaxBufferedChunks`</ph> exposed by the <ph id="ph2">`ChunkingBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`BuildChannelListener&lt;T&gt;`</ph> has a similar implementation for creating <ph id="ph2">`ChunkingChannelListener`</ph> and passing it the inner channel listener.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>There is an example binding included in this sample named <ph id="ph1">`TcpChunkingBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>This binding consists of two binding elements: <ph id="ph1">`TcpTransportBindingElement`</ph> and <ph id="ph2">`ChunkingBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>In addition to exposing the <ph id="ph1">`MaxBufferedChunks`</ph> property, the binding also sets some of the <ph id="ph2">`TcpTransportBindingElement`</ph> properties such as <ph id="ph3">`MaxReceivedMessageSize`</ph> (sets it to <ph id="ph4">`ChunkingUtils.ChunkSize`</ph> + 100KB bytes for headers).</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TcpChunkingBinding`</ph> also implements <ph id="ph2">`IBindingRuntimePreferences`</ph> and returns true from the <ph id="ph3">`ReceiveSynchronously`</ph> method indicating that only the synchronous Receive calls are implemented.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>Determining Which Messages To Chunk</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The chunking channel chunks only the messages identified through the <ph id="ph1">`ChunkingBehavior`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingBehavior`</ph> class implements <ph id="ph2">`IOperationBehavior`</ph> and is implemented by calling the <ph id="ph3">`AddBindingParameter`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>In this method, the <ph id="ph1">`ChunkingBehavior`</ph> examines the value of its <ph id="ph2">`AppliesTo`</ph> property (<ph id="ph3">`InMessage`</ph>, <ph id="ph4">`OutMessage`</ph> or both) to determine which messages should be chunked.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>It then gets the action of each of those messages (from the Messages collection on <ph id="ph1">`OperationDescription`</ph>) and adds it to a string collection contained within an instance of <ph id="ph2">`ChunkingBindingParameter`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>It then adds this <ph id="ph1">`ChunkingBindingParameter`</ph> to the provided <ph id="ph2">`BindingParameterCollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>This <ph id="ph1">`BindingParameterCollection`</ph> is passed inside the <ph id="ph2">`BindingContext`</ph> to each binding element in the binding when that binding element builds the channel factory or the channel listener.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ChunkingBindingElement`</ph>'s implementation of <ph id="ph2">`BuildChannelFactory&lt;T&gt;`</ph> and <ph id="ph3">`BuildChannelListener&lt;T&gt;`</ph> pull this <ph id="ph4">`ChunkingBindingParameter`</ph> out of the <ph id="ph5">`BindingContext’`</ph>s <ph id="ph6">`BindingParameterCollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The collection of actions contained within the <ph id="ph1">`ChunkingBindingParameter`</ph> is then passed to the <ph id="ph2">`ChunkingChannelFactory`</ph> or <ph id="ph3">`ChunkingChannelListener`</ph>, which in turn passes it to the <ph id="ph4">`ChunkingDuplexSessionChannel`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Running the Sample</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Install <ph id="ph1">[!INCLUDE[vstecasp](../../../../includes/vstecasp-md.md)]</ph> 4.0 using the following command.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Run Service.exe first, then run Client.exe and watch both console windows for output.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>When running the sample, the following output is expected.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Client:</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Server:</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

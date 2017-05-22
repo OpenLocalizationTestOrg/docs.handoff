@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0c05f8355440996a5c021da8ce5cd2fae19cd68f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\transactions\optimization-spc-and-promotable-spn.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">baac8200ff1a83657d6329f27d7ca9ecee665fea</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7aa06bd7fb6eaa691b28d33e224962c52de34e51</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Optimization using Single Phase Commit and Promotable Single Phase Notification | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Optimization using Single Phase Commit and Promotable Single Phase Notification</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes the mechanisms provided by the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure to optimize performance.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Promotable Single Phase Enlistment</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure administrates a transaction inside a single application domain that involves at most a single durable resource or multiple volatile resources.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Since the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure uses only intra-application domain calls, it yields the best throughput and performance.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>However, if the transaction is provided to another object in another application domain (including across process and machine boundaries) on the same computer, or if you were to enlist another durable resource manager, the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure automatically escalates the transaction to be managed by the MSDTC.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>A transaction managed by MSDTC is not as performance-wise as one managed by the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To optimize performance, the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure provides the Promotable Single Phase Enlistment (PSPE) that allows a single remote durable resource, located in a different application domain, process or machine, to participate in a <ph id="ph2">&lt;xref:System.Transactions&gt;</ph> transaction without causing it to be escalated to an MSDTC transaction.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This resource manager (RM) can host and "own" a transaction that can later be escalated to a distributed transaction (or MSDTC transaction) if necessary.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This reduces the chance of using the MSDTC.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This specific resource manager usually has its own internal non distributed transactions and it needs to support converting those transactions to distributed transactions at runtime.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For example, SQL Server 2005 is such a resource manager.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In such case, the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure takes a passive management role by just monitoring the transaction for a need for escalation.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To support the interaction between the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> infrastructure and resource manager, the latter needs to implement the interface <ph id="ph2">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph> method is used to enlist a single durable resource that can be escalated later.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This method ensures that the enlistment can be escalated as needed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the enlistment succeeds, the RM creates its internal transaction and associates it with the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> transaction.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If the PSPE enlistment fails, the RM should instead enlist using the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Failures to enlist in PSPE might happen when the transaction is already a distributed transaction, or when another RM has already performed a PSPE enlistment</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Once enlisted, calls by clients to commit or abort the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> transaction are converted to calls on the Resource Manager by invoking the <ph id="ph2">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> method, or the <ph id="ph3">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification.Rollback%2A&gt;</ph> respectively.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> transaction never requires escalation, when the transaction is committed, the RM receives a <ph id="ph2">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> notification.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It can then commit the internal transaction that was initially created.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> transaction needs to be escalated (e.g., to support multiple RMs), <ph id="ph2">&lt;xref:System.Transactions&gt;</ph> informs the resource manager by calling the <ph id="ph3">&lt;xref:System.Transactions.ITransactionPromoter.Promote%2A&gt;</ph> method on the <ph id="ph4">&lt;xref:System.Transactions.ITransactionPromoter&gt;</ph> interface, from which the <ph id="ph5">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification&gt;</ph> interface derives.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The resource manager then converts the transaction internally from a local transaction (which does not require logging) to a transaction object that is capable of participating in a DTC transaction, and associates it with the work already done.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When the transaction is asked to commit, the transaction manager still sends the <ph id="ph1">&lt;xref:System.Transactions.IPromotableSinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> notification to the resource manager, which commits the distributed transaction that it created during escalation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>TransactionCommitted<ept id="p1">**</ept> traces (that are generated when a Commit is invoked on the escalated transaction) contain the activity ID of the DTC transaction.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>For more information on management escalation, see <bpt id="p1">[</bpt>Transaction Management Escalation<ept id="p1">](../../../../docs/framework/data/transactions/transaction-management-escalation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Transaction Management Escalation Scenario</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following scenario demonstrates an escalation to a distributed transaction using the <ph id="ph1">&lt;xref:System.Data&gt;</ph> namespace as the ‘proxy’ for the resource manager.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This scenario assumes that there is already one <ph id="ph1">&lt;xref:System.Data&gt;</ph> connection to the database, CN1, involved in the transaction, and the application wants to involve another <ph id="ph2">&lt;xref:System.Data&gt;</ph> connection, CN2.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The transaction must be escalated to DTC, as a full distributed two-phase commit transaction.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In this scenario,</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>CN1 calls the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph> method to enlist in the transaction.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Then, the transaction is still local and there are no other promotable enlistments on the transaction, so the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph> call succeeds.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When the second connection, CN2 calls <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph>, the call fails because there is another promotable enlistment involved.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Because of this, CN2 must get a DTC transaction in order to pass it to SQL.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>To do this, it uses one of the methods provided by the <ph id="ph1">&lt;xref:System.Transactions.TransactionInterop&gt;</ph> class to produce a format of the transaction that can be given to SQL.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Transactions&gt;</ph> calls the <ph id="ph2">&lt;xref:System.Transactions.ITransactionPromoter.Promote%2A&gt;</ph> method on the <ph id="ph3">&lt;xref:System.Transactions.ITransactionPromoter&gt;</ph> interface implemented by CN1.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>At this point, CN1 escalates the transaction, using some mechanism specific to SQL 2005 and <ph id="ph1">&lt;xref:System.Data&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The return value from the <ph id="ph1">&lt;xref:System.Transactions.ITransactionPromoter.Promote%2A&gt;</ph> method is a byte array that contains a propagation token for the transaction.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Transactions&gt;</ph> uses this propagaition token to create a DTC transaction that it can incorporate into the local transaction.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>At this point, CN2 can use the data received from calling one of the methods by <ph id="ph1">&lt;xref:System.Transactions.TransactionInterop&gt;</ph> to pass the transaction to SQL.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Now, both are enlisted in a DTC distributed transaction.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Single Phase Commit Optimization</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The Single Phase Commit protocol is more efficient at runtime as all updates are done without any explicit coordination.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To take advantage of this optimization, you should implement a resource manager using <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification&gt;</ph> interface for the resource and enlist in a transaction using the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> or <ph id="ph3">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Specifically, the <bpt id="p1">*</bpt>EnlistmentOptions<ept id="p1">*</ept> parameter should equal to <ph id="ph1">&lt;xref:System.Transactions.EnlistmentOptions&gt;</ph> to ensure that a single phase commit would be performed.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Since the <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification&gt;</ph> interface derives from the <ph id="ph2">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface, if your RM is not eligible for single phase commit, it can still receive the two phase commit notifications.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If your RM receives a <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A&gt;</ph> notification from the TM, it should try to do the work necessary for it to commit and correspondingly inform the transaction manager if the transaction is to be committed or rolled back by calling the <ph id="ph2">&lt;xref:System.Transactions.SinglePhaseEnlistment.Committed%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A&gt;</ph>, or <ph id="ph4">&lt;xref:System.Transactions.SinglePhaseEnlistment.InDoubt%2A&gt;</ph> method on the <ph id="ph5">&lt;xref:System.Transactions.SinglePhaseEnlistment&gt;</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>A response of <ph id="ph1">&lt;xref:System.Transactions.Enlistment.Done%2A&gt;</ph> on the enlistment at this stage implies ReadOnly semantics.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Therefore, you should not reply <ph id="ph1">&lt;xref:System.Transactions.Enlistment.Done%2A&gt;</ph> in addition to any of the other methods.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If there is only one volatile enlistment and no durable enlistment, the volatile enlistment receives SPC notification.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If there are any volatile enlistments and only one durable enlistment, the volatile enlistments receive 2PC.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>When it is completed, the durable enlistment receives SPC.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Enlisting Resources as Participants in a Transaction<ept id="p1">](../../../../docs/framework/data/transactions/enlisting-resources-as-participants-in-a-transaction.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

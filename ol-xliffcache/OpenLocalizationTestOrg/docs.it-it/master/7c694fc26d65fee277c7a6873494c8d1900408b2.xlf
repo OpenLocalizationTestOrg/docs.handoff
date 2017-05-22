@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7c694fc26d65fee277c7a6873494c8d1900408b2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\app-domains\create-and-use-strong-named-assemblies.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f4a00c1a43b9fea7ec82d376fe564665046d271d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">620a2ead6294361ad7a880661eb321648b385481</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating and Using Strong-Named Assemblies | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating and Using Strong-Named Assemblies</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="top"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> A strong name consists of the assembly's identity—its simple text name, version number, and culture information (if provided)—plus a public key and a digital signature.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It is generated from an assembly file using the corresponding private key.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>(The assembly file contains the assembly manifest, which contains the names and hashes of all the files that make up the assembly.)</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A strong-named assembly can only use types from other strong-named assemblies.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Otherwise, the security of the strong-named assembly would be compromised.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This overview contains the following sections:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Strong Name Scenario<ept id="p1">](#strong_name_scenario)</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Bypassing Signature Verification of Trusted Assemblies<ept id="p1">](#bypassing_signature_verification)</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Related Topics<ept id="p1">](#related_topics)</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Strong Name Scenario</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The following scenario outlines the process of signing an assembly with a strong name and later referencing it by that name.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Assembly A is created with a strong name using one of the following methods:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Using a development environment that supports creating strong names, such as <ph id="ph1">[!INCLUDE[vsprvslong](../../../includes/vsprvslong-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Creating a cryptographic key pair using the <bpt id="p1">[</bpt>Strong Name tool (Sn.exe)<ept id="p1">](../../../docs/framework/tools/sn-exe-strong-name-tool.md)</ept> and assigning that key pair to the assembly using either a command-line compiler or the <bpt id="p2">[</bpt>Assembly Linker (Al.exe)<ept id="p2">](../../../docs/framework/tools/al-exe-assembly-linker.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The Windows Software Development Kit (SDK) provides both Sn.exe and Al.exe.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The development environment or tool signs the hash of the file containing the assembly's manifest with the developer's private key.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This digital signature is stored in the portable executable (PE) file that contains Assembly A's manifest.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Assembly B is a consumer of Assembly A. The reference section of Assembly B's manifest includes a token that represents Assembly A's public key.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>A token is a portion of the full public key and is used rather than the key itself to save space.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The common language runtime verifies the strong name signature when the assembly is placed in the global assembly cache.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>When binding by strong name at run time, the common language runtime compares the key stored in Assembly B's manifest with the key used to generate the strong name for Assembly A. If the .NET Framework security checks pass and the bind succeeds, Assembly B has a guarantee that Assembly A's bits have not been tampered with and that these bits actually come from the developers of Assembly A.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This scenario does not address trust issues.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Assemblies can carry full Microsoft Authenticode signatures in addition to a strong name.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Authenticode signatures include a certificate that establishes trust.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>It is important to note that strong names do not require code to be signed in this way.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In fact, the keys used to generate the strong name signature do not have to be the same keys used to generate an Authenticode signature.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Bypassing Signature Verification of Trusted Assemblies</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v35SP1_long](../../../includes/net-v35sp1-long-md.md)]</ph>, strong-name signatures are not validated when an assembly is loaded into a full-trust application domain, such as the default application domain for the <ph id="ph2">`MyComputer`</ph> zone.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This is referred to as the strong-name bypass feature.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In a full-trust environment, demands for <ph id="ph1">&lt;xref:System.Security.Permissions.StrongNameIdentityPermission&gt;</ph> always succeed for signed, full-trust assemblies, regardless of their signature.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The strong-name bypass feature avoids the unnecessary overhead of strong-name signature verification of full-trust assemblies in this situation, allowing the assemblies to load faster.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The bypass feature applies to any assembly that is signed with a strong name and that has the following characteristics:</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Fully trusted without <ph id="ph1">&lt;xref:System.Security.Policy.StrongName&gt;</ph> evidence (for example, has <ph id="ph2">`MyComputer`</ph> zone evidence).</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Loaded into a fully trusted <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Loaded from a location under the <ph id="ph1">&lt;xref:System.AppDomainSetup.ApplicationBase%2A&gt;</ph> property of that <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Not delay-signed.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This feature can be disabled for individual applications or for a computer.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>How to: Disable the Strong-Name Bypass Feature<ept id="p1">](../../../docs/framework/app-domains/how-to-disable-the-strong-name-bypass-feature.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Related Topics</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Title</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Create a Public-Private Key Pair<ept id="p1">](../../../docs/framework/app-domains/how-to-create-a-public-private-key-pair.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Describes how to create a cryptographic key pair for signing an assembly.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Sign an Assembly with a Strong Name<ept id="p1">](../../../docs/framework/app-domains/how-to-sign-an-assembly-with-a-strong-name.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Describes how to create a strong-named assembly.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Enhanced Strong Naming<ept id="p1">](../../../docs/framework/app-domains/enhanced-strong-naming.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Describes enhancements to strong-names in the <ph id="ph1">[!INCLUDE[net_v45](../../../includes/net-v45-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Reference a Strong-Named Assembly<ept id="p1">](../../../docs/framework/app-domains/how-to-reference-a-strong-named-assembly.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Describes how to reference types or resources in a strong-named assembly at compile time or run time.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Disable the Strong-Name Bypass Feature<ept id="p1">](../../../docs/framework/app-domains/how-to-disable-the-strong-name-bypass-feature.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Describes how to disable the feature that bypasses the validation of strong-name signatures.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This feature can be disabled for all or for specific applications.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Creating Assemblies<ept id="p1">](../../../docs/framework/app-domains/create-assemblies.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Provides an overview of single-file and multifile assemblies.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>NIB: How to: Delay Sign an Assembly (Visual Studio)<ept id="p1">](http://msdn.microsoft.com/en-us/cab63b7a-591e-4674-b236-d77cd29a79ea)</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Explains how to sign an assembly with a strong name after the assembly has been created.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Sn.exe (Strong Name Tool)<ept id="p1">](../../../docs/framework/tools/sn-exe-strong-name-tool.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Describes the tool included in the .NET Framework that helps create assemblies with strong names.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This tool provides options for key management, signature generation, and signature verification.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Al.exe (Assembly Linker)<ept id="p1">](../../../docs/framework/tools/al-exe-assembly-linker.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Describes the tool included in the .NET Framework that generates a file that has an assembly manifest from modules or resource files.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

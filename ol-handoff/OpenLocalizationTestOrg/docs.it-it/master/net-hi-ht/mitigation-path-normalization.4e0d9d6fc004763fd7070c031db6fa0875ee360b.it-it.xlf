@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0579bb975a62e512062b10d39c2967cdcd23438f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\migration-guide\mitigation-path-normalization.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-hi-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8dccc83efca7f156baf81f5846281a83a82a2137</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">641962cea00e874fa511d6432416c867b762718e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Mitigation: Path Normalization | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Mitigation: Path Normalization</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Starting with apps the target  the <ph id="ph1">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph>, path normalization in the .NET Framework has changed.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>What is path normalization?</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Normalizing a path involves modifying the string that identifies a path or file so that it conforms to a valid path on the target operating system.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Normalization typically involves:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Canonicalizing component and directory separators.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Applying the current directory to a relative path.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Evaluating the relative directory (<ph id="ph1">`.`</ph>) or the parent directory (<ph id="ph2">`..`</ph>) in a path.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Trimming specified characters.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The changes</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Starting with apps that target the <ph id="ph1">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph>, path normalization has changed in the following ways:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The runtime defers to the operating system's <bpt id="p1">[</bpt>GetFullPathName<ept id="p1">](https://msdn.microsoft.com/library/windows/desktop/aa364963\(v=vs.85\).aspx)</ept> function to normalize paths.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Normalization no longer involves trimming the end of directory segments (such as a space at the end of a directory name).</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Support for device path syntax in full trust, including  <ph id="ph1">`\\.\`</ph> and, for file I/O APIs   in mscorlib.dll, <ph id="ph2">`\\?\`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The runtime does not validate device syntax paths.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The use of device syntax to access alternate data streams is supported.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Impact</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For apps that target the <ph id="ph1">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph> or later, these changes are on  by default.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>They should improve performance while allowing methods to access previously inaccessible paths.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Apps that target the <ph id="ph1">[!INCLUDE[net_v461](../../../includes/net-v461-md.md)]</ph> and earlier versions but are running under the <ph id="ph2">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph> or later are unaffected by this change.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Mitigation</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Apps that target the <ph id="ph1">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph> or later can opt out of this change and use legacy normalization by adding the following to the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>runtime&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/runtime-element.md)</ept> section of the application configuration file:</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Apps that target the <ph id="ph1">[!INCLUDE[net_v461](../../../includes/net-v461-md.md)]</ph> or earlier but are running on the <ph id="ph2">[!INCLUDE[net_v462](../../../includes/net-v462-md.md)]</ph> or later can enable the changes to path normalization by adding the following line to the <bpt id="p1">[</bpt><ph id="ph3">\&lt;</ph>runtime&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/runtime-element.md)</ept> section of the application .configuration file:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Retargeting Changes<ept id="p1">](../../../docs/framework/migration-guide/retargeting-changes-in-the-net-framework-4-6-2.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

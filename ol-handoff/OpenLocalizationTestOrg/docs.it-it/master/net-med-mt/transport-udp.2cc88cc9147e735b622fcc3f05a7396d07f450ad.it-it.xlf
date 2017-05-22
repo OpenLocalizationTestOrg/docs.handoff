@@ -1,0 +1,627 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6d42965d2994954368b7d798a2ec0211461e162f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\transport-udp.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cd302f7ed70aa2bcedfcc2cb0c49bd329e5cb475</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">78cdb57b31484dea236d1a313d70b8d5d0803fc7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Transport: UDP | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Transport: UDP</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The UDP Transport sample demonstrates how to implement UDP unicast and multicast as a custom <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> transport.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The sample describes the recommended procedure for creating a custom transport in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, by using the channel framework and following <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> best practices.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The steps to create a custom transport are as follows:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Decide which of the channel <bpt id="p1">[</bpt>Message Exchange Patterns<ept id="p1">](#MessageExchangePatterns)</ept> (IOutputChannel, IInputChannel, IDuplexChannel, IRequestChannel, or IReplyChannel) your ChannelFactory and ChannelListener will support.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Then decide whether you will support the sessionful variations of these interfaces.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Create a channel factory and listener that support your Message Exchange Pattern.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Ensure that any network-specific exceptions are normalized to the appropriate derived class of <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Add a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>binding&gt;<ept id="p1">](../../../../docs/framework/misc/binding.md)</ept> element that adds the custom transport to a channel stack.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Adding a Binding Element<ept id="p1">](#AddingABindingElement)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Add a binding element extension section to expose the new binding element to the configuration system.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Add metadata extensions to communicate capabilities to other endpoints.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Add a binding that pre-configures a stack of binding elements according to a well-defined profile.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Adding a Standard Binding<ept id="p1">](#AddingAStandardBinding)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Add a binding section and binding configuration element to expose the binding to the configuration system.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Adding Configuration Support<ept id="p1">](#AddingConfigurationSupport)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Message Exchange Patterns</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The first step in writing a custom transport is to decide which Message Exchange Patterns (MEPs) are required for the transport.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>There are three MEPs to choose from:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Datagram (IInputChannel/IOutputChannel)</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When using a datagram MEP, a client sends a message using a "fire and forget" exchange.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A fire and forget exchange is one that requires out-of-band confirmation of successful delivery.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The message might be lost in transit and never reach the service.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>If the send operation completes successfully at the client end, it does not guarantee that the remote endpoint has received the message.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The datagram is a fundamental building block for messaging, as you can build your own protocols on top of it—including reliable protocols and secure protocols.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Client datagram channels implement the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IOutputChannel&gt;</ph> interface and service datagram channels implement the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IInputChannel&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Request-Response (IRequestChannel/IReplyChannel)</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In this MEP, a message is sent, and a reply is received.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The pattern consists of request-response pairs.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Examples of request-response calls are remote procedure calls (RPC) and browser GETs.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This pattern is also known as Half-Duplex.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In this MEP, client channels implement <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> and service channels implement <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IReplyChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Duplex (IDuplexChannel)</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The duplex MEP allows an arbitrary number of messages to be sent by a client and received in any order.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The duplex MEP is like a phone conversation, where each word being spoken is a message.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Because both sides can send and receive in this MEP, the interface implemented by the client and service channels is <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Each of these MEPs can also support sessions.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The added functionality provided by a session-aware channel is that it correlates all messages sent and received on a channel.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The Request-Response pattern is a stand-alone two-message session, as the request and reply are correlated.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>In contrast, the Request-Response pattern that supports sessions implies that all request/response pairs on that channel are correlated with each other.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This gives you a total of six MEPs—Datagram, Request-Response, Duplex, Datagram with sessions, Request-Response with sessions, and Duplex with sessions—to choose from.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For the UDP transport, the only MEP that is supported is Datagram, because UDP is inherently a "fire and forget" protocol.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The ICommunicationObject and the WCF object lifecycle</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> has a common state machine that is used for managing the lifecycle of objects like <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IChannelFactory&gt;</ph>, and <ph id="ph4">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph> that are used for communication.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>There are five states in which these communication objects can exist.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>These states are represented by the <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationState&gt;</ph> enumeration, and are as follows:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Created: This is the state of a <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> when it is first instantiated.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>No input/output (I/O) occurs in this state.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Opening: Objects transition to this state when <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Open%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>At this point properties are made immutable, and input/output can begin.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This transition is valid only from the Created state.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Opened: Objects transition to this state when the open process completes.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This transition is valid only from the Opening state.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>At this point, the object is fully usable for transfer.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Closing: Objects transition to this state when <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Close%2A&gt;</ph> is called for a graceful shutdown.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This transition is valid only from the Opened state.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Closed: In the Closed state objects are no longer usable.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In general, most configuration is still accessible for inspection, but no communication can occur.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This state is equivalent to being disposed.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Faulted: In the Faulted state, objects are accessible to inspection but no longer usable.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>When a non-recoverable error occurs, the object transitions into this state.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The only valid transition from this state is into the <ph id="ph1">`Closed`</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>There are events that fire for each state transition.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Abort%2A&gt;</ph> method can be called at any time, and causes the object to transition immediately from its current state into the Closed state.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Abort%2A&gt;</ph> terminates any unfinished work.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Channel Factory and Channel Listener</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The next step in writing a custom transport is to create an implementation of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelFactory&gt;</ph> for client channels and of <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph> for service channels.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The channel layer uses a factory pattern for constructing channels.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides base class helpers for this process.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> class implements <ph id="ph2">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> and enforces the state machine previously described in Step 2.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The``<ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelManagerBase&gt;</ph> class implements <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> and provides a unified base class for <ph id="ph3">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase&gt;</ph> and <ph id="ph4">&lt;xref:System.ServiceModel.Channels.ChannelListenerBase&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelManagerBase&gt;</ph> class works in conjunction with <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelBase&gt;</ph>, which is a base class that implements <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The``<ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase&gt;</ph> class implements <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelManagerBase&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IChannelFactory&gt;</ph> and consolidates the <ph id="ph4">`CreateChannel`</ph> overloads into one <ph id="ph5">`OnCreateChannel`</ph> abstract method.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelListenerBase&gt;</ph> class implements <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>It takes care of basic state management.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>In this sample, the factory implementation is contained in UdpChannelFactory.cs and the listener implementation is contained in UdpChannelListener.cs.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph> implementations are in UdpOutputChannel.cs and UdpInputChannel.cs.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The UDP Channel Factory</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpChannelFactory`</ph> derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The sample overrides <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase.GetProperty%2A&gt;</ph> to provide access to the message version of the message encoder.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The sample also overrides <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase.OnClose%2A&gt;</ph> so that we can tear down our instance of <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BufferManager&gt;</ph> when the state machine transitions.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The UDP Output Channel</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpOutputChannel`</ph> implements <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IOutputChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The constructor validates the arguments and constructs a destination <ph id="ph1">&lt;xref:System.Net.EndPoint&gt;</ph> object based on the <ph id="ph2">&lt;xref:System.ServiceModel.EndpointAddress&gt;</ph> that is passed in.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The channel can be closed gracefully or ungracefully.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>If the channel is closed gracefully the socket is closed and a call is made to the base class <ph id="ph1">`OnClose`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>If this throws an exception, the infrastructure calls <ph id="ph1">`Abort`</ph> to ensure the channel is cleaned up.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>We then implement <ph id="ph1">`Send()`</ph> and <ph id="ph2">`BeginSend()`</ph><ph id="ph3">/</ph><ph id="ph4">`EndSend()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This breaks down into two main sections.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>First we serialize the message into a byte array.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Then we send the resulting data on the wire.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The UdpChannelListener</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The``UdpChannelListener that the sample implements derives from the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelListenerBase&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>It uses a single UDP socket to receive datagrams.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`OnOpen`</ph> method receives data using the UDP socket in an asynchronous loop.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The data are then converted into messages using the Message Encoding Framework.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Because the same datagram channel represents messages that arrive from a number of sources, the <ph id="ph1">`UdpChannelListener`</ph> is a singleton listener.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>There is, at most, one active <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph>``associated with this listener at a time.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The sample generates another one only if a channel that is returned by the <ph id="ph1">`AcceptChannel`</ph> method is subsequently disposed.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>When a message is received, it is enqueued into this singleton channel.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>UdpInputChannel</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpInputChannel`</ph> class implements <ph id="ph2">`IInputChannel`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>It consists of a queue of incoming messages that is populated by the <ph id="ph1">`UdpChannelListener`</ph>'s socket.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>These messages are dequeued by the `IInputChannel.Receive```method.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Adding a Binding Element</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Now that the factories and channels are built, we must expose them to the ServiceModel runtime through a binding.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>A binding is a collection of binding elements that represents the communication stack associated with a service address.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Each element in the stack is represented by a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>binding&gt;<ept id="p1">](../../../../docs/framework/misc/binding.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>In the sample, the binding element is <ph id="ph1">`UdpTransportBindingElement`</ph>, which derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>It overrides the following methods to build the factories associated with our binding.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>It also contains members for cloning the <ph id="ph1">`BindingElement`</ph> and returning our scheme (soap.udp).</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Adding Metadata Support for a Transport Binding Element</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>To integrate our transport into the metadata system, we must support both the import and export of policy.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>This allows us to generate clients of our binding through the <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Adding WSDL Support</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The transport binding element in a binding is responsible for exporting and importing addressing information in metadata.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>When using a SOAP binding, the transport binding element should also export a correct transport URI in metadata.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>WSDL Export</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>To export addressing information the <ph id="ph1">`UdpTransportBindingElement`</ph> implements the <ph id="ph2">`IWsdlExportExtension`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ExportEndpoint`</ph> method adds the correct addressing information to the WSDL port.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpTransportBindingElement`</ph> implementation of the <ph id="ph2">`ExportEndpoint`</ph> method also exports a transport URI when the endpoint uses a SOAP binding.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>WSDL Import</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>To extend the WSDL import system to handle importing the addresses, we must add the following configuration to the configuration file for Svcutil.exe as shown in the Svcutil.exe.config file.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>When running Svcutil.exe, there are two options for getting Svcutil.exe to load the WSDL import extensions:</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Point Svcutil.exe to our configuration file using the /SvcutilConfig:<ph id="ph1">\&lt;</ph>file&gt;.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Add the configuration section to Svcutil.exe.config in the same directory as Svcutil.exe.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpBindingElementImporter`</ph> type implements the <ph id="ph2">`IWsdlImportExtension`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ImportEndpoint`</ph> method imports the address from the WSDL port.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Adding Policy Support</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The custom binding element can export policy assertions in the WSDL binding for a service endpoint to express the capabilities of that binding element.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Policy Export</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UdpTransportBindingElement`</ph> type implements```IPolicyExportExtension<ph id="ph2">` to add support for exporting policy. As a result, `</ph>System.ServiceModel.MetadataExporter<ph id="ph3">` includes `</ph>UdpTransportBindingElement` in the generation of policy for any binding that includes it.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">`IPolicyExportExtension.ExportPolicy`</ph>, we add an assertion for UDP and another assertion if we are in multicast mode.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>This is because multicast mode affects how the communication stack is constructed, and thus must be coordinated between both sides.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Because custom transport binding elements are responsible for handling addressing, the <ph id="ph1">`IPolicyExportExtension`</ph> implementation on the <ph id="ph2">`UdpTransportBindingElement`</ph> must also handle exporting the appropriate WS-Addressing policy assertions to indicate the version of WS-Addressing being used.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Policy Import</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>To extend the Policy Import system, we must add the following configuration to the configuration file for Svcutil.exe as shown in the Svcutil.exe.config file.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Then we implement <ph id="ph1">`IPolicyImporterExtension`</ph> from our registered class (<ph id="ph2">`UdpBindingElementImporter`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">`ImportPolicy()`</ph>, we look through the assertions in our namespace, and process the ones for generating the transport and check whether it is multicast.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>We also must remove the assertions we handle from the list of binding assertions.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Again, when running Svcutil.exe, there are two options for integration:</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Point Svcutil.exe to our configuration file using the /SvcutilConfig:<ph id="ph1">\&lt;</ph>file&gt;.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Add the configuration section to Svcutil.exe.config in the same directory as Svcutil.exe.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Adding a Standard Binding</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Our binding element can be used in the following two ways:</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Through a custom binding: A custom binding allows the user to create their own binding based on an arbitrary set of binding elements.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>By using a system-provided binding that includes our binding element.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a number of these system-defined bindings, such as <ph id="ph2">`BasicHttpBinding`</ph>, <ph id="ph3">`NetTcpBinding`</ph>, and <ph id="ph4">`WsHttpBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Each of these bindings is associated with a well-defined profile.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The sample implements profile binding in <ph id="ph1">`SampleProfileUdpBinding`</ph>, which derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Binding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SampleProfileUdpBinding`</ph> contains up to four binding elements within it: <ph id="ph2">`UdpTransportBindingElement`</ph>, <ph id="ph3">`TextMessageEncodingBindingElement CompositeDuplexBindingElement`</ph>, and <ph id="ph4">`ReliableSessionBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Adding a Custom Standard Binding Importer</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Svcutil.exe and the <ph id="ph1">`WsdlImporter`</ph> type, by default, recognizes and imports system-defined bindings.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Otherwise, the binding gets imported as a <ph id="ph1">`CustomBinding`</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>To enable Svcutil.exe and the <ph id="ph1">`WsdlImporter`</ph> to import the <ph id="ph2">`SampleProfileUdpBinding`</ph> the <ph id="ph3">`UdpBindingElementImporter`</ph> also acts as a custom standard binding importer.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>A custom standard binding importer implements the <ph id="ph1">`ImportEndpoint`</ph> method on the <ph id="ph2">`IWsdlImportExtension`</ph> interface to examine the <ph id="ph3">`CustomBinding`</ph> instance imported from metadata to see whether it could have been generated by a specific standard binding.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>Generally, implementing a custom standard binding importer involves checking the properties of the imported binding elements to verify that only properties that could have been set by the standard binding have changed and all other properties are their defaults.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>A basic strategy for implementing a standard binding importer is to create an instance of the standard binding, propagate the properties from the binding elements to the standard binding instance that the standard binding supports, and the compare the binding elements from the standard binding with the imported binding elements.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Adding Configuration Support</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>To expose our transport through configuration, we must implement two configuration sections.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The first is a <ph id="ph1">`BindingElementExtensionElement`</ph> for <ph id="ph2">`UdpTransportBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>This is so that <ph id="ph1">`CustomBinding`</ph> implementations can reference our binding element.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>The second is a <ph id="ph1">`Configuration`</ph> for our <ph id="ph2">`SampleProfileUdpBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>Binding Element Extension Element</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>The``section```UdpTransportElement<ph id="ph1">` is a `</ph>BindingElementExtensionElement<ph id="ph2">` that exposes `</ph>UdpTransportBindingElement` to the configuration system.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>With a few basic overrides, we define our configuration section name, the type of our binding element and how to create our binding element.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>We can then register our extension section in a configuration file as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>The extension can be referenced from custom bindings to use UDP as the transport.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Binding Section</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>The section <ph id="ph1">`SampleProfileUdpBindingCollectionElement`</ph> is a <ph id="ph2">`StandardBindingCollectionElement`</ph> that exposes <ph id="ph3">`SampleProfileUdpBinding`</ph> to the configuration system.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The bulk of the implementation is delegated to the <ph id="ph1">`SampleProfileUdpBindingConfigurationElement`</ph>, which derives from <ph id="ph2">`StandardBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SampleProfileUdpBindingConfigurationElement`</ph> has properties that correspond to the properties on <ph id="ph2">`SampleProfileUdpBinding`</ph>, and functions to map from the <ph id="ph3">`ConfigurationElement`</ph> binding.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>Finally, override the <ph id="ph1">`OnApplyConfiguration`</ph> method in our <ph id="ph2">`SampleProfileUdpBinding`</ph>, as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>To register this handler with the configuration system, we add the following section to the relevant configuration file.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>It can then be referenced from the serviceModel configuration section.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The UDP Test Service and Client</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Test code for using this sample transport is available in the UdpTestService and UdpTestClient directories.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>The service code consists of two tests—one test sets up bindings and endpoints from code and the other does it through configuration.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Both tests use two endpoints.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>One endpoint uses the <ph id="ph1">`SampleUdpProfileBinding`</ph> with <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>reliableSession&gt;<ept id="p1">](http://msdn.microsoft.com/en-us/9c93818a-7dfa-43d5-b3a1-1aafccf3a00b)</ept> set to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>The other endpoint uses a custom binding with <ph id="ph1">`UdpTransportBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>This is equivalent to using <ph id="ph1">`SampleUdpProfileBinding`</ph> with <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>reliableSession&gt;<ept id="p1">](http://msdn.microsoft.com/en-us/9c93818a-7dfa-43d5-b3a1-1aafccf3a00b)</ept> set to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>Both tests create a service, add an endpoint for each binding, open the service and then wait for the user to hit ENTER before closing the service.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>When you start the service test application you should see the following output.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>You can then run the test client application against the published endpoints.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>The client test application creates a client for each endpoint and sends five messages to each endpoint.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>The following output is on the client.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>The following is the full output on the service.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>To run the client application against endpoints published using configuration, hit ENTER on the service and then run the test client again.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>You should see the following output on the service.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>Running the client again yields the same as the preceding results.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>To regenerate the client code and configuration using Svcutil.exe, start the service application and then run the following Svcutil.exe from the root directory of the sample.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Note that Svcutil.exe does not generate the binding extension configuration for the <ph id="ph1">`SampleProfileUdpBinding`</ph>, so you must add it manually.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>Refer to the preceding "The UDP Test Service and Client" section.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e263df271bd0400317191afd0c74b3e31e8154c9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\wif-session-management.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bec3b199f8842b1ec8671fc3acb8dd6c41ff4f89</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0464a7b0eba4b8038c3410fe12e4b300f464388f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>WIF Session Management | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>WIF Session Management</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When a client first tries to access a protected resource that is hosted by a relying party, the client must first authenticate itself to a security token service (STS) that is trusted by the relying party.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The STS then issues a security token to the client.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The client presents this token to the relying party, which then grants the client access to the protected resource.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, you don’t want the client to have to re-authenticate to the STS for each request, especially because it might not even be on the same computer or in the same domain as the relying party.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Instead, Windows Identity Foundation (WIF) has the client and relying party establish a session in which the client uses a session security token to authenticate itself to the relying party for all requests after the first request.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The relying party can use this session security token, which is stored inside a cookie, to reconstruct the client’s <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsPrincipal?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The STS defines what authentication the client must provide.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>However, the client might have multiple credentials with which it can authenticate itself to the STS.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example, it might have a token from Windows Live, a user name and password, a certificate, and a smartkey.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In that case, the STS grants the client several identities, with each identity corresponding to one of the credentials that the client presents.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The relying party can use one or more of these identities when it decides what level of access to grant the client.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken?displayProperty=fullName&gt;</ph> is used to reconstruct the client’s <ph id="ph2">&lt;xref:System.Security.Claims.ClaimsPrincipal?displayProperty=fullName&gt;</ph>, which contains all of the client’s identities in <ph id="ph3">&lt;xref:System.Security.Claims.ClaimsPrincipal.Identities%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsIdentity?displayProperty=fullName&gt;</ph> in the collection contains the bootstrap tokens that are associated with that identity.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If a new session token is issued with the session ID of the original session token, <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler?displayProperty=fullName&gt;</ph> does not update the session token in the token cache.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You should always instantiate a session token with a unique session ID.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Session.SecurityTokenHandler.ReadToken throws a <ph id="ph1">&lt;xref:System.Xml.XmlException&gt;</ph> exception if it receives invalid input; for example, if the cookie that contains the session token is corrupted.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>We recommend that you catch this exception and provide application-specific behavior.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If a protected Web page contains lots of resources (such as small graphics) that are also in the protected domain, the client must re-authenticate itself to the relying party to download each of those resources.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Use of a session authentication token avoids the need to authenticate to the STS for each request, but it still means that many cookies are being sent over.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You might want to set up the Web page so that the important data and resources are stored in the protected domain while minor items are stored in an unprotected domain and linked to from the main Web page.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Also, set the cookie path to reference only the protected domain.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To operate in reference mode, Microsoft recommends providing a handler for the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> event in the <bpt id="p1">**</bpt>global.asax.cs<ept id="p1">**</ept> file and setting the <bpt id="p2">**</bpt>IsReferenceMode<ept id="p2">**</ept> property on the token passed in the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>These updates will ensure that the session token operates in reference mode for every request and is favored over merely setting the  <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A&gt;</ph> property on the Session Authentication Module.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Extensibility</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>You can extend the session management mechanism.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>One reason for this would be to improve the performance.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For example, you could create a custom cookie handler that transforms or optimizes the session security token between its in-memory state and what goes into the cookie.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To do so, you can configure the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.CookieHandler%2A?displayProperty=fullName&gt;</ph> property of the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule?displayProperty=fullName&gt;</ph> to use a custom cookie handler that derives from <ph id="ph3">&lt;xref:System.IdentityModel.Services.CookieHandler?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IdentityModel.Services.ChunkedCookieHandler?displayProperty=fullName&gt;</ph> is the default cookie handler because the cookies exceed the allowable size for Hypertext Transfer Protocol (HTTP); if you use a custom cookie handler instead, you must implement chunking.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>ClaimsAwareWebFarm<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=248408)</ept> (http://go.microsoft.com/fwlink/?LinkID=248408) sample.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This sample shows a farm ready session cache (as opposed to a tokenreplycache) so that you can use sessions by reference instead of exchanging big cookies; this sample also demonstrates an easier way of securing cookies in a farm.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The session cache is WCF-based.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>With regard to session securing, the sample demonstrates a new capability in WIF 4.5 of a cookie transform based on MachineKey, which can be activated by simply pasting the appropriate snippet in the web.config.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The sample itself is not "farmed", but it demonstrates what you need for making your app farm-ready.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

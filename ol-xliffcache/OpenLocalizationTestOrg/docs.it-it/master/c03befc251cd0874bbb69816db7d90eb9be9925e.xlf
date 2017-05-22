@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c03befc251cd0874bbb69816db7d90eb9be9925e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\custom-service-host.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5817b07556d6121d584de8081c4bb2cabbc5d3d0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b7c9edce621195d3a866dfd9b9b59b20fa8cdde8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Service Host | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Service Host</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to use a custom derivative of the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> class to alter the run-time behavior of a service.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This approach provides a reusable alternative to configuring a large number of services in a common way.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The sample also demonstrates how to use the <ph id="ph1">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> class to use a custom ServiceHost in the Internet Information Services (IIS) or Windows Process Activation Service (WAS) hosting environment.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>About the Scenario</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>To prevent unintentional disclosure of potentially sensitive service metadata, the default configuration for <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> services disables metadata publishing.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This behavior is secure by default, but also means that you cannot use a metadata import tool (such as Svcutil.exe) to generate the client code required to call the service unless the service’s metadata publishing behavior is explicitly enabled in configuration.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Enabling metadata publishing for a large number of services involves adding the same configuration elements to each individual service, which results in a large amount of configuration information that is essentially the same.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>As an alternative to configuring each service individually, it is possible to write the imperative code that enables metadata publishing once and then reuse that code across several different services.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This is accomplished by creating a new class that derives from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> and overrides the <ph id="ph2">`ApplyConfiguration`</ph>() method to imperatively add the metadata publishing behavior.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For clarity, this sample demonstrates how to create an unsecured metadata publishing endpoint.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Such endpoints are potentially available to anonymous unauthenticated consumers and care must be taken before deploying such endpoints to ensure that publicly disclosing a service’s metadata is appropriate.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Implementing a Custom ServiceHost</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> class exposes several useful virtual methods that inheritors can override to alter the run-time behavior of a service.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`ApplyConfiguration`</ph>() method reads service configuration information from the configuration store and alters the host's <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDescription&gt;</ph> accordingly.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The default implementation reads configuration from the application’s configuration file.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Custom implementations can override <ph id="ph1">`ApplyConfiguration`</ph>() to further alter the <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDescription&gt;</ph> using imperative code or even replace the default configuration store entirely.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For example, to read a service’s endpoint configuration from a database instead of the application’s configuration file.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>In this sample, we want to build a custom ServiceHost that adds the ServiceMetadataBehavior, (which enables metadata publishing), even if this behavior is not explicitly added in the service’s configuration file.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To accomplish this, we create a new class that inherits from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> and overrides <ph id="ph2">`ApplyConfiguration`</ph>().</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Because we do not want to ignore any configuration that has been provided in the application’s configuration file, the first thing our override of <ph id="ph1">`ApplyConfiguration`</ph>() does is call the base implementation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Once this method completes, we can imperatively add the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceMetadataBehavior&gt;</ph> to the description using the following imperative code.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The last thing our <ph id="ph1">`ApplyConfiguration`</ph>() override must do is add the default metadata endpoint.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>By convention, one metadata endpoint is created for each URI in the service host’s BaseAddresses collection.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Using a custom ServiceHost in self-host</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Now that we have completed our custom ServiceHost implementation, we can use it to add metadata publishing behavior to any service by hosting that service inside of an instance of our <ph id="ph1">`SelfDescribingServiceHost`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The following code shows how to use it in the self-host scenario.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Our custom host still reads the service’s endpoint configuration from the application’s configuration file, just as if we had used the default <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> class to host the service.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>However, because we added the logic to enable metadata publishing inside of our custom host, we no longer must explicitly enable the metadata publishing behavior in configuration.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This approach has a distinct advantage when you are building an application that contains several services and you want to enable metadata publishing on each of them without writing the same configuration elements over and over.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Using a Custom ServiceHost in IIS or WAS</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Using a custom service host in self-host scenarios is straightforward, because it is your application code that is ultimately responsible for creating and opening the service host instance.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In the IIS or WAS hosting environment, however, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> infrastructure is dynamically instantiating your service’s host in response to incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Custom service hosts can also be used in this hosting environment, but they require some additional code in the form of a ServiceHostFactory.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The following code shows a derivative of <ph id="ph1">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> that returns instances of our custom <ph id="ph2">`SelfDescribingServiceHost`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>As you can see, implementing a custom ServiceHostFactory is very straightforward.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>All of the custom logic resides inside of the ServiceHost implementation; the factory returns an instance of the derived class.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>To use a custom factory with a service implementation, we must add some additional metadata to the service’s .svc file.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Here we have added an additional <ph id="ph1">`Factory`</ph> attribute to the <ph id="ph2">`@ServiceHost`</ph> directive, and passed the CLR type name of our custom factory as the attribute’s value.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>When IIS or WAS receives a message for this service, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> hosting infrastructure first creates an instance of the ServiceHostFactory and then instantiate the service host itself by calling <ph id="ph2">`ServiceHostFactory.CreateServiceHost()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Running the Sample</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Although this sample does provide a fully-functional client and service implementation, the point of the sample is to illustrate how to alter a service’s run-time behavior by means of a custom host., do the following steps:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To observe the effect of the custom host</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Open the service’s Web.config file and observe that there is no configuration explicitly enabling metadata for the service.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Open the service’s .svc file and observe that its <ph id="ph1">@ServiceHost</ph> directive contains a Factory attribute that specifies the name of a custom ServiceHostFactory.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>After the solution has been built, run Setup.bat to set up the ServiceModelSamples Application in <ph id="ph1">[!INCLUDE[iisver](../../../../includes/iisver-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The ServiceModelSamples directory should now appear as an <ph id="ph1">[!INCLUDE[iisver](../../../../includes/iisver-md.md)]</ph> Application.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>To remove the <ph id="ph1">[!INCLUDE[iisver](../../../../includes/iisver-md.md)]</ph> application, run Cleanup.bat.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Host a WCF Service in IIS<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-host-a-wcf-service-in-iis.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

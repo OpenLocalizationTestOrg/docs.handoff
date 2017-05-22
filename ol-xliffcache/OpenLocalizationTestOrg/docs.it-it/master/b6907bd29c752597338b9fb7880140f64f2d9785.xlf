@@ -1,0 +1,687 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b6907bd29c752597338b9fb7880140f64f2d9785</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\routing-introduction.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">54e5c2c45d50cdcaf9894dc39bbf0b551a1a1dba</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9e92d759e935284d4db351adc62922ff796b2b51</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Routing Introduction | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Routing Introduction</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The Routing Service provides a generic pluggable SOAP intermediary that is capable of routing messages based on message content.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>With the Routing Service, you can create complex routing logic that allows you to implement scenarios such as service aggregation, service versioning, priority routing, and multicast routing.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The Routing Service also provides error handling that allows you to set up lists of backup endpoints, to which messages are sent if a failure occurs when sending to the primary destination endpoint.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This topic is intended for those new to the Routing Service and covers basic configuration and hosting of the Routing Service.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The Routing Service is implemented as a WCF service that exposes one or more service endpoints that receive messages from client applications and route the messages to one or more destination endpoints.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The service provides a <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingBehavior&gt;</ph>, which is applied to the service endpoints exposed by the service.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This behavior is used to configure various aspects of how the service operates.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For ease of configuration when using a configuration file, the parameters are specified on the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In code-based scenarios, these parameters would be specified as part of a <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingConfiguration&gt;</ph> object, which can then be passed to a <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>When starting, this behavior adds the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.SoapProcessingBehavior&gt;</ph>, which is used to perform SOAP processing of messages, to the client endpoints.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This allows the Routing Service to transmit messages to endpoints that require a different <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> than the endpoint the message was received over.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> also registers a service extension, the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingExtension&gt;</ph>, which provides an accessibility point for modifying the Routing Service configuration at run time.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>RoutingConfiguration<ept id="p1">**</ept> class provides a consistent means of configuring and updating the configuration of the Routing Service.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It contains parameters that act as the settings for the Routing Service and is used to configure the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> when the service starts, or is passed to the <bpt id="p2">**</bpt>RoutingExtension<ept id="p2">**</ept> to modify routing configuration at run time.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The routing logic used to perform content-based routing of messages is defined by grouping multiple <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.MessageFilter&gt;</ph> objects together into filter tables (<ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.MessageFilterTable%601&gt;</ph> objects).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Incoming messages are evaluated against the message filters contained in the filter table, and for each <bpt id="p1">**</bpt>MessageFilter<ept id="p1">**</ept> that matches the message, forwarded to a destination endpoint.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The filter table that should be used to route messages is specified by using either the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> in configuration or through code by using the <bpt id="p2">**</bpt>RoutingConfiguration<ept id="p2">**</ept> object.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Defining Endpoints</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>While it may seem that you should start your configuration by defining the routing logic you will use, your first step should actually be to determine the shape of the endpoints you will be routing messages to.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The Routing Service uses contracts that define the shape of the channels used to receive and send messages, and therefore the shape of the input channel must match that of the output channel.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For example, if you are routing to endpoints that use the request-reply channel shape, then you must use a compatible contract on the inbound endpoints, such as the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.IRequestReplyRouter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This means that if your destination endpoints use contracts with multiple communication patterns (such as mixing one-way and two-way operations,) you cannot create a single service endpoint that can receive and route messages to all of them.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>You must determine which endpoints have compatible shapes and define one or more service endpoints that will be used to receive messages to be routed to the destination endpoints.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When working with contracts that specify multiple communication patterns (such as a mix of one-way and two-way operations,) a workaround is to use a duplex contract at the Routing Service such as <ph id="ph1">&lt;xref:System.ServiceModel.Routing.IDuplexSessionRouter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>However this means that the binding must be capable of duplex communication, which may not be possible for all scenarios.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In scenarios where this is not possible, factoring the communication into multiple endpoints or modifying the application may be necessary.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For more information about routing contracts, see <bpt id="p1">[</bpt>Routing Contracts<ept id="p1">](../../../../docs/framework/wcf/feature-details/routing-contracts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>After the service endpoint is defined, you can use the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> to associate a specific <bpt id="p2">**</bpt>RoutingConfiguration<ept id="p2">**</ept> with the endpoint.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When configuring the Routing Service by using a configuration file, the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> is used to specify the filter table that contains the routing logic used to process messages received on this endpoint.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If you are configuring the Routing Service programmatically you can specify the filter table by using the <bpt id="p1">**</bpt>RoutingConfiguration<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The following example defines the service and client endpoints that are used by the Routing Service both programmatically and by using a configuration file.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This example configures the Routing Service to expose a single endpoint with an address of "http://localhost:8000/routingservice/router", which is used to receive messages to be routed.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Because the messages are routed to request-reply endpoints, the service endpoint uses the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.IRequestReplyRouter&gt;</ph> contract.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This configuration also defines a single client endpoint of "http://localhost:8000/servicemodelsample/service" that messages are routed to.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The filter table (not shown) named "routingTable1" contains the routing logic used to route messages, and is associated with the service endpoint by using the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> (for a configuration file) or <bpt id="p2">**</bpt>RoutingConfiguration<ept id="p2">**</ept> (for programmatic configuration).</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Routing Logic</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>To define the routing logic used to route messages, you must determine what data contained within the incoming messages can be uniquely acted upon.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For example, if all the destination endpoints you are routing to share the same SOAP Actions, the value of the Action contained within the message is not a good indicator of which specific endpoint the message should be routed to.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If you must uniquely route messages to one specific endpoint, you should filter upon data that uniquely identifies the destination endpoint that the message is routed to.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The Routing Service provides several <bpt id="p1">**</bpt>MessageFilter<ept id="p1">**</ept> implementations that inspect specific values within the message, such as the address, action, endpoint name, or even an XPath query.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If none of these implementations meet your needs you can create a custom <bpt id="p1">**</bpt>MessageFilter<ept id="p1">**</ept> implementation.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For more information about message filters and a comparison of the implementations used by the Routing Service, see <bpt id="p1">[</bpt>Message Filters<ept id="p1">](../../../../docs/framework/wcf/feature-details/message-filters.md)</ept> and <bpt id="p2">[</bpt>Choosing a Filter<ept id="p2">](../../../../docs/framework/wcf/feature-details/choosing-a-filter.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Multiple message filters are organized together into filter tables, which associate each <bpt id="p1">**</bpt>MessageFilter<ept id="p1">**</ept> with a destination endpoint.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Optionally, the filter table can also be used to specify a list of back-up endpoints that the Routing Service will attempt to send the message to in the event of a transmission failure.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>By default all message filters within a filter table are evaluated simultaneously; however, you can specify a <ph id="ph1">&lt;xref:System.ServiceModel.Routing.Configuration.FilterTableEntryElement.Priority%2A&gt;</ph> that causes the message filters to be evaluated in a specific order.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>All entries with the highest priority are evaluated first, and message filters of lower priorities are not evaluated if a match is found at a higher priority level.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information about filter tables, see <bpt id="p1">[</bpt>Message Filters<ept id="p1">](../../../../docs/framework/wcf/feature-details/message-filters.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The following examples use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.MatchAllMessageFilter&gt;</ph>, which evaluates to <ph id="ph2">`true`</ph> for all messages.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This <bpt id="p1">**</bpt>MessageFilter<ept id="p1">**</ept> is added to the "routingTable1" filter table, which associates the <bpt id="p2">**</bpt>MessageFilter<ept id="p2">**</ept> with the client endpoint named "CalculatorService".</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> then specifies that this table should be used to route messages processed by the service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>By default, the Routing Service only evaluates the headers of the message.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>To allow the filters to access the message body, you must set <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingConfiguration.RouteOnHeadersOnly%2A&gt;</ph> to <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Multicast<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>While many Routing Service configurations use exclusive filter logic that routes messages to only one specific endpoint, you may need to route a given message to multiple destination endpoints.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To multicast a message to multiple destinations, the following conditions must be true:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The channel shape must not be request-reply (though may be one-way or duplex,) because only one reply can be received by the client application in response to the request.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Multiple filters must return <ph id="ph1">`true`</ph> when evaluating the message.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>If these conditions are met, the message is routed to all endpoints of all filters that evaluate to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The following example defines a routing configuration that results in messages being routed to both endpoints if the endpoint address in the message is http://localhost:8000/routingservice/router/rounding.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>SOAP Processing</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>To support the routing of messages between dissimilar protocols, the <bpt id="p1">**</bpt>RoutingBehavior<ept id="p1">**</ept> by default adds the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.SoapProcessingBehavior&gt;</ph> to all client endpoint(s) that messages are routed to.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This behavior automatically creates a new <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> before routing the message to the endpoint, as well as creating a compatible <bpt id="p2">**</bpt>MessageVersion<ept id="p2">**</ept> for any response document before returning it to the requesting client application.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The steps taken to create a new <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> for the outbound message are as follows:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Request processing<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Get the <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> of the outbound binding/channel.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Get the body reader for the original message.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Create a new message with the same action, body reader, and a new <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageVersion.Addressing%2A&gt;</ph> != <bpt id="p1">**</bpt>Addressing.None<ept id="p1">**</ept>, copy the To, From, FaultTo, and RelatesTo headers to the new message.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Copy all message properties to the new message.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Store the original request message to use when processing the response.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Return the new request message.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Response processing<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Get the <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> of the original request message.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Get the body reader for the received response message.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Create a new response message with the same action, body reader, and the <bpt id="p1">**</bpt>MessageVersion<ept id="p1">**</ept> of the original request message.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageVersion.Addressing%2A&gt;</ph> != <bpt id="p1">**</bpt>Addressing.None<ept id="p1">**</ept>, copy the To, From, FaultTo, and RelatesTo headers to the new message.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Copy the message properties to the new message.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Return the new response message.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>By default, the <bpt id="p1">**</bpt>SoapProcessingBehavior<ept id="p1">**</ept> is automatically added to the client endpoints by the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingBehavior&gt;</ph> when the service starts; however, you can control whether SOAP processing is added to all client endpoints by using the <ph id="ph2">&lt;xref:System.ServiceModel.Routing.RoutingConfiguration.SoapProcessingEnabled%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>You can also add the behavior directly to a specific endpoint and enable or disable this behavior at the endpoint level if a more granular control of SOAP processing is required.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>If SOAP processing is disabled for an endpoint that requires a different MessageVersion than that of the original request message, you must provide a custom mechanism for performing any SOAP modifications that are required before sending the message to the destination endpoint.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>In the following examples, the <bpt id="p1">**</bpt>soapProcessingEnabled<ept id="p1">**</ept> property is used to prevent the <bpt id="p2">**</bpt>SoapProcessingBehavior<ept id="p2">**</ept> from being automatically added to all client endpoints.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Dynamic Configuration</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>When you add additional client endpoints, or need to modify the filters that are used to route messages, you must have a way to update the configuration dynamically at run time to prevent interrupting the service to the endpoints currently receiving messages through the Routing Service.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Modifying a configuration file or the code of the host application is not always sufficient, because either method requires recycling the application, which would lead to the potential loss of any messages currently in transit and the potential for downtime while waiting on the service to restart.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>You can only modify the <bpt id="p1">**</bpt>RoutingConfiguration<ept id="p1">**</ept> programmatically.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>While you can initially configure the service by using a configuration file, you can only modify the configuration at run time by constructing a new <bpt id="p1">**</bpt>RoutingConfigution<ept id="p1">**</ept> and passing it as a parameter to the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingExtension.ApplyConfiguration%2A&gt;</ph> method exposed by the <ph id="ph2">&lt;xref:System.ServiceModel.Routing.RoutingExtension&gt;</ph> service extension.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Any messages currently in transit continue to be routed using the previous configuration, while messages received after the call to <bpt id="p1">**</bpt>ApplyConfiguration<ept id="p1">**</ept> use the new configuration.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates creating an instance of the Routing Service and then subsequently modifying the configuration.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>When updating the Routing Service in this manner it is only possible to pass a new configuration.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>It is not possible to modify only select elements of the current configuration or append new entries to the current configuration; you must create and pass a new configuration that replaces the existing one.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Any sessions opened using the previous configuration continue using the previous configuration.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The new configuration is only used by new sessions.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Error Handling</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>If any <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationException&gt;</ph> is encountered while attempting to send a message, error handling take place.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>These exceptions typically indicate that a problem was encountered while attempting to communicate with the defined client endpoint, such as an <ph id="ph1">&lt;xref:System.ServiceModel.EndpointNotFoundException&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.ServerTooBusyException&gt;</ph>, or <ph id="ph3">&lt;xref:System.ServiceModel.CommunicationObjectFaultedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The error handling-code will also catch and attempt to retry sending when a <ph id="ph1">&lt;xref:System.TimeoutException&gt;</ph> occurs, which is another common exception that is not derived from <bpt id="p1">**</bpt>CommunicationException<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>When one of the preceding exceptions occurs, the Routing Service fails over to a list of backup endpoints.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If all backup endpoints fail with a communications failure, or if an endpoint returns an exception that indicates a failure within the destination service, the Routing Service returns a fault to the client application.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The error-handling functionality captures and handles exceptions that occur when attempting to send a message and when attempting to close a channel.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The error-handling code is not intended to detect or handle exceptions created by the application endpoints it is communicating with; a <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph> thrown by a service appears at the Routing Service as a <bpt id="p1">**</bpt>FaultMessage<ept id="p1">**</ept> and is flowed back to the client.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>If an error occurs when the routing service tries to relay a message, you may  get a <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph> on the client side, rather than a <ph id="ph2">&lt;xref:System.ServiceModel.EndpointNotFoundException&gt;</ph> you would normally get in the absence of the routing service.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>A routing service may thus mask exceptions and not provide full transparency unless you examine nested exceptions.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Tracing Exceptions</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>When sending a message to an endpoint in a list fails, the Routing Service traces the resulting exception data and attaches the exception details as a message property named <bpt id="p1">**</bpt>Exceptions<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>This preserves the exception data and allows a user programmatic access through a message inspector.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The exception data is stored per message in a dictionary that maps the endpoint name to the exception details encountered when trying to send a message to it.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Backup Endpoints</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Each filter entry within the filter table can optionally specify a list of backup endpoints, which are used in the event of a transmission failure when sending to the primary endpoint.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>If such a failure occurs, the Routing Service attempts to transmit the message to the first entry in the backup endpoint list.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>If this send attempt also encounters a transmission failure, the next endpoint in the backup list is tried.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The Routing Service continues sending the message to each endpoint in the list until the message is successfully received, all endpoints return a transmission failure, or a non-transmission failure is returned by an endpoint.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>The following examples configure the Routing Service to use a backup list.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Supported Error Patterns</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The following table describes the patterns that are compatible with the use of backup endpoint lists, along with notes describing the details of error handling for specific patterns.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Pattern</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Session</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Transaction</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Receive Context</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Backup List Supported</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Attempts to resend the message on a backup endpoint.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>If this message is being multicast, only the message on the failed channel is moved to its backup destination.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>An exception is thrown and the transaction is rolled back.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Attempts to resend the message on a backup endpoint.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>After the message is successfully received, complete all receive contexts.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>If the message is not successfully received by any endpoint, do not complete the receive context.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>When this message is being multicast, the receive context is only completed if the message is successfully received by at least one endpoint (primary or backup).</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>If none of the endpoints in any of the multicast paths successfully receive the message, do not complete the receive context.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Abort the previous transaction, create a new transaction, and resend all messages.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Messages that encountered an error are transmitted to a backup destination.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>After a transaction has been created in which all transmissions succeed, complete the receive contexts and commit the transaction.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Attempts to resend the message on a backup endpoint.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>In a multicast scenario only the messages in a session that encountered an error or in a session whose session close failed are resent to backup destinations.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>An exception is thrown and the transaction is rolled back.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Attempts to resend the message on a backup endpoint.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>After all message sends complete without error, the session indicates no more messages and the Routing Service successfully closes all outbound session channel(s), all receive contexts are completed, and the inbound session channel is closed.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>One-Way</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Abort the current transaction and create a new one.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Resend all previous messages in the session.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>After a transaction has been created in which all messages have been successfully sent and the session indicates no more messages, all the outbound session channels are closed, receive contexts are all completed with the transaction, the inbound session channel is closed, and the transaction is committed.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>When the sessions are being multicast the messages that had no error are resent to the same destination as before, and messages that encountered an error are sent to backup destinations.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Two-Way</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Send to a backup destination.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>After a channel returns a response message, return the response to the original client.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>Two-Way</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Send all messages on the channel to a backup destination.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>After a channel returns a response message, return the response to the original client.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>Two-Way</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>An exception is thrown and the transaction is rolled back.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Two-Way</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>An exception is thrown and the transaction is rolled back.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>Duplex</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>Non-session duplex communication is not currently supported.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Duplex</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Check mark<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/checkmark.gif "</bpt>Checkmark<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>Send to a backup destination.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>Hosting</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>Because the Routing Service is implemented as a WCF service, it must be either self-hosted within an application or hosted by IIS or WAS.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>It is recommended that the Routing Service be hosted in either IIS, WAS, or a Windows Service application to take advantage of the automatic start and life-cycle management features available in these hosting environments.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates hosting the Routing Service in an application.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>To host the Routing Service within IIS or WAS, you must either create a service file (.svc) or use configuration-based activation of the service.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>When using a service file, you must specify the <ph id="ph1">&lt;xref:System.ServiceModel.Routing.RoutingService&gt;</ph> using the Service parameter.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>The following example contains a sample service file that can be used to host the Routing Service with IIS or WAS.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>Routing Service and Impersonation</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>The WCF Routing Service can be used with impersonation for both sending and receiving messages.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>All of the usual Windows constraints of impersonation apply.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>If you would have needed to set up service or account permissions to use impersonation when writing your own service, then you’ll have to do those same steps to use impersonation with the routing service.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Delegation and Impersonation<ept id="p1">](../../../../docs/framework/wcf/feature-details/delegation-and-impersonation-with-wcf.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>Impersonation with the routing service requires either the use of ASP.NET impersonation while in ASP.NET compatibility mode or the use of Windows credentials that have been configured to allow impersonation.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>For more information about ASP.NET compatibility mode, see <bpt id="p1">[</bpt>WCF Services and ASP.NET<ept id="p1">](../../../../docs/framework/wcf/feature-details/wcf-services-and-aspnet.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>The WCF Routing Service does not support impersonation with basic authentication.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>To use ASP.NET impersonation with the routing service, enable ASP.NET compatibility mode on the service hosting environment.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>The routing service has already been marked as allowing ASP.NET compatibility mode and impersonation will automatically be enabled.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Impersonation is the only supported use of ASP.NET integration with the routing service.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>To use Windows credential impersonation with the routing service you need to configure both the credentials and the service.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>The client credentials object (<ph id="ph1">&lt;xref:System.ServiceModel.Security.WindowsClientCredential&gt;</ph>, accessable from the <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph>) defines an <ph id="ph3">&lt;xref:System.ServiceModel.Security.WindowsClientCredential.AllowedImpersonationLevel%2A&gt;</ph> property that must be set to permit impersonation.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>Finally, on the service you need to configure the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceAuthorizationBehavior&gt;</ph> behavior to set <ph id="ph2">`ImpersonateCallerForAllOperations`</ph> to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>The routing service uses this flag to decide whether to create the clients for forwarding messages with impersonation enabled.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Message Filters<ept id="p1">](../../../../docs/framework/wcf/feature-details/message-filters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Routing Contracts<ept id="p1">](../../../../docs/framework/wcf/feature-details/routing-contracts.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Choosing a Filter<ept id="p1">](../../../../docs/framework/wcf/feature-details/choosing-a-filter.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

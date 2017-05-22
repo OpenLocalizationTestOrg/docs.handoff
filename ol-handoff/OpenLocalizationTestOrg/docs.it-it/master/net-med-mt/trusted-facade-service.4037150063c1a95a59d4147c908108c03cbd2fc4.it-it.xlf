@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8659048ad53d57618adfac72032130dac0e263c9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\trusted-facade-service.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0985aa435aa13c29b8813db1404f5c8df2a2c200</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8feb185ccb8da74886a143003189fa6351c2cf4f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Trusted Facade Service | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Trusted Facade Service</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This scenario sample demonstrates how to flow caller's identity information from one service to another using <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> security infrastructure.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It is a common design pattern to expose the functionality provided by a service to the public network using a façade service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The façade service typically resides in the perimeter network (also known as DMZ, demilitarized zone, and screened subnet) and communicates with a backend service that implements the business logic and has access to internal data.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The communication channel between the façade service and the backend service goes through a firewall and is usually limited for a single purpose only.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This sample consists of the following components:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Calculator client</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Calculator façade service</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Calculator backend service</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The façade service is responsible for validating the request and authenticating the caller.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>After successful authentication and validation, it forwards the request to the backend service using the controlled communication channel from the perimeter network to the internal network.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>As a part of the forwarded request, the façade service includes information about the caller's identity so that the backend service can use this information in its processing.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The caller's identity is transmitted using a <ph id="ph1">`Username`</ph> security token inside the message <ph id="ph2">`Security`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The sample uses the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security infrastructure to transmit and extract this information from the <ph id="ph2">`Security`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The backend service trusts the façade service to authenticate the caller.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Because of this, the backend service does not authenticate the caller again; it uses the identity information provided by the façade service in the forwarded request.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Because of this trust relationship, the backend service must authenticate the façade service to ensure that the forwarded message comes from a trusted source - in this case, the façade service.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Implementation</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>There are two communication paths in this sample.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>First is between the client and the façade service, the second is between the façade service and the backend service.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Communication Path between Client and Façade Service</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The client to the façade service communication path uses <ph id="ph1">`wsHttpBinding`</ph> with a <ph id="ph2">`UserName`</ph> client credential type.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This means that the client uses username and password to authenticate to the façade service and the façade service uses X.509 certificate to authenticate to the client.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The binding configuration looks like the following example.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The façade service authenticates the caller using custom <ph id="ph1">`UserNamePasswordValidator`</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>For demonstration purposes, the authentication only ensures that the caller's username matches the presented password.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In the real world situation, the user is probably authenticated using Active Directory or custom ASP.NET Membership provider.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The validator implementation resides in <ph id="ph1">`FacadeService.cs`</ph> file.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The custom validator is configured to be used inside the <ph id="ph1">`serviceCredentials`</ph> behavior in the façade service configuration file.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This behavior is also used to configure the service's X.509 certificate.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Communication Path between Façade Service and Backend Service</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The façade service to the backend service communication path uses a <ph id="ph1">`customBinding`</ph> that consists of several binding elements.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>This binding accomplishes two things.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>It authenticates the façade service and backend service to ensure that the communication is secure and is coming from a trusted source.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Additionally, it also transmits the initial caller's identity inside the <ph id="ph1">`Username`</ph> security token.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>In this case, only the initial caller's username is transmitted to the backend service, the password is not included in the message.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This is because the backend service trusts the façade service to authenticate the caller before forwarding the request to it.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Because the façade service authenticates itself to the backend service, the backend service can trust the information contained in the forwarded request.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The following is the binding configuration for this communication path.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>security&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/security-of-custombinding.md)</ept> binding element takes care of the initial caller's username transmission and extraction.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>windowsStreamSecurity&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/windowsstreamsecurity.md)</ept> and <bpt id="p2">[</bpt><ph id="ph2">\&lt;</ph>tcpTransport&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/tcptransport.md)</ept> take care of authenticating façade and backend services and message protection.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>To forward the request, the façade service implementation must provide the initial caller's username so that <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security infrastructure can place this into the forwarded message.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The initial caller's username is provided in the façade service implementation by setting it in the <ph id="ph1">`ClientCredentials`</ph> property on the client proxy instance that façade service uses to communicate with the backend service.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The following code shows how <ph id="ph1">`GetCallerIdentity`</ph> method is implemented on the façade service.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Other methods use the same pattern.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>As shown in the previous code, the password is not set on the <ph id="ph1">`ClientCredentials`</ph> property, only the username is set.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security infrastructure creates a username security token without a password in this case, which is exactly what is required in this scenario.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>On the backend service, the information contained in the username security token must be authenticated.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security attempts to map the user to a Windows account using the provided password.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>In this case, there is no password provided and the backend service is not required to authenticate the username because the authentication was already performed by the façade service.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>To implement this functionality in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, a custom <ph id="ph2">`UserNamePasswordValidator`</ph> is provided that only enforces that a username is specified in the token and does not perform any additional authentication.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The custom validator is configured to be used inside the <ph id="ph1">`serviceCredentials`</ph> behavior in the façade service configuration file.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>To extract the username information and information about the trusted façade service account, the backend service implementation uses the <ph id="ph1">`ServiceSecurityContext`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The following code shows how the <ph id="ph1">`GetCallerIdentity`</ph> method is implemented.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The façade service account information is extracted using the <ph id="ph1">`ServiceSecurityContext.Current.WindowsIdentity`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>To access the information about the initial caller the backend service uses the <ph id="ph1">`ServiceSecurityContext.Current.AuthorizationContext.ClaimSets`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>It looks for an <ph id="ph1">`Identity`</ph> claim with a type <ph id="ph2">`Name`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>This claim is automatically generated by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security infrastructure from the information contained in the <ph id="ph2">`Username`</ph> security token.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Running the sample</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the operation requests and responses are displayed in the client console window.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Press ENTER in the client window to shut down the client.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>You can press ENTER in the façade and backend service console windows to shut down the services.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The Setup.bat batch file included with the Trusted Facade scenario sample enables you to configure the server with a relevant certificate to run the façade service that requires certificate-based security to authenticate itself to the client.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>See the setup procedure at the end of this topic for details.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The following provides a brief overview of the different sections of the batch files.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Creating the server certificate.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The following lines from the Setup.bat batch file create the server certificate to be used.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`%SERVER_NAME%`</ph> variable specifies the server name - the default value is localhost.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The certificate is stored in the LocalMachine store.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Installing the façade service's certificate into the client's trusted certificate store.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The following line copies the façade service's certificate into the client trusted people store.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This step is required because certificates generated by Makecert.exe are not implicitly trusted by the client system.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>If you already have a certificate that is rooted in a client trusted root certificate—for example, a Microsoft-issued certificate—this step of populating the client certificate store with the server certificate is not required.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>To build the C# or Visual Basic .NET edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>To run the sample on the same machine</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Ensure that the path includes the folder where Makecert.exe is located.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Run Setup.bat from the sample install folder.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>This installs all the certificates required for running the sample.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Launch the BackendService.exe from \BackendService\bin directory in a separate console window</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Launch the FacadeService.exe from \FacadeService\bin directory in a separate console window</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Launch Client.exe from \client\bin.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Client activity is displayed on the client console application.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If the client and service are not able to communicate, see <bpt id="p1">[</bpt>Troubleshooting Tips<ept id="p1">](http://msdn.microsoft.com/en-us/8787c877-5e96-42da-8214-fa737a38f10b)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To clean up after the sample</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Run Cleanup.bat in the samples folder once you have finished running the sample.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

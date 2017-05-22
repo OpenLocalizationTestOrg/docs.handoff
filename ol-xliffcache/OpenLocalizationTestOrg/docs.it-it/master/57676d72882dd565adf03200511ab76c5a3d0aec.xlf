@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">57676d72882dd565adf03200511ab76c5a3d0aec</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\best-practices-for-reliable-sessions.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1caba206a5c417880718e00654ae60e5cd002ee3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8a91294e784c16eea3a1725652f624cf810ef7e6</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Best Practices for Reliable Sessions | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Best Practices for Reliable Sessions</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This section discusses best practices for reliable sessions.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Setting MaxTransferWindowSize</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Reliable sessions in <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> use a transfer window to hold messages on the client and service.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The configurable property <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement.MaxTransferWindowSize%2A&gt;</ph>indicates how many messages the transfer window can hold.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>On the sender, this indicates how many messages the transfer window can hold while waiting for acknowledgements; on the receiver it indicates how many messages to buffer for the service.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Choosing the right size impacts how efficiently the network is put to use and the optimal capacity the service is running at.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The following sections detail what to consider when choosing a value for this property, and the impact of the value.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The default transfer window size is 8 messages.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Efficient Use of the Network</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The term <bpt id="p1">*</bpt>network<ept id="p1">*</ept> here corresponds to everything between a client (sender) and a service (receiver) used as the basis of communication.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This includes the transport connections and any intermediary or bridges in-between, including SOAP routers or HTTP proxies/firewalls.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Efficient use of the network ensures that network capacity is fully used.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Both the amount of data that can be transferred per second over the network (called <bpt id="p1">*</bpt>data rate<ept id="p1">*</ept>) and the time it takes to transfer data from the sender to the receiver (called <bpt id="p2">*</bpt>latency<ept id="p2">*</ept>) impact how effectively the network is utilized.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>On the sender, the property <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement.MaxTransferWindowSize%2A&gt;</ph> indicates how many messages its transfer window can hold while waiting for acknowledgements.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Thus, if the network latency is high, in order to ensure a responsive sender and effective network utilization, you should increase the transfer window size.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For example, even if the sender keeps up with data rate, latency could be high if several intermediaries exist between the sender and receiver or a lossy intermediary or network.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Thus the sender has to wait for acknowledgements for the messages in its transfer window before accepting new messages to send on the wire.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The smaller the buffer with high latency, the less effectively the network utilization.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>On the other hand, too high a transfer window size may impact the service because the service may have to catch up to the high rate of send from the client.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Running the Service to Capacity</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>As much as the network is used efficiently, ideally you also want the service to run to optimal capacity.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The transfer window size property on the receiver indicates how many messages the receiver can buffer.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This message buffering helps not only the network flow control but also enables the service to run to full capacity.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For example, if the buffer is 1 and messages arrive faster than the service can process them, then the network might drop messages, and network capacity might be wasted or underutilized.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Using a bufferincreases the availability of the service as it concurrently receives and buffers the message while processing the previously received messages.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It is recommended that you use the same <ph id="ph1">`MaxTransferWindowSize`</ph> on both the sender and receiver.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Enabling Flow Control</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Flow control is a mechanism that ensures that the sender and receiver keep pace with each other, that is,  the messages are consumed and acted upon as fast as they are produced.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The transfer window size on the client and service ensures that the sender and receiver are within a reasonable window of synchronization.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It is highly recommended that you set the property <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement.FlowControlEnabled%2A&gt;</ph> to true when you are using a reliable session between a <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client and a <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Setting MaxPendingChannels</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When writing a service that enables reliable session communication from different clients, it is possible to have many clients establish a reliable session to the service at the same time.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The response of the service in these situations depends on the <ph id="ph1">`MaxPendingChannels`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When the sender creates a reliable session channel to a receiver, a handshake between them establishes a reliable session.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>After the reliable session is established, the channel is put in a pending channel queue for acceptance by the service.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`MaxPendingChannels`</ph> property indicates how many channels can be in this state.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>It is possible for the service to be in a state where it can accept no more channels.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>If the queue is full, an attempt to establish a reliable session is rejected and the client has to retry.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>It is also possible that the pending channels in the queue remain in the queue for a longer duration.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In the meantime, inactivity timeout on the reliable session may kick in, causing the channel to transition to a faulted state.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Therefore, when writing a service that services multiple clients simultaneously, you should set a value that is suitable for your needs.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Setting too high a value for the <ph id="ph1">`MaxPendingChannels`</ph> property will impact your working set.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The default value for <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement.MaxPendingChannels%2A&gt;</ph> is 4.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Reliable Sessions and Hosting</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>When Web hosting a service that uses reliable sessions, you should keep the following important considerations in mind:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Reliable sessions are stateful, and state is maintained in the AppDomain.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This means that all messages that are part of a reliable session must be processed in the same AppDomain.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Web farms and Web gardens where the size of the farm or garden is &gt; 1 can't guarantee keeping with this constraint.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Reliable sessions using dual HTTP channels (for example, using <ph id="ph1">`WsDualHttpBinding`</ph>) can require more than the default HTTP connections per-client of 2.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This means a duplex reliable session can require up to 2 connections each way, because concurrent application and protocol messages may be transferring each way at any given time.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This means that, under certain conditions, depending on the message exchange pattern of the service, it is possible to deadlock a Web-hosted service using dual HTTP and reliable sessions.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>To increase the number of allowable HTTP connections per client, add the following to the relevant configuration file (for example, web.config of the service in question):</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Where "XX" is the number of connections needed.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The minimum in this case should be 4.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

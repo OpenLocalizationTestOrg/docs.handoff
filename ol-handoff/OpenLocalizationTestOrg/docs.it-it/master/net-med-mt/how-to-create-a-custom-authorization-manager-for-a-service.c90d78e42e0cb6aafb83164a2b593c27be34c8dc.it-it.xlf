@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8c1a53ed38cbbb860ed29993af4ce0726a41babf</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\how-to-create-a-custom-authorization-manager-for-a-service.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">454b8819ef26ac889653f2a5db4264c4e3154055</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2d628fbdcd61aa7797e7d351f67f7ff3d40b2d5f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Authorization Manager for a Service | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Authorization Manager for a Service</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The Identity Model infrastructure in <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> supports an extensible claims-based authorization model.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Claims are extracted from tokens and optionally processed by custom authorization policies and then placed into an <ph id="ph1">&lt;xref:System.IdentityModel.Policy.AuthorizationContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>An authorization manager examines the claims in the <ph id="ph1">&lt;xref:System.IdentityModel.Policy.AuthorizationContext&gt;</ph> to make authorization decisions.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>By default, authorization decisions are made by the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager&gt;</ph> class; however these decisions can be overridden by creating a custom authorization manager.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To create a custom authorization manager, create a class that derives from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager&gt;</ph> and implement <ph id="ph2">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccessCore%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Authorization decisions are made in the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccessCore%2A&gt;</ph> method, which returns <ph id="ph2">`true`</ph> when access is granted and <ph id="ph3">`false`</ph> when access is denied.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If the authorization decision depends on the contents of the message body, use the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccess%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because of performance issues, if possible you should redesign your application so that the authorization decision does not require access to the message body.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Registration of the custom authorization manager for a service can be done in code or configuration.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>To create a custom authorization manager</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Derive a class from the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomAuthMgr#5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customauthmgr/cs/c_customauthmgr.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomAuthMgr#5<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customauthmgr/vb/c_customauthmgr.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccessCore%28System.ServiceModel.OperationContext%29&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ServiceModel.OperationContext&gt;</ph> that is passed to the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccessCore%28System.ServiceModel.OperationContext%29&gt;</ph> method to make authorization decisions.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The following code example uses the <ph id="ph1">&lt;xref:System.IdentityModel.Claims.ClaimSet.FindClaims%28System.String%2CSystem.String%29&gt;</ph> method to find the custom claim <ph id="ph2">`http://www.contoso.com/claims/allowedoperation`</ph> to make an authorization decision.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomAuthMgr#6<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customauthmgr/cs/c_customauthmgr.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomAuthMgr#6<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customauthmgr/vb/c_customauthmgr.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To register a custom authorization manager using code</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Create an instance of the custom authorization manager and assign it to the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceAuthorizationBehavior.ServiceAuthorizationManager%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceAuthorizationBehavior&gt;</ph> can be accessed using <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHostBase.Authorization%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The following code example registers the <ph id="ph1">`MyServiceAuthorizationManager`</ph> custom authorization manager.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomAuthMgr#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customauthmgr/cs/c_customauthmgr.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomAuthMgr#4<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customauthmgr/vb/c_customauthmgr.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To register a custom authorization manager using configuration</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Open the configuration file for the service.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Add a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>serviceAuthorization&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/serviceauthorization-element.md)</ept> to the <bpt id="p2">[</bpt><ph id="ph2">\&lt;</ph>behaviors&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>serviceAuthorization&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/serviceauthorization-element.md)</ept>, add a <ph id="ph2">`serviceAuthorizationManagerType`</ph> attribute and set its value to the type that represents the custom authorization manager.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Add a binding that secures the communication between the client and service.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The binding that is chosen for this communication determines the claims that are added to the <ph id="ph1">&lt;xref:System.IdentityModel.Policy.AuthorizationContext&gt;</ph>, which the custom authorization manager uses to make authorization decisions.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For more details about the system-provided bindings, see <bpt id="p1">[</bpt>System-Provided Bindings<ept id="p1">](../../../../docs/framework/wcf/system-provided-bindings.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Associate the behavior to a service endpoint, by adding a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>service&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/service.md)</ept> element and set the value of the <ph id="ph2">`behaviorConfiguration`</ph> attribute to the value of the name attribute for the <bpt id="p2">[</bpt><ph id="ph3">\&lt;</ph>behavior&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-servicebehaviors.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information about configuring a service endpoint, see <bpt id="p1">[</bpt>How to: Create a Service Endpoint in Configuration<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-create-a-service-endpoint-in-configuration.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The following code example registers the custom authorization manager <ph id="ph1">`Samples.MyServiceAuthorizationManager`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Note that when you specify the serviceAuthorizationManagerType, the string must contain the fully qualified type name.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>a comma, and the name of the assembly in which the type is defined.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If you leave out the assembly name, WCF will attempt to load the type from System.ServiceModel.dll.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The following code example demonstrates a basic implementation of a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager&gt;</ph> class that includes overriding the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceAuthorizationManager.CheckAccessCore%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The example code examines the <ph id="ph1">&lt;xref:System.IdentityModel.Policy.AuthorizationContext&gt;</ph> for a custom claim and returns <ph id="ph2">`true`</ph> when the resource for that custom claim matches the action value from the <ph id="ph3">&lt;xref:System.ServiceModel.OperationContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For a more complete implementation of a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceAuthorizationManager&gt;</ph> class, see <bpt id="p1">[</bpt>Authorization Policy<ept id="p1">](../../../../docs/framework/wcf/samples/authorization-policy.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomAuthMgr#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customauthmgr/cs/c_customauthmgr.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomAuthMgr#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customauthmgr/vb/c_customauthmgr.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Authorization Policy<ept id="p1">](../../../../docs/framework/wcf/samples/authorization-policy.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Authorization Policy<ept id="p1">](../../../../docs/framework/wcf/samples/authorization-policy.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

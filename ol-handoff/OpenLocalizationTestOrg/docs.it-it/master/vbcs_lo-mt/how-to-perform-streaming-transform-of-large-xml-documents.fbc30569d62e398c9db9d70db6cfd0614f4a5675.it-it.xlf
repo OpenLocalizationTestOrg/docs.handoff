@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">730039a85c8c72b9379617cb4b3c019028c3a1e9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\visual-basic\programming-guide\concepts\linq\how-to-perform-streaming-transform-of-large-xml-documents.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">046ab27d04f28659ad38781276c1625c0876efb7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">22a49863a154c40bad5694e6fc122c96d793b37c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Perform Streaming Transform of Large XML Documents (Visual Basic) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Perform Streaming Transform of Large XML Documents (Visual Basic)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Sometimes you have to transform large XML files, and write your application so that the memory footprint of the application is predictable.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>If you try to populate an XML tree with a very large XML file, your memory usage will be proportional to the size of the file (that is, excessive).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Therefore, you should use a streaming technique instead.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Streaming techniques are best applied in situations where you need to process the source document only once, and you can process the elements in document order.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Certain standard query operators, such as <ph id="ph1">&lt;xref:System.Linq.Enumerable.OrderBy%2A&gt;</ph>, iterate their source, collect all of the data, sort it, and then finally yield the first item in the sequence.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Note that if you use a query operator that materializes its source before yielding the first item, you will not retain a small memory footprint for your application.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Even if you use the technique described in <bpt id="p1">[</bpt>How to: Stream XML Fragments with Access to Header Information (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md)</ept>, if you try to assemble an XML tree that contains the transformed document, memory usage will be too great.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>There are two main approaches.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>One approach is to use the deferred processing characteristics of <ph id="ph1">&lt;xref:System.Xml.Linq.XStreamingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Another approach is to create an <ph id="ph1">&lt;xref:System.Xml.XmlWriter&gt;</ph>, and use the capabilities of <ph id="ph2">[!INCLUDE[sqltecxlinq](../../../../csharp/programming-guide/concepts/linq/includes/sqltecxlinq_md.md)]</ph> to write elements to an <ph id="ph3">&lt;xref:System.Xml.XmlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This topic demonstrates both approaches.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following example builds on the example in <bpt id="p1">[</bpt>How to: Stream XML Fragments with Access to Header Information (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This example uses the deferred execution capabilities of <ph id="ph1">&lt;xref:System.Xml.Linq.XStreamingElement&gt;</ph> to stream the output.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This example can transform a very large document while maintaining a small memory footprint.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Note that the custom axis (<ph id="ph1">`StreamCustomerItem`</ph>) is specifically written so that it expects a document that has <ph id="ph2">`Customer`</ph>, <ph id="ph3">`Name`</ph>, and <ph id="ph4">`Item`</ph> elements, and that those elements will be arranged as in the following Source.xml document.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>A more robust implementation, however, would be prepared to parse an invalid document.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following is the source document, Source.xml:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This code produces the following output:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following example also builds on the example in <bpt id="p1">[</bpt>How to: Stream XML Fragments with Access to Header Information (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This example uses the capability of <ph id="ph1">[!INCLUDE[sqltecxlinq](../../../../csharp/programming-guide/concepts/linq/includes/sqltecxlinq_md.md)]</ph> to write elements to an <ph id="ph2">&lt;xref:System.Xml.XmlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This example can transform a very large document while maintaining a small memory footprint.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Note that the custom axis (<ph id="ph1">`StreamCustomerItem`</ph>) is specifically written so that it expects a document that has <ph id="ph2">`Customer`</ph>, <ph id="ph3">`Name`</ph>, and <ph id="ph4">`Item`</ph> elements, and that those elements will be arranged as in the following Source.xml document.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A more robust implementation, however, would either validate the source document with an XSD, or would be prepared to parse an invalid document.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This example uses the same source document, Source.xml, as the previous example in this topic.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It also produces exactly the same output.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">&lt;xref:System.Xml.Linq.XStreamingElement&gt;</ph> for streaming the output XML is preferred over writing to an <ph id="ph2">&lt;xref:System.Xml.XmlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This code produces the following output:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Advanced LINQ to XML Programming (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/linq/advanced-linq-to-xml-programming.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

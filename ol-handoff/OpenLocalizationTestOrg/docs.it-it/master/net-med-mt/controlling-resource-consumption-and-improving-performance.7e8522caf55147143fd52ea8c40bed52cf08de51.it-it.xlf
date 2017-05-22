@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">82ca508e68550f791977e1aaac9555bd11ba7a32</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\controlling-resource-consumption-and-improving-performance.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">19735625ed1d0d4bee7f91d3d74d606ac9126990</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d055375d55fc0303224d774d136a9156290b7c89</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Controlling Resource Consumption and Improving Performance | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Controlling Resource Consumption and Improving Performance</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes various properties in different areas of the <ph id="ph1">[!INCLUDE[indigo1](../../../includes/indigo1-md.md)]</ph> architecture that work to control resource consumption and affect performance metrics.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Properties that Constrain Resource Consumption in WCF</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../includes/indigo1-md.md)]</ph> applies constraints on certain types of processes for either security or performance purposes.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>These constraints come in two main forms, either quotas and throttles.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Quotas<ept id="p1">*</ept> are limits that when reached or exceeded trigger an immediate exception at some point in the system.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Throttles<ept id="p1">*</ept> are limits that do not immediately cause an exception to be thrown.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Instead, when a throttle limit is reached, processing continues but within the limits set by that throttle value.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This limited processing might trigger an exception elsewhere, but this depends upon the application.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>In addition to the distinction between quotas and throttles, some constraining properties are located at the serialization level, some at the transport level, and some at the application level.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, the quota <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A?displayProperty=fullName&gt;</ph>, which is implemented by all system-supplied transport binding elements, is set to 65,536 bytes by default to hinder malicious clients from engaging in denial-of-service attacks against a service by causing excessive memory consumption.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>(Typically, you can increase performance by lowering this value.)</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>An example of a serialization quota is the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer.MaxItemsInObjectGraph%2A?displayProperty=fullName&gt;</ph> property, which specifies the maximum number of objects that the serializer serializes or deserializes in a single <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractSerializer.ReadObject%2A&gt;</ph> method call.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>An example of an application-level throttle is the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ServiceThrottle.MaxConcurrentSessions%2A?displayProperty=fullName&gt;</ph> property, which by default restricts the number of concurrent sessionful channel connections to 10.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>(Unlike the quotas, if this throttle value is reached, the application continues processing but accepts no new sessionful channels, which means that new clients cannot connect until one of the other sessionful channels is ended.)</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>These controls are designed to provide an out-of-the-box mitigation against certain types of attacks or to improve performance metrics such as memory footprint, start-up time, and so on.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>However, depending on the application, these controls can impede service application performance or prevent the application from working at all.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For example, an application designed to stream video can easily exceed the default <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This topic provides an overview of the various controls applied to applications at all levels of <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph>, describes various ways to obtain more information about whether a setting is hindering your application, and describes ways to correct various problems.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Most throttles and some quotas are available at the application level, even when the base property is a serialization or transport constraint.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For example, you can set the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer.MaxItemsInObjectGraph%2A?displayProperty=fullName&gt;</ph> property using the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.MaxItemsInObjectGraph%2A?displayProperty=fullName&gt;</ph> property on the service class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If you have a particular problem, you should first read the <bpt id="p1">[</bpt>WCF Troubleshooting Quickstart<ept id="p1">](../../../docs/framework/wcf/wcf-troubleshooting-quickstart.md)</ept> to see whether your problem (and a solution) is listed there.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Properties that restrict serialization processes are listed in <bpt id="p1">[</bpt>Security Considerations for Data<ept id="p1">](../../../docs/framework/wcf/feature-details/security-considerations-for-data.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Properties that restrict the consumption of resources related to transports are listed in <bpt id="p1">[</bpt>Transport Quotas<ept id="p1">](../../../docs/framework/wcf/feature-details/transport-quotas.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Properties that restrict the consumption of resources at the application layer are the members of the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ServiceThrottle&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Detecting Application and Performance Issues Related to Quota Settings</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The defaults of the preceding values have been chosen to enable basic application functionality across a wide range of application types while providing basic protection against common security issues.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, different application designs might exceed one or more throttle settings although the application otherwise is secure and would work as designed.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In these cases, you must identify which throttle values are being exceeded and at what level, and decide on the appropriate course of action to increase application throughput.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Typically, when writing the application and debugging it, you set the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph2">`true`</ph> in the configuration file or programmatically.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This instructs <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> to return service exception stack traces to the client application for viewing.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This feature reports most application-level exceptions in such a way as to display which quota settings might be involved, if that is the problem.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Some exceptions happen at run time below the visibility of the application layer and are not returned using this mechanism, and they might not be handled by a custom <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IErrorHandler?displayProperty=fullName&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If you are in a development environment like Microsoft Visual Studio, most of these exceptions are displayed automatically.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>However, some exceptions can be masked by development environment settings such as the <bpt id="p1">[</bpt>Just My Code<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=82174)</ept> settings in Visual Studio 2005.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Regardless of the capabilities of your development environment, you can use capabilities of <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> tracing and message logging to debug all exceptions and tune the performance of your applications.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Using Tracing to Troubleshoot Your Application<ept id="p1">](../../../docs/framework/wcf/diagnostics/tracing/using-tracing-to-troubleshoot-your-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Performance Issues and XmlSerializer</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Services and client applications that use data types that are serializable using the <ph id="ph1">&lt;xref:System.Xml.Serialization.XmlSerializer&gt;</ph> generate and compile serialization code for those data types at run time, which can result in slow start-up performance.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Pre-generated serialization code can be used only in client applications and not in services.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept> can improve start-up performance for these applications by generating the necessary serialization code from the compiled assemblies for the application.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Improve the Startup Time of WCF Client Applications using the XmlSerializer<ept id="p1">](../../../docs/framework/wcf/feature-details/startup-time-of-wcf-client-applications-using-the-xmlserializer.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Performance Issues When Hosting WCF Services Under ASP.NET</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>When a WCF service is hosted under IIS and ASP.NET, the configuration settings of IIS and ASP.NET can affect the throughput and memory footprint of the WCF service.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> ASP.NET performance, see <bpt id="p1">[</bpt>Improving ASP.NET Performance<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=186462)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>One setting that might have unintended consequences is <ph id="ph1">&lt;xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A&gt;</ph>, which is a property of the <ph id="ph2">&lt;xref:System.Web.Configuration.ProcessModelSection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>If your application has a fixed or small number of clients, setting <ph id="ph1">&lt;xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A&gt;</ph> to 2 might provide a throughput boost on a multiprocessor machine that has a CPU utilization close to 100%.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This increase in performance comes with a cost: it will also cause an increase in memory usage, which could reduce scalability.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Administration and Diagnostics<ept id="p1">](../../../docs/framework/wcf/diagnostics/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Large Data and Streaming<ept id="p1">](../../../docs/framework/wcf/feature-details/large-data-and-streaming.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7bf14ec618d8a3e5a7405ed2ba9f47efa9a9ba8c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-create-a-security-context-token-for-a-secure-session.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f0e6110f0ea1eb80cf91a3d0406c16d4ba4f41c9</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">82ab83a05611825333d777c4491c7e5e5a3309a7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Security Context Token for a Secure Session | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Security Context Token for a Secure Session</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>By using a stateful security context token (SCT) in a secure session, the session can withstand the service being recycled.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For instance, when a stateless SCT is used in a secure session and Internet Information Services (IIS) is reset, then the session data that is associated with the service is lost.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This session data includes an SCT token cache.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>So, the next time a client sends the service a stateless SCT, an error is returned, because the key that is associated with the SCT cannot be retrieved.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If, however, a stateful SCT is used, then the key that is associated with the SCT is contained within the SCT.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Because the key is contained within the SCT and thus contained within the message, the secure session is not affected by the service being recycled.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> uses stateless SCTs in a secure session.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This topic details how to use stateful SCTs in a secure session.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Stateful SCTs cannot be used in a secure session that involves a contract that derives from <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For applications that use stateful SCTs in a secure session, the thread identity for the service must be a user account that has an associated user profile.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>When the service is run under an account that does not have a user profile, such as <ph id="ph1">`Local Service`</ph>, an exception may be thrown.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>When impersonation is required on Windows XP, use a secure session without a stateful SCT.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>When stateful SCTs are used with impersonation, an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>Unsupported Scenarios<ept id="p1">](../../../../docs/framework/wcf/feature-details/unsupported-scenarios.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To use stateful SCTs in a secure session</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Create a custom binding that specifies that SOAP messages are protected by a secure session that uses a stateful SCT.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Define a custom binding, by adding a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>customBinding&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)</ept> to the configuration file for the service.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Add a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>binding&gt;<ept id="p1">](../../../../docs/framework/misc/binding.md)</ept> child element to the <bpt id="p2">[</bpt><ph id="ph2">\&lt;</ph>customBinding&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Specify a binding name by setting the <ph id="ph1">`name`</ph> attribute to a unique name within the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Specify the authentication mode for messages sent to and from this service by adding a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>security&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/security-of-custombinding.md)</ept> child element to the <bpt id="p2">[</bpt><ph id="ph2">\&lt;</ph>customBinding&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Specify that a secure session is used by setting the <ph id="ph1">`authenticationMode`</ph> attribute to <ph id="ph2">`SecureConversation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Specify that stateful SCTs are used by setting the <ph id="ph1">`requireSecurityContextCancellation`</ph> attribute to <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Specify how the client is authenticated while the secure session is established by adding a <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>secureConversationBootstrap&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/secureconversationbootstrap.md)</ept> child element to the <bpt id="p2">[</bpt><ph id="ph2">\&lt;</ph>security&gt;<ept id="p2">](../../../../docs/framework/configure-apps/file-schema/wcf/security-of-custombinding.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Specify how the client is authenticated by setting the <ph id="ph1">`authenticationMode`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Specify the message encoding by adding an encoding element, such as <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>textMessageEncoding&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/textmessageencoding.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Specify the transport by adding a transport element, such as the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>httpTransport&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/httptransport.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The following code example uses configuration to specify a custom binding that messages can use with stateful SCTs in a secure session.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The following code example creates a custom binding that uses the <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.AuthenticationMode&gt;</ph> authentication mode to bootstrap a secure session.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CreateStatefulSCT#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_createstatefulsct/cs/secureservice.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CreateStatefulSCT#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_createstatefulsct/vb/secureservice.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When Windows authentication is used in combination with a stateful SCT, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not populate the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceSecurityContext.WindowsIdentity%2A&gt;</ph> property with the actual caller's identity but instead sets the property to anonymous.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security must re-create the content of the service security context for every request from the incoming SCT, the server does not keep track of the security session in the memory.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Because it is impossible to serialize the <ph id="ph1">&lt;xref:System.Security.Principal.WindowsIdentity&gt;</ph> instance into the SCT, the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceSecurityContext.WindowsIdentity%2A&gt;</ph> property returns an anonymous identity.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The following configuration exhibits this behavior.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>customBinding&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
