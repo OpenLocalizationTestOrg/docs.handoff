@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0e3bdc8d6b838170210004669f31cda8897b996d</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\wcf\streaming-provider-wcf-data-services.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0d762987f39add670bd32c3c9792c4288cafac62</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">da8af40a27da54c077d861d7cd3c37ba2b6512ee</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Streaming Provider (WCF Data Services) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Streaming Provider (WCF Data Services)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>A data service can expose large object binary data.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This binary data might represent video and audio streams, images, document files, or other types of binary media.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When an entity in the data model includes one or more binary properties, the data service returns this binary data encoded as base-64 inside the entry in the response feed.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Because loading and serializing large binary data in this manner can affect performance, the <ph id="ph1">[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]</ph> defines a mechanism for retrieving binary data independent of the entity to which it belongs.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This is accomplished by separating the binary data from the entity into one or more data streams.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Media resource - binary data that belongs to an entity, such as a video, audio, image or other type of media resource stream.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Media link entry - an entity that has a reference to a related media resource stream.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>With <ph id="ph1">[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)]</ph>, you define a binary resource stream by implementing a streaming data provider.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The streaming provider implementation supplies the data service with the media resource stream associated with a specific entity as an <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This implementation enables the data service to accept and return media resources over HTTP as binary data streams of a specified MIME type.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Configuring a data service to support the streaming of binary data requires the following steps:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Attribute one or more entities in the data model as a media link entry.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>These entities should not include the binary data to be streamed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Any binary properties of an entity are always returned in the entry as base-64 encoded binary.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Implement the T:System.Data.Services.Providers.IDataServiceStreamProvider interface.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Define a data service that implements the <ph id="ph1">&lt;xref:System.IServiceProvider&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The data service uses the <ph id="ph1">&lt;xref:System.IServiceProvider.GetService%2A&gt;</ph> implementation to access the streaming data provider implementation.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This method returns the appropriate streaming provider implementation.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Enable large message streams in the Web application configuration.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Enable access to binary resources on the server or in a data source.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The examples in this topic are based on a sample streaming photo service, which is discussed in depth in the post <bpt id="p1">[</bpt>Data Services Streaming Provider Series: Implementing a Streaming Provider (Part 1)<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=198989)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The source code for this sample service is available on the <bpt id="p1">[</bpt>Streaming Photo Data Service Sample page<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=198988)</ept> on MSDN Code Gallery.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Defining a Media Link Entry in the Data Model</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The data source provider determines the way that an entity is defined as a media link entry in the data model.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Entity Framework Provider<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>To indicate that an entity is a media link entry, add the <ph id="ph1">`HasStream`</ph> attribute to the entity type definition in the conceptual model, as in the following example:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>Astoria Photo Streaming Service#HasStream<ept id="p2">](../../../../samples/snippets/xml/VS_Snippets_Misc/astoria photo streaming service/xml/photodata.edmx#hasstream)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>You must also add the namespace <ph id="ph1">`xmlns:m=http://schemas.microsoft.com/ado/2007/08/dataservices/metadata`</ph> either to the entity or to the root of the .edmx or .csdl file that defines the data model.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crexample](../../../../includes/crexample-md.md)]</ph> a data service that uses the <ph id="ph2">[!INCLUDE[adonet_ef](../../../../includes/adonet-ef-md.md)]</ph> provider and exposes a media resource, see the post <bpt id="p1">[</bpt>Data Services Streaming Provider Series: Implementing a Streaming Provider (Part 1)<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=198989)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Reflection Provider<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To indicate that an entity is a media link entry, add the <ph id="ph1">&lt;xref:System.Data.Services.Common.HasStreamAttribute&gt;</ph> to the class that defines the entity type in the reflection provider.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Custom Data Service Provider<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When using custom service providers, you implement the <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceMetadataProvider&gt;</ph> interface to define the metadata for your data service.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Custom Data Service Providers<ept id="p1">](../../../../docs/framework/data/wcf/custom-data-service-providers-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You indicate that a binary resource stream belongs to a <ph id="ph1">&lt;xref:System.Data.Services.Providers.ResourceType&gt;</ph> by setting the <ph id="ph2">&lt;xref:System.Data.Services.Providers.ResourceType.IsMediaLinkEntry%2A&gt;</ph> property to <ph id="ph3">`true`</ph> on the <ph id="ph4">&lt;xref:System.Data.Services.Providers.ResourceType&gt;</ph> that represents the entity type, which is a media link entry.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Implementing the IDataServiceStreamProvider Interface</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>To create a data service that supports binary data streams, you must implement the <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This implementation enables the data service to return binary data as a stream to the client and consume binary data as a stream sent from the client.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The data service creates an instance of this interface whenever it needs to access binary data as a stream.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph> interface specifies the following members:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Member name</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to delete the corresponding media resource when its media link entry is deleted.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>When you implement <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph>, this method contains the code that deletes the media resource associated with the supplied media link entry.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to return a media resource as a stream.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>When you implement <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph>, this method contains the code that provides a stream that is used by the data service to the return media resource that is associated with the provided media link entry.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to return the URI that is used to request the media resource for the media link entry.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This value is used to create the <ph id="ph1">`src`</ph> attribute in the content element of the media link entry and that is used to request the data stream.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>When this method returns <ph id="ph1">`null`</ph>, the data service automatically determines the URI.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Use this method when you need to provide clients with direct access to binary data without using the steam provider.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to return the Content-Type value of the media resource that is associated with the specified media link entry.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to return the eTag of the data stream that is associated with the specified entity.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This method is used when you manage concurrency for the binary data.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>When this method returns null, the data service does not track concurrency.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This method is invoked by the data service to obtain the stream that is used when receiving the stream sent from the client.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>When you implement <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph>, you must return a writable stream to which the data service writes received stream data.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Returns a namespace-qualified type name that represents the type that the data service runtime must create for the media link entry that is associated with the data stream for the media resource that is being inserted.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Creating the Streaming Data Service</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>To provide the <ph id="ph1">[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)]</ph> runtime with access to the <ph id="ph2">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph> implementation, the data service that you create must also implement the <ph id="ph3">&lt;xref:System.IServiceProvider&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The following example shows how to implement the <ph id="ph1">&lt;xref:System.IServiceProvider.GetService%2A&gt;</ph> method to return an instance of the <ph id="ph2">`PhotoServiceStreamProvider`</ph> class that implements <ph id="ph3">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Photo Streaming Service#PhotoServiceStreamingProvider<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria photo streaming service/cs/photodata.svc.cs#photoservicestreamingprovider)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Astoria Photo Streaming Service#PhotoServiceStreamingProvider<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria photo streaming service/vb/photodata.svc.vb#photoservicestreamingprovider)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For general information about how to create a data service, see <bpt id="p1">[</bpt>Configuring the Data Service<ept id="p1">](../../../../docs/framework/data/wcf/configuring-the-data-service-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Enabling Large Binary Streams in the Hosting Environment</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>When you create a data service in an <ph id="ph1">[!INCLUDE[vstecasp](../../../../includes/vstecasp-md.md)]</ph> Web application, <ph id="ph2">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> is used to provide the HTTP protocol implementation.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> limits the size of HTTP messages to only 65K bytes.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>To be able to stream large binary data to and from the data service, you must also configure the Web application to enable large binary files and to use streams for transfer.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>To do this, add the following in the <ph id="ph1">`&lt;configuration /&gt;`</ph> element of the application's Web.config file:</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>You must use a <ph id="ph1">&lt;xref:System.ServiceModel.TransferMode?displayProperty=fullName&gt;</ph> transfer mode to ensure that the binary data in both the request and response messages are streamed and not buffered by <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Streaming Message Transfer<ept id="p1">](../../../../docs/framework/wcf/feature-details/streaming-message-transfer.md)</ept> and <bpt id="p2">[</bpt>Transport Quotas<ept id="p2">](../../../../docs/framework/wcf/feature-details/transport-quotas.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>By default, Internet Information Services (IIS) also limits the size of requests to 4MB.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>To enable your data service to receive streams larger than 4MB when running on IIS, you must also set the <ph id="ph1">`maxRequestLength`</ph> attribute of the <bpt id="p1">[</bpt>httpRuntime Element (ASP.NET Settings Schema)<ept id="p1">](http://msdn.microsoft.com/en-us/e9b81350-8aaf-47cc-9843-5f7d0c59f369)</ept> in the <ph id="ph2">`&lt;system.web /&gt;`</ph> configuration section, as shown in the following example:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Using Data Streams in a Client Application</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)]</ph> client library enables you to both retrieve and update these exposed resources as binary streams on the client.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Working with Binary Data<ept id="p1">](../../../../docs/framework/data/wcf/working-with-binary-data-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Considerations for Working with a Streaming Provider</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The following are things to consider when you implement a streaming provider and when you access media resources from a data service.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>MERGE requests are not supported for media resources.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Use a PUT request to change the media resource of an existing entity.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>A POST request cannot be used to create a new media link entry.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Instead, you must issue a POST request to create a new media resource, and the data service creates a new media link entry with default values.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This new entity can be updated by a subsequent MERGE or PUT request.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>You may also consider caching the entity and make updates in the disposer, such as setting the property value to the value of the Slug header in the POST request.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>When a POST request is received, the data service calls <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A&gt;</ph> to create the media resource before it calls <ph id="ph2">&lt;xref:System.Data.Services.IUpdatable.SaveChanges%2A&gt;</ph> to create the media link entry.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>An implementation of <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A&gt;</ph> should not return a <ph id="ph2">&lt;xref:System.IO.MemoryStream&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>When you use this kind of stream, memory resource issues will occur when the service receives very large data streams.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The following are things to consider when storing media resources in a database:</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>A binary property that is a media resource should not be included in the data model.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>All properties exposed in a data model are returned in the entry in a response feed.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>To improve performance with a large binary stream, we recommend that you create a custom stream class to store binary data in the database.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This class is returned by your <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A&gt;</ph> implementation and sends the binary data to the database in chunks.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">[!INCLUDE[ssNoVersion](../../../../includes/ssnoversion-md.md)]</ph> database, we recommend that you use a FILESTREAM to stream data into the database when the binary data is larger than 1MB.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Ensure that your database is designed to store the binary large streams that are to be received by your data service.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>When a client sends a POST request to insert a media link entry with a media resource in a single request, <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A&gt;</ph> is called to obtain the stream before the data service inserts the new entity into the database.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>A streaming provider implementation must be able to handle this data service behavior.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Consider using a separate data table to store the binary data or store the data stream in a file until after the entity has been inserted into the database.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>When you implement the <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.DeleteStream%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetReadStream%2A&gt;</ph>, or <ph id="ph3">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A&gt;</ph> methods, you must use the eTag and Content-Type values that are supplied as method parameters.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Do not set eTag or Content-Type headers in your <ph id="ph1">&lt;xref:System.Data.Services.Providers.IDataServiceStreamProvider&gt;</ph> provider implementation.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>By default, the client sends large binary streams by using a chunked HTTP Transfer-Encoding.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">[!INCLUDE[vstecasp](../../../../includes/vstecasp-md.md)]</ph> Development Server does not support this kind of encoding, you cannot use this Web server to host a streaming data service that must accept large binary streams.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>For more information on <ph id="ph1">[!INCLUDE[vstecasp](../../../../includes/vstecasp-md.md)]</ph> Development Server, see <bpt id="p1">[</bpt>Web Servers in Visual Studio for ASP.NET Web Projects<ept id="p1">](http://msdn.microsoft.com/en-us/31d4f588-df59-4b7e-b9ea-e1f2dd204328)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Versioning Requirements</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The streaming provider has the following <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> protocol versioning requirements:</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The streaming provider requires that the data service support version 2.0 of the <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> protocol and later versions.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Data Service Versioning<ept id="p1">](../../../../docs/framework/data/wcf/data-service-versioning-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Data Services Providers<ept id="p1">](../../../../docs/framework/data/wcf/data-services-providers-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Custom Data Service Providers<ept id="p1">](../../../../docs/framework/data/wcf/custom-data-service-providers-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Working with Binary Data<ept id="p1">](../../../../docs/framework/data/wcf/working-with-binary-data-wcf-data-services.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

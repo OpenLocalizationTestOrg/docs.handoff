@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">646c69a4fbdd1d9be464c12bda6e6705a39b05e9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\modeling-cancellation-behavior-in-workflows.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b914a5ebad54c00fa6fa28cc4403e44d2721094d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f958df587d9bda08877b9388d1360c71e0af1cfa</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Modeling Cancellation Behavior in Workflows | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Modeling Cancellation Behavior in Workflows</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Activities can be canceled inside a workflow, for example by a <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity canceling incomplete branches when its <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> evaluates to <ph id="ph3">`true`</ph>, or from outside the workflow, if the host calls <ph id="ph4">&lt;xref:System.Activities.WorkflowApplication.Cancel%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>To provide cancellation handling, workflow authors can use the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity, the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> activity, or create custom activities that provide cancellation logic.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic provides an overview of cancellation in workflows.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Cancellation, Compensation, and Transactions</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Transactions give your application the ability to abort (roll back) all changes executed within the transaction if any errors occur during any part of the transaction process.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>However, not all work that may need to be canceled or undone is appropriate for transactions, such as long-running work or work that does not involve transactional resources.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Compensation provides a model for undoing previously completed non-transactional work if there is a subsequent failure in the workflow.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Cancellation provides a model for workflow and activity authors to handle non-transactional work that was not completed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>If an activity has not completed its execution and it is canceled, its cancellation logic will be invoked if it is available.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1"> [!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> transactions and compensation, see <bpt id="p1">[</bpt>Transactions<ept id="p1">](../../../docs/framework/windows-workflow-foundation/workflow-transactions.md)</ept> and <bpt id="p2">[</bpt>Compensation<ept id="p2">](../../../docs/framework/windows-workflow-foundation/compensation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Using CancellationScope</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity has two sections that can contain child activities: <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph> is where the activities that make up the logic of the activity are placed, and the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> is where the activities that provide cancellation logic for the activity are placed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>An activity can be canceled only if it has not completed.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In the case of the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity, completion refers to the completion of the activities in the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If a cancellation request is scheduled and the activities in the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph> have not completed, then the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> will be marked as <ph id="ph3">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> and the <ph id="ph4">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> activities will be executed.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Canceling a Workflow from the Host</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A host can cancel a workflow by calling the <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.Cancel%2A&gt;</ph> method of the <ph id="ph2">&lt;xref:System.Activities.WorkflowApplication&gt;</ph> instance that is hosting the workflow.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In the following example a workflow is created that has a <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The workflow is invoked, and then the host makes a call to <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.Cancel%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The main execution of the workflow is stopped, the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> of the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> is invoked, and then the workflow completes with a status of <ph id="ph3">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_WorkflowApplicationExample#35<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#35)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When this workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Starting the workflow.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>CancellationHandler invoked.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow b30ebb30-df46-4d90-a211-e31c38d8db3c Canceled.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity is canceled and the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> invoked, it is the responsibility of the workflow author to determine the progress that the canceled activity made before it was canceled in order to provide the appropriate cancellation logic.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> does not provide any information about the progress of the canceled activity.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A workflow can also be canceled from the host if an unhandled exception bubbles up past the root of the workflow and the <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.OnUnhandledException%2A&gt;</ph> handler returns <ph id="ph2">&lt;xref:System.Activities.UnhandledExceptionAction&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this example the workflow starts and then throws an <ph id="ph1">&lt;xref:System.ApplicationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This exception is unhandled by the workflow and so the <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.OnUnhandledException%2A&gt;</ph> handler is invoked.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The handler instructs the runtime to cancel the workflow, and the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> of the currently executing <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity is invoked.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_WorkflowApplicationExample#36<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#36)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When this workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Starting the workflow.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>OnUnhandledException in Workflow 6bb2d5d6-f49a-4c6d-a988-478afb86dbe9<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>An ApplicationException was thrown.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>CancellationHandler invoked.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow 6bb2d5d6-f49a-4c6d-a988-478afb86dbe9 Canceled.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Canceling an Activity from Inside a Workflow</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>An activity can also be canceled by its parent.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For example, if a <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity has multiple executing branches and its <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> evaluates to <ph id="ph3">`true`</ph> then its incomplete branches will be canceled.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>In this example a <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity is created that has two branches.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Its <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> is set to <ph id="ph2">`true`</ph> so the <ph id="ph3">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> completes as soon as any one of its branches is completed.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In this example branch 2 completes, and so branch 1 is canceled.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_WorkflowApplicationExample#37<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#37)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>When this workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Branch 1 starting.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Branch 2 complete.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Branch 1 canceled.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow e0685e24-18ef-4a47-acf3-5c638732f3be Completed.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Activities are also canceled if an exception bubbles up past the root of the activity but is handled at a higher level in the workflow.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In this example, the main logic of the workflow consists of a <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> is specified as the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph> of a <ph id="ph3">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity which is contained by a <ph id="ph4">&lt;xref:System.Activities.Statements.TryCatch&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>An exception is thrown from the body of the <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph>, is handled by the parent <ph id="ph2">&lt;xref:System.Activities.Statements.TryCatch&gt;</ph> activity, and the <ph id="ph3">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> is canceled.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_WorkflowApplicationExample#39<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#39)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>When this workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Sequence starting.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Sequence canceled.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Exception caught.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow e3c18939-121e-4c43-af1c-ba1ce977ce55 Completed.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Throwing Exceptions from a CancellationHandler</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Any exceptions thrown from the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> of a <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> are fatal to the workflow.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>If there is a possibility of exceptions escaping from a <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph>, use a <ph id="ph2">&lt;xref:System.Activities.Statements.TryCatch&gt;</ph> in the <ph id="ph3">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> to catch and handle these exceptions.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Cancellation using CompensableActivity</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Like the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity, the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> has a <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If a <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> is canceled, any activities in its <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> are invoked.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This can be useful for undoing partially completed compensable work.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For information about how to use <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> for compensation and cancellation, see <bpt id="p1">[</bpt>Compensation<ept id="p1">](../../../docs/framework/windows-workflow-foundation/compensation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Cancellation using Custom Activities</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Custom activity authors can implement cancellation logic into their custom activities in several different ways.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Custom activities that derive from <ph id="ph1">&lt;xref:System.Activities.Activity&gt;</ph> can implement cancellation logic by placing a <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> or other custom activity that contains cancellation logic in the body of the activity.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> and <ph id="ph2">&lt;xref:System.Activities.NativeActivity&gt;</ph> derived activities can override their respective <ph id="ph3">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> method and provide cancellation logic there.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.CodeActivity&gt;</ph> derived activities do not provide any provision for cancellation because all their work is performed in a single burst of execution when the runtime calls the <ph id="ph2">&lt;xref:System.Activities.CodeActivity.Execute%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If the execute method has not yet been called and a <ph id="ph1">&lt;xref:System.Activities.CodeActivity&gt;</ph> based activity is canceled, the activity closes with a status of <ph id="ph2">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> and the <ph id="ph3">&lt;xref:System.Activities.CodeActivity.Execute%2A&gt;</ph> method is not called.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Cancellation using NativeActivity</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> derived activities can override the <ph id="ph2">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> method to provide custom cancellation logic.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If this method is not overridden, then the default workflow cancellation logic is applied.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Default cancellation is the process that occurs for a <ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> that does not override the <ph id="ph2">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> method or whose <ph id="ph3">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> method calls the base <ph id="ph4">&lt;xref:System.Activities.NativeActivity&gt;</ph> <ph id="ph5">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>When an activity is canceled, the runtime flags the activity for cancellation and automatically handles certain cleanup.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If the activity only has outstanding bookmarks, the bookmarks will be removed and the activity will be marked as <ph id="ph1">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Any outstanding child activities of the canceled activity will in turn be canceled.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Any attempt to schedule additional child activities will result in the attempt being ignored and the activity will be marked as <ph id="ph1">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If any outstanding child activity completes in the <ph id="ph1">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> or <ph id="ph2">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> state, then the activity will be marked as <ph id="ph3">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Note that a cancellation request can be ignored.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>If an activity does not have any outstanding bookmarks or executing child activities and does not schedule any additional work items after being flagged for cancellation, it will complete successfully.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>This default cancellation suffices for many scenarios, but if additional cancellation logic is needed, then the built-in cancellation activities or custom activities can be used.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>In the following example, the <ph id="ph1">&lt;xref:System.Activities.NativeActivity.Cancel%2A&gt;</ph> override of a <ph id="ph2">&lt;xref:System.Activities.NativeActivity&gt;</ph> based custom <ph id="ph3">`ParallelForEach`</ph> activity is defined.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>When the activity is canceled, this override handles the cancellation logic for the activity.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This example is part of the <bpt id="p1">[</bpt>Non-Generic ParallelForEach<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/non-generic-parallelforeach.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> derived activities can determine if cancellation has been requested by inspecting the <ph id="ph2">&lt;xref:System.Activities.NativeActivityContext.IsCancellationRequested%2A&gt;</ph> property, and mark themselves as canceled by calling the <ph id="ph3">&lt;xref:System.Activities.NativeActivityContext.MarkCanceled%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.Activities.NativeActivityContext.MarkCanceled%2A&gt;</ph> does not immediately complete the activity.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>As usual, the runtime will complete the activity when it has no more outstanding work, but if <ph id="ph1">&lt;xref:System.Activities.NativeActivityContext.MarkCanceled%2A&gt;</ph> is called the final state will be <ph id="ph2">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> instead of <ph id="ph3">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Cancellation using AsyncCodeActivity</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> based activities can also provide custom cancellation logic by overriding the <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.Cancel%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>If this method is not overridden, then no cancellation handling is performed if the activity is canceled.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>In the following example, the <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity.Cancel%2A&gt;</ph> override of an <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> based custom <ph id="ph3">`ExecutePowerShell`</ph> activity is defined.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>When the activity is canceled, it performs the desired cancellation behavior.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This example is part of the <bpt id="p1">[</bpt>Using the InvokePowerShell Activity<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/using-the-invokepowershell-activity.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_WorkflowApplicationExample#1020<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#1020)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> derived activities can determine if cancellation has been requested by inspecting the <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivityContext.IsCancellationRequested%2A&gt;</ph> property, and mark themselves as canceled by calling the <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivityContext.MarkCanceled%2A&gt;</ph> method.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

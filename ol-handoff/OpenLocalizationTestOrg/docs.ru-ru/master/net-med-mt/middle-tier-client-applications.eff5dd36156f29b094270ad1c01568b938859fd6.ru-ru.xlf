@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">037960d6c095f11ffe0355d162960e66695b27ff</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\middle-tier-client-applications.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c359592b00f619dedb8de7cdf53ad1cc705480e7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">15ef4b71d8c771e194a5ab6952e8ec8946fb4f08</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Middle-Tier Client Applications | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Middle-Tier Client Applications</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic discusses various issues specific to middle-tier client applications that use <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Increasing Middle-Tier Client Performance</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Compared to previous communications technologies, such as Web services using <ph id="ph1">[!INCLUDE[vstecasp](../../../../includes/vstecasp-md.md)]</ph>, the creation of a <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client instance can be more complex due to the rich feature set of <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For example, when a <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph> object is opened it can establish a secure session with the service, a procedure that increases the startup time for the client instance.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Typically, these additional feature capabilities do not affect client applications greatly since the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client makes several calls, and then closes.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Middle-tier client applications, however, can create many <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client objects quickly and, as a result, experience increased initialization requirements.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>There are two main approaches to increasing the performance of middle-tier applications when calling services:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Cache the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client object and reuse it for subsequent calls where possible.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph> object and then use that object to create new <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client channel objects for each call.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Issues to consider when using these approaches include:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If the service is maintaining a client-specific state by using a session, then you cannot reuse the middle-tier <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client with multiple-client tier requests because the service's state is tied to that of the middle-tier client.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If the service must perform authentication on a per-client basis, you must create a new client for each incoming request on the middle tier instead of reusing the middle-tier <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client (or <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client channel object) because the client credentials of the middle tier cannot be modified after the <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client (or <ph id="ph4">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph>) has been created.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>While channels and clients created by the channels are thread-safe, they might not support writing more than one message to the wire concurrently.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If you are sending large messages, particularly if streaming, the send operation might block waiting for another send to complete.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This causes two sorts of problems: a lack of concurrency and the possibility of deadlock if the flow of control returns to the service reusing the channel (that is, the shared client calls a service whose code path results in a callback to the shared client).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This is true regardless of the type of <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client you reuse.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You must handle faulted channels regardless of whether you share the channel.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>When channels are reused, however, a faulting channel can take down more than one pending request or send.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For an example that demonstrates best practices for reusing a client for multiple requests, see <bpt id="p1">[</bpt>Data Binding in an ASP.NET Client<ept id="p1">](../../../../docs/framework/wcf/samples/data-binding-in-an-aspnet-client.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In addition, you can increase the startup performance for those clients that use data types that are serializable using the <ph id="ph1">&lt;xref:System.Xml.Serialization.XmlSerializer&gt;</ph> generate and compile serialization code for those data types at runtime, which can result in slow start-up performance.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept> can improve start-up performance for these applications by generating the necessary serialization code from the compiled assemblies for the application.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Improve the Startup Time of WCF Client Applications using the XmlSerializer<ept id="p1">](../../../../docs/framework/wcf/feature-details/startup-time-of-wcf-client-applications-using-the-xmlserializer.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Accessing Services Using a WCF Client<ept id="p1">](../../../../docs/framework/wcf/feature-details/accessing-services-using-a-client.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

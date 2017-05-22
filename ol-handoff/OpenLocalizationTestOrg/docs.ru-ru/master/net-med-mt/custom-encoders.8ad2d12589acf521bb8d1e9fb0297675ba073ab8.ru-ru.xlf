@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">90d8e31e43435fb7bd571aee6f1ce6849ffaf661</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\custom-encoders.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">76f8f523e89502062eff1696de87a6acf35f386b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ecfe5b2442b4b86e75d690b6c0e70428127b4120</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Encoders | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Encoders</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic discusses how to create custom encoders.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>, you use a <bpt id="p1">*</bpt>binding<ept id="p1">*</ept> to specify how to transfer data across a network between endpoints.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>A binding is made up of a sequence of <bpt id="p1">*</bpt>binding elements<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A binding includes optional protocol binding elements such as security, a required <bpt id="p1">*</bpt>Message Encoder<ept id="p1">*</ept> binding element, and a required transport binding element.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>A message encoder is represented by a message encoding binding element.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Three message encoders are included in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>: Binary, Message Transmission Optimization Mechanism (MTOM), and Text.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A message encoding binding element serializes an outgoing <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> and passes it to the transport, or receives the serialized form of a message from the transport and passes it to the protocol layer if present, or to the application, if not present.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Message encoders transform <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> instances to and from a wire representation.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Although encoders are described as sitting above the transport layer in the channel stack, they reside inside the transport layer.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Transports (for example HTTP) format the message according to the requirements of the transport standard.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Encoders (for example Text Xml) just encode the message.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>When connecting to a preexisting client or server, you may not have a choice about using a particular message encoding.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>However, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> services can be made accessible through multiple endpoints, each with a different message encoder.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When a single encoder does not cover the entire audience for your service, consider exposing your service over multiple endpoints.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Client applications can then choose the endpoint that is best for them.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Using multiple endpoints allows you to combine the advantages of different message encoders with other binding elements.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>System-Provided Encoders</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides several system-provided bindings that are designed to cover the most common application scenarios.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Each of these bindings combine a transport, message encoder, and other options (security, for example).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This topic describes how to extend the <ph id="ph1">`Text`</ph>, <ph id="ph2">`Binary`</ph>, and <ph id="ph3">`MTOM`</ph> message encoders that are included in <ph id="ph4">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, or create your own custom encoder.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The text message encoder supports both a plain XML encoding as well as SOAP encodings.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The plain XML encoding mode of the text message encoder is called the POX ("Plain Old XML") encoder to distinguish it from the text-based SOAP encoding.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> the combinations of binding elements provided by the system-provided bindings, see the corresponding section in <bpt id="p1">[</bpt>Choosing a Transport<ept id="p1">](../../../../docs/framework/wcf/feature-details/choosing-a-transport.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>How to Work with System-Provided Encoders</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>An encoding is added to a binding using a class derived from <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides the following types of binding elements derived from the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement&gt;</ph> class that can provide for text, binary and Message Transmission Optimization Mechanism (MTOM) encoding:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.TextMessageEncodingBindingElement&gt;</ph>: The most interoperable, but the least efficient encoder for XML messages.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>A Web service or Web service client can generally understand textual XML.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>However, transmitting large blocks of binary data as text is not efficient.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BinaryMessageEncodingBindingElement&gt;</ph>: Represents the binding element that specifies the character encoding and message versioning used for binary-based XML messages.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This is most efficient of the encoding options, but the least interoperable, because it is only supported by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> endpoints.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;</ph><ph id="ph2">&lt;!--zz xref:System.ServiceModel.Channels.MTOMMessageEncodingBindingElement --&gt;</ph> <ph id="ph3">`System.ServiceModel.Channels.MTOMMessageEncodingBindingElement`</ph>&gt;: Represents the binding element that specifies the character encoding and message versioning used for a message using a Message Transmission Optimization Mechanism (MTOM) encoding.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>MTOM is an efficient technology for transmitting binary data in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> messages.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The MTOM encoder attempts to balance between efficiency and interoperability.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The MTOM encoding transmits most XML in textual form, but optimizes large blocks of binary data by transmitting them as-is, without conversion to text.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The binding element creates a binary, MTOM, or text <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoderFactory&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The factory creates a binary, MTOM, or text <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Typically, there is only a single instance.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>However if sessions are used, a different encoder may be provided to each session.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The Binary encoder makes use of this to coordinate dynamic dictionaries (see XML Infrastructure).</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder.ReadMessage%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder.WriteMessage%2A&gt;</ph> methods are the core of the encoders.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The methods provide for reading a message from a stream or from a <ph id="ph1">&lt;xref:System.Byte&gt;</ph> array.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Byte arrays are used when the transport is operating in buffered mode.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Messages are always written to streams.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If the transport must buffer the message, it provides a stream that does the buffering.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The rest of the members work with support content, media types, and <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder.MessageVersion%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The transport calls these encoder methods to test whether the incoming message can be decoded by it, or to determine if the outgoing message is valid for this encoder.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Each of the three encoder implementations adds properties that are relevant to the specific encodings and is fully configurable.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The encoders also expose reader quotas that have secure defaults.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>See XML Infrastructure for a discussion of the quotas.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Features of System-Provided Encoders</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>There are a number of features provided by the system-provided encoders.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Pooling</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Each of the encoder implementations tries to pool as much as possible.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Reducing allocations is a key way to improve the performance of managed code.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To accomplish this pooling, the implementations use the <ph id="ph1">`SynchronizedPool`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The C# file contains a description of the additional optimizations used by this class.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`XmlDictionaryReader`</ph> and <ph id="ph2">`XmlDictionaryWriter`</ph> instances are pooled and reinitialized to prevent allocating new ones for each message.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For the readers, an <ph id="ph1">`OnClose`</ph> callback reclaims the reader when <ph id="ph2">`Close()`</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The encoder also recycles some message state objects used when constructing messages.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The sizes of these pools are configurable by the <ph id="ph1">`MaxReadPoolSize`</ph> and <ph id="ph2">`MaxWritePoolSize`</ph> properties on each of the three classes derived from <ph id="ph3">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Binary Encoding</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>When binary encoding uses sessions, the dynamic dictionary string must be communicated to the receiver of the message.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This is done by prefixing the message with the dynamic dictionary strings.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The receiver strips off the strings, adds them to the session, and processes the message.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Correctly passing dictionary strings requires that the transport be buffered.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The strings are appended to the message by an internal <ph id="ph1">`AddSessionInformationToMessage`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>It adds the strings as UTF-8 to the front of the message prefixed with their length.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The entire dictionary header is then prefixed with the length of its data.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The reverse operation is performed by an internal <ph id="ph1">`ExtractSessionInformationFromMessage`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>In addition to processing dynamic dictionary keys, buffered sessionful messages are received in a unique way.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Instead of creating a reader over the document and processing it, the binary encoder uses the internal <ph id="ph1">`MessagePatterns`</ph> class to deconstruct the binary stream.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The idea is that most messages have a certain set of headers that show up in a certain order when generated by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The pattern system breaks the message apart based on what it expects.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If it is successful, it initializes a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageHeaders&gt;</ph> object without parsing the XML.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If not, it falls back to the standard method.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>MTOM Encoding</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The &lt;<ph id="ph1">&lt;!--zz xref:System.ServiceModel.Channels.MTOMMessageEncodingBindingElement --&gt;</ph> <ph id="ph2">`System.ServiceModel.Channels.MTOMMessageEncodingBindingElement`</ph>&gt; class has an additional configuration property called &lt;<ph id="ph3">&lt;!--zz xref:System.ServiceModel.Channels.MTOMMessageEncodingBindingElement --&gt;</ph> <ph id="ph4">`System.ServiceModel.Channels.MTOMMessageEncodingBindingElement`</ph>.MaxBufferSize%2A&gt;.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>This places an upper bound on how much data it is allowed to buffer during the process of reading a message.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The XML Information Set (Infoset), or other MIME parts, may need to be buffered to reassemble all the MIME parts into a single message.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>To work correctly with HTTP, the internal MTOM message encoder class provides some internal APIs for <ph id="ph1">`GetContentType`</ph> (which is also internal) and <ph id="ph2">`WriteMessage`</ph>, which is public and can be overridden.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>More communication must occur to ensure values in the HTTP headers agree with values in the MIME headers.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Internally, the MTOM message encoder uses <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>'s text readers, and is similar to the Text encoder.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The main difference is that it optimizes large chunks of binary, or "Binary Large Objects" (BLOBs), by not converting them to Base-64 encoding prior to being embedded into the message bytes.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Instead, these BLOBs are kept extracted, and referenced as the MIME attachments.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Writing your own Encoder</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>To implement your own custom message encoder, you must provide custom implementations of the following abstract base classes:</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Converting from the in-memory representation of a message to a representation that can be written to a stream is encapsulated within the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph> class, which serves as a factory for XML readers and XML writers that support specific types of XML encodings.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The key methods of this class that you must override are:</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder.WriteMessage%2A&gt;</ph> which takes a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> object and writes it into a <ph id="ph3">&lt;xref:System.IO.Stream&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoder.ReadMessage%2A&gt;</ph> which takes a <ph id="ph2">&lt;xref:System.IO.Stream&gt;</ph> object and a maximum header size and returns a <ph id="ph3">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>It is the code you write in these methods that handles conversion between the standard transport protocol, and your customized encoding.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Next you need to code a factory class that creates your custom encoder.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoderFactory.Encoder%2A&gt;</ph> to return an instance of your custom <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Then connect your custom <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoderFactory&gt;</ph> to the binding element stack used to configure the service or client by overriding the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement.CreateMessageEncoderFactory%2A&gt;</ph> method to return an instance of this factory.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>There are two samples provided with <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> that illustrate this process with sample code: <bpt id="p1">[</bpt>Custom Message Encoder: Custom Text Encoder<ept id="p1">](../../../../docs/framework/wcf/samples/custom-message-encoder-custom-text-encoder.md)</ept> and <bpt id="p2">[</bpt>Custom Message Encoder: Compression Encoder<ept id="p2">](../../../../docs/framework/wcf/samples/custom-message-encoder-compression-encoder.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Transfer Architectural Overview<ept id="p1">](../../../../docs/framework/wcf/feature-details/data-transfer-architectural-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Choosing a Message Encoder<ept id="p1">](../../../../docs/framework/wcf/feature-details/choosing-a-message-encoder.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Choosing a Transport<ept id="p1">](../../../../docs/framework/wcf/feature-details/choosing-a-transport.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

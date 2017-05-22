@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b96bbb2f61ae7f56786d6112192dac4f87cbc0cb</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\poison-message-handling-in-msmq-4-0.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ae589d17291a739f56012be8ad19b230d9f22f9c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">81458770cda4c6cae401b92329975fa9c1221215</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Poison Message Handling in MSMQ 4.0 | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Poison Message Handling in MSMQ 4.0</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to perform poison message handling in a service.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This sample is based on the <bpt id="p1">[</bpt>Transacted MSMQ Binding<ept id="p1">](../../../../docs/framework/wcf/samples/transacted-msmq-binding.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This sample uses the <ph id="ph1">`netMsmqBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The service is a self-hosted console application to enable you to observe the service receiving queued messages.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>In queued communication, the client communicates to the service using a queue.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>More precisely, the client sends messages to a queue.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The service receives messages from the queue.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The service and client therefore, do not have to be running at the same time to communicate using a queue.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>A poison message is a message that is repeatedly read from a queue when the service reading the message cannot process the message and therefore terminates the transaction under which the message is read.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In such cases, the message is retried again.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This can theoretically go on forever if there is a problem with the message.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Note that this can only occur when you use transactions to read from the queue and invoke the service operation.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Based on the version of MSMQ, the NetMsmqBinding supports limited detection to full detection of poison messages.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>After the message has been detected as poisoned, then it can be handled in several ways.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Again, based on the version of MSMQ, the NetMsmqBinding supports limited handling to full handling of poison messages.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This sample illustrates the limited poison facilities provided on <ph id="ph1">[!INCLUDE[ws2003](../../../../includes/ws2003-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wxp](../../../../includes/wxp-md.md)]</ph> platform and the full poison facilities provided on <ph id="ph3">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In both samples, the objective is move the poison message out of the queue to another queue which then can be serviced by a poison message service.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>MSMQ v4.0 Poison Handling Sample</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>, MSMQ provides a poison sub-queue facility that can be used to store poison messages.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates the best practice of dealing with poison messages using <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The poison message detection in <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph> is quite sophisticated.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>There are 3 properties that help with detection.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A&gt;</ph> is number of times a given message is re-read from the queue and dispatched to the application for processing.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A message is re-read from the queue when it is put back into the queue because the message cannot be dispatched to the application or the application rolls back the transaction in the service operation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A&gt;</ph> is the number of times the message is moved to the retry queue.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A&gt;</ph> is reached, the message is moved to the retry queue.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The property <ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A&gt;</ph> is the time delay after which the message is moved from the retry queue back to the main queue.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A&gt;</ph> is reset to 0.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The message is tried again.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If all attempts to read the message have failed, then the message is marked as poisoned.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Once the message is marked as poisoned, the message is dealt with according to the settings in the <ph id="ph1">&lt;xref:System.ServiceModel.MsmqBindingBase.ReceiveErrorHandling%2A&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>To reiterate the possible values:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Fault (default): To fault the listener and also the service host.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Drop: To drop the message.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Move: To move the message to the poison message sub-queue.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This value is available only on <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Reject: To reject the message, sending the message back to the sender's dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This value is available only on <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The sample demonstrates using the <ph id="ph1">`Move`</ph> disposition for the poison message.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Move`</ph> causes the message to move to the poison sub-queue.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The service contract is <ph id="ph1">`IOrderProcessor`</ph>, which defines a one-way service that is suitable for use with queues.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The service operation displays a message stating it is processing the order.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>To demonstrate the poison message functionality, the <ph id="ph1">`SubmitPurchaseOrder`</ph> service operation throws an exception to rollback the transaction on a random invocation of the service.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This causes the message to be put back in the queue.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Eventually the message is marked as poison.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The configuration is set to move the poison message to the poison sub-queue.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The service configuration includes the following poison message properties: <ph id="ph1">`receiveRetryCount`</ph>, <ph id="ph2">`maxRetryCycles`</ph>, <ph id="ph3">`retryCycleDelay`</ph>, and <ph id="ph4">`receiveErrorHandling`</ph> as shown in the following configuration file.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Processing messages from the poison message queue</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The poison message service reads messages from the final poison message queue and processes them.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Messages in the poison message queue are messages that are addressed to the service that is processing the message, which could be different from the poison message service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Therefore, when the poison message service reads messages from the queue, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> channel layer finds the mismatch in endpoints and does not dispatch the message.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>In this case, the message is addressed to the order processing service but is being received by the poison message service.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>To continue to receive the message even if the message is addressed to a different endpoint, we must add a <ph id="ph1">`ServiceBehavior`</ph> to filter addresses where the match criterion is to match any service endpoint the message is addressed to.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This is required to successfully process messages that you read from the poison message queue.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The poison message service implementation itself is very similar to the service implementation.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>It implements the contract and processes the orders.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The code example is as follows.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Unlike the order processing service that reads messages from the order queue, the poison message service reads messages from the poison sub-queue.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The poison queue is a sub-queue of the main queue, is named "poison" and is automatically generated by MSMQ.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>To access it, provide the main queue name followed by a ";" and the sub-queue name, in this case -"poison", as shown in the following sample configuration.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In the sample for MSMQ v3.0, the poison queue name is not a sub-queue, rather the queue that we moved the message to.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the client, service, and poison message service activities are displayed in console windows.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>You can see the service receive messages from the client.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Press ENTER in each console window to shut down the services.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The service starts running, processing orders and at random starts to terminate processing.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If the message indicates it has processed the order, you can run the client again to send another message until you see the service has actually terminated a message.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Based on the configured poison settings, the message is tried once for processing before moving it to the final poison queue.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Start up the poison message service to read the poisoned message from the poison queue.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>In this example, the poison message service reads the message and processes it.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>You could see that the purchase order that was terminated and poisoned is read by the poison message service.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>If the service is run first, it will check to ensure that the queue is present.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>If the queue is not present, the service will create one.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>You can run the service first to create the queue, or you can create one via the MSMQ Queue Manager.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Follow these steps to create a queue in Windows 2008.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Open Server Manager in <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Expand the <bpt id="p1">**</bpt>Features<ept id="p1">**</ept> tab.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Right-click <bpt id="p1">**</bpt>Private Message Queues<ept id="p1">**</ept>, and select <bpt id="p2">**</bpt>New<ept id="p2">**</ept>, <bpt id="p3">**</bpt>Private Queue<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Check the <bpt id="p1">**</bpt>Transactional<ept id="p1">**</ept> box.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Enter <ph id="ph1">`ServiceModelSamplesTransacted`</ph> as the name of the new queue.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>To build the C# or Visual Basic .NET edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-computer configuration, change the queue names to reflect the actual hostname instead of localhost and follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>By default with the <ph id="ph1">`netMsmqBinding`</ph> binding transport, security is enabled.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Two properties, <ph id="ph1">`MsmqAuthenticationMode`</ph> and <ph id="ph2">`MsmqProtectionLevel`</ph>, together determine the type of transport security.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>By default, the authentication mode is set to <ph id="ph1">`Windows`</ph> and the protection level is set to <ph id="ph2">`Sign`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For MSMQ to provide the authentication and signing feature, it must be part of a domain.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>If you run this sample on a computer that is not part of a domain, you receive the following error: "User's internal message queuing certificate does not exist".</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>To run the sample on a computer joined to a workgroup</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>If your computer is not part of a domain, turn off transport security by setting the authentication mode and protection level to <ph id="ph1">`None`</ph> as shown in the following sample configuration:</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Ensure the endpoint is associated with the binding by setting the endpoint's bindingConfiguration attribute.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Ensure that you change the configuration on the PoisonMessageServer, server and the client before you run the sample.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Setting <ph id="ph1">`security mode`</ph> to <ph id="ph2">`None`</ph> is equivalent to setting <ph id="ph3">`MsmqAuthenticationMode`</ph>, <ph id="ph4">`MsmqProtectionLevel`</ph>, and <ph id="ph5">`Message`</ph> security to <ph id="ph6">`None`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>In order for Meta Data Exchange to work, we register a URL with http binding.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>This requires that the service run in an elevated command window.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Otherwise, you get an exception such as: Unhandled Exception: System.ServiceModel.AddressAccessDeniedException: HTTP could not register URL http://+:8000/ServiceModelSamples/service/.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Your process does not have access rights to this namespace (see http://go.microsoft.com/fwlink/?LinkId=70353 for details).</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>---&gt; System.Net.HttpListenerException: Access is denied.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your computer.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b1725d0725cd97abcefe5bf383885b6345227714</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\custom-rendering-ink.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">296db0b8f8c78bfe389c8828196ce836c81ef459</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">12692575ac85118be6ef50e257ffdf52cf155fa8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Rendering Ink | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Rendering Ink</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke.DrawingAttributes%2A&gt;</ph> property of a stroke allows you to specify the appearance of a stroke, such as its size, color, and shape, but there may be times that you want to customize the appearance beyond what <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke.DrawingAttributes%2A&gt;</ph> allow.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>You may want to customize the appearance of ink by rendering in the appearance of an air brush, oil paint, and many other effects.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA#tla_wpf](../../../../includes/tlasharptla-wpf-md.md)]</ph> allows you to custom render ink by implementing a custom <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> and <ph id="ph3">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This topic contains the following subsections:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Architecture<ept id="p1">](#Architecture)</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Implementing a Dynamic Renderer<ept id="p1">](#ImplementingADynamicRenderer)</ept></source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Implementing Custom Strokes<ept id="p1">](#ImplementingCustomStrokes)</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Implementing a Custom InkCanvas<ept id="p1">](#ImplementingACustomInkCanvas)</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Conclusion<ept id="p1">](#Conclusion)</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Architecture</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Ink rendering occurs two times; when a user writes ink to an inking surface, and again after the stroke is added to the ink-enabled surface.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> renders the ink when the user moves the tablet pen on the digitizer, and the <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> renders itself once it is added to an element.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>There are three classes to implement when dynamically rendering ink.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>DynamicRenderer<ept id="p1">**</ept>: Implement a class that derives from <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This class is a specialized <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn&gt;</ph> that renders the stroke as it is drawn.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> does the rendering on a separate thread, so the inking surface appears to collect ink even when the application user interface (UI) thread is blocked.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For more information about the threading model, see <bpt id="p1">[</bpt>The Ink Threading Model<ept id="p1">](../../../../docs/framework/wpf/advanced/the-ink-threading-model.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>To customize dynamically rendering a stroke, override the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer.OnDraw%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Stroke<ept id="p1">**</ept>: Implement a class that derives from <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This class is responsible for static rendering of the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPoint&gt;</ph> data after it has been converted into a <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke.DrawCore%2A&gt;</ph> method to ensure that static rendering of the stroke is consistent with dynamic rendering.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>InkCanvas:<ept id="p1">**</ept> Implement a class that derives from <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Assign the customized <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> to the <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas.DynamicRenderer%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas.OnStrokeCollected%2A&gt;</ph> method and add a custom stroke to the <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas.Strokes%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This ensures that the appearance of the ink is consistent.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Implementing a Dynamic Renderer</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Although the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> class is a standard part of <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph>, to perform more specialized rendering, you must create a customized dynamic renderer that derives from the <ph id="ph3">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> and override the <ph id="ph4">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer.OnDraw%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates a customized <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> that draws ink with a linear gradient brush effect.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>AdvancedInkTopicsSamples#19<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/AdvancedInkTopicsSamples/CSharp/DynamicRenderer.cs#19)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>AdvancedInkTopicsSamples#19<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/AdvancedInkTopicsSamples/VisualBasic/DynamicRenderer.vb#19)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>AdvancedInkTopicsSamples#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/AdvancedInkTopicsSamples/CSharp/DynamicRenderer.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>AdvancedInkTopicsSamples#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/AdvancedInkTopicsSamples/VisualBasic/DynamicRenderer.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Implementing Custom Strokes</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Implement a class that derives from <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This class is responsible for rendering <ph id="ph1">&lt;xref:System.Windows.Input.StylusPoint&gt;</ph> data after it has been converted into a <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke.DrawCore%2A&gt;</ph> class to do the actual drawing.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Your Stroke class can also store custom data by using the <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke.AddPropertyData%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This data is stored with the stroke data when persisted.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> class can also perform hit testing.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>You can also implement your own hit testing algorithm by overriding the <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke.HitTest%2A&gt;</ph> method in the current class.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following C# code demonstrates a custom <ph id="ph1">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> class that renders <ph id="ph2">&lt;xref:System.Windows.Input.StylusPoint&gt;</ph> data as a 3-D stroke.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>AdvancedInkTopicsSamples#19<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/AdvancedInkTopicsSamples/CSharp/DynamicRenderer.cs#19)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>AdvancedInkTopicsSamples#19<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/AdvancedInkTopicsSamples/VisualBasic/DynamicRenderer.vb#19)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>AdvancedInkTopicsSamples#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/AdvancedInkTopicsSamples/CSharp/DynamicRenderer.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>AdvancedInkTopicsSamples#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/AdvancedInkTopicsSamples/VisualBasic/DynamicRenderer.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Implementing a Custom InkCanvas</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The easiest way to use your customized <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> and stroke is to implement a class that derives from <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> and uses these classes.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> has a <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas.DynamicRenderer%2A&gt;</ph> property that specifies how the stroke is rendered when the user is drawing it.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To custom render strokes on an <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> do the following:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Create a class that derives from the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Assign your customized <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> to the <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas.DynamicRenderer%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas.OnStrokeCollected%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>In this method, remove the original stroke that was added to the InkCanvas.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Then create a custom stroke, add it to the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas.Strokes%2A&gt;</ph> property, and call the base class with a new <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvasStrokeCollectedEventArgs&gt;</ph> that contains the custom stroke.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The following C# code demonstrates a custom <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> class that uses a customized <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> and collects custom strokes.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>AdvancedInkTopicsSamples#9<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/AdvancedInkTopicsSamples/CSharp/Window1.xaml.cs#9)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> can have more than one <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can add multiple <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> objects to the <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> by adding them to the <ph id="ph3">&lt;xref:System.Windows.UIElement.StylusPlugIns%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Conclusion</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>You can customize the appearance of ink by deriving your own <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke&gt;</ph>, and <ph id="ph3">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Together, these classes ensure that the appearance of the stroke is consistent when the user draws the stroke and after it is collected.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Advanced Ink Handling<ept id="p1">](../../../../docs/framework/wpf/advanced/advanced-ink-handling.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

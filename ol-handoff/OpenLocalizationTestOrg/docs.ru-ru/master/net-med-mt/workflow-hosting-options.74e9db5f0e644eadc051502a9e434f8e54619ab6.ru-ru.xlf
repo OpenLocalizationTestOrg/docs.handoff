@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5cee659e35b7f15121f03796c1226646821b337b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\workflow-hosting-options.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">72c945afa844cc5d98dffc8aae8343410ee7c141</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f9f92f777f656a0ebabf53f4341c4550a6e7e4a5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Workflow Hosting Options | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Workflow Hosting Options</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Most of the <ph id="ph1">[!INCLUDE[wf](../../../includes/wf-md.md)]</ph> samples use workflows that are hosted in a console application, but this isn't a realistic scenario for real-world workflows.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Workflows in actual business applications will be hosted in persistent processes- either a Windows service authored by the developer, or a server application such as <ph id="ph1">[!INCLUDE[iisver](../../../includes/iisver-md.md)]</ph> or AppFabric.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The differences between these approaches are as follows.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Hosting workflows in IIS with Windows AppFabric</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Using IIS with AppFabric is the preferred host for workflows.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The host application for workflows using AppFabric is Windows Activation Service, which removes the dependency on HTTP over IIS alone.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Hosting workflows in IIS alone</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">[!INCLUDE[iisver](../../../includes/iisver-md.md)]</ph> alone is not recommended, as there are management and monitoring tools available with AppFabric that facilitate maintenance of running applications.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Workflows should only be hosted in <ph id="ph1">[!INCLUDE[iisver](../../../includes/iisver-md.md)]</ph> alone if there are infrastructure concerns with moving to AppFabric.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1"> [!INCLUDE[iisver](../../../includes/iisver-md.md)]</ph> recycles application pools periodically for various reasons.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>When an application pool is recycled, IIS stops accepting messages to the old pool, and instantiates a new application pool to accept new requests.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If a workflow continues working after sending a response, <ph id="ph1">[!INCLUDE[iisver](../../../includes/iisver-md.md)]</ph> will not be aware of the work being done, and may recycle the hosting application pool.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If this happens, the workflow will abort, and tracking services will record a <bpt id="p1">[</bpt>1004 - WorkflowInstanceAborted<ept id="p1">](../../../docs/framework/windows-workflow-foundation/1004-workflowinstanceaborted.md)</ept> message with an empty Reason field.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If persistence is used, the host must explicitly restart aborted instances from the last persistence point.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If AppFabric is used, the workflow management service will eventually resume the workflow from the last successful persistence point if persistence is used.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If no persistence is used, and the workflow performs operations outside a Request/Response pattern, data will be lost when the workflow aborts.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Hosting a workflow in a custom Windows Service</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Creating a custom workflow service to host the workflow will require the developer to duplicate a lot of the functionality provided out-of-box by AppFabric, but will allow for more flexibility with custom functionality.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This option should only be considered if AppFabric proves to not be an option.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

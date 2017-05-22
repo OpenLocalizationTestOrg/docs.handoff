@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c785cefda7fc2574fe553bf56e3b853225dd8fa3</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\com-callable-wrapper.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">85f6475c65da0b04032608c6bcaf18556abcdd0e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">88f0e22c03ed2e7cf437f43afa0bb5a7b4188215</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>COM Callable Wrapper | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>COM Callable Wrapper</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When a COM client calls a .NET object, the common language runtime creates the managed object and a COM callable wrapper (CCW) for the object.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Unable to reference a .NET object directly, COM clients use the CCW as a proxy for the managed object.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The runtime creates exactly one CCW for a managed object, regardless of the number of COM clients requesting its services.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>As the following illustration shows, multiple COM clients can hold a reference to the CCW that exposes the INew interface.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The CCW, in turn, holds a single reference to the managed object that implements the interface and is garbage collected.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Both COM and .NET clients can make requests on the same managed object simultaneously.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>COM callable wrapper<ept id="p1">](../../../docs/framework/interop/media/ccw.gif "ccw")</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Accessing .NET objects through COM callable wrapper</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>COM callable wrappers are invisible to other classes running within the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Their primary purpose is to marshal calls between managed and unmanaged code; however, CCWs also manage the object identity and object lifetime of the managed objects they wrap.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Object Identity</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The runtime allocates memory for the .NET object from its garbage-collected heap, which enables the runtime to move the object around in memory as necessary.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In contrast, the runtime allocates memory for the CCW from a noncollected heap, making it possible for COM clients to reference the wrapper directly.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Object Lifetime</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Unlike the .NET client it wraps, the CCW is reference-counted in traditional COM fashion.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When the reference count on the CCW reaches zero, the wrapper releases its reference on the managed object.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>A managed object with no remaining references is collected during the next garbage-collection cycle.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Simulating COM interfaces</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>COM callable wrapper<ept id="p1">](../../../docs/framework/interop/com-callable-wrapper.md)</ept> (CCW) exposes all public, COM-visible interfaces, data types, and return values to COM clients in a manner that is consistent with COM's enforcement of interface-based interaction.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For a COM client, invoking methods on a .NET Framework object is identical to invoking methods on a COM object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>To create this seamless approach, the CCW manufactures traditional COM interfaces, such as <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As the following illustration shows, the CCW maintains a single reference on the .NET object that it wraps.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Both the COM client and .NET object interact with each other through the proxy and stub construction of the CCW.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>COM interfaces<ept id="p1">](../../../docs/framework/interop/media/ccwwithinterfaces.gif "ccwwithinterfaces")</ept></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Com interfaces and the COM callable wrapper</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In addition to exposing the interfaces that are explicitly implemented by a class in the managed environment, the .NET Framework supplies implementations of the COM interfaces listed in the following table on behalf of the object.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>A .NET class can override the default behavior by providing its own implementation of these interfaces.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>However, the runtime always provides the implementation for the <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Idispatch<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Provides a mechanism for late binding to type.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IerrorInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Provides a textual description of the error, its source, a Help file, Help context, and the GUID of the interface that defined the error (always <bpt id="p1">**</bpt>GUID_NULL<ept id="p1">**</ept> for .NET classes).</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IprovideClassInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Enables COM clients to gain access to the <bpt id="p1">**</bpt>ITypeInfo<ept id="p1">**</ept> interface implemented by a managed class.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IsupportErrorInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Enables a COM client to determine whether the managed object supports the <bpt id="p1">**</bpt>IErrorInfo<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>If so, enables the client to obtain a pointer to the latest exception object.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>All managed types support the <bpt id="p1">**</bpt>IErrorInfo<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ItypeInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Provides type information for a class that is exactly the same as the type information produced by Tlbexp.exe.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Iunknown<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Provides the standard implementation of the <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> interface with which the COM client manages the lifetime of the CCW and provides type coercion.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A managed class can also provide the COM interfaces described in the following table.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The (_<bpt id="p1">*</bpt>classname<ept id="p1">*</ept>) class interface</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Interface, exposed by the runtime and not explicitly defined, that exposes all public interfaces, methods, properties, and fields that are explicitly exposed on a managed object.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IConnectionPoint<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IconnectionPointContainer<ept id="p2">**</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Interface for objects that source delegate-based events (an interface for registering event subscribers).</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IdispatchEx<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Interface supplied by the runtime if the class implements <bpt id="p1">**</bpt>IExpando<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>IDispatchEx<ept id="p1">**</ept> interface is an extension of the <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept> interface that, unlike <bpt id="p3">**</bpt>IDispatch<ept id="p3">**</ept>, enables enumeration, addition, deletion, and case-sensitive calling of members.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IEnumVARIANT<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Interface for collection-type classes, which enumerates the objects in the collection if the class implements <bpt id="p1">**</bpt>IEnumerable<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Introducing the class interface</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The class interface, which is not explicitly defined in managed code, is an interface that exposes all public methods, properties, fields, and events that are explicitly exposed on the .NET object.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>This interface can be a dual or dispatch-only interface.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The class interface receives the name of the .NET class itself, preceded by an underscore.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>For example, for class Mammal, the class interface is _Mammal.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For derived classes, the class interface also exposes all public methods, properties, and fields of the base class.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The derived class also exposes a class interface for each base class.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>For example, if class Mammal extends class MammalSuperclass, which itself extends System.Object, the .NET object exposes to COM clients three class interfaces named _Mammal, _MammalSuperclass, and _Object.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>For example, consider the following .NET class:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The COM client can obtain a pointer to a class interface named <ph id="ph1">`_Mammal`</ph>, which is described in the type library that the <bpt id="p1">[</bpt>Type Library Exporter (Tlbexp.exe)<ept id="p1">](../../../docs/framework/tools/tlbexp-exe-type-library-exporter.md)</ept> tool generates.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`Mammal`</ph> class implemented one or more interfaces, the interfaces would appear under the coclass.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Generating the class interface is optional.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>By default, COM interop generates a dispatch-only interface for each class you export to a type library.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>You can prevent or modify the automatic creation of this interface by applying the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.ClassInterfaceAttribute&gt;</ph> to your class.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Although the class interface can ease the task of exposing managed classes to COM, its uses are limited.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Using the class interface, instead of explicitly defining your own, can complicate the future versioning of your managed class.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Please read the following guidelines before using the class interface.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Define an explicit interface for COM clients to use rather than generating the class interface.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Because COM interop generates a class interface automatically, post-version changes to your class can alter the layout of the class interface exposed by the common language runtime.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Since COM clients are typically unprepared to handle changes in the layout of an interface, they break if you change the member layout of the class.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This guideline reinforces the notion that interfaces exposed to COM clients must remain unchangeable.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>To reduce the risk of breaking COM clients by inadvertently reordering the interface layout, isolate all changes to the class from the interface layout by explicitly defining interfaces.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Use the <bpt id="p1">**</bpt>ClassInterfaceAttribute<ept id="p1">**</ept> to disengage the automatic generation of the class interface and implement an explicit interface for the class, as the following code fragment shows:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>ClassInterfaceType.None<ept id="p1">**</ept> value prevents the class interface from being generated when the class metadata is exported to a type library.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>In the preceding example, COM clients can access the <ph id="ph1">`LoanApp`</ph> class only through the <ph id="ph2">`IExplicit`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Avoid caching dispatch identifiers (DispIds).</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Using the class interface is an acceptable option for scripted clients, Microsoft Visual Basic 6.0 clients, or any late-bound client that does not cache the DispIds of interface members.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>DispIds identify interface members to enable late binding.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For the class interface, generation of DispIds is based on the position of the member in the interface.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>If you change the order of the member and export the class to a type library, you will alter the DispIds generated in the class interface.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>To avoid breaking late-bound COM clients when using the class interface, apply the <bpt id="p1">**</bpt>ClassInterfaceAttribute<ept id="p1">**</ept> with the <bpt id="p2">**</bpt>ClassInterfaceType.AutoDispatch<ept id="p2">**</ept> value.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This value implements a dispatch-only class interface, but omits the interface description from the type library.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Without an interface description, clients are unable to cache DispIds at compile time.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Although this is the default interface type for the class interface, you can apply the attribute value explicitly.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>To get the DispId of an interface member at run time, COM clients can call <bpt id="p1">**</bpt>IDispatch.GetIdsOfNames<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>To invoke a method on the interface, pass the returned DispId as an argument to <bpt id="p1">**</bpt>IDispatch.Invoke<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Restrict using the dual interface option for the class interface.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Dual interfaces enable early and late binding to interface members by COM clients.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>At design time and during testing, you might find it useful to set the class interface to dual.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>For a managed class (and its base classes) that will never be modified, this option is also acceptable.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>In all other cases, avoid setting the class interface to dual.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>An automatically generated dual interface might be appropriate in rare cases; however, more often it creates version-related complexity.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>For example, COM clients using the class interface of a derived class can easily break with changes to the base class.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>When a third party provides the base class, the layout of the class interface is out of your control.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Further, unlike a dispatch-only interface, a dual interface (<bpt id="p1">**</bpt>ClassInterface.AutoDual<ept id="p1">**</ept>) provides a description of the class interface in the exported type library.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Such a description encourages late-bound clients to cache DispIds at run time.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>COM Callable Wrapper<ept id="p1">](../../../docs/framework/interop/com-callable-wrapper.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>COM Wrappers<ept id="p1">](../../../docs/framework/interop/com-wrappers.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Exposing .NET Framework Components to COM<ept id="p1">](../../../docs/framework/interop/exposing-dotnet-components-to-com.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Simulating COM Interfaces<ept id="p1">](http://msdn.microsoft.com/en-us/ad2ab959-e2be-411b-aaff-275c3fba606c)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Qualifying .NET Types for Interoperation<ept id="p1">](../../../docs/framework/interop/qualifying-net-types-for-interoperation.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Runtime Callable Wrapper<ept id="p1">](../../../docs/framework/interop/runtime-callable-wrapper.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

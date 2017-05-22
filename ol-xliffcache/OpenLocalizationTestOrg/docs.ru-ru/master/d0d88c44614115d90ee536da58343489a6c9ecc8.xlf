@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d0d88c44614115d90ee536da58343489a6c9ecc8</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\how-to-create-a-custom-instance-store.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">019e89cd1877ce61a9da1285ee244b36c296c4e1</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e4b3148850efd44f69981bde6e004c08e4fe16c7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Instance Store | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Instance Store</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)]</ph> contains <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph>, an instance store that uses SQL Server to persist workflow data.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>If your application is required to persist workflow data to another medium, such as a different database or a file system, you can implement a custom instance store.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>A custom instance store is created by extending the abstract <ph id="ph1">&lt;xref:System.Runtime.DurableInstancing.InstanceStore&gt;</ph> class and implementing the methods that are required for the implementation.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For a complete implementation of a custom instance store, see the <bpt id="p1">[</bpt>Corporate Purchase Process<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/corporate-purchase-process.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Implementing the BeginTryCommand method</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.DurableInstancing.InstanceStore.BeginTryCommand%2A&gt;</ph> is sent to the instance store by the persistence engine.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The type of the <ph id="ph1">`command`</ph> parameter indicates which command is being executed; this parameter can be of the following types:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SaveWorkflowCommand&gt;</ph>: The persistence engine sends this command to the instance store when a workflow is to be persisted to the storage medium.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The workflow persistence data is provided to the method in the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SaveWorkflowCommand.InstanceData%2A&gt;</ph> member of the <ph id="ph2">`command`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.LoadWorkflowCommand&gt;</ph>: The persistence engine sends this command to the instance store when a workflow is to be loaded from the storage medium.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The instance ID of the workflow to be loaded is provided to the method in the <ph id="ph1">`instanceId`</ph> parameter of the <ph id="ph2">&lt;xref:System.Runtime.DurableInstancing.InstancePersistenceContext.InstanceView%2A&gt;</ph> property of the <ph id="ph3">`context`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.CreateWorkflowOwnerCommand&gt;</ph>: The persistence engine sends this command to the instance store when a <ph id="ph2">&lt;xref:System.ServiceModel.Activities.WorkflowServiceHost&gt;</ph> must be registered as a lock owner.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The instance ID of the current workflow should be provided to the instance store using <ph id="ph1">&lt;xref:System.Runtime.DurableInstancing.InstancePersistenceContext.BindInstanceOwner%2A&gt;</ph> method of the <ph id="ph2">`context`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The following code snippet demonstrates how to implement the CreateWorkflowOwner command to assign an explicit lock owner.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.DeleteWorkflowOwnerCommand&gt;</ph>: The persistence engine sends this command to the instance store when the instance ID of a lock owner can be removed from the instance store.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>As with <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.CreateWorkflowOwnerCommand&gt;</ph>, the ID of the lock owner should be provided by the application.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following code snippet demonstrates how to release a lock using <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.DeleteWorkflowOwnerCommand&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The above method should be called in a Try/Catch block when a child instance is run.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.LoadWorkflowByInstanceKeyCommand&gt;</ph>: The persistence engine sends this command to the instance store when a workflow instance is to be loaded using the workflow’s instance key.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The ID of the instance key can be determined by using the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.LoadWorkflowByInstanceKeyCommand.LookupInstanceKey%2A&gt;</ph> parameter of the command.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand&gt;</ph>: The persistence engine sends this command to the instance store to retrieve activation parameters for persisted workflows in order to create a workflow host that can then load workflows.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This command is sent by the engine in response to the instance store raising the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent&gt;</ph> to the host when it locates an instance that can be activated.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The instance store should be polled to determine if there are workflows that can be activated.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand&gt;</ph>: The persistence engine sends this command to the instance store to load runnable workflow instances.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This command is sent by the engine in response to the instance store raising the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent&gt;</ph> to the host when it locates an instance that can be run.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The instance store should poll for workflows that can be run.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The following code snippet demonstrates polling an instance store for workflows that can be run or activated.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In the above code snippet, the instance store queries the events available and examines each one to determine if it is a <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If one is found, <ph id="ph1">&lt;xref:System.Runtime.DurableInstancing.InstanceStore.SignalEvent%2A&gt;</ph> is called to signal the host to send a command to the instance store.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The following code snippet demonstrates an implementation of a handler for this command.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the above code snippet, the instance store searches for runnable instances.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If an instance is found, it is bound to the execution context and loaded.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Using a custom instance store</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>To implement a custom instance store, assign an instance of the instance store to the <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.InstanceStore%2A&gt;</ph>, and implement the <ph id="ph2">&lt;xref:System.Activities.WorkflowApplication.PersistableIdle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>How to: Create and Run a Long Running Workflow<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-and-run-a-long-running-workflow.md)</ept> tutorial for specifics.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>A sample instance store</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following code sample is a complete instance store implementation, taken from the <bpt id="p1">[</bpt>Corporate Purchase Process<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/corporate-purchase-process.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This instance store persists workflow data to a file using XML.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

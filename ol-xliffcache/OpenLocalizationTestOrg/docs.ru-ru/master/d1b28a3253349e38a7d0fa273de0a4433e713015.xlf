@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d1b28a3253349e38a7d0fa273de0a4433e713015</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\federation-and-trust.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">eb683d0e0b0629915275f681b02572919cf38519</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e4b023361db824a1b34967456f255ac773a69c59</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Federation and Trust | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Federation and Trust</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic covers various aspects related to federated applications, trust boundaries and configuration, and use of issued tokens in <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Services, Security Token Services, and Trust</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Services that expose federated endpoints typically expect clients to authenticate using a token provided by a specific issuer.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>It is important that the service is configured with the correct credentials for the issuer; otherwise, it will not be able to verify signatures over the issued tokens, and the client will be unable to communicate with the service.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> configuring issuer credentials on the service, see <bpt id="p1">[</bpt>How to: Configure Credentials on a Federation Service<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-configure-credentials-on-a-federation-service.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Similarly, when using symmetric keys, the keys are encrypted for the target service, so you must configure the security token service with the correct credentials for the target service; otherwise, it will be unable to encrypt the key for the target service, and again, the client will be unable to communicate with the service.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> services use the value of the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.LocalServiceSecuritySettings.MaxClockSkew%2A&gt;</ph> property on the <bpt id="p1">[</bpt>SecurityBindingElement<ept id="p1">](../../../../docs/framework/wcf/diagnostics/wmi/securitybindingelement.md)</ept> to allow for clock skew between the client and service.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In federation, the <ph id="ph1">`MaxClockSkew`</ph> setting applies to clock skews between both the client and the security token service from where the client obtained the issued token.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Therefore, security token services need not make clock-skew allowances when setting the issued token's effective and expiration times.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The importance of clock skew increases as the lifetime of the issued token shortens.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In most cases, clock skew is not a significant issue if the token lifetime is 30 minutes or more.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Scenarios with shorter lifetimes or where the exact validity time of the token is important should be designed to take clock skew into account.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Federated Endpoints and Time-Outs</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When a client communicates with a federated endpoint, it must first acquire an appropriate token from a security token service.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If the security token service exposes a federated endpoint, the client must first obtain a token from the issuer for that endpoint.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Each token acquisition takes time, and that time is subject to the overall time-out for sending the actual message to the final endpoint.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For example, the time-out on the client-side channel is set to 30 seconds.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Two token issuers need to be called to retrieve tokens before sending the message to the final endpoint, and each takes 15 seconds to issue a token.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In this case, the attempt will fail and a <ph id="ph1">&lt;xref:System.TimeoutException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Thus, you need to set the <ph id="ph1">&lt;xref:System.ServiceModel.IContextChannel.OperationTimeout%2A&gt;</ph> value on the client channel to a value large enough to include the time taken to retrieve all issued tokens.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In the case where a value is not specified for the <ph id="ph1">&lt;xref:System.ServiceModel.IContextChannel.OperationTimeout%2A&gt;</ph> property, the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Binding.OpenTimeout%2A&gt;</ph> property or the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.Binding.SendTimeout%2A&gt;</ph> property (or both) need to be set to a value large enough to include the time taken to retrieve all issued tokens.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Token Lifetime and Renewal</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> clients do not check the issued token when making an initial request to a service.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Rather, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> trusts the security token service to issue a token with appropriate effective and expiration times.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If the token is cached by the client and reused, the token lifetime is checked on subsequent requests and the client automatically renews the token if necessary.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> token caching, see <bpt id="p1">[</bpt>How to: Create a Federated Client<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-create-a-federated-client.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Specifying short lifetimes, on the order of 30 seconds or less for issued tokens or security context tokens, may result in negotiation time-outs or other exceptions being thrown by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> clients when requesting issued tokens or when negotiating or renewing security context tokens.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Issued Tokens and InclusionMode</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Whether an issued token is serialized in a message sent from a client to a federated endpoint or not is controlled by setting the <ph id="ph1">&lt;xref:System.ServiceModel.Security.Tokens.SecurityTokenParameters.InclusionMode%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.ServiceModel.Security.Tokens.SecurityTokenParameters&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This property can be set to one of the <ph id="ph1">&lt;xref:System.ServiceModel.Security.Tokens.SecurityTokenInclusionMode&gt;</ph> enumeration values, but it is not useful in most federated scenarios.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SecurityTokenInclusionMode.Never`</ph> and <ph id="ph2">`SecurityTokenInclusionMode.AlwaysToInitiator`</ph> values cause the client to send a reference to the token issued by the security token service to the relying party.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Unless the relying party possesses a copy of the issued token, authentication will fail because the token reference is not resolvable.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> treats <ph id="ph2">`SecurityTokenInclusionMode.Once`</ph> as equivalent to <ph id="ph3">`SecurityTokenInclusionMode.AlwaysToRecipient`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a Federated Client<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-create-a-federated-client.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Configure Credentials on a Federation Service<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-configure-credentials-on-a-federation-service.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a WSFederationHttpBinding<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-create-a-wsfederationhttpbinding.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

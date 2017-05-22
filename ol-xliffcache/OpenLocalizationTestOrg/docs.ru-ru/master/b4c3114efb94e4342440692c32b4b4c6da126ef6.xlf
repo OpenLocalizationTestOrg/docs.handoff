@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b4c3114efb94e4342440692c32b4b4c6da126ef6</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\content-based-correlation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d914fbca62810c9892711a433f81917530f1a2c2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">649e5a5818b183da8d764f68be9369f3e9c180d5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Content Based Correlation | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Content Based Correlation</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When workflow services communicate with clients and other services, often there is some data in the exchanged messages that uniquely relates a message to a particular instance.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Content-based correlation uses this data in the message, such as a customer number or order ID, to route messages to the proper workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic explains how to use content-based correlation in workflows.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Using Content-Based Correlation</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Content-based correlation is used when a workflow service has multiple methods that are accessed by a single client and a piece of data in the exchanged messages identifies the desired instance.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Content-based correlation is useful when context correlation cannot be used because the binding is not one of the supported context exchange bindings.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph>context correlation, see <bpt id="p1">[</bpt>Context Exchange<ept id="p1">](../../../../docs/framework/wcf/feature-details/context-exchange-correlation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Each messaging activity used in these communications must specify the location of the data in the message that uniquely identifies the instance.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This is done by providing a <ph id="ph1">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph>, using either a <ph id="ph2">&lt;xref:System.ServiceModel.Activities.QueryCorrelationInitializer&gt;</ph> or <ph id="ph3">&lt;xref:System.ServiceModel.Activities.Receive.CorrelatesOn%2A&gt;</ph>, that queries the message for the piece or pieces of data that uniquely identify the instance.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The data that is used to identify the instance is hashed into a correlation key.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Care must be taken to ensure that the data used for correlation is unique or else collisions in the hashed key could occur and cause messages to be misrouted.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, a correlation based solely on a customer name may cause a collision because there may be multiple customers with the same name.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The colon (<ph id="ph1">`:`</ph>) should not be used as part of the data used to correlate the message because it is already used to delimit the message query’s key and value to form the string that is subsequently hashed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In the following example, the initial <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> in a workflow service returns an <ph id="ph4">`OrderId`</ph>, which is then passed back by the client on the call to the following <ph id="ph5">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity in the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The previous example shows a content-based correlation that is initialized by the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph> specifies that the data used to identify subsequent messages to this service is the <ph id="ph2">`OrderId`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity that follows the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> in the workflow follows the correlation that was initialized by the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Both activities share the same <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph>, but each one has its own <ph id="ph2">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.XPathMessageQuery&gt;</ph> that specifies where the identifying data is in that particular message.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>On the activity that initializes the correlation, this <ph id="ph1">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph> is specified in the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Receive.CorrelationInitializers%2A&gt;</ph> property, and for any following <ph id="ph3">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activities, it is specified using the <ph id="ph4">&lt;xref:System.ServiceModel.Activities.Receive.CorrelatesOn%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A content-based correlation can be initialized by any messaging activity (<ph id="ph1">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph>, <ph id="ph4">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph>) when the data flows as part of a message.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If the particular piece of data does not flow as part of a message, then it can be initialized explicitly by using the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If multiple pieces of data are required to uniquely identify the message, then multiple queries can be added to the <ph id="ph1">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In these examples, a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> was explicitly provided to each of the activities using the <ph id="ph2">`CorrelatesWith`</ph> or <ph id="ph3">`CorrelationHandle`</ph> properties, but if there is only one correlation required for the entire workflow, such as in this example where everything correlates on <ph id="ph4">`OrderId`</ph>, the implicit correlation handle management provided by <ph id="ph5">&lt;xref:System.ServiceModel.Activities.WorkflowServiceHost&gt;</ph> is sufficient.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Using the InitializeCorrelation Activity</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In the previous example, the <ph id="ph1">`OrderId`</ph> flowed to the caller through the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> activity and this is where the correlation was initialized.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The same behavior can be accomplished by using the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity takes the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> and a dictionary of items that represent the data used to map the message to the correct instance.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To use the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity in the preceding sample, remove the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.SendReply.CorrelationInitializers%2A&gt;</ph> from the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> activity and initialize the correlation using the <ph id="ph4">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#4)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.InitializeCorrelation&gt;</ph> activity is then used in the workflow, after the variables that hold the data are populated but before the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity that correlates with the initialized <ph id="ph3">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#5)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Configuring XPath Queries Using the Workflow Designer</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In the previous examples, the activities and the XPath queries used in the message queries were specified in code.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The workflow designer in <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> also provides the ability to generate XPaths from <ph id="ph2">`DataContract`</ph> types for content-based correlation.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The first XPath configured in the previous example was configured for the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>To configure the XPath for a messaging activity in the workflow designer, select the activity in the workflow designer.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the activity is initializing the correlation, as in the previous example, click the ellipsis button for the <bpt id="p1">**</bpt>CorrelationInitializers<ept id="p1">**</ept> property in the <bpt id="p2">**</bpt>Properties<ept id="p2">**</ept> window.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>This displays the <bpt id="p1">**</bpt>Add Correlation Initializers<ept id="p1">**</ept> dialog window.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>From this dialog you can specify the correlation type and select the content that is used for the correlation.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> variable is specified in the <bpt id="p1">**</bpt>Add initializer<ept id="p1">**</ept> box, and the correlation type and data used for the correlation is selected from the <bpt id="p2">**</bpt>XPath Queries<ept id="p2">**</ept> section of the dialog box.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>CorrelationInitializer Dialog<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/correlationinitializerdlg.jpg "</bpt>CorrelationInitializerDlg<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The second XPath query in the previous example was configured in the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ContentCorrelation#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_contentcorrelation/cs/program.cs#3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>To configure the XPath query for a messaging activity that does not initialize the correlation, select the activity in the workflow designer and then click the ellipsis button for the <bpt id="p1">**</bpt>CorrelatesOn<ept id="p1">**</ept> property in the <bpt id="p2">**</bpt>Properties<ept id="p2">**</ept> window.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This displays the <bpt id="p1">**</bpt>CorrelatesOn Definition<ept id="p1">**</ept> dialog window.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>CorrelatesOn Definition<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/correlatesondialog.jpg "</bpt>CorrelatesOnDialog<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>From this dialog you specify the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> and choose items in the <bpt id="p1">**</bpt>XPath Queries<ept id="p1">**</ept> list to build the XPath query.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

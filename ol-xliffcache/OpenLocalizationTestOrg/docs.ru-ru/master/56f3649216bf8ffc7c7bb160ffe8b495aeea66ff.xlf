@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">56f3649216bf8ffc7c7bb160ffe8b495aeea66ff</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\how-to-implement-callback-functions.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1b51e5853d1b91b9b0a491947aeda58047f2fae1</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f73e573c9c84b0ecb2d8e3b84d5d8ec0b5a09eab</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Implement Callback Functions | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Implement Callback Functions</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The following procedure and example demonstrate how a managed application, using platform invoke, can print the handle value for each window on the local computer.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Specifically, the procedure and example use the <bpt id="p1">**</bpt>EnumWindows<ept id="p1">**</ept> function to step through the list of windows and a managed callback function (named CallBack) to print the value of the window handle.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>To implement a callback function</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Look at the signature for the <bpt id="p1">**</bpt>EnumWindows<ept id="p1">**</ept> function before going further with the implementation.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>EnumWindows<ept id="p1">**</ept> has the following signature:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>One clue that this function requires a callback is the presence of the <bpt id="p1">**</bpt>lpEnumFunc<ept id="p1">**</ept> argument.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>It is common to see the <bpt id="p1">**</bpt>lp<ept id="p1">**</ept> (long pointer) prefix combined with the <bpt id="p2">**</bpt>Func<ept id="p2">**</ept> suffix in the name of arguments that take a pointer to a callback function.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For documentation about Win32 functions, see the Microsoft Platform SDK.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Create the managed callback function.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The example declares a delegate type, called <ph id="ph1">`CallBack`</ph>, which takes two arguments (<bpt id="p1">**</bpt>hwnd<ept id="p1">**</ept> and <bpt id="p2">**</bpt>lparam<ept id="p2">**</ept>).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The first argument is a handle to the window; the second argument is application-defined.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In this release, both arguments must be integers.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Callback functions generally return nonzero values to indicate success and zero to indicate failure.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This example explicitly sets the return value to <bpt id="p1">**</bpt>true<ept id="p1">**</ept> to continue the enumeration.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Create a delegate and pass it as an argument to the <bpt id="p1">**</bpt>EnumWindows<ept id="p1">**</ept> function.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Platform invoke converts the delegate to a familiar callback format automatically.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Ensure that the garbage collector does not reclaim the delegate before the callback function completes its work.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>When you pass a delegate as a parameter, or pass a delegate contained as a field in a structure, it remains uncollected for the duration of the call.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>So, as is the case in the following enumeration example, the callback function completes its work before the call returns and requires no additional action by the managed caller.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If, however, the callback function can be invoked after the call returns, the managed caller must take steps to ensure that the delegate remains uncollected until the callback function finishes.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For detailed information about preventing garbage collection, see <bpt id="p1">[</bpt>Interop Marshaling<ept id="p1">](../../../docs/framework/interop/interop-marshaling.md)</ept> with Platform Invoke.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Callback Functions<ept id="p1">](../../../docs/framework/interop/callback-functions.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Calling a DLL Function<ept id="p1">](../../../docs/framework/interop/calling-a-dll-function.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

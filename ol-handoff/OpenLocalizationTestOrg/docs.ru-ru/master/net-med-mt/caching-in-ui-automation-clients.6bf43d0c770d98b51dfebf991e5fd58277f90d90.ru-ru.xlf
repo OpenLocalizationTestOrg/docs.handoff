@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">da96fb3423ca9575978236acd5a6615c5c828228</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\ui-automation\caching-in-ui-automation-clients.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">372a6c2c942068359cfe82ba396910a2f1823155</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4db98e0e824a00de31097c23f8a1c229152f2de1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Caching in UI Automation Clients | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Caching in UI Automation Clients</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This documentation is intended for .NET Framework developers who want to use the managed <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> classes defined in the <ph id="ph2">&lt;xref:System.Windows.Automation&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For the latest information about <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph>, see <bpt id="p1">[</bpt>Windows Automation API: UI Automation<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=156746)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic introduces caching of <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> properties and control patterns.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph>, caching means pre-fetching of data.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The data can then be accessed without further cross-process communication.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Caching is typically used by UI Automation client applications to retrieve properties and control patterns in bulk.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Information is then retrieved from the cache as needed.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The application updates the cache periodically, usually in response to events signifying that something in the <ph id="ph1">[!INCLUDE[TLA#tla_ui](../../../includes/tlasharptla-ui-md.md)]</ph> has changed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The benefits of caching are most noticeable with <ph id="ph1">[!INCLUDE[TLA#tla_wpf](../../../includes/tlasharptla-wpf-md.md)]</ph> controls and custom controls that have server-side UI Automation providers.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>There is less benefit when accessing client-side providers such as the default providers for <ph id="ph1">[!INCLUDE[TLA2#tla_win32](../../../includes/tla2sharptla-win32-md.md)]</ph> controls.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Caching occurs when the application activates a <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> and then uses any method or property that returns an <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph>; for example, <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElement.FindFirst%2A&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.Automation.AutomationElement.FindAll%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The methods of the <ph id="ph1">&lt;xref:System.Windows.Automation.TreeWalker&gt;</ph> class are an exception; caching is only done if a <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> is specified as a parameter (for example, <ph id="ph3">&lt;xref:System.Windows.Automation.TreeWalker.GetFirstChild%28System.Windows.Automation.AutomationElement%2CSystem.Windows.Automation.CacheRequest%29?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Caching also occurs when you subscribe to an event while a <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> is active.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> passed to your event handler as the source of an event contains the cached properties and patterns specified by the original <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Any changes made to the <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> after you subscribe to the event have no effect.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> properties and control patterns of an element can be cached.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Options for Caching</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> specifies the following options for caching.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Properties to Cache</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can specify properties to cache by calling <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Add%28System.Windows.Automation.AutomationProperty%29&gt;</ph> for each property before activating the request.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Control Patterns to Cache</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You can specify control patterns to cache by calling <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Add%28System.Windows.Automation.AutomationPattern%29&gt;</ph> for each pattern before activating the request.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When a pattern is cached, its properties are not automatically cached; you must specify the properties you want cached by using <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Add%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Scope and Filtering of Caching</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>You can specify the elements whose properties and patterns you want to cache by setting the <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.TreeScope%2A?displayProperty=fullName&gt;</ph> property before activating the request.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The scope is relative to the elements that are retrieved while the request is active.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For example, if you set only <ph id="ph1">&lt;xref:System.Windows.Automation.TreeScope&gt;</ph>, and then retrieve an <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph>, the properties and patterns of children of that element are cached, but not those of the element itself.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To ensure that caching is done for the retrieved element itself, you must include <ph id="ph1">&lt;xref:System.Windows.Automation.TreeScope&gt;</ph> in the <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest.TreeScope%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>It is not possible to set the scope to <ph id="ph1">&lt;xref:System.Windows.Automation.TreeScope&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.Automation.TreeScope&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>However, a parent element can be cached when a child element is cached; see Retrieving Cached Children and Parents in this topic.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The extent of caching is also affected by the <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.TreeFilter%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>By default, caching is performed only for elements that appear in the control view of the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>However, you can change this property to apply caching to all elements, or only to elements that appear in the content view.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Strength of the Element References</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>When you retrieve an <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph>, by default you have access to all properties and patterns of that element, including those that were not cached.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>However, for greater efficiency you can specify that the reference to the element refers to cached data only, by setting the <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.AutomationElementMode%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> to <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElementMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In this case, you do not have access to any non-cached properties and patterns of retrieved elements.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This means that you cannot access any properties through <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.GetCurrentPropertyValue%2A&gt;</ph> or the <ph id="ph2">`Current`</ph> property of <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> or any control pattern; nor can you retrieve a pattern by using <ph id="ph4">&lt;xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A&gt;</ph> or <ph id="ph5">&lt;xref:System.Windows.Automation.AutomationElement.TryGetCurrentPattern%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>On cached patterns, you can call methods that retrieve array properties, such as <ph id="ph1">&lt;xref:System.Windows.Automation.SelectionPattern.SelectionPatternInformation.GetSelection%2A?displayProperty=fullName&gt;</ph>, but not any that perform actions on the control, such as <ph id="ph2">&lt;xref:System.Windows.Automation.InvokePattern.Invoke%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>An example of an application that might not need full references to objects is a screen reader, which would prefetch the <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.Name%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.ControlType%2A&gt;</ph> properties of elements in a window but would not need the <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> objects themselves.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Activating the CacheRequest</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Caching is performed only when <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> objects are retrieved while a <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> is active for the current thread.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>There are two ways to activate a <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The usual way is to call <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Activate%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This method returns an object that implements <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The request remains active as long as the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> object exists.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The easiest way to control the lifetime of the object is to enclose the call within a <ph id="ph1">`using`</ph> (<ph id="ph2">[!INCLUDE[TLA#tla_cshrp](../../../includes/tlasharptla-cshrp-md.md)]</ph>) or <ph id="ph3">`Using`</ph> (<ph id="ph4">[!INCLUDE[TLA2#tla_visualb](../../../includes/tla2sharptla-visualb-md.md)]</ph>) block.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This ensures that the request will be popped from the stack even if an exception is raised.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Another way, which is useful when you wish to nest cache requests, is to call <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Push%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This puts the request on a stack and activates it.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The request remains active until it is removed from the stack by <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest.Pop%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The request becomes temporarily inactive if another request is pushed onto the stack; only the top request on the stack is active.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Retrieving Cached Properties</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can retrieve the cached properties of an element through the following methods and properties.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>An exception is raised if the requested property is not in the cache.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.Cached%2A&gt;</ph>, like <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement.Current%2A&gt;</ph>, exposes individual properties as members of a structure.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>However, you do not need to retrieve this structure; you can access the individual properties directly.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.Name%2A&gt;</ph> property can be obtained from <ph id="ph2">`element.Cached.Name`</ph>, where <ph id="ph3">`element`</ph> is an <ph id="ph4">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Retrieving Cached Control Patterns</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>You can retrieve the cached control patterns of an element through the following methods.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If the pattern is not in the cache, <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.GetCachedPattern%2A&gt;</ph> raises an exception, and <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement.TryGetCachedPattern%2A&gt;</ph> returns <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>You can retrieve the cached properties of a control pattern by using the <ph id="ph1">`Cached`</ph> property of the pattern object.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>You can also retrieve the current values through the <ph id="ph1">`Current`</ph> property, but only if <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElementMode&gt;</ph> was not specified when the <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> was retrieved.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElementMode&gt;</ph> is the default value, and this permits access to the current values.)</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Retrieving Cached Children and Parents</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>When you retrieve an <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> and request caching for children of that element through the <ph id="ph2">&lt;xref:System.Windows.Automation.CacheRequest.TreeScope%2A&gt;</ph> property of the request, it is subsequently possible to get the child elements from the <ph id="ph3">&lt;xref:System.Windows.Automation.AutomationElement.CachedChildren%2A&gt;</ph> property of the element you retrieved.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Windows.Automation.TreeScope&gt;</ph> was included in the scope of the cache request, the root element of the request is subsequently available from the <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement.CachedParent%2A&gt;</ph> property of any of the child elements.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>You cannot cache parents or ancestors of the root element of the request.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Updating the Cache</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The cache is valid only as long as nothing changes in the <ph id="ph1">[!INCLUDE[TLA2#tla_ui](../../../includes/tla2sharptla-ui-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Your application is responsible for updating the cache, typically in response to events.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>If you subscribe to an event while a <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> is active, you obtain an <ph id="ph2">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> with an updated cache as the source of the event whenever your event-handler delegate is called.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>You can also update cached information for an element by calling <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement.GetUpdatedCache%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>You can pass in the original <ph id="ph1">&lt;xref:System.Windows.Automation.CacheRequest&gt;</ph> to update all information that was previously cached.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Updating the cache does not alter the properties of any existing <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph> references.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>UI Automation Events for Clients<ept id="p1">](../../../docs/framework/ui-automation/ui-automation-events-for-clients.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Use Caching in UI Automation<ept id="p1">](../../../docs/framework/ui-automation/use-caching-in-ui-automation.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>FetchTimer Sample<ept id="p1">](http://msdn.microsoft.com/en-us/5b7d3294-de22-4f24-b2d6-d4785a304b90)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">213a5d354bad74ea03ccba42beb5e7f7ccd8e246</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\reliable-messaging-protocol-version-1-0.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dae98d3d48c1b215b97239966f2f34ad5544dc26</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a614078d925d1845973c1b7e0a63a93f05e821d5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Reliable Messaging Protocol version 1.0 | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Reliable Messaging Protocol version 1.0</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic covers <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> implementation details for the WS-Reliable Messaging February 2005 (version 1.0) protocol necessary for interoperation using the HTTP transport.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> follows the WS-Reliable Messaging specification with the constraints and clarifications explained in this topic.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Note that the WS-ReliableMessaging version 1.0 protocol is implemented starting with the <ph id="ph1">[!INCLUDE[vstecwinfx](../../../../includes/vstecwinfx-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The WS-Reliable Messaging February 2005 protocol is implemented in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> by the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For convenience, the topic uses the following roles:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Initiator: the client that initiates WS-Reliable Message sequence creation</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Responder: the service that receives the initiator's requests</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This document uses the prefixes and namespaces in the following table.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Prefix</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Namespace</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>wsrm</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>http://schemas.xmlsoap.org/ws/2005/02/rm</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>netrm</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>http://schemas.microsoft.com/ws/2006/05/rm</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>s</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>http://www.w3.org/2003/05/soap-envelope</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>wsa</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>http://schemas.xmlsoap.org/ws/2005/08/addressing</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>wsse</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>http://docs.oasis-open.org/wss/2004/01/oasis-200401-wssecurity-secext-1.0.xsd</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Messaging</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Sequence Establishment Messages</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> implements <ph id="ph2">`CreateSequence`</ph> and <ph id="ph3">`CreateSequenceResponse`</ph> messages to establish a reliable message sequence.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following constraints apply:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>B1101: The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator does not generate the optional Expires element in the <ph id="ph2">`CreateSequence`</ph> message or, in the cases when the <ph id="ph3">`CreateSequence`</ph> message contains an <ph id="ph4">`Offer`</ph> element, the optional <ph id="ph5">`Expires`</ph> element in the <ph id="ph6">`Offer`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>B1102: When accessing the <ph id="ph1">`CreateSequence`</ph> message, the <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph><ph id="ph3">`Responder`</ph> sends and receives both <ph id="ph4">`Expires`</ph> elements if they exist, but does not use their values.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>WS-Reliable Messaging introduces the <ph id="ph1">`Offer`</ph> mechanism to establish the two converse correlated sequences that form a session.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>R1103: If <ph id="ph1">`CreateSequence`</ph> contains an <ph id="ph2">`Offer`</ph> element, the Reliable Messaging Responder must either accept the sequence and respond with <ph id="ph3">`CreateSequenceResponse`</ph> that contains a <ph id="ph4">`wsrm:Accept`</ph> element, forming two correlated converse sequences or reject the <ph id="ph5">`CreateSequence`</ph> request.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>R1104: <ph id="ph1">`SequenceAcknowledgement`</ph> and application messages flowing on converse sequence must be sent to the <ph id="ph2">`ReplyTo`</ph> endpoint reference of the <ph id="ph3">`CreateSequence`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>R1105: <ph id="ph1">`AcksTo`</ph> and <ph id="ph2">`ReplyTo`</ph> endpoint references in the <ph id="ph3">`CreateSequence`</ph> must have address values that match the octet-wise.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder verifies that the URI portion of the <ph id="ph2">`AcksTo`</ph> and <ph id="ph3">`ReplyTo`</ph> EPRs are identical before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>R1106: <ph id="ph1">`AcksTo`</ph> and <ph id="ph2">`ReplyTo`</ph> Endpoint References in the <ph id="ph3">`CreateSequence`</ph> should have the same set of reference parameters.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not enforce but assumes that [reference parameters] of <ph id="ph2">`AcksTo`</ph> and <ph id="ph3">`ReplyTo`</ph> on <ph id="ph4">`CreateSequence`</ph> are identical and uses [reference parameters] from <ph id="ph5">`ReplyTo`</ph> endpoint reference for acknowledgements and converse sequence messages.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>R1107: When two converse sequences are established using the <ph id="ph1">`Offer`</ph> mechanism, <ph id="ph2">`SequenceAcknowledgement`</ph> and application messages flowing on converse sequences must be sent to the <ph id="ph3">`ReplyTo`</ph> endpoint reference of the <ph id="ph4">`CreateSequence`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>R1108: When two converse sequences are established using the Offer mechanism, the <ph id="ph1">`[address]`</ph> property of the <ph id="ph2">`wsrm:AcksTo`</ph> Endpoint Reference child element of the <ph id="ph3">`wsrm:Accept`</ph> element of the <ph id="ph4">`CreateSequenceResponse`</ph> must match byte-wise the destination URI of the <ph id="ph5">`CreateSequence`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>R1109: When two converse sequences are established using the <ph id="ph1">`Offer`</ph> mechanism, messages sent by initiator and acknowledgements to messages by responder must be sent to the same Endpoint Reference.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses WS-Reliable Messaging to establish reliable sessions between the Initiator and Responder.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>'s WS-Reliable Messaging implementation provides reliable session for one-way, request-reply and full duplex messaging patterns.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The WS-Reliable Messaging <ph id="ph1">`Offer`</ph> mechanism on <ph id="ph2">`CreateSequence`</ph><ph id="ph3">/</ph><ph id="ph4">`CreateSequenceResponse`</ph> lets you establish two correlated converse sequences, and provides a session protocol that is suitable for all message endpoints.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a security guarantee for such a session including end-to-end protection for session integrity, it is practical to ensure messages intended to the same party are arriving at the same destination.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This also allows piggy-backing of sequence acknowledgements on application messages.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Therefore, constraints R1104, R1105, and R1108 apply to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>An example of a <ph id="ph1">`CreateSequence`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>An example of a <ph id="ph1">`CreateSequenceResponse`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Sequence</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to sequences:</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>B1201:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates and accesses sequence numbers no higher than <ph id="ph2">`xs:long`</ph>’s maximum inclusive value, 9223372036854775807.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>B1202:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> always generates an empty-bodied last message with the action URI of http://schemas.xmlsoap.org/ws/2005/02/rm/LastMessage.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>B1203: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> receives and delivers a message with a Sequence header that contains a <ph id="ph2">`LastMessage`</ph> element as long as the action URI is not http://schemas.xmlsoap.org/ws/2005/02/rm/LastMessage.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>An example of a Sequence Header.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>AckRequested Header</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses <ph id="ph2">`AckRequested`</ph> Header as a keep-alive mechanism.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not generate the optional <ph id="ph2">`MessageNumber`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Upon receiving a message with an <ph id="ph1">`AckRequested`</ph> header that contains the <ph id="ph2">`MessageNumber`</ph> element, <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> ignores the <ph id="ph4">`MessageNumber`</ph> element’s value, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>SequenceAcknowledgement Header</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses piggy-back mechanism for sequence acknowledgements provided in WS-Reliable Messaging.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>R1401: When two converse sequences are established using the <ph id="ph1">`Offer`</ph> mechanism, the <ph id="ph2">`SequenceAcknowledgement`</ph> header may be included in any application message transmitted to the intended recipient.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>B1402: When <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> must generate an acknowledgement prior to receiving any sequence messages (for example, to satisfy an <ph id="ph2">`AckRequested`</ph> message), <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates a <ph id="ph4">`SequenceAcknowledgement`</ph> header that contains the range 0-0, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>B1403: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not generate <ph id="ph2">`SequenceAcknowledgement`</ph> headers that contain a <ph id="ph3">`Nack`</ph> element but supports <ph id="ph4">`Nack`</ph> elements.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>WS-ReliableMessaging Faults</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> implementation of WS-Reliable Messaging faults:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>B1501: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not generate <ph id="ph2">`MessageNumberRollover`</ph> faults.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>B1502:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> endpoint may generate <ph id="ph2">`CreateSequenceRefused`</ph> faults as described in the specification.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>B1503:When the service endpoint reaches its connection limit and cannot process new connections, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates an additional <ph id="ph2">`CreateSequenceRefused`</ph> fault subcode, <ph id="ph3">`netrm:ConnectionLimitReached`</ph>, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>WS-Addressing Faults</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Because WS-Reliable Messaging uses WS-Addressing, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> WS-Reliable Messaging implementation may generate WS-Addressing faults.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>This section covers the WS-Addressing faults that <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> explicitly generates at the WS-Reliable Messaging layer:</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>B1601:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates the fault Message Addressing Header Required when one of the following is true:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>A message is missing a <ph id="ph1">`Sequence`</ph> header and an <ph id="ph2">`Action`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`CreateSequence`</ph> message is missing a <ph id="ph2">`MessageId`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`CreateSequence`</ph> message is missing a <ph id="ph2">`ReplyTo`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>B1602:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates the fault Action Not Supported in reply to a message that is missing a <ph id="ph2">`Sequence`</ph> header and has an <ph id="ph3">`Action`</ph> header that is not a recognized in the WS-Reliable Messaging specification.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>B1603:<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates the fault Endpoint Unavailable to indicate that the endpoint does not process the sequence based upon examination of the <ph id="ph2">`CreateSequence`</ph> message’s addressing headers.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Protocol Composition</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Composition with WS-Addressing</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports two versions of WS-Addressing: WS-Addressing 2004/08 [WS-ADDR] and W3C WS-Addressing 1.0 Recommendations [WS-ADDR-CORE] and [WS-ADDR-SOAP].</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>While the WS-Reliable Messaging specification mentions only WS-Addressing 2004/08, it does not restrict the WS-Addressing version to be used.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>R2101:Both WS-Addressing 2004/08 and WS-Addressing 1.0 can be used with WS-Reliable Messaging.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>R2102:A single version of WS-Addressing must be used throughout a given WS-Reliable Messaging sequence or a pair of converse sequences correlated by using the <ph id="ph1">`wsrm:Offer`</ph> mechanism.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Composition with SOAP</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports use of both SOAP 1.1 and SOAP 1.2 with WS-Reliable Messaging.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Composition with WS-Security and WS-SecureConversation</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides protection for WS-Reliable Messaging sequences by using secure Transport (HTTPS), composition with WS-Security, and composition with WS-Secure Conversation.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>R2301:To protect the integrity of a WS-Reliable Messaging sequence in addition to the integrity and confidentiality of individual messages, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> requires that WS-Secure Conversation must be used.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>R2302:AWS-Secure Conversation session must be established prior to establishing WS-Reliable Messaging sequence(s).</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>R2303: If the WS-Reliable Messaging sequence lifetime exceeds the WS-Secure Conversation session’s lifetime, the <ph id="ph1">`SecurityContextToken`</ph> established by using WS-Secure Conversation must be renewed by using the corresponding WS-Secure Conversation Renewal binding.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>B2304:WS-Reliable Messaging sequence or a pair of correlated converse sequences are always bound to a single WS-SecureConversation session.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> source generates the <ph id="ph2">`wsse:SecurityTokenReference`</ph> element in the element extensibility section of the <ph id="ph3">`CreateSequence`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>R2305:When composed with WS-Secure Conversation, a <ph id="ph1">`CreateSequence`</ph> message must contain the <ph id="ph2">`wsse:SecurityTokenReference`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>WS-Reliable Messaging WS-Policy Assertion</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses WS-Reliable Messaging WS-Policy Assertion <ph id="ph2">`wsrm:RMAssertion`</ph> to describe endpoints capabilities.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>B3001: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> attaches <ph id="ph2">`wsrm:RMAssertion`</ph> WS-Policy Assertion to <ph id="ph3">`wsdl:binding`</ph> elements.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports both attachments to <ph id="ph2">`wsdl:binding`</ph> and <ph id="ph3">`wsdl:port`</ph> elements.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>B3002: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports the following optional properties of WS-Reliable Messaging assertion and provides control over them on the <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph><ph id="ph3">`ReliableMessagingBindingElement`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The following is an example.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Flow Control WS-Reliable Messaging Extension</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses WS-Reliable Messaging extensibility to provide optional additional tighter control over sequence message flow.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Flow control is enabled by setting the <ph id="ph1">`ReliableSessionBindingElement`</ph>’s <ph id="ph2">`FlowControlEnabled``bool`</ph> property to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The following is a list of constraints that apply to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>B4001: When Reliable Messaging Flow Control is enabled, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates a <ph id="ph2">`netrm:BufferRemaining`</ph> element in the element extensibility of the <ph id="ph3">`SequenceAcknowledgement`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>B4002: When Reliable Messaging Flow Control is enabled, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not require a <ph id="ph2">`netrm:BufferRemaining`</ph> element to be present in <ph id="ph3">`SequenceAcknowledgement`</ph> header, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>B4003: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses <ph id="ph2">`netrm:BufferRemaining`</ph> to indicate how many new messages the Reliable Messaging Destination can buffer.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>B4004:The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Reliable Messaging Service throttles the number of messages transmitted when the Reliable Messaging destination application cannot receive messages quickly.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The Reliable Messaging destination buffers messages and the element’s value drops to 0.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>B4005: <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates <ph id="ph2">`netrm:BufferRemaining`</ph> integer values between 0 and 4096 inclusive, and reads integer values between 0 and <ph id="ph3">`xs:int`</ph>’s <ph id="ph4">`maxInclusive`</ph> value 214748364 inclusive.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Message Exchange Patterns</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>This section describes <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>'s behavior when WS-Reliable Messaging is used for different Message Exchange Patterns.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>For each Message Exchange Pattern the following two deployments scenarios are considered:</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Non-Addressable Initiator: Initiator is behind firewall; Responder can deliver messages to Initiator only on HTTP responses.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Addressable Initiator: Initiator and Responder both can be sent HTTP requests; in other words, two converse HTTP connections can be established.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>One-way, Non-addressable Initiator</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Binding</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a one-way message exchange pattern using one sequence over one HTTP channel.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the HTTP requests to transmit all messages from the RMS to the RMD and the HTTP response to transmit all messages from the RMD to the RMS.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>CreateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates a <ph id="ph2">`CreateSequence`</ph> message with no offer.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures the <ph id="ph2">`CreateSequence`</ph> has no offer before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder replies to the <ph id="ph2">`CreateSequence`</ph> request with a <ph id="ph3">`CreateSequenceResponse`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>SequenceAcknowledgement</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator processes acknowledgements on the reply of all messages except the <ph id="ph2">`CreateSequence`</ph> message and fault messages.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder always generates a stand-alone acknowledgement in the response to both sequence and <ph id="ph2">`AckRequested`</ph> messages.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>TerminateSequence message</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> treats <ph id="ph2">`TerminateSequence`</ph> as a one-way operation, meaning the HTTP response has an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>One Way, Addressable Initiator</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Binding</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a one-way message exchange pattern using one sequence over an inbound and an outbound Http channel.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the HTTP requests to transmit all messages.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>All HTTP responses have an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>CreateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates a <ph id="ph2">`CreateSequence`</ph> message with no offer.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures that the <ph id="ph2">`CreateSequence`</ph> has no offer before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder transmits the <ph id="ph2">`CreateSequenceResponse`</ph> message on an HTTP request addressed with the <ph id="ph3">`ReplyTo`</ph> endpoint reference.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Duplex, Addressable Initiator</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Binding</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a fully asynchronous two-way message exchange pattern using two sequences over an inbound and an outbound HTTP channel.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the HTTP requests to transmit all messages.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>All HTTP responses have an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>CreateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates a <ph id="ph2">`CreateSequence`</ph> message with an offer.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures that the <ph id="ph2">`CreateSequence`</ph> has an offer before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> sends the <ph id="ph2">`CreateSequenceResponse`</ph> on the HTTP request addressed to the <ph id="ph3">`CreateSequence`</ph>’s <ph id="ph4">`ReplyTo`</ph> endpoint reference.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Sequence Lifetime</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> treats the two sequences as one fully duplex session.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Upon generating a fault that faults one sequence, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> expects the remote endpoint to fault both sequences.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Upon reading a fault that faults one sequence, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> faults both sequences.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> can close its outbound sequence and continue to process messages on its inbound sequence.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Conversely, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> can process the close of the inbound sequence and continue to send messages on its outbound sequence.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Request-Reply, Non-Addressable Initiator</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Binding</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a one-way and request-reply message exchange pattern using two sequences over one HTTP channel.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the HTTP requests to transmit the request sequence’s messages and uses the HTTP responses to transmit the reply sequence’s messages.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>CreateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates a <ph id="ph2">`CreateSequence`</ph> message with an offer.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures that the <ph id="ph2">`CreateSequence`</ph> has an offer before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder replies to the <ph id="ph2">`CreateSequence`</ph> request with a <ph id="ph3">`CreateSequenceResponse`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>One-way Message</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>To complete a one-way message exchange protocol successfully, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator transmits a request sequence message on the HTTP request and receives a standalone <ph id="ph2">`SequenceAcknowledgement`</ph> message on the HTTP response.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SequenceAcknowledgement`</ph> must acknowledge the message transmitted.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder can reply to the request with an acknowledgement, a fault, or a response with an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>Two Way Messages</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>To complete a two way message exchange protocol successfully, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator transmits a request sequence message on the HTTP request and receives a reply sequence message on the HTTP response.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>The response must carry a <ph id="ph1">`SequenceAcknowledgement`</ph> acknowledging the request sequence message transmitted.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder can reply to the request with an application reply, a fault or a response with an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Because of the presence of one-way messages and the timing of application replies, the request sequence message’s sequence number and the response message’s sequence number have no correlation.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Retrying Replies</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> relies on HTTP request-reply correlation for two-way message exchange protocol correlation.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Because of this, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator does not stop retrying a request sequence message when the request sequence message is acknowledged but rather when the HTTP response carries an acknowledgement, user message, or fault.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder retries replies on the HTTP request leg of the request to which the reply is correlated.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>LastMessage Exchange</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates and transmits an empty bodied last message on the HTTP request leg.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> requires a response but ignores the actual response message.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder replies to the request sequence’s empty-bodied last message with the reply sequence’s empty-bodied last message.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder receives a last message in which the action URI is not http://schemas.xmlsoap.org/ws/2005/02/rm/LastMessage, <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> replies with a last message.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>In the case of a two-way message exchange protocol, the last message carries the application message; in the case of a one-way message exchange protocol, the last message is empty.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder does not require an acknowledgement for the reply sequence’s empty-bodied last message.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>TerminateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>When all requests have received a valid reply, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates and transmits the request sequence’s <ph id="ph2">`TerminateSequence`</ph> message on the HTTP request leg.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> requires a response but ignores the actual response message.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder replies to the request sequence’s <ph id="ph2">`TerminateSequence`</ph> message with the reply sequence’s <ph id="ph3">`TerminateSequence`</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>In a normal shutdown sequence, both <ph id="ph1">`TerminateSequence`</ph> messages carry a full range <ph id="ph2">`SequenceAcknowledgement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Request/Reply, Addressable Initiator</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Binding</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a request-reply message exchange pattern using two sequences over an inbound and an outbound HTTP channel.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the HTTP requests to transmit all messages.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>All HTTP responses have an empty body and HTTP 202 status code.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>CreateSequence Exchange</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator generates a <ph id="ph2">`CreateSequence`</ph> message with an offer.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures that the <ph id="ph2">`CreateSequence`</ph> has an offer before creating a sequence.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> sends the <ph id="ph2">`CreateSequenceResponse`</ph> on the HTTP request addressed to the <ph id="ph3">`CreateSequence`</ph>’s <ph id="ph4">`ReplyTo`</ph> endpoint reference.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>Request/Reply Correlation</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator ensures all application request messages bear a <ph id="ph2">`MessageId`</ph> and a <ph id="ph3">`ReplyTo`</ph> endpoint reference.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Initiator applies the <ph id="ph2">`CreateSequence`</ph> message’s <ph id="ph3">`ReplyTo`</ph> endpoint reference on each application request message.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder requires that incoming request messages bear a <ph id="ph2">`MessageId`</ph> and a <ph id="ph3">`ReplyTo`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Responder ensures that the endpoint reference’s URI of both the <ph id="ph2">`CreateSequence`</ph> and all application request messages are identical.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

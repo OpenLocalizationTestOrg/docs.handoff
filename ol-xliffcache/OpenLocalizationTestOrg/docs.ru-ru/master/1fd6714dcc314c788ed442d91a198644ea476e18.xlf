@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1fd6714dcc314c788ed442d91a198644ea476e18</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\wif-and-web-farms.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3b8a37ea3ba0128382b6f6cd9fef9cac2198b6cc</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f17171862b4b9eb711950240eeb1552f58fdb37a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>WIF and Web Farms | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>WIF and Web Farms</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When you use Windows Identity Foundation (WIF) to secure the resources of a relying party (RP) application that is deployed in a web farm, you must take specific steps to ensure that WIF can process tokens from instances of the RP application running on different computers in the farm.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This processing includes validating session token signatures, encrypting and decrypting session tokens, caching session tokens, and detecting replayed security tokens.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In the typical case, when WIF is used to secure resources of an RP application – whether the RP is running on a single computer or in a web farm -- a session is established with the client based on the security token that was obtained from the security token service (STS).</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This is to avoid forcing the client to have to authenticate at the STS for every application resource that is secured using WIF.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For more information about how WIF handles sessions, see <bpt id="p1">[</bpt>WIF Session Management<ept id="p1">](../../../docs/framework/security/wif-session-management.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>When default settings are used, WIF does the following:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>It uses an instance of the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler&gt;</ph> class to read and write a session token (an instance of the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityToken&gt;</ph> class) that carries the claims and other information about the security token that was used for authentication as well as information about the session itself.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The session token is packaged and stored in a session cookie.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler&gt;</ph> uses the <ph id="ph2">&lt;xref:System.IdentityModel.ProtectedDataCookieTransform&gt;</ph> class, which uses the Data Protection API (DPAPI), to protect the session token.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The DPAPI provides protection by using the user or machine credentials and stores the key data in the user profile.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>It uses a default, in-memory implementation of the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph> class to store and process the session token.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>These default settings work in scenarios in which the RP application is deployed on a single computer; however, when deployed in a web farm, each HTTP request may be sent to and processed by a different instance of the RP application running on a different computer.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In this scenario, the default WIF settings described above will not work because both token protection and token caching are dependent on a specific computer.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>To deploy an RP application in a web farm, you must ensure that the processing of session tokens (as well as of replayed tokens) is not dependent on the application running on a specific computer.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>One way to do this is to implement your RP application so that it uses the functionality provided by the ASP.NET <ph id="ph1">`&lt;machineKey&gt;`</ph> configuration element and provides distributed caching for processing session tokens and replayed tokens.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`&lt;machineKey&gt;`</ph> element allows you to specify the keys needed to validate, encrypt, and decrypt tokens in a configuration file, which enables you to specify the same keys on different computers in the web farm.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>WIF provides a specialized session token handler, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler&gt;</ph>, that protects tokens by using the keys specified in the <ph id="ph2">`&lt;machineKey&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>To implement this strategy, you can follow these guidelines:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Use the ASP.NET <ph id="ph1">`&lt;machineKey&gt;`</ph> element in configuration to explicitly specify signing and encryption keys that can be used across computers in the farm.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The following XML shows the specification of the <ph id="ph1">`&lt;machineKey&gt;`</ph> element under the <ph id="ph2">`&lt;system.web&gt;`</ph> element in a configuration file.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Configure the application to use the <ph id="ph1">&lt;xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler&gt;</ph> by adding it to the token handler collection.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You must first remove the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler&gt;</ph> (or any handler derived from the <ph id="ph2">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler&gt;</ph> class) from the token handler collection if such a handler is present.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler&gt;</ph> uses the <ph id="ph2">&lt;xref:System.IdentityModel.Services.MachineKeyTransform&gt;</ph> class, which protects the session cookie data by using the cryptographic material specified in the <ph id="ph3">`&lt;machineKey&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following XML shows how to add the <ph id="ph1">&lt;xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler&gt;</ph> to a token handler collection.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Derive from <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph> and implement distributed caching, that is, a cache that is accessible from all computers in the farm on which the RP might run.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Configure the RP to use your distributed cache by specifying the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>sessionSecurityTokenCache&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/sessionsecuritytokencache.md)</ept> element in the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You can override the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache.LoadCustomConfiguration%2A?displayProperty=fullName&gt;</ph> method in your derived class to implement child elements of the <ph id="ph2">`&lt;sessionSecurityTokenCache&gt;`</ph> element if they are required.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>One way to implement distributed caching is to provide a WCF front end for your custom cache.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For more information about implementing a WCF caching service, see <bpt id="p1">[</bpt>The WCF Caching Service<ept id="p1">](#BKMK_TheWCFCachingService)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information about implementing a WCF client that the RP application can use to call the caching service, see <bpt id="p1">[</bpt>The WCF Caching Client<ept id="p1">](#BKMK_TheWCFClient)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If your application detects replayed tokens you must follow a similar distributed caching strategy for the token replay cache by deriving from <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.TokenReplayCache&gt;</ph> and pointing to your token replay caching service in the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>tokenReplayCache&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/tokenreplaycache.md)</ept> configuration element.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>All of the example XML and code in this topic is taken from the <bpt id="p1">[</bpt>ClaimsAwareWebFarm<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=248408)</ept> (http://go.microsoft.com/fwlink/?LinkID=248408) sample.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The examples in this topic are provided as-is and are not intended to be used in production code without modification.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The WCF Caching Service</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The following interface defines the contract between the WCF caching service and the WCF client used by the relying party application to communicate with it.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>It essentially exposes the methods of the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph> class as service operations.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following code shows the implementation of the WCF caching service.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>In this example, the default, in-memory session token cache implemented by WIF is used.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Alternatively, you could implement a durable cache backed by a database.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ISessionSecurityTokenCacheService`</ph> defines the interface shown above.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In this example, not all of the methods required to implement the interface are shown for brevity.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The WCF Caching Client</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This section shows the implementation of a class that derives from <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph> and that delegates calls to the caching service.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You configure the RP application to use this class through the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>sessionSecurityTokenCache&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/sessionsecuritytokencache.md)</ept> element as in the following XML</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The class overrides the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache.LoadCustomConfiguration%2A&gt;</ph> method to get the service endpoint from the custom <ph id="ph2">`&lt;cacheServiceAddress&gt;`</ph> child element of the <ph id="ph3">`&lt;sessionSecurityTokenCache&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>It uses this endpoint to initialize an <ph id="ph1">`ISessionSecurityTokenCacheService`</ph> channel over which it can communicate with the service.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>In this example, not all of the methods required to implement the <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenCache&gt;</ph> class are shown for brevity.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>WIF Session Management<ept id="p1">](../../../docs/framework/security/wif-session-management.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

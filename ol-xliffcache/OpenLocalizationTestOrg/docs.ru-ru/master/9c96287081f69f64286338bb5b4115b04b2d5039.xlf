@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9c96287081f69f64286338bb5b4115b04b2d5039</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\performing-batch-operations-using-dataadapters.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d0ace0358561d0795e37b18a6c000134734eb719</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ba2b59a39e7b4b8b9f62f0fe50a8c8366d5d4f41</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Performing Batch Operations Using DataAdapters | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Performing Batch Operations Using DataAdapters</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Batch support in ADO.NET allows a <ph id="ph1">&lt;xref:System.Data.Common.DataAdapter&gt;</ph> to group INSERT, UPDATE, and DELETE operations from a <ph id="ph2">&lt;xref:System.Data.DataSet&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.DataTable&gt;</ph> to the server, instead of sending one operation at a time.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The reduction in the number of round trips to the server typically results in significant performance gains.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Batch updates are supported for the .NET data providers for SQL Server (<ph id="ph1">&lt;xref:System.Data.SqlClient&gt;</ph>) and Oracle (<ph id="ph2">&lt;xref:System.Data.OracleClient&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When updating a database with changes from a <ph id="ph1">&lt;xref:System.Data.DataSet&gt;</ph> in previous versions of ADO.NET, the <ph id="ph2">`Update`</ph> method of a <ph id="ph3">`DataAdapter`</ph> performed updates to the database one row at a time.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>As it iterated through the rows in the specified <ph id="ph1">&lt;xref:System.Data.DataTable&gt;</ph>, it examined each <ph id="ph2">&lt;xref:System.Data.DataRow&gt;</ph> to see if it had been modified.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If the row had been modified, it called the appropriate <ph id="ph1">`UpdateCommand`</ph>, <ph id="ph2">`InsertCommand`</ph>, or <ph id="ph3">`DeleteCommand`</ph>, depending on the value of the <ph id="ph4">&lt;xref:System.Data.DataRow.RowState%2A&gt;</ph> property for that row.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Every row update involved a network round-trip to the database.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Starting with ADO.NET 2.0, the <ph id="ph1">&lt;xref:System.Data.Common.DbDataAdapter&gt;</ph> exposes an <ph id="ph2">&lt;xref:System.Data.Common.DbDataAdapter.UpdateBatchSize%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Setting the <ph id="ph1">`UpdateBatchSize`</ph> to a positive integer value causes updates to the database to be sent as batches of the specified size.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, setting the <ph id="ph1">`UpdateBatchSize`</ph> to 10 will group 10 separate statements and submit them as single batch.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Setting the <ph id="ph1">`UpdateBatchSize`</ph> to 0 will cause the <ph id="ph2">&lt;xref:System.Data.Common.DataAdapter&gt;</ph> to use the largest batch size that the server can handle.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Setting it to 1 disables batch updates, as rows are sent one at a time.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Executing an extremely large batch could decrease performance.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Therefore, you should test for the optimum batch size setting before implementing your application.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Using the UpdateBatchSize Property</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When batch updates are enabled, the <ph id="ph1">&lt;xref:System.Data.IDbCommand.UpdatedRowSource%2A&gt;</ph> property value of the DataAdapter's <ph id="ph2">`UpdateCommand`</ph>, <ph id="ph3">`InsertCommand`</ph>, and <ph id="ph4">`DeleteCommand`</ph> should be set to <ph id="ph5">&lt;xref:System.Data.UpdateRowSource&gt;</ph> or <ph id="ph6">&lt;xref:System.Data.UpdateRowSource&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When performing a batch update, the command's <ph id="ph1">&lt;xref:System.Data.IDbCommand.UpdatedRowSource%2A&gt;</ph> property value of <ph id="ph2">&lt;xref:System.Data.UpdateRowSource&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.UpdateRowSource&gt;</ph> is invalid.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following procedure demonstrates the use of the <ph id="ph1">`UpdateBatchSize`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The procedure takes two arguments, a <ph id="ph1">&lt;xref:System.Data.DataSet&gt;</ph> object that has columns representing the <bpt id="p1">**</bpt>ProductCategoryID<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Name<ept id="p2">**</ept> fields in the <bpt id="p3">**</bpt>Production.ProductCategory<ept id="p3">**</ept> table, and an integer representing the batch size (the number of rows in the batch).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The code creates a new <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlDataAdapter&gt;</ph> object, setting its <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A&gt;</ph>, and <ph id="ph4">&lt;xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The code assumes that the <ph id="ph1">&lt;xref:System.Data.DataSet&gt;</ph> object has modified rows.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>It sets the <ph id="ph1">`UpdateBatchSize`</ph> property and executes the update.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Handling Batch Update-Related Events and Errors</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>DataAdapter<ept id="p1">**</ept> has two update-related events: <bpt id="p2">**</bpt>RowUpdating<ept id="p2">**</ept> and <bpt id="p3">**</bpt>RowUpdated<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In previous versions of ADO.NET, when batch processing is disabled, each of these events is generated once for each row processed.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>RowUpdating<ept id="p1">**</ept> is generated before the update occurs, and <bpt id="p2">**</bpt>RowUpdated<ept id="p2">**</ept> is generated after the database update has been completed.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Event Behavior Changes with Batch Updates</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>When batch processing is enabled, multiple rows are updated in a single database operation.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Therefore, only one <ph id="ph1">`RowUpdated`</ph> event occurs for each batch, whereas the <ph id="ph2">`RowUpdating`</ph> event occurs for each row processed.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When batch processing is disabled, the two events are fired with one-to-one interleaving, where one <ph id="ph1">`RowUpdating`</ph> event and one <ph id="ph2">`RowUpdated`</ph> event fire for a row, and then one <ph id="ph3">`RowUpdating`</ph> and one <ph id="ph4">`RowUpdated`</ph> event fire for the next row, until all of the rows are processed.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Accessing Updated Rows</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When batch processing is disabled, the row being updated can be accessed using the <ph id="ph1">&lt;xref:System.Data.Common.RowUpdatedEventArgs.Row%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Data.Common.RowUpdatedEventArgs&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When batch processing is enabled, a single <ph id="ph1">`RowUpdated`</ph> event is generated for multiple rows.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Therefore, the value of the <ph id="ph1">`Row`</ph> property for each row is null.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`RowUpdating`</ph> events are still generated for each row.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.Common.RowUpdatedEventArgs.CopyToRows%2A&gt;</ph> method of the <ph id="ph2">&lt;xref:System.Data.Common.RowUpdatedEventArgs&gt;</ph> class allows you to access the processed rows by copying references to the rows into an array.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If no rows are being processed, <ph id="ph1">`CopyToRows`</ph> throws an <ph id="ph2">&lt;xref:System.ArgumentNullException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Data.Common.RowUpdatedEventArgs.RowCount%2A&gt;</ph> property to return the number of rows processed before calling the <ph id="ph2">&lt;xref:System.Data.Common.RowUpdatedEventArgs.CopyToRows%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Handling Data Errors</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Batch execution has the same effect as the execution of each individual statement.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Statements are executed in the order that the statements were added to the batch.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Errors are handled the same way in batch mode as they are when batch mode is disabled.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Each row is processed separately.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Only rows that have been successfully processed in the database will be updated in the corresponding <ph id="ph1">&lt;xref:System.Data.DataRow&gt;</ph> within the <ph id="ph2">&lt;xref:System.Data.DataTable&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The data provider and the back-end database server determine which SQL constructs are supported for batch execution.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>An exception may be thrown if a non-supported statement is submitted for execution.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>DataAdapters and DataReaders<ept id="p1">](../../../../docs/framework/data/adonet/dataadapters-and-datareaders.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Updating Data Sources with DataAdapters<ept id="p1">](../../../../docs/framework/data/adonet/updating-data-sources-with-dataadapters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Handling DataAdapter Events<ept id="p1">](../../../../docs/framework/data/adonet/handling-dataadapter-events.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

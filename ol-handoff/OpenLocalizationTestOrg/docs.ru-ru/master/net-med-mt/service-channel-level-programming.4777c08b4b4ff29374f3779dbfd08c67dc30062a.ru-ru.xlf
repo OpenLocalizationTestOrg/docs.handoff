@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4375f85b6c9f5f286f0fb13442d1c19f696eb562</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\service-channel-level-programming.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">507baaf4a5762b0641ab8eb16a30b4515dc54310</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a71ebd9c93b6520f62c206d32463af1340f5c96c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Service Channel-Level Programming | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Service Channel-Level Programming</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how to write a <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> service application without using the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost?displayProperty=fullName&gt;</ph> and its associated object model.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Receiving Messages</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>To be ready to receive and process messages, the following steps are required:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Create a binding.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Build a channel listener.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Open the channel listener.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Read the request and send a reply.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Close all channel objects.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Creating a Binding</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The first step in listening for and receiving messages is creating a binding.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> ships with several built-in or system-provided bindings that can be used directly by instantiating one of them.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In addition, you can also create your own custom binding by instantiating a CustomBinding class which is what the code in listing 1 does.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The code example below creates an instance of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CustomBinding?displayProperty=fullName&gt;</ph> and adds an <ph id="ph2">&lt;xref:System.ServiceModel.Channels.HttpTransportBindingElement?displayProperty=fullName&gt;</ph> to its Elements collection which is a collection of binding elements that are used to build the channel stack.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In this example, because the elements collection has only the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.HttpTransportBindingElement&gt;</ph>, the resulting channel stack has only the HTTP transport channel.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Building a ChannelListener</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>After creating a binding, we call <ph id="ph1">&lt;!--zz&lt;xref:System.ServiceModel.Channels.Binding.BuildChannelListener%601%2A?displayProperty=fullName&gt;--&gt;</ph> <ph id="ph2">`System.ServiceModel.Channels.Binding.BuildChannelListener`</ph> to build the channel listener where the type parameter is the channel shape to create.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In this example we are using <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel?displayProperty=fullName&gt;</ph> because we want to listen for incoming messages in a request/reply message exchange pattern.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel&gt;</ph> is used for receiving request messages and sending back reply messages.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A?displayProperty=fullName&gt;</ph> returns an <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestChannel?displayProperty=fullName&gt;</ph>, which can be used to receive the request message and to send back a reply message.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When creating the listener, we pass the network address on which it listens, in this case <ph id="ph1">`http://localhost:8080/channelapp`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In general, each transport channel supports one or possibly several address schemes, for example, the HTTP transport supports both http and https schemes.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>We also pass an empty <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingParameterCollection?displayProperty=fullName&gt;</ph> when creating the listener.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A binding parameter is a mechanism to pass parameters that control how the listener should be built.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In our example, we are not using any such parameters so we pass an empty collection.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Listening for Incoming Messages</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>We then call <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> on the listener and start accepting channels.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The behavior of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener%601.AcceptChannel%2A?displayProperty=fullName&gt;</ph> depends on whether the transport is connection-oriented or connection-less.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For connection-oriented transports, <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener%601.AcceptChannel%2A&gt;</ph> blocks until a new connection request comes in at which point it returns a new channel that represents that new connection.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For connection-less transports, such as HTTP, <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener%601.AcceptChannel%2A&gt;</ph> returns immediately with the one and only channel that the transport listener creates.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this example, the listener returns a channel that implements <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To receive messages on this channel we first call <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> on it to place it in a state ready for communication.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>We then call <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A&gt;</ph> which blocks until a message arrives.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Reading the Request and Sending a Reply</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A&gt;</ph> returns a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.RequestContext&gt;</ph>, we get the received message using its <ph id="ph3">&lt;xref:System.ServiceModel.Channels.RequestContext.RequestMessage%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>We write out the message’s action and body content, (which we assume is a string).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>To send a reply, we create a new reply message in this case passing back the string data we received in the request.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>We then call <ph id="ph1">&lt;xref:System.ServiceModel.Channels.RequestContext.Reply%2A&gt;</ph> to send the reply message.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Closing Objects</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>To avoid leaking resources, it is very important to close objects used in communications when they are no longer required.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In this example we close the request message, the request context, the channel and the listener.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The following code example shows a basic service in which a channel listener receives only one message.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>A real service keeps accepting channels and receiving messages until the service exits.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ChannelProgrammingBasic#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/channelprogrammingbasic/cs/serviceprogram.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>ChannelProgrammingBasic#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/channelprogrammingbasic/vb/serviceprogram.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

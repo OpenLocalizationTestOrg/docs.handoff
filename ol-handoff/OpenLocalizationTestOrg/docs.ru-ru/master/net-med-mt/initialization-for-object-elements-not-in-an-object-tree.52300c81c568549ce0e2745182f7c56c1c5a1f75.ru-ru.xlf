@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5ec6322fe0156fd6671299502ab0dcdb7a762af5</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\initialization-for-object-elements-not-in-an-object-tree.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">365a66ddd7e996d96276559477f98a500c3105c7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e21c801cb33182ae63fbcb0f3d38c36a4f43deee</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Initialization for Object Elements Not in an Object Tree | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Initialization for Object Elements Not in an Object Tree</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Some aspects of <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> initialization are deferred to processes that typically rely on that element being connected to either the logical tree or visual tree.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic describes the steps that may be necessary in order to initialize an element that is not connected to either tree.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Elements and the Logical Tree</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When you create an instance of a <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> class in code, you should be aware that several aspects of object initialization for a <ph id="ph2">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> class are deliberately not a part of the code that is executed when calling the class constructor.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Particularly for a control class, most of the visual representation of that control is not defined by the constructor.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Instead, the visual representation is defined by the control's template.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The template potentially comes from a variety of sources, but most often the template is obtained from theme styles.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Templates are effectively late-binding; the necessary template is not attached to the control in question until the control is ready for layout.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>And the control is not ready for layout until it is attached to a logical tree that connects to a rendering surface at the root.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It is that root-level element that initiates the rendering of all of its child elements as defined in the logical tree.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The visual tree also participates in this process.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Elements that are part of the visual tree through the templates are also not fully instantiated until connected.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The consequences of this behavior are that certain operations that rely on the completed visual characteristics of an element require additional steps.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>An example is if you are attempting to get the visual characteristics of a class that was constructed but not yet attached to a tree.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For instance, if you want to call <ph id="ph1">&lt;xref:System.Windows.Media.Imaging.RenderTargetBitmap.Render%2A&gt;</ph> on a <ph id="ph2">&lt;xref:System.Windows.Media.Imaging.RenderTargetBitmap&gt;</ph> and the visual you are passing is an element not connected to a tree, that element is not visually complete until additional initialization steps are completed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Using BeginInit and EndInit to Initialize the Element</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Various classes in <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> implement the <ph id="ph2">&lt;xref:System.ComponentModel.ISupportInitialize&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You use the <ph id="ph1">&lt;xref:System.ComponentModel.ISupportInitialize.BeginInit%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.ISupportInitialize.EndInit%2A&gt;</ph> methods of the interface to denote a region in your code that contains initialization steps (such as setting property values that affect rendering).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>After <ph id="ph1">&lt;xref:System.ComponentModel.ISupportInitialize.EndInit%2A&gt;</ph> is called in the sequence, the layout system can process the element and start looking for an implicit style.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If the element you are setting properties on is a <ph id="ph1">&lt;xref:System.Windows.FrameworkElement&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.FrameworkContentElement&gt;</ph> derived class, then you can call the class versions of <ph id="ph3">&lt;xref:System.Windows.FrameworkElement.BeginInit%2A&gt;</ph> and <ph id="ph4">&lt;xref:System.Windows.FrameworkElement.EndInit%2A&gt;</ph> rather than casting to <ph id="ph5">&lt;xref:System.ComponentModel.ISupportInitialize&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Sample Code</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The following example is sample code for a console application that uses rendering <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph> and <ph id="ph2">&lt;xref:System.Windows.Markup.XamlReader.Load%28System.IO.Stream%29?displayProperty=fullName&gt;</ph> of a loose <ph id="ph3">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> file to illustrate the proper placement of <ph id="ph4">&lt;xref:System.Windows.FrameworkElement.BeginInit%2A&gt;</ph> and <ph id="ph5">&lt;xref:System.Windows.FrameworkElement.EndInit%2A&gt;</ph> around other <ph id="ph6">[!INCLUDE[TLA2#tla_api](../../../../includes/tla2sharptla-api-md.md)]</ph> calls that adjust properties that affect rendering.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The example illustrates the main function only.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The functions <ph id="ph1">`Rasterize`</ph> and <ph id="ph2">`Save`</ph> (not shown) are utility functions that take care of image processing and IO.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>InitializeElements#Main<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/InitializeElements/CSharp/initializeelements.cs#main)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>InitializeElements#Main<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/InitializeElements/VisualBasic/initializeelements.vb#main)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Trees in WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/trees-in-wpf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>WPF Graphics Rendering Overview<ept id="p1">](../../../../docs/framework/wpf/graphics-multimedia/wpf-graphics-rendering-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
