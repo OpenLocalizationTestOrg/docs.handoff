@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cfd384388c9b4c82a8306f7006d0f498895b0e90</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\configuring-and-extending-the-runtime-with-behaviors.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c3a6dc008c61b1b77aaa7a06aaf836370637fba0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5670f4dce0a47c642e93bfb4f9f290ffd1365bea</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Configuring and Extending the Runtime with Behaviors | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Configuring and Extending the Runtime with Behaviors</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Behaviors enable you to modify default behavior and add custom extensions that inspect and validate service configuration or modify runtime behavior in <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> client and service applications.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic describes the behavior interfaces, how to implement them, and how to add them to the service description (in a service application) or endpoint (in a client application) programmatically or in a configuration file.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information about using system-provided behaviors, see <bpt id="p1">[</bpt>Specifying Service Run-Time Behavior<ept id="p1">](../../../../docs/framework/wcf/specifying-service-run-time-behavior.md)</ept> and <bpt id="p2">[</bpt>Specifying Client Run-Time Behavior<ept id="p2">](../../../../docs/framework/wcf/specifying-client-run-time-behavior.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Behaviors</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Behavior types are added to the service or service endpoint description objects (on the service or client, respectively) before those objects are used by <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> to create a runtime that executes a <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service or a <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>When these behaviors are called during the runtime construction process they are then able to access runtime properties and methods that modify the runtime constructed by the contract, bindings, and addresses.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Behavior Methods</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>All behaviors have an <ph id="ph1">`AddBindingParameters`</ph> method, an <ph id="ph2">`ApplyDispatchBehavior`</ph> method, a <ph id="ph3">`Validate`</ph> method, and an <ph id="ph4">`ApplyClientBehavior`</ph> method with one exception: Because <ph id="ph5">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> cannot execute in a client, it does not implement <ph id="ph6">`ApplyClientBehavior`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`AddBindingParameters`</ph> method to modify or add custom objects to a collection that custom bindings can access for their use when the runtime is constructed.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, this how protection requirements are specified that affect the way the channel is built, but are not known by the channel developer.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`Validate`</ph> method to examine the description tree and corresponding runtime object to ensure it conforms to some set of criteria.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`ApplyDispatchBehavior`</ph> and <ph id="ph2">`ApplyClientBehavior`</ph> methods to examine the description tree and modify the runtime for a particular scope on either the service or the client.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You can also insert extension objects as well.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Although a description tree is provided in these methods, it is for examination only.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If a description tree is modified, the behavior is undefined.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The properties you can modify and the customization interfaces you can implement are accessed through the service and client runtime classes.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The service types are the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> and  <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The client types are the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ClientRuntime&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ClientOperation&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ClientRuntime&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> classes are the extensibility entry points to access client-wide and service-wide runtime properties and extension collections, respectively.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Similarly, the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ClientOperation&gt;</ph> and  <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> classes expose client operation and service operation runtime properties and extension collections, respectively.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can, however, access the wider scoped runtime object from the operation runtime object and vice versa if need be.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For a discussion of runtime properties and extension types that you can use to modify the execution behavior of a client, see <bpt id="p1">[</bpt>Extending Clients<ept id="p1">](../../../../docs/framework/wcf/extending/extending-clients.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For a discussion of runtime properties and extension types that you can use to modify the execution behavior of a service dispatcher, see <bpt id="p1">[</bpt>Extending Dispatchers<ept id="p1">](../../../../docs/framework/wcf/extending/extending-dispatchers.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Most <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> users do not interact with the runtime directly; instead they use core programming model constructs like endpoints, contracts, bindings, addresses, and behavior attributes on classes or behaviors in configuration files.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>These constructs make up the <bpt id="p1">*</bpt>description tree<ept id="p1">*</ept>, which is the complete specification for constructing a runtime to support a service or client described by the description tree.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>There are four kinds of behaviors in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Service behaviors (<ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> types) enable the customization of the entire service runtime including <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHostBase&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Endpoint behaviors (<ph id="ph1">&lt;xref:System.ServiceModel.Description.IEndpointBehavior&gt;</ph> types) enable the customization of service endpoints and their associated <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Contract behaviors (<ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior&gt;</ph> types) enable the customization of both the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ClientRuntime&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> classes in client and service applications, respectively.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Operation behaviors (<ph id="ph1">&lt;xref:System.ServiceModel.Description.IOperationBehavior&gt;</ph> types) enable the customization of the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ClientOperation&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> classes, again, on the client and service.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>You can add these behaviors to the various description objects by implementing custom attributes, using application configuration files, or directly by adding them to the behaviors collection on the appropriate description object.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The must, however, be added to a service description or service endpoint description object prior to calling <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> on the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> or a <ph id="ph3">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Behavior Scopes</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>There are four behavior types, each of which corresponds to a particular scope of runtime access.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Service Behaviors</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Service behaviors, which implement <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph>, are the primary mechanism by which you modify the entire service runtime.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>There are three mechanisms for adding service behaviors to a service.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Using an attribute on the service class.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> is constructed, the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> implementation uses reflection to discover the set of attributes on the type of the service.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If any of those attributes are implementations of <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph>, they are added to the behaviors collection on <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This allows those behaviors to participate in the construction of the service run time.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Programmatically adding the behavior to the behaviors collection on <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This can be accomplished with the following lines of code:</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Implementing a custom <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph> that extends configuration.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This enables the use of the service behavior from application configuration files.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Examples of service behaviors in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> include the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> attribute, the <ph id="ph3">&lt;xref:System.ServiceModel.Description.ServiceThrottlingBehavior&gt;</ph>, and the <ph id="ph4">&lt;xref:System.ServiceModel.Description.ServiceMetadataBehavior&gt;</ph> behavior.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Contract Behaviors</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Contract behaviors, which implement the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior&gt;</ph> interface, are used to extend both the client and service runtime across a contract.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>There are two mechanisms for adding contract behaviors to a contract.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The first mechanism is to create a custom attribute to be used on the contract interface.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>When a contract interface is passed to either a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> or a <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph>, <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> examines the attributes on the interface.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If any attributes are implementations of <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior&gt;</ph>, those are added to the behaviors collection on the <ph id="ph2">&lt;xref:System.ServiceModel.Description.ContractDescription?displayProperty=fullName&gt;</ph> created for that interface.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>You can also implement the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehaviorAttribute?displayProperty=fullName&gt;</ph> on the custom contract behavior attribute.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In this case, the behavior is as follows when applied to:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>•A contract interface.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>In this case, the behavior is applied to all contracts of that type in any endpoint and <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> ignores the value of the <ph id="ph2">&lt;xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>•A service class.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In this case, the behavior is applied only to endpoints the contract of which is the value of the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>•A callback class.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>In this case, the behavior is applied to the duplex client's endpoint and <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> ignores the value of the <ph id="ph2">&lt;xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The second mechanism is to add the behavior to the behaviors collection on a <ph id="ph1">&lt;xref:System.ServiceModel.Description.ContractDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Examples of contract behaviors in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> include the <ph id="ph2">&lt;xref:System.ServiceModel.DeliveryRequirementsAttribute?displayProperty=fullName&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For more information and an example, see the reference topic.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Endpoint Behaviors</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Endpoint behaviors, which implement <ph id="ph1">&lt;xref:System.ServiceModel.Description.IEndpointBehavior&gt;</ph>, are the primary mechanism by which you modify the entire service or client run time for a specific endpoint.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>There are two mechanisms for adding endpoint behaviors to a service.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Add the behavior to the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Implement a custom <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph> that extends configuration.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For more information and an example, see the reference topic.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Operation Behaviors</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Operation behaviors, which implement the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IOperationBehavior&gt;</ph> interface, are used to extend both the client and service runtime for each operation.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>There are two mechanisms for adding operation behaviors to an operation.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The first mechanism is to create a custom attribute to be used on the method that models the operation.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>When an operation is added to either a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> or a <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph>, <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> adds any  <ph id="ph4">&lt;xref:System.ServiceModel.Description.IOperationBehavior&gt;</ph> attributes to the behaviors collection on the <ph id="ph5">&lt;xref:System.ServiceModel.Description.OperationDescription&gt;</ph> created for that operation.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The second mechanism is by directly adding the behavior to the behaviors collection on a constructed <ph id="ph1">&lt;xref:System.ServiceModel.Description.OperationDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Examples of operation behaviors in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> include the <ph id="ph2">&lt;xref:System.ServiceModel.OperationBehaviorAttribute&gt;</ph> and the <ph id="ph3">&lt;xref:System.ServiceModel.TransactionFlowAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>For more information and an example, see the reference topic.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Using Configuration to Create Behaviors</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Service and endpoint, and contract behaviors can by designed to be specified in code or using attributes; only service and endpoint behaviors can be configured using application or Web configuration files.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Exposing behaviors using attributes allows developers to specify a behavior at compilation-time that cannot be added, removed, or modified at runtime.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This is often suitable for behaviors that are always required for the correct operation of a service (for example, the transaction-related parameters to the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute?displayProperty=fullName&gt;</ph> attribute).</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Exposing behaviors using configuration allows developers to leave the specification and configuration of those behaviors to those who deploy the service.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This is suitable for behaviors that are optional components or other deployment-specific configuration, such as whether metadata is exposed for the service or the particular authorization configuration for a service.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>You can also use behaviors that support configuration to enforce company application policies by inserting them into the machine.config configuration file and locking those items down.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For a description and an example, see <bpt id="p1">[</bpt>How to: Lock Down Endpoints in the Enterprise<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-lock-down-endpoints-in-the-enterprise.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>To expose a behavior using configuration, a developer must create a derived class of <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph> and then register that extension with configuration.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The following code example shows how an  <ph id="ph1">&lt;xref:System.ServiceModel.Description.IEndpointBehavior&gt;</ph> implements <ph id="ph2">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>In order for the configuration system to load a custom <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph>, it must be registered as an extension.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The following code example shows the configuration file for the preceding endpoint behavior:</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Where <ph id="ph1">`Microsoft.WCF.Documentation.EndpointBehaviorMessageInspector`</ph> is the behavior extension type and <ph id="ph2">`HostApplication`</ph> is the name of the assembly into which that class has been compiled.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Evaluation Order</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601?displayProperty=fullName&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost?displayProperty=fullName&gt;</ph> are responsible for building the runtime from the programming model and description.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Behaviors, as previously described, contribute to that build process at the service, endpoint, contract, and operation.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> applies behaviors in the following order:</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Service</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Contract</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Endpoint</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Operation</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Within any collection of behaviors, no order is guaranteed.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph> applies behaviors in the following order:</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Contract</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Endpoint</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Operation</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Within any collection of behaviors, again, no order is guaranteed.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Adding Behaviors Programmatically</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Properties of the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceDescription?displayProperty=fullName&gt;</ph> in the service application must not be modified subsequent to the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening%2A?displayProperty=fullName&gt;</ph> method on <ph id="ph3">&lt;xref:System.ServiceModel.ServiceHostBase?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Some members, like the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHostBase.Credentials%2A?displayProperty=fullName&gt;</ph> property and the <ph id="ph2">`AddServiceEndpoint`</ph> methods on <ph id="ph3">&lt;xref:System.ServiceModel.ServiceHostBase&gt;</ph> and <ph id="ph4">&lt;xref:System.ServiceModel.ServiceHost?displayProperty=fullName&gt;</ph>, throw an exception if modified past that point.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Others permit you to modify them, but the result is undefined.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Similarly, on the client the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceEndpoint?displayProperty=fullName&gt;</ph> values must not be modified after the call to <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening%2A&gt;</ph> on the <ph id="ph3">&lt;xref:System.ServiceModel.ChannelFactory?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory.Credentials%2A?displayProperty=fullName&gt;</ph> property throws an exception if modified past that point, but the other client description values can be modified without error.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The result, however, is undefined.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Whether for the service or client, it is recommended that you modify the description prior to calling <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Inheritance Rules for Behavior Attributes</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>All four types of behaviors can be populated using attributes – service behaviors and contract behaviors.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Because attributes are defined on managed objects and members, and managed objects and members support inheritance, it is necessary to define how behavior attributes work in the context of inheritance.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>At a high level, the rule is that for a particular scope (for example, service, contract, or operation), all behavior attributes in the inheritance hierarchy for that scope are applied.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>If there are two behavior attributes of the same type, only the most-derived type is used.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Service Behaviors</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>For a given service class, all service behavior attributes on that class, and on parents of that class, are applied.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>If the same type of attribute is applied at multiple places in the inheritance hierarchy, the most-derived type is used.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>For example, in the preceding case, the service B ends up with an <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContextMode&gt;</ph> of <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContextMode&gt;</ph>, an <ph id="ph3">&lt;xref:System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode&gt;</ph> mode of <ph id="ph4">&lt;xref:System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode&gt;</ph>, and a <ph id="ph5">&lt;xref:System.ServiceModel.ConcurrencyMode&gt;</ph> of <ph id="ph6">&lt;xref:System.ServiceModel.ConcurrencyMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ConcurrencyMode&gt;</ph> is <ph id="ph2">&lt;xref:System.ServiceModel.ConcurrencyMode&gt;</ph>, because <ph id="ph3">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> attribute on service B is on "more derived" than that on service A.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Contract Behaviors</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>For a given contract, all contract behavior attributes on that interface and on parents of that interface, are applied.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>If the same type of attribute is applied at multiple places in the inheritance hierarchy, the most-derived type is used.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Operation Behaviors</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>If a given operation does not override an existing abstract or virtual operation, no inheritance rules apply.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>If an operation does override an existing operation, then all operation behavior attributes on that operation and on parents of that operation, are applied.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>If the same type of attribute is applied at multiple places in the inheritance hierarchy, the most-derived type is used.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

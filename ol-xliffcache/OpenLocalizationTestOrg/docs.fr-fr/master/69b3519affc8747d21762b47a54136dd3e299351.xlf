@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">69b3519affc8747d21762b47a54136dd3e299351</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\the-ink-threading-model.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6d9ceb56b615a933de021cd8f13e5f4b5a6ae8f</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">aff755365d7f72caa823a27ad98b93550baafea8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>The Ink Threading Model | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>The Ink Threading Model</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>One of the benefits of ink on a Tablet PC is that it feels a lot like writing with a regular pen and paper.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>To accomplish this, the tablet pen collects input data at a much higher rate than a mouse does and renders the ink as the user writes.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The application's user interface (UI) thread is not sufficient for collecting pen data and rendering ink, because it can become blocked.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To solve this, a <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> application uses two additional threads when a user writes ink.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The following list describes the threads that take part in collecting and rendering digital ink:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Pen thread - the thread that takes input from the stylus.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>(In reality, this is a thread pool, but this topic refers to it as a pen thread.)</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Application user interface thread - the thread that controls the user interface of the application.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Dynamic rendering thread - the thread that renders the ink while the user draws a stroke.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The dynamic rendering thread is different than the thread that renders other UI elements for the application, as mentioned in Window Presentation Foundation <bpt id="p1">[</bpt>Threading Model<ept id="p1">](../../../../docs/framework/wpf/advanced/threading-model.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The inking model is the same whether the application uses the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> or a custom control similar to the one in <bpt id="p1">[</bpt>Creating an Ink Input Control<ept id="p1">](../../../../docs/framework/wpf/advanced/creating-an-ink-input-control.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Although this topic discusses threading in terms of the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph>, the same concepts apply when you create a custom control.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Threading Overview</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The following diagram illustrates the threading model when a user draws a stroke:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Threading model while drawing a stroke.<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wpf/advanced/media/inkthreading-drawingink.png "</bpt>InkThreading_DrawingInk<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Actions occurring while the user draws the stroke</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When the user draws a stroke, the stylus points come in on the pen thread.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Stylus plug-ins, including the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph>, accept the stylus points on the pen thread and have the chance to modify them before the <ph id="ph2">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> receives them.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> renders the stylus points on the dynamic rendering thread.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This happens at the same time as the previous step.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> receives the stylus points on the UI thread.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Actions occurring after the user ends the stroke</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When the user finishes drawing the stroke, the <ph id="ph1">&lt;xref:System.Windows.Controls.InkCanvas&gt;</ph> creates a <ph id="ph2">&lt;xref:System.Windows.Ink.Stroke&gt;</ph> object and adds it to the <ph id="ph3">&lt;xref:System.Windows.Controls.InkPresenter&gt;</ph>, which statically renders it.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The UI thread alerts the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> that the stroke is statically rendered, so the <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> removes its visual representation of the stroke.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Ink collection and Stylus Plug-ins</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph> has a <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugInCollection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn&gt;</ph> objects in the <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugInCollection&gt;</ph> receive and can modify the stylus points on the pen thread.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn&gt;</ph> objects receive the stylus points according to their order in the <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugInCollection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The following diagram illustrates the hypothetical situation where the <ph id="ph1">&lt;xref:System.Windows.UIElement.StylusPlugIns%2A&gt;</ph> collection of a <ph id="ph2">&lt;xref:System.Windows.UIElement&gt;</ph> contains <ph id="ph3">`stylusPlugin1`</ph>, a <ph id="ph4">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph>, and <ph id="ph5">`stylusPlugin2`</ph>, in that order.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Order of Stylus Plugins affect output.<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wpf/advanced/media/inkthreading-pluginorder.png "</bpt>InkThreading_PluginOrder<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the previous diagram, the following behavior takes place:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StylusPlugin1`</ph> modifies the values for x and y.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> receives the modified stylus points and renders them on the dynamic rendering thread.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StylusPlugin2`</ph> receives the modified stylus points and further modifies the values for x and y.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The application collects the stylus points, and, when the user finishes the stroke, statically renders the stroke.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Suppose that <ph id="ph1">`stylusPlugin1`</ph> restricts the stylus points to a rectangle and <ph id="ph2">`stylusPlugin2`</ph> translates the stylus points to the right.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In the previous scenario, the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> receives the restricted stylus points, but not the translated stylus points.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When the user draws the stroke, the stroke is rendered within the bounds of the rectangle, but the stroke doesn't appear to be translated until the user lifts the pen.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Performing operations with a Stylus Plug-in on the UI thread</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Because accurate hit-testing cannot be performed on the pen thread, some elements might occasionally receive stylus input intended for other elements.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If you need to make sure the input was routed correctly before performing an operation, subscribe to and perform the operation in the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusDownProcessed%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusMoveProcessed%2A&gt;</ph>, or <ph id="ph3">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn.OnStylusUpProcessed%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>These methods are invoked by the application thread after accurate hit-testing has been performed.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>To subscribe to these methods, call the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.RawStylusInput.NotifyWhenProcessed%2A&gt;</ph> method in the method that occurs on the pen thread.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following diagram illustrates the relationship between the pen thread and UI thread with respect to the stylus events of a <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.StylusPlugIn&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Ink Threading Models &amp;#40;UI and Pen&amp;#41;<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wpf/advanced/media/inkthreading-plugincallbacks.png "</bpt>InkThreading_PluginCallbacks<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Rendering Ink</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>As the user draws a stroke, <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> renders the ink on a separate thread so the ink appears to "flow" from the pen even when the UI thread is busy.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> builds a visual tree on the dynamic rendering thread as it collects stylus points.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>When the user finishes the stroke, the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> asks to be notified when the application does the next rendering pass.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>After the application completes the next rendering pass, the <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> cleans up its visual tree.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The following diagram illustrates this process.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Ink threading diagram<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wpf/advanced/media/inkthreading-visualtree.png "</bpt>InkThreading_VisualTree<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The user begins the stroke.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> creates the visual tree.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The user is drawing the stroke.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> builds the visual tree.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The user ends the stroke.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.InkPresenter&gt;</ph> adds the stroke to its visual tree.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The Media Integration Layer (MIL) statically renders the strokes.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Input.StylusPlugIns.DynamicRenderer&gt;</ph> cleans up the visuals.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

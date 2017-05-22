@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bde72f47c5371e2aa13edf21685648addb5dc523</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\creating-custom-flow-control-activities.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">67be3e0a3dad759b16c7e4c7b777c88fb197aecf</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ae962d801de8ae213c8499e8bbe684731e86f7cb</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating custom flow control activities | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating custom flow control activities</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The .Net Framework contains a variety of flow-control activities that function similarly to abstract programming structures (such as <ph id="ph1">&lt;xref:System.Activities.Statements.Flowchart&gt;</ph>)   or to standard programming statements (such as <ph id="ph2">&lt;xref:System.Activities.Statements.If&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic discusses the architecture of one of the sample projects, <bpt id="p1">[</bpt>Non-Generic ForEach<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/non-generic-foreach.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Creating the custom class</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Since the Non-Generic ForEach class will need to schedule child activities, it will need to derive from <ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph>, since activities that derive from <ph id="ph2">&lt;xref:System.Workflow.Activities.CodeActivity&gt;</ph> do not have this functionality.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The custom class requires several members to store data being used by the activity, and to provide functionality to execute the activity’s child activities.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>These members include:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`valueEnumerator`</ph>: The non-public <ph id="ph2">&lt;xref:System.Activities.Variable%601&gt;</ph> of type <ph id="ph3">&lt;xref:System.Collections.IEnumerator&gt;</ph> used to iterate over the collection of items.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This member is of type <ph id="ph1">&lt;xref:System.Activities.Variable%601&gt;</ph> because it is used internally in the activity, rather than an argument or public property, which would be used if this object were to have an origin outside the activity.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`OnChildComplete`</ph>: The public <ph id="ph2">&lt;xref:System.Activities.CompletionCallback&gt;</ph> property that executes when each child completes execution.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This member is defined as a CLR property, since its value will not change for different instances of the activity.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Values`</ph>: The collection of inputs used for the iterations of the child activity.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This member is of type <ph id="ph1">&lt;xref:System.Activities.InArgument%601&gt;</ph>, since the origin of the data is outside the activity, but the contents of the collection is not expected to change during the execution of the activity.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If the activity needed the functionality to change the contents of this collection while the activity was executing (to add or remove activities, for instance), this member would have been defined as an <ph id="ph1">&lt;xref:System.Activities.ActivityAction&gt;</ph>, which then would have been evaluated every time it was accessed, so that changes would be available to the activity.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Body`</ph>: This member defines the activity to be executed for each item in the <ph id="ph2">`Values`</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This member is defined as an <ph id="ph1">&lt;xref:System.Activities.ActivityAction&gt;</ph> so that it is evaluated every time it is accessed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Execute`</ph>: This method uses the <ph id="ph2">`InternalExecute`</ph>, <ph id="ph3">`OnForEachComplete`</ph>, and <ph id="ph4">`GetStateAndExecute`</ph> non-public members to schedule the execution and assign the completion handler of the child activity defined in the Body member.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`CacheMetadata`</ph>: This member provides the runtime with the information it needs to execute the activity.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>By default, an activity’s <ph id="ph1">`CacheMetadata`</ph> method will inform the runtime of all public members of the activity, but since this activity uses private members for some functionality, it needs to inform the runtime of their existence so that the runtime can be aware of them.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In this case, the <ph id="ph1">`CacheMetadata`</ph> function is overridden so that the private <ph id="ph2">`valueEnumerator`</ph> member can be accessed.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This member also creates an argument for the values for the activity so that they can be passed in to the activity during execution.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

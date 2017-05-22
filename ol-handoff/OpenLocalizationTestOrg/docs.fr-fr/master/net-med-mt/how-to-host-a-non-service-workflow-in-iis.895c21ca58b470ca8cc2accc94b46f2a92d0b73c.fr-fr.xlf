@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">04d47d21dd3da7c6e60a05a7959a55e6ce251ada</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-host-a-non-service-workflow-in-iis.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">10950c312a406db331bb12a672c99f850eff2212</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">089014da074b1a5f44e5003c3cb4708d1f4c75ae</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Host a non-service workflow in IIS | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Host a non-service workflow in IIS</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Workflows that are not workflow services can be hosted under IIS/WAS.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is useful when you need to host a workflow written by somebody else.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For example, if you rehost the workflow designer and allow users to create their own workflows.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Hosting non-service workflows in IIS provides support for features like process recycling, idle shutdown, process health monitoring, and message-based activation.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Workflow services hosted in IIS contain <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activities and are activated when a message is received by IIS.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Non-service workflows do not contain messaging activities, and by default cannot be activated by sending a message.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You must derive a class from <ph id="ph1">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint&gt;</ph> and define a service contract that contains operations to create an instance of the workflow.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This topic will walk you through creating a simple workflow, defining a service contract a client can use to activate the workflow, and deriving a class from <ph id="ph1">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint&gt;</ph> which uses the service contract to listen for workflow creating requests.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Create a simple workflow</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> empty solution called <ph id="ph2">`CreationEndpointTest`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Add a new WCF Workflow Service Application project called <ph id="ph1">`SimpleWorkflow`</ph> to the solution.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The workflow designer will open.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Delete the ReceiveRequest and SendResponse activities.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>These activities are what makes a workflow a workflow service.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Since we are not working with a workflow service, we no longer need them.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Set the DisplayName for the sequence activity to "Sequential Workflow".</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Rename Service1.xamlx to Workflow1.xamlx.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Click the designer outside of the sequence activity, and set the Name and ConfigurationName properties to "Workflow1"</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Drag a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity into the <ph id="ph2">&lt;xref:System.Activities.Statements.Sequence&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity can be found in the <bpt id="p1">**</bpt>Primitives<ept id="p1">**</ept> section of the toolbox.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity to "Hello, world".</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like the following diagram.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>A simple workflow<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/simpleworkflow.png "</bpt>SimpleWorkflow<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Create the workflow creation service contract</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Add a new class library project called <ph id="ph1">`Shared`</ph> to the <ph id="ph2">`CreationEndpointTest`</ph> solution.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Add a reference to System.ServiceModel.dll, System.Configuration, and System.ServiceModel.Activities to the <ph id="ph1">`Shared`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Rename the Class1.cs file to IWorkflowCreation.cs and the following code to the file.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This contract defines two operations both create a new instance of the non-service workflow you just created.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>One creates a new instance with a generated instance ID and the other allows you to specify the instance ID for the new workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Both methods allow you to pass in parameters to the new workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This contract will be exposed by the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint&gt;</ph> to allow clients to create new instances of a non-service workflow.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Derive a class from WorkflowHostingEndpoint</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Add a new class called <ph id="ph1">`CreationEndpoint`</ph> derived from <ph id="ph2">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint&gt;</ph> to the <ph id="ph3">`Shared`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Add a local static <ph id="ph1">&lt;xref:System.Uri&gt;</ph> variable called <ph id="ph2">`defaultBaseUri`</ph> to the <ph id="ph3">`CreationEndpoint`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Add the following constructor to the <ph id="ph1">`CreationEndpoint`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Notice we specify the <ph id="ph1">`IWorkflowCreation`</ph> service contract in the call to the base constructor.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Add the following default constructor to the <ph id="ph1">`CreationEndpoint`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Add a static <ph id="ph1">`DefaultBaseUri`</ph> property to the <ph id="ph2">`CreationEndpoint`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>This property will be used to hold a default base URI if one is not provided.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Create the following method to get the default binding to use for the creation endpoint.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint.OnGetInstanceId%2A&gt;</ph> method to return the workflow instance ID.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`Action`</ph> header ends with "Create" return an empty GUID, if the <ph id="ph2">`Action`</ph> header ends with "CreateWithInstanceId" return the GUID passed into the method.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Otherwise, throw an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>These <ph id="ph1">`Action`</ph> headers correspond to the two operations defined in the <ph id="ph2">`IWorkflowCreation`</ph> service contract.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.WorkflowHostingEndpoint.OnGetCreationContext%2A&gt;</ph> method to create a <ph id="ph2">&lt;xref:System.ServiceModel.Activities.WorkflowCreationContext&gt;</ph> and add any arguments for the workflow, send the instance ID to the client, and then return the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.WorkflowCreationContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Create a standard endpoint element to allow you to configure the WorkflowCreationEndpoint</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Add a reference to Shared in the <ph id="ph1">`CreationEndpoint`</ph> project</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Add a new class called <ph id="ph1">`CreationEndpointElement`</ph>, derived from <ph id="ph2">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement&gt;</ph> to the <ph id="ph3">`CreationEndpoint`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This class will represent a <ph id="ph1">`CreationEndpoint`</ph> in a web.config file.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Add a property called <ph id="ph1">`EndpointType`</ph> to return the type of the endpoint.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement.CreateServiceEndpoint%2A&gt;</ph> method and return a new <ph id="ph2">`CreationEndpoint`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Overload the <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement.OnApplyConfiguration%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement.OnApplyConfiguration%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement.OnInitializeAndValidate%2A&gt;</ph>, and <ph id="ph4">&lt;xref:System.ServiceModel.Configuration.StandardEndpointElement.OnInitializeAndValidate%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>These methods just need to be defined, you do not need to add any code to them.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Add the collection class for <ph id="ph1">`CreationEndpoint`</ph> to the CreationEndpointElement.cs file in the <ph id="ph2">`CreationEndpoint`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This class is used by configuration to hold a number of <ph id="ph1">`CreationEndpoint`</ph> instances in a web.config file.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Build the solution.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Host the workflow in IIS</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Create a new application called <ph id="ph1">`MyCreationEndpoint`</ph> in IIS.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Copy the workflow1.xaml file generated by the workflow designer to the application directory and rename it to workflow1.xamlx.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Copy the shared.dll and CreationEndpoint.dll files to the application’s bin directory (create the bin directory if it is not present).</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Replace the contents of the Web.config file in the <ph id="ph1">`CreationEndpoint`</ph> project with the following code.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>After the <ph id="ph1">`&lt;system.web&gt;`</ph> element, register <ph id="ph2">`CreationEndpoint`</ph> by adding the following configuration code.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This registers the <ph id="ph1">`CreationEndpointCollection`</ph> class so you can configure a <ph id="ph2">`CreationEndpoint`</ph> in a web.config file.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Add a <ph id="ph1">`&lt;service&gt;`</ph> element (after the <ph id="ph2">\&lt;</ph>/extensions&gt; tag) with a <ph id="ph3">`CreationEndpoint`</ph> which will listen for incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Add a <ph id="ph1">\&lt;</ph>behaviors&gt; element (after the <ph id="ph2">\&lt;</ph>/services&gt; tag) to enable service metadata.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Copy the web.config to your IIS application directory.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Test to see if the creation endpoint is working by starting Internet Explorer and browsing to http://localhost/MyCreationEndpoint/Workflow1.xamlx.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Internet Explorer should display the following screen:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Testing the service<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/testservice.gif "</bpt>TestService<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Create a client that will call the CreationEndpoint.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Add a new Console application to the <ph id="ph1">`CreationEndpointTest`</ph> solution.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Add references to System.ServiceModel.dll, System.ServiceModel.Activities, and the <ph id="ph1">`Shared`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Main`</ph> method create a <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory%601&gt;</ph> of type <ph id="ph3">`IWorkflowCreation`</ph> and call <ph id="ph4">&lt;xref:System.ServiceModel.ChannelFactory%601.CreateChannel%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This will return a proxy.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>You can then call <ph id="ph1">`Create`</ph> on that proxy to create the workflow instance hosted under IIS:</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Run the CreationEndpointClient.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The output should look like the following:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>You will not see the output of the workflow because it is running under IIS which has no console output.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The following is the complete code for this sample.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This example may seem confusing because you never implement a service that implements <ph id="ph1">`IWorkflowCreation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>This is because the <ph id="ph1">`CreationEndpoint`</ph> does this for you.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Workflow Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Hosting in Internet Information Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/hosting-in-internet-information-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Internet Information Services Hosting Best Practices<ept id="p1">](../../../../docs/framework/wcf/feature-details/internet-information-services-hosting-best-practices.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Internet Information Service Hosting Instructions<ept id="p1">](../../../../docs/framework/wcf/samples/internet-information-service-hosting-instructions.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Windows Workflow Architecture<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/architecture.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>WorkflowHostingEndpoint Resume Bookmark<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/samples/workflowhostingendpoint-resume-bookmark.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Rehosting the Workflow Designer<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/rehosting-the-workflow-designer.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Windows Workflow Overview<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

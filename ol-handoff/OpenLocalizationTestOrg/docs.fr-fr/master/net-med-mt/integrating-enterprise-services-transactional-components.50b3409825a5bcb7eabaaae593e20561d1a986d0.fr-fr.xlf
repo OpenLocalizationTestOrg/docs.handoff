@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dd733ea73f427fed4896647e71af51dd6103f374</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\integrating-enterprise-services-transactional-components.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c37029fea92314f0aa8e4e18cc92e7f9158d1cda</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7e3656a79e3a6eb5822ba8a46400fb2b05588f31</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Integrating Enterprise Services Transactional Components | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Integrating Enterprise Services Transactional Components</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> provides an automatic mechanism for integrating with Enterprise Services (see <bpt id="p1">[</bpt>Integrating with COM+ Applications<ept id="p1">](../../../../docs/framework/wcf/feature-details/integrating-with-com-plus-applications.md)</ept>).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>However, you may want the flexibility to develop services that internally use transactional components hosted within Enterprise Services.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Transactions feature is built on the <ph id="ph2">&lt;xref:System.Transactions&gt;</ph> infrastructure, the process for integrating Enterprise Services with <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> is identical to that for specifying interoperability between <ph id="ph4">&lt;xref:System.Transactions&gt;</ph> and Enterprise Services, as outlined in <bpt id="p1">[</bpt>Interoperability with Enterprise Services and COM+ Transactions<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94949)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To provide the desired level of interoperability between the incoming flowed transaction and the COM+ context transaction, the service implementation must create a <ph id="ph1">&lt;xref:System.Transactions.TransactionScope&gt;</ph> instance and use the appropriate value from the <ph id="ph2">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Integrating Enterprise Services with a Service Operation</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The following code demonstrates an operation, with Allowed transaction flow, that creates a <ph id="ph1">&lt;xref:System.Transactions.TransactionScope&gt;</ph> with the <ph id="ph2">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> option.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The following conditions apply in this scenario:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the client flows a transaction, the operation, including the call to the Enterprise Services component, is executed within the scope of that transaction.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> ensures that the transaction is synchronized with the <ph id="ph2">&lt;xref:System.EnterpriseServices&gt;</ph> context, which means that the ambient transaction for <ph id="ph3">&lt;xref:System.Transactions&gt;</ph> and the <ph id="ph4">&lt;xref:System.EnterpriseServices&gt;</ph> is the same.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If the client does not flow a transaction, setting <ph id="ph1">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A&gt;</ph> to <ph id="ph2">`true`</ph> creates a new transaction scope for the operation.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Similarly, using <ph id="ph1">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> ensures that the operation’s transaction is the same as the transaction used inside the <ph id="ph2">&lt;xref:System.EnterpriseServices&gt;</ph> component's context.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Any additional method calls also occur within the scope of the same operation’s transaction.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If no synchronization is required between an operation’s current transaction and calls to transactional Enterprise Services components, then use the <ph id="ph1">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> option when instantiating the <ph id="ph2">&lt;xref:System.Transactions.TransactionScope&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Integrating Enterprise Services with a Client</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The following code demonstrates client code using a <ph id="ph1">&lt;xref:System.Transactions.TransactionScope&gt;</ph> instance with the <ph id="ph2">&lt;xref:System.Transactions.EnterpriseServicesInteropOption&gt;</ph> setting.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In this scenario, calls to service operations that support transaction flow occur within the scope of the same transaction as the calls to Enterprise Services components.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Integrating with COM+ Applications<ept id="p1">](../../../../docs/framework/wcf/feature-details/integrating-with-com-plus-applications.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Integrating with COM Applications<ept id="p1">](../../../../docs/framework/wcf/feature-details/integrating-with-com-applications.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

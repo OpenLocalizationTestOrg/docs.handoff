@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d378fa9087ef402043f94079074d61082b9ff7ba</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\flowing-transactions-into-and-out-of-workflow-services.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fcb5e1b9bad29c2cbe7c1d36c7b82998e5620051</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cf64e01231335e68dfe203e1408f6cc90195a057</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Flowing Transactions into and out of Workflow Services | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Flowing Transactions into and out of Workflow Services</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Workflow services and clients can participate in transactions.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For a service operation to become part of an ambient transaction, place a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity within a <ph id="ph2">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Any calls made by a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> or a <ph id="ph2">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> activity within the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> will also be made within the ambient transaction.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A workflow client application can create an ambient transaction by using the <ph id="ph1">&lt;xref:System.Activities.Statements.TransactionScope&gt;</ph> activity and call service operations using the ambient transaction.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This topic walks you through creating a workflow service and workflow client that participate in transactions.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If a workflow service instance is loaded within a transaction and the workflow contains a <ph id="ph1">&lt;xref:System.Activities.Statements.Persist&gt;</ph> activity, the workflow instance will hang until the transaction times out.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Whenever you use a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> it is recommended to place all Receives in the workflow within <ph id="ph2">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activities.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When using <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> and messages arrive in the incorrect order, the workflow will be aborted when trying to deliver the first out of order message.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You must make sure your workflow is always at a consistent stopping point when the workflow idles.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This will allow you to restart the workflow from a previous persistence point should the workflow be aborted.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Create a shared library</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Create a new empty Visual Studio Solution.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Add a new class library project called <ph id="ph1">`Common`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Add references to the following assemblies:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>System.Activities.dll</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.dll</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.Activities.dll</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>System.Transactions.dll</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Add a new class called <ph id="ph1">`PrintTransactionInfo`</ph> to the <ph id="ph2">`Common`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This class is derived from <ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> and overloads the <ph id="ph2">&lt;xref:System.Activities.NativeActivity.Execute%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This is a native activity that displays information about the ambient transaction and is used in both the service and client workflows used in this topic.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Build the solution to make this activity available in the <bpt id="p1">**</bpt>Common<ept id="p1">**</ept> section of the <bpt id="p2">**</bpt>Toolbox<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Implement the workflow service</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Add a new <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Workflow Service, called <ph id="ph2">`WorkflowService`</ph> to the <ph id="ph3">`Common`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To do this right click the <ph id="ph1">`Common`</ph> project, select <bpt id="p1">**</bpt>Add<ept id="p1">**</ept>, <bpt id="p2">**</bpt>New Item ...<ept id="p2">**</ept>, Select <bpt id="p3">**</bpt>Workflow<ept id="p3">**</ept> under <bpt id="p4">**</bpt>Installed Templates<ept id="p4">**</ept> and select <bpt id="p5">**</bpt>WCF Workflow Service<ept id="p5">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding a Workflow Service<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addwfservice.JPG "</bpt>AddWFService<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Delete the default <ph id="ph1">`ReceiveRequest`</ph> and <ph id="ph2">`SendResponse`</ph> activities.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity into the <ph id="ph2">`Sequential Service`</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Set the text property to <ph id="ph1">`"Workflow Service starting ..."`</ph> as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding a WriteLine activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addwriteline.JPG "</bpt>AddWriteLine<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> after the <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity can be found in the <bpt id="p1">**</bpt>Messaging<ept id="p1">**</ept> section of the <bpt id="p2">**</bpt>Toolbox<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity is composed of two sections <bpt id="p1">**</bpt>Request<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Body<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Request<ept id="p1">**</ept> section contains the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Body<ept id="p1">**</ept> section contains the activities to execute within a transaction after a message has been received.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding a TransactedReceiveScope activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/trs.JPG "</bpt>TRS<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Select the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity and click the <bpt id="p1">**</bpt>Variables<ept id="p1">**</ept> button.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Add the following variables.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding Variables to the TransactedReceiveScope<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/trsvariables.JPG "</bpt>TRSVariables<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>You can delete the data variable that is there by default.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>You can also use the existing handle variable.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity within the <bpt id="p1">**</bpt>Request<ept id="p1">**</ept> section of the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Set the following properties:</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>CanCreateInstance</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>True (check the checkbox)</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>OperationName</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>StartSample</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>ServiceContractName</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>ITransactionSample</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The workflow should look like this:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding a Receive activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/serviceaddreceive.JPG "</bpt>ServiceAddReceive<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link in the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity and make the following settings:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting message settings for the Recieve activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/receivemessagesettings.JPG "</bpt>ReceiveMessageSettings<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity into the Body section of the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Within the <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity drag and drop two <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activities and set the <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> properties as shown in the following table.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Activity</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>1st WriteLine</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>"Service: Receive Completed"</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>2nd WriteLine</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>"Service: Received = " + requestMessage</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like this:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding WriteLine activities<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/afteraddingwritelines.JPG "</bpt>AfterAddingWriteLines<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Drag and drop the <ph id="ph1">`PrintTransactionInfo`</ph> activity after the second <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity in the <bpt id="p1">**</bpt>Body<ept id="p1">**</ept> in the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>After adding PrintTransactionInfo<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/afteraddingprinttransactioninfo.JPG "</bpt>AfterAddingPrintTransactionInfo<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Drag and drop an <ph id="ph1">&lt;xref:System.Activities.Statements.Assign&gt;</ph> activity after the <ph id="ph2">`PrintTransactionInfo`</ph> activity and set its properties according to the following table.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>To</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>replyMessage</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>"Service: Sending reply."</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity after the <ph id="ph2">&lt;xref:System.Activities.Statements.Assign&gt;</ph> activity and set its <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Service: Begin reply."</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like this:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>After adding Assign and WriteLine<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/afteraddingsbrwriteline.JPG "</bpt>AfterAddingSBRWriteLine<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Right click the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity and select <bpt id="p1">**</bpt>Create SendReply<ept id="p1">**</ept> and paste it after the last <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link in the <ph id="ph1">`SendReplyToReceive`</ph> activity and make the following settings.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Reply message settings<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/replymessagesettings.JPG "</bpt>ReplyMessageSettings<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity after the <ph id="ph2">`SendReplyToReceive`</ph> activity and set it’s <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Service: Reply sent."</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity at the bottom of the workflow and set its <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Service: Workflow ends, press ENTER to exit."</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The completed service workflow should look like this:</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Complete Service Workflow<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/servicecomplete.jpg "</bpt>ServiceComplete<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Implement the workflow client</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Add a new WCF Workflow application, called <ph id="ph1">`WorkflowClient`</ph> to the <ph id="ph2">`Common`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>To do this right click the <ph id="ph1">`Common`</ph> project, select <bpt id="p1">**</bpt>Add<ept id="p1">**</ept>, <bpt id="p2">**</bpt>New Item ...<ept id="p2">**</ept>, Select <bpt id="p3">**</bpt>Workflow<ept id="p3">**</ept> under <bpt id="p4">**</bpt>Installed Templates<ept id="p4">**</ept> and select <bpt id="p5">**</bpt>Activity<ept id="p5">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Add an Activity project<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addactivity.JPG "</bpt>AddActivity<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity onto the design surface.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Within the <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity drag and drop a <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity and set its <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to <ph id="ph4">`"Client: Workflow starting"`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like this:</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Add a WriteLine activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/clientaddwriteline.JPG "</bpt>ClientAddWriteLine<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.TransactionScope&gt;</ph> activity after the <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Select the <ph id="ph1">&lt;xref:System.Activities.Statements.TransactionScope&gt;</ph> activity, click the Variables button and add the following variables.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Add variables to the TransactionScope<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/tsvariables.JPG "</bpt>TSVariables<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity into the body of the <ph id="ph2">&lt;xref:System.Activities.Statements.TransactionScope&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">`PrintTransactionInfo`</ph> activity within the <ph id="ph2">&lt;xref:System.Activities.Statements.Sequence&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity after the <ph id="ph2">`PrintTransactionInfo`</ph> activity and set its <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Client: Beginning Send".</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like this:</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding activities<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/clientaddcbswriteline.JPG "</bpt>ClientAddCBSWriteLine<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> activity after the <ph id="ph2">&lt;xref:System.Activities.Statements.Assign&gt;</ph> activity and set the following properties:</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Value</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>EndpointConfigurationName</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>workflowServiceEndpoint</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>OperationName</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>StartSample</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>ServiceContractName</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>ITransactionSample</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>The workflow should now look like this:</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the Send activity properties<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/clientsendsettings.JPG "</bpt>ClientSendSettings<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link and make the following settings:</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Send activity message settings<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/sendmessagesettings.JPG "</bpt>SendMessageSettings<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Right click the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> activity and select <bpt id="p1">**</bpt>Create ReceiveReply<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> activity will be automatically placed after the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Click the Define... link on the ReceiveReplyForSend activity and make the following settings:</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the ReceiveForSend message settings<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/clientreplymessagesettings.JPG "</bpt>ClientReplyMessageSettings<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity between the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> activities and set its <ph id="ph4">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Client: Send complete."</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity after the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> activity and set its <ph id="ph3">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Client side: Reply received = " + replyMessage</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">`PrintTransactionInfo`</ph> activity after the <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <ph id="ph1">&lt;xref:System.Activities.Statements.WriteLine&gt;</ph> activity at the end of the workflow and set its <ph id="ph2">&lt;xref:System.Activities.Statements.WriteLine.Text%2A&gt;</ph> property to "Client workflow ends."</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The completed client workflow should look like the following diagram.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>The completed client workfliow<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/clientcompleteworkflow.jpg "</bpt>ClientCompleteWorkflow<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Build the solution.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Create the Service application</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Add a new Console Application project called <ph id="ph1">`Service`</ph> to the solution.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>Add references to the following assemblies:</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>System.Activities.dll</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.dll</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.Activities.dll</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Open the generated Program.cs file and the following code:</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Add the following app.config file to the project.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Create the client application</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Add a new Console Application project called <ph id="ph1">`Client`</ph> to the solution.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Add a reference to System.Activities.dll.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Open the program.cs file and add the following code.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Workflow Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Windows Communication Foundation Transactions Overview<ept id="p1">](../../../../docs/framework/wcf/feature-details/transactions-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Use of TransactedReceiveScope<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/samples/use-of-transactedreceivescope.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

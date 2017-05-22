@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3e574997f67c2b60a21ae8e02e2f93c6a00454bd</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\sql\linq\implementing-business-logic-linq-to-sql.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">290c1ec50ec6dd346fba50f8492513fd00e2e628</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7da8f3202bd97ba97d85db3f07abcc012d6b9b90</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Implementing Business Logic (LINQ to SQL) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Implementing Business Logic (LINQ to SQL)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The term "business logic" in this topic refers to any custom rules or validation tests that you apply to data before it is inserted, updated or deleted from the database.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Business logic is also sometimes referred to as "business rules" or "domain logic."</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In n-tier applications it is typically designed as a logical layer so that it can be modified independently of the presentation layer or data access layer.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The business logic can be invoked by the data access layer before or after any update, insertion, or deletion of data in the database.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The business logic can be as simple as a schema validation to make sure that the type of the field is compatible with the type of the table column.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Or it can consist of a set of objects that interact in arbitrarily complex ways.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The rules may be implemented as stored procedures on the database or as in-memory objects.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>However the business logic is implemented, <ph id="ph1">[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]</ph> enables you use partial classes and partial methods to separate the business logic from the data access code.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>How LINQ to SQL Invokes Your Business Logic</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>When you generate an entity class at design time, either manually or by using the <ph id="ph1">[!INCLUDE[vs_ordesigner_long](../../../../../../includes/vs-ordesigner-long-md.md)]</ph> or SQLMetal, it is defined as a partial class.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This means that, in a separate code file, you can define another part of the entity class that contains your custom business logic.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>At compile time, the two parts are merged into a single class.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>But if you have to regenerate your entity classes by using the <ph id="ph1">[!INCLUDE[vs_ordesigner_long](../../../../../../includes/vs-ordesigner-long-md.md)]</ph> or SQLMetal, you can do so and your part of the class will not be modified.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The partial classes that define entities and the <ph id="ph1">&lt;xref:System.Data.Linq.DataContext&gt;</ph> contain partial methods.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>These are the extensibility points that you can use to apply your business logic before and after any update, insert, or delete for an entity or entity property.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Partial methods can be thought of as compile-time events.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The code-generator defines a method signature and calls the methods in the get and set property accessors, the <ph id="ph1">`DataContext`</ph> constructor, and in some cases behind the scenes when <ph id="ph2">&lt;xref:System.Data.Linq.DataContext.SubmitChanges%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>However, if you do not implement a particular partial method, then all the references to it and the definition are removed at compile time.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In the implementing definition that you write in your separate code file, you can perform whatever custom logic is required.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can use your partial class itself as your domain layer, or you can call from your implementing definition of the partial method into a separate object or objects.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Either way, your business logic is cleanly separated from both your data access code and your presentation layer code.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A Closer Look at the Extensibility Points</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following example shows part of the code generated by the <ph id="ph1">[!INCLUDE[vs_ordesigner_long](../../../../../../includes/vs-ordesigner-long-md.md)]</ph> for the <ph id="ph2">`DataContext`</ph> class that has two tables: <ph id="ph3">`Customers`</ph> and <ph id="ph4">`Orders`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Note that Insert, Update, and Delete methods are defined for each table in the class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If you implement the Insert, Update and Delete methods in your partial class, the <ph id="ph1">[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]</ph> runtime will call them instead of its own default methods when <ph id="ph2">&lt;xref:System.Data.Linq.DataContext.SubmitChanges%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This enables you to override the default behavior for create / read / update / delete operations.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Walkthrough: Customizing the insert, update, and delete behavior of entity classes<ept id="p1">](https://docs.microsoft.com/visualstudio/data-tools/walkthrough-customizing-the-insert-update-and-delete-behavior-of-entity-classes)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`OnCreated`</ph> method is called in the class constructor.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The entity classes have three methods that are called by the <ph id="ph1">[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]</ph> runtime when the entity is created, loaded, and validated (when <ph id="ph2">`SubmitChanges`</ph> is called).</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The entity classes also have two partial methods for each property, one that is called before the property is set, and one that is called after.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The following code example shows some of the methods generated for the <ph id="ph1">`Customer`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The methods are called in the property set accessor as shown in the following example for the <ph id="ph1">`CustomerID`</ph> property:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In your part of the class, you write an implementing definition of the method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[vsprvs](../../../../../../includes/vsprvs-md.md)]</ph>, after you type <ph id="ph2">`partial`</ph> you will see IntelliSense for the method definitions in the other part of the class.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For more information about how to add business logic to your application by using partial methods, see the following topics:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Add validation to entity classes<ept id="p1">](/visualstudio/data-tools/how-to-add-validation-to-entity-classes)</ept></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Customizing the insert, update, and delete behavior of entity classes<ept id="p1">](https://docs.microsoft.com/visualstudio/data-tools/walkthrough-customizing-the-insert-update-and-delete-behavior-of-entity-classes)</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Adding Validation to Entity Classes<ept id="p1">](http://msdn.microsoft.com/library/85b06a02-b2e3-4534-95b8-d077c8d4c1d7)</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Partial Classes and Methods<ept id="p1">](~/docs/csharp/programming-guide/classes-and-structs/partial-classes-and-methods.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Partial Methods<ept id="p1">](~/docs/visual-basic/programming-guide/language-features/procedures/partial-methods.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>LINQ to SQL Tools in Visual Studio<ept id="p1">](/visualstudio/data-tools/linq-to-sql-tools-in-visual-studio2)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SqlMetal.exe (Code Generation Tool)<ept id="p1">](../../../../../../docs/framework/tools/sqlmetal-exe-code-generation-tool.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

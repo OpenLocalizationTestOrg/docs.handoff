@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a1f07904464295c1a24fe72f85cc3be915370965</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\creating-user-defined-bindings.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d839937ef183325f96bf57379281d3217de58c7c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c325e6a1e99d9aa1396441135fe979c606768267</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating User-Defined Bindings | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating User-Defined Bindings</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>There are several ways to create bindings not provided by the system:</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Create a custom binding, based on the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CustomBinding&gt;</ph> class, which is a container that you fill with binding elements.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The custom binding is then added to a service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can create the custom binding either programmatically or in an application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To use a binding element from an application configuration file, the binding element must extend <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BindingElementExtensionElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> custom bindings, see <bpt id="p1">[</bpt>Custom Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/custom-bindings.md)</ept> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CustomBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You can create a class that derives from a standard binding.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For example, you can derive a class from <ph id="ph1">&lt;xref:System.ServiceModel.WSHttpBinding&gt;</ph> and override <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CustomBinding.CreateBindingElements%2A&gt;</ph> method to obtain the binding elements and insert a custom binding element or establish a particular value for security.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You can create a new <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding&gt;</ph> type to completely control the entire binding implementation.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The Order of Binding Elements</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Each binding element represents a processing step when sending or receiving messages.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>At runtime, binding elements create the channels and listeners necessary to build outgoing and incoming channel stacks.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>There are three main types of binding elements: Protocol Binding Elements, Encoding Binding Elements and Transport Binding Elements.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Protocol Binding Elements – These elements represent higher-level processing steps that act on messages.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Channels and listeners created by these binding elements can add, remove, or modify the message content.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>A given binding may have an arbitrary number of protocol binding elements, each inheriting from <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> includes several protocol binding elements, including the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ReliableSessionBindingElement&gt;</ph> and the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Encoding Binding Element – These elements represent transformations between a message and an encoding ready for transmission on the wire.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Typical <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> bindings include exactly one encoding binding element.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Examples of encoding binding elements include the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MtomMessageEncodingBindingElement&gt;</ph>, the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BinaryMessageEncodingBindingElement&gt;</ph>, and the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.TextMessageEncodingBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If an encoding binding element is not specified for a binding, a default encoding is used.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The default is text when the transport is HTTP and binary otherwise.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Transport Binding Element – These elements represent the transmission of an encoding message on a transport protocol.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Typical <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> bindings include exactly one transport binding element, which inherits from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Examples of transport binding elements include the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TcpTransportBindingElement&gt;</ph>, the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.HttpTransportBindingElement&gt;</ph>, and the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.NamedPipeTransportBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When creating new bindings, the order of the added binding elements is important.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Always add binding elements in the following order:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Layer</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Options</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Required</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Transaction Flow</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Reliability</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Security</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Composite Duplex</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Encoding</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Text, Binary, MTOM, Custom</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Yes*</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Transport</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>TCP, Named Pipes, HTTP, HTTPS, MSMQ, Custom</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>*Because an encoding is required for each binding, if an encoding is not specified, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> adds a default encoding for you.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The default is Text/XML for the HTTP and HTTPS transports, and Binary otherwise.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Creating a new Binding Element</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>In addition to the types derived from <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> that are provided by <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, you can create your own binding elements.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This lets you customize the way the stack of bindings is created and the components that go in it by creating your own <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> that can be composed with the other system-provided types in the stack.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, if you implement a <ph id="ph1">`LoggingBindingElement`</ph> that provides the ability to log the message to a database, you must place it above a transport channel in the channel stack.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In this case, the application creates a custom binding that composed the <ph id="ph1">`LoggingBindingElement`</ph> with <ph id="ph2">`TcpTransportBindingElement`</ph>, as in the following example.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>How you write your new binding element depends on its exact functionality.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>One of the samples, <bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept>, provides a detailed description of how to implement one kind of binding element.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Creating a New Binding</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>A user-created binding element can be used in two ways.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The previous section illustrates the first way: through a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>A custom binding allows the user to create their own binding based on an arbitrary set of binding elements, including user-created ones.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>If you use the binding in more than one application, create your own binding and extend the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>This avoids manually creating a custom binding every time you want to use it.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>A user-defined binding allows you to define the binding’s behavior and include user-defined binding elements.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>And it is <bpt id="p1">*</bpt>pre-packaged<ept id="p1">*</ept>: you do not have to rebuild the binding every time you use it.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>At a minimum, a user-defined binding must implement the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding.CreateBindingElements%2A&gt;</ph> method and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Binding.Scheme%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding.CreateBindingElements%2A&gt;</ph> method returns a new <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElementCollection&gt;</ph> that contains the binding elements for the binding.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The collection is ordered, and should contain the protocol binding elements first, followed by the encoding binding element, followed by the transport binding element.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>When using the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> system-provided binding elements, you must follow the binding element ordering rules specified in <bpt id="p1">[</bpt>Custom Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/custom-bindings.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>This collection should never reference objects referenced within the user-defined binding class; consequently, binding authors must return a <ph id="ph1">`Clone()`</ph> of the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElementCollection&gt;</ph> on each call to <ph id="ph3">&lt;xref:System.ServiceModel.Channels.Binding.CreateBindingElements%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding.Scheme%2A&gt;</ph> property represents the URI scheme for the transport protocol in use on the binding.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For example, the <bpt id="p1">*</bpt>WSHttpBinding<ept id="p1">*</ept> and the <bpt id="p2">*</bpt>NetTcpBinding<ept id="p2">*</ept> return "http" and "net.tcp" from their respective <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding.Scheme%2A&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For a complete list of optional methods and properties for user-defined bindings, see <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This example implements profile binding in <ph id="ph1">`SampleProfileUdpBinding`</ph>, which derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Binding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SampleProfileUdpBinding`</ph> contains up to four binding elements within it: one user-created <ph id="ph2">`UdpTransportBindingElement`</ph>; and three system-provided: <ph id="ph3">`TextMessageEncodingBindingElement`</ph>, <ph id="ph4">`CompositeDuplexBindingElement`</ph>, and <ph id="ph5">`ReliableSessionBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Security Restrictions with Duplex Contracts</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Not all binding elements are compatible with each other.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>In particular, there are some restrictions on security binding elements when used with duplex contracts.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>One-Shot Security</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>You can implement "one-shot" security, where all the necessary security credentials are sent in a single message, by setting the <ph id="ph1">`negotiateServiceCredential`</ph> attribute of the <ph id="ph2">\&lt;</ph>message&gt; configuration element to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>One-shot authentication does not work with duplex contracts.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For Request-Reply contracts, one-shot authentication works only if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>For one-way contracts, one-shot authentication works if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IOutputChannel&gt;</ph> or <ph id="ph4">&lt;xref:System.ServiceModel.Channels.IOutputSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Cookie-mode Security Context Tokens</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Cookie mode security context tokens cannot be used with duplex contracts.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>For Request-Reply contracts, cookie-mode security context tokens work only if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>For one-way contracts, cookie-mode security context tokens works if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Session-mode Security Context Tokens</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Session mode SCT works for duplex contracts if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Session mode SCT works for Request-Reply contracts if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> or <ph id="ph4">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph>, instances.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Session mode SCT works for 1-way contracts if the binding stack below the security binding element supports creating <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph> or <ph id="ph4">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph> instances.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Deriving from a Standard Binding</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Instead of creating an entirely new binding class, it may be possible for you to extend one of the existing system-provided bindings.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Much like the preceding case, you must override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding.CreateBindingElements%2A&gt;</ph> method and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Binding.Scheme%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Custom Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/custom-bindings.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

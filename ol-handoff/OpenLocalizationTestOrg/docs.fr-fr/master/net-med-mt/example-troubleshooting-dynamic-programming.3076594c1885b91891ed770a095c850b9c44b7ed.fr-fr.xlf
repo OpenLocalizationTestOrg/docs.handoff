@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6609e587ff1be446ed2d4e53267e803d70b074db</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\net-native\example-troubleshooting-dynamic-programming.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9fc688eed86cab6a6a0294cfac923e016c541a97</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1961c619b1291d0d8e16f28d9f20ab75d4953b9d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Example: Troubleshooting Dynamic Programming | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Example: Troubleshooting Dynamic Programming</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic refers to the .NET Native Developer Preview, which is pre-release software.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>You can download the preview from the <bpt id="p1">[</bpt>Microsoft Connect website<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=394611)</ept> (requires registration).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Not all metadata lookup failures in apps developed using the <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> tool chain result in an exception.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Some can manifest in unpredictable ways in an app.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The following example shows an access violation caused by referencing a null object:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Let's try to troubleshoot this exception by using the three-step approach outlined in the "Manually resolve missing metadata" section of <bpt id="p1">[</bpt>Getting Started<ept id="p1">](../../../docs/framework/net-native/getting-started-with-net-native.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>What was the app doing?</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The first thing to note is the <ph id="ph1">`async`</ph> keyword machinery at the base of the stack.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Determining what the app was really doing in an <ph id="ph1">`async`</ph> method can be problematic, because the stack has lost the context of the originating call and has run the <ph id="ph2">`async`</ph> code on a different thread.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>However, we can deduce that the app is trying to load its first page.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In the implementation for <ph id="ph1">`NavigationArgs.Setup`</ph>, the following code caused the access violation:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In this instance, the <ph id="ph1">`LayoutVM`</ph> property on <ph id="ph2">`AppViewModel.Current`</ph> was <bpt id="p1">**</bpt>null<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Some absence of metadata caused a subtle behavior difference and resulted in a property being uninitialized instead of set, as the app expected.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Setting a breakpoint in the code where <ph id="ph1">`LayoutVM`</ph> should have been initialized might throw light on the situation.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>However, note that <ph id="ph1">`LayoutVM`</ph>’s type is <ph id="ph2">`App.Core.ViewModels.Layout.LayoutApplicationVM`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The only metadata directive present so far in the rd.xml file is:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>A likely candidate for the failure is that <ph id="ph1">`App.Core.ViewModels.Layout.LayoutApplicationVM`</ph> is missing metadata because it's in a different namespace.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In this case, adding a runtime directive for <ph id="ph1">`App.Core.ViewModels`</ph> resolved the issue.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The root cause was an API call to the <ph id="ph1">&lt;xref:System.Type.GetType%28System.String%29?displayProperty=fullName&gt;</ph> method that returned <bpt id="p1">**</bpt>null<ept id="p1">**</ept>, and the app silently ignored the problem until a crash occurred.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In dynamic programming, a good practice when using reflection APIs under <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> is to use the <ph id="ph2">&lt;xref:System.Type.GetType%2A?displayProperty=fullName&gt;</ph> overloads that throw an exception on failure.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Is this an isolated case?</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Other issues might also arise when using <ph id="ph1">`App.Core.ViewModels`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You must decide whether it’s worth identifying and fixing each missing metadata exception, or saving time and adding directives for a larger class of types.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Here, adding <ph id="ph1">`dynamic`</ph> metadata for <ph id="ph2">`App.Core.ViewModels`</ph> might be the best approach if the resulting size increase of the output binary isn’t an issue.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Could the code be rewritten?</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If the app had used <ph id="ph1">`typeof(LayoutApplicationVM)`</ph> instead of <ph id="ph2">`Type.GetType("LayoutApplicationVM")`</ph>, the tool chain could have preserved <ph id="ph3">`browse`</ph> metadata.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, it still wouldn't have created <ph id="ph1">`invoke`</ph> metadata, which would have led to a <bpt id="p1">[</bpt>MissingMetadataException<ept id="p1">](../../../docs/framework/net-native/missingmetadataexception-class-net-native.md)</ept> exception when instantiating the type.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To prevent the exception, you'd still have to add a runtime directive for the namespace or the type that specifies the <ph id="ph1">`dynamic`</ph> policy.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For information on runtime directives, see the <bpt id="p1">[</bpt>Runtime Directives (rd.xml) Configuration File Reference<ept id="p1">](../../../docs/framework/net-native/runtime-directives-rd-xml-configuration-file-reference.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Getting Started<ept id="p1">](../../../docs/framework/net-native/getting-started-with-net-native.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Example: Handling Exceptions When Binding Data<ept id="p1">](../../../docs/framework/net-native/example-handling-exceptions-when-binding-data.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

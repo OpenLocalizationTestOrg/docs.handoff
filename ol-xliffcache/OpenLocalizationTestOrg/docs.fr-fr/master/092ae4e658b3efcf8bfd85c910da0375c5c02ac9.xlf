@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">092ae4e658b3efcf8bfd85c910da0375c5c02ac9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\garbage-collection\app-domain-resource-monitoring.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a2b685a6db6eba4a4d8be28d5409209cbe7e215e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">840a014a9d9ab616e473c3e1d35c0a744d1b2cd4</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Application Domain Resource Monitoring | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Application Domain Resource Monitoring</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Application domain resource monitoring (ARM) enables hosts to monitor CPU and memory usage by application domain.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is useful for hosts such as ASP.NET that use many application domains in a long-running process.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The host can unload the application domain of an application that is adversely affecting the performance of the entire process, but only if it can identify the problematic application.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>ARM provides information that can be used to assist in making such decisions.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, a hosting service might have many applications running on an ASP.NET server.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If one application in the process begins consuming too much memory or too much processor time, the hosting service can use ARM to identify the application domain that is causing the problem.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>ARM is sufficiently lightweight to use in live applications.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You can access the information by using event tracing for Windows (ETW) or directly through managed or native APIs.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Enabling Resource Monitoring</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>ARM can be enabled in four ways: by supplying a configuration file when the common language runtime (CLR) is started, by using an unmanaged hosting API, by using managed code, or by listening to ARM ETW events.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>As soon as ARM is enabled, it begins collecting data on all application domains in the process.If an application domain was created before ARM is enabled, cumulative data starts when ARM is enabled, not when the application domain was created.Once it is enabled, ARM cannot be disabled.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You can enable ARM at CLR startup by adding the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>appDomainResourceMonitoring&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/appdomainresourcemonitoring-element.md)</ept> element to the configuration file, and setting the <ph id="ph2">`enabled`</ph> attribute to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> (the default) means only that ARM is not enabled at startup; you can activate it later by using one of the other activation mechanisms.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The host can enable ARM by requesting the <bpt id="p1">[</bpt>ICLRAppDomainResourceMonitor<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-interface.md)</ept> hosting interface.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Once this interface is successfully obtained, ARM is enabled.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Managed code can enable ARM by setting the static (<ph id="ph1">`Shared`</ph> in Visual Basic) <ph id="ph2">&lt;xref:System.AppDomain.MonitoringIsEnabled%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>As soon as the property is set, ARM is enabled.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You can enable ARM after startup by listening to ETW events.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>ARM is enabled and begins raising events for all application domains when you enable the public provider <ph id="ph1">`Microsoft-Windows-DotNETRuntime`</ph> by using the <ph id="ph2">`AppDomainResourceManagementKeyword`</ph> keyword.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>To correlate data with application domains and threads, you must also enable the <ph id="ph1">`Microsoft-Windows-DotNETRuntimeRundown`</ph> provider with the <ph id="ph2">`ThreadingKeyword`</ph> keyword.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Using ARM</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>ARM provides the total processor time that is used by an application domain and three kinds of information about memory use.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Total processor time for an application domain, in seconds<ept id="p1">**</ept>: This is calculated by adding up the thread times reported by the operating system for all threads that spent time executing in the application domain during its lifetime.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Blocked or sleeping threads do not use processor time.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When a thread calls into native code, the time that the thread spends in native code is included in the count for the application domain where the call was made.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Managed API: <ph id="ph1">&lt;xref:System.AppDomain.MonitoringTotalProcessorTime%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Hosting API: <bpt id="p1">[</bpt>ICLRAppDomainResourceMonitor::GetCurrentCpuTime<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-getcurrentcputime-method.md)</ept> method.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>ETW events: <ph id="ph1">`ThreadCreated`</ph>, <ph id="ph2">`ThreadAppDomainEnter`</ph>, and <ph id="ph3">`ThreadTerminated`</ph> events.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For information about providers and keywords, see "AppDomain Resource Monitoring Events" in <bpt id="p1">[</bpt>CLR ETW Events<ept id="p1">](../../../docs/framework/performance/clr-etw-events.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Total managed allocations made by an application domain during its lifetime, in bytes<ept id="p1">**</ept>: Total allocations do not always reflect memory use by an application domain, because the allocated objects might be short-lived.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>However, if an application allocates and frees huge numbers of objects, the cost of the allocations could be significant.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Managed API: <ph id="ph1">&lt;xref:System.AppDomain.MonitoringTotalAllocatedMemorySize%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Hosting API: <bpt id="p1">[</bpt>ICLRAppDomainResourceMonitor::GetCurrentAllocated<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-getcurrentallocated-method.md)</ept> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>ETW events: <ph id="ph1">`AppDomainMemAllocated`</ph> event, <ph id="ph2">`Allocated`</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed memory, in bytes, that is referenced by an application domain and that survived the most recent full, blocking collection<ept id="p1">**</ept>: This number is accurate only after a full, blocking collection.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>(This is in contrast to concurrent collections, which occur in the background and do not block the application.) For example, the <ph id="ph1">&lt;xref:System.GC.Collect?displayProperty=fullName&gt;</ph> method overload causes a full, blocking collection.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Managed API: <ph id="ph1">&lt;xref:System.AppDomain.MonitoringSurvivedMemorySize%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Hosting API: <bpt id="p1">[</bpt>ICLRAppDomainResourceMonitor::GetCurrentSurvived<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-getcurrentsurvived-method.md)</ept> method, <ph id="ph1">`pAppDomainBytesSurvived`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>ETW events: <ph id="ph1">`AppDomainMemSurvived`</ph> event, <ph id="ph2">`Survived`</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Total managed memory, in bytes, that is referenced by the process and that survived the most recent full, blocking collection<ept id="p1">**</ept>: The survived memory for individual application domains can be compared to this number.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Managed API: <ph id="ph1">&lt;xref:System.AppDomain.MonitoringSurvivedProcessMemorySize%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Hosting API: <bpt id="p1">[</bpt>ICLRAppDomainResourceMonitor::GetCurrentSurvived<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-getcurrentsurvived-method.md)</ept> method, <ph id="ph1">`pTotalBytesSurvived`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>ETW events: <ph id="ph1">`AppDomainMemSurvived`</ph> event, <ph id="ph2">`ProcessSurvived`</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Determining When a Full, Blocking Collection Occurs</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To determine when counts of survived memory are accurate, you need to know when a full, blocking collection has just occurred.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The method for doing this depends on the API you use to examine ARM statistics.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Managed API</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If you use the properties of the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> class, you can use the <ph id="ph2">&lt;xref:System.GC.RegisterForFullGCNotification%2A?displayProperty=fullName&gt;</ph> method to register for notification of full collections.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The threshold you use is not important, because you are waiting for the completion of a collection rather than the approach of a collection.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>You can then call the <ph id="ph1">&lt;xref:System.GC.WaitForFullGCComplete%2A?displayProperty=fullName&gt;</ph> method, which blocks until a full collection has completed.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>You can create a thread that calls the method in a loop and does any necessary analysis whenever the method returns.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Alternatively, you can call the <ph id="ph1">&lt;xref:System.GC.CollectionCount%2A?displayProperty=fullName&gt;</ph> method periodically to see if the count of generation 2 collections has increased.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Depending on the polling frequency, this technique might not provide as accurate an indication of the occurrence of a full collection.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Hosting API</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>If you use the unmanaged hosting API, your host must pass the CLR an implementation of the <bpt id="p1">[</bpt>IHostGCManager<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/ihostgcmanager-interface.md)</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The CLR calls the <bpt id="p1">[</bpt>IHostGCManager::SuspensionEnding<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/ihostgcmanager-suspensionending-method.md)</ept> method when it resumes execution of threads that have been suspended while a collection occurs.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The CLR passes the generation of the completed collection as a parameter of the method, so the host can determine whether the collection was full or partial.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Your implementation of the <bpt id="p1">[</bpt>IHostGCManager::SuspensionEnding<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/ihostgcmanager-suspensionending-method.md)</ept> method can query for survived memory, to ensure that the counts are retrieved as soon as they are updated.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ICLRAppDomainResourceMonitor Interface<ept id="p1">](../../../docs/framework/unmanaged-api/hosting/iclrappdomainresourcemonitor-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt><ph id="ph1">\&lt;</ph>appDomainResourceMonitoring&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/appdomainresourcemonitoring-element.md)</ept><ph id="ph2"> </ph></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>CLR ETW Events<ept id="p1">](../../../docs/framework/performance/clr-etw-events.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

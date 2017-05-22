@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4296be694778d3db787551249a2aee9d85fd7735</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\managed-threading-best-practices.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">da0345b76488dcb71e9cdd265905a3efc6414040</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cd870e2c82cccf8d8a51d1c9554d2ca99abe50b3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Managed Threading Best Practices | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Managed Threading Best Practices</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Multithreading requires careful programming.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For most tasks, you can reduce complexity by queuing requests for execution by thread pool threads.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic addresses more difficult situations, such as coordinating the work of multiple threads, or handling threads that block.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, the Task Parallel Library and PLINQ provide APIs that reduce some of the complexity and risks of multi-threaded programming.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Parallel Programming<ept id="p1">](../../../docs/standard/parallel-programming/index.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Deadlocks and Race Conditions</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Multithreading solves problems with throughput and responsiveness, but in doing so it introduces new problems: deadlocks and race conditions.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Deadlocks</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>A deadlock occurs when each of two threads tries to lock a resource the other has already locked.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Neither thread can make any further progress.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Many methods of the managed threading classes provide time-outs to help you detect deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, the following code attempts to acquire a lock on the current instance.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If the lock is not obtained in 300 milliseconds, <ph id="ph1">&lt;xref:System.Threading.Monitor.TryEnter%2A?displayProperty=fullName&gt;</ph> returns <bpt id="p1">**</bpt>false<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Race Conditions</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A race condition is a bug that occurs when the outcome of a program depends on which of two or more threads reaches a particular block of code first.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Running the program many times produces different results, and the result of any given run cannot be predicted.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>A simple example of a race condition is incrementing a field.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Suppose a class has a private <bpt id="p1">**</bpt>static<ept id="p1">**</ept> field (<bpt id="p2">**</bpt>Shared<ept id="p2">**</ept> in Visual Basic) that is incremented every time an instance of the class is created, using code such as <ph id="ph1">`objCt++;`</ph> (C#) or <ph id="ph2">`objCt += 1`</ph> (Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This operation requires loading the value from <ph id="ph1">`objCt`</ph> into a register, incrementing the value, and storing it in <ph id="ph2">`objCt`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In a multithreaded application, a thread that has loaded and incremented the value might be preempted by another thread which performs all three steps; when the first thread resumes execution and stores its value, it overwrites <ph id="ph1">`objCt`</ph> without taking into account the fact that the value has changed in the interim.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This particular race condition is easily avoided by using methods of the <ph id="ph1">&lt;xref:System.Threading.Interlocked&gt;</ph> class, such as <ph id="ph2">&lt;xref:System.Threading.Interlocked.Increment%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To read about other techniques for synchronizing data among multiple threads, see <bpt id="p1">[</bpt>Synchronizing Data for Multithreading<ept id="p1">](../../../docs/standard/threading/synchronizing-data-for-multithreading.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Race conditions can also occur when you synchronize the activities of multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Whenever you write a line of code, you must consider what might happen if a thread were preempted before executing the line (or before any of the individual machine instructions that make up the line), and another thread overtook it.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Number of Processors</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Most computers now have multiple processors (also called cores), even small devices such as tablets and phones.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If you know you're developing software that will also run on single-processor computers, you should be aware that multithreading solves different problems for single-processor computers and multiprocessor computers.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Multiprocessor Computers</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Multithreading provides greater throughput.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Ten processors can do ten times the work of one, but only if the work is divided so that all ten can be working at once; threads provide an easy way to divide the work and exploit the extra processing power.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If you use multithreading on a multiprocessor computer:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The number of threads that can execute concurrently is limited by the number of processors.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A background thread executes only when the number of foreground threads executing is smaller than the number of processors.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When you call the <ph id="ph1">&lt;xref:System.Threading.Thread.Start%2A?displayProperty=fullName&gt;</ph> method on a thread, that thread might or might not start executing immediately, depending on the number of processors and the number of threads currently waiting to execute.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Race conditions can occur not only because threads are preempted unexpectedly, but because two threads executing on different processors might be racing to reach the same code block.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Single-Processor Computers</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Multithreading provides greater responsiveness to the computer user, and uses idle time for background tasks.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>If you use multithreading on a single-processor computer:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Only one thread runs at any instant.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>A background thread executes only when the main user thread is idle.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>A foreground thread that executes constantly starves background threads of processor time.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>When you call the <ph id="ph1">&lt;xref:System.Threading.Thread.Start%2A?displayProperty=fullName&gt;</ph> method on a thread, that thread does not start executing until the current thread yields or is preempted by the operating system.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Race conditions typically occur because the programmer did not anticipate the fact that a thread can be preempted at an awkward moment, sometimes allowing another thread to reach a code block first.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Static Members and Static Constructors</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A class is not initialized until its class constructor (<ph id="ph1">`static`</ph> constructor in C#, <ph id="ph2">`Shared Sub New`</ph> in Visual Basic) has finished running.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To prevent the execution of code on a type that is not initialized, the common language runtime blocks all calls from other threads to <ph id="ph1">`static`</ph> members of the class (<ph id="ph2">`Shared`</ph> members in Visual Basic) until the class constructor has finished running.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example, if a class constructor starts a new thread, and the thread procedure calls a <ph id="ph1">`static`</ph> member of the class, the new thread blocks until the class constructor completes.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This applies to any type that can have a <ph id="ph1">`static`</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>General Recommendations</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Consider the following guidelines when using multiple threads:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Don't use <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A?displayProperty=fullName&gt;</ph> to terminate other threads.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Calling <bpt id="p1">**</bpt>Abort<ept id="p1">**</ept> on another thread is akin to throwing an exception on that thread, without knowing what point that thread has reached in its processing.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Don't use <ph id="ph1">&lt;xref:System.Threading.Thread.Suspend%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Thread.Resume%2A?displayProperty=fullName&gt;</ph> to synchronize the activities of multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Do use <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph>, <ph id="ph3">&lt;xref:System.Threading.AutoResetEvent&gt;</ph>, and <ph id="ph4">&lt;xref:System.Threading.Monitor&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Don't control the execution of worker threads from your main program (using events, for example).</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Instead, design your program so that worker threads are responsible for waiting until work is available, executing it, and notifying other parts of your program when finished.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>If your worker threads do not block, consider using thread pool threads.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Monitor.PulseAll%2A?displayProperty=fullName&gt;</ph> is useful in situations where worker threads block.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Don't use types as lock objects.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>That is, avoid code such as <ph id="ph1">`lock(typeof(X))`</ph> in C# or <ph id="ph2">`SyncLock(GetType(X))`</ph> in Visual Basic, or the use of <ph id="ph3">&lt;xref:System.Threading.Monitor.Enter%2A?displayProperty=fullName&gt;</ph> with <ph id="ph4">&lt;xref:System.Type&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>For a given type, there is only one instance of <ph id="ph1">&lt;xref:System.Type?displayProperty=fullName&gt;</ph> per application domain.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>If the type you take a lock on is public, code other than your own can take locks on it, leading to deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For additional issues, see <bpt id="p1">[</bpt>Reliability Best Practices<ept id="p1">](../../../docs/framework/performance/reliability-best-practices.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Use caution when locking on instances, for example <ph id="ph1">`lock(this)`</ph> in C# or <ph id="ph2">`SyncLock(Me)`</ph> in Visual Basic.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>If other code in your application, external to the type, takes a lock on the object, deadlocks could occur.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Do ensure that a thread that has entered a monitor always leaves that monitor, even if an exception occurs while the thread is in the monitor.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The C# <bpt id="p1">[</bpt>lock<ept id="p1">](~/docs/csharp/language-reference/keywords/lock-statement.md)</ept> statement and the Visual Basic <bpt id="p2">[</bpt>SyncLock<ept id="p2">](~/docs/visual-basic/language-reference/statements/synclock-statement.md)</ept> statement provide this behavior automatically, employing a <bpt id="p3">**</bpt>finally<ept id="p3">**</ept> block to ensure that <ph id="ph1">&lt;xref:System.Threading.Monitor.Exit%2A?displayProperty=fullName&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>If you cannot ensure that <bpt id="p1">**</bpt>Exit<ept id="p1">**</ept> will be called, consider changing your design to use <bpt id="p2">**</bpt>Mutex<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>A mutex is automatically released when the thread that currently owns it terminates.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Do use multiple threads for tasks that require different resources, and avoid assigning multiple threads to a single resource.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For example, any task involving I/O benefits from having its own thread, because that thread will block during I/O operations and thus allow other threads to execute.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>User input is another resource that benefits from a dedicated thread.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>On a single-processor computer, a task that involves intensive computation coexists with user input and with tasks that involve I/O, but multiple computation-intensive tasks contend with each other.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Consider using methods of the <ph id="ph1">&lt;xref:System.Threading.Interlocked&gt;</ph> class for simple state changes, instead of using the <ph id="ph2">`lock`</ph> statement (<ph id="ph3">`SyncLock`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`lock`</ph> statement is a good general-purpose tool, but the <ph id="ph2">&lt;xref:System.Threading.Interlocked&gt;</ph> class provides better performance for updates that must be atomic.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Internally, it executes a single lock prefix if there is no contention.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In code reviews, watch for code like that shown in the following examples.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>In the first example, a state variable is incremented:</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>You can improve performance by using the <ph id="ph1">&lt;xref:System.Threading.Interlocked.Increment%2A&gt;</ph> method instead of the <ph id="ph2">`lock`</ph> statement, as follows:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, the <ph id="ph1">&lt;xref:System.Threading.Interlocked.Add%2A&gt;</ph> method provides atomic updates in increments larger than 1.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>In the second example, a reference type variable is updated only if it is a null reference (<ph id="ph1">`Nothing`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Performance can be improved by using the <ph id="ph1">&lt;xref:System.Threading.Interlocked.CompareExchange%2A&gt;</ph> method instead, as follows:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, the <ph id="ph1">&lt;xref:System.Threading.Interlocked.CompareExchange%2A&gt;</ph> method has a generic overload that can be used for type-safe replacement of any reference type.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Recommendations for Class Libraries</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Consider the following guidelines when designing class libraries for multithreading:</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Avoid the need for synchronization, if possible.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>This is especially true for heavily used code.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>For example, an algorithm might be adjusted to tolerate a race condition rather than eliminate it.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Unnecessary synchronization decreases performance and creates the possibility of deadlocks and race conditions.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Make static data (<ph id="ph1">`Shared`</ph> in Visual Basic) thread safe by default.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Do not make instance data thread safe by default.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Adding locks to create thread-safe code decreases performance, increases lock contention, and creates the possibility for deadlocks to occur.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>In common application models, only one thread at a time executes user code, which minimizes the need for thread safety.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>For this reason, the .NET Framework class libraries are not thread safe by default.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Avoid providing static methods that alter static state.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>In common server scenarios, static state is shared across requests, which means multiple threads can execute that code at the same time.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>This opens up the possibility of threading bugs.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Consider using a design pattern that encapsulates data into instances that are not shared across requests.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Furthermore, if static data are synchronized, calls between static methods that alter state can result in deadlocks or redundant synchronization, adversely affecting performance.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Threading<ept id="p1">](../../../docs/standard/threading/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Threads and Threading<ept id="p1">](../../../docs/standard/threading/threads-and-threading.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
