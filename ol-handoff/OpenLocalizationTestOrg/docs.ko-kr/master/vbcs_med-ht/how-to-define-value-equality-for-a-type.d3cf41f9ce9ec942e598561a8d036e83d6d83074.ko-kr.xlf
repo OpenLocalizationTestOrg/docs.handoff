@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">33b2ab2252fac8442caa7b2f3e9b5b311cc0f9b6</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\statements-expressions-operators\how-to-define-value-equality-for-a-type.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5435f929a506da8fa63269d8205626d7e2282b85</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1c268778a932b885c30e8a7e8fa528704c52679a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Define Value Equality for a Type (C# Programming Guide) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Define Value Equality for a Type (C# Programming Guide)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When you define a class or struct, you decide whether it makes sense to create a custom definition of value equality (or equivalence) for the type.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Typically, you implement value equality when objects of the type are expected to be added to a collection of some sort, or when their primary purpose is to store a set of fields or properties.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>You can base your definition of value equality on a comparison of all the fields and properties in the type, or you can base the definition on a subset.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>But in either case, and in both classes and structs, your implementation should follow the five guarantees of equivalence:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>x.<ph id="ph1">`Equals`</ph>(x) returns <ph id="ph2">`true.`</ph> This is called the reflexive property.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>x.<ph id="ph1">`Equals`</ph>(y) returns the same value as y.<ph id="ph2">`Equals`</ph>(x).</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This is called the symmetric property.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>if (x.<ph id="ph1">`Equals`</ph>(y) &amp;&amp; y.<ph id="ph2">`Equals`</ph>(z)) returns <ph id="ph3">`true`</ph>, then x.<ph id="ph4">`Equals`</ph>(z) returns <ph id="ph5">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This is called the transitive property.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Successive invocations of x.<ph id="ph1">`Equals`</ph>(y) return the same value as long as the objects referenced by x and y are not modified.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>x.<ph id="ph1">`Equals`</ph>(null) returns <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>However, null.Equals(null) throws an exception; it does not obey rule number two above.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Any struct that you define already has a default implementation of value equality that it inherits from the <ph id="ph1">&lt;xref:System.ValueType?displayProperty=fullName&gt;</ph> override of the <ph id="ph2">&lt;xref:System.Object.Equals%28System.Object%29?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This implementation uses reflection to examine all the fields and properties in the type.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Although this implementation produces correct results, it is relatively slow compared to a custom implementation that you write specifically for the type.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The implementation details for value equality are different for classes and structs.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>However, both classes and structs require the same basic steps for implementing equality:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Override the <bpt id="p1">[</bpt>virtual<ept id="p1">](../../../csharp/language-reference/keywords/virtual.md)</ept> <ph id="ph1">&lt;xref:System.Object.Equals%28System.Object%29?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In most cases, your implementation of <ph id="ph1">`bool Equals( object obj )`</ph> should just call into the type-specific <ph id="ph2">`Equals`</ph> method that is the implementation of the <ph id="ph3">&lt;xref:System.IEquatable%601?displayProperty=fullName&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>(See step 2.)</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">&lt;xref:System.IEquatable%601?displayProperty=fullName&gt;</ph> interface by providing a type-specific <ph id="ph2">`Equals`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This is where the actual equivalence comparison is performed.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For example, you might decide to define equality by comparing only one or two fields in your type.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Do not throw exceptions from <ph id="ph1">`Equals`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>For classes only: This method should examine only fields that are declared in the class.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It should call <ph id="ph1">`base.Equals`</ph> to examine fields that are in the base class.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>(Do not do this if the type inherits directly from <ph id="ph1">&lt;xref:System.Object&gt;</ph>, because the <ph id="ph2">&lt;xref:System.Object&gt;</ph> implementation of <ph id="ph3">&lt;xref:System.Object.Equals%28System.Object%29?displayProperty=fullName&gt;</ph> performs a reference equality check.)</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Optional but recommended: Overload the <bpt id="p1">[</bpt><ph id="ph1">==</ph><ept id="p1">](../../../csharp/language-reference/operators/equality-comparison-operator.md)</ept> and <bpt id="p2">[</bpt>!=<ept id="p2">](../../../csharp/language-reference/operators/not-equal-operator.md)</ept> operators.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Override <ph id="ph1">&lt;xref:System.Object.GetHashCode%2A?displayProperty=fullName&gt;</ph> so that two objects that have value equality produce the same hash code.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Optional: To support definitions for "greater than" or "less than," implement the <ph id="ph1">&lt;xref:System.IComparable%601&gt;</ph> interface for your type, and also overload the <bpt id="p1">[</bpt><ph id="ph2">&lt;=</ph><ept id="p1">](../../../csharp/language-reference/operators/less-than-equal-operator.md)</ept> and <bpt id="p2">[</bpt><ph id="ph3">&gt;=</ph><ept id="p2">](../../../csharp/language-reference/operators/greater-than-equal-operator.md)</ept> operators.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The first example that follows shows a class implementation.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The second example shows a struct implementation.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The following example shows how to implement value equality in a class (reference type).</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideStatements#19<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/how-to-define-value-equality-for-a-type_1.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>On classes (reference types), the default implementation of both <ph id="ph1">&lt;xref:System.Object.Equals%28System.Object%29?displayProperty=fullName&gt;</ph> methods performs a reference equality comparison, not a value equality check.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When an implementer overrides the virtual method, the purpose is to give it value equality semantics.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`==`</ph> and <ph id="ph2">`!=`</ph> operators can be used with classes even if the class does not overload them.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>However, the default behavior is to perform a reference equality check.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In a class, if you overload the <ph id="ph1">`Equals`</ph> method, you should overload the <ph id="ph2">`==`</ph> and <ph id="ph3">`!=`</ph> operators, but it is not required.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The following example shows how to implement value equality in a struct (value type):</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideStatements#20<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/how-to-define-value-equality-for-a-type_2.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For structs, the default implementation of <ph id="ph1">&lt;xref:System.Object.Equals%28System.Object%29?displayProperty=fullName&gt;</ph> (which is the overridden version in <ph id="ph2">&lt;xref:System.ValueType?displayProperty=fullName&gt;</ph>) performs a value equality check by using reflection to compare the values of every field in the type.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>When an implementer overrides the virtual <ph id="ph1">`Equals`</ph> method in a struct, the purpose is to provide a more efficient means of performing the value equality check and optionally to base the comparison on some subset of the struct's field or properties.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt><ph id="ph1">==</ph><ept id="p1">](../../../csharp/language-reference/operators/equality-comparison-operator.md)</ept> and <bpt id="p2">[</bpt>!=<ept id="p2">](../../../csharp/language-reference/operators/not-equal-operator.md)</ept> operators cannot operate on a struct unless the struct explicitly overloads them.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Equality Comparisons<ept id="p1">](../../../csharp/programming-guide/statements-expressions-operators/equality-comparisons.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>C# Programming Guide<ept id="p1">](../../../csharp/programming-guide/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3aff3c32f79c310efdfebf0f325083435f85c251</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\wcf\using-actions-to-implement-server-side-behavior.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2ea2c2fd65bc8ceaf09bc4651e7eb7326af70abe</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">46b8924d1fe07a6b1b6fe5d77ee75d85a8a2c837</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using actions to implement server-side behavior | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using actions to implement server-side behavior</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>OData Actions provide a way to implement a behavior that acts upon a resource retrieved from an OData service.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For example consider a digital movie as a resource, there are many things you may do with a digital movie: check-out, rate/comment, or check-in.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These are all examples of Actions that may be implemented by a WCF Data Service that manages digital movies.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Actions are described in an OData response that contains a resource on which the Action can be invoked.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>When a user requests a resource that represents a digital movie the response returned from the WCF Data Service contains information about the Actions that are available for that resource.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The availability of an Action can depend on the state of the data service or resource.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example once a digital movie is checked out it cannot be checked out by another user.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Clients can invoke an action simply by specifying a URL.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example http://MyServer/MovieService.svc/Movies(6) would identify a specific digital movie and http://MyServer/MovieService.svc/Movies(6)/Checkout would invoke the action on the specific movie.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Actions allow you to expose you service model without exposing your data model.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Continuing with the movie service example, you may wish to allow a user to rate a movie, but not directly expose the rating data as a resource.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You could implement a Rate Action to allow the user to rate a movie but not directly access the rating data as a resource.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For a complete example of implementing a WCF Data Service Action, see <bpt id="p1">[</bpt>WCF Data Services Action Provider for Entity Framework<ept id="p1">](http://efactionprovider.codeplex.com/)</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Implementing an action</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To implement a service action you must implement the <ph id="ph1">&lt;xref:System.IServiceProvider&gt;</ph>, <bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept>, and <bpt id="p2">[</bpt>IDataServiceInvokable<ept id="p2">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceinvokable(v=vs.113).aspx)</ept> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IServiceProvider&gt;</ph> allows WCF Data Services to get your implementation of <bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept> allows WCF Data Services to create, find, describe and invoke service actions.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>IDataServiceInvokable<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceinvokable(v=vs.113).aspx)</ept> allows you to invoke the code that implements the service actions’ behavior and get the results, if any.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Keep in mind that WCF Data Services are Per-Call WCF Services, a new instance of the service will be created each time the service is called.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Make sure no unnecessary work is done when the service is created.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>IServiceProvider</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IServiceProvider&gt;</ph> contains a method called <ph id="ph2">&lt;xref:System.IServiceProvider.GetService%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This method is called by WCF Data Services to retrieve a number of service providers, including metadata service providers and data service action providers.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When asked for a data service action provider, return your <bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept> implementation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>IDataServiceActionProvider</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept> contains methods that allow you to retrieve information about the available actions.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>When you implement <bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept> you are augmenting the metadata for your service which is defined by your service’s implementation of <bpt id="p2">[</bpt>IDataServiceActionProvider<ept id="p2">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider(v=vs.113).aspx)</ept> with Actions and handling dispatch to those actions as appropriate.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>AdvertiseServiceAction</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>IDataServiceActionProvider<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider.advertiseserviceaction(v=vs.113).aspx)</ept> is called to determine what actions are available for the specified resource.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This method is only called for actions that are not always available.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>It is used to check if the action should be included in the OData response based upon the state of the resource being requested or the state of the service.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>How this check is accomplished is completely up to you.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If it is an expensive to calculate availability and the current resource is in a feed, it is acceptable to skip the check and advertise the action.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`inFeed`</ph> parameter is set to <ph id="ph2">`true`</ph> if the current resource being returned is part of a feed.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>CreateInvokable</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>CreateInvokable<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceactionprovider.createinvokable(v=vs.113).aspx)</ept> is called to create a <bpt id="p2">[</bpt>IDataServiceInvokable<ept id="p2">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceinvokable(v=vs.113).aspx)</ept> that contains a delegate that encapsulates the code that implements the action’s behavior.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This creates the <bpt id="p1">[</bpt>IDataServiceInvokable<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceinvokable(v=vs.113).aspx)</ept> instance but does not invoke the action.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>WCF Data Service Actions have side effects and need to work in conjunction with the Update Provider to save those changes to disk.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>IDataServiceInvokable.Invoke<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.idataserviceinvokable.invoke(v=vs.113).aspx)</ept> method is called from the Update Provider’s SaveChanges() method is called.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>GetServiceActions</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This method returns a collection of <bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> instances that represent all of the actions a WCF Data Service exposes.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> is the metadata representation of an Action, that includes information like the Action name, its parameters, and its return type.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>GetServiceActionsByBindingParameterType</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This method returns a collection of all <bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> instances that can be bound to the specified binding parameter type.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In other words, all <bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept>s that can act on the specified resource type (also called binding parameter type).This is used when the service returns a resource in order to include information about Actions that can be invoked against that resource.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This method should only return actions that can bind to the exact binding parameter type (no derived types).</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This method is called once per request per type encountered and the result is cached by WCF Data Services.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>TryResolveServiceAction</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This method searches for a specified <bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> and returns <ph id="ph1">`true`</ph> if the <bpt id="p2">[</bpt>ServiceAction<ept id="p2">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> is found.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If found, the <bpt id="p1">[</bpt>ServiceAction<ept id="p1">](https://msdn.microsoft.com/library/system.data.services.providers.serviceaction(v=vs.113).aspx)</ept> is returned in the <ph id="ph1">`serviceAction``out`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>IDataServiceInvokable</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This interface provides a way to execute a WCF Data Service Action.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>When implementing IDataServiceInvokable you are responsible for 3 things:</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Capturing and potentially marshaling the parameters</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Dispatching the parameters to the code that actually implements the Action when Invoke() is called</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Storing any results from Invoke() so they can be retrieved using GetResult()</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The parameters may be passed as tokens.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This is because it is possible to write a Data Service Provider that works with tokens that represent resources, if this is the case you may need to convert (marshal) these tokens into actual resources before dispatching to the actual action.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>After the parameter has been marshalled, it must be in an editable state so that any changes to the resource that occur when the action is invoked will be saved and written to disk.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This interface requires two methods: Invoke and GetResult.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Invoke invokes the delegate that implements the action’s behavior and GetResult returns the result of the action.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Invoking a WCF Data Service Action</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Actions are invoked using an HTTP POST request.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The URL specifies the resource followed by the action name.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Parameters are passed in the body of the request.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>For example if there was a service called MovieService which exposed an action called Rate.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>You could use the following URL to invoke the Rate action on a specific movie:</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>http://MovieServer/MovieService.svc/Movies(1)/Rate</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Movies(1) specifies the movie you wish to rate and Rate specifies the Rate action.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The actual value of the rating will be in the body of the HTTP request as shown in the following example:</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The above sample code will work only with WCF Data Services 5.2 and later which has support for JSON light.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>If using an earlier version of WCF Data Services, you must specify the json verbose content-type as follows: <ph id="ph1">`application/json;odata=verbose`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Alternatively you can invoke an action using the WCF Data Services Client as shown in the following code snippet.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>In the code snippet above, the <ph id="ph1">`MoviesModel`</ph> class was generated by using Visual Studio to Add Service Reference to a WCF Data Service.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>WCF Data Services 4.5<ept id="p1">](../../../../docs/framework/data/wcf/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Defining WCF Data Services<ept id="p1">](../../../../docs/framework/data/wcf/defining-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Developing and Deploying WCF Data Services<ept id="p1">](../../../../docs/framework/data/wcf/developing-and-deploying-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Custom Data Service Providers<ept id="p1">](../../../../docs/framework/data/wcf/custom-data-service-providers-wcf-data-services.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">de13671b05b9c89237e29cac65c0fe25e50fcb30</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\how-to-specify-a-task-scheduler-in-a-dataflow-block.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">181d4fb0ce091513ab25b7140df3e8d16c23aa8b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">909fc231410c9a91691505e846c59db1f53b1ac0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Specify a Task Scheduler in a Dataflow Block | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Specify a Task Scheduler in a Dataflow Block</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This document demonstrates how to associate a specific task scheduler when you use dataflow in your application.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The example uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair?displayProperty=fullName&gt;</ph> class in a Windows Forms application to show when reader tasks are active and when a writer task is active.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>It also uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext%2A?displayProperty=fullName&gt;</ph> method to enable a dataflow block to run on the user-interface thread.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library (<ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow?displayProperty=fullName&gt;</ph> namespace) is not distributed with the <ph id="ph2">[!INCLUDE[net_v45](../../../includes/net-v45-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To install the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow&gt;</ph> namespace, open your project in <ph id="ph2">[!INCLUDE[vs_dev11_long](../../../includes/vs-dev11-long-md.md)]</ph>, choose <bpt id="p1">**</bpt>Manage NuGet Packages<ept id="p1">**</ept> from the Project menu, and search online for the <ph id="ph3">`Microsoft.Tpl.Dataflow`</ph> package.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>To Create the Windows Forms Application</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">[!INCLUDE[csprcs](../../../includes/csprcs-md.md)]</ph> or Visual Basic <bpt id="p1">**</bpt>Windows Forms Application<ept id="p1">**</ept> project.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In the following steps, the project is named <ph id="ph1">`WriterReadersWinForms`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>On the form designer for the main form, Form1.cs (Form1.vb for <ph id="ph1">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>), add four <ph id="ph2">&lt;xref:System.Windows.Forms.CheckBox&gt;</ph> controls.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Windows.Forms.Control.Text%2A&gt;</ph> property to <bpt id="p1">**</bpt>Reader 1<ept id="p1">**</ept> for <ph id="ph2">`checkBox1`</ph>, <bpt id="p2">**</bpt>Reader 2<ept id="p2">**</ept> for <ph id="ph3">`checkBox2`</ph>, <bpt id="p3">**</bpt>Reader 3<ept id="p3">**</ept> for <ph id="ph4">`checkBox3`</ph>, and <bpt id="p4">**</bpt>Writer<ept id="p4">**</ept> for <ph id="ph5">`checkBox4`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Windows.Forms.Control.Enabled%2A&gt;</ph> property for each control to <ph id="ph2">`False`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Add a <ph id="ph1">&lt;xref:System.Windows.Forms.Timer&gt;</ph> control to the form.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Windows.Forms.Timer.Interval%2A&gt;</ph> property to <ph id="ph2">`2500`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Adding Dataflow Functionality</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This section describes how to create the dataflow blocks that participate in the application and how to associate each one with a task scheduler.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To Add Dataflow Functionality to the Application</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In your project, add a reference to System.Threading.Tasks.Dataflow.dll.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Ensure that Form1.cs (Form1.vb for <ph id="ph1">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>) contains the following <ph id="ph2">`using`</ph> statements (<ph id="ph3">`Imports`</ph> in <ph id="ph4">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#1)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Add a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> data member to the <ph id="ph2">`Form1`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Form1`</ph> constructor, after the call to <ph id="ph2">`InitializeComponent`</ph>, create an <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object that toggles the state of <ph id="ph4">&lt;xref:System.Windows.Forms.CheckBox&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Form1`</ph> constructor, create a <ph id="ph2">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> object and four <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> objects, one <ph id="ph4">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object for each <ph id="ph5">&lt;xref:System.Windows.Forms.CheckBox&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>For each <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object, specify a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions&gt;</ph> object that has the <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.TaskScheduler%2A&gt;</ph> property set to the <ph id="ph4">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair.ConcurrentScheduler%2A&gt;</ph> property for the readers, and the <ph id="ph5">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair.ExclusiveScheduler%2A&gt;</ph> property for the writer.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Form1`</ph> constructor, start the <ph id="ph2">&lt;xref:System.Windows.Forms.Timer&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>On the form designer for the main form, create an event handler for the <ph id="ph1">&lt;xref:System.Windows.Forms.Timer.Tick&gt;</ph> event for the timer.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">&lt;xref:System.Windows.Forms.Timer.Tick&gt;</ph> event for the timer.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">`toggleCheckBox`</ph> dataflow block acts on the user interface, it is important that this action occur on the user-interface thread.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>To accomplish this, during construction this object provides a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions&gt;</ph> object that has the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.TaskScheduler%2A&gt;</ph> property set to <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext%2A&gt;</ph> method creates a <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> object that performs work on the current synchronization context.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">`Form1`</ph> constructor is called from the user-interface thread, the action for the <ph id="ph2">`toggleCheckBox`</ph> dataflow block also runs on the user-interface thread.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This example also uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> class to enable some dataflow blocks to act concurrently, and another dataflow block to act exclusive with respect to all other dataflow blocks that run on the same <ph id="ph2">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This technique is useful when multiple dataflow blocks share a resource and some require exclusive access to that resource, because it eliminates the requirement to manually synchronize access to that resource.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The elimination of manual synchronization can make code more efficient.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The following example shows the complete code for Form1.cs (Form1.vb for <ph id="ph1">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>).</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_WriterReadersWinForms#100<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/cs/writerreaderswinforms/form1.cs#100)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_WriterReadersWinForms#100<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_writerreaderswinforms/vb/writerreaderswinforms/form1.vb#100)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dataflow<ept id="p1">](../../../docs/standard/parallel-programming/dataflow-task-parallel-library.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">977f1c382f0d0dd87e78a289a89ed82d08d7fad3</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\persistence-best-practices.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">547fb7e2c1836b964fc100dfffb770f197c39f3b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6c0fec00abc27d69a3f60e5322256858fad7b768</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Persistence Best Practices | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Persistence Best Practices</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This document covers best practices for workflow design and configuration related to workflow persistence.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Design and Implementation of Durable Workflows</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In general, workflows perform work in short periods that are interleaved with times during which the workflow is idle because it is waiting for an event.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This event can be such things as a message or an expiring timer.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To be able to unload the workflow instance when it becomes idle, the service host must persist the workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This is possible only if the workflow instance is not in a no-persist zone (for example, waiting for a transaction to complete, or waiting for an asynchronous callback).</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To allow an idle workflow instance to unload, the workflow author should use transaction scopes and asynchronous activities for short-lived actions only.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In particular, the author should keep delay activities within these no-persist zones as short as possible.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>A workflow can only be persisted if all of the data types used by the workflow are serializable.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In addition, custom types used in persisted workflows must be serializable with <ph id="ph1">&lt;xref:System.Runtime.Serialization.NetDataContractSerializer&gt;</ph> in order to be persisted by <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>A workflow instance cannot be recovered in case of a host or computer failure if it has not been persisted.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In general, we recommend that you persist a workflow instance early in the workflow’s life cycle.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If your workflow is busy for a long time, we recommend that you persist the workflow instance regularly throughout its busy period.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You can do this by adding <ph id="ph1">&lt;xref:System.Activities.Statements.Persist&gt;</ph> activities throughout the sequence of activities that keep the workflow instance busy.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In this manner, application domain recycling, host failures, or computer failures do not cause the system to be rolled back to the start of the busy period.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Be aware that adding <ph id="ph1">&lt;xref:System.Activities.Statements.Persist&gt;</ph> activities to your workflow could lead to a degradation of performance.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Windows Server App Fabric greatly simplifies the configuration and use of persistence.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>Windows Server App Fabric Persistence<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=201200&amp;clcid=0x409)</ept></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Configuration of Scalability Parameters</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Scalability and performance requirements determine the settings of the following parameters:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>These parameters should be set as follows, according to the current scenario.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Scenario: A Small Number of Workflow Instances That Require Optimal Response Time</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>In this scenario, all workflow instances should remain loaded when they become idle.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A&gt;</ph> to a large value.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The use of this setting prevents a workflow instance from moving between computers.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Use this setting only if one or more of the following are true:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>A workflow instance receives a single message throughout its lifetime.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>All workflow instances run on a single computer</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>All messages that are received by a workflow instance are received by the same computer.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">&lt;xref:System.Activities.Statements.Persist&gt;</ph> activities or set <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist%2A&gt;</ph> to 0 to enable recovery of your workflow instance after service host or computer failures.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Scenario: Workflow Instances Are Idle for Long Periods of Time</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>In this scenario, set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A&gt;</ph> to 0 to release resources as soon as possible.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Scenario: Workflow Instances Receive Multiple Messages in a Short Period of Time</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In this scenario, set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A&gt;</ph> to 60 seconds if these messages are received by the same computer.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This prevents a rapid sequence of unloading and loading of a workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This also does not keep the instance in memory for too long.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A&gt;</ph> to 0, and set <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Description.SqlWorkflowInstanceStoreBehavior.InstanceLockedExceptionAction%2A&gt;</ph> to BasicRetry or AggressiveRetry if these messages may be received by different computers.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This allows the workflow instance to be loaded by another computer.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Scenario: Workflow Uses Delay Activities with Short Durations</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In this scenario, the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> regularly polls the persistence database for instances that should be loaded because of an expired <ph id="ph2">&lt;xref:System.Activities.Statements.Delay&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> finds a timer that will expire in the next polling interval, the SQL Workflow Instance Store shortens the polling interval.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The next poll will then occur right after the timer has expired.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This way, the SQL Workflow Instance Store achieves a high accuracy of timers that run longer than the polling interval, which is set by <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>To enable timely processing of shorter delays, the workflow instance must remain in memory for at least one polling interval.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist%2A&gt;</ph> to 0 to write the expiration time to the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Set <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A&gt;</ph> to longer than or equal to <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph> to keep the instance in memory for at least one polling interval.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>We do not recommend reducing the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph> because this leads to an increased load on the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Each service host that uses the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> polls the database one time per detection period.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Setting <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph> to too small a time interval may cause your system's performance to decrease if the number of service hosts is large.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Configuring the SQL Workflow Instance Store</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store has the following configuration parameters:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This parameter instructs the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> to compress the workflow instance state.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Compression reduces the amount of data that is stored in the persistence database and reduces network traffic in case the persistence database resides on a dedicated database server.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If compression is used, it requires computational resources to compress and extract the instance state.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>In most cases, compression yields increased performance.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>This parameter instructs the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> to either keep or delete completed instances.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Keeping completed instances increases the persistence database storage requirements and leads to larger tables, which increases table lookup times.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Unless completed instances are required for debugging or auditing, it is best to instruct the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> to delete completed instances.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Deleted instances should be kept only if the user establishes a process for eventually removing them.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Note that correlation keys cannot be reused as long as the completed workflow instance resides in the instance store.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This parameter defines the maximum interval with which the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> polls the persistence database for instances that should be loaded when a <ph id="ph2">&lt;xref:System.Activities.Statements.Delay&gt;</ph> activity expires.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> finds a timer that will expire in the next polling interval, it shortens the polling interval so that the next poll will occur right after the timer has expired.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This way, the SQL Workflow Instance Store achieves a high accuracy of timers that run longer than <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>We do not recommend reducing the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph>, because this leads to an increased load on the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Each service host that uses the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> polls the database one time per detection period.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Setting <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.RunnableInstancesDetectionPeriod%2A&gt;</ph> to too small an interval may cause your system's performance to decrease if the number of service hosts is large.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>This parameter defines the interval with which the host renews its lock in the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Shortening this interval will enable a quicker recovery of the workflow instances in case a host or computer fails.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>On the other hand, a short lock renewal period increases the load on the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Each service host that uses the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> will update its locks in the database one time per renewal period.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>If a computer runs many service hosts, make sure that the load caused by lock renewal does not decrease your system's performance.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>If it does, consider increasing the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.HostLockRenewalPeriod%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>If enabled, the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> retries to load a locked instance for the next 30 seconds.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Set <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.InstanceLockedExceptionAction%2A&gt;</ph> to BasicRetry or AggressiveRetry if the workflow receives multiple messages in a short time, and these messages are received by different computers.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Because the load retry mechanism does not introduce any performance overhead as long as load retries are not tried, <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.InstanceLockedExceptionAction%2A&gt;</ph> should always be enabled.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

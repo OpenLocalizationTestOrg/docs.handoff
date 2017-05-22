@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">919aa51c55f276305cbe6d0ae313786eab8f821a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\custom-token.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0de292360cddebcbbb0b65a77ad4388c46e621cd</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">700b4484d63da96b321faf693fc426cbe69b0e6f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Token | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Token</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to add a custom token implementation into a <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The example uses a <ph id="ph1">`CreditCardToken`</ph> to securely pass information about client credit cards to the service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The token is passed in the WS-Security message header and is signed and encrypted using the symmetric security binding element along with message body and other message headers.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This is useful in cases where the built-in tokens are not sufficient.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to provide a custom security token to a service instead of using one of the built-in tokens.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The service implements a contract that defines a request-reply communication pattern.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To summarize, this sample demonstrates the following:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>How a client can pass a custom security token to a service.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>How the service can consume and validate a custom security token.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>How the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service code can obtain the information about received security tokens including the custom security token.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>How the server's X.509 certificate is used to protect the symmetric key used for message encryption and signature.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Client Authentication Using a Custom Security Token</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The service exposes a single endpoint that is programmatically created using <ph id="ph1">`BindingHelper`</ph> and <ph id="ph2">`EchoServiceHost`</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The endpoint consists of an address, a binding, and a contract.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The binding is configured with a custom binding using <ph id="ph1">`SymmetricSecurityBindingElement`</ph> and <ph id="ph2">`HttpTransportBindingElement`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This sample sets the <ph id="ph1">`SymmetricSecurityBindingElement`</ph> to use a service's X.509 certificate to protect the symmetric key during transmission and to pass a custom <ph id="ph2">`CreditCardToken`</ph> in a WS-Security message header as a signed and encrypted security token.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The behavior specifies the service credentials that are to be used for client authentication and also information about the service X.509 certificate.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To consume a credit card token in the message, the sample uses custom service credentials to provide this functionality.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The service credentials class is located in the <ph id="ph1">`CreditCardServiceCredentials`</ph> class and is added to the behaviors collections of the service host in the <ph id="ph2">`EchoServiceHost.InitializeRuntime`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The client endpoint is configured in a similar manner as the service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The client uses the same <ph id="ph1">`BindingHelper`</ph> class to create a binding.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The rest of the setup is located in the <ph id="ph1">`Client`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The client also sets information to be contained in the <ph id="ph1">`CreditCardToken`</ph> and information about the service X.509 certificate in the setup code by adding a <ph id="ph2">`CreditCardClientCredentials`</ph> instance with the proper data to the client endpoint behaviors collection.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The sample uses X.509 certificate with subject name set to <ph id="ph1">`CN=localhost`</ph> as the service certificate.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Custom Security Token Implementation</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>To enable a custom security token in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, create an object representation of the custom security token.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The sample has this representation in the <ph id="ph1">`CreditCardToken`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The object representation is responsible for holding all relevant security token information and to provide a list of security keys contained in the security token.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this case, the credit card security token does not contain any security key.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The next section describes what must be done to enable a custom token to be transmitted over the wire and consumed by a <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> endpoint.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Getting the Custom Credit Card Token to and from the Message</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Security token serializers in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> are responsible for creating an object representation of security tokens from the XML in the message and creating a XML form of the security tokens.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>They are also responsible for other functionality such as reading and writing key identifiers pointing to security tokens, but this example uses only security token-related functionality.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>To enable a custom token you must implement your own security token serializer.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This sample uses the <ph id="ph1">`CreditCardSecurityTokenSerializer`</ph> class for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>On the service, the custom serializer reads the XML form of the custom token and creates the custom token object representation from it.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>On the client, the <ph id="ph1">`CreditCardSecurityTokenSerializer`</ph> class writes the information contained in the security token object representation into the XML writer.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>How Token Provider and Token Authenticator Classes are Created</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Client and service credentials are responsible for providing the security token manager instance.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The security token manager instance is used to get token providers, token authenticators and token serializers.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The token provider creates an object representation of the token based on the information contained in the client or service credentials.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The token object representation is then written to the message using the token serializer (discussed in the previous section).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The token authenticator validates tokens that arrive in the message.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The incoming token object representation is created by the token serializer.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This object representation is then passed to the token authenticator for validation.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>After the token is successfully validated, the token authenticator returns a collection of <ph id="ph1">`IAuthorizationPolicy`</ph> objects that represent the information contained in the token.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This information is used later during the message processing to perform authorization decisions and to provide claims for the application.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>In this example, the credit card token authenticator uses <ph id="ph1">`CreditCardTokenAuthorizationPolicy`</ph> for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The token serializer is responsible for getting the object representation of the token to and from the wire.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This is discussed in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>In this sample, we use a token provider only on the client and a token authenticator only on the service, because we want to transmit a credit card token only in the client-to-service direction.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The functionality on the client is located in the <ph id="ph1">`CreditCardClientCrendentials`</ph>, <ph id="ph2">`CreditCardClientCredentialsSecurityTokenManager`</ph> and <ph id="ph3">`CreditCardTokenProvider`</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>On the service, the functionality resides in the <ph id="ph1">`CreditCardServiceCredentials`</ph>, <ph id="ph2">`CreditCardServiceCredentialsSecurityTokenManager`</ph>, <ph id="ph3">`CreditCardTokenAuthenticator`</ph> and <ph id="ph4">`CreditCardTokenAuthorizationPolicy`</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Displaying the Callers' Information</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To display the caller's information, use the <ph id="ph1">`ServiceSecurityContext.Current.AuthorizationContext.ClaimSets`</ph> as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ServiceSecurityContext.Current.AuthorizationContext.ClaimSets`</ph> contains authorization claims associated with the current caller.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The claims are supplied by the <ph id="ph1">`CreditCardToken`</ph> class in its <ph id="ph2">`AuthorizationPolicies`</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the operation requests and responses are displayed in the client console window.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Press ENTER in the client window to shut down the client.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Setup Batch File</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The Setup.bat batch file included with this sample allows you to configure the server with relevant certificates to run the IIS-hosted application that requires server certificate-based security.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This batch file must be modified to work across computers or to work in a non-hosted case.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The following provides a brief overview of the different sections of the batch files so that they can be modified to run in the appropriate configuration.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Creating the server certificate:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The following lines from the <ph id="ph1">`Setup.bat`</ph> batch file create the server certificate to be used.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`%SERVER_NAME%`</ph> variable specifies the server name.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Change this variable to specify your own server name.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The default in this batch file is localhost.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>If you change the <ph id="ph1">`%SERVER_NAME%`</ph> variable, you must go through the Client.cs and Service.cs files and replace all instances of localhost with the server name that you use in the Setup.bat script.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The certificate is stored in My (Personal) store under the <ph id="ph1">`LocalMachine`</ph> store location.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The certificate is stored in the LocalMachine store for the IIS-hosted services.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>For self-hosted services, you should modify the batch file to store the client certificate in the CurrentUser store location by replacing the string LocalMachine with CurrentUser.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Installing the server certificate into client's trusted certificate store:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The following lines in the Setup.bat batch file copy the server certificate into the client trusted people store.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>This step is required because certificates generated by Makecert.exe are not implicitly trusted by the client system.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If you already have a certificate that is rooted in a client trusted root certificate—for example, a Microsoft issued certificate—this step of populating the client certificate store with the server certificate is not required.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>To enable access to the certificate private key from the IIS-hosted service, the user account under which the IIS-hosted process is running must be granted appropriate permissions for the private key.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>This is accomplished by last steps in the Setup.bat script.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The Setup.bat batch file is designed to be run from a <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> Command Prompt.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The PATH environment variable set within the <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> Command Prompt points to the directory that contains executables required by the Setup.bat script.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>To set up and build the sample</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To run the sample on the same computer</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Open a <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> Command Prompt window with administrator privileges and run Setup.bat from the sample install folder.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>This installs all the certificates required for running the sample.Make sure that the path includes the folder where Makecert.exe is located.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Be sure to remove the certificates by running Cleanup.bat when finished with the sample.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Other security samples use the same certificates.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Launch Client.exe from client\bin directory.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Client activity is displayed on the client console application.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>If the client and service are not able to communicate, see <bpt id="p1">[</bpt>Troubleshooting Tips<ept id="p1">](http://msdn.microsoft.com/en-us/8787c877-5e96-42da-8214-fa737a38f10b)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>To run the sample across computer</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Create a directory on the service computer for the service binaries.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Copy the service program files into the service directory on the service computer.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Do not forget to copy CreditCardFile.txt; otherwise the credit card authenticator cannot validate credit card information sent from the client.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Also copy the Setup.bat and Cleanup.bat files to the service computer.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>You must have a server certificate with the subject name that contains the fully-qualified domain name of the computer.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>You can create one using the Setup.bat if you change the <ph id="ph1">`%SERVER_NAME%`</ph> variable to fully-qualified name of the computer where the service is hosted.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Note that the Setup.bat file must be run in a Visual Studio command prompt opened with administrator privileges.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Copy the server certificate into the CurrentUser-TrustedPeople store on the client.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>You must do this only if the server certificate is not issued by a trusted issuer.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>In the EchoServiceHost.cs file, change the value of the certificate subject name to specify a fully-qualified computer name instead of localhost.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Copy the client program files from the \client\bin\ folder, under the language-specific folder, to the client computer.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>In the Client.cs file, change the address value of the endpoint to match the new address of your service.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>In the Client.cs file change the subject name of the service X.509 certificate to match the fully-qualified computer name of the remote host instead of localhost.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>On the client computer, launch Client.exe from a command prompt window.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>If the client and service are not able to communicate, see <bpt id="p1">[</bpt>Troubleshooting Tips<ept id="p1">](http://msdn.microsoft.com/en-us/8787c877-5e96-42da-8214-fa737a38f10b)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>To clean up after the sample</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Run Cleanup.bat in the samples folder once you have finished running the sample.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

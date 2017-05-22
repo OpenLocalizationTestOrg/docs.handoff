@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b49f5dc087295090db66d7f32974f499a825b304</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\network-programming\using-an-asynchronous-client-socket.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2a3c3bdd06ccb972fe187c7f0798be99e0669068</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8aff8fdd99a772d3f2e0660ad77c6361a280a9dc</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using an Asynchronous Client Socket | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using an Asynchronous Client Socket</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>An asynchronous client socket does not suspend the application while waiting for network operations to complete.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Instead, it uses the standard .NET Framework asynchronous programming model to process the network connection on one thread while the application continues to run on the original thread.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Asynchronous sockets are appropriate for applications that make heavy use of the network or that cannot wait for network operations to complete before continuing.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Net.Sockets.Socket&gt;</ph> class follows the .NET Framework naming pattern for asynchronous methods; for example, the synchronous <ph id="ph2">&lt;xref:System.Net.Sockets.Socket.Receive%2A&gt;</ph> method corresponds to the asynchronous <ph id="ph3">&lt;xref:System.Net.Sockets.Socket.BeginReceive%2A&gt;</ph> and <ph id="ph4">&lt;xref:System.Net.Sockets.Socket.EndReceive%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Asynchronous operations require a callback method to return the result of the operation.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If your application does not need to know the result, then no callback method is required.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The example code in this section demonstrates using a method to start connecting to a network device and a callback method to complete the connection, a method to start sending data and a callback method to complete the send, and a method to start receiving data and a callback method to end receiving data.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Asynchronous sockets use multiple threads from the system thread pool to process network connections.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>One thread is responsible for initiating the sending or receiving of data; other threads complete the connection to the network device and send or receive the data.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In the following examples, instances of the <ph id="ph1">&lt;xref:System.Threading.ManualResetEvent?displayProperty=fullName&gt;</ph> class are used to suspend execution of the main thread and signal when execution can continue.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In the following example, to connect an asynchronous socket to a network device, the <ph id="ph1">`Connect`</ph> method initializes a <bpt id="p1">**</bpt>Socket<ept id="p1">**</ept> and then calls the <ph id="ph2">&lt;xref:System.Net.Sockets.Socket.Connect%2A?displayProperty=fullName&gt;</ph> method, passing a remote endpoint that represents the network device, the connect callback method, and a state object (the client <bpt id="p2">**</bpt>Socket<ept id="p2">**</ept>), which is used to pass state information between asynchronous calls.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The example implements the <ph id="ph1">`Connect`</ph> method to connect the specified <bpt id="p1">**</bpt>Socket<ept id="p1">**</ept> to the specified endpoint.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>It assumes a global <bpt id="p1">**</bpt>ManualResetEvent<ept id="p1">**</ept> named <ph id="ph1">`connectDone`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The connect callback method <ph id="ph1">`ConnectCallback`</ph> implements the <ph id="ph2">&lt;xref:System.AsyncCallback&gt;</ph> delegate.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It connects to the remote device when the remote device is available and then signals the application thread that the connection is complete by setting the <bpt id="p1">**</bpt>ManualResetEvent<ept id="p1">**</ept> <ph id="ph1">`connectDone`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The following code implements the <ph id="ph1">`ConnectCallback`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The example method <ph id="ph1">`Send`</ph> encodes the specified string data in ASCII format and sends it asynchronously to the network device represented by the specified socket.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following example implements the <ph id="ph1">`Send`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The send callback method <ph id="ph1">`SendCallback`</ph> implements the <ph id="ph2">&lt;xref:System.AsyncCallback&gt;</ph> delegate.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It sends the data when the network device is ready to receive.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following example shows the implementation of the <ph id="ph1">`SendCallback`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>It assumes a global <bpt id="p1">**</bpt>ManualResetEvent<ept id="p1">**</ept> named <ph id="ph1">`sendDone`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Reading data from a client socket requires a state object that passes values between asynchronous calls.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following class is an example state object for receiving data from a client socket.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>It contains a field for the client socket, a buffer for the received data, and a <ph id="ph1">&lt;xref:System.Text.StringBuilder&gt;</ph> to hold the incoming data string.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Placing these fields in the state object allows their values to be preserved across multiple calls to read data from the client socket.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The example <ph id="ph1">`Receive`</ph> method sets up the state object and then calls the <bpt id="p1">**</bpt>BeginReceive<ept id="p1">**</ept> method to read the data from the client socket asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following example implements the <ph id="ph1">`Receive`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The receive callback method <ph id="ph1">`ReceiveCallback`</ph> implements the <bpt id="p1">**</bpt>AsyncCallback<ept id="p1">**</ept> delegate.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It receives the data from the network device and builds a message string.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>It reads one or more bytes of data from the network into the data buffer and then calls the <bpt id="p1">**</bpt>BeginReceive<ept id="p1">**</ept> method again until the data sent by the client is complete.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Once all the data is read from the client, <ph id="ph1">`ReceiveCallback`</ph> signals the application thread that the data is complete by setting the <bpt id="p1">**</bpt>ManualResetEvent<ept id="p1">**</ept> <ph id="ph2">`sendDone`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The following example code implements the <ph id="ph1">`ReceiveCallback`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>It assumes a global string named <ph id="ph1">`response`</ph> that holds the received string and a global <bpt id="p1">**</bpt>ManualResetEvent<ept id="p1">**</ept> named <ph id="ph2">`receiveDone`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The server must shut down the client socket gracefully to end the network session.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Using a Synchronous Client Socket<ept id="p1">](../../../docs/framework/network-programming/using-a-synchronous-client-socket.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Listening with Sockets<ept id="p1">](../../../docs/framework/network-programming/listening-with-sockets.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Asynchronous Client Socket Example<ept id="p1">](../../../docs/framework/network-programming/asynchronous-client-socket-example.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

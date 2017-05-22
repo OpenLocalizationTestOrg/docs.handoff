@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">74f6308d7eb8ae86d02f48683af9e4246d9c4ec1</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\sharing-message-loops-between-win32-and-wpf.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a0d4b780652d86ca2190868fd6e0978d76a1cb4b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8d36cec4ea1fdf68b9eed84261b11cd5c7ae0ab1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Sharing Message Loops Between Win32 and WPF | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Sharing Message Loops Between Win32 and WPF</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how to implement a message loop for interoperation with <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph>, either by using existing message loop exposure in <ph id="ph2">&lt;xref:System.Windows.Threading.Dispatcher&gt;</ph> or by creating a separate message loop on the <ph id="ph3">[!INCLUDE[TLA#tla_win32](../../../../includes/tlasharptla-win32-md.md)]</ph> side of your interoperation code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>ComponentDispatcher and the Message Loop</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>A normal scenario for interoperation and keyboard event support is to implement <ph id="ph1">&lt;xref:System.Windows.Interop.IKeyboardInputSink&gt;</ph>, or to subclass from classes that already implement <ph id="ph2">&lt;xref:System.Windows.Interop.IKeyboardInputSink&gt;</ph>, such as <ph id="ph3">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> or <ph id="ph4">&lt;xref:System.Windows.Interop.HwndHost&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, keyboard sink support does not address all possible message loop needs you might have when sending and receiving messages across your interoperation boundaries.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To help formalize an application message loop architecture, <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> provides the <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> class, which defines a simple protocol for a message loop to follow.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> is a static class that exposes several members.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The scope of each method is implicitly tied to the calling thread.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>A message loop must call some of those <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph> at critical times (as defined in the next section).</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> provides events that other components (such as the keyboard sink) can listen for.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Threading.Dispatcher&gt;</ph> class calls all the appropriate <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> methods in an appropriate sequence.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If you are implementing your own message loop, your code is responsible for calling <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> methods in a similar fashion.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> methods on a thread will only invoke event handlers that were registered on that thread.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Writing Message Loops</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The following is a checklist of <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> members you will use if you write your own message loop:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.PushModal%2A&gt;</ph>: your message loop should call this to indicate that the thread is modal.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.PopModal%2A&gt;</ph>:your message loop should call this to indicate that the thread has reverted to nonmodal.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.RaiseIdle%2A&gt;</ph>: your message loop should call this to indicate that <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> should raise the <ph id="ph3">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadIdle&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> will not raise <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadIdle&gt;</ph> if <ph id="ph3">&lt;xref:System.Windows.Interop.ComponentDispatcher.IsThreadModal%2A&gt;</ph> is <ph id="ph4">`true`</ph>, but message loops may choose to call <ph id="ph5">&lt;xref:System.Windows.Interop.ComponentDispatcher.RaiseIdle%2A&gt;</ph> even if <ph id="ph6">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> cannot respond to it while in modal state.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.RaiseThreadMessage%2A&gt;</ph>: your message loop should call this to indicate that a new message is available.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The return value indicates whether a listener to a <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> event handled the message.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.RaiseThreadMessage%2A&gt;</ph> returns <ph id="ph2">`true`</ph> (handled), the dispatcher should do nothing further with the message.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>If the return value is <ph id="ph1">`false`</ph>, the dispatcher is expected to call the <ph id="ph2">[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)]</ph> function <ph id="ph3">`TranslateMessage`</ph>, then call <ph id="ph4">`DispatchMessage`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Using ComponentDispatcher and Existing Message Handling</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following is a checklist of <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> members you will use if you rely on the inherent <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> message loop.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.IsThreadModal%2A&gt;</ph>: returns whether the application has gone modal (e.g., a modal message loop has been pushed).</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph> can track this state because the class maintains a count of <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher.PushModal%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Windows.Interop.ComponentDispatcher.PopModal%2A&gt;</ph> calls from the message loop.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadFilterMessage&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadPreprocessMessage&gt;</ph> events follow the standard rules for delegate invocations.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Delegates are invoked in an unspecified order, and all delegates are invoked even if the first one marks the message as handled.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadIdle&gt;</ph>: indicates an appropriate and efficient time to do idle processing (there are no other pending messages for the thread).</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadIdle&gt;</ph> will not be raised if the thread is modal.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadFilterMessage&gt;</ph>: raised for all messages that the message pump processes.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadPreprocessMessage&gt;</ph>: raised for all messages that were not handled during <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadFilterMessage&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A message is considered handled if after the <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadFilterMessage&gt;</ph> event or <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadPreprocessMessage&gt;</ph> event, the <ph id="ph3">`handled`</ph> parameter passed by reference in event data is <ph id="ph4">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Event handlers should ignore the message if <ph id="ph1">`handled`</ph> is <ph id="ph2">`true`</ph>, because that means the different handler handled the message first.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Event handlers to both events may modify the message.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The dispatcher should dispatch the modified message and not the original unchanged message.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadPreprocessMessage&gt;</ph> is delivered to all listeners, but the architectural intention is that only the top-level window containing the HWND at which the messages targeted should invoke code in response to the message.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>How HwndSource Treats ComponentDispatcher Events</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> is a top-level window (no parent HWND), it will register with <ph id="ph2">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher.ThreadPreprocessMessage&gt;</ph> is raised, and if the message is intended for the <ph id="ph2">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> or child windows, <ph id="ph3">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> calls its <ph id="ph4">&lt;xref:System.Windows.Interop.HwndSource.System%23Windows%23Interop%23IKeyboardInputSink%23TranslateAccelerator%2A&gt;</ph>, <ph id="ph5">&lt;xref:System.Windows.Interop.IKeyboardInputSink.TranslateChar%2A&gt;</ph>, <ph id="ph6">&lt;xref:System.Windows.Interop.IKeyboardInputSink.OnMnemonic%2A&gt;</ph> keyboard sink sequence.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> is not a top-level window (has a parent HWND), there will be no handling.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Only the top level window is expected to do the handling, and there is expected to be a top level window with keyboard sink support as part of any interoperation scenario.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Windows.Interop.HwndHost.WndProc%2A&gt;</ph> on an <ph id="ph2">&lt;xref:System.Windows.Interop.HwndSource&gt;</ph> is called without an appropriate keyboard sink method being called first, your application will receive the higher level keyboard events such as <ph id="ph3">&lt;xref:System.Windows.UIElement.KeyDown&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>However, no keyboard sink methods will be called, which circumvents desirable keyboard input model features such as access key support.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This might happen because the message loop did not properly notify the relevant thread on the <ph id="ph1">&lt;xref:System.Windows.Interop.ComponentDispatcher&gt;</ph>, or because the parent HWND did not invoke the proper keyboard sink responses.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>A message that goes to the keyboard sink might not be sent to the HWND if you added hooks for that message by using the <ph id="ph1">&lt;xref:System.Windows.Interop.HwndSource.AddHook%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The message might have been handled at the message pump level directly and not submitted to the <ph id="ph1">`DispatchMessage`</ph> function.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>WPF and Win32 Interoperation<ept id="p1">](../../../../docs/framework/wpf/advanced/wpf-and-win32-interoperation.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Threading Model<ept id="p1">](../../../../docs/framework/wpf/advanced/threading-model.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Input Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/input-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

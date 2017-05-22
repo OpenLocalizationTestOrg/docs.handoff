@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">172f2de1920da16bb0ab35c872b672cfee7e426b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\secure-coding-guidelines-for-unmanaged-code.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ef343c24ad817fa04010e0199a343709d7fe04d3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">542e80e95abf4022a15fdb6bffef8b73a8c5f530</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Secure Coding Guidelines for Unmanaged Code | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Secure Coding Guidelines for Unmanaged Code</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Some library code needs to call into unmanaged code (for example, native code APIs, such as Win32).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Because this means going outside the security perimeter for managed code, due caution is required.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If your code is security-neutral, both your code and any code that calls it must have unmanaged code permission (<ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> flag specified).</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, it is often unreasonable for your caller to have such powerful permissions.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>In such cases, your trusted code can be the go-between, similar to the managed wrapper or library code described in <bpt id="p1">[</bpt>Securing Wrapper Code<ept id="p1">](../../../docs/framework/misc/securing-wrapper-code.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If the underlying unmanaged code functionality is totally safe, it can be directly exposed; otherwise, a suitable permission check (demand) is required first.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>When your code calls into unmanaged code but you do not want to require your callers to have permission to access unmanaged code, you must assert that right.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>An assertion blocks the stack walk at your frame.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You must be careful that you do not create a security hole in this process.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Usually, this means that you must demand a suitable permission of your callers and then use unmanaged code to perform only what that permission allows and no more.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In some cases (for example, a get time-of-day function), unmanaged code can be directly exposed to callers without any security checks.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In any case, any code that asserts must take responsibility for security.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Because any managed code that provides a code path into native code is a potential target for malicious code, determining which unmanaged code can be safely used and how it must be used requires extreme care.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Generally, unmanaged code should never be directly exposed to partially trusted callers.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>There are two primary considerations in evaluating the safety of unmanaged code use in libraries that are callable by partially trusted code:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Functionality<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Does the unmanaged API provide functionality that does not allow callers to perform potentially dangerous operations?</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Code access security uses permissions to enforce access to resources, so consider whether the API uses files, a user interface, or threading, or whether it exposes protected information.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If it does, the managed code wrapping it must demand the necessary permissions before allowing it to be entered.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Additionally, while not protected by a permission, memory access must be confined to strict type safety.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Parameter checking<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A common attack passes unexpected parameters to exposed unmanaged code API methods in an attempt to cause them to operate out of specification.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Buffer overruns using out-of-range index or offset values are one common example of this type of attack, as are any parameters that might exploit a bug in the underlying code.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Thus, even if the unmanaged code API is functionally safe (after necessary demands) for partially trusted callers, managed code must also check parameter validity exhaustively to ensure that no unintended calls are possible from malicious code using the managed code wrapper layer.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Using SuppressUnmanagedCodeSecurityAttribute</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>There is a performance aspect to asserting and then calling unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For every such call, the security system automatically demands unmanaged code permission, resulting in a stack walk each time.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>If you assert and immediately call unmanaged code, the stack walk can be meaningless: it consists of your assert and your unmanaged code call.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A custom attribute called <ph id="ph1">&lt;xref:System.Security.SuppressUnmanagedCodeSecurityAttribute&gt;</ph> can be applied to unmanaged code entry points to disable the normal security check that demands <ph id="ph2">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> permission specified.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Extreme caution must always be taken when doing this, because this action creates an open door into unmanaged code with no runtime security checks.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>It should be noted that even with <bpt id="p1">**</bpt>SuppressUnmanagedCodeSecurityAttribute<ept id="p1">**</ept> applied, there is a one-time security check that happens at just-in-time (JIT) compilation to ensure that the immediate caller has permission to call unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If you use the <bpt id="p1">**</bpt>SuppressUnmanagedCodeSecurityAttribute<ept id="p1">**</ept>, check the following points:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Make the unmanaged code entry point internal or otherwise inaccessible outside your code.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Any call into unmanaged code is a potential security hole.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Make sure your code is not a portal for malicious code to indirectly call into unmanaged code and avoid a security check.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Demand permissions, if appropriate.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Use a naming convention to explicitly identify when you are creating a dangerous path into unmanaged code, as described in the section below..</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Naming convention for unmanaged code methods</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>A useful and highly recommended convention has been established for naming unmanaged code methods.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>All unmanaged code methods are separated into three categories: <bpt id="p1">**</bpt>safe<ept id="p1">**</ept>, <bpt id="p2">**</bpt>native<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>unsafe<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>These keywords can be used as class names within which the various kinds of unmanaged code entry points are defined.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In source code, these keywords should be added to the class name, as in <ph id="ph1">`Safe.GetTimeOfDay`</ph>, <ph id="ph2">`Native.Xyz`</ph>, or <ph id="ph3">`Unsafe.DangerousAPI`</ph>, for example.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Each of these keywords provides useful security information for developers using that class, as described in the following table.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Keyword</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Security considerations</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>safe<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Completely harmless for any code, even malicious code, to call.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Can be used just like other managed code.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For example, a function that gets the time of day is typically safe.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>native<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Security-neutral; that is, unmanaged code that requires unmanaged code permission to call.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Security is checked, which stops an unauthorized caller.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>unsafe<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Potentially dangerous unmanaged code entry point with security suppressed.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Developers should use the greatest caution when using such unmanaged code, making sure that other protections are in place to prevent a security vulnerability.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Developers must be responsible, as this keyword overrides the security system.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

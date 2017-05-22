@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ae73ad4d77ec4dfdfe013854d7963bdf6d77d119</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\optimizing-performance-layout-and-design.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">74ab02aa69ffaf91a1fc078bc8b8a5933ebfc4bd</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">92685224a0d139b0bef9c41d4394af6db7dbab14</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Optimizing Performance: Layout and Design | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Optimizing Performance: Layout and Design</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The design of your <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> application can impact its performance by creating unnecessary overhead in calculating layout and validating object references.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The construction of objects, particularly at run time, can affect the performance characteristics of your application.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic provides performance recommendations in these areas.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Layout</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The term "layout pass" describes the process of measuring and arranging the members of a <ph id="ph1">&lt;xref:System.Windows.Controls.Panel&gt;</ph>-derived object's collection of children, and then drawing them onscreen.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The layout pass is a mathematically-intensive process—the larger the number of children in the collection, the greater the number of calculations required.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, each time a child <ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph> object in the collection changes its position, it has the potential to trigger a new pass by the layout system.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because of the close relationship between object characteristics and layout behavior, it's important to understand the type of events that can invoke the layout system.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Your application will perform better by reducing as much as possible any unnecessary invocations of the layout pass.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The layout system completes two passes for each child member in a collection: a measure pass, and an arrange pass.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Each child object provides its own overridden implementation of the <ph id="ph1">&lt;xref:System.Windows.UIElement.Measure%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.UIElement.Arrange%2A&gt;</ph> methods in order to provide its own specific layout behavior.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>At its simplest, layout is a recursive system that leads to an element being sized, positioned, and drawn onscreen.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>A child <ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph> object begins the layout process by first having its core properties measured.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The object's <ph id="ph1">&lt;xref:System.Windows.FrameworkElement&gt;</ph> properties that are related to size, such as <ph id="ph2">&lt;xref:System.Windows.FrameworkElement.Width%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.FrameworkElement.Height%2A&gt;</ph>, and <ph id="ph4">&lt;xref:System.Windows.FrameworkElement.Margin%2A&gt;</ph>, are evaluated.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.Panel&gt;</ph>-specific logic is applied, such as the <ph id="ph2">&lt;xref:System.Windows.Controls.DockPanel.Dock%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.Windows.Controls.DockPanel&gt;</ph>, or the <ph id="ph4">&lt;xref:System.Windows.Controls.StackPanel.Orientation%2A&gt;</ph> property of the <ph id="ph5">&lt;xref:System.Windows.Controls.StackPanel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Content is arranged, or positioned, after all child objects have been measured.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The collection of child objects is drawn to the screen.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The layout pass process is invoked again if any of the following actions occur:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>A child object is added to the collection.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.LayoutTransform%2A&gt;</ph> is applied to the child object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.UIElement.UpdateLayout%2A&gt;</ph> method is called for the child object.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When a change occurs to the value of a dependency property that is marked with metadata affecting the measure or arrange passes.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Use the Most Efficient Panel where Possible</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The complexity of the layout process is directly based on the layout behavior of the <ph id="ph1">&lt;xref:System.Windows.Controls.Panel&gt;</ph>-derived elements you use.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Windows.Controls.Grid&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.Controls.StackPanel&gt;</ph> control provides much more functionality than a <ph id="ph3">&lt;xref:System.Windows.Controls.Canvas&gt;</ph> control.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The price for this greater increase in functionality is a greater increase in performance costs.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, if you do not require the functionality that a <ph id="ph1">&lt;xref:System.Windows.Controls.Grid&gt;</ph> control provides, you should use the less costly alternatives, such as a <ph id="ph2">&lt;xref:System.Windows.Controls.Canvas&gt;</ph> or a custom panel.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Panels Overview<ept id="p1">](../../../../docs/framework/wpf/controls/panels-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Update Rather than Replace a RenderTransform</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>You may be able to update a <ph id="ph1">&lt;xref:System.Windows.Media.Transform&gt;</ph> rather than replacing it as the value of a <ph id="ph2">&lt;xref:System.Windows.UIElement.RenderTransform%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This is particularly true in scenarios that involve animation.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>By updating an existing <ph id="ph1">&lt;xref:System.Windows.Media.Transform&gt;</ph>, you avoid initiating an unnecessary layout calculation.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Build Your Tree Top-Down</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When a node is added or removed from the logical tree, property invalidations are raised on the node's parent and all its children.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>As a result, a top-down construction pattern should always be followed to avoid the cost of unnecessary invalidations on nodes that have already been validated.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The following table shows the difference in execution speed between building a tree top-down versus bottom-up, where the tree is 150 levels deep with a single <ph id="ph1">&lt;xref:System.Windows.Controls.TextBlock&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.Controls.DockPanel&gt;</ph> at each level.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Action<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Tree building (in ms)<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Render—includes tree building (in ms)<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Bottom-up</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>366</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>454</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Top-down</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>11</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>96</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The following code example demonstrates how to create a tree top down.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Performance#PerformanceSnippet1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information on the logical tree, see <bpt id="p1">[</bpt>Trees in WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/trees-in-wpf.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Optimizing WPF Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-wpf-application-performance.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Planning for Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/planning-for-application-performance.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Taking Advantage of Hardware<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-taking-advantage-of-hardware.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>2D Graphics and Imaging<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-2d-graphics-and-imaging.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Object Behavior<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-object-behavior.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Application Resources<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-application-resources.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Text<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-text.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Binding<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-data-binding.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Other Performance Recommendations<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-other-recommendations.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Layout<ept id="p1">](../../../../docs/framework/wpf/advanced/layout.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

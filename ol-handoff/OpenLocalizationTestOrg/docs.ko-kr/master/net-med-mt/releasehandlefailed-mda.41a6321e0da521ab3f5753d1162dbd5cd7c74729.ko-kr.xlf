@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">46b5ecf24fa956dd168168d62c0857cd34573d33</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\debug-trace-profile\releasehandlefailed-mda.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ad59314832babfa22843d73bcce6ab84fb700c67</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">31c60b65103bd2da523a54cfb02305bc01d48f2d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>releaseHandleFailed MDA | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>releaseHandleFailed MDA</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`releaseHandleFailed`</ph> managed debugging assistant (MDA) is activated is to notify developers when the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method of a class derived from <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> or <ph id="ph4">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> returns <ph id="ph5">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Symptoms</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Resource or memory leaks.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method of the class deriving from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> or <ph id="ph3">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> fails, then the resource encapsulated by the class might not have been released or cleaned up.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Cause</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Users must provide the implementation of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method if they create classes that derive from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> or <ph id="ph3">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph>; thus, the circumstances are specific to the individual resource.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>However, the requirements are as follows:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> and <ph id="ph2">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> types represent wrappers around vital process resources.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>A memory leak would make the process unusable over time.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method must not fail to perform its function.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Once the process acquires such a resource, <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> is the only way to release it.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Therefore, failure implies resource leaks.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Any failure that does occur during the execution of <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph>, impeding the release of the resource, is a bug in the implementation of the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method itself.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It is the responsibility of the programmer to ensure that the contract is fulfilled, even if that code calls code authored by someone else to perform its function.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Resolution</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The code that uses the specific <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> (or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph>) type that raised the MDA notification should be reviewed, looking for places where the raw handle value is extracted from the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> and copied elsewhere.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This is the usual cause of failures within <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> implementations, because the usage of the raw handle value is then no longer tracked by the runtime.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If the raw handle copy is subsequently closed, it can cause a later <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> call to fail because the close is attempted on the same handle, which is now invalid.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>There are a number of ways in which incorrect handle duplication can occur:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Look for calls to the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Calls to this method should be exceedingly rare, and any that you find should be surrounded by calls to the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousAddRef%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousRelease%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>These latter methods specify the region of code in which the raw handle value may be safely used.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Outside this region, or if the reference count is never incremented in the first place, the handle value can be invalidated at any time by a call to <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Close%2A&gt;</ph> on another thread.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Once all uses of <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A&gt;</ph> have been tracked down, you should follow the path the raw handle takes to ensure it is not handed off to some component that will eventually call <ph id="ph2">`CloseHandle`</ph> or another low-level native method that will release the handle.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Ensure that the code that is used to initialize the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> with a valid raw handle value owns the handle.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If you form a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> around a handle your code does not own without setting the <ph id="ph2">`ownsHandle`</ph> parameter to <ph id="ph3">`false`</ph> in the base constructor, then both the <ph id="ph4">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> and the real handle owner can try to close the handle, leading to an error in <ph id="ph5">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> if the <ph id="ph6">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> loses the race.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is marshaled between application domains, confirm the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derivation being used has been marked as serializable.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In the rare cases where a class derived from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> has been made serializable, it should implement the <ph id="ph2">&lt;xref:System.Runtime.Serialization.ISerializable&gt;</ph> interface or use one of the other techniques for controlling the serialization and deserialization process manually.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This is required because the default serialization action is to create a bitwise clone of the enclosed raw handle value, resulting in two <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> instances thinking they own the same handle.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Both will try to call <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> on the same handle at some point.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The second <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to do this will fail.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The correct course of action when serializing a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is to call the <ph id="ph2">`DuplicateHandle`</ph> function or a similar function for your native handle type to make a distinct legal handle copy.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If your handle type does not support this then the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> type wrapping it cannot be made serializable.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>It may be possible to track where a handle is being closed early, leading to a failure when the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method is finally called, by placing a debugger breakpoint on the native routine used to release the handle, for example the <ph id="ph2">`CloseHandle`</ph> function.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This may not be possible for stress scenarios or even medium-sized functional tests due to the heavy traffic such routines often deal with.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>It may help to instrument the code that calls the native release method, in order to capture the identity of the caller, or possibly a full stack trace, and the value of the handle being released.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The handle value can be compared with the value reported by this MDA.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Note that some native handle types, such as all the Win32 handles that can be released via the <ph id="ph1">`CloseHandle`</ph> function, share the same handle namespace.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>An erroneous release of one handle type can cause problems with another.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For instance, accidentally closing a Win32 event handle twice might lead to an apparently unrelated file handle being closed prematurely.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This happens when the handle is released and the handle value becomes available for use to track another resource, potentially of another type.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If this happens and is followed by an erroneous second release, the handle of an unrelated thread might be invalidated.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Effect on the Runtime</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This MDA has no effect on the CLR.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Output</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>A message indicating that a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> or a <ph id="ph2">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> failed to properly release the handle.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The following is a code example that can activate the <ph id="ph1">`releaseHandleFailed`</ph> MDA.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Diagnosing Errors with Managed Debugging Assistants<ept id="p1">](../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Interop Marshaling<ept id="p1">](../../../docs/framework/interop/interop-marshaling.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

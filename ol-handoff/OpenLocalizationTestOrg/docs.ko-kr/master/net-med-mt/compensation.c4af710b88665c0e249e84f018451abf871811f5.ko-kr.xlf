@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4da3aa176e509eaaaeb17df4e5fda24a7f325f04</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\compensation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9e22ba949143669dbad0b961564fe547c588cef8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8eecf258e05928cb8fbc41897edc0d314e710e27</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Compensation | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Compensation</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Compensation in <ph id="ph1">[!INCLUDE[wf](../../../includes/wf-md.md)]</ph> is the mechanism by which previously completed work can be undone or compensated (following the logic defined by the application) when a subsequent failure occurs.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This section describes how to use compensation in workflows.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Compensation vs. Transactions</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A transaction allows you to combine multiple operations into a single unit of work.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Using a transaction gives your application the ability to abort (roll back) all changes executed from within the transaction if any errors occur during any part of the transaction process.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>However, using transactions may not be appropriate if the work is long running.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, a travel planning application is implemented as a workflow.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The steps of the workflow may consist of booking a flight, waiting for manager approval, and then paying for the flight.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This process could take many days and it is not practical for the steps of booking and paying for the flight to participate in the same transaction.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In a scenario such as this, compensation could be used to undo the booking step of the workflow if there is a failure later in the processing.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This topic covers compensation in workflows.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> transactions in workflows, see <bpt id="p1">[</bpt>Transactions<ept id="p1">](../../../docs/framework/windows-workflow-foundation/workflow-transactions.md)</ept> and <ph id="ph2">&lt;xref:System.Activities.Statements.TransactionScope&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> transactions, see <ph id="ph2">&lt;xref:System.Transactions?displayProperty=fullName&gt;</ph> and <ph id="ph3">&lt;xref:System.Transactions.Transaction?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Using CompensableActivity</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> is the core compensation activity in <ph id="ph2">[!INCLUDE[wf1](../../../includes/wf1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Any activities that perform work that may need to be compensated are placed into the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> of a <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In this example, the reservation step of purchasing a flight is placed into the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> of a <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> and the cancellation of the reservation is placed into the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.CompensationHandler%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Immediately following the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> in the workflow are two activities that wait for manager approval and then complete the purchasing step of the flight.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If an error condition causes the workflow to be canceled after the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> has successfully completed, then the activities in the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.CompensationHandler%2A&gt;</ph> handler are scheduled and the flight is canceled.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_CompensationExample#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_CompensationExample/cs/Program.cs#1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following example is the workflow in XAML.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When the workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ReserveFlight: Ticket is reserved.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ManagerApproval: Manager approval received.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>PurchaseFlight: Ticket is purchased.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow completed successfully with status: Closed.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The sample activities in this topic such as <ph id="ph1">`ReserveFlight`</ph> display their name and purpose to the console to help illustrate the order in which the activities are executed when compensation occurs.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Default Workflow Compensation</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>By default, if the workflow is canceled, the compensation logic is run for any compensable activity that has successfully completely and has not already been confirmed or compensated.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> is <bpt id="p1">*</bpt>confirmed<ept id="p1">*</ept>, compensation for the activity can no longer be invoked.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The confirmation process is described later in this section.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>In this example, an exception is thrown after the flight is reserved but before the manager approval step.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_CompensationExample#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_CompensationExample/cs/Program.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>This example is the workflow in XAML.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_CompensationExample#100<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_CompensationExample/cs/Program.cs#100)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>When the workflow is invoked, the simulated error condition exception is handled by the host application in <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.OnUnhandledException%2A&gt;</ph>, the workflow is canceled, and the compensation logic is invoked.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ReserveFlight: Ticket is reserved.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>SimulatedErrorCondition: Throwing an ApplicationException.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow Unhandled Exception:<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>System.ApplicationException: Simulated error condition in the workflow.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>CancelFlight: Ticket is canceled.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow completed successfully with status: Canceled.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Cancellation and CompensableActivity</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If the activities in the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> of a <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> have not completed and the activity is canceled, the activities in the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> are executed.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> is only invoked if the activities in the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> of the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> have not completed and the activity is canceled.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.CompensationHandler%2A&gt;</ph> is only executed if the activities in the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> of the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> have successfully completed and compensation is subsequently invoked on the activity.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> gives workflow authors the opportunity to provide any appropriate cancellation logic.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>In the following example, an exception is thrown during the execution of the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph>, and then the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> is invoked.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This example is the workflow in XAML</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>When the workflow is invoked, the simulated error condition exception is handled by the host application in <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.OnUnhandledException%2A&gt;</ph>, the workflow is canceled, and the cancellation logic of the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> is invoked.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In this example, the compensation logic and the cancellation logic have different goals.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> completed successfully, then this means the credit card was charged and the flight booked, so the compensation should undo both steps.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>(In this example, canceling the flight automatically cancels the credit card charges.) However, if the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> is canceled, this means the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> did not complete and so the logic of the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> needs to be able to determine how to best handle the cancellation.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In this example, the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.CancellationHandler%2A&gt;</ph> cancels the credit card charge, but since <ph id="ph2">`ReserveFlight`</ph> was the last activity in the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph>, it does not attempt to cancel the flight.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Since <ph id="ph1">`ReserveFlight`</ph> was the last activity in the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph>, if it had successfully completed then the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> would have completed and no cancellation would be possible.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ChargeCreditCard: Charge credit card for flight.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>SimulatedErrorCondition: Throwing an ApplicationException.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow Unhandled Exception:<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>System.ApplicationException: Simulated error condition in the workflow.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>CancelCreditCard: Cancel credit card charges.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow completed successfully with status: Canceled.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> cancellation, see <bpt id="p1">[</bpt>Cancellation<ept id="p1">](../../../docs/framework/windows-workflow-foundation/modeling-cancellation-behavior-in-workflows.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Explicit Compensation Using the Compensate Activity</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In the previous section, implicit compensation was covered.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Implicit compensation can be appropriate for simple scenarios, but if more explicit control is required over the scheduling of compensation handling then the <ph id="ph1">&lt;xref:System.Activities.Statements.Compensate&gt;</ph> activity can be used.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>To initiate the compensation process with the <ph id="ph1">&lt;xref:System.Activities.Statements.Compensate&gt;</ph> activity, the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensationToken&gt;</ph> of the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> for which compensation is desired is used.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.Compensate&gt;</ph> activity can be used to initiate compensation on any completed <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> that has not been confirmed or compensated.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Activities.Statements.Compensate&gt;</ph> activity could be used in the <ph id="ph2">&lt;xref:System.Activities.Statements.TryCatch.Catches%2A&gt;</ph> section of a <ph id="ph3">&lt;xref:System.Activities.Statements.TryCatch&gt;</ph> activity, or any time after the <ph id="ph4">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> has completed.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>In this example, the <ph id="ph1">&lt;xref:System.Activities.Statements.Compensate&gt;</ph> activity is used in the <ph id="ph2">&lt;xref:System.Activities.Statements.TryCatch.Catches%2A&gt;</ph> section of a <ph id="ph3">&lt;xref:System.Activities.Statements.TryCatch&gt;</ph> activity to reverse the action of the <ph id="ph4">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_CompensationExample#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_CompensationExample/cs/Program.cs#3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This example is the workflow in XAML.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>When the workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ReserveFlight: Ticket is reserved.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>SimulatedErrorCondition: Throwing an ApplicationException.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>CancelFlight: Ticket is canceled.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow completed successfully with status: Closed.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Confirming Compensation</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>By default, compensable activities can be compensated any time after they have completed.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>In some scenarios this may not be appropriate.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>In the previous example the compensation to reserving the ticket was to cancel the reservation.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>However, after the flight has been completed this compensation step is no longer valid.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Confirming the compensable activity invokes the activity specified by the <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity.ConfirmationHandler%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>One possible use for this is to allow any resources that are necessary to perform the compensation to be released.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>After a compensable activity is confirmed it is not possible for it to be compensated, and if this is attempted an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>When a workflow completes successfully, all non-confirmed and non-compensated compensable activities that completed successfully are confirmed in reverse order of completion.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>In this example the flight is reserved, purchased, and completed, and then the compensable activity is confirmed.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>To confirm a <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>, use the <ph id="ph2">&lt;xref:System.Activities.Statements.Confirm&gt;</ph> activity and specify the <ph id="ph3">&lt;xref:System.Activities.Statements.CompensationToken&gt;</ph> of the <ph id="ph4">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> to confirm.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_CompensationExample#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_CompensationExample/cs/Program.cs#4)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>This example is the workflow in XAML.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>When the workflow is invoked, the following output is displayed to the console.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ReserveFlight: Ticket is reserved.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ManagerApproval: Manager approval received.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>PurchaseFlight: Ticket is purchased.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>TakeFlight: Flight is completed.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ConfirmFlight: Flight has been taken, no compensation possible.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Workflow completed successfully with status: Closed.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Nesting Compensation Activities</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> can be placed into the <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity.Body%2A&gt;</ph> section of another <ph id="ph3">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> may not be placed into a handler of another <ph id="ph2">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>It is the responsibility of a parent <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> to ensure that when it is canceled, confirmed, or compensated, all child compensable activities that have completed successfully and have not already been confirmed or compensated must be confirmed or compensated before the parent completes cancellation, confirmation, or compensation.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>If this is not modeled explicitly the parent <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph> will implicitly compensate child compensable activities if the parent received the cancel or compensate signal.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>If the parent received the confirm signal the parent will implicitly confirm child compensable activities.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>If the logic to handle cancellation, confirmation, or compensation is explicitly modeled in the handler of the parent <ph id="ph1">&lt;xref:System.Activities.Statements.CompensableActivity&gt;</ph>, any child not explicitly handled will be implicitly confirmed.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Compensable Activity<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/compensable-activity-sample.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

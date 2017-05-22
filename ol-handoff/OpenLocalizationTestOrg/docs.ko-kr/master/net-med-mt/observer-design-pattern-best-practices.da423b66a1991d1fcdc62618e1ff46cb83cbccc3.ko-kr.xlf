@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e505ebf9f521a7311cae763f7d148e427c41704f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\events\observer-design-pattern-best-practices.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">27d5df353e69ffb170b438bc54feea677ef2c567</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a463ee91353153b473aa651c6c6ad73f615e4ea2</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Observer Design Pattern Best Practices | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Observer Design Pattern Best Practices</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework, the observer design pattern is implemented as a set of interfaces.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IObservable%601?displayProperty=fullName&gt;</ph> interface represents the data provider, which is also responsible for providing an <ph id="ph2">&lt;xref:System.IDisposable&gt;</ph> implementation that lets observers unsubscribe from notifications.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IObserver%601?displayProperty=fullName&gt;</ph> interface represents the observer.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This topic describes the best practices that developers should follow when implementing the observer design pattern using these interfaces.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Threading</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Typically, a provider implements the <ph id="ph1">&lt;xref:System.IObservable%601.Subscribe%2A?displayProperty=fullName&gt;</ph> method by adding a particular observer to a subscriber list that is represented by some collection object, and it implements the <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> method by removing a particular observer from the subscriber list.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>An observer can call these methods at any time.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In addition, because the provider/observer contract does not specify who is responsible for unsubscribing after the <ph id="ph1">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph> callback method, the provider and observer may both try to remove the same member from the list.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Because of this possibility, both the <ph id="ph1">&lt;xref:System.IObservable%601.Subscribe%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> methods should be thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Typically, this involves using a <bpt id="p1">[</bpt>concurrent collection<ept id="p1">](../../../docs/standard/parallel-programming/data-structures-for-parallel-programming.md)</ept> or a lock.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Implementations that are not thread-safe should explicitly document that they are not.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Any additional guarantees have to be specified in a layer on top of the provider/observer contract.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Implementers should clearly call out when they impose additional requirements to avoid user confusion about the observer contract.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Handling Exceptions</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Because of the loose coupling between a data provider and an observer, exceptions in the observer design pattern are intended to be informational.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This affects how providers and observers handle exceptions in the observer design pattern.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The Provider -- Calling the OnError Method</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method is intended as an informational message to observers, much like the <ph id="ph2">&lt;xref:System.IObserver%601.OnNext%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>However, the <ph id="ph1">&lt;xref:System.IObserver%601.OnNext%2A&gt;</ph> method is designed to provide an observer with current or updated data, whereas the <ph id="ph2">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method is designed to indicate that the provider is unable to provide valid data.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The provider should follow these best practices when handling exceptions and calling the <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The provider must handle its own exceptions if it has any specific requirements.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The provider should not expect or require that observers handle exceptions in any particular way.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The provider should call the <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method when it handles an exception that compromises its ability to provide updates.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Information on such exceptions can be passed to the observer.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In other cases, there is no need to notify observers of an exception.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Once the provider calls the <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph> method, there should be no further notifications, and the provider can unsubscribe its observers.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, the observers can also unsubscribe themselves at any time, including both before and after they receive an <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IObserver%601.OnCompleted%2A?displayProperty=fullName&gt;</ph> notification.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The observer design pattern does not dictate whether the provider or the observer is responsible for unsubscribing; therefore, there is a possibility that both may attempt to unsubscribe.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Typically, when observers unsubscribe, they are removed from a subscribers collection.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In a single-threaded application, the <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation should ensure that an object reference is valid and that the object is a member of the subscribers collection before attempting to remove it.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In a multithreaded application, a thread-safe collection object, such as a <ph id="ph1">&lt;xref:System.Collections.Concurrent.BlockingCollection%601?displayProperty=fullName&gt;</ph> object, should be used.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The Observer -- Implementing the OnError Method</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When an observer receives an error notification from a provider, the observer should treat the exception as informational and should not be required to take any particular action.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The observer should follow these best practices when responding to an <ph id="ph1">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method call from a provider:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The observer should not throw exceptions from its interface implementations, such as <ph id="ph1">&lt;xref:System.IObserver%601.OnNext%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>However, if the observer does throw exceptions, it should expect these exceptions to go unhandled.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>To preserve the call stack, an observer that wishes to throw an <ph id="ph1">&lt;xref:System.Exception&gt;</ph> object that was passed to its <ph id="ph2">&lt;xref:System.IObserver%601.OnError%2A&gt;</ph> method should wrap the exception before throwing it.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>A standard exception object should be used for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Additional Best Practices</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Attempting to unregister in the <ph id="ph1">&lt;xref:System.IObservable%601.Subscribe%2A?displayProperty=fullName&gt;</ph> method may result in a null reference.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Therefore, we recommend that you avoid this practice.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Although it is possible to attach an observer to multiple providers, the recommended pattern is to attach an <ph id="ph1">&lt;xref:System.IObserver%601&gt;</ph> instance to only one <ph id="ph2">&lt;xref:System.IObservable%601&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Observer Design Pattern<ept id="p1">](../../../docs/standard/events/observer-design-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Implement an Observer<ept id="p1">](../../../docs/standard/events/how-to-implement-an-observer.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Implement a Provider<ept id="p1">](../../../docs/standard/events/how-to-implement-a-provider.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

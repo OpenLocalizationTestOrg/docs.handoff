@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3c33c59cc3254aeb179204b8257cb9131928924c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\transacted-msmq-binding.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c9d3d9546969ceb401b403fcee63eab0aa45d515</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2c81d88306298dfa66216799a3436bced498bb95</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Transacted MSMQ Binding | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Transacted MSMQ Binding</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to perform transacted queued communication by using Message Queuing (MSMQ).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In queued communication, the client communicates to the service using a queue.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>More precisely, the client sends messages to a queue.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The service receives messages from the queue.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The service and client, therefore, do not have to be running at the same time to communicate using a queue.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>When transactions are used to send and receive messages, there are actually two separate transactions.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When the client sends messages within the scope of a transaction, the transaction is local to the client and the client queue manager.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>When the service receives messages within the scope of the transaction, the transaction is local to the service and the receiving queue manager.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It is very important to remember that the client and the service are not participating in the same transaction; rather, they are using different transactions when performing their operations (such as send and receive) with the queue.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In this sample, the client sends a batch of messages to the service from within the scope of a transaction.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The messages sent to the queue are then received by the service within the transaction scope defined by the service.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The service contract is <ph id="ph1">`IOrderProcessor`</ph>, as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The interface defines a one-way service that is suitable for use with queues.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The service behavior defines an operation behavior with <ph id="ph1">`TransactionScopeRequired`</ph> set to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This ensures that the same transaction scope that is used to retrieve the message from the queue is used by any resource managers accessed by the method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>It also guarantees that if the method throws an exception, the message is returned to the queue.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Without setting this operation behavior, a queued channel creates a transaction to read the message from the queue and commits it automatically before dispatch such that if the operation fails, the message is lost.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The most common scenario is for service operations to enlist in the transaction that is used to read the message from the queue, as demonstrated in the following code.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The service is self hosted.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>When using the MSMQ transport, the queue used must be created in advance.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This can be done manually or through code.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>In this sample, the service contains code to check for the existence of the queue and create the queue if it does not exist.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The queue name is read from the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The base address is used by the <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept> to generate the proxy to the service.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The MSMQ queue name is specified in an appSettings section of the configuration file, as shown in the following sample configuration.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The queue name uses a dot (.) for the local computer and backslash separators in its path when creating the queue using <ph id="ph1">&lt;xref:System.Messaging&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> endpoint uses the queue address with net.msmq scheme, uses "localhost" to denote the local computer, and uses forward slashes in its path.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The client creates a transaction scope.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Communication with the queue takes place within the scope of the transaction, causing it to be treated as an atomic unit where all messages are sent to the queue or none of the messages are sent to the queue.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The transaction is committed by calling <ph id="ph1">&lt;xref:System.Transactions.TransactionScope.Complete%2A&gt;</ph> on the transaction scope.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>To verify that transactions are working, modify the client by commenting the transaction scope as shown in the following sample code, rebuild the solution, and run the client.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Because the transaction is not completed, the messages are not sent to the queue.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the client and service activities are displayed in both the service and client console windows.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You can see the service receive messages from the client.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Press ENTER in each console window to shut down the service and client.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Note that because queuing is in use, the client and service do not have to be up and running at the same time.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>You can run the client, shut it down, and then start up the service and it still receives the messages.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the service is run first, it will check to ensure that the queue is present.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If the queue is not present, the service will create one.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>You can run the service first to create the queue, or you can create one via the MSMQ Queue Manager.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Follow these steps to create a queue in Windows 2008.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Open Server Manager in <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Expand the <bpt id="p1">**</bpt>Features<ept id="p1">**</ept> tab.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Right-click <bpt id="p1">**</bpt>Private Message Queues<ept id="p1">**</ept>, and select <bpt id="p2">**</bpt>New<ept id="p2">**</ept>, <bpt id="p3">**</bpt>Private Queue<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Check the <bpt id="p1">**</bpt>Transactional<ept id="p1">**</ept> box.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Enter <ph id="ph1">`ServiceModelSamplesTransacted`</ph> as the name of the new queue.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>To build the C# or Visual Basic .NET edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-computer configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>By default with the <ph id="ph1">&lt;xref:System.ServiceModel.NetMsmqBinding&gt;</ph>, transport security is enabled.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>There are two relevant properties for MSMQ transport security, <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqAuthenticationMode%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>By default, the authentication mode is set to <ph id="ph1">`Windows`</ph> and the protection level is set to <ph id="ph2">`Sign`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>For MSMQ to provide the authentication and signing feature, it must be part of a domain and the Active Directory integration option for MSMQ must be installed.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>If you run this sample on a computer that does not satisfy these criteria, you receive an error.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>To run the sample on a computer joined to a workgroup or without Active Directory integration</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>If your computer is not part of a domain or does not have Active Directory integration installed, turn off transport security by setting the authentication mode and protection level to <ph id="ph1">`None`</ph> as shown in the following sample configuration code.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Ensure that you change the configuration on both the server and the client before you run the sample.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Setting <ph id="ph1">`security``mode`</ph> to <ph id="ph2">`None`</ph> is equivalent to setting <ph id="ph3">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqAuthenticationMode%2A&gt;</ph>, <ph id="ph4">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph>, and <ph id="ph5">`Message`</ph> security to <ph id="ph6">`None`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your computer.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

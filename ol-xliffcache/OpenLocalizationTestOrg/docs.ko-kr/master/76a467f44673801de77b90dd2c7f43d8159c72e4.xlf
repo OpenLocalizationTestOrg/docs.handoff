@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">76a467f44673801de77b90dd2c7f43d8159c72e4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\mef\attributed-programming-model-overview-mef.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d446944b81026c25da486b24c090f71539d8d6f0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0315f7a99f11fec8be72225b0df8027fd3df040a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Attributed Programming Model Overview (MEF) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Attributed Programming Model Overview (MEF)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In the Managed Extensibility Framework (MEF), a <bpt id="p1">*</bpt>programming model<ept id="p1">*</ept> is a particular method of defining the set of conceptual objects on which MEF operates.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These conceptual objects include parts, imports, and exports.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>MEF uses these objects, but does not specify how they should be represented.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Therefore, a wide variety of programming models are possible, including customized programming models.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The default programming model used in MEF is the <bpt id="p1">*</bpt>attributed programming model<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In the attributed programming model parts, imports, exports, and other objects are defined with attributes that decorate ordinary .NET Framework classes.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This topic explains how to use the attributes provided by the attributed programming model to create a MEF application.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Import and Export Basics</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>An <bpt id="p1">*</bpt>export<ept id="p1">*</ept> is a value that a part provides to other parts in the container, and an <bpt id="p2">*</bpt>import<ept id="p2">*</ept> is a requirement that a part expresses to the container, to be filled from the available exports.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In the attributed programming model, imports and exports are declared by decorating classes or members with the <ph id="ph1">`Import`</ph> and <ph id="ph2">`Export`</ph> attributes.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Export`</ph> attribute can decorate a class, field, property, or method, while the <ph id="ph2">`Import`</ph> attribute can decorate a field, property, or constructor parameter.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In order for an import to be matched with an export, the import and export must have the same <bpt id="p1">*</bpt>contract<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The contract consists of a string, called the <bpt id="p1">*</bpt>contract name<ept id="p1">*</ept>, and the type of the exported or imported object, called the <bpt id="p2">*</bpt>contract type<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Only if both the contract name and contract type match is an export considered to fulfill a particular import.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Either or both of the contract parameters can be implicit or explicit.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The following code shows a class that declares a basic import.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In this import, the <ph id="ph1">`Import`</ph> attribute has neither a contract type nor a contract name parameter attached.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Therefore, both will be inferred from the decorated property.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In this case, the contract type will be <ph id="ph1">`IMyAddin`</ph>, and the contract name will be a unique string created from the contract type.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>(In other words, the contract name will match only exports whose names are also inferred from the type <ph id="ph1">`IMyAddin`</ph>.)</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The following shows an export that matches the previous import.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>In this export, the contract type is <ph id="ph1">`IMyAddin`</ph> because it is specified as a parameter of the <ph id="ph2">`Export`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The exported type must be either the same as the contract type, derive from the contract type, or implement the contract type if it is an interface.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In this export, the actual type <ph id="ph1">`MyLogger`</ph> implements the interface <ph id="ph2">`IMyAddin`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The contract name is inferred from the contract type, which means that this export will match the previous import.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Exports and imports should usually be declared on public classes or members.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Other declarations are supported, but exporting or importing a private, protected, or internal member breaks the isolation model for the part and is therefore not recommended.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The contract type must match exactly for the export and import to be considered a match.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Consider the following export.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this export, the contract type is <ph id="ph1">`MyLogger`</ph> instead of <ph id="ph2">`IMyAddin`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Even though <ph id="ph1">`MyLogger`</ph> implements <ph id="ph2">`IMyAddin`</ph>, and therefore could be cast to an <ph id="ph3">`IMyAddin`</ph> object, this export will not match the previous import because the contract types are not the same.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>In general, it is not necessary to specify the contract name, and most contracts should be defined in terms of the contract type and metadata.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>However, under certain circumstances, it is important to specify the contract name directly.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The most common case is when a class exports several values that share a common type, such as primitives.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The contract name can be specified as the first parameter of the <ph id="ph1">`Import`</ph> or <ph id="ph2">`Export`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The following code shows an import and an export with a specified contract name of <ph id="ph1">`MajorRevision`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If the contract type is not specified, it will still be inferred from the type of the import or export.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>However, even if the contract name is specified explicitly, the contract type must also match exactly for the import and export to be considered a match.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For example, if the <ph id="ph1">`MajorRevision`</ph> field was a string, the inferred contract types would not match and the export would not match the import, despite having the same contract name.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Importing and Exporting a Method</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Export`</ph> attribute can also decorate a method, in the same way as a class, property, or function.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Method exports must specify a contract type or contract name, as the type cannot be inferred.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The specified type can be either a custom delegate or a generic type, such as <ph id="ph1">`Func`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following class exports a method named <ph id="ph1">`DoSomething`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In this class, the <ph id="ph1">`DoSomething`</ph> method takes a single <ph id="ph2">`int`</ph> parameter and returns a <ph id="ph3">`string`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To match this export, the importing part must declare an appropriate member.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The following class imports the <ph id="ph1">`DoSomething`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information about how to use of the <ph id="ph1">`Func&lt;T, T&gt;`</ph> object, see <ph id="ph2">&lt;xref:System.Func%602&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Types of Imports</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>MEF support several import types, including dynamic, lazy, prerequisite, and optional.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Dynamic Imports</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>In some cases, the importing class may want to match exports of any type that have a particular contract name.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In this scenario, the class can declare a <bpt id="p1">*</bpt>dynamic import<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The following import matches any export with contract name "TheString".</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>When the contract type is inferred from the <ph id="ph1">`dynamic`</ph> keyword, it will match any contract type.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>In this case, an import should <bpt id="p1">**</bpt>always<ept id="p1">**</ept> specify a contract name to match on.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>(If no contract name is specified, the import will be considered to match no exports.) Both of the following exports would match the previous import.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Obviously, the importing class must be prepared to deal with an object of arbitrary type.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Lazy Imports</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>In some cases, the importing class may require an indirect reference to the imported object, so that the object is not instantiated immediately.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In this scenario, the class can declare a <bpt id="p1">*</bpt>lazy import<ept id="p1">*</ept> by using a contract type of <ph id="ph1">`Lazy&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The following importing property declares a lazy import.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>From the point of view of the composition engine, a contract type of <ph id="ph1">`Lazy&lt;T&gt;`</ph> is considered identical to contract type of <ph id="ph2">`T`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Therefore, the previous import would match the following export.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The contract name and contract type can be specified in the <ph id="ph1">`Import`</ph> attribute for a lazy import, as described earlier in the "Basic Imports and Exports" section.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Prerequisite Imports</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Exported MEF parts are typically created by the composition engine, in response to a direct request or the need to fill a matched import.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>By default, when creating a part, the composition engine uses the parameter-less constructor.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>To make the engine use a different constructor, you can mark it with the <ph id="ph1">`ImportingConstructor`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Each part may have only one constructor for use by the composition engine.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Providing no default constructor and no <ph id="ph1">`ImportingConstructor`</ph> attribute, or providing more than one <ph id="ph2">`ImportingConstructor`</ph> attribute, will produce an error.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>To fill the parameters of a constructor marked with the <ph id="ph1">`ImportingConstructor`</ph> attribute, all of those parameters are automatically declared as imports.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This is a convenient way to declare imports that are used during part initialization.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The following class uses <ph id="ph1">`ImportingConstructor`</ph> to declare an import.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>By default, the <ph id="ph1">`ImportingConstructor`</ph> attribute uses inferred contract types and contract names for all of the parameter imports.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>It is possible to override this by decorating the parameters with <ph id="ph1">`Import`</ph> attributes, which can then define the contract type and contract name explicitly.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The following code demonstrates a constructor that uses this syntax to import a derived class instead of a parent class.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>In particular, you should be careful with collection parameters.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For example, if you specify <ph id="ph1">`ImportingConstructor`</ph> on a constructor with a parameter of type <ph id="ph2">`IEnumerable&lt;int&gt;`</ph>, the import will match a single export of type <ph id="ph3">`IEnumerable&lt;int&gt;`</ph>, instead of a set of exports of type <ph id="ph4">`int`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>To match a set of exports of type <ph id="ph1">`int`</ph>, you have to decorate the parameter with the <ph id="ph2">`ImportMany`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Parameters declared as imports by the <ph id="ph1">`ImportingConstructor`</ph> attribute are also marked as <bpt id="p1">*</bpt>prerequisite imports<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>MEF normally allows exports and imports to form a <bpt id="p1">*</bpt>cycle<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>For example, a cycle is where object A imports object B, which in turn imports object A. Under ordinary circumstances, a cycle is not a problem, and the composition container constructs both objects normally.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>When an imported value is required by the constructor of a part, that object cannot participate in a cycle.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>If object A requires that object B be constructed before it can be constructed itself, and object B imports object A, then the cycle will be unable to resolve and a composition error will occur.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Imports declared on constructor parameters are therefore prerequisite imports, which must all be filled before any of the exports from the object that requires them can be used.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Optional Imports</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Import`</ph> attribute specifies a requirement for the part to function.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>If an import cannot be fulfilled, the composition of that part will fail and the part will not be available.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>You can specify that an import is <bpt id="p1">*</bpt>optional<ept id="p1">*</ept> by using the <ph id="ph1">`AllowDefault`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>In this case, the composition will succeed even if the import does not match any available exports, and the importing property will be set to the default for its property type (<ph id="ph1">`null`</ph> for object properties, <ph id="ph2">`false`</ph> for Booleans, or zero for numeric properties.) The following class uses an optional import.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Importing Multiple Objects</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Import`</ph> attribute will only be successfully composed when it matches one and only one export.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Other cases will produce a composition error.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>To import more than one export that matches the same contract, use the <ph id="ph1">`ImportMany`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Imports marked with this attribute are always optional.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>For example, composition will not fail if no matching exports are present.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The following class imports any number of exports of type <ph id="ph1">`IMyAddin`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The imported array can be accessed by using ordinary <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> syntax and methods.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>It is also possible to use an ordinary array (<ph id="ph1">`IMyAddin[]`</ph>) instead.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>This pattern can be very important when you use it in combination with the <ph id="ph1">`Lazy&lt;T&gt;`</ph> syntax.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For example, by using <ph id="ph1">`ImportMany`</ph>, <ph id="ph2">`IEnumerable&lt;T&gt;`</ph>, and <ph id="ph3">`Lazy&lt;T&gt;`</ph>, you can import indirect references to any number of objects and only instantiate the ones that become necessary.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The following class shows this pattern.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Avoiding Discovery</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>In some cases, you may want to prevent a part from being discovered as part of a catalog.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>For example, the part may be a base class intended to be inherited from, but not used.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>There are two ways to accomplish this.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>First, you can use the <ph id="ph1">`abstract`</ph> keyword on the part class.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Abstract classes never provide exports, although they can provide inherited exports to classes that derive from them.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>If the class cannot be made abstract, you can decorate it with the <ph id="ph1">`PartNotDiscoverable`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>A part decorated with this attribute will not be included in any catalogs.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates these patterns.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`DataOne`</ph> will be discovered by the catalog.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Since <ph id="ph1">`DataTwo`</ph> is abstract, it will not be discovered.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Since <ph id="ph1">`DataThree`</ph> used the <ph id="ph2">`PartNotDiscoverable`</ph> attribute, it will not be discovered.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Metadata and Metadata Views</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Exports can provide additional information about themselves known as <bpt id="p1">*</bpt>metadata<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Metadata can be used to convey properties of the exported object to the importing part.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The importing part can use this data to decide which exports to use, or to gather information about an export without having to construct it.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>For this reason, an import must be lazy to use metadata.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>To use metadata, you typically declare an interface known as a <bpt id="p1">*</bpt>metadata view<ept id="p1">*</ept>, which declares what metadata will be available.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The metadata view interface must have only properties, and those properties must have <ph id="ph1">`get`</ph> accessors.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The following interface is an example metadata view.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>It is also possible to use a generic collection, <ph id="ph1">`IDictionary&lt;string, object&gt;`</ph>, as a metadata view, but this forfeits the benefits of type checking and should be avoided.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Ordinarily, all of the properties named in the metadata view are required, and any exports that do not provide them will not be considered a match.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`DefaultValue`</ph> attribute specifies that a property is optional.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>If the property is not included, it will be assigned the default value specified as a parameter of <ph id="ph1">`DefaultValue`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The following are two different classes decorated with metadata.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Both of these classes would match the previous metadata view.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Metadata is expressed after the <ph id="ph1">`Export`</ph> attribute by using the <ph id="ph2">`ExportMetadata`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Each piece of metadata is composed of a name/value pair.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>The name portion of the metadata must match the name of the appropriate property in the metadata view, and the value will be assigned to that property.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>It is the importer that specifies what metadata view, if any, will be in use.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>An import with metadata is declared as a lazy import, with the metadata interface as the second type parameter to <ph id="ph1">`Lazy&lt;T,T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The following class imports the previous part with metadata.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>In many cases, you will want to combine metadata with the <ph id="ph1">`ImportMany`</ph> attribute, in order to parse through the available imports and choose and instantiate only one, or filter a collection to match a certain condition.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>The following class instantiates only <ph id="ph1">`IPlugin`</ph> objects that have the <ph id="ph2">`Name`</ph> value "Logger".</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Import and Export Inheritance</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>If a class inherits from a part, that class may also become a part.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Imports are always inherited by subclasses.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Therefore, a subclass of a part will always be a part, with the same imports as its parent class.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Exports declared by using the <ph id="ph1">`Export`</ph> attribute are not inherited by subclasses.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>However, a part can export itself by using the <ph id="ph1">`InheritedExport`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Subclasses of the part will inherit and provide the same export, including contract name and contract type.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Unlike an <ph id="ph1">`Export`</ph> attribute, <ph id="ph2">`InheritedExport`</ph> can be applied only at the class level, and not at the member level.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Therefore, member-level exports can never be inherited.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>The following four classes demonstrate the principles of import and export inheritance.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`NumTwo`</ph> inherits from <ph id="ph2">`NumOne`</ph>, so <ph id="ph3">`NumTwo`</ph> will import <ph id="ph4">`IMyData`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Ordinary exports are not inherited, so <ph id="ph1">`NumTwo`</ph> will not export anything.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`NumFour`</ph> inherits from <ph id="ph2">`NumThree`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">`NumThree`</ph> used <ph id="ph2">`InheritedExport`</ph>, <ph id="ph3">`NumFour`</ph> has one export with contract type <ph id="ph4">`NumThree`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Member-level exports are never inherited, so <ph id="ph1">`IMyData`</ph> is not exported.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>If there is metadata associated with an <ph id="ph1">`InheritedExport`</ph> attribute, that metadata will also be inherited.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>(For more information, see the earlier "Metadata and Metadata Views" section.) Inherited metadata cannot be modified by the subclass.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>However, by re-declaring the <ph id="ph1">`InheritedExport`</ph> attribute with the same contract name and contract type, but with new metadata, the subclass can replace the inherited metadata with new metadata.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>The following class demonstrates this principle.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`MegaLogger`</ph> part inherits from <ph id="ph2">`Logger`</ph> and includes the <ph id="ph3">`InheritedExport`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Since <ph id="ph1">`MegaLogger`</ph> re-declares new metadata named Status, it does not inherit the Name and Version metadata from <ph id="ph2">`Logger`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>When re-declaring the <ph id="ph1">`InheritedExport`</ph> attribute to override metadata, make sure that the contract types are the same.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>(In the previous example, <ph id="ph1">`IPlugin`</ph> is the contract type.) If they differ, instead of overriding, the second attribute will create a second, independent export from the part.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>Generally, this means that you will have to explicitly specify the contract type when you override an <ph id="ph1">`InheritedExport`</ph> attribute, as shown in the previous example.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>Since interfaces cannot be instantiated directly, they generally cannot be decorated with <ph id="ph1">`Export`</ph> or <ph id="ph2">`Import`</ph> attributes.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>However, an interface can be decorated with an <ph id="ph1">`InheritedExport`</ph> attribute at the interface level, and that export along with any associated metadata will be inherited by any implementing classes.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>The interface itself will not be available as a part, however.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Custom Export Attributes</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>The basic export attributes, <ph id="ph1">`Export`</ph> and <ph id="ph2">`InheritedExport`</ph>, can be extended to include metadata as attribute properties.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>This technique is useful for applying similar metadata to many parts, or creating an inheritance tree of metadata attributes.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>A custom attribute can specify the contract type, the contract name, or any other metadata.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>In order to define a custom attribute, a class inheriting from <ph id="ph1">`ExportAttribute`</ph> (or <ph id="ph2">`InheritedExportAttribute`</ph>) must be decorated with the <ph id="ph3">`MetadataAttribute`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The following class defines a custom attribute.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>This class defines a custom attribute named <ph id="ph1">`MyAttribute`</ph> with contract type <ph id="ph2">`IMyData`</ph> and some metadata named <ph id="ph3">`MyMetadata`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>All properties in a class marked with the <ph id="ph1">`MetadataAttribute`</ph> attribute are considered to be metadata defined in the custom attribute.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>The following two declarations are equivalent.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>In the first declaration, the contract type and metadata are explicitly defined.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>In the second declaration, the contract type and metadata are implicit in the customized attribute.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Particularly in cases where a large amount of identical metadata must be applied to many parts (for example, author or copyright information), using a custom attribute can save a lot of time and duplication.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>Further, inheritance trees of custom attributes can be created to allow for variations.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>To create optional metadata in a custom attribute, you can use the <ph id="ph1">`DefaultValue`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>When this attribute is applied to a property in a custom attribute class, it specifies that the decorated property is optional and does not have to be supplied by an exporter.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>If a value for the property is not supplied, it will be assigned the default value for its property type (usually <ph id="ph1">`null`</ph>, <ph id="ph2">`false`</ph>, or 0.)</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>Creation Policies</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>When a part specifies an import and composition is performed, the composition container attempts to find a matching export.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>If it matches the import with an export successfully, the importing member is set to an instance of the exported object.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Where this instance comes from is controlled by the exporting part's <bpt id="p1">*</bpt>creation policy<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>The two possible creation policies are <bpt id="p1">*</bpt>shared<ept id="p1">*</ept> and <bpt id="p2">*</bpt>non-shared<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>A part with a creation policy of shared will be shared between every import in the container for a part with that contract.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>When the composition engine finds a match and has to set an importing property, it will instantiate a new copy of the part only if one does not already exist; otherwise, it will supply the existing copy.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>This means that many objects may have references to the same part.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>Such parts should not rely on internal state that might be changed from many places.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>This policy is appropriate for static parts, parts that provide services, and parts that consume a lot of memory or other resources.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>A part with the creation policy of non-shared will be created every time a matching import for one of its exports is found.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>A new copy will therefore be instantiated for every import in the container that matches one of the part's exported contracts.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>The internal state of these copies will not be shared.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>This policy is appropriate for parts where each import requires its own internal state.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>Both the import and the export can specify the creation policy of a part, from among the values <ph id="ph1">`Shared`</ph>, <ph id="ph2">`NonShared`</ph>, or <ph id="ph3">`Any`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`Any`</ph> for both imports and exports.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>An export that specifies <ph id="ph1">`Shared`</ph> or <ph id="ph2">`NonShared`</ph> will only match an import that specifies the same, or that specifies <ph id="ph3">`Any`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Similarly, an import that specifies <ph id="ph1">`Shared`</ph> or <ph id="ph2">`NonShared`</ph> will only match an export that specifies the same, or that specifies <ph id="ph3">`Any`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>Imports and exports with incompatible creation policies are not considered a match, in the same way as an import and export whose contract name or contract type are not a match.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>If both import and export specify <ph id="ph1">`Any`</ph>, or do not specify a creation policy and default to <ph id="ph2">`Any`</ph>, the creation policy will default to shared.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>The following example shows both imports and exports specifying creation policies.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartOne`</ph> does not specify a creation policy, so the default is <ph id="ph2">`Any`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartTwo`</ph> does not specify a creation policy, so the default is <ph id="ph2">`Any`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Since both import and export default to <ph id="ph1">`Any`</ph>, <ph id="ph2">`PartOne`</ph> will be shared.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartThree`</ph> specifies a <ph id="ph2">`Shared`</ph> creation policy, so <ph id="ph3">`PartTwo`</ph> and <ph id="ph4">`PartThree`</ph> will share the same copy of <ph id="ph5">`PartOne`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartFour`</ph> specifies a <ph id="ph2">`NonShared`</ph> creation policy, so <ph id="ph3">`PartFour`</ph> will be non-shared in <ph id="ph4">`PartFive`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartSix`</ph> specifies a <ph id="ph2">`NonShared`</ph> creation policy.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartFive`</ph> and <ph id="ph2">`PartSix`</ph> will each receive separate copies of <ph id="ph3">`PartFour`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`PartSeven`</ph> specifies a <ph id="ph2">`Shared`</ph> creation policy.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>Because there is no exported <ph id="ph1">`PartFour`</ph> with a creation policy of <ph id="ph2">`Shared`</ph>, the <ph id="ph3">`PartSeven`</ph> import does not match anything and will not be filled.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>Life Cycle and Disposing</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Because parts are hosted in the composition container, their life cycle can be more complex than ordinary objects.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Parts can implement two important life cycle-related interfaces: <ph id="ph1">`IDisposable`</ph> and <ph id="ph2">`IPartImportsSatisfiedNotification`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>Parts that require work to be performed at shut down or that need to release resources should implement <ph id="ph1">`IDisposable`</ph>, as usual for .NET Framework objects.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>However, since the container creates and maintains references to parts, only the container that owns a part should call the <ph id="ph1">`Dispose`</ph> method on it.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>The container itself implements <ph id="ph1">`IDisposable`</ph>, and as portion of its cleanup in <ph id="ph2">`Dispose`</ph> it will call <ph id="ph3">`Dispose`</ph> on all the parts that it owns.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>For this reason, you should always dispose the composition container when it and any parts it owns are no longer needed.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>For long-lived composition containers, memory consumption by parts with a creation policy of non-shared can become a problem.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>These non-shared parts can be created multiple times and will not be disposed until the container itself is disposed.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>To deal with this, the container provides the <ph id="ph1">`ReleaseExport`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>Calling this method on a non-shared export removes that export from the composition container and disposes it.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>Parts that are used only by the removed export, and so on down the tree, are also removed and disposed.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>In this way, resources can be reclaimed without disposing the composition container itself.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`IPartImportsSatisfiedNotification`</ph> contains one method named <ph id="ph2">`OnImportsSatisfied`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>This method is called by the composition container on any parts that implement the interface when composition has been completed and the part's imports are ready for use.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>Parts are created by the composition engine to fill the imports of other parts.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>Before the imports of a part have been set, you cannot perform any initialization that relies on or manipulates imported values in the part constructor unless those values have been specified as prerequisites by using the <ph id="ph1">`ImportingConstructor`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>This is normally the preferred method, but in some cases, constructor injection may not be available.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>In those cases, initialization can be performed in <ph id="ph1">`OnImportsSatisfied`</ph>, and the part should implement <ph id="ph2">`IPartImportsSatisfiedNotification`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Channel 9 Video: Open Up Your Applications with the Managed Extensibility Framework<ept id="p1">](http://channel9.msdn.com/events/TechEd/NorthAmerica/2009/DTL328)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Channel 9 Video: Mnaaged Extensibility Framework (MEF) 2.0<ept id="p1">](http://channel9.msdn.com/posts/NET-45-Oleg-Lvovitch-and-Kevin-Ransom-Managed-Extensibility-Framework-MEF-20)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

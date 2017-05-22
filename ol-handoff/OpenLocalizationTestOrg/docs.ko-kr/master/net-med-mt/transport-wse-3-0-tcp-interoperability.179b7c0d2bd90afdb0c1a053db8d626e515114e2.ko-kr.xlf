@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">32e979e9369a7a237d233e24370344f642a7f2dc</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\transport-wse-3-0-tcp-interoperability.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c1b141ff5bc43affb09f4a7fd5c5f392321d09c5</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">925865aaf2864ff6eac378e33437e649f598d0ec</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Transport: WSE 3.0 TCP Interoperability | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Transport: WSE 3.0 TCP Interoperability</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The WSE 3.0 TCP Interoperability Transport sample demonstrates how to implement a TCP duplex session as a custom <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> transport.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It also demonstrates how you can use the extensibility of the channel layer to interface over the wire with existing deployed systems.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The following steps show how to build this custom <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> transport:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Starting with a TCP socket, create client and server implementations of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> that use DIME Framing to delineate message boundaries.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Create a channel factory that connects to a WSE TCP service and sends framed messages over the client <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph>s.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Create a channel listener to accept incoming TCP connections and produce corresponding channels.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Ensure that any network-specific exceptions are normalized to the appropriate derived class of <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Add a binding element that adds the custom transport to a channel stack.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph> [Adding a Binding Element].</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Creating IDuplexSessionChannel</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The first step in writing the WSE 3.0 TCP Interoperability Transport is to create an implementation of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> on top of a <ph id="ph2">&lt;xref:System.Net.Sockets.Socket&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`WseTcpDuplexSessionChannel`</ph> derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelBase&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The logic of sending a message consists of two main pieces: (1) Encoding the message into bytes, and (2) framing those bytes and sending them on the wire.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In addition, a lock is taken so that the Send() calls preserve the IDuplexSessionChannel in-order guarantee, and so that calls to the underlying socket are synchronized correctly.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`WseTcpDuplexSessionChannel`</ph> uses a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph> for translating a <ph id="ph3">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> to and from byte[].</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Because it is a transport, <ph id="ph1">`WseTcpDuplexSessionChannel`</ph> is also responsible for applying the remote address that the channel was configured with.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EncodeMessage`</ph> encapsulates the logic for this conversion.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Once the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> is encoded into bytes, it must be transmitted on the wire.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This requires a system for defining message boundaries.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>WSE 3.0 uses a version of <bpt id="p1">[</bpt>DIME<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94999)</ept> as its framing protocol.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`WriteData`</ph> encapsulates the framing logic to wrap a byte[] into a set of DIME records.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The logic for receiving messages is very similar.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The main complexity is handling the fact that a socket read can return less bytes than were requested.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To receive a message, <ph id="ph1">`WseTcpDuplexSessionChannel`</ph> reads bytes off the wire, decodes the DIME framing, and then uses the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph> for turning the byte[] into a <ph id="ph3">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The base <ph id="ph1">`WseTcpDuplexSessionChannel`</ph> assumes that it receives a connected socket.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The base class handles socket shutdown.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>There are three places that interface with socket closure:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>OnAbort -- close the socket ungracefully (hard close).</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>On[Begin]Close -- close the socket gracefully (soft close).</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>session.CloseOutputSession -- shutdown the outbound data stream (half close).</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Channel Factory</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The next step in writing the TCP transport is to create an implementation of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelFactory&gt;</ph> for client channels.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`WseTcpChannelFactory`</ph> derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase&gt;</ph><ph id="ph3">\&lt;</ph>IDuplexSessionChannel&gt;.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>It is a factory that overrides <ph id="ph1">`OnCreateChannel`</ph> to produce client channels.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ClientWseTcpDuplexSessionChannel`</ph> adds logic to the base <ph id="ph2">`WseTcpDuplexSessionChannel`</ph>to connect to a TCP server at <ph id="ph3">`channel.Open`</ph> time.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>First the hostname is resolved to an IP address, as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Then the hostname is connected to the first available IP address in a loop, as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>As part of the channel contract, any domain-specific exceptions are wrapped, such as <ph id="ph1">`SocketException`</ph> in <ph id="ph2">&lt;xref:System.ServiceModel.CommunicationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Channel Listener</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The next step in writing the TCP transport is to create an implementation of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph> for accepting server channels.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`WseTcpChannelListener`</ph> derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelListenerBase&gt;</ph><ph id="ph3">\&lt;</ph>IDuplexSessionChannel&gt; and overrides On[Begin]Open and On[Begin]Close to control the lifetime of its listen socket.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In OnOpen, a socket is created to listen on IP_ANY.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>More advanced implementations can create a second socket to listen on IPv6 as well.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>They can also allow the IP address to be specified in the hostname.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>When a new socket is accepted, a server channel is initialized with this socket.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>All the input and output is already implemented in the base class, so this channel is responsible for initializing the socket.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Adding a Binding Element</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Now that the factories and channels are built, they must be exposed to the ServiceModel runtime through a binding.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>A binding is a collection of binding elements that represents the communication stack associated with a service address.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Each element in the stack is represented by a binding element.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In the sample, the binding element is <ph id="ph1">`WseTcpTransportBindingElement`</ph>, which derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>It supports <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> and overrides the following methods to build the factories associated with our binding.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>It also contains members for cloning the <ph id="ph1">`BindingElement`</ph> and returning our scheme (wse.tcp).</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The WSE TCP Test Console</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Test code for using this sample transport is available in TestCode.cs.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The following instructions show how to set up the WSE <ph id="ph1">`TcpSyncStockService`</ph> sample.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The test code creates a custom binding that uses MTOM as the encoding and <ph id="ph1">`WseTcpTransport`</ph> as the transport.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>It also sets up the AddressingVersion to be conformant with WSE 3.0, as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>It consists of two tests—one test sets up a typed client using code generated from the WSE 3.0 WSDL.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The second test uses <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> as both the client and the server by sending messages directly on top of the channel APIs.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>When running the sample, the following output is expected.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Client:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Server:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>To run this sample, you must have WSE 3.0 and the WSE <ph id="ph1">`TcpSyncStockService`</ph> sample installed.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>You can download <bpt id="p1">[</bpt>WSE 3.0 from MSDN<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=95000)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Because WSE 3.0 is not supported on <ph id="ph1">[!INCLUDE[lserver](../../../../includes/lserver-md.md)]</ph>, you cannot install or run the <ph id="ph2">`TcpSyncStockService`</ph> sample on that operating system.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Once you install the <ph id="ph1">`TcpSyncStockService`</ph> sample, do the following:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Open the <ph id="ph1">`TcpSyncStockService`</ph> in Visual Studio (Note that the TcpSyncStockService sample is installed with WSE 3.0.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>It is not part of this sample's code).</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Set the StockService project as the start up project.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Open StockService.cs in the StockService project and comment out the [Policy] attribute on the <ph id="ph1">`StockService`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This disables security from the sample.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>While <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> can interoperate with WSE 3.0 secure endpoints, security is disabled to keep this sample focused on the custom TCP transport.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Press F5 to start the <ph id="ph1">`TcpSyncStockService`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The service starts in a new console window.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Open this TCP transport sample in Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Update the "hostname" variable in TestCode.cs to match the machine name running the <ph id="ph1">`TcpSyncStockService`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Press F5 to start the TCP transport sample.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The TCP transport test client starts in a new console.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The client requests stock quotes from the service and then displays the results in its console window.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

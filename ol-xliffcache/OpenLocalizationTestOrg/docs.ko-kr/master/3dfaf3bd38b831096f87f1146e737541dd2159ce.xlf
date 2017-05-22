@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3dfaf3bd38b831096f87f1146e737541dd2159ce</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\garbage-collection\implementing-dispose.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6822ea67b6541a025c85ccd84dee0ad771399685</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d2c0a4ce03f9760ef5195d27489b7a4156eda82a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Implementing a Dispose method | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Implementing a Dispose method</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>You implement a <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method to release unmanaged resources used by your application.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The .NET garbage collector does not allocate or release unmanaged memory.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The pattern for disposing an object, referred to as a <bpt id="p1">[</bpt>dispose pattern<ept id="p1">](../../../docs/standard/design-guidelines/dispose-pattern.md)</ept>, imposes order on the lifetime of an object.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The dispose pattern is used only for objects that access unmanaged resources, such as file and pipe handles, registry handles, wait handles, or pointers to blocks of unmanaged memory.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This is because the garbage collector is very efficient at reclaiming unused managed objects, but it is unable to reclaim unmanaged objects.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The dispose pattern has two variations:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You wrap each unmanaged resource that a type uses in a safe handle (that is, in a class derived from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In this case, you implement the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface and an additional <ph id="ph2">`Dispose(Boolean)`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This is the recommended variation and doesn't require overriding the <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles?displayProperty=fullName&gt;</ph> namespace provides a set of classes derived from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph>, which are listed in the <bpt id="p1">[</bpt>Using safe handles<ept id="p1">](#SafeHandles)</ept> section.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If you can't find a class that is suitable for releasing your unmanaged resource, you can implement your own subclass of <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You implement the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface and an additional <ph id="ph2">`Dispose(Boolean)`</ph> method, and you also override the <ph id="ph3">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You must override <ph id="ph1">&lt;xref:System.Object.Finalize%2A&gt;</ph> to ensure that unmanaged resources are disposed of if your <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation is not called by a consumer of your type.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If you use the recommended technique discussed in the previous bullet, the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph> class does this on your behalf.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To help ensure that resources are always cleaned up appropriately, a <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method should be callable multiple times without throwing an exception.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The code example provided for the <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A?displayProperty=fullName&gt;</ph> method shows how aggressive garbage collection can cause a finalizer to run while a member of the reclaimed object is still executing.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>It is a good idea to call the <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A&gt;</ph> method at the end of a lengthy <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Dispose() and Dispose(Boolean)</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface requires the implementation of a single parameterless method, <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, the dispose pattern requires two <ph id="ph1">`Dispose`</ph> methods to be implemented:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A public non-virtual (<ph id="ph1">`NonInheritable`</ph> in Visual Basic) <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation that has no parameters.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A protected virtual (<ph id="ph1">`Overridable`</ph> in Visual Basic) <ph id="ph2">`Dispose`</ph> method whose signature is:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.Disposable#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/dispose1.cs#8)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.Disposable#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/dispose1.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The Dispose() overload</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Because the public, non-virtual (<ph id="ph1">`NonInheritable`</ph> in Visual Basic), parameterless <ph id="ph2">`Dispose`</ph> method is called by a consumer of the type, its purpose is to free unmanaged resources and to indicate that the finalizer, if one is present, doesn't have to run.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Because of this, it has a standard implementation:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.Disposable#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/dispose1.cs#7)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.Disposable#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/dispose1.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Dispose`</ph> method performs all object cleanup, so the garbage collector no longer needs to call the objects' <ph id="ph2">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> override.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Therefore, the call to the <ph id="ph1">&lt;xref:System.GC.SuppressFinalize%2A&gt;</ph> method prevents the garbage collector from running the finalizer.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If the type has no finalizer, the call to <ph id="ph1">&lt;xref:System.GC.SuppressFinalize%2A?displayProperty=fullName&gt;</ph> has no effect.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Note that the actual work of releasing unmanaged resources is performed by the second overload of the <ph id="ph1">`Dispose`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The Dispose(Boolean) overload</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In the second overload, the <bpt id="p1">*</bpt>disposing<ept id="p1">*</ept> parameter is a <ph id="ph1">&lt;xref:System.Boolean&gt;</ph> that indicates whether the method call comes from a <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method (its value is <ph id="ph3">`true`</ph>) or from a finalizer (its value is <ph id="ph4">`false`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The body of the method consists of two blocks of code:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>A block that frees unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This block executes regardless of the value of the <ph id="ph1">`disposing`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>A conditional block that frees managed resources.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This block executes if the value of <ph id="ph1">`disposing`</ph> is <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The managed resources that it frees can include:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed objects that implement <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph>.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The conditional block can be used to call their <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If you have used a safe handle to wrap your unmanaged resource, you should call the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%28System.Boolean%29?displayProperty=fullName&gt;</ph> implementation here.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed objects that consume large amounts of memory or consume scarce resources.<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Freeing these objects explicitly in the <ph id="ph1">`Dispose`</ph> method releases them faster than if they were reclaimed non-deterministically by the garbage collector.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If the method call comes from a finalizer (that is, if <bpt id="p1">*</bpt>disposing<ept id="p1">*</ept> is <ph id="ph1">`false`</ph>), only the code that frees unmanaged resources executes.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Because the order in which the garbage collector destroys managed objects during finalization is not defined, calling this <ph id="ph1">`Dispose`</ph> overload with a value of <ph id="ph2">`false`</ph> prevents the finalizer from trying to release managed resources that may have already been reclaimed.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Implementing the dispose pattern for a base class</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If you implement the dispose pattern for a base class, you must provide the following:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You should implement this pattern for all base classes that implement <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> and are not <ph id="ph2">`sealed`</ph> (<ph id="ph3">`NotInheritable`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> implementation that calls the <ph id="ph2">`Dispose(Boolean)`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`Dispose(Boolean)`</ph> method that performs the actual work of releasing resources.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Either a class derived from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> that wraps your unmanaged resource (recommended), or an override to the <ph id="ph2">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class provides a finalizer that frees you from having to code one.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Here's the general pattern for implementing the dispose pattern for a base class that uses a safe handle.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.IDisposable#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.idisposable/cs/base1.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.IDisposable#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.idisposable/vb/base1.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The previous example uses a <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> object to illustrate the pattern; any object derived from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> could be used instead.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Note that the example does not properly instantiate its <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Here's the general pattern for implementing the dispose pattern for a base class that overrides <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.IDisposable#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.idisposable/cs/base2.cs#5)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.IDisposable#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.idisposable/vb/base2.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>In C#, you override <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> by defining a <bpt id="p1">[</bpt>destructor<ept id="p1">](~/docs/csharp/programming-guide/classes-and-structs/destructors.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Implementing the dispose pattern for a derived class</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>A class derived from a class that implements the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface shouldn't implement <ph id="ph2">&lt;xref:System.IDisposable&gt;</ph>, because the base class implementation of <ph id="ph3">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> is inherited by its derived classes.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Instead, to implement the dispose pattern for a derived class, you provide the following:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`protected``Dispose(Boolean)`</ph> method that overrides the base class method and performs the actual work of releasing the resources of the derived class.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This method should also call the <ph id="ph1">`Dispose(Boolean)`</ph> method of the base class and pass it a value of <ph id="ph2">`true`</ph> for the <bpt id="p1">*</bpt>disposing<ept id="p1">*</ept> argument.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Either a class derived from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> that wraps your unmanaged resource (recommended), or an override to the <ph id="ph2">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class provides a finalizer that frees you from having to code one.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>If you do provide a finalizer, it should call the <ph id="ph1">`Dispose(Boolean)`</ph> overload with a <bpt id="p1">*</bpt>disposing<ept id="p1">*</ept> argument of <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Here's the general pattern for implementing the dispose pattern for a derived class that uses a safe handle:</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.IDisposable#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.idisposable/cs/derived1.cs#4)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.IDisposable#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.idisposable/vb/derived1.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The previous example uses a <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> object to illustrate the pattern; any object derived from <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> could be used instead.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Note that the example does not properly instantiate its <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Here's the general pattern for implementing the dispose pattern for a derived class that overrides <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.IDisposable#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.idisposable/cs/derived2.cs#6)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.IDisposable#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.idisposable/vb/derived2.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>In C#, you override <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> by defining a <bpt id="p1">[</bpt>destructor<ept id="p1">](~/docs/csharp/programming-guide/classes-and-structs/destructors.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Using safe handles</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Writing code for an object's finalizer is a complex task that can cause problems if not done correctly.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Therefore, we recommend that you construct <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph> objects instead of implementing a finalizer.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Classes derived from the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph> class simplify object lifetime issues by assigning and releasing handles without interruption.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>They contain a critical finalizer that is guaranteed to run while an application domain is unloading.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>For more information about the advantages of using a safe handle, see <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The following derived classes in the <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles&gt;</ph> namespace provide safe handles:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph>, <ph id="ph2">&lt;xref:Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle&gt;</ph>, and <ph id="ph3">&lt;xref:Microsoft.Win32.SafeHandles.SafePipeHandle&gt;</ph> class, for files, memory mapped files, and pipes.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeMemoryMappedViewHandle&gt;</ph> class, for memory views.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle&gt;</ph>, <ph id="ph2">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle&gt;</ph>, and <ph id="ph3">&lt;xref:Microsoft.Win32.SafeHandles.SafeNCryptSecretHandle&gt;</ph> classes, for cryptography constructs.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeRegistryHandle&gt;</ph> class, for registry keys.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.Win32.SafeHandles.SafeWaitHandle&gt;</ph> class, for wait handles.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Using a safe handle to implement the dispose pattern for a base class</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The following example illustrates the dispose pattern for a base class, <ph id="ph1">`DisposableStreamResource`</ph>, that uses a safe handle to encapsulate unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>It defines a <ph id="ph1">`DisposableResource`</ph> class that uses a <ph id="ph2">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> to wrap a <ph id="ph3">&lt;xref:System.IO.Stream&gt;</ph> object that represents an open file.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`DisposableResource`</ph> method also includes a single property, <ph id="ph2">`Size`</ph>, that returns the total number of bytes in the file stream.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.Disposable#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/base1.cs#9)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.Disposable#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/base1.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Using a safe handle to implement the dispose pattern for a derived class</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The following example illustrates the dispose pattern for a derived class, <ph id="ph1">`DisposableStreamResource2`</ph>, that inherits from the <ph id="ph2">`DisposableStreamResource`</ph> class presented in the previous example.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The class adds an additional method, <ph id="ph1">`WriteFileInfo`</ph>, and uses a <ph id="ph2">&lt;xref:Microsoft.Win32.SafeHandles.SafeFileHandle&gt;</ph> object to wrap the handle of the writable file.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Conceptual.Disposable#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/derived1.cs#10)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Conceptual.Disposable#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/derived1.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Define and Consume Classes and Structs (C++/CLI)<ept id="p1">](/cpp/dotnet/how-to-define-and-consume-classes-and-structs-cpp-cli)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dispose Pattern<ept id="p1">](../../../docs/standard/design-guidelines/dispose-pattern.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

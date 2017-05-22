@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ad726be4f4813cfb2d5e068de61974f1eab0a961</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\datacontract-surrogate.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fa1c68f326f1c0a95d9a292705d403bc87bb60d8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f3dde037b3aa5dbb39ddf631368ca71996bc9bc3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>DataContract Surrogate | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>DataContract Surrogate</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how processes like serialization, deserialization, schema export, and schema import can be customized using a data contract surrogate class.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This sample shows how to use a surrogate in a client and server scenario where data is serialized and transmitted between a <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> client and service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The sample uses the following service contract:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`AddEmployee`</ph> operation allows users to add data about new employees and the <ph id="ph2">`GetEmployee`</ph> operation supports search for employees based on name.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>These operations use the following data type:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Employee`</ph> type, the <ph id="ph2">`Person`</ph> class (shown in the following sample code) cannot be serialized by the <ph id="ph3">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph> because it is not a valid data contract class.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You can apply the <ph id="ph1">`DataContract`</ph> attribute to the <ph id="ph2">`Person`</ph> class, but this is not always possible.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`Person`</ph> class can be defined in a separate assembly over which you have no control.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Given this restriction, one way to serialize the <ph id="ph1">`Person`</ph> class is to substitute it with another class that is marked with <ph id="ph2">`DataContractAttribute`</ph> and copy over necessary data to the new class.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The objective is to make the <ph id="ph1">`Person`</ph> class appear as a DataContract to the <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Note that this is one way to serialize non-data contract classes.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The sample logically replaces the <ph id="ph1">`Person`</ph> class with a different class named <ph id="ph2">`PersonSurrogated`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The data contract surrogate is used to achieve this replacement.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A data contract surrogate is a class that implements <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In this sample, the <ph id="ph1">`AllowNonSerializableTypesSurrogate`</ph> class implements this interface.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In the interface implementation, the first task is to establish a type mapping from <ph id="ph1">`Person`</ph> to <ph id="ph2">`PersonSurrogated`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This is used both at serialization time as well as at schema export time.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This mapping is achieved by implementing the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDataContractType%28System.Type%29&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetObjectToSerialize%28System.Object%2CSystem.Type%29&gt;</ph> method maps a <ph id="ph2">`Person`</ph> instance to a <ph id="ph3">`PersonSurrogated`</ph> instance during serialization, as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDeserializedObject%28System.Object%2CSystem.Type%29&gt;</ph> method provides the reverse mapping for deserialization, as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To map the <ph id="ph1">`PersonSurrogated`</ph> data contract to the existing <ph id="ph2">`Person`</ph> class during schema import, the sample implements the <ph id="ph3">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetReferencedTypeOnImport%28System.String%2CSystem.String%2CSystem.Object%29&gt;</ph> method, as shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following sample code completes the implementation of the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In this sample, the surrogate is enabled in ServiceModel by an attribute called <ph id="ph1">`AllowNonSerializableTypesAttribute`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Developers would need to apply this attribute on their service contract as shown on the <ph id="ph1">`IPersonnelDataService`</ph> service contract above.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This attribute implements <ph id="ph1">`IContractBehavior`</ph> and sets up the surrogate on operations in its <ph id="ph2">`ApplyClientBehavior`</ph> and <ph id="ph3">`ApplyDispatchBehavior`</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The attribute is not necessary in this case - it is used for demonstration purposes in this sample.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Users can alternatively enable a surrogate by manually adding a similar <ph id="ph1">`IContractBehavior`</ph>, <ph id="ph2">`IEndpointBehavior`</ph> or <ph id="ph3">`IOperationBehavior`</ph> using code or using configuration.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IContractBehavior`</ph> implementation looks for operations that use DataContract by checking if they have a <ph id="ph2">`DataContractSerializerOperationBehavior`</ph> registered.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If they do, it sets the <ph id="ph1">`DataContractSurrogate`</ph> property on that behavior.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The following sample code shows how this is done.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Setting the surrogate on this operation behavior enables it for serialization and deserialization.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Additional steps need to be taken to plug in the surrogate for use during metadata generation.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>One mechanism to do this is to provide an <ph id="ph1">`IWsdlExportExtension`</ph> which is what this sample demonstrates.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Another way is to modify the <ph id="ph1">`WsdlExporter`</ph> directly.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`AllowNonSerializableTypesAttribute`</ph> attribute implements <ph id="ph2">`IWsdlExportExtension`</ph> and <ph id="ph3">`IContractBehavior`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The extension can be either an <ph id="ph1">`IContractBehavior`</ph> or <ph id="ph2">`IEndpointBehavior`</ph> in this case.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Its <ph id="ph1">`IWsdlExportExtension.ExportContract`</ph> method implementation enables the surrogate by adding it to the <ph id="ph2">`XsdDataContractExporter`</ph> used during schema generation for DataContract.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following code snippet shows how to do this.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the client calls AddEmployee followed by a GetEmployee call to check if the first call was successful.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The result of the GetEmployee operation request is displayed in the client console window.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The GetEmployee operation must succeed in finding the employee and print "found".</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This sample shows how to plug in a surrogate for serialize, deserialize and metadata generation.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>It does not show how to plug in a surrogate for code generation from metadata.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To see a sample of how a surrogate can be used to plug into client code generation, see the <bpt id="p1">[</bpt>Custom WSDL Publication<ept id="p1">](../../../../docs/framework/wcf/samples/custom-wsdl-publication.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>To build the C# edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

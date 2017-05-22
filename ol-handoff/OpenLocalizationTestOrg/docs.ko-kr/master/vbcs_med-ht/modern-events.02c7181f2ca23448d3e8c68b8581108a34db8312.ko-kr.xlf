@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8fc483fb52babd27f897958b17c0303710c6cce4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\modern-events.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">40ba1dcde270a3ce31c87353c9cfc2dbadb4c0d0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1a2a8066d920416421c64033e5142683fa955bba</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>The Updated .NET Core Event Pattern</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>The Updated .NET Core Event Pattern</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>.NET, .NET Core</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The Updated .NET Core Event Pattern</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Previous<ept id="p1">](event-pattern.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The previous article discussed the most common event patterns.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>.NET Core has a more relaxed pattern.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this version, the <ph id="ph1">`EventHandler&lt;TEventArgs&gt;`</ph> definition no longer has the constraint that <ph id="ph2">`TEventArgs`</ph> must be a class derived from <ph id="ph3">`System.EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This increases flexibility for you, and is backwards compatible.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Let's start with the flexibility.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The class System.EventArgs introduces one method: <ph id="ph1">`MemberwiseClone()`</ph>, which creates a shallow copy of the object.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>That method must use reflection in order to implement its functionality for any class derived from <ph id="ph1">`EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>That functionality is easier to create in a specific derived class.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>That effectively means that deriving from System.EventArgs is a constraint that limits your designs, but does not provide any additional benefit.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In fact, you can changes the definitions of <ph id="ph1">`FileFoundArgs`</ph> and <ph id="ph2">`SearchDirectoryArgs`</ph> so that they do not derive from <ph id="ph3">`EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The program will work exactly the same.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You could also change the <ph id="ph1">`SearchDirectoryArgs`</ph> to a struct, if you also make one more change:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The additional change is to call the default constructor before entering the constructor that initializes all the fields.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Without that addition, the rules of C# would report that the properties are being accessed before they have been assigned.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You should not change the <ph id="ph1">`FileFoundArgs`</ph> from a class (reference type) to a struct (value type).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>That's because the protocol for handling cancel requires that the event arguments are passed by reference.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you made the same change, the file search class could never observe any changes made by any of the event subscribers.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A new copy of the structure would be used for each subscriber, and that copy would be a different copy than the one seen by the file search object.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Next, let's consider how this change can be backwards compatible.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The removal of the constraint does not affect any existing code.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Any existing event argument types do still derive from <ph id="ph1">`System.EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Backwards compatibility is one major reason why they will continue to derive from <ph id="ph1">`System.EventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Any existing event subscribers will be subscribers to an event that followed the classic pattern.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Following similar logic, any event argument type created now would not have any subscribers in any existing codebases.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>New event types that do not derive from <ph id="ph1">`System.EventArgs`</ph> will not break those codebases.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Events with Async subscribers</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>You have one final pattern to learn: How to correctly write event subscribers that call async code.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The challenge is described in the article on <bpt id="p1">[</bpt>async and await<ept id="p1">](async.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Async methods can have a void return type, but that is strongly discouraged.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When your event subscriber code calls an async method, you have no choice but to create an <ph id="ph1">`async void`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The event handler signature requires it.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You need to reconcile this opposing guidance.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Somehow, you must create a safe <ph id="ph1">`async void`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The basics of the pattern you need to implement are below:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>First, notice that the handler is marked as an async handler.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Because it is being assigned to an event handler delegate type, it will have a void return type.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>That means you must follow the pattern shown in the handler, and not allow any exceptions to be thrown out of the context of the async handler.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Because it does not return a task, there is no task that can report the error by entering the faulted state.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Because the method is async, the method can't simply throw the exception.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>(The calling method has continued execution because it is <ph id="ph1">`async`</ph>.) The actual runtime behavior will be defined differently for different environments.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>It may terminate the thread, it may terminate the program, or it may leave the program in an undetermined state.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>None of those are good outcomes.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>That's why you should wrap the await statement for the async Task in your own try block.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If it does cause a faulted task, you can log the error.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If it is an error from which your application cannot recover, you can exit the program quickly and gracefully</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Those are the major updates to the .NET event pattern.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>You will see many examples of the earlier versions in the libraries you work with.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>However, you should understand what the latest patterns are as well.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The next article in this series helps you distinguish between using <ph id="ph1">`delegates`</ph> and <ph id="ph2">`events`</ph> in your designs.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>They are similar concepts, and that article will help you make the best decision for your programs.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Next<ept id="p1">](distinguish-delegates-events.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">064c7883ea3609a4e4ca747273214ca4f9da51c8</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\visual-basic\programming-guide\com-interop\troubleshooting-interoperability.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6058e5d595afa435142cdad1614ea10ef7f03d21</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9ccbd6b03d505b80afdd999c4ecbf70d6d3b207b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Troubleshooting Interoperability (Visual Basic) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Troubleshooting Interoperability (Visual Basic)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When you interoperate between COM and the managed code of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../csharp/getting-started/includes/dnprdnshort_md.md)]</ph>, you may encounter one or more of the following common issues.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor1"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Interop Marshaling</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>At times, you may have to use data types that are not part of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../csharp/getting-started/includes/dnprdnshort_md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Interop assemblies handle most of the work for COM objects, but you may have to control the data types that are used when managed objects are exposed to COM.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, structures in class libraries must specify the <ph id="ph1">`BStr`</ph> unmanaged type on strings sent to COM objects created by Visual Basic 6.0 and earlier versions.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In such cases, you can use the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute to cause managed types to be exposed as unmanaged types.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor2"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Exporting Fixed-Length Strings to Unmanaged Code</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In Visual Basic 6.0 and earlier versions, strings are exported to COM objects as sequences of bytes without a null termination character.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For compatibility with other languages, <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> includes a termination character when exporting strings.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The best way to address this incompatibility is to export strings that lack the termination character as arrays of <ph id="ph1">`Byte`</ph> or <ph id="ph2">`Char`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor3"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Exporting Inheritance Hierarchies</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Managed class hierarchies flatten out when exposed as COM objects.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For example, if you define a base class with a member, and then inherit the base class in a derived class that is exposed as a COM object, clients that use the derived class in the COM object will not be able to use the inherited members.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Base class members can be accessed from COM objects only as instances of a base class, and then only if the base class is also created as a COM object.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Overloaded Methods</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Although you can create overloaded methods with <ph id="ph1">[!INCLUDE[vbprvb](../../../csharp/programming-guide/concepts/linq/includes/vbprvb_md.md)]</ph>, they are not supported by COM.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When a class that contains overloaded methods is exposed as a COM object, new method names are generated for the overloaded methods.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For example, consider a class that has two overloads of the <ph id="ph1">`Synch`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When the class is exposed as a COM object, the new generated method names could be <ph id="ph1">`Synch`</ph> and <ph id="ph2">`Synch_2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The renaming can cause two problems for consumers of the COM object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Clients might not expect the generated method names.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The generated method names in the class exposed as a COM object can change when new overloads are added to the class or its base class.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This can cause versioning problems.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To solve both problems, give each method a unique name, instead of using overloading, when you develop objects that will be exposed as COM objects.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor4"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Use of COM Objects Through Interop Assemblies</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>You use interop assemblies almost as if they are managed code replacements for the COM objects they represent.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, because they are wrappers and not actual COM objects, there are some differences between using interop assemblies and standard assemblies.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>These areas of difference include the exposure of classes, and data types for parameters and return values.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor5"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Classes Exposed as Both Interfaces and Classes</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Unlike classes in standard assemblies, COM classes are exposed in interop assemblies as both an interface and a class that represents the COM class.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The interface's name is identical to that of the COM class.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The name of the interop class is the same as that of the original COM class, but with the word "Class" appended.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>For example, suppose you have a project with a reference to an interop assembly for a COM object.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If the COM class is named <ph id="ph1">`MyComClass`</ph>, IntelliSense and the Object Browser show an interface named <ph id="ph2">`MyComClass`</ph> and a class named <ph id="ph3">`MyComClassClass`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor6"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Creating Instances of a .NET Framework Class</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Generally, you create an instance of a <ph id="ph1">[!INCLUDE[dnprdnshort](../../../csharp/getting-started/includes/dnprdnshort_md.md)]</ph> class using the <ph id="ph2">`New`</ph> statement with a class name.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Having a COM class represented by an interop assembly is the one case in which you can use the <ph id="ph1">`New`</ph> statement with an interface.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Unless you are using the COM class with an <ph id="ph1">`Inherits`</ph> statement, you can use the interface just as you would a class.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following code demonstrates how to create a <ph id="ph1">`Command`</ph> object in a project that has a reference to the Microsoft ActiveX Data Objects 2.8 Library COM object:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#20<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_1.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>However, if you are using the COM class as the base for a derived class, you must use the interop class that represents the COM class, as in the following code:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#21<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_2.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Interop assemblies implicitly implement interfaces that represent COM classes.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You should not try to use the <ph id="ph1">`Implements`</ph> statement to implement these interfaces or an error will result.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor7"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Data Types for Parameters and Return Values</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Unlike members of standard assemblies, interop assembly members may have data types that differ from those used in the  original object declaration.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Although interop assemblies implicitly convert COM types to compatible common language runtime types, you should pay attention to the data types that are used by both sides to prevent runtime errors.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For example, in COM objects created in Visual Basic 6.0 and earlier versions, values of type <ph id="ph1">`Integer`</ph> assume the <ph id="ph2">[!INCLUDE[dnprdnshort](../../../csharp/getting-started/includes/dnprdnshort_md.md)]</ph> equivalent type, <ph id="ph3">`Short`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>It is recommended that you use the Object Browser to examine the characteristics of imported members before you use them.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor8"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Module level COM methods</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Most COM objects are used by creating an instance of a COM class using the <ph id="ph1">`New`</ph> keyword and then calling methods of the object.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>One exception to this rule involves COM objects that contain <ph id="ph1">`AppObj`</ph> or <ph id="ph2">`GlobalMultiUse`</ph> COM classes.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Such classes resemble module level methods in <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Visual Basic 6.0 and earlier versions implicitly create instances of such objects for you the first time that you call one of their methods.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>For example, in Visual Basic 6.0 you can add a reference to the Microsoft DAO 3.6 Object Library and call the <ph id="ph1">`DBEngine`</ph> method without first creating an instance:</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> requires that you always create instances of COM objects before you can use their methods.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>To use these methods in <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph>, declare a variable of the desired class and use the new keyword to assign the object to the object variable.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Shared`</ph> keyword can be used when you want to make sure that only one instance of the class is created.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#23<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_3.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor9"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Unhandled Errors in Event Handlers</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>One common interop problem involves errors in event handlers that handle events raised by COM objects.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Such errors are ignored unless you specifically check for errors using <ph id="ph1">`On Error`</ph> or <ph id="ph2">`Try...Catch...Finally`</ph> statements.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For example, the following example is from a <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> project that has a reference to the Microsoft ActiveX Data Objects 2.8 Library COM object.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#24<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_4.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This example raises an error as expected.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>However, if you try the same example without the <ph id="ph1">`Try...Catch...Finally`</ph> block, the error is ignored as if you used the <ph id="ph2">`OnError Resume Next`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Without error handling, the division by zero silently fails.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Because such errors never raise unhandled exception errors, it is important that you use some form of exception handling in event handlers that handle events from COM objects.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Understanding COM interop errors</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Without error handling, interop calls often generate errors that provide little information.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Whenever possible, use structured error handling to provide more information about problems when they occur.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>This can be especially helpful when you debug applications.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#25<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_5.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>You can find information such as the error description, HRESULT, and the source of COM errors by examining the contents of the exception object.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor10"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> ActiveX Control Issues</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Most ActiveX controls that work with Visual Basic 6.0 work with <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> without trouble.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The main exceptions are container controls, or controls that visually contain other controls.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Some examples of older controls that do not work correctly with <ph id="ph1">[!INCLUDE[vsprvs](../../../csharp/includes/vsprvs_md.md)]</ph> are as follows:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Microsoft Forms 2.0 Frame control</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Up-Down control, also known as the spin control</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Sheridan Tab Control</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>There are only a few workarounds for unsupported ActiveX control problems.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>You can migrate existing controls to <ph id="ph1">[!INCLUDE[vsprvs](../../../csharp/includes/vsprvs_md.md)]</ph> if you own the original source code.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Otherwise, you can check with software vendors for updated .NET-compatible versions of controls to replace unsupported ActiveX controls.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor11"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Passing ReadOnly Properties of Controls ByRef</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> sometimes raises COM errors such as "Error 0x800A017F CTL_E_SETNOTSUPPORTED" when you pass <ph id="ph2">`ReadOnly`</ph> properties of some older ActiveX controls as <ph id="ph3">`ByRef`</ph> parameters to other procedures.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Similar procedure calls from Visual Basic 6.0 do not raise an error, and the parameters are treated as if you passed them by value.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The error message you see in <ph id="ph1">[!INCLUDE[vbprvblong](../../../visual-basic/developing-apps/customizing-extending-my/includes/vbprvblong_md.md)]</ph> is the COM object reporting that you are trying to change a property that does not have a property <ph id="ph2">`Set`</ph> procedure.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>If you have access to the procedure being called, you can prevent this error by using the <ph id="ph1">`ByVal`</ph> keyword to declare parameters that accept <ph id="ph2">`ReadOnly`</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#26<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_6.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>If you do not have access to the source code for the procedure being called, you can force the property to be passed by value by adding an extra set of brackets around the calling procedure.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>For example, in a project that has a reference to the Microsoft ActiveX Data Objects 2.8 Library COM object, you can use:</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbalrInterop#27<ept id="p2">](../../../visual-basic/programming-guide/com-interop/codesnippet/VisualBasic/troubleshooting-interoperability_7.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="vbconinteroperabilitymarshalinganchor12"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Deploying Assemblies That Expose Interop</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Deploying assemblies that expose COM interfaces presents some unique challenges.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>For example, a potential problem occurs when separate applications reference the same COM assembly.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This situation is common when a new version of an assembly is installed and another application is still using the old version of the assembly.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If you uninstall an assembly that shares a DLL, you can unintentionally make it unavailable to the other assemblies.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>To avoid this problem, you should install shared assemblies to the Global Assembly Cache (GAC) and use a MergeModule for the component.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>If you cannot install the application in the GAC, it should be installed to CommonFilesFolder in a version-specific subdirectory.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Assemblies that are not shared should be located side by side in the directory with the calling application.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>COM Interop<ept id="p1">](../../../visual-basic/programming-guide/com-interop/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Tlbimp.exe (Type Library Importer)<ept id="p1">](http://msdn.microsoft.com/library/ec0a8d63-11b3-4acd-b398-da1e37e97382)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Tlbexp.exe (Type Library Exporter)<ept id="p1">](http://msdn.microsoft.com/library/a487d61b-d166-467b-a7ca-d8b52fbff42d)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Walkthrough: Implementing Inheritance with COM Objects<ept id="p1">](../../../visual-basic/programming-guide/com-interop/walkthrough-implementing-inheritance-with-com-objects.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Inherits Statement<ept id="p1">](../../../visual-basic/language-reference/statements/inherits-statement.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Global Assembly Cache<ept id="p1">](../../../framework/app-domains/gac.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

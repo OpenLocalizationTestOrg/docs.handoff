@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">eb3a55592dafb6ff5297c4b28bd8751afa8745b2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\store-extensibility.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c14a0c0e89513fda7c16b566a6a59c87fbb03729</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">faed04ffdd4988551c65cc2ab4db8423bc2d803c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Store Extensibility | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Store Extensibility</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> allows users to promote custom, application-specific properties that can be used to query for instances in the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The act of promoting a property causes the value to be available within a special view in the database.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These promoted properties (properties that can be used in user queries) can be of simple types such as Int64, Guid, String, and DateTime or of a serialized binary type (byte[]).</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore&gt;</ph> class has the <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore.Promote%2A&gt;</ph> method that you can use to promote a property as a property that can be used in queries.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The following example is an end-to-end example of store extensibility.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this example scenario, a document processing (DP) application has workflows, each of which uses custom activities for document processing.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>These workflows have a set of state variables that need to be made visible to the end user.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To achieve this, the DP application provides an instance extension of type <ph id="ph1">&lt;xref:System.Activities.Persistence.PersistenceParticipant&gt;</ph>, which is used by activities to supply the state variables.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The new extension is then added to the host.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For more details about adding a custom persistence participant, see the <bpt id="p1">[</bpt>Persistence Participants<ept id="p1">](../../../docs/framework/windows-workflow-foundation/persistence-participants.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The custom activities in the DP application populate various status fields in the <bpt id="p1">**</bpt>Execute<ept id="p1">**</ept> method.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>When a workflow instance reaches a persistence point, the <bpt id="p1">**</bpt>CollectValues<ept id="p1">**</ept> method of the <bpt id="p2">**</bpt>DocumentStatusExtension<ept id="p2">**</ept> persistence participant saves these properties into the persistence data collection.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>All these properties are passed to <bpt id="p1">**</bpt>SqlWorkflowInstanceStore<ept id="p1">**</ept> by the persistence framework through the <bpt id="p2">**</bpt>SaveWorkflowCommand.InstanceData<ept id="p2">**</ept> collection.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The DP application initializes the SQL Workflow Instance Store and invokes the <bpt id="p1">**</bpt>Promote<ept id="p1">**</ept> method to promote this data.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Based on this promotion information, <bpt id="p1">**</bpt>SqlWorkflowInstanceStore<ept id="p1">**</ept> places the data properties in the columns of the <bpt id="p2">[</bpt>InstancePromotedProperties<ept id="p2">](#InstancePromotedProperties)</ept> view.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To query a subset of the data from the promotion table, the DP application adds a customized view on top of the promotion view.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="InstancePromotedProperties"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> [System.Activities.DurableInstancing.InstancePromotedProperties] view</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Column Name</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Column Type</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>InstanceId</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>GUID</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The workflow instance that this promotion belongs to.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>PromotionName</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>nvarchar(400)</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The name of the promotion itself.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Value1, Value2, Value3,..,Value32</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>sql_variant</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The value of the promoted property itself.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Most SQL primitive data types except binary blobs and strings over 8000 bytes in length can fit in sql_variant.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Value33, Value34, Value35, …, Value64</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>varbinary(max)</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The value of promoted properties that are explicitly declared as varbinary(max).</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

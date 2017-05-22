@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">931b96873b34b64affb6ceb6bfe500cdda8df16e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-create-a-transactional-service.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b1ec4d81f7a148bcea20b0f6be8c1d03ad231834</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">52d0c2f07f829ea10c9a2db20ce5921700113c53</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Transactional Service | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Transactional Service</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates various aspects of creating a transactional service and the use of a client-initiated transaction to coordinate service operations.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Creating a transactional service</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Create a service contract and annotate the operations with the desired setting from the <ph id="ph1">&lt;xref:System.ServiceModel.TransactionFlowOption&gt;</ph> enumeration to specify the incoming transaction requirements.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Note that you can also place the <ph id="ph1">&lt;xref:System.ServiceModel.TransactionFlowAttribute&gt;</ph> on the service class being implemented.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This allows for a single implementation of an interface to use these transaction settings, instead of every implementation.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Create an implementation class, and use the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> to optionally specify a <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.TransactionIsolationLevel%2A&gt;</ph> and a <ph id="ph3">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.TransactionTimeout%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You should note that in many cases, the default <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.TransactionTimeout%2A&gt;</ph> of 60 seconds and the default <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.TransactionIsolationLevel%2A&gt;</ph> of <ph id="ph3">`Unspecified`</ph> are appropriate.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For each operation, you can use the <ph id="ph1">&lt;xref:System.ServiceModel.OperationBehaviorAttribute&gt;</ph> attribute to specify whether work performed within the method should occur within the scope of a transaction scope according to the value of the <ph id="ph2">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>In this case, the transaction used for the <ph id="ph1">`Add`</ph> method is the same as the mandatory incoming transaction that is flowed from the client, and the transaction used for the <ph id="ph2">`Subtract`</ph> method is either the same as the incoming transaction if one was flowed from the client, or a new implicitly and locally created transaction.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Configure the bindings in the configuration file, specifying that the transaction context should be flowed, and the protocols to be used to do so.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>ServiceModel Transaction Configuration<ept id="p1">](../../../../docs/framework/wcf/feature-details/servicemodel-transaction-configuration.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Specifically, the binding type is specified in the endpoint element’s <ph id="ph1">`binding`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>endpoint&gt;<ept id="p1">](http://msdn.microsoft.com/en-us/13aa23b7-2f08-4add-8dbf-a99f8127c017)</ept> element contains a <ph id="ph2">`bindingConfiguration`</ph> attribute that references a binding configuration named <ph id="ph3">`transactionalOleTransactionsTcpBinding`</ph>, as shown in the following sample configuration.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Transaction flow is enabled at the configuration level by using the <ph id="ph1">`transactionFlow`</ph> attribute, and the transaction protocol is specified using the <ph id="ph2">`transactionProtocol`</ph> attribute, as shown in the following configuration.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Supporting multiple transaction protocols</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For optimal performance, you should use the OleTransactions protocol for scenarios involving a client and service written using <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>However, the WS-AtomicTransaction (WS-AT) protocol is useful for scenarios when interoperability with third-party protocol stacks is required.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You can configure <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> services to accept both protocols by providing multiple endpoints with appropriate protocol-specific bindings, as shown in the following sample configuration.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The transaction protocol is specified using the <ph id="ph1">`transactionProtocol`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, this attribute is absent from the system-provided <ph id="ph1">`wsHttpBinding`</ph>, because this binding can only use the WS-AT protocol.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Controlling the completion of a transaction</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> operations automatically complete transactions if no unhandled exceptions are thrown.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You can modify this behavior by using the <ph id="ph1">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionAutoComplete%2A&gt;</ph> property and the <ph id="ph2">&lt;xref:System.ServiceModel.OperationContext.SetTransactionComplete%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When an operation is required to occur within the same transaction as another operation (for example, a debit and credit operation), you can disable the autocomplete behavior by setting the <ph id="ph1">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionAutoComplete%2A&gt;</ph> property to <ph id="ph2">`false`</ph> as shown in the following <ph id="ph3">`Debit`</ph> operation example.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The transaction the <ph id="ph1">`Debit`</ph> operation uses is not completed until a method with the <ph id="ph2">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionAutoComplete%2A&gt;</ph> property set to <ph id="ph3">`true`</ph> is called, as shown in the operation <ph id="ph4">`Credit1`</ph>, or when the <ph id="ph5">&lt;xref:System.ServiceModel.OperationContext.SetTransactionComplete%2A&gt;</ph> method is called to explicitly mark the transaction as complete, as shown in the operation <ph id="ph6">`Credit2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Note that the two credit operations are shown for illustration purposes, and that a single credit operation would be more typical.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For the purposes of transaction correlation, setting the <ph id="ph1">&lt;xref:System.ServiceModel.OperationBehaviorAttribute.TransactionAutoComplete%2A&gt;</ph> property to <ph id="ph2">`false`</ph> requires the use of a sessionful binding.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This requirement is specified with the <ph id="ph1">`SessionMode`</ph> property on the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceContractAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Controlling the lifetime of a transactional service instance</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.ReleaseServiceInstanceOnTransactionComplete%2A&gt;</ph> property to specify whether the underlying service instance is released when a transaction completes.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Since this defaults to <ph id="ph1">`true`</ph>, unless configured otherwise, <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> exhibits an efficient and predictable "just-in-time" activation behavior.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Calls to a service on a subsequent transaction are assured a new service instance with no remnants of the previous transaction's state.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>While this is often useful, sometimes you may want to maintain state within the service instance beyond the transaction completion.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Examples of this would be when required state or handles to resources are expensive to retrieve or reconstitute.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You can do this by setting the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.ReleaseServiceInstanceOnTransactionComplete%2A&gt;</ph> property to <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>With that setting, the instance and any associated state will be available on subsequent calls.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When using this, give careful consideration to when and how state and transactions will be cleared and completed.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The following sample demonstrates how to do this by maintaining the instance with the <ph id="ph1">`runningTotal`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Since the instance lifetime is a behavior that is internal to the service, and controlled through the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> property, no modification to the service configuration or service contract is required to set the instance behavior.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In addition, the wire will contain no representation of this.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

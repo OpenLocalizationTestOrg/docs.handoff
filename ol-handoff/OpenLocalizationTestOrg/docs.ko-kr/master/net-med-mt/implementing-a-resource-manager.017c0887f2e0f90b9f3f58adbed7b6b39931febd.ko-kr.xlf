@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f92d9af7d3848756bb28a61ee2cd76f9db820c7d</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\transactions\implementing-a-resource-manager.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">10e4f2b42eda48edcca520a3e2c85d309860f90c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2506139980855fe9a5dcd24672e28240b5485005</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Implementing a Resource Manager | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Implementing a Resource Manager</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Each resource used in a transaction is managed by a resource manager, whose actions are coordinated by a transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Resource managers work in cooperation with the transaction manager to provide the application with a guarantee of atomicity and isolation.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Microsoft SQL Server, durable message queues, in-memory hash tables are all examples of resource managers.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A resource manager manages either durable or volatile data.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The durability (or conversely the volatility) of a resource manager refers to whether the resource manager supports failure recovery.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If a resource manager supports failure recovery, it persists data to durable storage during Phase1 (prepare) such that if the resource manager goes down, it can re-enlist in the transaction upon recovery and perform the proper actions based on the notifications received from the transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In general, volatile resource managers manage volatile resources such as an in-memory data structure (for example, an in-memory transacted-hashtable), and durable resource managers manage resources that have a more persistent backing store (for example, a database whose backing store is disk).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In order for a resource to participate in a transaction, it must enlist in the transaction.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction&gt;</ph> class defines a set of methods whose names begin with <bpt id="p1">**</bpt>Enlist<ept id="p1">**</ept> that provide this functionality.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The different <bpt id="p1">**</bpt>Enlist<ept id="p1">**</ept> methods correspond to the different types of enlistment that a resource manager may have.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Specifically, you use the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> methods for volatile resources, and the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method for durable resources.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For simplicity, after deciding whether to use the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> method based on your resource's durability support, you should enlist your resource to participate in Two Phase Commit (2PC) by implementing the <ph id="ph3">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface for your resource manager.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For more information on 2PC, see <bpt id="p1">[</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>By enlisting, the resource manager ensures that it gets callbacks from the transaction manager when the transaction commits or aborts.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>There is one instance of <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> per enlistment.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Typically, there is one enlistment per transaction, but a resource manager can choose to enlist multiple times in the same transaction.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>After enlistment, the resource manager responds to the transaction's requests.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A durable resource manager stores enough information to allow it to either undo or redo the transaction's work on resources it manages.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>There are many ways to do this; keeping versions of data or keeping a log of the changes are two common techniques.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When the application commits the transaction, the transaction manager initiates the two-phase commit protocol.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The transaction manager first asks each enlisted resource manager if it is prepared to commit the transaction.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The resource manager must prepare to commit—it readies itself to either commit or abort the transaction.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>During the prepare phase, the durable resource manager records the old and new data in stable storage so that the resource manager can recover it even if the system fails.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If the resource manager can prepare, it informs the transaction manager its vote on whether to commit or abort the transaction.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If any resource manager reports a failure to prepare, the transaction manager sends a rollback command to each resource manager and indicates the failure of the commit to the application.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Once prepared, a resource manager must wait until it gets a commit or abort callback from the transaction manager in phase 2.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Typically, the entire prepare and commit protocol completes in a fraction of a second.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>If there are system or communication failures, the commit or abort notification may not arrive for minutes or hours.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>During this period, the resource manager is in doubt about the outcome of the transaction.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It does not know whether the transaction committed or aborted.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>While the resource manager is in doubt about a transaction, it keeps the data modified by keeping the transaction locked, thereby isolating these changes from any other transactions.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When a resource manager fails, all of its enlisted transactions are aborted except for those that are prepared or committed prior to the failure.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When a durable resource manager restarts, it reconstructs the committed state of the resources it manages by retrieving the prepare information written in the prepare phase, and commits or aborts these transactions accordingly.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In summary, the two-phase commit protocol and the resource managers combine to make transactions atomic and durable.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction&gt;</ph> class also provides the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph> method to enlist a Promotable Single Phase Enlistment (PSPE).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This allows a durable resource manager (RM) to host and "own" a transaction that can later be escalated to be managed by the MSDTC if necessary.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>For more information on this, see <bpt id="p1">[</bpt>Optimization using Single Phase Commit and Promotable Single Phase Notification<ept id="p1">](../../../../docs/framework/data/transactions/optimization-spc-and-promotable-spn.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>In This Section</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The steps generally followed by a resource manager are outlined in the following topics.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Enlisting Resources as Participants in a Transaction<ept id="p1">](../../../../docs/framework/data/transactions/enlisting-resources-as-participants-in-a-transaction.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Describes how a durable or volatile resource can enlist in a transaction.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Describes how a resource manager responds to commit notification and prepare the commit.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Performing Recovery<ept id="p1">](../../../../docs/framework/data/transactions/performing-recovery.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Describes how a durable resource manager recovers from failure.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Security Trust Levels in Accessing Resources<ept id="p1">](../../../../docs/framework/data/transactions/security-trust-levels-in-accessing-resources.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Describes how the three levels of trust for System.Transactions restrict access on the types of resources that <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> exposes.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Optimization using Single Phase Commit and Promotable Single Phase Notification<ept id="p1">](../../../../docs/framework/data/transactions/optimization-spc-and-promotable-spn.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Describes optimization practices available to implementations of resource managers.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

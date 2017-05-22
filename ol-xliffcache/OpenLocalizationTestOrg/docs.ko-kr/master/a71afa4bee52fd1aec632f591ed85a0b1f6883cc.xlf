@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a71afa4bee52fd1aec632f591ed85a0b1f6883cc</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\visual-basic\programming-guide\concepts\async\using-async-for-file-access.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">56ffdc0d712d78affaad8f1bd69bf26699d8e87f</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dc7ccd2f6a9c2f09ba09bb7e458ffdae74dd7e73</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using Async for File Access (Visual Basic) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using Async for File Access (Visual Basic)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>You can use the Async feature to access files.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By using the Async feature, you can call into asynchronous methods without using callbacks or splitting your code across multiple methods or lambda expressions.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>To make synchronous code asynchronous, you just call an asynchronous method instead of a synchronous method and add a few keywords to the code.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You might consider the following reasons for adding asynchrony to file access calls:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Asynchrony makes UI applications more responsive because the UI thread that launches the operation can perform other work.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If the UI thread must execute code that takes a long time (for example, more than 50 milliseconds), the UI may freeze until the I/O is complete and the UI thread can again process keyboard and mouse input and other events.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Asynchrony improves the scalability of ASP.NET and other server-based applications by reducing the need for threads.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the application uses a dedicated thread per response and a thousand requests are being handled simultaneously, a thousand threads are needed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Asynchronous operations often don’t need to use a thread during the wait.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>They use the existing I/O completion thread briefly at the end.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The latency of a file access operation might be very low under current conditions, but the latency may greatly increase in the future.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, a file may be moved to a server that's across the world.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The added overhead of using the Async feature is small.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Asynchronous tasks can easily be run in parallel.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Running the Examples</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To run the examples in this topic, you can create a <bpt id="p1">**</bpt>WPF Application<ept id="p1">**</ept> or a <bpt id="p2">**</bpt>Windows Forms Application<ept id="p2">**</ept> and then add a <bpt id="p3">**</bpt>Button<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In the button's <ph id="ph1">`Click`</ph> event, add a call to the first method in each example.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In the following examples, include the following <ph id="ph1">`Imports`</ph> statements.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Use of the FileStream Class</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The examples in this topic use the <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> class, which has an option that causes asynchronous I/O to occur at the operating system level.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>By using this option, you can avoid blocking a ThreadPool thread in many cases.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To enable this option, you specify the <ph id="ph1">`useAsync=true`</ph> or <ph id="ph2">`options=FileOptions.Asynchronous`</ph> argument in the constructor call.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You can’t use this option with <ph id="ph1">&lt;xref:System.IO.StreamReader&gt;</ph> and <ph id="ph2">&lt;xref:System.IO.StreamWriter&gt;</ph> if you open them directly by specifying a file path.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>However, you can use this option if you provide them a <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph> that the <ph id="ph2">&lt;xref:System.IO.FileStream&gt;</ph> class opened.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Note that asynchronous calls are faster in UI apps even if a ThreadPool thread is blocked, because the UI thread isn’t blocked during the wait.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Writing Text</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The following example writes text to a file.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>At each await statement, the method immediately exits.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>When the file I/O is complete, the method resumes at the statement that follows the await statement.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Note that the async modifier is in the definition of methods that use the await statement.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The original example has the statement <ph id="ph1">`Await sourceStream.WriteAsync(encodedText, 0, encodedText.Length)`</ph>, which is a contraction of the following two statements:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The first statement returns a task and causes file processing to start.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The second statement with the await causes the method to immediately exit and return a different task.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When the file processing later completes, execution returns to the statement that follows the await.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For more information, see  <bpt id="p1">[</bpt>Control Flow in Async Programs (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/control-flow-in-async-programs.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Reading Text</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following example reads text from a file.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The text is buffered and, in this case, placed into a <ph id="ph1">&lt;xref:System.Text.StringBuilder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Unlike in the previous example, the evaluation of the await produces a value.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IO.Stream.ReadAsync%2A&gt;</ph> method returns a <ph id="ph2">&lt;xref:System.Threading.Tasks.Task&gt;</ph><ph id="ph3">\&lt;</ph><ph id="ph4">&lt;xref:System.Int32&gt;</ph>&gt;, so the evaluation of the await produces an <ph id="ph5">`Int32`</ph> value (<ph id="ph6">`numRead`</ph>) after the operation completes.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Async Return Types (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/async-return-types.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Parallel Asynchronous I/O</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates parallel processing by writing 10 text files.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For each file, the <ph id="ph1">&lt;xref:System.IO.Stream.WriteAsync%2A&gt;</ph> method returns a task that is then added to a list of tasks.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Await Task.WhenAll(tasks)`</ph> statement exits the method and resumes within the method when file processing is complete for all of the tasks.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The example closes all <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> instances in a <ph id="ph2">`Finally`</ph> block after the tasks are complete.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If each <ph id="ph1">`FileStream`</ph> was instead created in a <ph id="ph2">`Imports`</ph> statement, the <ph id="ph3">`FileStream`</ph> might be disposed of before the task was complete.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Note that any performance boost is almost entirely from the parallel processing and not the asynchronous processing.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The advantages of asynchrony are that it doesn’t tie up multiple threads, and that it doesn’t tie up the user interface thread.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>When using the <ph id="ph1">&lt;xref:System.IO.Stream.WriteAsync%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.IO.Stream.ReadAsync%2A&gt;</ph> methods, you can specify a <ph id="ph3">&lt;xref:System.Threading.CancellationToken&gt;</ph>, which you can use to cancel the operation mid-stream.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Fine-Tuning Your Async Application (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/fine-tuning-your-async-application.md)</ept> and <bpt id="p2">[</bpt>Cancellation in Managed Threads<ept id="p2">](../../../../standard/threading/cancellation-in-managed-threads.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Asynchronous Programming with Async and Await (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Async Return Types (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/async-return-types.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Control Flow in Async Programs (Visual Basic)<ept id="p1">](../../../../visual-basic/programming-guide/concepts/async/control-flow-in-async-programs.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
