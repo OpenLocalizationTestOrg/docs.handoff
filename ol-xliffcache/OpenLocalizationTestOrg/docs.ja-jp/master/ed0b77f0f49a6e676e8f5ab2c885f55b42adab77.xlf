@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ed0b77f0f49a6e676e8f5ab2c885f55b42adab77</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\walkthrough-creating-custom-client-and-service-credentials.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cfdf3021901c11eb863df51b917e9a9cea16185a</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d439ab4f5b554528ed8259b9fa9bc0f1b21bef2d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Creating Custom Client and Service Credentials | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Creating Custom Client and Service Credentials</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic shows how to implement custom client and service credentials and how to use custom credentials from application code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Credentials Extensibility Classes</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceCredentials&gt;</ph> classes are the main entry points to the <ph id="ph3">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> security extensibility.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>These credentials classes provide the APIs that enable application code to set credentials information and to convert credential types into security tokens.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>(<bpt id="p1">*</bpt>Security tokens<ept id="p1">*</ept> are the form used to transmit credential information inside SOAP messages.) The responsibilities of these credentials classes can be divided into two areas:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Provide the APIs for applications to set credentials information.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Perform as a factory for <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph> implementations.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Both the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceCredentials&gt;</ph> classes inherit from the abstract <ph id="ph3">&lt;xref:System.ServiceModel.Security.SecurityCredentialsManager&gt;</ph> class that defines the contract for returning the <ph id="ph4">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> the credentials classes and how they fit into the <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security architecture, see <bpt id="p1">[</bpt>Security Architecture<ept id="p1">](http://msdn.microsoft.com/en-us/16593476-d36a-408d-808c-ae6fd483e28f)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The default implementations provided in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> support the system-provided credential types and create a security token manager that is capable of handling those credentials types.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Reasons to Customize</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>There are multiple reasons for customizing either client or service credential classes.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Foremost is the requirement to change the default <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security behavior with regard to handling system-provided credential types, especially for the following reasons:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Changes that are not possible using other extensibility points.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Adding new credential types.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Adding new custom security token types.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This topic describes how to implement custom client and service credentials and how to use them from application code.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>First in a Series</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Creating a custom credentials class is only the first step, because the reason for customizing credentials is to change <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> behavior regarding credentials provisioning, security token serialization, or authentication.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Other topics in this section describe how to create custom serializers and authenticators.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In this regard, creating custom credential class is the first topic in the series.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Subsequent actions (creating custom serializers and authenticators) can be done only after creating custom credentials.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Additional topics that build upon this topic include:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Create a Custom Security Token Provider<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-provider.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Create a Custom Security Token Authenticator<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-authenticator.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Create a Custom Token<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-token.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Procedures</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To implement custom client credentials</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Define a new class derived from the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Add new methods or properties for new credential types.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If you do not add new credential types, skip this step.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The following example adds a <ph id="ph1">`CreditCardNumber`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Security.SecurityCredentialsManager.CreateSecurityTokenManager%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This method is automatically called by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> security infrastructure when the custom client credential is used.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This method is responsible for creating and returning an instance of an implementation of the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>It is important to note that the <ph id="ph1">&lt;xref:System.ServiceModel.Security.SecurityCredentialsManager.CreateSecurityTokenManager%2A&gt;</ph> method is overridden to create a custom security token manager.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The security token manager, derived from <ph id="ph1">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager&gt;</ph>, must return a custom security token provider, derived from <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenProvider&gt;</ph>, to create the actual security token.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>If you do not follow this pattern for creating security tokens, your application may function incorrectly when <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph> objects are cached (which is the default behavior for WCF client proxies), potentially resulting in an elevation of privilege attack.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The custom credential object is cached as part of the <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>However, the custom <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph> is created on every invocation, which mitigates the security threat as long as the token creation logic is placed in the <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials.CloneCore%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#1)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/client/client.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>To implement a custom client security token manager</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Define a new class derived from <ph id="ph1">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%28System.IdentityModel.Selectors.SecurityTokenRequirement%29&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenProvider&gt;</ph> implementation must be created.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph>custom security token providers, see <bpt id="p1">[</bpt>How to: Create a Custom Security Token Provider<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-provider.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator%28System.IdentityModel.Selectors.SecurityTokenRequirement%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%40%29&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator&gt;</ph> implementation must be created.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph>custom security token authenticators, see <bpt id="p1">[</bpt>How to: Create a Custom Security Token Authenticator<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-authenticator.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenSerializer%2A&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenSerializer&gt;</ph> must be created.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph>custom security tokens and custom security token serializers, see <bpt id="p1">[</bpt>How to: Create a Custom Token<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-token.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/client/client.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To use a custom client credentials from application code</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Either create an instance of the generated client that represents the service interface, or create an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph> pointing to a service you want to communicate with.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Remove the system-provided client credentials behavior from the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A&gt;</ph> collection, which can be accessed through the <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory.Endpoint%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Create a new instance of a custom client credentials class and add it to the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A&gt;</ph> collection, which can be accessed through the <ph id="ph2">&lt;xref:System.ServiceModel.ChannelFactory.Endpoint%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#3<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/client/client.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The previous procedure shows how to use client credentials from application code.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> credentials can also be configured using the application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Using application configuration is often preferable to hard-coding because it enables modification of application parameters without having to modify the source, recompiling, and redeployment.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The next procedure describes how to provide support for configuration of custom credentials.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Creating a configuration handler for custom client credentials</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Define a new class derived from <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.ClientCredentialsElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Add properties for all additional configuration parameters that you want to expose through application configuration.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The example below adds one property named <ph id="ph1">`CreditCardNumber`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement.BehaviorType%2A&gt;</ph> property to return the type of the custom client credentials class created with the configuration element.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement.CreateBehavior%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The method is responsible for creating and returning an instance of the custom credential class based on the settings loaded from the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Call the base <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.ClientCredentialsElement.ApplyConfiguration%28System.ServiceModel.Description.ClientCredentials%29&gt;</ph> method from this method to retrieve the system-provided credentials settings loaded into your custom client credentials instance.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If you added additional properties in step 2, you need to override the <ph id="ph1">&lt;xref:System.Configuration.ConfigurationElement.Properties%2A&gt;</ph> property in order to register your additional configuration settings for the configuration framework to recognize them.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Combine your properties with the base class properties to allow the system-provided settings to be configured through this custom client credentials configuration element.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#7<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#7)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#7<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/service/service.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Once you have the configuration handler class, it can be integrated into the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> configuration framework.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>That enables the custom client credentials to be used in the client endpoint behavior elements, as shown in the next procedure.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>To register and use a custom client credentials configuration handler in the application configuration</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Add an &lt;<ph id="ph1">`extensions`</ph>&gt; element and a &lt;<ph id="ph2">`behaviorExtensions`</ph>&gt; element to the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Add an &lt;<ph id="ph1">`add`</ph>&gt; element to the &lt;<ph id="ph2">`behaviorExtensions`</ph>&gt; element and set the <ph id="ph3">`name`</ph> attribute to an appropriate value.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">`type`</ph> attribute to the fully-qualified type name.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Also include the assembly name and other assembly attributes.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>After registering your configuration handler, the custom credentials element can be used inside the same configuration file instead of the system-provided &lt;<ph id="ph1">`clientCredentials`</ph>&gt; element.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>You can use both the system-provided properties and any new properties that you have added to your configuration handler implementation.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The following example sets the value of a custom property using the <ph id="ph1">`creditCardNumber`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>To implement custom service credentials</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Define a new class derived from <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceCredentials&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Add new properties to provide APIs for new credential values that are being added.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>If you do not add new credential values, skip this step.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The following example adds an <ph id="ph1">`AdditionalCertificate`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Security.SecurityCredentialsManager.CreateSecurityTokenManager%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>This method is automatically called by the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> infrastructure when the custom client credential is used.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>The method is responsible for creating and returning an instance of an implementation of the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager&gt;</ph> class (described in the next procedure).</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceCredentials.CloneCore%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This is required only if adding new properties or internal fields to the custom client credentials implementation.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#4<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/service/service.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>To implement a custom service security token manager</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Define a new class derived from the <ph id="ph1">&lt;xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenProvider&gt;</ph> implementation must be created.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph>custom security token providers, see <bpt id="p1">[</bpt>How to: Create a Custom Security Token Provider<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-provider.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator%2A&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator&gt;</ph> implementation must be created.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> custom security token authenticators, see <bpt id="p1">[</bpt>How to: Create a Custom Security Token Authenticator<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-authenticator.md)</ept> topic.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Optional.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenSerializer%28System.IdentityModel.Selectors.SecurityTokenVersion%29&gt;</ph> method if a custom <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenSerializer&gt;</ph> must be created.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> custom security tokens and custom security token serializers, see <bpt id="p1">[</bpt>How to: Create a Custom Token<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-token.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#5<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/service/service.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>To use custom service credentials from application code</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Create an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Remove the system-provided service credentials behavior from the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceDescription.Behaviors%2A&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Create a new instance of the custom service credentials class and add it to the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceDescription.Behaviors%2A&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomCredentials#6<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_customcredentials/cs/source.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomCredentials#6<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_customcredentials/vb/service/service.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Add support for configuration using the steps described previously in the procedures "<ph id="ph1">`To create a configuration handler for custom client credentials`</ph>" and "<ph id="ph2">`To register and use a custom client credentials configuration handler in the application configuration`</ph>." The only difference is to use the <ph id="ph3">&lt;xref:System.ServiceModel.Configuration.ServiceCredentialsElement&gt;</ph> class instead of the <ph id="ph4">&lt;xref:System.ServiceModel.Configuration.ClientCredentialsElement&gt;</ph> class as a base class for the configuration handler.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The custom service credential element can then be used wherever the system-provided <ph id="ph1">`&lt;serviceCredentials&gt;`</ph> element is used.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a Custom Security Token Provider<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a Custom Security Token Authenticator<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-security-token-authenticator.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create a Custom Token<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-token.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

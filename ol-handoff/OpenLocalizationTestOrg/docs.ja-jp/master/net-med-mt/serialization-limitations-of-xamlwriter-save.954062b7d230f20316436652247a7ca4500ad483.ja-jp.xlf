@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e885d844a3864fc0b63c4cd86d31b8a107372e83</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\serialization-limitations-of-xamlwriter-save.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3a1325e778531ab9df1073c13d5bec06681ff573</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6eab83d905116a27b4fd5ced302364f7076a2004</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Serialization Limitations of XamlWriter.Save | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Serialization Limitations of XamlWriter.Save</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA#tla_api](../../../../includes/tlasharptla-api-md.md)]</ph> <ph id="ph2">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> can be used to serialize the contents of a <ph id="ph3">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> application as a <ph id="ph4">[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]</ph> file.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>However, there are some notable limitations in exactly what is serialized.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These limitations and some general considerations are documented in this topic.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Run-Time, Not Design-Time Representation</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The basic philosophy of what is serialized by a call to <ph id="ph1">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> is that the result will be a representation of the object being serialized, at run-time.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Many design-time properties of the original <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> file may already be optimized or lost by the time that the <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> is loaded as in-memory objects, and are not preserved when you call <ph id="ph3">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> to serialize.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The serialized result is an effective representation of the constructed logical tree of the application, but not necessarily of the original <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> that produced it.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>These issues make it extremely difficult to use the <ph id="ph1">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> serialization as part of an extensive <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> design surface.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Serialization is Self-Contained</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The serialized output of <ph id="ph1">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> is self-contained; everything that is serialized is contained inside a <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> single page, with a single root element, and no external references other than <ph id="ph3">[!INCLUDE[TLA2#tla_uri#plural](../../../../includes/tla2sharptla-urisharpplural-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For instance, if your page referenced resources from application resources, these will appear as if they were a component of the page being serialized.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Extension References are Dereferenced</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Common references to objects made by various markup extension formats, such as <ph id="ph1">`StaticResource`</ph> or <ph id="ph2">`Binding`</ph>, will be dereferenced by the serialization process.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>These were already dereferenced at the time that in-memory objects were created by the application runtime, and the <ph id="ph1">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> logic does not revisit the original <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> to restore such references to the serialized output.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This potentially freezes any databound or resource obtained value to be the value last used by the run-time representation, with only limited or indirect ability to distinguish such a value from any other value set locally.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Images are also serialized as object references to images as they exist in the project, rather than as original source references, losing whatever filename or <ph id="ph1">[!INCLUDE[TLA2#tla_uri](../../../../includes/tla2sharptla-uri-md.md)]</ph> was originally referenced.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Even resources declared within the same page are seen serialized into the point where they were referenced, rather than being preserved as a key of a resource collection.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Event Handling is Not Preserved</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When event handlers that are added through <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> are serialized, they are not preserved.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> without code-behind (and also without the related x:Code mechanism) has no way of serializing runtime procedural logic.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Because serialization is self-contained and limited to the logical tree, there is no facility for storing the event handlers.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As a result, event handler attributes, both the attribute itself and the string value that names the handler, are removed from the output <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Realistic Scenarios for Use of XAMLWriter.Save</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>While the limitations listed here are fairly substantial, there are still several appropriate scenarios for using <ph id="ph1">&lt;xref:System.Windows.Markup.XamlWriter.Save%2A&gt;</ph> for serialization.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Vector or graphical output: The output of the rendered area can be used to reproduce the same vector or graphics when reloaded.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Rich text and flow documents: Text and all element formatting and element containment within it is preserved in the output.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>This can be useful for mechanisms that approximate a clipboard functionality.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Preserving business object data: If you have stored data in custom elements, such as <ph id="ph1">[!INCLUDE[TLA2#tla_xml](../../../../includes/tla2sharptla-xml-md.md)]</ph> data, so long as your business objects follow basic <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> rules such as providing custom constructors and conversion for by-reference property values, these business objects can be perpetuated through serialization.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

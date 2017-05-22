@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a24afcafe51d91ea3ee23ecf9add9d5a58a42b0b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\custom-dependency-properties.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bf6a67cbdce13cdc6b90eb36e0fc6ea95358e800</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c0aac08b8a74bb5b758068c435521c9a59a93a35</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Dependency Properties | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes the reasons that <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> application developers and component authors might want to create custom dependency property, and describes the implementation steps as well as some implementation options that can improve performance, usability, or versatility of the property.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic assumes that you understand dependency properties from the perspective of a consumer of existing dependency properties on <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> classes, and have read the <bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept> topic.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In order to follow the examples in this topic, you should also understand <ph id="ph1">[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]</ph> and know how to write <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> applications.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>What Is a Dependency Property?</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>You can enable what would otherwise be a <ph id="ph1">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> property to support styling, data binding, inheritance, animations, and default values by implementing it as a dependency property.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Dependency properties are properties that are registered with the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> property system by calling the <ph id="ph2">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> method (or <ph id="ph3">&lt;xref:System.Windows.DependencyProperty.RegisterReadOnly%2A&gt;</ph>), and that are backed by a <ph id="ph4">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier field.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Dependency properties can be used only by <ph id="ph1">&lt;xref:System.Windows.DependencyObject&gt;</ph> types, but <ph id="ph2">&lt;xref:System.Windows.DependencyObject&gt;</ph> is quite high in the <ph id="ph3">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> class hierarchy, so the majority of classes available in <ph id="ph4">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> can support dependency properties.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For more information about dependency properties and some of the terminology and conventions used for describing them in this <ph id="ph1">[!INCLUDE[TLA2#tla_sdk](../../../../includes/tla2sharptla-sdk-md.md)]</ph>, see <bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Examples of Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Examples of dependency properties that are implemented on <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> classes include the <ph id="ph2">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> property, the <ph id="ph3">&lt;xref:System.Windows.FrameworkElement.Width%2A&gt;</ph> property, and the <ph id="ph4">&lt;xref:System.Windows.Controls.TextBox.Text%2A&gt;</ph> property, among many others.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Each dependency property exposed by a class has a corresponding public static field of type <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> exposed on that same class.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This is the identifier for the dependency property.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The identifier is named using a convention: the name of the dependency property with the string <ph id="ph1">`Property`</ph> appended to it.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For example, the corresponding <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier field for the <ph id="ph2">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> property is <ph id="ph3">&lt;xref:System.Windows.Controls.Control.BackgroundProperty&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The identifier stores the information about the dependency property as it was registered, and the identifier is then used later for other operations involving the dependency property, such as calling <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>As mentioned in the <bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept>, all dependency properties in <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> (except most attached properties) are also <ph id="ph2">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> properties because of the "wrapper" implementation.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Therefore, from code, you can get or set dependency properties by calling <ph id="ph1">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> accessors that define the wrappers in the same manner that you would use other <ph id="ph2">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>As a consumer of established dependency properties, you do not typically use the <ph id="ph1">&lt;xref:System.Windows.DependencyObject&gt;</ph> methods <ph id="ph2">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph>, which are the connection point to the underlying property system.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Rather, the existing implementation of the <ph id="ph1">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> properties will have already called <ph id="ph2">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> within the <ph id="ph4">`get`</ph> and <ph id="ph5">`set`</ph> wrapper implementations of the property, using the identifier field appropriately.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If you are implementing a custom dependency property yourself, then you will be defining the wrapper in a similar way.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When Should You Implement a Dependency Property?</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When you implement a property on a class, so long as your class derives from <ph id="ph1">&lt;xref:System.Windows.DependencyObject&gt;</ph>, you have the option to back your property with a <ph id="ph2">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier and thus to make it a dependency property.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Having your property be a dependency property is not always necessary or appropriate, and will depend on your scenario needs.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Sometimes, the typical technique of backing your property with a private field is adequate.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>However, you should implement your property as a dependency property whenever you want your property to support one or more of the following <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> capabilities:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You want your property to be settable in a style.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Styling and Templating<ept id="p1">](../../../../docs/framework/wpf/controls/styling-and-templating.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>You want your property to support data binding.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information about data binding dependency properties, see <bpt id="p1">[</bpt>Bind the Properties of Two Controls<ept id="p1">](../../../../docs/framework/wpf/data/how-to-bind-the-properties-of-two-controls.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>You want your property to be settable with a dynamic resource reference.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>XAML Resources<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-resources.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>You want to inherit a property value automatically from a parent element in the element tree.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In this case, register with the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.RegisterAttached%2A&gt;</ph> method, even if you also create a property wrapper for <ph id="ph2">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> access.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Property Value Inheritance<ept id="p1">](../../../../docs/framework/wpf/advanced/property-value-inheritance.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>You want your property to be animatable.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Animation Overview<ept id="p1">](../../../../docs/framework/wpf/graphics-multimedia/animation-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>You want the property system to report when the previous value of the property has been changed by actions taken by the property system, the environment, or the user, or by reading and using styles.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>By using property metadata, your property can specify a callback method that will be invoked each time the property system determines that your property value was definitively changed.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>A related concept is property value coercion.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Dependency Property Callbacks and Validation<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-callbacks-and-validation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>You want to use established metadata conventions that are also used by <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> processes, such as reporting whether changing a property value should require the layout system to recompose the visuals for an element.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Or you want to be able to use metadata overrides so that derived classes can change metadata-based characteristics such as the default value.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You want properties of a custom control to receive <ph id="ph1">[!INCLUDE[vs_orcas_long](../../../../includes/vs-orcas-long-md.md)]</ph> <ph id="ph2">[!INCLUDE[wpfdesigner_current_short](../../../../includes/wpfdesigner-current-short-md.md)]</ph> support, such as <bpt id="p1">**</bpt>Properties<ept id="p1">**</ept> window editing.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Control Authoring Overview<ept id="p1">](../../../../docs/framework/wpf/controls/control-authoring-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>When you examine these scenarios, you should also consider whether you can achieve your scenario by overriding the metadata of an existing dependency property, rather than implementing a completely new property.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Whether a metadata override is practical depends on your scenario and how closely that scenario resembles the implementation in existing <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> dependency properties and classes.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information about overriding metadata on existing properties, see <bpt id="p1">[</bpt>Dependency Property Metadata<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-metadata.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Checklist for Defining a Dependency Property</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Defining a dependency property consists of four distinct concepts.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>These concepts are not necessarily strict procedural steps, because some of these end up being combined as single lines of code in the implementation:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>(Optional) Create property metadata for the dependency property.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Register the property name with the property system, specifying an owner type and the type of the property value.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Also specify the property metadata, if used.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Define a <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier as a <ph id="ph2">`public`</ph> <ph id="ph3">`static`</ph> <ph id="ph4">`readonly`</ph> field on the owner type.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Define a <ph id="ph1">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> "wrapper" property whose name matches the name of the dependency property.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> "wrapper" property's <ph id="ph2">`get`</ph> and <ph id="ph3">`set`</ph> accessors to connect with the dependency property that backs it.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Registering the Property with the Property System</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>In order for your property to be a dependency property, you must register that property into a table maintained by the property system, and give it a unique identifier that is used as the qualifier for later property system operations.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>These operations might be internal operations, or your own code calling property system <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>To register the property, you call the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> method within the body of your class (inside the class, but outside of any member definitions).</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The identifier field is also provided by the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> method call, as the return value.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The reason that the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> call is done outside of other member definitions is because you use this return value to assign and create a <ph id="ph2">`public`</ph> <ph id="ph3">`static`</ph> <ph id="ph4">`readonly`</ph> field of type <ph id="ph5">&lt;xref:System.Windows.DependencyProperty&gt;</ph> as part of your class.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This field becomes the identifier for your dependency property.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>WPFAquariumSln#RegisterAG<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/WPFAquariumSln/CSharp/WPFAquariumObjects/Class1.cs#registerag)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>WPFAquariumSln#RegisterAG<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/WPFAquariumSln/visualbasic/wpfaquariumobjects/class1.vb#registerag)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Dependency Property Name Conventions</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>There are established naming conventions regarding dependency properties that you must follow in all but exceptional circumstances.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The dependency property itself will have a basic name, "AquariumGraphic" as in this example, which is given as the first parameter of <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>That name must be unique within each registering type.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Dependency properties inherited through base types are considered to be already part of the registering type; names of inherited properties cannot be registered again.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>However, there is a technique for adding a class as owner of a dependency property even when that dependency property is not inherited; for details, see <bpt id="p1">[</bpt>Dependency Property Metadata<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-metadata.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>When you create the identifier field, name this field by the name of the property as you registered it, plus the suffix <ph id="ph1">`Property`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This field is your identifier for the dependency property, and it will be used later as an input for the <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> calls you will make in the wrappers, by any other code access to the property by your own code, by any external code access you allow, by the property system, and potentially by <ph id="ph3">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processors.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Defining the dependency property in the class body is the typical implementation, but it is also possible to define a dependency property in the class static constructor.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This approach might make sense if you need more than one line of code to initialize the dependency property.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Implementing the "Wrapper"</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Your wrapper implementation should call <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> in the <ph id="ph2">`get`</ph> implementation, and <ph id="ph3">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> in the <ph id="ph4">`set`</ph> implementation (the original registration call and field are shown here too for clarity).</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>In all but exceptional circumstances, your wrapper implementations should perform only the <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> actions, respectively.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The reason for this is discussed in the topic <bpt id="p1">[</bpt>XAML Loading and Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-loading-and-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>All existing public dependency properties that are provided on the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> classes use this simple wrapper implementation model; most of the complexity of how dependency properties work is either inherently a behavior of the property system, or is implemented through other concepts such as coercion or property change callbacks through property metadata.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>WPFAquariumSln#AGWithWrapper<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/WPFAquariumSln/CSharp/WPFAquariumObjects/Class1.cs#agwithwrapper)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>WPFAquariumSln#AGWithWrapper<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/WPFAquariumSln/visualbasic/wpfaquariumobjects/class1.vb#agwithwrapper)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Again, by convention, the name of the wrapper property must be the same as the name chosen and given as first parameter of the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> call that registered the property.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>If your property does not follow the convention, this does not necessarily disable all possible uses, but you will encounter several notable issues:</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Certain aspects of styles and templates will not work.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Most tools and designers must rely on the naming conventions to properly serialize <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph>, or to provide designer environment assistance at a per-property level.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The current implementation of the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> loader bypasses the wrappers entirely, and relies on the naming convention when processing attribute values.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>XAML Loading and Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-loading-and-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Property Metadata for a New Dependency Property</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>When you register a dependency property, the registration through the property system creates a metadata object that stores property characteristics.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Many of these characteristics have defaults that are set if the property is registered with the simple signatures of <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Other signatures of <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> allow you to specify the metadata that you want as you register the property.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The most common metadata given for dependency properties is to give them a default value that is applied on new instances that use the property.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>If you are creating a dependency property that exists on a derived class of <ph id="ph1">&lt;xref:System.Windows.FrameworkElement&gt;</ph>, you can use the more specialized metadata class <ph id="ph2">&lt;xref:System.Windows.FrameworkPropertyMetadata&gt;</ph> rather than the base <ph id="ph3">&lt;xref:System.Windows.PropertyMetadata&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The constructor for the <ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadata&gt;</ph> class has several signatures where you can specify various metadata characteristics in combination.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>If you want to specify the default value only, use the signature that takes a single parameter of type <ph id="ph1">&lt;xref:System.Object&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Pass that object parameter as a type-specific default value for your property (the default value provided must be the type you provided as the <ph id="ph1">`propertyType`</ph> parameter in the <ph id="ph2">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> call).</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>For <ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadata&gt;</ph>, you can also specify metadata option flags for your property.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>These flags are converted into discrete properties on the property metadata after registration and are used to communicate certain conditionals to other processes such as the layout engine.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Setting Appropriate Metadata Flags</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If your property (or changes in its value) affects the <ph id="ph1">[!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)]</ph>, and in particular affects how the layout system should size or render your element in a page, set one or more of the following flags: <ph id="ph2">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> indicates that a change to this property requires a change to <ph id="ph2">[!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]</ph> rendering where the containing object might require more or less space within the parent.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For example, a "Width" property should have this flag set.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> indicates that a change to this property requires a change to <ph id="ph2">[!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]</ph> rendering that typically does not require a change in the dedicated space, but does indicate that the positioning within the space has changed.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>For example, an "Alignment" property should have this flag set.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> indicates that some other change has occurred that will not affect layout and measure, but does require another render.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>An example would be a property that changes a color of an existing element, such as "Background".</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>These flags are often used as a protocol in metadata for your own override implementations of property system or layout callbacks.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>For instance, you might have an <ph id="ph1">&lt;xref:System.Windows.DependencyObject.OnPropertyChanged%2A&gt;</ph> callback that will call <ph id="ph2">&lt;xref:System.Windows.UIElement.InvalidateArrange%2A&gt;</ph> if any property of the instance reports a value change and has <ph id="ph3">&lt;xref:System.Windows.FrameworkPropertyMetadata.AffectsArrange%2A&gt;</ph> as <ph id="ph4">`true`</ph> in its metadata.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Some properties may affect the rendering characteristics of the containing parent element, in ways above and beyond the changes in required size mentioned above.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>An example is the <ph id="ph1">&lt;xref:System.Windows.Documents.Paragraph.MinOrphanLines%2A&gt;</ph> property used in the flow document model, where changes to that property can change the overall rendering of the flow document that contains the paragraph.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> to identify similar cases in your own properties.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>By default, dependency properties support data binding.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>You can deliberately disable data binding, for cases where there is no realistic scenario for data binding, or where performance in data binding for a large object is recognized as a problem.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>By default, data binding <ph id="ph1">&lt;xref:System.Windows.Data.Binding.Mode%2A&gt;</ph> for dependency properties defaults to <ph id="ph2">&lt;xref:System.Windows.Data.BindingMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>You can always change the binding to be <ph id="ph1">&lt;xref:System.Windows.Data.BindingMode&gt;</ph> per binding instance; for details, see <bpt id="p1">[</bpt>Specify the Direction of the Binding<ept id="p1">](../../../../docs/framework/wpf/data/how-to-specify-the-direction-of-the-binding.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>But as the dependency property author, you can choose to make the property use <ph id="ph1">&lt;xref:System.Windows.Data.BindingMode&gt;</ph> binding mode by default.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>An example of an existing dependency property is <ph id="ph1">&lt;xref:System.Windows.Controls.MenuItem.IsSubmenuOpen%2A?displayProperty=fullName&gt;</ph>; the scenario for this property is that the <ph id="ph2">&lt;xref:System.Windows.Controls.MenuItem.IsSubmenuOpen%2A&gt;</ph> setting logic and the compositing of <ph id="ph3">&lt;xref:System.Windows.Controls.MenuItem&gt;</ph> interact with the default theme style.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.MenuItem.IsSubmenuOpen%2A&gt;</ph> property logic uses data binding natively to maintain the state of the property in accordance to other state properties and method calls.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Another example property that binds <ph id="ph1">&lt;xref:System.Windows.Data.BindingMode&gt;</ph> by default is <ph id="ph2">&lt;xref:System.Windows.Controls.TextBox.Text%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>You can also enable property inheritance in a custom dependency property by setting the <ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Property inheritance is useful for a scenario where parent elements and child elements have a property in common, and it makes sense for the child elements to have that particular property value set to the same value as the parent set it.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>An example inheritable property is <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.DataContext%2A&gt;</ph>, which is used for binding operations to enable the important master-detail scenario for data presentation.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>By making <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.DataContext%2A&gt;</ph> inheritable, any child elements inherit that data context also.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Because of property value inheritance, you can specify a data context at the page or application root, and do not need to respecify it for bindings in all possible child elements.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkElement.DataContext%2A&gt;</ph> is also a good example to illustrate that inheritance overrides the default value, but it can always be set locally on any particular child element; for details, see <bpt id="p1">[</bpt>Use the Master-Detail Pattern with Hierarchical Data<ept id="p1">](../../../../docs/framework/wpf/data/how-to-use-the-master-detail-pattern-with-hierarchical-data.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Property value inheritance does have a possible performance cost, and thus should be used sparingly; for details, see <bpt id="p1">[</bpt>Property Value Inheritance<ept id="p1">](../../../../docs/framework/wpf/advanced/property-value-inheritance.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Windows.FrameworkPropertyMetadataOptions&gt;</ph> flag to indicate if your dependency property should be detected or used by navigation journaling services.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>An example is the <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.Selector.SelectedIndex%2A&gt;</ph> property; any item selected in a selection control should be persisted when the journaling history is navigated.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Read-Only Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>You can define a dependency property that is read-only.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>However, the scenarios for why you might define your property as read-only are somewhat different, as is the procedure for registering them with the property system and exposing the identifier.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Read-Only Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/read-only-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Collection-Type Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Collection-type dependency properties have some additional implementation issues to consider.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>For details, see <bpt id="p1">[</bpt>Collection-Type Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/collection-type-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Dependency Property Security Considerations</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Dependency properties should be declared as public properties.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Dependency property identifier fields should be declared as public static fields.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Even if you attempt to declare other access levels (such as protected), a dependency property can always be accessed through the identifier in combination with the property system <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Even a protected identifier field is potentially accessible because of metadata reporting or value determination <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph> that are part of the property system, such as <ph id="ph2">&lt;xref:System.Windows.LocalValueEnumerator&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Dependency Property Security<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-security.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Dependency Properties and Class Constructors</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>There is a general principle in managed code programming (often enforced by code analysis tools such as FxCop) that class constructors should not call virtual methods.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>This is because constructors can be called as base initialization of a derived class constructor, and entering the virtual method through the constructor might occur at an incomplete initialization state of the object instance being constructed.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>When you derive from any class that already derives from <ph id="ph1">&lt;xref:System.Windows.DependencyObject&gt;</ph>, you should be aware that the property system itself calls and exposes virtual methods internally.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>These virtual methods are part of the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> property system services.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Overriding the methods enables derived classes to participate in value determination.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>To avoid potential issues with runtime initialization, you should not set dependency property values within constructors of classes, unless you follow a very specific constructor pattern.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>For details, see <bpt id="p1">[</bpt>Safe Constructor Patterns for DependencyObjects<ept id="p1">](../../../../docs/framework/wpf/advanced/safe-constructor-patterns-for-dependencyobjects.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Property Metadata<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-metadata.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Control Authoring Overview<ept id="p1">](../../../../docs/framework/wpf/controls/control-authoring-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Collection-Type Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/collection-type-dependency-properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Property Security<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-security.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Loading and Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-loading-and-dependency-properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Safe Constructor Patterns for DependencyObjects<ept id="p1">](../../../../docs/framework/wpf/advanced/safe-constructor-patterns-for-dependencyobjects.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

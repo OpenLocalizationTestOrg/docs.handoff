@@ -1,0 +1,591 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d2df80a63af2cdb2f7e27df75117588cf3a5e247</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\ef\performance-considerations.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4a91179b908e655f730712efceb78183310e9dfd</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f12c185ebfa079c1c58e0f2e9b69c8c5ee4e5322</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Performance Considerations (Entity Framework) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Performance Considerations (Entity Framework)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes performance characteristics of the ADO.NET Entity Framework and provides some considerations to help improve the performance of Entity Framework applications.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Stages of Query Execution</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In order to better understand the performance of queries in the Entity Framework, it is helpful to understand the operations that occur when a query executes against a conceptual model and returns data as objects.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The following table describes this series of operations.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Operation</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Relative Cost</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Frequency</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Comments</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Loading metadata</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Moderate</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Once in each application domain.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Model and mapping metadata used by the Entity Framework is loaded into a <ph id="ph1">&lt;xref:System.Data.Metadata.Edm.MetadataWorkspace&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This metadata is cached globally and is available to other instances of <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> in the same application domain.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Opening the database connection</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Moderate<bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>As needed.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Because an open connection to the database consumes a valuable resource, the <ph id="ph1">[!INCLUDE[adonet_ef](../../../../../includes/adonet-ef-md.md)]</ph> opens and closes the database connection only as needed.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You can also explicitly open the connection.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Managing Connections and Transactions<ept id="p1">](http://msdn.microsoft.com/en-us/b6659d2a-9a45-4e98-acaa-d7a8029e5b99)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Generating views</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>High</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Once in each application domain.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>(Can be pre-generated.)</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Before the Entity Framework can execute a query against a conceptual model or save changes to the data source, it must generate a set of local query views to access the database.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Because of the high cost of generating these views, you can pre-generate the views and add them to the project at design-time.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Pre-Generate Views to Improve Query Performance<ept id="p1">](http://msdn.microsoft.com/en-us/b18a9d16-e10b-4043-ba91-b632f85a2579)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Preparing the query</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Moderate<bpt id="p1">&lt;sup&gt;</bpt>2<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Once for each unique query.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Includes the costs to compose the query command, generate a command tree based on model and mapping metadata, and define the shape of the returned data.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Because now both Entity SQL query commands and LINQ queries are cached, later executions of the same query take less time.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>You can still use compiled LINQ queries to reduce this cost in later executions and compiled queries can be more efficient than LINQ queries that are automatically cached.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Compiled Queries  (LINQ to Entities)<ept id="p1">](../../../../../docs/framework/data/adonet/ef/language-reference/compiled-queries-linq-to-entities.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For general information about LINQ query execution, see <bpt id="p1">[</bpt>LINQ to Entities<ept id="p1">](../../../../../docs/framework/data/adonet/ef/language-reference/linq-to-entities.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept>  LINQ to Entities queries that apply the <ph id="ph1">`Enumerable.Contains`</ph> operator to in-memory collections are not automatically cached.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Also parameterizing in-memory collections in compiled LINQ queries is not allowed.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Executing the query</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Low<bpt id="p1">&lt;sup&gt;</bpt>2<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Once for each query.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The cost of executing the command against the data source by using the ADO.NET data provider.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Because most data sources cache query plans, later executions of the same query may take even less time.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Loading and validating types</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Low<bpt id="p1">&lt;sup&gt;</bpt>3<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Once for each <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Types are loaded and validated against the types that the conceptual model defines.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Tracking</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Low<bpt id="p1">&lt;sup&gt;</bpt>3<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Once for each object that a query returns.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>4<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If a query uses the <ph id="ph1">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> merge option, this stage does not affect performance.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If the query uses the <ph id="ph1">&lt;xref:System.Data.Objects.MergeOption&gt;</ph>, <ph id="ph2">&lt;xref:System.Data.Objects.MergeOption&gt;</ph>, or <ph id="ph3">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> merge option, query results are tracked in the <ph id="ph4">&lt;xref:System.Data.Objects.ObjectStateManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Data.EntityKey&gt;</ph> is generated for each tracked object that the query returns and is used to create an <ph id="ph2">&lt;xref:System.Data.Objects.ObjectStateEntry&gt;</ph> in the <ph id="ph3">&lt;xref:System.Data.Objects.ObjectStateManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If an existing <ph id="ph1">&lt;xref:System.Data.Objects.ObjectStateEntry&gt;</ph> can be found for the <ph id="ph2">&lt;xref:System.Data.EntityKey&gt;</ph>, the existing object is returned.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Data.Objects.MergeOption&gt;</ph>, or <ph id="ph2">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> option is used, the object is updated before it is returned.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Identity Resolution, State Management, and Change Tracking<ept id="p1">](http://msdn.microsoft.com/en-us/3bd49311-0e72-4ea4-8355-38fe57036ba0)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Materializing the objects</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Moderate<bpt id="p1">&lt;sup&gt;</bpt>3<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Once for each object that a query returns.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>4<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The process of reading the returned <ph id="ph1">&lt;xref:System.Data.Common.DbDataReader&gt;</ph> object and creating objects and setting property values that are based on the values in each instance of the <ph id="ph2">&lt;xref:System.Data.Common.DbDataRecord&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If the object already exists in the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> and the query uses the <ph id="ph2">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> merge options, this stage does not affect performance.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Identity Resolution, State Management, and Change Tracking<ept id="p1">](http://msdn.microsoft.com/en-us/3bd49311-0e72-4ea4-8355-38fe57036ba0)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept> When a data source provider implements connection pooling, the cost of opening a connection is distributed across the pool.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The .NET Provider for SQL Server supports connection pooling.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>2<ept id="p1">&lt;/sup&gt;</ept> Cost increases with increased query complexity.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>3<ept id="p1">&lt;/sup&gt;</ept> Total cost increases proportional to the number of objects returned by the query.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>4<ept id="p1">&lt;/sup&gt;</ept> This overhead is not required for EntityClient queries because EntityClient queries return an <ph id="ph1">&lt;xref:System.Data.EntityClient.EntityDataReader&gt;</ph> instead of objects.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>EntityClient Provider for the Entity Framework<ept id="p1">](../../../../../docs/framework/data/adonet/ef/entityclient-provider-for-the-entity-framework.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Additional Considerations</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The following are other considerations that may affect the performance of Entity Framework applications.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Query Execution</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Because queries can be resource intensive, consider at what point in your code and on what computer a query is executed.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Deferred versus immediate execution</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>When you create an <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph> or LINQ query, the query may not be executed immediately.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Query execution is deferred until the results are needed, such as during a <ph id="ph1">`foreach`</ph> (C#) or <ph id="ph2">`For Each`</ph> (Visual Basic) enumeration or when it is assigned to fill a <ph id="ph3">&lt;xref:System.Collections.Generic.List%601&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Query execution begins immediately when you call the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery%601.Execute%2A&gt;</ph> method on an <ph id="ph2">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph> or when you call a LINQ method that returns a singleton query, such as <ph id="ph3">&lt;xref:System.Linq.Enumerable.First%2A&gt;</ph> or <ph id="ph4">&lt;xref:System.Linq.Enumerable.Any%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Object Queries<ept id="p1">](http://msdn.microsoft.com/en-us/0768033c-876f-471d-85d5-264884349276)</ept> and <bpt id="p2">[</bpt>Query Execution (LINQ to Entities)<ept id="p2">](../../../../../docs/framework/data/adonet/ef/language-reference/query-execution.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Client-side execution of LINQ queries</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Although the execution of a LINQ query occurs on the computer that hosts the data source, some parts of a LINQ query may be evaluated on the client computer.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>For more information, see the Store Execution section of <bpt id="p1">[</bpt>Query Execution (LINQ to Entities)<ept id="p1">](../../../../../docs/framework/data/adonet/ef/language-reference/query-execution.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Query and Mapping Complexity</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The complexity of individual queries and of the mapping in the entity model will have a significant effect on query performance.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Mapping complexity</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Models that are more complex than a simple one-to-one mapping between entities in the conceptual model and tables in the storage model generate more complex commands than models that have a one-to-one mapping.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Query complexity</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Queries that require a large number of joins in the commands that are executed against the data source or that return a large amount of data may affect performance in the following ways:</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Queries against a conceptual model that seem simple may result in the execution of more complex queries against the data source.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This can occur because the Entity Framework translates a query against a conceptual model into an equivalent query against the data source.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>When a single entity set in the conceptual model maps to more than one table in the data source, or when a relationship between entities is mapped to a join table, the query command executed against the data source query may require one or more joins.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery.ToTraceString%2A&gt;</ph> method of the <ph id="ph2">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.EntityClient.EntityCommand&gt;</ph> classes to view the commands that are executed against the data source for a given query.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: View the Store Commands<ept id="p1">](http://msdn.microsoft.com/en-us/f9771c6e-3b62-4b24-a5d4-55d68e14fa79)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Nested Entity SQL queries may create joins on the server and can return a large number of rows.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The following is an example of a nested query in a projection clause:</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>In addition, such queries cause the query pipeline to generate a single query with duplication of objects across nested queries.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Because of this, a single column may be duplicated multiple times.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>On some databases, including SQL Server, this can cause the TempDB table to grow very large, which can decrease server performance.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Care should be taken when you execute nested queries.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Any queries that return a large amount of data can cause decreased performance if the client is performing operations that consume resources in a way that is proportional to the size of the result set.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In such cases, you should consider limiting the amount of data returned by the query.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Page Through Query Results<ept id="p1">](http://msdn.microsoft.com/en-us/ffc0f920-e7de-42e0-9b12-ef356421d030)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Any commands automatically generated by the Entity Framework may be more complex than similar commands written explicitly by a database developer.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>If you need explicit control over the commands executed against your data source, consider defining a mapping to a table-valued function or stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Relationships</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>For optimal query performance, you must define relationships between entities both as associations in the entity model and as logical relationships in the data source.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Query Paths</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>By default, when you execute an <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph>, related objects are not returned (although objects that represent the relationships themselves are).</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>You can load related objects in one of three ways:</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Set the query path before the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph> is executed.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">`Load`</ph> method on the navigation property that the object exposes.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContextOptions.LazyLoadingEnabled%2A&gt;</ph> option on the <ph id="ph2">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Note that this is done automatically when you generate object-layer code with the <bpt id="p1">[</bpt>Entity Data Model Designer<ept id="p1">](http://msdn.microsoft.com/en-us/4ccd7ad6-b934-4f7c-82a0-cfd2d4a95faf)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>For more information see <bpt id="p1">[</bpt>Generated Code Overview<ept id="p1">](http://msdn.microsoft.com/en-us/6a88ea38-6a90-4107-bc33-531b79ce5b6a)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>When you consider which option to use, be aware that there is a tradeoff between the number of requests against the database and the amount of data returned in a single query.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Loading Related Objects<ept id="p1">](http://msdn.microsoft.com/en-us/452347d2-7b3b-44cd-9001-231299a28cb1)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Using query paths</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Query paths define the graph of objects that a query returns.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>When you define a query path, only a single request against the database is required to return all objects that the path defines.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Using query paths can result in complex commands being executed against the data source from seemingly simple object queries.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>This occurs because one or more joins are required to return related objects in a single query.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>This complexity is greater in queries against a complex entity model, such as an entity with inheritance or a path that includes many-to-many relationships.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery.ToTraceString%2A&gt;</ph> method to see the command that will be generated by an <ph id="ph2">&lt;xref:System.Data.Objects.ObjectQuery%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: View the Store Commands<ept id="p1">](http://msdn.microsoft.com/en-us/f9771c6e-3b62-4b24-a5d4-55d68e14fa79)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>When a query path includes too many related objects or the objects contain too much row data, the data source might be unable to complete the query.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>This occurs if the query requires intermediate temporary storage that exceeds the capabilities of the data source.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>When this occurs, you can reduce the complexity of the data source query by explicitly loading related objects.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Explicitly loading related objects</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>You can explicitly load related objects by calling the <ph id="ph1">`Load`</ph> method on a navigation property that returns an <ph id="ph2">&lt;xref:System.Data.Objects.DataClasses.EntityCollection%601&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.Objects.DataClasses.EntityReference%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Explicitly loading objects requires a round-trip to the database every time <ph id="ph1">`Load`</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>if you call <ph id="ph1">`Load`</ph> while looping through a collection of returned objects, such as when you use the <ph id="ph2">`foreach`</ph> statement (<ph id="ph3">`For Each`</ph> in Visual Basic), the data source-specific provider must support multiple active results sets on a single connection.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>For a SQL Server database, you must specify a value of <ph id="ph1">`MultipleActiveResultSets = true`</ph> in the provider connection string.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>You can also use the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext.LoadProperty%2A&gt;</ph> method when there is no <ph id="ph2">&lt;xref:System.Data.Objects.DataClasses.EntityCollection%601&gt;</ph> or <ph id="ph3">&lt;xref:System.Data.Objects.DataClasses.EntityReference%601&gt;</ph> properties on entities.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>This is useful when you are using POCO entities.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Although explicitly loading related objects will reduce the number of joins and reduced the amount of redundant data, <ph id="ph1">`Load`</ph> requires repeated connections to the database, which can become costly when explicitly loading a large number of objects.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Saving Changes</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>When you call the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext.SaveChanges%2A&gt;</ph> method on an <ph id="ph2">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph>, a separate create, update, or delete command is generated for every added, updated, or deleted object in the context.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>These commands are executed on the data source in a single transaction.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>As with queries, the performance of create, update, and delete operations depends on the complexity of the mapping in the conceptual model.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Distributed Transactions</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Operations in an explicit transaction that require resources that are managed by the distributed transaction coordinator (DTC) will be much more expensive than a similar operation that does not require the DTC.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Promotion to the DTC will occur in the following situations:</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>An explicit transaction with an operation against a SQL Server 2000 database or other data source that always promote explicit transactions to the DTC.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>An explicit transaction with an operation against SQL Server 2005 when the connection is managed by the <ph id="ph1">[!INCLUDE[adonet_ef](../../../../../includes/adonet-ef-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>This occurs because SQL Server 2005 promotes to a DTC whenever a connection is closed and reopened within a single transaction, which is the default behavior of the <ph id="ph1">[!INCLUDE[adonet_ef](../../../../../includes/adonet-ef-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>This DTC promotion does not occur when using SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>To avoid this promotion when using SQL Server 2005, you must explicitly open and close the connection within the transaction.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Managing Connections and Transactions<ept id="p1">](http://msdn.microsoft.com/en-us/b6659d2a-9a45-4e98-acaa-d7a8029e5b99)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>An explicit transaction is used when one or more operations are executed inside a <ph id="ph1">&lt;xref:System.Transactions&gt;</ph> transaction.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Managing Connections and Transactions<ept id="p1">](http://msdn.microsoft.com/en-us/b6659d2a-9a45-4e98-acaa-d7a8029e5b99)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Strategies for Improving Performance</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>You can improve the overall performance of queries in the Entity Framework by using the following strategies.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Pre-generate views</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Generating views based on an entity model is a significant cost the first time that an application executes a query.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Use the EdmGen.exe utility to pre-generate views as a Visual Basic or C# code file that can be added to the project during design.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>You could also use the Text Template Transformation Toolkit to generate pre-compiled views.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Pre-generated views are validated at runtime to ensure that they are consistent with the current version of the specified entity model.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Pre-Generate Views to Improve Query Performance<ept id="p1">](http://msdn.microsoft.com/en-us/b18a9d16-e10b-4043-ba91-b632f85a2579)</ept> and <bpt id="p2">[</bpt>Isolating Performance with Precompiled/Pre-generated Views in the Entity Framework 4<ept id="p2">](http://go.microsoft.com/fwlink/?LinkID=201337&amp;clcid=0x409)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>When working with very large models, the following consideration applies:</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The .NET metadata format limits the number of user string characters in a given binary to 16,777,215 (0xFFFFFF).</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>If you are generating views for a very large model and the view file reaches this size limit, you will get the "No logical space left to create more user strings."</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>compile error.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>This size limitation applies to all managed binaries.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>For more information see the <bpt id="p1">[</bpt>blog<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=201476)</ept> that demonstrates how to avoid the error when working with large and complex models.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>Consider using the NoTracking merge option for queries</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>There is a cost required to track returned objects in the object context.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Detecting changes to objects and ensuring that multiple requests for the same logical entity return the same object instance requires that objects be attached to an <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>If you do not plan to make updates or deletes to objects and do not require identity management , consider using the <ph id="ph1">&lt;xref:System.Data.Objects.MergeOption&gt;</ph> merge options when you execute queries.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Return the correct amount of data</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>In some scenarios, specifying a query path using the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectQuery%601.Include%2A&gt;</ph> method is much faster because it requires fewer round trips to the database.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>However, in other scenarios, additional round trips to the database to load related objects may be faster because the simpler queries with fewer joins result in less redundancy of data.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Because of this, we recommend that you test the performance of various ways to retrieve related objects.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Loading Related Objects<ept id="p1">](http://msdn.microsoft.com/en-us/452347d2-7b3b-44cd-9001-231299a28cb1)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>To avoid returning too much data in a single query, consider paging the results of the query into more manageable groups.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Page Through Query Results<ept id="p1">](http://msdn.microsoft.com/en-us/ffc0f920-e7de-42e0-9b12-ef356421d030)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Limit the scope of the ObjectContext</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>In most cases, you should create an <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> instance within a <ph id="ph2">`using`</ph> statement (<ph id="ph3">`Using…End Using`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>This can increase performance by ensuring that the resources associated with the object context are disposed automatically when the code exits the statement block.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>However, when controls are bound to objects managed by the object context, the <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext&gt;</ph> instance should be maintained as long as the binding is needed and disposed of manually.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Managing Connections and Transactions<ept id="p1">](http://msdn.microsoft.com/en-us/b6659d2a-9a45-4e98-acaa-d7a8029e5b99)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>Consider opening the database connection manually</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>When your application executes a series of object queries or frequently calls <ph id="ph1">&lt;xref:System.Data.Objects.ObjectContext.SaveChanges%2A&gt;</ph> to persist create, update, and delete operations to the data source, the <ph id="ph2">[!INCLUDE[adonet_ef](../../../../../includes/adonet-ef-md.md)]</ph> must continuously open and close the connection to the data source.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>In these situations, consider manually opening the connection at the start of these operations and either closing or disposing of the connection when the operations are complete.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Managing Connections and Transactions<ept id="p1">](http://msdn.microsoft.com/en-us/b6659d2a-9a45-4e98-acaa-d7a8029e5b99)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>Performance Data</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Some performance data for the Entity Framework is published in the following posts on the <bpt id="p1">[</bpt>ADO.NET team blog<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=91905)</ept>:</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Exploring the Performance of the ADO.NET Entity Framework - Part 1<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=123907)</ept></source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Exploring the Performance of the ADO.NET Entity Framework – Part 2<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=123909)</ept></source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ADO.NET Entity Framework Performance Comparison<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=123913)</ept></source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Development and Deployment Considerations<ept id="p1">](../../../../../docs/framework/data/adonet/ef/development-and-deployment-considerations.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

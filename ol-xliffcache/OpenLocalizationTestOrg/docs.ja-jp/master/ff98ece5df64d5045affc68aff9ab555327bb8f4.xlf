@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ff98ece5df64d5045affc68aff9ab555327bb8f4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\transport-custom-transactions-over-udp-sample.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f8bb4fd1bc44ee7455781ed314faacd51c252846</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">af9b5c44d0937950eae878e7a45f3c66bdbb98e4</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Transport: Custom Transactions over UDP Sample | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Transport: Custom Transactions over UDP Sample</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample is based on the <bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept> sample in the <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph><bpt id="p2">[</bpt>Transport Extensibility<ept id="p2">](../../../../docs/framework/wcf/samples/transport-extensibility.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It extends the UDP Transport sample to support custom transaction flow and demonstrates the use of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransactionMessageProperty&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Code Changes in the UDP Transport Sample</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To demonstrate transaction flow, the sample changes the service contract for <ph id="ph1">`ICalculatorContract`</ph> to require a transaction scope for <ph id="ph2">`CalculatorService.Add()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The sample also adds an extra <ph id="ph1">`System.Guid`</ph> parameter to the contract of the <ph id="ph2">`Add`</ph> operation.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This parameter is used to pass the identifier of the client transaction to the service.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept> sample uses UDP packets to pass messages between a client and a service.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Transport: Custom Transport Sample<ept id="p1">](../../../../docs/framework/wcf/samples/transport-custom-transactions-over-udp-sample.md)</ept> uses the same mechanism to transport messages, but when a transaction is flowed, it is inserted into the UDP packet along with the encoded message.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TransactionMessageBuffer.WriteTransactionMessageBuffer`</ph> is a helper method that contains new functionality to merge the propagation token for the current transaction with the message entity and place it into a buffer.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For custom transaction flow transport, the client implementation must know what service operations require transaction flow and to pass this information to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>There should also be a mechanism for transmitting the user transaction to the transport layer.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This sample uses "<ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> message inspectors" to obtain this information.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The client message inspector implemented here, which is called <ph id="ph1">`TransactionFlowInspector`</ph>, performs the following tasks:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Determines whether a transaction must be flowed for a given message action (this takes place in <ph id="ph1">`IsTxFlowRequiredForThisOperation()`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Attaches the current ambient transaction to the message using <ph id="ph1">`TransactionFlowProperty`</ph>, if a transaction is required to be flowed (this is done in <ph id="ph2">`BeforeSendRequest()`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`TransactionFlowInspector`</ph> itself is passed to the framework using a custom behavior: the <ph id="ph2">`TransactionFlowBehavior`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>With the preceding mechanism in place, the user code creates a <ph id="ph1">`TransactionScope`</ph> before calling the service operation.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The message inspector ensures that the transaction is passed to the transport in case it is required to be flowed to the service operation.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Upon receiving a UDP packet from the client, the service deserializes it to extract the message and possibly a transaction.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TransactionMessageBuffer.ReadTransactionMessageBuffer()`</ph> is the helper method that reverses the serialization process performed by <ph id="ph2">`TransactionMessageBuffer.WriteTransactionMessageBuffer()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If a transaction was flowed in, it is appended to the message in the <ph id="ph1">`TransactionMessageProperty`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This ensures that the dispatcher picks up the transaction at dispatch time and uses it when calling the service operation addressed by the message.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The current sample should be run similarly to the <bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>To run it, start the service with UdpTestService.exe.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If you are running <ph id="ph1">[!INCLUDE[windowsver](../../../../includes/windowsver-md.md)]</ph>, you must start the service with elevated privileges.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To do so, right-click UdpTestService.exe in <ph id="ph1">[!INCLUDE[fileExplorer](../../../../includes/fileexplorer-md.md)]</ph> and click <bpt id="p1">**</bpt>Run as administrator<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This produces the following output.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>At this time, you can start the client by running UdpTestClient.exe.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The output produced by the client is as follows.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The service output is as follows.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The service application displays the message <ph id="ph1">`The client transaction has flowed to the service`</ph> if it can match the transaction identifier sent by the client, in the <ph id="ph2">`clientTransactionId`</ph> parameter of the <ph id="ph3">`CalculatorService.Add()`</ph> operation, to the identifier of the service transaction.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>A match is obtained only if the client transaction has flowed to the service.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>To run the client application against endpoints published using configuration, press ENTER on the service application window and then run the test client again.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>You should see the following output on the service.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Running the client against the service now produces similar output as before.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>To regenerate the client code and configuration using Svcutil.exe, start the service application and then run the following Svcutil.exe command from the root directory of the sample.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Note that Svcutil.exe does not generate the binding extension configuration for the <ph id="ph1">`sampleProfileUdpBinding`</ph>; you must add it manually.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

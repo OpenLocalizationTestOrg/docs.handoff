@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">81774f96f8dba3c6d9fc254fc395d4299a1e06ac</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\network-programming\integrated-windows-authentication-with-extended-protection.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5d934095a6bd91c718fa863cd20b08c0b8b93df8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">246ad172d0f201bbb632379fd6b4f78778857544</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Integrated Windows Authentication with Extended Protection | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Integrated Windows Authentication with Extended Protection</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Enhancements were made that affect how integrated Windows authentication is handled by the <ph id="ph1">&lt;xref:System.Net.HttpWebRequest&gt;</ph>, <ph id="ph2">&lt;xref:System.Net.HttpListener&gt;</ph>, <ph id="ph3">&lt;xref:System.Net.Mail.SmtpClient&gt;</ph>, <ph id="ph4">&lt;xref:System.Net.Security.SslStream&gt;</ph>, <ph id="ph5">&lt;xref:System.Net.Security.NegotiateStream&gt;</ph>, and related classes in the <ph id="ph6">&lt;xref:System.Net&gt;</ph> and related namespaces.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Support was added for extended protection to enhance security.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These changes can affect applications that use these classes to make web requests and receive responses where integrated Windows authentication is used.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This change can also impact web servers and client applications that are configured to use integrated Windows authentication.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>These changes can also affect applications that use these classes to make other types of requests and receive responses where integrated Windows authentication is used.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The changes to support extended protection are available only for applications on Windows 7 and Windows Server 2008 R2.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The extended protection features are not available on earlier versions of Windows.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Overview</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The design of integrated Windows authentication allows for some credential challenge responses to be universal, meaning they can be re-used or forwarded.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The challenge responses should be constructed at a minimum with target specific information and preferably also with some channel specific information.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Services can then provide extended protection to ensure that credential challenge responses contain service specific information such as a Service Principal Name (SPN).</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>With this information in the credential exchanges, services are able to better protect against malicious use of credential challenge responses that might have been improperly used.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The extended protection design is an enhancement to authentication protocols designed to mitigate authentication relay attacks.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It revolves around the concept of channel and service binding information.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The overall objectives are the following:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the client is updated to support the extended protection, applications should supply a channel binding and service binding information to all supported authentication protocols.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Channel binding information can only be supplied when there is a channel (TLS) to bind to.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Service binding information should always be supplied.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Updated servers which are properly configured may verify the channel and service binding information when it is present in the client authentication token and reject the authentication attempt if the channel bindings do not match.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Depending on the deployment scenario, servers may verify channel binding, service binding or both.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Updated servers have the ability to accept or reject down-level client requests that do not contain the channel binding information based on policy.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Information used by extended protection consists of one or both of the following two parts:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A Channel Binding Token or CBT.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Service Binding information in the form of a Service Principal Name or SPN.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Service Binding information is an indication of a client’s intent to authenticate to a particular service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It is communicated from client to server with the following properties:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The SPN value must be available to the server performing client authentication in clear text form.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The value of the SPN is public.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The SPN must be cryptographically protected in transit such that a man-in-the-middle attack cannot insert, remove or modify its value.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>A CBT is a property of the outer secure channel (such as TLS) used to tie (bind) it to a conversation over an inner, client-authenticated channel.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The CBT must have the following properties (also defined by IETF RFC 5056):</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When an outer channel exists, the value of the CBT must be a property identifying either the outer channel or the server endpoint, independently arrived at by both client and server sides of a conversation.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Value of the CBT sent by the client must not be something an attacker can influence.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>No guarantees are made about secrecy of the CBT value.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This does not however mean that the value of the service binding as well as channel binding information can always be examined by any other but the server performing authentication, as the protocol carrying the CBT may be encrypting it.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The CBT must be cryptographically integrity protected in transit such that an attacker cannot insert, remove or modify its value.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Channel binding is accomplished by the client transferring the SPN and the CBT to the server in a tamperproof fashion.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The server validates the channel binding information in accordance with its policy and rejects authentication attempts for which it does not believe itself to have been the intended target.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>This way, the two channels become cryptographically bound together.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>To preserve compatibility with existing clients and applications, a server may be configured to allow authentication attempts by clients that do not yet support extended protection.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This is referred to as a "partially hardened" configuration, in contrast to a "fully hardened" configuration.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Multiple components in the <ph id="ph1">&lt;xref:System.Net&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.Security&gt;</ph> namespaces perform integrated Windows authentication on behalf of a calling application.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This section describes changes to System.Net components to add extended protection in their use of integrated Windows authentication.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Extended protection is currently supported on Windows 7.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A mechanism is provided so an application can determine if the operating system supports extended protection.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Changes to Support Extended Protection</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The authentication process used with integrated Windows authentication, depending on the authentication protocol used, often includes a challenge issued by the destination computer and sent back to the client computer.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Extended protection adds new features to this authentication process</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection&gt;</ph> namespace provides support for authentication using extended protection for applications.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ChannelBinding&gt;</ph> class in this namespace represents a channel binding.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> class in this namespace represents the extended protection policy used by the server to validate incoming client connections.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Other class members are used with extended protection.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For server applications, these classes include the following:</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> that has the following elements:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy.OSSupportsExtendedProtection%2A&gt;</ph> property that indicates whether the operating system supports integrated windows authentication with extended protection.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> value that indicates when the extended protection policy should be enforced.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ProtectionScenario&gt;</ph> value that indicates the deployment scenario.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This influences how extended protection is checked.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>An optional <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ServiceNameCollection&gt;</ph> that contains the custom SPN list that is used to match against the SPN provided by the client as the intended target of the authentication.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>An optional <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ChannelBinding&gt;</ph> that contains a custom channel binding to use for validation.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This scenario is not a common case</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.Configuration&gt;</ph> namespace provides support for configuration of authentication using extended protection for applications.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>A number of feature changes were made to support extended protection in the existing <ph id="ph1">&lt;xref:System.Net&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>These changes include the following:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>A new <ph id="ph1">&lt;xref:System.Net.TransportContext&gt;</ph> class added to the <ph id="ph2">&lt;xref:System.Net&gt;</ph> namespace that represents a transport context.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>New <ph id="ph1">&lt;xref:System.Net.HttpWebRequest.EndGetRequestStream%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.HttpWebRequest.GetRequestStream%2A&gt;</ph> overload methods in the <ph id="ph3">&lt;xref:System.Net.HttpWebRequest&gt;</ph> class that allow retrieving the <ph id="ph4">&lt;xref:System.Net.TransportContext&gt;</ph> to support extended protection for client applications.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Additions to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.HttpListenerRequest&gt;</ph> classes to support server applications.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>A feature change was made to support extended protection for SMTP client applications in the existing <ph id="ph1">&lt;xref:System.Net.Mail&gt;</ph> namespace:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Net.Mail.SmtpClient.TargetName%2A&gt;</ph> property in the <ph id="ph2">&lt;xref:System.Net.Mail.SmtpClient&gt;</ph> class that represents the SPN to use for authentication when using extended protection for SMTP client applications.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>A number of feature changes were made to support extended protection in the existing <ph id="ph1">&lt;xref:System.Net.Security&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>These changes include the following:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>New <ph id="ph1">&lt;xref:System.Net.Security.NegotiateStream.BeginAuthenticateAsClient%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.Security.NegotiateStream.AuthenticateAsClient%2A&gt;</ph> overload methods in the <ph id="ph3">&lt;xref:System.Net.Security.NegotiateStream&gt;</ph> class that allow passing a CBT to support extended protection for client applications.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>New <ph id="ph1">&lt;xref:System.Net.Security.NegotiateStream.BeginAuthenticateAsServer%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.Security.NegotiateStream.AuthenticateAsServer%2A&gt;</ph> overload methods in the <ph id="ph3">&lt;xref:System.Net.Security.NegotiateStream&gt;</ph> class that allow passing an <ph id="ph4">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> to support extended protection for server applications.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>A new <ph id="ph1">&lt;xref:System.Net.Security.SslStream.TransportContext%2A&gt;</ph> property in the <ph id="ph2">&lt;xref:System.Net.Security.SslStream&gt;</ph> class to support extended protection for client and server applications.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Net.Configuration.SmtpNetworkElement&gt;</ph> property was added to support configuration of extended protection for SMTP clients in the <ph id="ph2">&lt;xref:System.Net.Security&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Extended Protection for Client Applications</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Extended protection support for most client applications happens automatically.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Net.HttpWebRequest&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.Mail.SmtpClient&gt;</ph> classes support extended protection whenever the underlying version of Windows supports extended protection.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Net.HttpWebRequest&gt;</ph> instance sends an SPN constructed from the <ph id="ph2">&lt;xref:System.Uri&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>By default, an <ph id="ph1">&lt;xref:System.Net.Mail.SmtpClient&gt;</ph> instance sends an SPN constructed from the host name of the SMTP mail server.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>For custom authentication, client applications can use the <ph id="ph1">&lt;xref:System.Net.HttpWebRequest.EndGetRequestStream%28System.IAsyncResult%2CSystem.Net.TransportContext%40%29?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.Net.HttpWebRequest.GetRequestStream%28System.Net.TransportContext%40%29?displayProperty=fullName&gt;</ph> methods in the <ph id="ph3">&lt;xref:System.Net.HttpWebRequest&gt;</ph> class that allow retrieving the <ph id="ph4">&lt;xref:System.Net.TransportContext&gt;</ph> and the CBT using the <ph id="ph5">&lt;xref:System.Net.TransportContext.GetChannelBinding%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The SPN to use for integrated Windows authentication sent by an <ph id="ph1">&lt;xref:System.Net.HttpWebRequest&gt;</ph> instance to a given service can be overridden by setting the <ph id="ph2">&lt;xref:System.Net.AuthenticationManager.CustomTargetNameDictionary%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Net.Mail.SmtpClient.TargetName%2A&gt;</ph> property can be used to set a custom SPN to use for integrated Windows authentication for the SMTP connection.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Extended Protection for Server Applications</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> automatically provides mechanisms for validating service bindings when performing HTTP authentication.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The most secure scenario is to enable extended protection for HTTPS:// prefixes.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>In this case, set <ph id="ph1">&lt;xref:System.Net.HttpListener.ExtendedProtectionPolicy%2A?displayProperty=fullName&gt;</ph> to an <ph id="ph2">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> with <ph id="ph3">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> set to <ph id="ph4">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> or <ph id="ph5">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph>, and <ph id="ph6">&lt;xref:System.Security.Authentication.ExtendedProtection.ProtectionScenario&gt;</ph> set to <ph id="ph7">&lt;xref:System.Security.Authentication.ExtendedProtection.ProtectionScenario&gt;</ph> A value of  <ph id="ph8">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> puts <ph id="ph9">&lt;xref:System.Net.HttpListener&gt;</ph> in partially hardened mode, while <ph id="ph10">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> corresponds to fully hardened mode.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>In this configuration when a request is made to the server through an outer secure channel, the outer channel is queried for a channel binding.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>This channel binding is passed to the authentication SSPI calls, which validate that the channel binding in the authentication blob matches.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>There are three possible outcomes:</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The server’s underlying operating system does not support extended protection.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The request will not be exposed to the application, and an unauthorized (401) response will be returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The SSPI call fails indicating that either the client specified a channel binding that did not match the expected value retrieved from the outer channel or the client failed to supply a channel binding when the extended protection policy on the server was configured for <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>In both cases, the request will not be exposed to the application, and an unauthorized (401) response will be returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The client specifies the correct channel binding or is allowed to connect without specifying a channel binding since the extended protection policy on the server is configured with <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> The request is returned to the application for processing.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>No service name check is performed automatically.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>An application may choose to perform its own service name validation using the <ph id="ph1">&lt;xref:System.Net.HttpListenerRequest.ServiceName%2A&gt;</ph> property, but under these circumstances it is redundant.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If an application makes its own SSPI calls to perform authentication based on blobs passed back and forth within the body of an HTTP request and wishes to support channel binding, it needs to retrieve the expected channel binding from the outer secure channel using <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> in order to pass it to native Win32 <bpt id="p1">[</bpt>AcceptSecurityContext<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=147021)</ept> function.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>To do this, use the <ph id="ph1">&lt;xref:System.Net.HttpListenerRequest.TransportContext%2A&gt;</ph> property and call <ph id="ph2">&lt;xref:System.Net.TransportContext.GetChannelBinding%2A&gt;</ph> method to retrieve the CBT.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Only endpoint bindings are supported.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>If anything other <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ChannelBindingKind&gt;</ph> is specified, a <ph id="ph2">&lt;xref:System.NotSupportedException&gt;</ph> will be thrown.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>If the underlying operating system supports channel binding, the <ph id="ph1">&lt;xref:System.Net.TransportContext.GetChannelBinding%2A&gt;</ph> method will return a <ph id="ph2">&lt;xref:System.Security.Authentication.ExtendedProtection.ChannelBinding&gt;</ph><ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> wrapping a pointer to a channel binding suitable for passing to <bpt id="p1">[</bpt>AcceptSecurityContext<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=147021)</ept> function as the pvBuffer member of a SecBuffer structure passed in the <ph id="ph4">`pInput`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ChannelBinding.Size%2A&gt;</ph> property contains the length, in bytes, of the channel binding.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>If the underlying operating system does not support channel bindings, the function will return <ph id="ph1">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Another possible scenario is to enable extended protection for HTTP:// prefixes when proxies are not used.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>In this case, set <ph id="ph1">&lt;xref:System.Net.HttpListener.ExtendedProtectionPolicy%2A?displayProperty=fullName&gt;</ph> to an <ph id="ph2">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> with <ph id="ph3">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> set to <ph id="ph4">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> or <ph id="ph5">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph>, and <ph id="ph6">&lt;xref:System.Security.Authentication.ExtendedProtection.ProtectionScenario&gt;</ph> set to <ph id="ph7">&lt;xref:System.Security.Authentication.ExtendedProtection.ProtectionScenario&gt;</ph> A value of  <ph id="ph8">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> puts <ph id="ph9">&lt;xref:System.Net.HttpListener&gt;</ph> in partially hardened mode, while <ph id="ph10">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> corresponds to fully hardened mode.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>A default list of allowed service names is created based on the prefixes which have been registered with the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>This default list can be examined through the <ph id="ph1">&lt;xref:System.Net.HttpListener.DefaultServiceNames%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>If this list is not comprehensive, an application can specify a custom service name collection in the constructor for the <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy&gt;</ph> class which will be used instead of the default service name list.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>In this configuration, when a request is made to the server without an outer secure channel authentication proceeds normally without a channel binding check.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>If the authentication succeeds, the context is queried for the service name that the client provided and validated against the list of acceptable service names.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>There are four possible outcomes:</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The server’s underlying operating system does not support extended protection.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The request will not be exposed to the application, and an unauthorized (401) response will be returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>The client’s underlying operating system does not support extended protection.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> configuration, the authentication attempt will succeed and the request will be returned to the application.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">&lt;xref:System.Security.Authentication.ExtendedProtection.PolicyEnforcement&gt;</ph> configuration, the authentication attempt will fail.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The request will not be exposed to the application, and an unauthorized (401) response will be returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The client’s underlying operating system supports extended protection, but the application did not specify a service binding.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The request will not be exposed to the application, and an unauthorized (401) response will be returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The client specified a service binding.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The service binding is compared to the list of allowed service bindings.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>If it matches, the request is returned to the application.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Otherwise, the request will not be exposed to the application, and an unauthorized (401) response will be automatically returned to the client.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>A message will be logged to the <ph id="ph1">&lt;xref:System.Net.HttpListener&gt;</ph> trace source specifying the reason for the failure.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>If this simple approach using an allowed list of acceptable service names is insufficient, an application may provide its own service name validation by querying the <ph id="ph1">&lt;xref:System.Net.HttpListenerRequest.ServiceName%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>In cases 1 and 2 above, the property will return <ph id="ph1">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>In case 3, it will return an empty string.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>In case 4, the service name specified by the client will be returned.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>These extended protection features can also be used by server applications for authentication with other types of requests and when trusted proxies are used.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

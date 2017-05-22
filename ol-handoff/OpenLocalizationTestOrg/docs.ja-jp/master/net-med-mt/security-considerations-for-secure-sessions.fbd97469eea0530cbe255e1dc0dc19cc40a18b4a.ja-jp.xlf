@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">98ad57e778f5d2843d4175707c8f3df9589f05ba</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\security-considerations-for-secure-sessions.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9d8c924cc054a198e1ae9e280241c9e7233b1a96</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8a0bc666210a8fe7357f686af0960de187df7d07</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Security Considerations for Secure Sessions | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Security Considerations for Secure Sessions</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>You should consider the following items that affect security when implementing secure sessions.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> security considerations, see <bpt id="p1">[</bpt>Security Considerations<ept id="p1">](../../../../docs/framework/wcf/feature-details/security-considerations-in-wcf.md)</ept> and <bpt id="p2">[</bpt>Best Practices for Security<ept id="p2">](../../../../docs/framework/wcf/feature-details/best-practices-for-security-in-wcf.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Secure Sessions and Metadata</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When a secure session is established and the <ph id="ph1">&lt;xref:System.ServiceModel.Security.Tokens.SecureConversationSecurityTokenParameters.RequireCancellation%2A&gt;</ph> property is set to <ph id="ph2">`false`</ph>, <ph id="ph3">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> sends an <ph id="ph4">`mssp:MustNotSendCancel`</ph> assertion as part of the metadata in the Web Services Description Language (WSDL) document for the service endpoint.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`mssp:MustNotSendCancel`</ph> assertion informs clients that the service does not respond to requests to cancel the secure session.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">&lt;xref:System.ServiceModel.Security.Tokens.SecureConversationSecurityTokenParameters.RequireCancellation%2A&gt;</ph> property is set to <ph id="ph2">`true`</ph>, then <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not emit an <ph id="ph4">`mssp:MustNotSendCancel`</ph> assertion in the WSDL document.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Clients are expected to send a cancel request to the service when they no longer require the secure session.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When a client is generated using the <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept>, the client code reacts appropriately to the presence or absence of the <ph id="ph1">`mssp:MustNotSendCancel`</ph> assertion.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Secure Conversations and Custom Tokens</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>There are some issues with mixing custom tokens and derived keys due to the way it is defined in the WS-SecureConversation specification.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The specification says that <ph id="ph1">`wsse:SecurityTokenReference`</ph> is an optional element that references the derived token: "<ph id="ph2">`/wsc:DerivedKeyToken/wsse:SecurityTokenReference`</ph> This optional element is used to specify security context token, security token, or shared key/secret used for the derivation.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If not specified, it is assumed that the recipient can determine the shared key from the message context.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If the context cannot be determined, then a fault such as <ph id="ph1">`wsc:UnknownDerivationSource`</ph> should be raised."</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This means that if you want a custom token to be derived, you should wrap its clause type in a <ph id="ph1">`SecurityTokenReference`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>There is an option to turn off derivation but the default is to derive keys.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If you fail to wrap the key, serializing the derived key token succeeds, but attempting to deserialize it throws an exception.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Disable Secure Sessions on a WSFederationHttpBinding<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-disable-secure-sessions-on-a-wsfederationhttpbinding.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Security Considerations<ept id="p1">](../../../../docs/framework/wcf/feature-details/security-considerations-in-wcf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Best Practices for Security<ept id="p1">](../../../../docs/framework/wcf/feature-details/best-practices-for-security-in-wcf.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

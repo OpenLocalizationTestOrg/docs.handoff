@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">66b5206e894e5fe25593002fbac33185a6932ded</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\samples\using-cancellationscope.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3bd76ba0722f27a39a23823ee02b30ca218a4ffb</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e9f8e09debdf603f94f13cdcdcc558218c9cc7ea</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using CancellationScope | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using CancellationScope</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to use the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity to cancel work in an application.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Many middle tier components and services rely on the well-known programming construct of transactions to handle cancellation for them.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>However, there are many situations in which work that cannot be done in a transaction must be canceled.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Using cancellation is more difficult than using transactions, because work that must be canceled must first be tracked.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)]</ph> helps you with this by providing a <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Cancellation can be triggered either from within an activity or from the activity's parent.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Child activities are scheduled by their parent activity (such as a <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph>, <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel&gt;</ph>, <ph id="ph3">&lt;xref:System.Activities.Statements.Flowchart&gt;</ph>, or a custom composite activity).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The parent activity can cancel child activities for any reason.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity with three child branches will cancel the remaining child branches whenever it completes a branch and the <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> expression evaluates to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The workflow can also be canceled externally by the host application by calling <ph id="ph1">&lt;xref:System.Activities.WorkflowApplication.Cancel%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>To use the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity, put the work that needs to be canceled into the <ph id="ph2">&lt;xref:System.Activities.Statements.CancellationScope.Body%2A&gt;</ph> property, and put the work that is performed after cancellation into the <ph id="ph3">&lt;xref:System.Activities.Statements.CancellationScope.CancellationHandler%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates cancelling an activity from within the activity itself.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The scenario that the sample uses to demonstrate the <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> activity is a client wanting to buy a ticket to Miami as soon as possible.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>There are two travel agencies that want the business.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The sample uses two <ph id="ph1">&lt;xref:System.Activities.Statements.CancellationScope&gt;</ph> within a <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity to model this business logic.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> of the <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity is set to <ph id="ph3">`true`</ph>; since the <ph id="ph4">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> is checked after any branch completes, this will cause the remaining branch to be canceled after the first branch completes.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The client application asks both agencies to buy the ticket, and when the first one confirms that the ticket has been bought, the application cancels the order at the other agency.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>To use this sample</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">[!INCLUDE[vs2010](../../../../includes/vs2010-md.md)]</ph>, open the CancelationScopeXAML.sln solution file.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>To build the solution, press CTRL+SHIFT+B.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>To run the solution, press CTRL+F5.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

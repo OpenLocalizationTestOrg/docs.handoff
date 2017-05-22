@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e7e80e9c4612facb2ac88405cd1647785df3124f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\generics\benefits-of-generics.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">236d4bad08bee58bdc80e5adf66ee2bd3f772fc9</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a5c5d9f8971a0d2f7135f76b2f4b1e5f0ba1508a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Benefits of Generics (C# Programming Guide) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Benefits of Generics (C# Programming Guide)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Generics provide the solution to a limitation in earlier versions of the common language runtime and the C# language in which generalization is accomplished by casting types to and from the universal base type <ph id="ph1">&lt;xref:System.Object&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By creating a generic class, you can create a collection that is type-safe at compile-time.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The limitations of using non-generic collection classes can be demonstrated by writing a short program that uses the <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> collection class from the .NET Framework class library.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> is a highly convenient collection class that can be used without modification to store any reference or value type.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#4<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/benefits-of-generics_1.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>But this convenience comes at a cost.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Any reference or value type that is added to an <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> is implicitly upcast to <ph id="ph2">&lt;xref:System.Object&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the items are value types, they must be boxed when they are added to the list, and unboxed when they are retrieved.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Both the casting and the boxing and unboxing operations decrease performance; the effect of boxing and unboxing can be very significant in scenarios where you must iterate over large collections.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The other limitation is lack of compile-time type checking; because an <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> casts everything to <ph id="ph2">&lt;xref:System.Object&gt;</ph>, there is no way at compile-time to prevent client code from doing something such as this:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#5<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/benefits-of-generics_2.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Although perfectly acceptable and sometimes intentional if you are creating a heterogeneous collection, combining strings and <ph id="ph1">`ints`</ph> in a single <ph id="ph2">&lt;xref:System.Collections.ArrayList&gt;</ph> is more likely to be a programming error, and this error will not be detected until runtime.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In versions 1.0 and 1.1 of the C# language, you could avoid the dangers of generalized code in the .NET Framework base class library collection classes only by writing your own type specific collections.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Of course, because such a class is not reusable for more than one data type, you lose the benefits of generalization, and you have to rewrite the class for each type that will be stored.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>What <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> and other similar classes really need is a way for client code to specify, on a per-instance basis, the particular data type that they intend to use.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>That would eliminate the need for the upcast to <ph id="ph1">`T:System.Object`</ph> and would also make it possible for the compiler to do type checking.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In other words, <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> needs a type parameter.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>That is exactly what generics provide.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In the generic <ph id="ph1">&lt;xref:System.Collections.Generic.List%601&gt;</ph> collection, in the <ph id="ph2">`N:System.Collections.Generic`</ph> namespace, the same operation of adding items to the collection resembles this:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#6<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/benefits-of-generics_3.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For client code, the only added syntax with <ph id="ph1">&lt;xref:System.Collections.Generic.List%601&gt;</ph> compared to <ph id="ph2">&lt;xref:System.Collections.ArrayList&gt;</ph> is the type argument in the declaration and instantiation.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>In return for this slightly more coding complexity, you can create a list that is not only safer than <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph>, but also significantly faster, especially when the list items are value types.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>C# Programming Guide<ept id="p1">](../../../csharp/programming-guide/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Introduction to Generics<ept id="p1">](../../../csharp/programming-guide/generics/introduction-to-generics.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Boxing and Unboxing<ept id="p1">](../../../csharp/programming-guide/types/boxing-and-unboxing.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Collections Best Practices<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=112403)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

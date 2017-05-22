@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f56283bf4dcd0a69b9a5e0a33b8b99cefd3dee3a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\unmanaged-api\hosting\iclrtask2-interface.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ef19ee8f8b27953d2a8af037dfe87d7b625d37c5</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cd937fbcbcd10754dd742fdd749ea1ea461b84df</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>ICLRTask2 Interface | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>ICLRTask2 Interface</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Provides all the functionality of the <bpt id="p1">[</bpt>ICLRTask<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)</ept> interface; in addition, provides methods that allow thread aborts to be delayed on the current thread.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Methods</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Method</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>BeginPreventAsyncAbort Method<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-beginpreventasyncabort-method.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Delays new thread abort requests on the current thread.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>EndPreventAsyncAbort Method<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-endpreventasyncabort-method.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Allows new or pending thread abort requests to result in thread aborts on the current thread.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Remarks</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ICLRTask2`</ph> interface inherits the <ph id="ph2">`ICLRTask`</ph> interface and adds methods that allow the host to delay thread aborts, to protect a region of code that must not fail.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">`BeginPreventAsyncAbort`</ph> increments the delay-thread-abort counter for the current thread, and calling <ph id="ph2">`EndPreventAsyncAbort`</ph> decrements it.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Calls to <ph id="ph1">`BeginPreventAsyncAbort`</ph> and <ph id="ph2">`EndPreventAsyncAbort`</ph> can be nested.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>As long as the counter is greater than zero, thread aborts for the current thread are delayed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If calls to <ph id="ph1">`BeginPreventAsyncAbort`</ph> and <ph id="ph2">`EndPreventAsyncAbort`</ph> are not paired, it is possible to reach a state in which thread aborts cannot be delivered to the current thread.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The delay is not honored for a thread that aborts itself.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The functionality that is exposed by this feature is used internally by the virtual machine (VM).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Misuse of these methods may cause unspecified behavior in the VM.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For example, calling <ph id="ph1">`EndPreventAsyncAbort`</ph> without first calling <ph id="ph2">`BeginPreventAsyncAbort`</ph> could set the counter to zero when the VM has previously incremented it.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Similarly, the internal counter is not checked for overflow.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If it exceeds its integral limit because it is incremented by both the host and the VM, the resulting behavior is unspecified.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For information about members inherited from <ph id="ph1">`ICLRTask`</ph> and about the other uses of this interface, see the <bpt id="p1">[</bpt>ICLRTask<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Requirements</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Platforms:<ept id="p1">**</ept> See <bpt id="p2">[</bpt>System Requirements<ept id="p2">](../../../../docs/framework/get-started/system-requirements.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Header:<ept id="p1">**</ept> MSCorEE.h</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Library:<ept id="p1">**</ept> Included as a resource in MSCorEE.dll</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>.NET Framework Versions:<ept id="p1">**</ept> <ph id="ph1">[!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ICLRTask Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ICLRTaskManager Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>IHostTask Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>IHostTaskManager Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Hosting Interfaces<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/hosting-interfaces.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d3439d46590839793bb3ac0f9f8e1249307a081a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\how-to-listen-for-cancellation-requests-by-polling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">43c8c53b8dce598ca372ce2c2cbf8e2b336614bd</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6a10b1ef865cdacb40eadd0f9efe4b0ccfa225eb</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Listen for Cancellation Requests by Polling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Listen for Cancellation Requests by Polling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The following example shows one way that user code can poll a cancellation token at regular intervals to see whether cancellation has been requested from the calling thread.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This example uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph> type, but the same pattern applies to asynchronous operations created directly by the <ph id="ph2">&lt;xref:System.Threading.ThreadPool?displayProperty=fullName&gt;</ph> type or the <ph id="ph3">&lt;xref:System.Threading.Thread?displayProperty=fullName&gt;</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Polling requires some kind of loop or recursive code that can periodically read the value of the Boolean <ph id="ph1">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If you are using the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph> type and you are waiting for the task to complete on the calling thread, you can use the <ph id="ph2">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A&gt;</ph> method to check the property and throw the exception.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>By using this method, you ensure that the correct exception is thrown in response to a request.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If you are using a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph>, then calling this method is better than manually throwing an <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If you do not have to throw the exception, then you can just check the property and return from the method if the property is <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex11.cs#11)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex11.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A&gt;</ph> is extremely fast and does not introduce significant overhead in loops.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If you are calling <ph id="ph1">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A&gt;</ph>, you only have to explicitly check the <ph id="ph2">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property if you have other work to do in response to the cancellation besides throwing the exception.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In this example, you can see that the code actually accesses the property twice: once in the explicit access and again in the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>But because the act of reading the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property involves only one volatile read instruction per access, the double access is not significant from a performance perspective.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It is still preferable to call the method rather than manually throw the <ph id="ph1">&lt;xref:System.OperationCanceledException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Cancellation in Managed Threads<ept id="p1">](../../../docs/standard/threading/cancellation-in-managed-threads.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

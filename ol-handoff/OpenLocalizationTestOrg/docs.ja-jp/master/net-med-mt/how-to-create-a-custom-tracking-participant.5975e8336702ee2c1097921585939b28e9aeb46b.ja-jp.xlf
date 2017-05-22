@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">511925bedff38bd1b8db4b6551badc3684b5c393</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\how-to-create-a-custom-tracking-participant.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7a1021025856cfd0458d65e6517517e75363a464</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b2033c917a071293a4620e877abdcff06b1ec252</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Tracking Participant | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Tracking Participant</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Workflow tracking provides visibility into the status of workflow execution.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The workflow runtime emits tracking records that describe workflow lifecycle events, activity lifecycle events, bookmark resumptions, and faults.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These tracking records are consumed by tracking participants.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[wf](../../../includes/wf-md.md)]</ph> includes a standard tracking participant that writes tracking records as Event Tracing for Windows (ETW) events.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If that does not meet your requirements, you can also write a custom tracking participant.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This tutorial step describes how to create a custom tracking participant and tracking profile that capture the output of <ph id="ph1">`WriteLine`</ph> activities so that they can be displayed to the user.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Each topic in the Getting Started tutorial depends on the previous topics.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To complete this topic, you must first complete the previous topics.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>To download a completed version or view a video walkthrough of the tutorial, see <bpt id="p1">[</bpt>Windows Workflow Foundation (WF45) - Getting Started Tutorial<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=248976)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In this topic</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>To create the custom tracking participant<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-a-custom-tracking-participant.md#BKMK_CustomTrackingParticipant)</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>To create the tracking profile and register the tracking participant<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-a-custom-tracking-participant.md#BKMK_TrackingProfile)</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>To display the tracking information<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-a-custom-tracking-participant.md#BKMK_DisplayTracking)</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>To build and run the application<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-a-custom-tracking-participant.md#BKMK_BuildAndRun)</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="BKMK_CustomTrackingParticipant"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> To create the custom tracking participant</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Right-click <bpt id="p1">**</bpt>NumberGuessWorkflowHost<ept id="p1">**</ept> in <bpt id="p2">**</bpt>Solution Explorer<ept id="p2">**</ept> and choose <bpt id="p3">**</bpt>Add<ept id="p3">**</ept>, <bpt id="p4">**</bpt>Class<ept id="p4">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Type <ph id="ph1">`StatusTrackingParticipant`</ph> into the <bpt id="p1">**</bpt>Name<ept id="p1">**</ept> box, and click <bpt id="p2">**</bpt>Add<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Add the following <ph id="ph1">`using`</ph> (or <ph id="ph2">`Imports`</ph>) statements at the top of the file with the other <ph id="ph3">`using`</ph> (or <ph id="ph4">`Imports`</ph>) statements.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Modify the <ph id="ph1">`StatusTrackingParticipant`</ph> class so that it inherits from <ph id="ph2">`TrackingParticipant`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Add the following <ph id="ph1">`Track`</ph> method override.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>There are several different types of tracking records.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>We are interested in the output of <ph id="ph1">`WriteLine`</ph> activities, which are contained in activity tracking records.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`TrackingRecord`</ph> is an <ph id="ph2">`ActivityTrackingRecord`</ph> for a <ph id="ph3">`WriteLine`</ph> activity, the <ph id="ph4">`Text`</ph> of the <ph id="ph5">`WriteLine`</ph> is appended to a file named after the <ph id="ph6">`InstanceId`</ph> of the workflow.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In this tutorial, the file is saved to the current folder of the host application.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When no tracking profile is specified, the default tracking profile is used.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When the default tracking profile is used, tracking records are emitted for all <ph id="ph1">`ActivityStates`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Because we only need to capture the text one time during the lifecycle of the <ph id="ph1">`WriteLine`</ph> activity, we only extract the text from the <ph id="ph2">`ActivityStates.Executing`</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In <bpt id="p1">[</bpt>To create the tracking profile and register the tracking participant<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-a-custom-tracking-participant.md#BKMK_TrackingProfile)</ept>, a tracking profile is created that specifies that only <ph id="ph1">`WriteLine`</ph> <ph id="ph2">`ActivityStates.Executing`</ph> tracking records are emitted.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="BKMK_TrackingProfile"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> To create the tracking profile and register the tracking participant</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Right-click <bpt id="p1">**</bpt>WorkflowHostForm<ept id="p1">**</ept> in <bpt id="p2">**</bpt>Solution Explorer<ept id="p2">**</ept> and choose <bpt id="p3">**</bpt>View Code<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Add the following <ph id="ph1">`using`</ph> (or <ph id="ph2">`Imports`</ph>) statement at the top of the file with the other <ph id="ph3">`using`</ph> (or <ph id="ph4">`Imports`</ph>) statements.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Add the following code to <ph id="ph1">`ConfigureWorkflowApplication`</ph> just after the code that adds the <ph id="ph2">`StringWriter`</ph> to the workflow extensions and before the workflow lifecycle handlers.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This tracking profile specifies that only activity state records for <ph id="ph1">`WriteLine`</ph> activities in the <ph id="ph2">`Executing`</ph> state are emitted to the custom tracking participant.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>After adding the code, the start of <ph id="ph1">`ConfigureWorkflowApplication`</ph> will look like the following example.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="BKMK_DisplayTracking"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> To display the tracking information</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Right-click <bpt id="p1">**</bpt>WorkflowHostForm<ept id="p1">**</ept> in <bpt id="p2">**</bpt>Solution Explorer<ept id="p2">**</ept> and choose <bpt id="p3">**</bpt>View Code<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`InstanceId_SelectedIndexChanged`</ph> handler, add the following code immediately after the code that clears the status window.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When a new workflow is selected in the workflow list, the tracking records for that workflow are loaded and displayed in the status window.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following example is the completed <ph id="ph1">`InstanceId_SelectedIndexChanged`</ph> handler.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="BKMK_BuildAndRun"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> To build and run the application</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Press Ctrl+Shift+B to build the application.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Press Ctrl+F5 to start the application.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Select a range for the guessing game and the type of workflow to start, and click <bpt id="p1">**</bpt>New Game<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Enter a guess in the <bpt id="p1">**</bpt>Guess<ept id="p1">**</ept> box and click <bpt id="p2">**</bpt>Go<ept id="p2">**</ept> to submit your guess.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Note that the status of the workflow is displayed in the status window.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This output is captured from the <ph id="ph1">`WriteLine`</ph> activities.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Switch to a different workflow by selecting one from the <bpt id="p1">**</bpt>Workflow Instance Id<ept id="p1">**</ept> combo box and note that the status of the current workflow is removed.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Switch back to the previous workflow and note that the status is restored, similar to the following example.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>If you switch to a workflow that was started before tracking was enabled no status is displayed.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>However if you make additional guesses, their status is saved because tracking is now enabled.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Please enter a number between 1 and 10<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Your guess is too high.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Please enter a number between 1 and 10<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This information is useful for determining the range of the random number, but it does not contain any information about what guesses have been previously made.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This information is in the next step, <bpt id="p1">[</bpt>How to: Host Multiple Versions of a Workflow Side-by-Side<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-host-multiple-versions-of-a-workflow-side-by-side.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Make a note of the workflow instance id, and play the game through to its completion.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Open Windows Explorer and navigate to the <bpt id="p1">**</bpt>NumberGuessWorkflowHost\bin\debug<ept id="p1">**</ept> folder (or <bpt id="p2">**</bpt>bin\release<ept id="p2">**</ept> depending on your project settings).</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Note that in addition to the project executable files there are files with guid filenames.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Identify the one that corresponds to the workflow instance id from the completed workflow in the previous step and open it in Notepad.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The tracking information contains information similar to the following.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Please enter a number between 1 and 10<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Your guess is too high.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Please enter a number between 1 and 10<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Your guess is too high.<ept id="p1">**</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Please enter a number between 1 and 10<ept id="p1">**</ept>      In addition to the absence of the user's guesses, this tracking data does not contain information about the final guess of the workflow.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>That is because the tracking information consists only of the <ph id="ph1">`WriteLine`</ph> output from the workflow, and the final message that is displayed is done so from the <ph id="ph2">`Completed`</ph> handler after the workflow completes.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>In next step of the tutorial, <bpt id="p1">[</bpt>How to: Host Multiple Versions of a Workflow Side-by-Side<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-host-multiple-versions-of-a-workflow-side-by-side.md)</ept>, the existing <ph id="ph1">`WriteLine`</ph> activities are modified to display the user's guesses, and an additional <ph id="ph2">`WriteLine`</ph> activity is added that displays the final results.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>After these changes are integrated, <bpt id="p1">[</bpt>How to: Host Multiple Versions of a Workflow Side-by-Side<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-host-multiple-versions-of-a-workflow-side-by-side.md)</ept> demonstrates how to host multiple versions of a workflow at the same time.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

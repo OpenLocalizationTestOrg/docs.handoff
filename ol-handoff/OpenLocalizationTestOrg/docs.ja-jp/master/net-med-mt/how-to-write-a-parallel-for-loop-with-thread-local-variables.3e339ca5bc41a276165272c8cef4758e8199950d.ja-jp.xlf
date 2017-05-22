@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c9caa9fd990e7fa1234018b847b5f4fc4e5ac991</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\how-to-write-a-parallel-for-loop-with-thread-local-variables.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f66d433c04efd2223c9d77371d0acd6fb1f7a196</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d448ffcb4fb209db4a8a37aac786240b56098fff</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Write a Parallel.For Loop with Thread-Local Variables | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Write a Parallel.For Loop with Thread-Local Variables</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This example shows how to use thread-local variables to store and retrieve state in each separate task that is created by a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph> loop.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By using thread-local data, you can avoid the overhead of synchronizing a large number of accesses to shared state.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Instead of writing to a shared resource on each iteration, you compute and store the value until all iterations for the task are complete.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can then write the final result once to the shared resource, or pass it to another method.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The following example calls the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%60%601%28System.Int32%2CSystem.Int32%2CSystem.Func%7B%60%600%7D%2CSystem.Func%7BSystem.Int32%2CSystem.Threading.Tasks.ParallelLoopState%2C%60%600%2C%60%600%7D%2CSystem.Action%7B%60%600%7D%29&gt;</ph> method to calculate the sum of the values in an array that contains one million elements.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The value of each element is equal to its index.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Parallel#05<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_parallel/cs/forandforeach_simple.cs#05)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Parallel#05<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_parallel/vb/forwiththreadlocal.vb#05)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The first two parameters of every <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph> method specify the beginning and ending iteration values.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In this overload of the method, the third parameter is where you initialize your local state.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In this context, local state means a variable whose lifetime extends from just before the first iteration of the loop on the current thread, to just after the last iteration.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The type of the third parameter is a <ph id="ph1">&lt;xref:System.Func%601&gt;</ph> where <ph id="ph2">`TResult`</ph> is the type of the variable that will store the thread-local state.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Its type is defined by the generic type argument supplied when calling the generic <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%60%601%28System.Int32%2CSystem.Int32%2CSystem.Func%7B%60%600%7D%2CSystem.Func%7BSystem.Int32%2CSystem.Threading.Tasks.ParallelLoopState%2C%60%600%2C%60%600%7D%2CSystem.Action%7B%60%600%7D%29&gt;</ph> method, which in this case is <ph id="ph2">&lt;xref:System.Int64&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The type argument tells the compiler the type of the temporary variable that will be used to store the thread-local state.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In this example, the expression <ph id="ph1">`() =&gt; 0`</ph> (or <ph id="ph2">`Function() 0`</ph> in Visual Basic) initializes the thread-local variable to zero.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the generic type argument is a reference type or user-defined value type, the expression would look like this:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The fourth parameter defines the loop logic.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>It must be a delegate or lambda expression whose signature is <ph id="ph1">`Func&lt;int, ParallelLoopState, long, long&gt;`</ph> in C# or <ph id="ph2">`Func(Of Integer, ParallelLoopState, Long, Long)`</ph> in Visual Basic.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The first parameter is the value of the loop counter for that iteration of the loop.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The second is a <ph id="ph1">&lt;xref:System.Threading.Tasks.ParallelLoopState&gt;</ph> object that can be used to break out of the loop; this object is provided by the <ph id="ph2">&lt;xref:System.Threading.Tasks.Parallel&gt;</ph> class to each occurrence of the loop.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The third parameter is the thread-local variable.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The last parameter is the return type.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>In this case, the type is <ph id="ph1">&lt;xref:System.Int64&gt;</ph> because that is the type we specified in the <ph id="ph2">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph> type argument.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>That variable is named <ph id="ph1">`subtotal`</ph> and is returned by the lambda expression.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The return value is used to initialize <ph id="ph1">`subtotal`</ph> on each subsequent iteration of the loop.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>You can also think of this last parameter as a value that is passed to each iteration, and then passed to the <ph id="ph1">`localFinally`</ph> delegate when the last iteration is complete.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The fifth parameter defines the method that is called once, after all the iterations on a particular thread have completed.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The type of the input argument again corresponds to the type argument of the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%60%601%28System.Int32%2CSystem.Int32%2CSystem.Func%7B%60%600%7D%2CSystem.Func%7BSystem.Int32%2CSystem.Threading.Tasks.ParallelLoopState%2C%60%600%2C%60%600%7D%2CSystem.Action%7B%60%600%7D%29&gt;</ph> method and the type returned by the body lambda expression.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In this example, the value is added to a variable at class scope in a thread safe way by calling the <ph id="ph1">&lt;xref:System.Threading.Interlocked.Add%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>By using a thread-local variable, we have avoided writing to this class variable on every iteration of the loop.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For more information about how to use lambda expressions, see <bpt id="p1">[</bpt>Lambda Expressions in PLINQ and TPL<ept id="p1">](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Data Parallelism<ept id="p1">](../../../docs/standard/parallel-programming/data-parallelism-task-parallel-library.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Parallel Programming<ept id="p1">](../../../docs/standard/parallel-programming/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Task Parallel Library (TPL)<ept id="p1">](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Lambda Expressions in PLINQ and TPL<ept id="p1">](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

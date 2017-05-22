@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ca7dbe2873d501db31f19caa9135d792b4301be5</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\sql\customizing-permissions-with-impersonation-in-sql-server.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c4425a223de2ccb2ed5a4529d5c3fc161b212bb0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a2f6d5574ae33569c0fa91859d2c6cff2c0f94f3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Customizing Permissions with Impersonation in SQL Server | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Customizing Permissions with Impersonation in SQL Server</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Many applications use stored procedures to access data, relying on ownership chaining to restrict access to base tables.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>You can grant EXECUTE permissions on stored procedures, revoking or denying permissions on the base tables.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>SQL Server does not check the permissions of the caller if the stored procedure and tables have the same owner.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, ownership chaining doesn't work if objects have different owners or in the case of dynamic SQL.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You can use the EXECUTE AS clause in a stored procedure when the caller doesn't have permissions on the referenced database objects.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The effect of the EXECUTE AS clause is that the execution context is switched to the proxy user.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>All code, as well as any calls to nested stored procedures or triggers, executes under the security context of the proxy user.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Execution context is reverted to the original caller only after execution of the procedure or when a REVERT statement is issued.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Context Switching with the EXECUTE AS Statement</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The Transact-SQL EXECUTE AS statement allows you to switch the execution context of a statement by impersonating another login or database user.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This is a useful technique for testing queries and procedures as another user.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You must have IMPERSONATE permissions on the login or user you are impersonating.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This permission is implied for <ph id="ph1">`sysadmin`</ph> for all databases, and <ph id="ph2">`db_owner`</ph> role members in databases that they own.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Granting Permissions with the EXECUTE AS Clause</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You can use the EXECUTE AS clause in the definition header of a stored procedure, trigger, or user-defined function (except for inline table-valued functions).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This causes the procedure to execute in the context of the user name or keyword specified in the EXECUTE AS clause.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You can create a proxy user in the database that is not mapped to a login, granting it only the necessary permissions on the objects accessed by the procedure.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Only the proxy user specified in the EXECUTE AS clause must have permissions on all objects accessed by the module.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Some actions, such as TRUNCATE TABLE, do not have grantable permissions.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>By incorporating the statement within a procedure and specifying a proxy user who has ALTER TABLE permissions, you can extend the permissions to truncate the table to callers who have only EXECUTE permissions on the procedure.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The context specified in the EXECUTE AS clause is valid for the duration of the procedure, including nested procedures and triggers.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Context reverts to the caller when execution is complete or the REVERT statement is issued.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>There are three steps involved in using the EXECUTE AS clause in a procedure.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Create a proxy user in the database that is not mapped to a login.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This is not required, but it helps when managing permissions.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Grant the proxy user the necessary permissions.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Add the EXECUTE AS clause to the stored procedure or user-defined function.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Applications that require auditing can break because the original security context of the caller is not retained.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Built-in functions that return the identity of the current user, such as SESSION_USER, USER, or USER_NAME, return the user associated with the EXECUTE AS clause, not the original caller.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Using EXECUTE AS with REVERT</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>You can use the Transact-SQL REVERT statement to revert to the original execution context.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The optional clause, WITH NO REVERT COOKIE = <ph id="ph1">@variableName</ph>, allows you switch the execution context back to the caller if the <ph id="ph2">@variableName</ph> variable contains the correct value.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This allows you to switch the execution context back to the caller in environments where connection pooling is used.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Because the value of <ph id="ph1">@variableName</ph> is known only to the caller of the EXECUTE AS statement, the caller can guarantee that the execution context cannot be changed by the end user that invokes the application.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>When the connection is closed, it is returned to the pool.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For more information on connection pooling in ADO.NET, see <bpt id="p1">[</bpt>SQL Server Connection Pooling (ADO.NET)<ept id="p1">](../../../../../docs/framework/data/adonet/sql-server-connection-pooling.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Specifying the Execution Context</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>In addition to specifying a user, you can also use EXECUTE AS with any of the following keywords.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>CALLER.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Executing as CALLER is the default; if no other option is specified, then the procedure executes in the security context of the caller.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>OWNER.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Executing as OWNER executes the procedure in the context of the procedure owner.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If the procedure is created in a schema owned by <ph id="ph1">`dbo`</ph> or the database owner, the procedure will execute with unrestricted permissions.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>SELF.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Executing as SELF executes in the security context of the creator of the stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This is equivalent to executing as a specified user, where the specified user is the person creating or altering the procedure.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>External Resources</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information, see the following resources.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Resource</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Context Switching<ept id="p1">](http://msdn.microsoft.com/library/ms188268.aspx)</ept> in SQL Server Books Online</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Contains links to topics describing how to use the EXECUTE AS clause.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Using EXECUTE AS to Create Custom Permission Sets<ept id="p1">](http://msdn.microsoft.com/library/ms190384.aspx)</ept> and <bpt id="p2">[</bpt>Using EXECUTE AS in Modules<ept id="p2">](http://msdn.microsoft.com/library/ms178106.aspx)</ept> in SQL Server Books Online</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Topics describe how to use the EXECUTE AS clause.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Securing ADO.NET Applications<ept id="p1">](../../../../../docs/framework/data/adonet/securing-ado-net-applications.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Overview of SQL Server Security<ept id="p1">](../../../../../docs/framework/data/adonet/sql/overview-of-sql-server-security.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Application Security Scenarios in SQL Server<ept id="p1">](../../../../../docs/framework/data/adonet/sql/application-security-scenarios-in-sql-server.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Managing Permissions with Stored Procedures in SQL Server<ept id="p1">](../../../../../docs/framework/data/adonet/sql/managing-permissions-with-stored-procedures-in-sql-server.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Writing Secure Dynamic SQL in SQL Server<ept id="p1">](../../../../../docs/framework/data/adonet/sql/writing-secure-dynamic-sql-in-sql-server.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Signing Stored Procedures in SQL Server<ept id="p1">](../../../../../docs/framework/data/adonet/sql/signing-stored-procedures-in-sql-server.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Modifying Data with Stored Procedures<ept id="p1">](../../../../../docs/framework/data/adonet/modifying-data-with-stored-procedures.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">031c451ebac342b29eb197af3838d3f33ee26dc4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\securing-messages-using-transport-security.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">aee64968eb691950900ffaebc5d20a2f176d82da</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c1728c6570ad7ff0cf398ceea9b75bf7fc1eacea</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Securing Messages Using Transport Security | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Securing Messages Using Transport Security</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This section discusses Message Queuing (MSMQ) transport security that you can use to secure messages sent to a queue.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Before reading through this topic, it is recommended that you read <bpt id="p1">[</bpt>Security Concepts<ept id="p1">](../../../../docs/framework/wcf/feature-details/security-concepts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The following illustration provides a conceptual model of queued communication using <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This illustration and terminology is used to explain transport security concepts.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Queued Application Diagram<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/distributed-queue-figure.jpg "</bpt>Distributed-Queue-Figure<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>When sending queued messages using <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> with <ph id="ph2">&lt;xref:System.ServiceModel.NetMsmqBinding&gt;</ph>, the <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> message is attached as a body of the MSMQ message.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Transport security secures the entire MSMQ message (MSMQ message headers or properties and the message body).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because it is the body of the MSMQ message, using transport security also secures the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> message.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The key concept behind transport security is that the client has to meet security requirements to get the message to the target queue.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This is unlike Message security, where the message is secured for the application that receives the message.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Transport security using <ph id="ph1">&lt;xref:System.ServiceModel.NetMsmqBinding&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&gt;</ph> impacts how MSMQ messages are secured in-transit between the transmission queue and the target queue where secured implies:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Signing the message to ensure it is not tampered with.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Encrypting the message to ensure that it cannot be seen or tampered with.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This is recommended but optional.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The target queue manager that identifies the sender of the message for non-repudiation.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In MSMQ, independent of authentication, the target queue has an access control list (ACL) to check whether the client has permission to send the message to the target queue.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The receiving application is also checked for permission to receive the message from the target queue.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>WCF MSMQ Transport Security Properties</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>MSMQ uses Windows security for authentication.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It uses the Windows security identifier (SID) to identify the client and uses Active Directory directory service as the certificate authority when authenticating the client.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This requires MSMQ to be installed with Active Directory integration.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Because the Windows domain SID is used to identify the client, this security option is only meaningful when both the client and service are part of the same Windows domain.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>MSMQ also provides the ability to attach a certificate with the message that is not registered with Active Directory.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In this case, it ensures that the message was signed using the attached certificate.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides both these options as part of MSMQ transport security and they are the key pivot for transport security.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>By default, transport security is turned on.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Given these basics, the following sections detail transport security properties bundled with <ph id="ph1">&lt;xref:System.ServiceModel.NetMsmqBinding&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>MSMQ Authentication Mode</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqAuthenticationMode%2A&gt;</ph> dictates whether to use the Windows domain security or an external certificate-based security to secure the message.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In both authentication modes, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> queued transport channel uses the <ph id="ph2">`CertificateValidationMode`</ph> specified in the service configuration.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The certificate validation mode specifies the mechanism used to check the validity of the certificate.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When transport security is turned on, the default setting is <ph id="ph1">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Windows Domain Authentication Mode</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The choice of using Windows security requires Active Directory integration.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph> is the default transport security mode.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>When this is set, the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> channel attaches the Windows SID to the MSMQ message and uses its internal certificate obtained from Active Directory.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>MSMQ uses this internal certificate to secure the message.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The receiving queue manager uses Active Directory to search and find a matching certificate to authenticate the client and checks that the SID also matches that of the client.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>This authentication step is executed if a certificate, either internally generated in the case of <ph id="ph1">`WindowsDomain`</ph> authentication mode or externally generated in the case of <ph id="ph2">`Certificate`</ph> authentication mode, is attached to the message even if the target queue is not marked as requiring authentication.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When creating a queue, you can mark the queue as an authenticated queue to indicate that the queue requires authentication of the client sending messages to the queue.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This ensures that no unauthenticated messages are accepted in the queue.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The SID attached with the message is also used to check against the target queue's ACL to ensure that the client has the authority to send messages to the queue.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Certificate Authentication Mode</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The choice of using certificate authentication mode does not require Active Directory integration.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In fact, in some cases, such as when MSMQ is installed in workgroup mode (without Active Directory integration) or when using the SOAP Reliable Messaging Protocol (SRMP) transfer protocol to send messages to the queue, only <ph id="ph1">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph> works.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>When sending a <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> message with <ph id="ph2">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph>, the <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> channel does not attach a Windows SID to the MSMQ message.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>As such, the target queue ACL must allow for <ph id="ph1">`Anonymous`</ph> user access to send to the queue.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The receiving queue manager checks whether the MSMQ message was signed with the certificate but does not perform any authentication.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The certificate with its claims and identity information is populated in the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceSecurityContext&gt;</ph> by the <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> queued transport channel.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The service can use this information to perform its own authentication of the sender.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>MSMQ Protection Level</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The protection level dictates how to protect the MSMQ message to ensure that it is not tampered with.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>It is specified in the <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The default value is <ph id="ph1">&lt;xref:System.Net.Security.ProtectionLevel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Sign Protection Level</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The MSMQ message is signed using the internally generated certificate when using <ph id="ph1">`WindowsDomain`</ph> authentication mode or an externally generated certificate when using <ph id="ph2">`Certificate`</ph> authentication mode.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Sign and Encrypt Protection Level</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The MSMQ message is signed using the internally generated certificate when using <ph id="ph1">`WindowsDomain`</ph> authentication mode or externally generated certificate when using <ph id="ph2">`Certificate`</ph> authentication mode.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>In addition to signing the message, the MSMQ message is encrypted using the public key of the certificate obtained from Active Directory that belongs to the receiving queue manager that hosts the target queue.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The sending queue manager ensures that the MSMQ message is encrypted in transit.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The receiving queue manager decrypts the MSMQ message using the private key of its internal certificate and stores the message in the queue (if authenticated and authorized) in clear text.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>To encrypt the message, Active Directory access is required (<ph id="ph1">`UseActiveDirectory`</ph> property of <ph id="ph2">&lt;xref:System.ServiceModel.NetMsmqBinding&gt;</ph> must be set to <ph id="ph3">`true`</ph>) and can be used with both <ph id="ph4">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph> and <ph id="ph5">&lt;xref:System.ServiceModel.MsmqAuthenticationMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>None Protection Level</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This is implied when <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph> is set to <ph id="ph2">&lt;xref:System.Net.Security.ProtectionLevel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This cannot be a valid value for any other authentication modes.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If the MSMQ message is signed, MSMQ checks whether the message is signed with the attached certificate (internal or external) independent of the state of the queue, that is, authenticated queue or not.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>MSMQ Encryption Algorithm</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The encryption algorithm specifies the algorithm to use to encrypt the MSMQ message on the wire.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>This property is used only if <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph> is set to <ph id="ph2">&lt;xref:System.Net.Security.ProtectionLevel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The supported algorithms are <ph id="ph1">`RC4Stream`</ph> and <ph id="ph2">`AES`</ph> and the default is <ph id="ph3">`RC4Stream`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>You can use the <ph id="ph1">`AES`</ph> algorithm only if the sender has MSMQ 4.0 installed.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>In addition, the target queue must also be hosted on MSMQ 4.0.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>MSMQ Hash Algorithm</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The hash algorithm specifies the algorithm used to create a digital signature of the MSMQ message.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The receiving queue manager uses this same algorithm to authenticate the MSMQ message.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>This property is used only if <ph id="ph1">&lt;xref:System.ServiceModel.MsmqTransportSecurity.MsmqProtectionLevel%2A&gt;</ph> is set to <ph id="ph2">&lt;xref:System.Net.Security.ProtectionLevel&gt;</ph> or <ph id="ph3">&lt;xref:System.Net.Security.ProtectionLevel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The supported algorithms are <ph id="ph1">`MD5`</ph>, <ph id="ph2">`SHA1`</ph>, <ph id="ph3">`SHA256`</ph>, and <ph id="ph4">`SHA512`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`SHA1`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Message Queuing<ept id="p1">](http://msdn.microsoft.com/en-us/ff917e87-05d5-478f-9430-0f560675ece1)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Security Concepts<ept id="p1">](../../../../docs/framework/wcf/feature-details/security-concepts.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Securing Services and Clients<ept id="p1">](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
