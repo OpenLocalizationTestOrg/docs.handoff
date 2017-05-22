@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">15e5d6654ea6357b5e15f9f97061f819f8e35d16</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\custom-lifetime.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">aedf925613a8b18c3fc996594bc69b211992fe8f</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4c870786626ea37dc12f73fc845d6287772b9104</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Lifetime | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Lifetime</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to write a <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> extension to provide custom lifetime services for shared <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service instances.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Shared Instancing</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> offers several instancing modes for your service instances.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The Shared Instancing mode covered in this topic provides a way to share a service instance between multiple channels.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Clients can either resolve the instance’s endpoint address locally or contact a factory method in the service to obtain the endpoint address of a running instance.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Once it has the endpoint address, it can create a new channel and start communication.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The following code snippet shows how a client application creates a new channel to an existing service instance.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Unlike other instancing modes, the shared instancing mode has a unique way of releasing the service instances.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>When all the channels are closed for an instance, the service <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> runtime starts a timer.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If nobody makes a connection before the timeout expires, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> releases the instance and claims the resources.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>As a part of the teardown procedure <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> invokes the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method of all <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> implementations before releasing the instance.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If all of them return <ph id="ph1">`true`</ph> the instance is released.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Otherwise the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> implementation is responsible for notifying the <ph id="ph2">`Dispatcher`</ph> of the idle state by using a callback method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>By default, the idle timeout value of <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> is one minute.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>However this sample demonstrates how you can extend this using a custom extension.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Extending the InstanceContext</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> is the link between the service instance and the <ph id="ph3">`Dispatcher`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> allows you to extend this runtime component by adding new state or behavior by using its extensible object pattern.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The extensible object pattern is used in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> to either extend existing runtime classes with new functionality or to add new state features to an object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>There are three interfaces in the extensible object pattern: <ph id="ph1">`IExtensibleObject&lt;T&gt;`</ph>, <ph id="ph2">`IExtension&lt;T&gt;`</ph>, and <ph id="ph3">`IExtensionCollection&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IExtensibleObject&lt;T&gt;`</ph> interface is implemented by objects to allow extensions which customize their functionality.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IExtension&lt;T&gt;`</ph> interface is implemented by objects that can be extensions of classes of type <ph id="ph2">`T`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>And finally, the <ph id="ph1">`IExtensionCollection&lt;T&gt;`</ph> interface is a collection of <ph id="ph2">`IExtensions`</ph> that allows for retrieving <ph id="ph3">`IExtensions`</ph> by their type.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Therefore in order to extend the <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> you must implement the <ph id="ph2">`IExtension`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In this sample project the <ph id="ph1">`CustomLeaseExtension`</ph> class contains this implementation.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IExtension`</ph> interface has two methods <ph id="ph2">`Attach`</ph> and <ph id="ph3">`Detach`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>As their names imply, these two methods are called when the runtime attaches and detaches the extension to an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In this sample, the <ph id="ph1">`Attach`</ph> method is used to keep track of the <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> object that belongs to the current instance of the extension.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In addition, you must add the necessary implementation to the extension to provide the extended lifetime support.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Therefore the <ph id="ph1">`ICustomLease`</ph> interface is declared with the desired methods and is implemented in the <ph id="ph2">`CustomLeaseExtension`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> invokes the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method in the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> implementation this call is routed to the <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method of the <ph id="ph5">`CustomLeaseExtension`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Then the <ph id="ph1">`CustomLeaseExtension`</ph> checks its private state to see whether the <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> is idle.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If it is idle it returns <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Otherwise, it starts a timer for a specified amount of extended lifetime.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In the timer’s <ph id="ph1">`Elapsed`</ph> event the callback function in the Dispatcher is called in order to start another clean up cycle.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>There is no way to renew the running timer when a new message arrives for the instance being moved to the idle state.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The sample implements <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> to intercept the calls to the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method and route them to the <ph id="ph3">`CustomLeaseExtension`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> implementation is contained in <ph id="ph2">`CustomLifetimeLease`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method is invoked when <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> is about to release the service instance.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>However, there is only one instance of a particular <ph id="ph1">`ISharedSessionInstance`</ph> implementation in the ServiceBehavior’s <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>This means there is no way of knowing the <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> being closed at the time <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> checks the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Therefore this sample uses thread locking to serialize requests to the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.IsIdle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Using thread locking is not a recommended approach because serialization can severely affect the performance of your application.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A private member variable is used in the <ph id="ph1">`CustomLeaseExtension`</ph> class to track the <ph id="ph2">`IsIdle`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Each time the value of <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider&gt;</ph> is retrieved the <ph id="ph2">`IsIdle`</ph> private member is returned and reset to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>It is essential to set this value to <ph id="ph1">`false`</ph> in order to make sure the Dispatcher calls the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextProvider.NotifyIdle%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`ISharedSessionLifetime.IsIdle`</ph> property returns <ph id="ph2">`false`</ph> the Dispatcher registers a callback function by using the <ph id="ph3">`NotifyIdle`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This method receives a reference to the <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph> being released.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Therefore the sample code can query the <ph id="ph1">`ICustomLease`</ph> type extension and check the <ph id="ph2">`ICustomLease.IsIdle`</ph> property in the extended state.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Before the <ph id="ph1">`ICustomLease.IsIdle`</ph> property is checked the Callback property needs to be set as this is essential for <ph id="ph2">`CustomLeaseExtension`</ph> to notify the Dispatcher when it becomes idle.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`ICustomLease.IsIdle`</ph> returns <ph id="ph2">`true`</ph>, the <ph id="ph3">`isIdle`</ph> private member is simply set in <ph id="ph4">`CustomLifetimeLease`</ph> to <ph id="ph5">`true`</ph> and calls the callback method.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Because the code holds a lock, other threads cannot change the value of this private member.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>And the next time Dispatcher checks the <ph id="ph1">`ISharedSessionLifetime.IsIdle`</ph>, it returns <ph id="ph2">`true`</ph> and lets Dispatcher release the instance.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Now that the groundwork for the custom extension is completed, it has to be hooked up to the service model.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To hook up the <ph id="ph1">`CustomLeaseExtension`</ph> implementation to the <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph>, <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides the <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer&gt;</ph> interface to perform the bootstrapping of <ph id="ph5">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In the sample, the <ph id="ph1">`CustomLeaseInitializer`</ph> class implements this interface and adds an instance of <ph id="ph2">`CustomLeaseExtension`</ph> to the <ph id="ph3">&lt;xref:System.ServiceModel.InstanceContext.Extensions%2A&gt;</ph> collection from the only method initialization.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This method is called by Dispatcher while initializing the <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Finally the <ph id="ph1">`System.ServiceModel.Dispatcher.IShareableInstanceContextLifetime`</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer&gt;</ph> implementations are is hooked up to the service model by using the <ph id="ph3">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This implementation is placed in the <ph id="ph1">`CustomLeaseTimeAttribute`</ph> class and it also derives from the <ph id="ph2">`Attribute`</ph> base class to expose this behavior as an attribute.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`IServiceBehavior.ApplyBehavior`</ph> method, instances of <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer&gt;</ph> and <ph id="ph3">`System.ServiceModel.Dispatcher.IShareableInstanceContextLifetime`</ph> implementations are added to the <ph id="ph4">`System.ServiceModel.Dispatcher.DispatchRuntime.InstanceContextLifetimes`</ph> and <ph id="ph5">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceContextInitializers%2A&gt;</ph> collections of the <ph id="ph6">&lt;xref:System.ServiceModel.Dispatcher&gt;</ph> respectively.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This behavior can be added to a sample service class by annotating it with the <ph id="ph1">`CustomLeaseTime`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the operation requests and responses are displayed in both the service and client console windows.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Press ENTER in each console window to shut down the service and client.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>To build the C# or Visual Basic .NET edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

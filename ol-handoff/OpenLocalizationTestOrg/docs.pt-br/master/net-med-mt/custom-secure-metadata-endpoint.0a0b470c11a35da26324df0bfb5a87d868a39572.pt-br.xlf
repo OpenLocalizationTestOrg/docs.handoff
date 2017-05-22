@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">96aa77dae28c2c33169512faed961e7cb6314f74</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\custom-secure-metadata-endpoint.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">69cad330924dd4c7324a87f05b3b57f86137f63c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">025896e012b41402076a10b267cb056dce35929a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Secure Metadata Endpoint | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Secure Metadata Endpoint</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to implement a service with a secure metadata endpoint that uses one of the non-metadata exchange bindings, and how to configure <bpt id="p1">[</bpt>ServiceModel Metadata Utility Tool (Svcutil.exe)<ept id="p1">](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)</ept> or clients to fetch the metadata from such a metadata endpoint.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>There are two system-provided bindings available for exposing metadata endpoints: mexHttpBinding and mexHttpsBinding.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>mexHttpBinding is used to expose a metadata endpoint over HTTP in a non-secure manner.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>mexHttpsBinding is used to expose a metadata endpoint over HTTPS in a secure manner.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This sample illustrates how to expose a secure metadata endpoint using the <ph id="ph1">&lt;xref:System.ServiceModel.WSHttpBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>You would want to do this when you want to change the security settings on the binding, but you do not want to use HTTPS.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If you use the mexHttpsBinding your metadata endpoint will be secure, but there is no way to modify the binding settings.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Service</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The service in this sample has two endpoints.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The application endpoint serves the <ph id="ph1">`ICalculator`</ph> contract on a <ph id="ph2">`WSHttpBinding`</ph> with <ph id="ph3">`ReliableSession`</ph> enabled and <ph id="ph4">`Message`</ph> security using certificates.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The metadata endpoint also uses <ph id="ph1">`WSHttpBinding`</ph>, with the same security settings but with no <ph id="ph2">`ReliableSession`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Here is the relevant configuration:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In many of the other samples, the metadata endpoint uses the default <ph id="ph1">`mexHttpBinding`</ph>, which is not secure.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Here the metadata is secured using <ph id="ph1">`WSHttpBinding`</ph> with <ph id="ph2">`Message`</ph> security.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In order for metadata clients to retrieve this metadata, they must be configured with a matching binding.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates two such clients.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The first client uses Svcutil.exe to fetch the metadata and generate client code and configuration at design time.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Because the service uses a non-default binding for the metadata, the Svcutil.exe tool must be specifically configured so that it can get the metadata from the service using that binding.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The second client uses the <ph id="ph1">`MetadataResolver`</ph> to dynamically fetch the metadata for a known contract and then invoke operations on the dynamically generated client.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Svcutil client</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When using the default binding to host your <ph id="ph1">`IMetadataExchange`</ph> endpoint, you can run Svcutil.exe with the address of that endpoint:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>and it works.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>But in this sample, the server uses a non-default endpoint to host the metadata.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>So Svcutil.exe must be instructed to use the correct binding.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This can be done using a Svcutil.exe.config file.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The Svcutil.exe.config file looks like a normal client configuration file.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The only unusual aspects are the client endpoint name and contract:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The endpoint name must be the name of the scheme of the address where the metadata is hosted and the endpoint contract must be <ph id="ph1">`IMetadataExchange`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Thus, when Svcutil.exe is run with a command-line such as the following:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>it looks for the endpoint named "http" and contract <ph id="ph1">`IMetadataExchange`</ph> to configure the binding and behavior of the communication exchange with the metadata endpoint.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The rest of the Svcutil.exe.config file in the sample specifies the binding configuration and behavior credentials to match the server's configuration of the metadata endpoint.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In order for Svcutil.exe to pick up the configuration in Svcutil.exe.config, Svcutil.exe must be in the same directory as the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>As a result, you must copy Svcutil.exe from its install location to the directory that contains the Svcutil.exe.config file.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Then from that directory, run the following command:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The leading ".<ph id="ph1">\\</ph>" ensures that the copy of Svcutil.exe in this directory (the one which has a corresponding Svcutil.exe.config) is run.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>MetadataResolver client</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>If the client knows the contract and how to talk to the metadata at design time, the client can dynamically find out the binding and address of application endpoints using the <ph id="ph1">`MetadataResolver`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>This sample client demonstrates this, showing how to configure the binding and credentials used by <ph id="ph1">`MetadataResolver`</ph> by creating and configuring a <ph id="ph2">`MetadataExchangeClient`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The same binding and certificate information that appeared in Svcutil.exe.config can be specified imperatively on the <ph id="ph1">`MetadataExchangeClient`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>With the <ph id="ph1">`mexClient`</ph> configured, we can enumerate the contracts we are interested in, and use <ph id="ph2">`MetadataResolver`</ph> to fetch a list of endpoints with those contracts:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Finally we can use the information from those endpoints to initialize the binding and address of a <ph id="ph1">`ChannelFactory`</ph> used to create channels to communicate with the application endpoints.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The key point of this sample client is to demonstrate that, if you are using <ph id="ph1">`MetadataResolver`</ph>, and you must specify custom bindings or behaviors for the metadata exchange communication, you can use a <ph id="ph2">`MetadataExchangeClient`</ph> to specify those custom settings.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>To set up and build the sample</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>To run the sample on the same machine</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Run Setup.bat from the sample install folder.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This installs all the certificates required for running the sample.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Note that Setup.bat uses the FindPrivateKey.exe tool, which is installed by running setupCertTool.bat from <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Run the client application from \MetadataResolverClient\bin or \SvcutilClient\bin.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Client activity is displayed on the client console application.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If the client and service are not able to communicate, see <bpt id="p1">[</bpt>Troubleshooting Tips<ept id="p1">](http://msdn.microsoft.com/en-us/8787c877-5e96-42da-8214-fa737a38f10b)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Remove the certificates by running Cleanup.bat when you have finished with the sample.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Other security samples use the same certificates.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To run the sample across machines</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>On the server, run <ph id="ph1">`setup.bat service`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Running <ph id="ph1">`setup.bat`</ph> with the <ph id="ph2">`service`</ph> argument creates a service certificate with the fully-qualified domain name of the machine and exports the service certificate to a file named Service.cer.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>On the server, edit Web.config to reflect the new certificate name.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>That is, change the <ph id="ph1">`findValue`</ph> attribute in the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>serviceCertificate&gt;<ept id="p1">](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-clientcredentials-element.md)</ept> element to the fully-qualified domain name of the machine.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Copy the Service.cer file from the service directory to the client directory on the client machine.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>On the client, run <ph id="ph1">`setup.bat client`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Running <ph id="ph1">`setup.bat`</ph> with the <ph id="ph2">`client`</ph> argument creates a client certificate named Client.com and exports the client certificate to a file named Client.cer.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In the App.config file of the <ph id="ph1">`MetadataResolverClient`</ph> on the client machine, change the address value of the mex endpoint to match the new address of your service.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>You do this by replacing localhost with the fully-qualified domain name of the server.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Also change the occurrence of "localhost" in the metadataResolverClient.cs file to the new service certificate name (the fully-qualified domain name of the server).</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Do the same thing for the App.config of the SvcutilClient project.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Copy the Client.cer file from the client directory to the service directory on the server.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>On the client, run <ph id="ph1">`ImportServiceCert.bat`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>This imports the service certificate from the Service.cer file into the CurrentUser - TrustedPeople store.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>On the server, run <ph id="ph1">`ImportClientCert.bat`</ph>, This imports the client certificate from the Client.cer file into the LocalMachine - TrustedPeople store.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>On the service machine, build the service project in Visual Studio and select the help page in a web browser to verify that it is running.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>On the client machine, run the MetadataResolverClient or the SvcutilClient from VS.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>If the client and service are not able to communicate, see <bpt id="p1">[</bpt>Troubleshooting Tips<ept id="p1">](http://msdn.microsoft.com/en-us/8787c877-5e96-42da-8214-fa737a38f10b)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>To clean up after the sample</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Run Cleanup.bat in the samples folder once you have finished running the sample.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This script does not remove service certificates on a client when running this sample across machines.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If you have run <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> samples that use certificates across machines, be sure to clear the service certificates that have been installed in the CurrentUser - TrustedPeople store.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>To do this, use the following command: <ph id="ph1">`certmgr -del -r CurrentUser -s TrustedPeople -c -n &lt;Fully Qualified Server Machine Name&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>For example: <ph id="ph1">`certmgr -del -r CurrentUser -s TrustedPeople -c -n server1.contoso.com`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

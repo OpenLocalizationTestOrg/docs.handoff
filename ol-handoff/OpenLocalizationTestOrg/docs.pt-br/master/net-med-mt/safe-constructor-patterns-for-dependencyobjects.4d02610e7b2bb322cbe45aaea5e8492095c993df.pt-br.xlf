@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bf02cb5def498ae7a9820949e46c69e959fef43c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\safe-constructor-patterns-for-dependencyobjects.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">41a590b1245e2ee60ea41fa70632c66da9f27174</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">be265643a09150c7243b55b99ad69c2ac96df9f0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Safe Constructor Patterns for DependencyObjects | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Safe Constructor Patterns for DependencyObjects</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Generally, class constructors should not call callbacks such as virtual methods or delegates, because constructors can be called as base initialization of constructors for a derived class.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Entering the virtual might be done at an incomplete initialization state of any given object.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>However, the property system itself calls and exposes callbacks internally, as part of the dependency property system.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>As simple an operation as setting a dependency property value with <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> call potentially includes a callback somewhere in the determination.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For this reason, you should be careful when setting dependency property values within the body of a constructor, which can become problematic if your type is used as a base class.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>There is a particular pattern for implementing <ph id="ph1">&lt;xref:System.Windows.DependencyObject&gt;</ph> constructors that avoids specific problems with dependency property states and the inherent callbacks, which is documented here.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Property System Virtual Methods</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The following virtual methods or callbacks are potentially called during the computations of the <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> call that sets a dependency property value: <ph id="ph2">&lt;xref:System.Windows.ValidateValueCallback&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.PropertyChangedCallback&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.CoerceValueCallback&gt;</ph>, <ph id="ph5">&lt;xref:System.Windows.DependencyObject.OnPropertyChanged%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Each of these virtual methods or callbacks serves a particular purpose in expanding the versatility of the <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> property system and dependency properties.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For more information on how to use these virtuals to customize property value determination, see <bpt id="p1">[</bpt>Dependency Property Callbacks and Validation<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-callbacks-and-validation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>FXCop Rule Enforcement vs. Property System Virtuals</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If you use the Microsoft tool FXCop as part of your build process, and you either derive from certain <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> framework classes calling the base constructor, or implement your own dependency properties on derived classes, you might encounter a particular FXCop rule violation.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The name string for this violation is:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This is a rule that is part of the default public rule set for FXCop.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>What this rule might be reporting is a trace through the dependency property system that eventually calls a dependency property system virtual method.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This rule violation might continue to appear even after following the recommended constructor patterns documented in this topic, so you might need to disable or suppress that rule in your FXCop rule set configuration.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Most Issues Come From Deriving Classes, Not Using Existing Classes</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The issues reported by this rule occur when a class that you implement with virtual methods in its construction sequence is then derived from.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If you seal your class, or otherwise know or enforce that your class will not be derived from, the considerations explained here and the issues that motivated the FXCop rule do not apply to you.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, if you are authoring classes in such a way that they are intended to be used as base classes, for instance if you are creating templates, or an expandable control library set, you should follow the patterns recommended here for constructors.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Default Constructors Must Initialize All Values Requested By Callbacks</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Any instance members that are used by your class overrides or callbacks (the callbacks from the list in the Property System Virtuals section) must be initialized in your class default constructor, even if some of those values are filled by "real" values through parameters of the nondefault constructors.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following example code (and subsequent examples) is a pseudo-C# example that violates this rule and explains the problem:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When application code calls <ph id="ph1">`new MyClass(objectvalue)`</ph>, this calls the default constructor and base class constructors.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Then it sets <ph id="ph1">`Property1 = object1`</ph>, which calls the virtual method <ph id="ph2">`OnPropertyChanged`</ph> on the owning <ph id="ph3">`MyClass`</ph> <ph id="ph4">&lt;xref:System.Windows.DependencyObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The override refers to <ph id="ph1">`_myList`</ph>, which has not been initialized yet.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>One way to avoid these issues is to make sure that callbacks use only other dependency properties, and that each such dependency property has an established default value as part of its registered metadata.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Safe Constructor Patterns</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To avoid the risks of incomplete initialization if your class is used as a base class, follow these patterns:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Default constructors calling base initialization</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Implement these constructors calling the base default:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Non-default (convenience) constructors, not matching any base signatures</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If these constructors use the parameters to set dependency properties in the initialization, first call your own class default constructor for initialization, and then use the parameters to set dependency properties.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>These could either be dependency properties defined by your class, or dependency properties inherited from base classes, but in either case use the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Non-default (convenience) constructors, which do match base signatures</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Instead of calling the base constructor with the same parameterization, again call your own class' default constructor.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Do not call the base initializer; instead you should call <ph id="ph1">`this()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Then reproduce the original constructor behavior by using the passed parameters as values for setting the relevant properties.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Use the original base constructor documentation for guidance in determining the properties that the particular parameters are intended to set:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Must match all signatures</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For cases where the base type has multiple signatures, you must deliberately match all possible signatures with a constructor implementation of your own that uses the recommended pattern of calling the class default constructor before setting further properties.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Setting dependency properties with SetValue</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>These same patterns apply if you are setting a property that does not have a wrapper for property setting convenience, and set values with <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Your calls to <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> that pass through constructor parameters should also call the class' default constructor for initialization.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Custom Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Property Security<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-security.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

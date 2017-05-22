@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2279b58ee23c432886f14aae090b41b275d5178b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\dispatch-by-body-element.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f8e1f3d6540d40be4cd10e8253e86aba7e95c441</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dfd175684a08ebd45027e1f9ef9ed4567c583c4d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Dispatch by Body Element | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Dispatch by Body Element</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to implement an alternate algorithm for assigning incoming messages to operations.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By default, the service model dispatcher selects the appropriate handling method for an incoming message based on the message's WS-Addressing "Action" header or the equivalent information in the HTTP SOAP request.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Some SOAP 1.1 Web services stacks that do not follow the WS-I Basic Profile 1.1 guidelines do not dispatch messages based on the Action URI, but rather based on the XML qualified name of the first element inside the SOAP body.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Likewise, the client side of these stacks might send messages with an empty or arbitrary HTTP SoapAction header, which was permitted by the SOAP 1.1 specification.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To change the way messages are dispatched to methods, the sample implements the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> extensibility interface on the <ph id="ph2">`DispatchByBodyElementOperationSelector`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This class selects operations based on the first element of the message body.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The class constructor expects a dictionary populated with pairs of <ph id="ph1">`XmlQualifiedName`</ph> and strings, whereby the qualified names indicate the name of the first child of the SOAP body and the strings indicate the matching operation name.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`defaultOperationName`</ph> is the name of the operation that receives all messages that cannot be matched against this dictionary:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> implementations are very straightforward to build as there is only one method on the interface: <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector.SelectOperation%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The job of this method is to inspect an incoming message and to return a string that equals the name of a method on the service contract for the current endpoint.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In this sample, the operation selector acquires an <ph id="ph1">&lt;xref:System.Xml.XmlDictionaryReader&gt;</ph> for the incoming message's body using <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Message.GetReaderAtBodyContents%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This method already positions the reader on the first child of the message's body so that it is sufficient to get the current element's name and namespace URI and combine them into an <ph id="ph1">`XmlQualifiedName`</ph> that is then used for looking up the corresponding operation from the dictionary held by the operation selector.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Accessing the message body with <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message.GetReaderAtBodyContents%2A&gt;</ph> or any of the other methods that provide access to the message's body content causes the message to be marked as "read", which means that the message is invalid for any further processing.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Therefore, the operation selector creates a copy of the incoming message with the method shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Because the reader's position has not been changed during the inspection, it can be referenced by the newly created message to which the message properties and the message headers are also copied, which results in an exact clone of the original message:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Adding an Operation Selector to a Service</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Service dispatch operation selectors are extensions to the <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> dispatcher.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For selecting methods on the callback channel of duplex contracts, there are also client operation selectors, which work very much like the dispatch operation selectors described here, but which are not explicitly covered in this sample.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Like most service model extensions, dispatch operation selectors are added to the dispatcher using behaviors.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">*</bpt>behavior<ept id="p1">*</ept> is a configuration object, which either adds one or more extensions to the dispatch runtime (or to the client runtime) or otherwise changes its settings.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Because operation selectors have contract scope, the appropriate behavior to implement here is the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Because the interface is implemented on a <ph id="ph1">&lt;xref:System.Attribute&gt;</ph> derived class as shown in the following code, the behavior can be declaratively added to any service contract.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Whenever a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> is opened and the dispatch runtime is built, all behaviors found either as attributes on contracts, operations, and service implementations or as element in the service configuration are automatically added and subsequently asked to contribute extensions or modify the default configuration.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For brevity, the following code excerpt only shows the implementation of the method <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior.ApplyDispatchBehavior%2A&gt;</ph>, which effects the configuration changes for the dispatcher in this sample.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The other methods are not shown because they return to the caller without doing any work.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>First, the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IContractBehavior.ApplyDispatchBehavior%2A&gt;</ph> implementation sets up the lookup dictionary for the operation selector by iterating over the <ph id="ph2">&lt;xref:System.ServiceModel.Description.OperationDescription&gt;</ph> elements in the service endpoint's <ph id="ph3">&lt;xref:System.ServiceModel.Description.ContractDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Then, each operation description is inspected for the presence of the <ph id="ph1">`DispatchBodyElementAttribute`</ph> behavior, an implementation of <ph id="ph2">&lt;xref:System.ServiceModel.Description.IOperationBehavior&gt;</ph> that is also defined in this sample.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>While this class is also a behavior, it is passive and does not actively contribute any configuration changes to the dispatch runtime.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>All of its methods return to the caller without taking any actions.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The operation behavior only exists so that the metadata required for the new dispatch mechanism, namely the qualified name of the body element on whose occurrence an operation is selected, can be associated with the respective operations.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If such a behavior is found, a value pair created from the XML qualified name (<ph id="ph1">`QName`</ph> property) and the operation name (<ph id="ph2">`Name`</ph> property) is added to the dictionary.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Once the dictionary is populated, a new <ph id="ph1">`DispatchByBodyElementOperationSelector`</ph> is constructed with this information and set as the operation selector of the dispatch runtime:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Implementing the Service</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The behavior implemented in this sample directly affects how messages from the wire are interpreted and dispatched, which is a function of the service contract.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Consequently, the behavior should be declared on the service contract level in any service implementation that chooses to use it.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The sample project service applies the <ph id="ph1">`DispatchByBodyElementBehaviorAttribute`</ph> contract behavior to the <ph id="ph2">`IDispatchedByBody`</ph> service contract and labels each of the two operations <ph id="ph3">`OperationForBodyA()`</ph> and <ph id="ph4">`OperationForBodyB()`</ph> with a <ph id="ph5">`DispatchBodyElementAttribute`</ph> operation behavior.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When a service host for a service that implements this contract is opened, this metadata is picked up by the dispatcher builder as previously described.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Because the operation selector dispatches solely based on the message body element and ignores the "Action", it is required to tell the runtime not to check the "Action" header on the returned replies by assigning the wildcard "*" to the <ph id="ph1">`ReplyAction`</ph> property of <ph id="ph2">&lt;xref:System.ServiceModel.OperationContractAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Furthermore, it is required to have a default operation that has the "Action" property set to the wildcard "<ph id="ph1">\*</ph>".</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The default operation receives all messages which cannot be dispatched and does not have a <ph id="ph1">`DispatchBodyElementAttribute`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The sample service implementation is straightforward.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Every method wraps the received message into a reply message and echoes it back to the client.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Running and Building the Sample</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the body content of the operation responses are displayed in the client console window similar to the following (formatted) output.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The client sends three messages to the service whose body content element is named <ph id="ph1">`bodyA`</ph>, <ph id="ph2">`bodyB`</ph>, and <ph id="ph3">`bodyX`</ph>, respectively.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>As can be deferred from the previous description and the service contract shown, the incoming message with the <ph id="ph1">`bodyA`</ph> element is dispatched to the <ph id="ph2">`OperationForBodyA()`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Because there is no explicit dispatch target for the message with the <ph id="ph1">`bodyX`</ph> body element, the message is dispatched to the <ph id="ph2">`DefaultOperation()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Each of the service operations wraps the received message body into an element specific to the method and returns it, which is done to correlate input and output messages clearly for this sample:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

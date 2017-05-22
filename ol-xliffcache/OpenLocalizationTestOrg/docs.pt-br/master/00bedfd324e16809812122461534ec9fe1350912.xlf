@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">00bedfd324e16809812122461534ec9fe1350912</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\workflow-service-host-internals.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a964dcea0faba8657c04923fd76640b9aa5aafee</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">998a686c87812dc807e688e5cb3bf842ed7500e1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Workflow Service Host Internals | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Workflow Service Host Internals</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> provides a host for workflow services.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It is responsible for listening for incoming messages and routing them to the appropriate workflow service instance, it controls unloading and persisting of idle workflows, and more.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic describes how WorkflowServiceHost processes incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>WorkflowServiceHost Overview</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> class is used to host workflow services.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>It listens for incoming messages and routes them to the appropriate service instance, creating new instances or loading existing instances from durable storage as needed.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The following diagram illustrates on a high level how <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> works.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>WorkflowServiceHost Overview<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/wfshhighlevel.gif "</bpt>WFSHHighLevel<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This diagram shows that <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> loads workflow service definitions from .xamlx files and loads configuration information from a configuration file.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It also loads tracking configuration from the tracking profile.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> exposes a workflow control endpoint which allows you to send control operations to workflow instances.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For more information see <bpt id="p1">[</bpt>Workflow Control Endpoint<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-control-endpoint.md)</ept> and <bpt id="p2">[</bpt>Workflow Management Endpoint Sample<ept id="p2">](../../../../docs/framework/windows-workflow-foundation/samples/workflow-management-endpoint-sample.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> also exposes application endpoints that listen for incoming application messages.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When an incoming message arrives it is sent to the appropriate workflow service instance (if it is currently loaded).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If needed a new workflow instance is created.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Or if an existing instance has been persisted it is loaded from the persistence store.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>WorkflowServiceHost Details</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following diagram shows how <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> handles messages in a bit more detail.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Workflow Service Host Message Flow<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/wfshmessageflow.gif "</bpt>WFSHMessageFlow<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This diagram shows three different endpoints, an application endpoint, a workflow control endpoint, and a workflow hosting endpoint.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The application endpoint receives messages that are bound for a specific workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The workflow control endpoint listens for control operations.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The workflow hosting endpoint listens for messages that cause <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> to load and execute non-service workflows.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>As shown in the diagram all messages are processed through the WCF runtime.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Workflow service instance throttling is achieved by using the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceThrottlingBehavior.MaxConcurrentInstances%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This property will limit the number of concurrent workflow service instances.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>When this throttle is exceeded any additional requests for new workflow service instances or requests to activate persisted workflow instances will be queued.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The queued requests are processed in FIFO order regardless of whether they are requests for a new instance or a running, persisted instance.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Host policy information is loaded that determines how unhandled exceptions are dealt with, and how idle workflow services are unloaded and persisted.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> these topics see <bpt id="p1">[</bpt>How to: Configure Workflow Unhandled Exception Behavior with WorkflowServiceHost<ept id="p1">](../../../../docs/framework/wcf/feature-details/config-workflow-unhandled-exception-workflowservicehost.md)</ept> and <bpt id="p2">[</bpt>How to: Configure Idle Behavior with WorkflowServiceHost<ept id="p2">](../../../../docs/framework/wcf/feature-details/how-to-configure-idle-behavior-with-workflowservicehost.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Workflow instances are persisted according to host policies and are reloaded when needed.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For more information about workflow persistence see: <bpt id="p1">[</bpt>How to: Configure Persistence with WorkflowServiceHost<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-configure-persistence-with-workflowservicehost.md)</ept>, <bpt id="p2">[</bpt>Creating a Long-running Workflow Service<ept id="p2">](../../../../docs/framework/wcf/feature-details/creating-a-long-running-workflow-service.md)</ept>, and <bpt id="p3">[</bpt>Workflow Persistence<ept id="p3">](../../../../docs/framework/windows-workflow-foundation/workflow-persistence.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The following illustration shows what the WorkflowServiceHost.Open is called.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>When WorkflowServiceHost.Open is called<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/wfhostopen.gif "</bpt>WFHostOpen<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The workflow is loaded from XAML and the activity tree is created.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> walks the activity tree and creates the service description.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Configuration is applied to the host.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Finally the host begins to listen for incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following illustration shows what the <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> does when it receives a message bound for a Receive activity that has CanCreateInstance set to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Workflow Service Host Receives a message<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/wfhreceivemessagecci.gif "</bpt>WFHReceiveMessageCCI<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The message arrives and is processed by the WCF channel stack.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Throttles are checked and correlation queries are executed.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If the message is bound for an existing instance the message is delivered.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If a new instance needs to be created, the Receive activity’s CanCreateInstance property is checked.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If it is set to true, a new instance is created and the message is delivered.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The following illustration shows what the <ph id="ph1">&lt;xref:System.ServiceModel.WorkflowServiceHost&gt;</ph> does when it receives a message bound for a Receive activity that has CanCreateInstance set to false.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>WorkflowServiceHost receives a message<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/wfshreceivemessage.gif "</bpt>WFSHReceiveMessage<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The message arrives and is processed by the WCF channel stack.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Throttles are checked and correlation queries are executed.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The message is bound for an existing instance (because CanCreateInstance is false) so the instance is loaded from persistence store, the bookmark is resumed and the workflow executes.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Workflow Service Host will fail to open if SQL Server is configured to listen on NamedPipe protocol only.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Workflow Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Hosting Workflow Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/hosting-workflow-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Workflow Control Endpoint<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-control-endpoint.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Workflow Management Endpoint Sample<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/samples/workflow-management-endpoint-sample.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Configure Workflow Unhandled Exception Behavior with WorkflowServiceHost<ept id="p1">](../../../../docs/framework/wcf/feature-details/config-workflow-unhandled-exception-workflowservicehost.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Creating a Long-running Workflow Service<ept id="p1">](../../../../docs/framework/wcf/feature-details/creating-a-long-running-workflow-service.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Workflow Persistence<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/workflow-persistence.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8504bdbadadde6f32fa98d8598179d6e77b71521</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\concepts\linq\how-to-stream-xml-fragments-with-access-to-header-information.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ef9b923b5789a546a2af9cdc3eb57c6a28dc0330</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7719a4433e44d42aba3ae22b0734b1b1bba933d3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Stream XML Fragments with Access to Header Information (C#) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Stream XML Fragments with Access to Header Information (C#)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Sometimes you have to read arbitrarily large XML files, and write your application so that the memory footprint of the application is predictable.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>If you attempt to populate an XML tree with a large XML file, your memory usage will be proportional to the size of the file—that is, excessive.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Therefore, you should use a streaming technique instead.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>One option is to write your application using <ph id="ph1">&lt;xref:System.Xml.XmlReader&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>However, you might want to use <ph id="ph1">[!INCLUDE[vbteclinq](../../../../csharp/includes/vbteclinq_md.md)]</ph> to query the XML tree.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If this is the case, you can write your own custom axis method.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Write a LINQ to XML Axis Method (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/how-to-write-a-linq-to-xml-axis-method.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To write your own axis method, you write a small method that uses the <ph id="ph1">&lt;xref:System.Xml.XmlReader&gt;</ph> to read nodes until it reaches one of the nodes in which you are interested.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The method then calls <ph id="ph1">&lt;xref:System.Xml.Linq.XNode.ReadFrom%2A&gt;</ph>, which reads from the <ph id="ph2">&lt;xref:System.Xml.XmlReader&gt;</ph> and instantiates an XML fragment.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It then yields each fragment through <ph id="ph1">`yield return`</ph> to the method that is enumerating your custom axis method.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>You can then write LINQ queries on your custom axis method.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Streaming techniques are best applied in situations where you need to process the source document only once, and you can process the elements in document order.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Certain standard query operators, such as <ph id="ph1">&lt;xref:System.Linq.Enumerable.OrderBy%2A&gt;</ph>, iterate their source, collect all of the data, sort it, and then finally yield the first item in the sequence.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Note that if you use a query operator that materializes its source before yielding the first item, you will not retain a small memory footprint.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Sometimes the problem gets just a little more interesting.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In the following XML document, the consumer of your custom axis method also has to know the name of the customer that each item belongs to.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The approach that this example takes is to also watch for this header information, save the header information, and then build a small XML tree that contains both the header information and the detail that you are enumerating.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The axis method then yields this new, small XML tree.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The query then has access to the header information as well as the detail information.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This approach has a small memory footprint.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As each detail XML fragment is yielded, no references are kept to the previous fragment, and it is available for garbage collection.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Note that this technique creates many short lived objects on the heap.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following example shows how to implement and use a custom axis method that streams XML fragments from the file specified by the URI.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This custom axis is specifically written such that it expects a document that has <ph id="ph1">`Customer`</ph>, <ph id="ph2">`Name`</ph>, and <ph id="ph3">`Item`</ph> elements, and that those elements will be arranged as in the above <ph id="ph4">`Source.xml`</ph> document.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It is a simplistic implementation.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>A more robust implementation would be prepared to parse an invalid document.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This code produces the following output:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Advanced LINQ to XML Programming (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/advanced-linq-to-xml-programming.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

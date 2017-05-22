@@ -1,0 +1,726 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">84bf1ce108bd6bdc81364f801b9bb8caad32ea28</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\configuring-parameters-and-parameter-data-types.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e29911c0c30da1916731c39a5726c4d94c131f14</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ca5dbfd1cb342fc81d0052a314e006a1c57a3217</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Configuring Parameters and Parameter Data Types | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Configuring Parameters and Parameter Data Types</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Command objects use parameters to pass values to SQL statements or stored procedures, providing type checking and validation.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Unlike command text, parameter input is treated as a literal value, not as executable code.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This helps guard against "SQL injection" attacks, in which an attacker inserts a command that compromises security on the server into an SQL statement.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Parameterized commands can also improve query execution performance, because they help the database server accurately match the incoming command with a proper cached query plan.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Execution Plan Caching and Reuse<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=120424)</ept> and <bpt id="p2">[</bpt>Parameters and Execution Plan Reuse<ept id="p2">](http://go.microsoft.com/fwlink/?LinkId=120423)</ept> in SQL Server Books Online.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In addition to the security and performance benefits, parameterized commands provide a convenient method for organizing values passed to a data source.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Data.Common.DbParameter&gt;</ph> object can be created by using its constructor, or by adding it to the <ph id="ph2">&lt;xref:System.Data.Common.DbCommand.DbParameterCollection%2A&gt;</ph> by calling the <ph id="ph3">`Add`</ph> method of the <ph id="ph4">&lt;xref:System.Data.Common.DbParameterCollection&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Add`</ph> method will take as input either constructor arguments or an existing parameter object, depending on the data provider.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Supplying the ParameterDirection Property</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>When adding parameters, you must supply a <ph id="ph1">&lt;xref:System.Data.ParameterDirection&gt;</ph> property for parameters other than input parameters.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The following table shows the <ph id="ph1">`ParameterDirection`</ph> values that you can use with the <ph id="ph2">&lt;xref:System.Data.ParameterDirection&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Member name</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The parameter is an input parameter.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This is the default.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The parameter can perform both input and output.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The parameter is an output parameter.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The parameter represents a return value from an operation such as a stored procedure, built-in function, or user-defined function.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Working with Parameter Placeholders</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The syntax for parameter placeholders depends on the data source.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> data providers handle naming and specifying parameters and parameter placeholders differently.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This syntax is customized to a specific data source, as described in the following table.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Data provider</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Parameter naming syntax</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Uses named parameters in the format <ph id="ph1">`@`</ph><bpt id="p1">*</bpt>parametername<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Uses positional parameter markers indicated by a question mark (<ph id="ph1">`?`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Uses positional parameter markers indicated by a question mark (<ph id="ph1">`?`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Uses named parameters in the format <ph id="ph1">`:`</ph><bpt id="p1">*</bpt>parmname<ept id="p1">*</ept> (or <bpt id="p2">*</bpt>parmname<ept id="p2">*</ept>).</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Specifying Parameter Data Types</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The data type of a parameter is specific to the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> data provider.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Specifying the type converts the value of the <ph id="ph1">`Parameter`</ph> to the <ph id="ph2">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> data provider type before passing the value to the data source.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>You may also specify the type of a <ph id="ph1">`Parameter`</ph> in a generic manner by setting the <ph id="ph2">`DbType`</ph> property of the <ph id="ph3">`Parameter`</ph> object to a particular <ph id="ph4">&lt;xref:System.Data.DbType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> data provider type of a <ph id="ph2">`Parameter`</ph> object is inferred from the <ph id="ph3">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> type of the <ph id="ph4">`Value`</ph> of the <ph id="ph5">`Parameter`</ph> object, or from the <ph id="ph6">`DbType`</ph> of the <ph id="ph7">`Parameter`</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The following table shows the inferred <ph id="ph1">`Parameter`</ph> type based on the object passed as the <ph id="ph2">`Parameter`</ph> value or the specified <ph id="ph3">`DbType`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>.NET Framework type</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>DbType</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>SqlDbType</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>OleDbType</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>OdbcType</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>OracleType</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Boolean</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Bit</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Boolean</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Bit</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Byte</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Byte</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>TinyInt</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>UnsignedTinyInt</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>TinyInt</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Byte</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>byte[]</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Binary</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>VarBinary<ph id="ph1">`.`</ph> This implicit conversion will fail if the byte array is larger than the maximum size of a VarBinary, which is 8000 bytes.For byte arrays larger than 8000 bytes, explicitly set the <ph id="ph2">&lt;xref:System.Data.SqlDbType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>VarBinary</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Binary</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Raw</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from char is not supported.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Byte</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>DBTimeStamp</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>DateTimeOffset</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>DateTimeOffset in SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from DateTimeOffset is not supported in versions of SQL Server earlier than SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Decimal</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Decimal</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Decimal</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Numeric</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Number</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Double</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Float</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Double</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Double</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Double</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Single</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Real</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Single</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Real</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Float</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Guid</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>UniqueIdentifier</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Guid</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>UniqueIdentifier</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Raw</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Int16</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>SmallInt</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>SmallInt</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>SmallInt</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Int16</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Int32</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Int</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Int</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Int</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Int32</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Int64</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>BigInt</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>BigInt</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>BigInt</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Number</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Object</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Inferring an OdbcType from Object is not supported.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Blob</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>String</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>NVarChar.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>This implicit conversion will fail if the string is larger than the maximum size of an NVarChar, which is 4000 characters.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>For strings larger than 4000 characters, explicitly set the <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>VarWChar</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>NVarChar</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>NVarChar</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Time</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Time in SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from TimeSpan is not supported in versions of SQL Server earlier than SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>DBTime</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Time</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>UInt16</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from UInt16 is not supported.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>UnsignedSmallInt</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Int</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>UInt16</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>UInt32</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from UInt32 is not supported.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>UnsignedInt</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>BigInt</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>UInt32</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>UInt64</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from UInt64 is not supported.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>UnsignedBigInt</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Numeric</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Number</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>AnsiString</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>VarChar</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>VarChar</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>VarChar</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>VarChar</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>AnsiStringFixedLength</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Char</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Currency</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Money</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Currency</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Inferring an <ph id="ph1">`OdbcType`</ph> from <ph id="ph2">`Currency`</ph> is not supported.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Number</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Date</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Date in SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from Date is not supported in versions of SQL Server earlier than SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>DBDate</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Date</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>SByte</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from SByte is not supported.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>TinyInt</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>Inferring an <ph id="ph1">`OdbcType`</ph> from SByte is not supported.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>SByte</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>StringFixedLength</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>NChar</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>WChar</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>NChar</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>NChar</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>Time</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Time in SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from Time is not supported in versions of SQL Server earlier than SQL Server 2008.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>DBTime</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Time</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>DateTime</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>VarNumeric</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Inferring a <ph id="ph1">&lt;xref:System.Data.SqlDbType&gt;</ph> from VarNumeric is not supported.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>VarNumeric</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Inferring an <ph id="ph1">`OdbcType`</ph> from VarNumeric is not supported.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>Number</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>user-defined type (an object with <ph id="ph1">&lt;xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>Object or String, depending the provider (SqlClient always returns an Object, Odbc always returns a String, and the OleDb managed data provider can see either</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>SqlDbType.Udt if <ph id="ph1">&lt;xref:Microsoft.SqlServer.Server.SqlUserDefinedTypeAttribute&gt;</ph> is present, otherwise Variant</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>OleDbType.VarWChar (if value is null) otherwise OleDbType.Variant.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>OdbcType.NVarChar</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>not supported</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>Conversions from decimal to other types are narrowing conversions that round the decimal value to the nearest integer value toward zero.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>If the result of the conversion is not representable in the destination type, an <ph id="ph1">&lt;xref:System.OverflowException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>When you send a null parameter value to the server, you must specify <ph id="ph1">&lt;xref:System.DBNull&gt;</ph>, not <ph id="ph2">`null`</ph> (<ph id="ph3">`Nothing`</ph> in <ph id="ph4">[!INCLUDE[vbprvb](../../../../includes/vbprvb-md.md)]</ph>).</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>The null value in the system is an empty object that has no value.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.DBNull&gt;</ph> is used to represent null values.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>For more information about database nulls, see <bpt id="p1">[</bpt>Handling Null Values<ept id="p1">](../../../../docs/framework/data/adonet/sql/handling-null-values.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Deriving Parameter Information</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>Parameters can also be derived from a stored procedure using the <ph id="ph1">`DbCommandBuilder`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>Both the <ph id="ph1">`SqlCommandBuilder`</ph> and <ph id="ph2">`OleDbCommandBuilder`</ph> classes provide a static method, <ph id="ph3">`DeriveParameters`</ph>, which automatically populates the parameters collection of a command object that uses parameter information from a stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>Note that <ph id="ph1">`DeriveParameters`</ph> overwrites any existing parameter information for the command.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>Deriving parameter information incurs a performance penalty because it requires an additional round trip to the data source to retrieve the information.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>If parameter information is known at design time, you can improve the performance of your application by setting the parameters explicitly.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Generating Commands with CommandBuilders<ept id="p1">](../../../../docs/framework/data/adonet/generating-commands-with-commandbuilders.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>Using Parameters with a SqlCommand and a Stored Procedure</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>Stored procedures offer many advantages in data-driven applications.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>By using stored procedures, database operations can be encapsulated in a single command, optimized for best performance, and enhanced with additional security.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>Although a stored procedure can be called by passing the stored procedure name followed by parameter arguments as an SQL statement, by using the <ph id="ph1">&lt;xref:System.Data.Common.DbCommand.Parameters%2A&gt;</ph> collection of the <ph id="ph2">[!INCLUDE[vstecado](../../../../includes/vstecado-md.md)]</ph> <ph id="ph3">&lt;xref:System.Data.Common.DbCommand&gt;</ph> object enables you to more explicitly define stored procedure parameters, and to access output parameters and return values.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>Parameterized statements are executed on the server by using <ph id="ph1">`sp_executesql,`</ph> which allows for query plan reuse.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Local cursors or variables in the <ph id="ph1">`sp_executesql`</ph> batch are not visible to the batch that calls <ph id="ph2">`sp_executesql`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Changes in database context last only to the end of the <ph id="ph1">`sp_executesql`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>For more information, see SQL Server Books Online.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>When using parameters with a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlCommand&gt;</ph> to execute a SQL Server stored procedure, the names of the parameters added to the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlCommand.Parameters%2A&gt;</ph> collection must match the names of the parameter markers in the stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> Data Provider for SQL Server does not support the question mark (?) placeholder for passing parameters to an SQL statement or a stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>It treats parameters in the stored procedure as named parameters and searches for matching parameter markers.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`CustOrderHist`</ph> stored procedure is defined by using a parameter named <ph id="ph2">`@CustomerID`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>When your code executes the stored procedure, it must also use a parameter named <ph id="ph1">`@CustomerID`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>This example demonstrates how to call a SQL Server stored procedure in the <ph id="ph1">`Northwind`</ph> sample database.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>The name of the stored procedure is <ph id="ph1">`dbo.SalesByCategory`</ph> and it has an input parameter named <ph id="ph2">`@CategoryName`</ph> with a data type of <ph id="ph3">`nvarchar(15)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>The code creates a new <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> inside a using block so that the connection is disposed when the procedure ends.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlCommand&gt;</ph> and <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlParameter&gt;</ph> objects are created, and their properties set.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlDataReader&gt;</ph> executes the <ph id="ph2">`SqlCommand`</ph> and returns the result set from the stored procedure, displaying the output in the console window.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>Instead of creating <ph id="ph1">`SqlCommand`</ph> and <ph id="ph2">`SqlParameter`</ph> objects and then setting properties in separate statements, you can instead elect to use one of the overloaded constructors to set multiple properties in a single statement.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>DataWorks SqlClient.StoredProcedure#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DataWorks SqlClient.StoredProcedure/CS/source.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>DataWorks SqlClient.StoredProcedure#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DataWorks SqlClient.StoredProcedure/VB/source.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>Using Parameters with an OleDbCommand or OdbcCommand</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>When using parameters with an <ph id="ph1">&lt;xref:System.Data.OleDb.OleDbCommand&gt;</ph> or <ph id="ph2">&lt;xref:System.Data.Odbc.OdbcCommand&gt;</ph>, the order of the parameters added to the <ph id="ph3">`Parameters`</ph> collection must match the order of the parameters defined in your stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> Data Provider for OLE DB and <ph id="ph2">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> Data Provider for ODBC treat parameters in a stored procedure as placeholders and apply parameter values in order.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>In addition, return value parameters must be the first parameters added to the <ph id="ph1">`Parameters`</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> Data Provider for OLE DB and <ph id="ph2">[!INCLUDE[dnprdnshort](../../../../includes/dnprdnshort-md.md)]</ph> Data Provider for ODBC do not support named parameters for passing parameters to an SQL statement or a stored procedure.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>In this case, you must use the question mark (?) placeholder, as in the following example.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>As a result, the order in which <ph id="ph1">`Parameter`</ph> objects are added to the <ph id="ph2">`Parameters`</ph> collection must directly correspond to the position of the ?</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>placeholder for the parameter.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>OleDb Example</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>Odbc Example</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Commands and Parameters<ept id="p1">](../../../../docs/framework/data/adonet/commands-and-parameters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>DataAdapter Parameters<ept id="p1">](../../../../docs/framework/data/adonet/dataadapter-parameters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Type Mappings in ADO.NET<ept id="p1">](../../../../docs/framework/data/adonet/data-type-mappings-in-ado-net.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

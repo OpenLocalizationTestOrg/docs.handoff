@@ -1,0 +1,717 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ca5d64dea7cce12b27ee78ed4d879c14bfd86daa</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\xaml-services\understanding-xaml-node-stream-structures-and-concepts.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4f5c44af02fd4f5f239be92bb0e094e91930acf2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6752b286c48d87d33b483b1bcb1a26690c19c98e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Understanding XAML Node Stream Structures and Concepts | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Understanding XAML Node Stream Structures and Concepts</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>XAML readers and XAML writers as implemented in .NET Framework XAML Services are based on the design concept of a XAML node stream.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The XAML node stream is a conceptualization of a set of XAML nodes.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In this conceptualization, a XAML processor walks through the structure of the node relationships in the XAML one at a time.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>At any time, only one current record or current position exists in an open XAML node stream, and many aspects of the API report only the information available from that position.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The current node in a XAML node stream can be described as being an object, a member, or a value.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>By treating XAML as a XAML node stream, XAML readers can communicate with XAML writers and enable a program to view, interact with, or alter the contents of a XAML node stream during either a load path or a save path operation that involves XAML.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>XAML reader and writer API design and the XAML node stream concept are similar to previous related reader and writer designs and concepts, such as the <ph id="ph1">[!INCLUDE[TLA#tla_xmldom](../../../includes/tlasharptla-xmldom-md.md)]</ph> and the <ph id="ph2">&lt;xref:System.Xml.XmlReader&gt;</ph> and <ph id="ph3">&lt;xref:System.Xml.XmlWriter&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This topic discusses XAML node stream concepts and describes how you can write routines that interact with XAML representations at the XAML node level.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Loading XAML into a XAML Reader</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The base <ph id="ph1">&lt;xref:System.Xaml.XamlReader&gt;</ph> class does not declare a particular technique for loading the initial XAML into a XAML reader.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Instead, a derived class declares and implements the loading technique, including the general characteristics and constraints of its input source for XAML.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Xaml.XamlObjectReader&gt;</ph> reads an object graph, starting from the input source of a single object that represents the root or base.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Xaml.XamlObjectReader&gt;</ph> then produces a XAML node stream from the object graph.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The most prominent .NET Framework XAML Services–defined <ph id="ph1">&lt;xref:System.Xaml.XamlReader&gt;</ph> subclass is <ph id="ph2">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph> loads the initial XAML, either by loading a text file directly through a stream or file path, or indirectly through a related reader class such as <ph id="ph2">&lt;xref:System.IO.TextReader&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Xaml.XamlReader&gt;</ph> can be thought of as containing the entirety of the XAML input source after it has loaded.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>However, the <ph id="ph1">&lt;xref:System.Xaml.XamlReader&gt;</ph> base API is designed so that the reader is interacting with a single node of the XAML.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>When first loaded, the first single node you encounter is the root of the XAML, and its start object.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The XAML Node Stream Concept</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you are generally more familiar with a DOM, tree metaphor, or query-based approach towards accessing XML-based technologies, a helpful way to conceptualize a XAML node stream is as follows.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Imagine that the loaded XAML is a DOM or a tree where every possible node is expanded all the way, and then presented linearly.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As you advance through the nodes, you might be traversing "in" or "out" of levels that would be relevant to a DOM, but the XAML node stream does not explicitly keep track because these level concepts are not relevant to a node stream.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The node stream has a "current" position, but unless you have stored other parts of the stream yourself as references, every aspect of the node stream other than the current node position is out of view.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The XAML node stream concept has the notable advantage that if you go through the entire node stream, you are assured that you have processed the entire XAML representation; you do not need to worry that a query, a DOM operation, or some other nonlinear approach to processing information has missed some part of the complete XAML representation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>For this reason, the XAML node stream representation is ideal both for connecting XAML readers and XAML writers, and for providing a system where you can insert your own process that acts between the read and write phases of a XAML processing operation.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In many cases, the ordering of nodes in the XAML node stream is deliberately optimized or reordered by XAML readers versus how the order might appear in the source text, binary, or object graph.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>This behavior is intended to enforce a XAML processing architecture whereby XAML writers are never in a position where they have to go "back" in the node stream.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Ideally, all XAML write operations should be able to act based on schema context plus the current position of the node stream.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A Basic Reading Node Loop</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>A basic reading node loop for examining a XAML node stream consists of the following concepts.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For purposes of node loops as discussed in this topic, assume that you are reading a text-based, human-readable XAML file using <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The links in this section refer to the particular XAML node loop API implemented by <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Make sure that you are not at the end of the XAML node stream (check <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.IsEof%2A&gt;</ph>, or use the <ph id="ph2">&lt;xref:System.Xaml.XamlXmlReader.Read%2A&gt;</ph> return value).</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If you are at the end of the stream, there is no current node and you should exit.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Check what type of node the XAML node stream currently exposes by calling <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If you have an associated XAML object writer that is connected directly, you generally call <ph id="ph1">&lt;xref:System.Xaml.XamlWriter.WriteNode%2A&gt;</ph> at this point.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Based on which <ph id="ph1">&lt;xref:System.Xaml.XamlNodeType&gt;</ph> is reported as the current node or current record, call one of the following to obtain information about the node contents:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> of <ph id="ph2">&lt;xref:System.Xaml.XamlNodeType&gt;</ph> or <ph id="ph3">&lt;xref:System.Xaml.XamlNodeType&gt;</ph>, call <ph id="ph4">&lt;xref:System.Xaml.XamlXmlReader.Member%2A&gt;</ph> to obtain <ph id="ph5">&lt;xref:System.Xaml.XamlMember&gt;</ph> information about a member.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Note that the member might be a <ph id="ph1">&lt;xref:System.Xaml.XamlDirective&gt;</ph>, and thus might not necessarily be a conventional type-defined member of the preceding object.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">`x:Name`</ph> applied to an object appears as a XAML member where <ph id="ph2">&lt;xref:System.Xaml.XamlMember.IsDirective%2A&gt;</ph> is true and the <ph id="ph3">&lt;xref:System.Xaml.XamlMember.Name%2A&gt;</ph> of the member is <ph id="ph4">`Name`</ph>, with other properties indicating that this directive is under the XAML language XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> of <ph id="ph2">&lt;xref:System.Xaml.XamlNodeType&gt;</ph> or <ph id="ph3">&lt;xref:System.Xaml.XamlNodeType&gt;</ph>, call <ph id="ph4">&lt;xref:System.Xaml.XamlXmlReader.Type%2A&gt;</ph> to obtain <ph id="ph5">&lt;xref:System.Xaml.XamlType&gt;</ph> information about an object.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> of <ph id="ph2">&lt;xref:System.Xaml.XamlNodeType&gt;</ph>, call <ph id="ph3">&lt;xref:System.Xaml.XamlXmlReader.Value%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>A node is a value only if it is the simplest expression of a value for a member, or the initialization text for an object (however, you should be aware of type conversion behavior as documented in an upcoming section of this topic).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> of <ph id="ph2">&lt;xref:System.Xaml.XamlNodeType&gt;</ph>, call <ph id="ph3">&lt;xref:System.Xaml.XamlXmlReader.Namespace%2A&gt;</ph> to obtain namespace information for a namespace node.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Call <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.Read%2A&gt;</ph> to advance the XAML reader to the next node in the XAML node stream, and repeat the steps again.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The XAML node stream provided by .NET Framework XAML Services XAML readers always provides a full, deep traversal of all possible nodes.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Typical flow-control techniques for a XAML node loop include defining a body within <ph id="ph1">`while (reader.Read())`</ph>, and switching on <ph id="ph2">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> at each node point in the node loop.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If the node stream is at end of file, the current node is null.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The simplest loop that uses a reader and writer resembles the following example.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This basic example of a load path XAML node loop transparently connects the XAML reader and XAML writer, doing nothing different than if you had used <ph id="ph1">&lt;xref:System.Xaml.XamlServices.Parse%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>But this basic structure is then expanded to apply to your reading or writing scenario.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Some possible scenarios are as follows:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Switch on <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Perform different actions depending on which node type is being read.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Do not call <ph id="ph1">&lt;xref:System.Xaml.XamlWriter.WriteNode%2A&gt;</ph> in all cases.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Only call <ph id="ph1">&lt;xref:System.Xaml.XamlWriter.WriteNode%2A&gt;</ph> in some <ph id="ph2">&lt;xref:System.Xaml.XamlXmlReader.NodeType%2A&gt;</ph> cases.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Within the logic for a particular node type, analyze the specifics of that node and act on them.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>For example, you could write only objects that come from a particular XAML namespace, and then drop or defer any objects not from that XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Or you could drop or otherwise reprocess any XAML directives that your XAML system does not support as part of your member processing.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Define a custom <ph id="ph1">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph> that overrides <ph id="ph2">`Write*`</ph> methods, possibly performing type mapping that bypasses XAML schema context.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Construct the <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph> to use a nondefault XAML schema context, so that customized differences in XAML behavior are used both by the reader and the writer.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Accessing XAML Beyond the Node Loop Concept</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>There are potentially other ways to work with a XAML representation other than as a XAML node loop.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>For example, there could exist a XAML reader that can read an indexed node, or in particular accesses nodes directly by <ph id="ph1">`x:Name`</ph>, by <ph id="ph2">`x:Uid`</ph>, or through other identifiers.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>.NET Framework XAML Services does not provide a full implementation, but provides a suggested pattern through services and support types.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Xaml.IXamlIndexingReader&gt;</ph> and <ph id="ph2">&lt;xref:System.Xaml.XamlNodeList&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Microsoft also produces an out-of-band release known as the Microsoft XAML Toolkit.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This out-of-band release is still in its pre-release stages.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>However, if you are willing to work with pre-release components, the Microsoft XAML Toolkit provides some interesting resources for XAML tooling and static analysis of XAML.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The Microsoft XAML Toolkit includes a XAML DOM API, support for FxCop analysis, and a XAML schema context for Silverlight.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Microsoft XAML Toolkit<ept id="p1">](http://code.msdn.microsoft.com/XAML)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Working with the Current Node</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Most scenarios that use a XAML node loop do not only read the nodes.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Most scenarios process current nodes and pass each node one at a time to an implementation of <ph id="ph1">&lt;xref:System.Xaml.XamlWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>In the typical load path scenario, a <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph> produces a XAML node stream; the XAML nodes are processed according to your logic and XAML schema context; and the nodes are passed to a <ph id="ph2">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>You then integrate the resulting object graph into your application or framework.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In a typical save path scenario, a <ph id="ph1">&lt;xref:System.Xaml.XamlObjectReader&gt;</ph> reads the object graph, individual XAML nodes are processed, and a <ph id="ph2">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> outputs the serialized result as a XAML text file.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The key is that both paths and scenarios involve working with exactly one XAML node at a time, and the XAML nodes are available for treatment in a standardized way that is defined by the XAML type system and the.NET Framework XAML Services APIs.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Frames and Scope</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>A XAML node loop walks through a XAML node stream in a linear way.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The node stream traverses into objects, into members that contain other objects, and so on.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>It is often useful to keep track of scope within the XAML node stream by implementing a frame and stack concept.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This is particularly true if you are actively adjusting the node stream while you are in it.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The frame and stack support that you implement as part of your node loop logic could count <ph id="ph1">`StartObject`</ph> (or <ph id="ph2">`GetObject`</ph>) and <ph id="ph3">`EndObject`</ph> scopes as you descend into a XAML node structure if the structure is thought of from a DOM perspective.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Traversing and Entering Object Nodes</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The first node in a node stream when it is opened by a XAML reader is the start-object node of the root object.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>By definition, this object is always a single object node and has no peers.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>In any real-world XAML example, the root object is defined to have one or more properties that hold more objects, and these properties have member nodes.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The member nodes then have one or more object nodes, or might also terminate in a value node instead.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The root object typically defines XAML namescopes, which are syntactically assigned as attributes in the XAML text markup but map to a <ph id="ph1">`Namescope`</ph> node type in the XAML node stream representation.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Consider the following XAML example (this is arbitrary XAML, not backed by existing types in the .NET Framework).</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Assume that in this object model, <ph id="ph1">`FavorCollection`</ph> is <ph id="ph2">`List&lt;T&gt;`</ph> of <ph id="ph3">`Favor`</ph>, <ph id="ph4">`Balloon`</ph> and <ph id="ph5">`NoiseMaker`</ph> are assignable to <ph id="ph6">`Favor`</ph>, the <ph id="ph7">`Balloon.Color`</ph> property is backed by a <ph id="ph8">`Color`</ph> object similar to how WPF defines colors as known color names, and <ph id="ph9">`Color`</ph> supports a type converter for attribute syntax.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>XAML markup</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Resulting XAML node stream</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Namespace`</ph> node for <ph id="ph2">`Party`</ph></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> node for <ph id="ph2">`Party`</ph></source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> node for <ph id="ph2">`Party.Favors`</ph></source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> node for implicit <ph id="ph2">`FavorCollection`</ph></source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> node for implicit <ph id="ph2">`FavorCollection`</ph> items property.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> node for <ph id="ph2">`Balloon`</ph></source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> node for <ph id="ph2">`Color`</ph></source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Value`</ph> node for the attribute value string <ph id="ph2">`"Red"`</ph></source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> for <ph id="ph2">`Color`</ph></source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> node for <ph id="ph2">`HasHelium`</ph></source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Value`</ph> node for the attribute value string <ph id="ph2">`"True"`</ph></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> for <ph id="ph2">`HasHelium`</ph></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndObject`</ph> for <ph id="ph2">`Balloon`</ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> node for <ph id="ph2">`NoiseMaker`</ph></source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> node for <ph id="ph2">`_Initialization`</ph></source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Value`</ph> node for the initialization value string <ph id="ph2">`"Loudest"`</ph></source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> node for <ph id="ph2">`_Initialization`</ph></source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndObject`</ph> for <ph id="ph2">`NoiseMaker`</ph></source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> node for implicit <ph id="ph2">`FavorCollection`</ph> items property.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndObject`</ph> node for implicit <ph id="ph2">`FavorCollection`</ph></source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> for <ph id="ph2">`Favors`</ph></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndObject`</ph> for <ph id="ph2">`Party`</ph></source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>In the XAML node stream, you can rely on the following behavior:</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>If a <ph id="ph1">`Namespace`</ph> node exists, it is added to the stream immediately before the <ph id="ph2">`StartObject`</ph> that declared the XAML namespace with <ph id="ph3">`xmlns`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Look at the previous table with the XAML and example node stream again.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Notice how the <ph id="ph1">`StartObject`</ph> and <ph id="ph2">`Namespace`</ph> nodes seem to be transposed versus their declaration positions in text markup.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>This is representative of the behavior where the namespace nodes always appear ahead of the node they apply to in the node stream.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The purpose of this design is that the namespace information is vital to object writers and must be known before the object writer attempts to perform type mapping or otherwise process the object.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Placing the XAML namespace information ahead of its application scope in the stream makes it simpler to always process the node stream in its presented order.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Because of the above consideration, it is one or more <ph id="ph1">`Namespace`</ph> nodes that you read first in most real-world markup cases when traversing nodes from the start, not the <ph id="ph2">`StartObject`</ph> of the root.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`StartObject`</ph> node can be followed by <ph id="ph2">`StartMember`</ph>, <ph id="ph3">`Value`</ph>, or an immediate <ph id="ph4">`EndObject`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>It is never followed immediately by another <ph id="ph1">`StartObject`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`StartMember`</ph> can be followed by a <ph id="ph2">`StartObject`</ph>, <ph id="ph3">`Value`</ph>, or an immediate <ph id="ph4">`EndMember`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>It can be followed by <ph id="ph1">`GetObject`</ph>, for members where the value is supposed to come from an existing value of the parent object rather than a <ph id="ph2">`StartObject`</ph> that would instantiate a new value.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>It can also be followed by a <ph id="ph1">`Namespace`</ph> node, which applies to an upcoming <ph id="ph2">`StartObject`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>It is never followed immediately by another <ph id="ph1">`StartMember`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`Value`</ph> node represents the value itself; there is no "EndValue".</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>It can be followed only by an <ph id="ph1">`EndMember`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>XAML initialization text of the object as might be used by construction does not result in an Object-Value structure.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Instead, a dedicated member node for a member named <ph id="ph1">`_Initialization`</ph> is created.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>and that member node contains the initialization value string.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>If it exists, <ph id="ph1">`_Initialization`</ph> is always the first <ph id="ph2">`StartMember`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`_Initialization`</ph> may be qualified in some XAML services representations with the XAML language XAML namescope, to clarify that <ph id="ph2">`_Initialization`</ph> is not a defined property in backing types.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>A Member-Value combination represents an attribute setting of the value.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>There might eventually be a value converter involved in processing this value, and the value is a plain string.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>However, that is not evaluated until a XAML object writer processes this node stream.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>The XAML object writer possesses the necessary XAML schema context, type system mapping, and other support needed for value conversions.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">`EndMember`</ph> node can be followed by a <ph id="ph2">`StartMember`</ph> node for a subsequent member, or by an <ph id="ph3">`EndObject`</ph> node for the member owner.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">`EndObject`</ph> node can be followed by an <ph id="ph2">`EndMember`</ph> node.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>It can also be followed by a <ph id="ph1">`StartObject`</ph> node for cases where the objects are peers in a collection's items.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Or it can be followed by a <ph id="ph1">`Namespace`</ph> node, which applies to an upcoming <ph id="ph2">`StartObject`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>For the unique case of closing the entire node stream, the <ph id="ph1">`EndObject`</ph> of the root is not followed by anything; the reader is now end-of-file, and <ph id="ph2">&lt;xref:System.Xaml.XamlReader.Read%2A&gt;</ph> returns <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Value Converters and the XAML Node Stream</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>A value converter is a general term for a markup extension, a type converter (including value serializers) or another dedicated class that is reported as a value converter through the XAML type system.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>In the XAML node stream, a type converter usage and a markup extension usage have very different representations.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Type Converters in the XAML Node Stream</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>An attribute set that eventually results in a type converter usage is reported in the XAML node stream as a value of a member.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>The XAML node stream does not attempt to produce a type converter instance object and pass the value to it.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Using a type converter's conversion implementation requires invoking the XAML schema context and using it for type-mapping.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Even determining which type converter class should be used to process the value requires the XAML schema context indirectly.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>When you use the default XAML schema context, that information is available from the XAML type system.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>If you need the type converter class information at the XAML node stream level before connection to a XAML writer, you can obtain it from the <ph id="ph1">&lt;xref:System.Xaml.XamlMember&gt;</ph> information of the member being set.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>But otherwise, type converter input should be preserved in the XAML node stream as a plain value until the remainder of operations that require the type mapping system and XAML schema context are performed, for example the object creation by a XAML object writer.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>For example, consider the following class definition outline and XAML usage for it:</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>A text representation of the XAML node stream for this usage could be expressed as the following:</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> with <ph id="ph2">&lt;xref:System.Xaml.XamlType&gt;</ph> representing <ph id="ph3">`GameBoard`</ph></source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartMember`</ph> with <ph id="ph2">&lt;xref:System.Xaml.XamlMember&gt;</ph> representing <ph id="ph3">`BoardSize`</ph></source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Value`</ph> node, with text string "<ph id="ph2">`8x8`</ph>"</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndMember`</ph> matches <ph id="ph2">`BoardSize`</ph></source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EndObject`</ph> matches <ph id="ph2">`GameBoard`</ph></source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Notice that there is no type converter instance in this node stream.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>But you can get type converter information by calling <ph id="ph1">&lt;xref:System.Xaml.XamlMember.TypeConverter%2A?displayProperty=fullName&gt;</ph> on the <ph id="ph2">&lt;xref:System.Xaml.XamlMember&gt;</ph> for <ph id="ph3">`BoardSize`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>If you have a valid XAML schema context, you can also invoke the converter methods by obtaining an instance from <ph id="ph1">&lt;xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Markup Extensions in the XAML Node Stream</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>A markup extension usage is reported in the XAML node stream as an object node within a member, where the object represents a markup extension instance.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Thus a markup extension usage is presented more explicitly in the node stream representation than a type converter usage is, and carries more information.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Xaml.XamlMember&gt;</ph> information could not have told you anything about the markup extension, because the usage is situational and varies in each possible markup case; it is not dedicated and implicit per type or member as is the case with type converters.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>The node stream representation of markup extensions as object nodes is the case even if the markup extension usage was made in attribute form in the XAML text markup (which is often the case).</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Markup extension usages that used an explicit object element form are treated the same way.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Within a markup extension object node, there may be members of that markup extension.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The XAML node stream representation preserves the usage of that markup extension, whether that be a positional parameter usage or a usage with explicit named parameters.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>For a positional parameter usage, the XAML node stream contains a XAML language-defined property <ph id="ph1">`_PositionalParameters`</ph> that records the usage.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>This property is a generic <ph id="ph1">&lt;xref:System.Collections.Generic.List%601&gt;</ph> with <ph id="ph2">&lt;xref:System.Object&gt;</ph> constraint.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>The constraint is object and not string because conceivably a positional parameter usage could contain nested markup extension usages within it.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>To access the positional parameters from the usage, you could iterate through the list and use the indexers for individual list values.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>For a named parameter usage, each named parameter is represented as a member node of that name in the node stream.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>The member values are not necessarily strings, because there could be a nested markup extension usage.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ProvideValue`</ph> from the markup extension is not yet invoked.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>However, it is invoked if you connect a XAML reader and XAML writer so that <ph id="ph1">`WriteEndObject`</ph> is invoked on the markup extension node when you examine it in the node stream.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>For this reason, you generally need the same XAML schema context available as would be used in order to form the object graph on the load path.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Otherwise, <ph id="ph1">`ProvideValue`</ph> from any markup extension can throw exceptions here, because it does not have expected services available.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>XAML and XML Language-Defined Members in the XAML Node Stream</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Certain members are introduced to a XAML node stream because of interpretations and conventions of a XAML reader, instead of through an explicit <ph id="ph1">&lt;xref:System.Xaml.XamlMember&gt;</ph> lookup or construction.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>Often, these members are XAML directives.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>In some cases, it is the act of reading the XAML that introduces the directive into the XAML node stream.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>In other words, the original input XAML text did not explictly specify the member directive, but the XAML reader inserts the directive in order to satisfy a structural XAML convention and report information in the XAML node stream before that information is lost.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>The following list notes all cases where a XAML reader is expected to introduce a directive XAML member node, and how that member node is identified in the .NET Framework XAML Services implementations.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Initialization text for an object node:<ept id="p1">**</ept> The name of this member node is <ph id="ph1">`_Initialization`</ph>, it represents a XAML directive, and it is defined in the XAML language XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>You can get a static entity for it from <ph id="ph1">&lt;xref:System.Xaml.XamlLanguage.Initialization%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Positional parameters for a markup extension:<ept id="p1">**</ept> The name of this member node is <ph id="ph1">`_PositionalParameters`</ph>, and it is defined in the XAML language XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>It always contains a generic list of objects, each of which is a positional parameter pre-separated by splitting on the <ph id="ph1">`,`</ph> delimiter character as supplied in the input XAML.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>You can get a static entity for the positional parameters directive from <ph id="ph1">&lt;xref:System.Xaml.XamlLanguage.PositionalParameters%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Unknown content:<ept id="p1">**</ept> The name of this member node is <ph id="ph1">`_UnknownContent`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Strictly speaking, it is a <ph id="ph1">&lt;xref:System.Xaml.XamlDirective&gt;</ph>, and it is defined in the XAML language XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>This directive is used as a sentinel for cases where a XAML object element contains content in the source XAML but no content property can be determined under the currently available XAML schema context.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>You can detect this case in a XAML node stream by checking for members named <ph id="ph1">`_UnknownContent`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>If no other action is taken in a load path XAML node stream, the default <ph id="ph1">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph> throws on attempted <ph id="ph2">`WriteEndObject`</ph> when it encounters the <ph id="ph3">`_UnknownContent`</ph> member on any object.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>The default <ph id="ph1">&lt;xref:System.Xaml.XamlXmlWriter&gt;</ph> does not throw, and treats the member as implicit.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>You can get a static entity for <ph id="ph1">`_UnknownContent`</ph> from <ph id="ph2">&lt;xref:System.Xaml.XamlLanguage.UnknownContent%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Collection property of a collection:<ept id="p1">**</ept>Although the backing CLR type of a collection class that is used for XAML usually has a dedicated named property that holds the collection items, that property is not known to a XAML type system prior to backing type resolution.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Instead, the XAML node stream introduces an <ph id="ph1">`Items`</ph> placeholder as a member of the collection XAML type.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework XAML Services implementation the name of this directive / member in the node stream is <ph id="ph1">`_Items`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>A constant for this directive can be obtained from <ph id="ph1">&lt;xref:System.Xaml.XamlLanguage.Items%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>Note that a XAML node stream might contain an Items property with items that turn out to not be parseable based on the backing type resolution and XAML schema context.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>For example,</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>XML-defined members:<ept id="p1">**</ept> The XML-defined <ph id="ph1">`xml:base`</ph>, <ph id="ph2">`xml:lang`</ph> and <ph id="ph3">`xml:space`</ph> members are reported as XAML directives named <ph id="ph4">`base`</ph>, <ph id="ph5">`lang`</ph>, and <ph id="ph6">`space`</ph> in the .NET Framework XAML Services implementations.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>The namespace for these is the XML namespace <ph id="ph1">`http://www.w3.org/XML/1998/namespace`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Constants for each of these can be obtained from <ph id="ph1">&lt;xref:System.Xaml.XamlLanguage&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Node Order</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>In some cases, <ph id="ph1">&lt;xref:System.Xaml.XamlXmlReader&gt;</ph> changes the order of XAML nodes in the XAML node stream, versus the order the nodes appear if viewed in the markup or if processed as XML.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>This is done in order to order the nodes such that a <ph id="ph1">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph> can process the node stream in a forward-only manner.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>In .NET Framework XAML Services, the XAML reader reorders nodes rather than leaving this task to the XAML writer, as a performance optimization for XAML object writer consumers of the node stream.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>Certain directives are intended specifically to provide more information for the creation of an object from an object element.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>These directives are: <ph id="ph1">`Initialization`</ph>, <ph id="ph2">`PositionalParameters`</ph>, <ph id="ph3">`TypeArguments`</ph>, <ph id="ph4">`FactoryMethod`</ph>, <ph id="ph5">`Arguments`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>The .NET Framework XAML Services XAML readers attempt to place these directives as the first members in the node stream following an object's <ph id="ph1">`StartObject`</ph>, for reasons that are explained in the next section.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>XamlObjectWriter Behavior and Node Order</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StartObject`</ph> to a <ph id="ph2">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph> is not necessarily a signal to the XAML object writer to immediately construct the object instance.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>XAML includes several language features that make it possible to initialize an object with additional input, and to not rely entirely on invoking a default constructor to produce the initial object, and only then setting properties.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>These features include: <ph id="ph1">&lt;xref:System.Windows.Markup.XamlDeferLoadAttribute&gt;</ph>; initialization text; <bpt id="p1">[</bpt>x:TypeArguments<ept id="p1">](../../../docs/framework/xaml-services/x-typearguments-directive.md)</ept>; positional parameters of a markup extension; factory methods and associated <bpt id="p2">[</bpt>x:Arguments<ept id="p2">](../../../docs/framework/xaml-services/x-arguments-directive.md)</ept> nodes (XAML 2009).</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>Each of these cases delay the actual object construction, and because the node stream is reordered, the XAML object writer can rely on a behavior of actually constructing the instance whenever a start member is encountered that is not specifically a construction directive for that object type.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>GetObject</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`GetObject`</ph> represents a XAML node where rather than constructing a new object, a XAML object writer should instead get the value of the object's containing property.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>A typical  case where a <ph id="ph1">`GetObject`</ph> node is encountered in a XAML node stream is for a collection object or a dictionary object, when the containing property is deliberately read-only in the backing type's object model.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>In this scenario, the collection or dictionary often is created and initialized (usually empty) by the initialization logic of an owning type.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Services<ept id="p1">](../../../docs/framework/xaml-services/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Namespaces<ept id="p1">](../../../docs/framework/xaml-services/xaml-namespaces-for-net-framework-xaml-services.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a3bbb87edb18d7298ee03a490fb3d82e485f4432</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\native-interop.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">22247ed20a1fe50a70fc535ec53ddd896fd53ea1</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">74346198808d70549e866c95aedf2af9e4f4952c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Native interoperability</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Native interoperability</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>.NET, .NET Core</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Native Interoperability</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In this document, we will dive a little bit deeper into all three ways of doing "native interoperability" that are available on the .NET platform.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>There are a few of reasons why you would want to call into native code:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Operating Systems come with a large volume of APIs that are not present in the managed class libraries.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>A prime example for this would be access to hardware or operating system management functions.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Communicating with other components that have or can produce C-style ABIs (native ABIs).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This covers, for example, Java code that is exposed via <bpt id="p1">[</bpt>Java Native Interface (JNI)<ept id="p1">](http://docs.oracle.com/javase/8/docs/technotes/guides/jni/)</ept> or any other managed language that could produce a native component.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>On Windows, most of the software that gets installed, such as Microsoft Office suite, registers COM components that represent their programs and allow developers to automate them or use them.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This also requires native interoperability.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Of course, the list above does not cover all of the potential situations and scenarios in which the developer would want/like/need to interface with native components.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>.NET class library, for instance, uses the native interoperability support to implement a fair number of its APIs, like console support and manipulation, file system access and others.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>However, it is important to note that there is an option, should one need it.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Most of the examples in this document will be presented for all three supported platforms for .NET Core (Windows, Linux and macOS).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>However, for some short and illustrative examples, just one sample is shown that uses Windows filenames and extensions (that is, "dll" for libraries).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This does not mean that those features are not available on Linux or macOS, it was done merely for convenience sake.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Platform Invoke (P/Invoke)</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>P/Invoke is a technology that allows you to access structs, callbacks and functions in unmanaged libraries from your managed code.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Most of the P/Invoke API is contained in two namespaces: <ph id="ph1">`System`</ph> and <ph id="ph2">`System.Runtime.InteropServices`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Using these two namespaces will allow you access to the attributes that describe how you want to communicate with the native component.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Let’s start from the most common example, and that is calling unmanaged functions in your managed code.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Let’s show a message box from a command-line application:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The example above is pretty simple, but it does show off what is needed to invoke unmanaged functions from managed code.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Let’s step through the example:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Line #1 shows the using statement for the <ph id="ph1">`System.Runtime.InteropServices`</ph> which is the namespace that holds all of the items we need.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Line #5 introduces the <ph id="ph1">`DllImport`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>This attribute is crucial, as it tells the runtime that it should load the unmanaged DLL.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This is the DLL into which we wish to invoke.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Line #6 is the crux of the P/Invoke work.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It defines a managed method that has the <bpt id="p1">**</bpt>exact same signature<ept id="p1">**</ept> as the unmanaged one.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The declaration has a new keyword that you can notice, <ph id="ph1">`extern`</ph>, which tells the runtime this is an external method, and that when you invoke it, the runtime should find it in the DLL specified in <ph id="ph2">`DllImport`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The rest of the example is just invoking the method as you would any other managed method.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The sample is similar for macOS.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>One thing that needs to change is, of course, the name of the library in the <ph id="ph1">`DllImport`</ph> attribute, as macOS has a different scheme of naming dynamic libraries.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The sample below uses the <ph id="ph1">`getpid(2)`</ph> function to get the process ID of the application and print it out to the console.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>It is similar on Linux, of course.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The function name is same, since <ph id="ph1">`getpid(2)`</ph> is <bpt id="p1">[</bpt>POSIX<ept id="p1">](https://en.wikipedia.org/wiki/POSIX)</ept> system call.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Invoking managed code from unmanaged code</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Of course, the runtime allows communication to flow both ways which enables you to call into managed artifacts from native functions, using function pointers.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The closest thing to a function pointer in managed code is a <bpt id="p1">**</bpt>delegate<ept id="p1">**</ept>, so this is what is used to allow callbacks from native code into managed code.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The way to use this feature is similar to managed to native process described above.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For a given callback, you define a delegate that matches the signature, and pass that into the external method.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The runtime will take care of everything else.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Before we walk through our example, it is good to go over the signatures of the unmanaged functions we need to work with.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The function we want to call to enumerate all of the windows has the following signature: <ph id="ph1">`BOOL EnumWindows (WNDENUMPROC lpEnumFunc, LPARAM lParam);`</ph></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The first parameter is a callback.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The said callback has the following signature: <ph id="ph1">`BOOL CALLBACK EnumWindowsProc (HWND hwnd, LPARAM lParam);`</ph></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>With this in mind, let’s walk through the example:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Line #8 in the example defines a delegate that matches the signature of the callback from unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Notice how the LPARAM and HWND types are represented using <ph id="ph1">`IntPtr`</ph> in the managed code.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Lines #10 and #11 introduce the <ph id="ph1">`EnumWindows`</ph> function from the user32.dll library.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Lines #13 - 16 implement the delegate.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For this simple example, we just want to output the handle to the console.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Finally, in line #19 we invoke the external method and pass in the delegate.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The Linux and macOS examples are shown below.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>For them, we use the <ph id="ph1">`ftw`</ph> function that can be found in <ph id="ph2">`libc`</ph>, the C library.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>This function is used to traverse directory hierarchies and it takes a pointer to a function as one of its parameters.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The said function has the following signature: <ph id="ph1">`int (*fn) (const char *fpath, const struct stat *sb, int typeflag)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>macOS example uses the same function, and the only difference is the argument to the <ph id="ph1">`DllImport`</ph> attribute, as macOS keeps <ph id="ph2">`libc`</ph> in a different place.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Both of the above examples depend on parameters, and in both cases, the parameters are given as managed types.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Runtime does the "right thing" and processes these into its equivalents on the other side.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Since this process is really important to writing quality native interop code, let’s take a look at what happens when the runtime <bpt id="p1">_</bpt>marshals<ept id="p1">_</ept> the types.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Type marshalling</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Marshalling<ept id="p1">**</ept> is the process of transforming types when they need to cross the managed boundary into native and vice versa.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The reason marshalling is needed is because the types in the managed and unmanaged code are different.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In managed code, for instance, you have a <ph id="ph1">`String`</ph>, while in the unmanaged world strings can be Unicode ("wide"), non-Unicode, null-terminated, ASCII, etc. By default, the P/Invoke subsystem will try to do the Right Thing based on the default behavior which you can see on <bpt id="p1">[</bpt>MSDN<ept id="p1">](https://msdn.microsoft.com/library/zah6xy75.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>However, for those situations where you need extra control, you can employ the <ph id="ph1">`MarshalAs`</ph> attribute to specify what is the expected type on the unmanaged side.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For instance, if we want the string to be sent as a null-terminated ANSI string, we could do it like this:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Marshalling classes and structs</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Another aspect of type marshalling is how to pass in a struct to an unmanaged method.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For instance, some of the unmanaged methods require a struct as a parameter.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>In these cases, we need to create a corresponding struct or a class in managed part of the world to use it as a parameter.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>However, just defining the class is not enough, we also need to instruct the marshaler how to map fields in the class to the unmanaged struct.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This is where the <ph id="ph1">`StructLayout`</ph> attribute comes into play.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The example above shows off a simple example of calling into <ph id="ph1">`GetSystemTime()`</ph> function.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The interesting bit is on line 4.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The attribute specifies that the fields of the class should be mapped sequentially to the struct on the other (unmanaged) side.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This means that the naming of the fields is not important, only their order is important, as it needs to correspond to the unmanaged struct, shown below:</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>We already saw the Linux and macOS example for this in the previous example.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>It is shown again below.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`StatClass`</ph> class represents a structure that is returned by the <ph id="ph2">`stat`</ph> system call on UNIX systems.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>It represents information about a given file.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The class above is the stat struct representation in managed code.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Again, the fields in the class have to be in the same order as the native struct (you can find these by perusing man pages on your favorite UNIX implementation) and they have to be of the same underlying type.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>More resources</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>PInvoke.net wiki<ept id="p1">](http://www.pinvoke.net)</ept> an excellent Wiki with information on common Win32 APIs and how to call them.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>P/Invoke on MSDN<ept id="p1">](https://msdn.microsoft.com/library/zbz07712.aspx)</ept></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Mono documentation on P/Invoke<ept id="p1">](http://www.mono-project.com/docs/advanced/pinvoke/)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

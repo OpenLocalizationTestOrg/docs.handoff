@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2d534d1437958bab1176df2515670d08c6026b45</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\how-to-run-partially-trusted-code-in-a-sandbox.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">965792e10d9425c231a9201856b9f61422b25297</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7e651836f192a57484f723afa797545293663e84</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Run Partially Trusted Code in a Sandbox | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Run Partially Trusted Code in a Sandbox</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Sandboxing is the practice of running code in a restricted security environment, which limits the access permissions granted to the code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For example, if you have a managed library from a source you do not completely trust, you should not run it as fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Instead, you should place the code in a sandbox that limits its permissions to those that you expect it to need (for example, <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> permission).</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can also use sandboxing to test code you will be distributing that will run in partially trusted environments.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> is an effective way of providing a sandbox for managed applications.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Application domains that are used for running partially trusted code have permissions that define the protected resources that are available when running within that <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Code that runs inside the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> is bound by the permissions associated with the <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph> and is allowed to access only the specified resources.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> also includes a <ph id="ph2">&lt;xref:System.Security.Policy.StrongName&gt;</ph> array that is used to identify assemblies that are to be loaded as fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This enables the creator of an <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> to start a new sandboxed domain that allows specific helper assemblies to be fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Another option for loading assemblies as fully trusted is to place them in the global assembly cache; however, that will load assemblies as fully trusted in all application domains created on that computer.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The list of strong names supports a per-<ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> decision that provides more restrictive determination.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You can use the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29?displayProperty=fullName&gt;</ph> method overload to specify the permission set for applications that run in a sandbox.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This overload enables you to specify the exact level of code access security you want.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Assemblies that are loaded into an <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> by using this overload can either have the specified grant set only, or can be fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The assembly is granted full trust if it is in the global assembly cache or listed in the <ph id="ph1">`fullTrustAssemblies`</ph> (the <ph id="ph2">&lt;xref:System.Security.Policy.StrongName&gt;</ph>) array parameter.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Only assemblies known to be fully trusted should be added to the <ph id="ph1">`fullTrustAssemblies`</ph> list.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The overload has the following signature:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The parameters for the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29&gt;</ph> method overload specify the name of the <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph>, the evidence for the <ph id="ph3">&lt;xref:System.AppDomain&gt;</ph>, the <ph id="ph4">&lt;xref:System.AppDomainSetup&gt;</ph> object that identifies the application base for the sandbox, the permission set to use, and the strong names for fully trusted assemblies.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For security reasons, the application base specified in the <ph id="ph1">`info`</ph> parameter should not be the application base for the hosting application.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For the <ph id="ph1">`grantSet`</ph> parameter, you can specify either a permission set you have explicitly created, or a standard permission set created by the <ph id="ph2">&lt;xref:System.Security.SecurityManager.GetStandardSandbox%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Unlike most <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> loads, the evidence for the <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph> (which is provided by the <ph id="ph3">`securityInfo`</ph> parameter) is not used to determine the grant set for the partially trusted assemblies.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Instead, it is independently specified by the <ph id="ph1">`grantSet`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>However, the evidence can be used for other purposes such as determining the isolated storage scope.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To run an application in a sandbox</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Create the permission set to be granted to the untrusted application.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The minimum permission you can grant is <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> permission.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You can also grant additional permissions you think might be safe for untrusted code; for example, <ph id="ph1">&lt;xref:System.Security.Permissions.IsolatedStorageFilePermission&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following code creates a new permission set with only <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermissionFlag&gt;</ph> permission.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Alternatively, you can use an existing named permission set, such as Internet.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.SecurityManager.GetStandardSandbox%2A&gt;</ph> method returns either an <ph id="ph2">`Internet`</ph> permission set or a <ph id="ph3">`LocalIntranet`</ph> permission set depending on the zone in the evidence.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.SecurityManager.GetStandardSandbox%2A&gt;</ph> also constructs identity permissions for some of the evidence objects passed as references.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Sign the assembly that contains the hosting class (named <ph id="ph1">`Sandboxer`</ph> in this example) that calls the untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">&lt;xref:System.Security.Policy.StrongName&gt;</ph> used to sign the assembly to the <ph id="ph2">&lt;xref:System.Security.Policy.StrongName&gt;</ph> array of the <ph id="ph3">`fullTrustAssemblies`</ph> parameter of the <ph id="ph4">&lt;xref:System.AppDomain.CreateDomain%2A&gt;</ph> call.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The hosting class must run as fully trusted to enable the execution of the partial-trust code or to offer services to the partial-trust application.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This is how you read the <ph id="ph1">&lt;xref:System.Security.Policy.StrongName&gt;</ph> of an assembly:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>.NET Framework assemblies such as mscorlib and System.dll do not have to be added to the full-trust list because they are loaded as fully trusted from the global assembly cache.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Initialize the <ph id="ph1">&lt;xref:System.AppDomainSetup&gt;</ph> parameter of the <ph id="ph2">&lt;xref:System.AppDomain.CreateDomain%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>With this parameter, you can control many of the settings of the new <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.AppDomainSetup.ApplicationBase%2A&gt;</ph> property is an important setting, and should be different from the <ph id="ph2">&lt;xref:System.AppDomainSetup.ApplicationBase%2A&gt;</ph> property for the <ph id="ph3">&lt;xref:System.AppDomain&gt;</ph> of the hosting application.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.AppDomainSetup.ApplicationBase%2A&gt;</ph> settings are the same, the partial-trust application can get the hosting application to load (as fully trusted) an exception it defines, thus exploiting it.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This is another reason why a catch (exception) is not recommended.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Setting the application base of the host differently from the application base of the sandboxed application mitigates the risk of exploits.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%28System.String%2CSystem.Security.Policy.Evidence%2CSystem.AppDomainSetup%2CSystem.Security.PermissionSet%2CSystem.Security.Policy.StrongName%5B%5D%29&gt;</ph> method overload to create the application domain using the parameters we have specified.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The signature for this method is:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Additional information:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This is the only overload of the <ph id="ph1">&lt;xref:System.AppDomain.CreateDomain%2A&gt;</ph> method that takes a <ph id="ph2">&lt;xref:System.Security.PermissionSet&gt;</ph> as a parameter, and thus the only overload that lets you load an application in a partial-trust setting.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`evidence`</ph> parameter is not used to calculate a permission set; it is used for identification by other features of the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Setting the <ph id="ph1">&lt;xref:System.AppDomainSetup.ApplicationBase%2A&gt;</ph> property of the <ph id="ph2">`info`</ph> parameter is mandatory for this overload.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`fullTrustAssemblies`</ph> parameter has the <ph id="ph2">`params`</ph> keyword, which means that it is not necessary to create a <ph id="ph3">&lt;xref:System.Security.Policy.StrongName&gt;</ph> array.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Passing 0, 1, or more strong names as parameters is allowed.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The code to create the application domain is:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Load the code into the sandboxing <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> that you created.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This can be done in two ways:</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">&lt;xref:System.AppDomain.ExecuteAssembly%2A&gt;</ph> method for the assembly.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Activator.CreateInstanceFrom%2A&gt;</ph> method to create an instance of a class derived from <ph id="ph2">&lt;xref:System.MarshalByRefObject&gt;</ph> in the new <ph id="ph3">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The second method is preferable, because it makes it easier to pass parameters to the new <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The<ph id="ph1">&lt;xref:System.Activator.CreateInstanceFrom%2A&gt;</ph> method provides two important features:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>You can use a code base that points to a location that does not contain your assembly.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>You can do the creation under an <ph id="ph1">&lt;xref:System.Security.CodeAccessPermission.Assert%2A&gt;</ph> for full-trust (<ph id="ph2">&lt;xref:System.Security.Permissions.PermissionState?displayProperty=fullName&gt;</ph>), which enables you to create an instance of a critical class.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>(This happens whenever your assembly has no transparency markings and is loaded as fully trusted.) Therefore, you have to be careful to create only code that you trust with this function, and we recommend that you create only instances of fully trusted classes in the new application domain.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Note that in order to create an instance of a class in a new domain, the class has to extend the <ph id="ph1">&lt;xref:System.MarshalByRefObject&gt;</ph> class</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Unwrap the new domain instance into a reference in this domain.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>This reference is used to execute the untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">`ExecuteUntrustedCode`</ph> method in the instance of the <ph id="ph2">`Sandboxer`</ph> class you just created.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This call is executed in the sandboxed application domain, which has restricted permissions.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Reflection&gt;</ph> is used to get a handle of a method in the partially trusted assembly.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The handle can be used to execute code in a safe way with minimum permissions.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>In the previous code, note the <ph id="ph1">&lt;xref:System.Security.PermissionSet.Assert%2A&gt;</ph> for the full-trust permission before printing the <ph id="ph2">&lt;xref:System.Security.SecurityException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The full-trust assert is used to obtain extended information from the <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Without the <ph id="ph1">&lt;xref:System.Security.PermissionSet.Assert%2A&gt;</ph>, the <ph id="ph2">&lt;xref:System.Security.SecurityException.ToString%2A&gt;</ph> method of <ph id="ph3">&lt;xref:System.Security.SecurityException&gt;</ph> will discover that there is partially trusted code on the stack and will restrict the information returned.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This could cause security issues if the partial-trust code could read that information, but the risk is mitigated by not granting <ph id="ph1">&lt;xref:System.Security.Permissions.UIPermission&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The full-trust assert should be used sparingly and only when you are sure that you are not allowing partial-trust code to elevate to full trust.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>As a rule, do not call code you do not trust in the same function and after you called an assert for full trust.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>It is good practice to always revert the assert when you have finished using it.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The following example implements the procedure in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In the example, a project named <ph id="ph1">`Sandboxer`</ph> in a Visual Studio solution also contains a project named <ph id="ph2">`UntrustedCode`</ph>, which implements the class <ph id="ph3">`UntrustedClass`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This scenario assumes that you have downloaded a library assembly containing a method that is expected to return <ph id="ph1">`true`</ph> or <ph id="ph2">`false`</ph> to indicate whether the number you provided is a Fibonacci number.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Instead, the method attempts to read a file from your computer.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The following example shows the untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The following example shows the <ph id="ph1">`Sandboxer`</ph> application code that executes the untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

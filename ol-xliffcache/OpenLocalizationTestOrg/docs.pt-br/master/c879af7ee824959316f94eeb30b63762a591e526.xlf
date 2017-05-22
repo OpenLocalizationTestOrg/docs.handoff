@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c879af7ee824959316f94eeb30b63762a591e526</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\service-returns-arbitrary-data-using-the-wcf-web.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4307c483fdbf7d2a616c6c9cde59a62082b25122</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0e217e79c3fa7b6ab46fc50623f4071a9c36918b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Service That Returns Arbitrary Data Using The WCF Web HTTP Programming Model | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Service That Returns Arbitrary Data Using The WCF Web HTTP Programming Model</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Sometimes developers must have full control of how data is returned from a service operation.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is the case when a service operation must return data in a format not supported by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic discusses using the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> WEB HTTP Programming Model to create such a service.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This service has one operation that returns a stream.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To implement the service contract</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Define the service contract.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The contract is called <ph id="ph1">`IImageServer`</ph> and has one method called <ph id="ph2">`GetImage`</ph> that returns a <ph id="ph3">&lt;xref:System.IO.Stream&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because the method returns a <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph>, <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> assumes that the operation has complete control over the bytes that are returned from the service operation and it applies no formatting to the data that is returned.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Implement the service contract.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The contract has only one operation (<ph id="ph1">`GetImage`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This method generates a bitmap and then save it to a <ph id="ph1">&lt;xref:System.IO.MemoryStream&gt;</ph> in .jpg format.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The operation then returns that stream to the caller.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Notice the second to last line of code: <ph id="ph1">`WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";`</ph></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This sets the content type header to <ph id="ph1">`"image/jpeg"`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Although this sample shows how to return a .jpg file, it can be modified to return any type of data that is required, in any format.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The operation must retrieve or generate the data and then write it to a stream.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To host the service</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Create a console application to host the service.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Create a variable to hold the base address for the service within the <ph id="ph1">`Main`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> instance for the service specifying the service class and the base address.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Add an endpoint using the <ph id="ph1">&lt;xref:System.ServiceModel.WebHttpBinding&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Description.WebHttpBehavior&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Open the service host.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Wait until the user presses ENTER to terminate the service.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To call the raw service using Internet Explorer</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Run the service, you should see the following output from the service.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Open Internet Explorer and type in <ph id="ph1">`http://localhost:8000/Service/GetImage?width=50&amp;height=40`</ph> you should see a yellow rectangle with a blue diagonal line through the center.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following is a complete listing of the code for this topic.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Compiling the Code</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When compiling the sample code reference System.ServiceModel.dll and System.ServiceModel.Web.dll.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>WCF Web HTTP Programming Model<ept id="p1">](../../../../docs/framework/wcf/feature-details/wcf-web-http-programming-model.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

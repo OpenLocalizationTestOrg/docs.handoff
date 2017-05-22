@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">73f7515fcb41eafa290b600137d32d021aafa899</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\read-only-dependency-properties.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f9ac000d8dd3610a4a824698a90b1a68ae554005</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e1dd29c3363f5bc3a6ca4b3f620a57f5d7ee317d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Read-Only Dependency Properties | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Read-Only Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes read-only dependency properties, including existing read-only dependency properties and the scenarios and techniques for creating a custom read-only dependency property.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic assumes that you understand the basic scenarios of implementing a dependency property, and how metadata is applied to a custom dependency property.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Custom Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept> and <bpt id="p2">[</bpt>Dependency Property Metadata<ept id="p2">](../../../../docs/framework/wpf/advanced/dependency-property-metadata.md)</ept> for context.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Existing Read-Only Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Some of the dependency properties defined in the <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> framework are read-only.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The typical reason for specifying a read-only dependency property is that these are properties that should be used for state determination, but where that state is influenced by a multitude of factors, but just setting the property to that state isn't desirable from a user interface design perspective.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For example, the property <ph id="ph1">&lt;xref:System.Windows.UIElement.IsMouseOver%2A&gt;</ph> is really just surfacing state as determined from the mouse input.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Any attempt to set this value programmatically by circumventing the true mouse input would be unpredictable and would cause inconsistency.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>By virtue of not being settable, read-only dependency properties aren't appropriate for many of the scenarios for which dependency properties normally offer a solution (namely: data binding, directly stylable to a value, validation, animation, inheritance).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Despite not being settable, read-only dependency properties still have some of the additional capabilities supported by dependency properties in the property system.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The most important remaining capability is that the read-only dependency property can still be used as a property trigger in a style.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You can't enable triggers with a normal <ph id="ph1">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> property; it needs to be a dependency property.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The aforementioned <ph id="ph1">&lt;xref:System.Windows.UIElement.IsMouseOver%2A&gt;</ph> property is a perfect example of a scenario where it might be quite useful to define a style for a control, where some visible property such as a background, foreground, or similar properties of composited elements within the control will change when the user places a mouse over some defined region of your control.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Changes in a read-only dependency property can also be detected and reported by the property system's inherent invalidation processes, and this in fact supports the property trigger functionality internally.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Creating Custom Read-Only Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Make sure to read the section above regarding why read-only dependency properties won't work for many typical dependency-property scenarios.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>But if you have an appropriate scenario, you may wish to create your own read-only dependency property.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Much of the process of creating a read-only dependency property is the same as is described in the <bpt id="p1">[</bpt>Custom Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept> and <bpt id="p2">[</bpt>Implement a Dependency Property<ept id="p2">](../../../../docs/framework/wpf/advanced/how-to-implement-a-dependency-property.md)</ept> topics.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>There are three important differences:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>When registering your property, call the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.RegisterReadOnly%2A&gt;</ph> method instead of the normal <ph id="ph2">&lt;xref:System.Windows.DependencyProperty.Register%2A&gt;</ph> method for property registration.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When implementing the <ph id="ph1">[!INCLUDE[TLA2#tla_clr](../../../../includes/tla2sharptla-clr-md.md)]</ph> "wrapper" property, make sure that the wrapper too doesn't have a set implementation, so that there is no inconsistency in read-only state for the public wrapper you expose.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The object returned by the read-only registration is <ph id="ph1">&lt;xref:System.Windows.DependencyPropertyKey&gt;</ph> rather than <ph id="ph2">&lt;xref:System.Windows.DependencyProperty&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>You should still store this field as a member but typically you would not make it a public member of the type.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Whatever private field or value you have backing your read-only dependency property can of course be fully writable using whatever logic you decide.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>However, the most straightforward way to set the property either initially or as part of runtime logic is to use the property system's <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph>, rather than circumventing the property system and setting the private backing field directly.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In particular, there is a signature of <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> that accepts a parameter of type <ph id="ph2">&lt;xref:System.Windows.DependencyPropertyKey&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>How and where you set this value programmatically within your application logic will affect how you may wish to set access on the <ph id="ph1">&lt;xref:System.Windows.DependencyPropertyKey&gt;</ph> created when you first registered the dependency property.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If you handle this logic all within the class you could make it private, or if you require it to be set from other portions of the assembly you might set it internal.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>One approach is to call <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> within a class event handler of a relevant event that informs a class instance that the stored property value needs to be changed.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Another approach is to tie dependency properties together by using paired <ph id="ph1">&lt;xref:System.Windows.PropertyChangedCallback&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.CoerceValueCallback&gt;</ph> callbacks as part of those properties' metadata during registration.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">&lt;xref:System.Windows.DependencyPropertyKey&gt;</ph> is private, and is not propagated by the property system outside of your code, a read-only dependency property does have better setting security than a read-write dependency property.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>For a read-write dependency property, the identifying field is explicitly or implicitly public and thus the property is widely settable.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For more specifics, see <bpt id="p1">[</bpt>Dependency Property Security<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-security.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Custom Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Styling and Templating<ept id="p1">](../../../../docs/framework/wpf/controls/styling-and-templating.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ce1aea6848c5693602339fa03fb1c1e83d847f79</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\custom-message-filter.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">72e7a6c8a9ff2403bc7f37c0244916fac086500e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3ae11de7ca1950ef3d2a16cdb54767a7ae4b99d7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Message Filter | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Message Filter</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to replace the message filters that <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> uses to dispatch messages to endpoints.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When the first message on a channel arrives at the server, the server must determine which (if any) of the endpoints associated with that URI should receive the message.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This process is controlled by the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.MessageFilter&gt;</ph> objects attached to the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Each endpoint of a service has a single <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> has both an <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.AddressFilter%2A&gt;</ph> and a <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.ContractFilter%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The union of these two filters is the message filter used for that endpoint.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>By default, the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.AddressFilter%2A&gt;</ph> for an endpoint matches any message that is addressed to an address that matches the service endpoint's <ph id="ph2">&lt;xref:System.ServiceModel.EndpointAddress&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>By default, the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.ContractFilter%2A&gt;</ph> for an endpoint inspects the action of the incoming message and matches any message with an action that corresponds to one of the actions of the service endpoint contract's operations (only <ph id="ph2">`IsInitiating`</ph><ph id="ph3">=</ph><ph id="ph4">`true`</ph> actions are considered).</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>As a result, by default, the filter for an endpoint only matches if both the message's To header is the <ph id="ph1">&lt;xref:System.ServiceModel.EndpointAddress&gt;</ph> of the endpoint and the message's action matches one of the endpoint operation's actions.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>These filters can be changed using a behavior.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In the sample, the service creates an <ph id="ph1">&lt;xref:System.ServiceModel.Description.IEndpointBehavior&gt;</ph> that replaces the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.AddressFilter%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.ContractFilter%2A&gt;</ph> on the <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Two address filters are defined:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`FilteringEndpointBehavior`</ph> is made configurable and allows for two different variations.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Variation 1 matches only addresses that contain an 'e' (but that have any Action) whereas Variation 2 matches only addresses that lack an 'e':</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In the configuration file, the service registers the new behavior:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Then the service creates <ph id="ph1">`endpointBehavior`</ph> configurations for each variation:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Finally, the service's endpoint references one of the <ph id="ph1">`behaviorConfigurations`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The implementation of the client application is straightforward; it creates two channels to the service's URI (by passing in that value as the second (<ph id="ph1">`via`</ph>) parameter to <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IChannelFactory%601.CreateChannel%28System.ServiceModel.EndpointAddress%29&gt;</ph> and sends a single message on each channel, but it uses different endpoint addresses for each.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>As a result, the outbound messages from the client have different To designations, and the server responds accordingly, as demonstrated by the client's output:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Switching the variation in the server's configuration file causes the filter to be swapped and the client sees the opposite behavior (the message to <ph id="ph1">`urn:e`</ph> succeeds, whereas the message to <ph id="ph2">`urn:a`</ph> fails).</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To run the sample in a cross-machine configuration, follow the instructions at <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept> and change the following line in Client.cs.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Replace localhost with the name of server.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

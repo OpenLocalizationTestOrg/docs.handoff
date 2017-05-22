@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6685fbbd51fbf99fe5733aa860ca936077c227f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\channel-model-overview.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3ce6caf2c9c3b008ce7441b40d47f5b2527b5a50</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">829dc071f50f6c135c2bdd57bfc3ba0af8727be8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Channel Model Overview | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Channel Model Overview</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> channel stack is a layered communication stack with one or more channels that process messages.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>At the bottom of the stack is a transport channel that is responsible for adapting the channel stack to the underlying transport (for example, TCP, HTTP, SMTP and other types of transport.).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Channels provide a low-level programming model for sending and receiving messages.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This programming model relies on several interfaces and other types collectively known as the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> channel model.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This topic discusses channel shapes, the construction of a basic channel listener (on the service) and channel factory (on the client).</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Channel Stack</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> endpoints communicate with the world using a communication stack called the channel stack.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The following diagram compares the channel stack with other communication stacks, for example TCP/IP.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Channel Model<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/extending/media/wcfc-channelstackhighlevelc.gif "</bpt>wcfc_ChannelStackHighLevelc<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>First, the similarities: In both cases, each layer of the stack provides some abstraction of the world below that layer and exposed that abstraction only to the layer directly above it.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Each layer uses the abstraction of only the layer directly below it.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Also in both cases, when two stacks communicate, each layer communicates with the corresponding layer in the other stack, for example, the IP layer communicates with the IP layer and the TCP layer with the TCP layer, and so on.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Now, the differences: While the TCP stack was designed to provide an abstraction of the physical network, the channel stack is designed to provide an abstraction of not only how the message is delivered, that is, the transport, but also other features such as what is in the message or what protocol is used for communication, including the transport but much more than that.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For example, reliable session binding element is part of the channel stack but is not below the transport or the transport itself.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This abstraction is achieved by requiring the bottom channel in the stack to adapt the underlying transport protocol to the channel stack architecture and then relying on channels further up in the stack to provide communication features such as reliability guarantees and security.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Messages flow through the communication stack as <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>As shown in figure above, the bottom channel is called a transport channel.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>It is the channel that is responsible for sending and receiving messages to and from other parties.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This includes the responsibility of transforming the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> object to and from the format used to communicate with other parties.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Above the transport channel there can be any number of protocol channels each responsible for providing a communication function such as reliable delivery guarantees.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Protocol channels operate on messages flowing through them in the form of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>They typically either transform the message, for example, by adding headers or encrypting the body, or send and receive their own protocol control messages, for example, receipt acknowledgments.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Channel Shapes</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Each channel implements one or more interfaces known as channel shape interfaces or channel shapes.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Those channel shapes provide the communication-oriented methods such as send and receive or request and reply that the channel implements and the user of the channel calls.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>At the base of the channel shapes is the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph> interface, which is an interface that provides a <ph id="ph2">`GetProperty`</ph><ph id="ph3">\&lt;</ph>T&gt; method intended as a layered mechanism to access arbitrary features exposed by channels in the stack.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The five channel shapes that extend <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannel&gt;</ph> are:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Further, each of these shapes has an equivalent that extends <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ISessionChannel%601?displayProperty=fullName&gt;</ph> to support sessions.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>These are:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The channel shapes are patterned after some of the fundamental message exchange patterns supported by existing transport protocols.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For example, one-way messaging corresponds to an <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IInputChannel&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.ServiceModel.Channels.IOutputChannel&gt;</ph> pair, request-reply corresponds to <ph id="ph4">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph><ph id="ph5">/</ph><ph id="ph6">&lt;xref:System.ServiceModel.Channels.IReplyChannel&gt;</ph> pairs and two-way duplex communications corresponds to <ph id="ph7">&lt;xref:System.ServiceModel.Channels.IDuplexChannel&gt;</ph> (which extends both <ph id="ph8">&lt;xref:System.ServiceModel.Channels.IInputChannel&gt;</ph> and <ph id="ph9">&lt;xref:System.ServiceModel.Channels.IOutputChannel&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Programming with the Channel Stack</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Channel stacks are typically created using a factory pattern where a binding creates the channel stack.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>On the send side, a binding is used to build a <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory&gt;</ph>, which in turn builds a channel stack and returns a reference to the top channel in the stack.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The application can then use this channel to send messages.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Client Channel-Level Programming<ept id="p1">](../../../../docs/framework/wcf/extending/client-channel-level-programming.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>On the receive side a binding is used to build a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph>, which listens for incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph> provides messages to the listening application by creating channel stacks and handing the application reference to the top channel.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The application then uses this channel to receive incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Service Channel-Level Programming<ept id="p1">](../../../../docs/framework/wcf/extending/service-channel-level-programming.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The Channel Object Model</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The channel object model is the core set of interfaces required to implement channels, channel listeners and channel factories.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>There are also some base classes provided to assist in custom implementations.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Channel listeners are responsible for listening for incoming messages, then delivering them to the layer above through channels created by the channel listener.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Channel factories are responsible for creating channels that are used for sending messages and for closing all channels they created when the channel factory is closed.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> is the core interface that defines the basic state machine that all communication objects implement.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> provides an implementation of this core interface that other channel classes can derive from rather than re-implementing the interface.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>However, this is not required: a custom channel can implement <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> directly and not inherit from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>None of the classes in Figure 3 are considered part of the channel model; they are helpers available to custom channel implementers who want to build channels.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Channel model<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/extending/media/wcfc-wcfcchannelsigure3omumtreec.gif "</bpt>wcfc_WCFCChannelsigure3OMUMTreec<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The following topics describe the channel object model as well as various development areas that help build custom channels.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Topic</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Service: Channel Listeners and Channels<ept id="p1">](../../../../docs/framework/wcf/extending/service-channel-listeners-and-channels.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Describes channel listeners, which listen for incoming channels in a service application.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Client: Channel Factories and Channels<ept id="p1">](../../../../docs/framework/wcf/extending/client-channel-factories-and-channels.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Describes channel factories, which create channels to connect to a service application.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Understanding State Changes<ept id="p1">](../../../../docs/framework/wcf/extending/understanding-state-changes.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Describes how the <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject?displayProperty=fullName&gt;</ph> interface models state changes in channels.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Choosing a Message Exchange Pattern<ept id="p1">](../../../../docs/framework/wcf/extending/choosing-a-message-exchange-pattern.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Describes the six basic message exchange patterns that channels can support.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Handling Exceptions and Faults<ept id="p1">](../../../../docs/framework/wcf/extending/handling-exceptions-and-faults.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Describes how to handle faults and exceptions in custom channels.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Configuration and Metadata Support<ept id="p1">](../../../../docs/framework/wcf/extending/configuration-and-metadata-support.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Describes how to support the use of custom channels from the application model and how to export and import metadata using bindings and binding elements.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

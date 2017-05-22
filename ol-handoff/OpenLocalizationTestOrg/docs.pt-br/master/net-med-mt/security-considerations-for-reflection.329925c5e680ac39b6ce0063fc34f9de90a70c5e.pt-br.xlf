@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3bfd6924a2716f0879204bf789bbacccdb2b3797</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\reflection-and-codedom\security-considerations-for-reflection.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d88ac31f8f79ba311b71f796cc8a03e59ffd050d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1941353cf34df21cee651c8442c3acaa9dec91a4</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Security Considerations for Reflection | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Security Considerations for Reflection</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Reflection provides the ability to obtain information about types and members, and to access members (that is, to call methods and constructors, to get and set property values, to add and remove event handlers, and so on).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The use of reflection to obtain information about types and members is not restricted.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>All code can use reflection to perform the following tasks:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Enumerate types and members, and examine their metadata.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Enumerate and examine assemblies and modules.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Using reflection to access members, by contrast, is subject to restrictions.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Beginning with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, only trusted code can use reflection to access security-critical members.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Furthermore, only trusted code can use reflection to access nonpublic members that would not be directly accessible to compiled code.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Finally, code that uses reflection to access a safe-critical member must have whatever permissions the safe-critical member demands, just as with compiled code.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Subject to necessary permissions, code can use reflection to perform the following kinds of access:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Access public members that are not security-critical.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Access nonpublic members that would be accessible to compiled code, if those members are not security-critical.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Examples of such nonpublic members include:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Protected members of the calling code's base classes.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>(In reflection, this is referred to as family-level access.)</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`internal`</ph> members (<ph id="ph2">`Friend`</ph> members in Visual Basic) in the calling code's assembly.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>(In reflection, this is referred to as assembly-level access.)</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Private members of other instances of the class that contains the calling code.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, code that is run in a sandboxed application domain is limited to the access described in this list, unless the application domain grants additional permissions.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v20SP1_long](../../../includes/net-v20sp1-long-md.md)]</ph>, attempting to access members that are normally inaccessible generates a demand for the grant set of the target object plus <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Code that is running with full trust (for example, code in an application that is launched from the command line) can always satisfy these permissions.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>(This is subject to limitations in accessing security-critical members, as described later in this article.)</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Optionally, a sandboxed application domain can grant <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag, as described in the section <bpt id="p1">[</bpt>Accessing Members That Are Normally Inaccessible<ept id="p1">](#accessingNormallyInaccessible)</ept>, later in this article.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Accessing Security-Critical Members</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A member is security-critical if it has the <ph id="ph1">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph>, if it belongs to a type that has the <ph id="ph2">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph>, or if it is in a security-critical assembly.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Beginning with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, the rules for accessing security-critical members are as follows:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Transparent code cannot use reflection to access security-critical members, even if the code is fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.MethodAccessException&gt;</ph>, <ph id="ph2">&lt;xref:System.FieldAccessException&gt;</ph>, or <ph id="ph3">&lt;xref:System.TypeAccessException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Code that is running with partial trust is treated as transparent.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>These rules are the same whether a security-critical member is accessed directly by compiled code, or accessed by using reflection.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Application code that is run from the command line runs with full trust.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>As long as it is not marked as transparent, it can use reflection to access security-critical members.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When the same code is run with partial trust (for example, in a sandboxed application domain) the assembly's trust level determines whether it can access security-critical code: If the assembly has a strong name and is installed in the global assembly cache, it is a trusted assembly and can call security-critical members.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If it is not trusted, it becomes transparent even though it was not marked as transparent, and it cannot access security-critical members.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For more information about the security model in the <ph id="ph1">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>, see <bpt id="p1">[</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Reflection and Transparency</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Beginning with the <ph id="ph1">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>, the common language runtime determines the transparency level of a type or member from several factors, including the trust level of the assembly and the trust level of the application domain.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Reflection provides the <ph id="ph1">&lt;xref:System.Type.IsSecurityCritical%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Type.IsSecuritySafeCritical%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.Type.IsSecurityTransparent%2A&gt;</ph> properties to enable you to discover the transparency level of a type.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following table shows the valid combinations of these properties.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Security level</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>IsSecurityCritical</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>IsSecuritySafeCritical</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>IsSecurityTransparent</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Critical</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Safe-critical</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Transparent</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Using these properties is much simpler than examining the security annotations of an assembly and its types, checking the current trust level, and attempting to duplicate the runtime's rules.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For example, the same type can be security-critical when it is run from the command line, or security-transparent when it is run in a sandboxed application domain.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>There are similar properties on the <ph id="ph1">&lt;xref:System.Reflection.MethodBase&gt;</ph>, <ph id="ph2">&lt;xref:System.Reflection.FieldInfo&gt;</ph>, <ph id="ph3">&lt;xref:System.Reflection.Emit.TypeBuilder&gt;</ph>, <ph id="ph4">&lt;xref:System.Reflection.Emit.MethodBuilder&gt;</ph>, and <ph id="ph5">&lt;xref:System.Reflection.Emit.DynamicMethod&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>(For other reflection and reflection emit abstractions, security attributes are applied to the associated methods; for example, in the case of properties they are applied to the property accessors.)</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Accessing Members That Are Normally Inaccessible</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>To use reflection to invoke members that are inaccessible according to the accessibility rules of the common language runtime, your code must be granted one of two permissions:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>To allow code to invoke any nonpublic member:Your code must be granted <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>By default, security policy denies this permission to code that originates from the Internet.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This permission should never be granted to code that originates from the Internet.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>To allow code to invoke any nonpublic member, as long as the grant set of the assembly that contains the invoked member is the same as, or a subset of, the grant set of the assembly that contains the invoking code: Your code must be granted <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For example, suppose you grant an application domain Internet permissions plus <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag, and then run an Internet application with two assemblies, A and B.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Assembly A can use reflection to access private members of assembly B, because the grant set of assembly B does not include any permissions that A has not been granted.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Assembly A cannot use reflection to access private members of <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> assemblies such as mscorlib.dll, because mscorlib.dll is fully trusted and therefore has permissions that have not been granted to assembly A. A <ph id="ph2">&lt;xref:System.MemberAccessException&gt;</ph> is thrown when code access security walks the stack at run time.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Serialization</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>For serialization, <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.SecurityPermissionAttribute.SerializationFormatter%2A?displayProperty=fullName&gt;</ph> flag provides the ability to get and set members of serializable types, regardless of accessibility.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This permission enables code to discover and change the private state of an instance.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>(In addition to being granted the appropriate permissions, the type must be <bpt id="p1">[</bpt>marked<ept id="p1">](../../../docs/standard/attributes/applying-attributes.md)</ept> as serializable in metadata.)</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Parameters of Type MethodInfo</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Avoid writing public members that take <ph id="ph1">&lt;xref:System.Reflection.MethodInfo&gt;</ph> parameters, especially for trusted code.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Such members might be more vulnerable to malicious code.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>For example, consider a public member in highly trusted code that takes a <ph id="ph1">&lt;xref:System.Reflection.MethodInfo&gt;</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Assume that the public member indirectly calls the <ph id="ph1">&lt;xref:System.Reflection.MethodBase.Invoke%2A&gt;</ph> method on the supplied parameter.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If the public member does not perform the necessary permission checks, the call to the <ph id="ph1">&lt;xref:System.Reflection.MethodBase.Invoke%2A&gt;</ph> method will always succeed, because the security system determines that the caller is highly trusted.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Even if malicious code does not have the permission to directly invoke the method, it can still do so indirectly by calling the public member.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Version Information</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Beginning with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, transparent code cannot use reflection to access security-critical members.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag is introduced in the <ph id="ph2">[!INCLUDE[net_v20SP1_long](../../../includes/net-v20sp1-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Earlier versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> require the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag for code that uses reflection to access nonpublic members.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This is a permission that should never be granted to partially trusted code.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Beginning with the <ph id="ph1">[!INCLUDE[dnprdnlong](../../../includes/dnprdnlong-md.md)]</ph>, using reflection to obtain information about nonpublic types and members does not require any permissions.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In earlier versions, <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag is required.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Code Access Security<ept id="p1">](../../../docs/framework/misc/code-access-security.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Security Issues in Reflection Emit<ept id="p1">](../../../docs/framework/reflection-and-codedom/security-issues-in-reflection-emit.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Viewing Type Information<ept id="p1">](../../../docs/framework/reflection-and-codedom/viewing-type-information.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Applying Attributes<ept id="p1">](../../../docs/standard/attributes/applying-attributes.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Accessing Custom Attributes<ept id="p1">](../../../docs/framework/reflection-and-codedom/accessing-custom-attributes.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

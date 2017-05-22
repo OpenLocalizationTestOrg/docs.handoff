@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b0a94f23c9ea00867d9ea2a979f11df07daf3ffc</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\wsfederation-authentication-module-overview.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">928871272c3aec00d4d29b749f6983ffbcd1273c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4e4ea9446630c876cf3e964d052065bfe15ffcb8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>WSFederation Authentication Module Overview | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>WSFederation Authentication Module Overview</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Windows Identity Foundation (WIF) includes support for federated authentication in ASP.NET applications through the WS-Federated Authentication Module (WS-FAM).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic will help you understand how federated authentication works and how to use it.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Overview of Federated Authentication</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Federated authentication allows a Security Token Service (STS) in one trust domain to provide authentication information to an STS in another trust domain when there is a trust relationship between the two domains.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>An example of this is shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Federation Authentication Scenario<ept id="p1">]</ept><bpt id="p2">(../../../docs/framework/security/media/federatedauthentication.gif "</bpt>FederatedAuthentication<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A client in the Fabrikam trust domain sends a request to a Relying Party (RP) application in the Contoso trust domain.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The RP redirects the client to an STS in the Contoso trust domain.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This STS has no knowledge of the client.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The Contoso STS redirects the client to an STS in the Fabrikam trust domain, with which the Contoso trust domain has a trust relationship.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The Fabrikam STS verifies the client’s identity and issues a security token to the Contoso STS.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The Contoso STS uses the Fabrikam token to create its own token that can be used by the RP and sends it to the RP.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The RP extracts the client’s claims from the security token and makes an authorization decision.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Using the Federated Authentication Module with ASP.NET</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph> (WS-FAM) is an HTTP module that lets you add federated authentication to an <ph id="ph2">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Federated authentication lets authentication logic be handled by the STS and lets you focus on writing business logic.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You configure the WS-FAM to specify the STS to which non-authenticated requests should be redirected.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>WIF lets you authenticate a user in two ways:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Passive redirect: When an unauthenticated user tries to access a protected resource, and you want to simply redirect them to an STS without requiring a login page, then this is the right approach.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The STS verifies the user’s identity, and issues a security token that contains the appropriate claims for that user.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This option requires the WS-FAM to be added in the HTTP Modules pipeline.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You can use the Identity and Access Tool for Visual Studio 2012 to modify your application’s configuration file to use the WS-FAM and to federate with an STS.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Identity and Access Tool for Visual Studio 2012<ept id="p1">](../../../docs/framework/security/identity-and-access-tool-for-vs.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>You can call the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SignIn%2A?displayProperty=fullName&gt;</ph> method or the <ph id="ph2">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.RedirectToIdentityProvider%2A&gt;</ph> method from the code-behind for a sign-in page in your RP application.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In passive redirect, all communication is performed through response/redirect from the client (typically a browser).</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>You can add the WS-FAM to your application’s HTTP pipeline, where it watches for unauthenticated user requests and redirects users to the STS you specify.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The WS-FAM also raises several events that let you customize its functionality in an <ph id="ph1">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>How the WS-FAM Works</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The WS-FAM is implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Typically, you add the WS-FAM to the HTTP pipeline of your <ph id="ph1">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> RP application.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When an unauthenticated user tries to access a protected resource, the RP returns a "401 authorization denied" HTTP response.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The WS-FAM intercepts this response instead of allowing the client to receive it, then it redirects the user to the specified STS.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The STS issues a security token, which the WS-FAM again intercepts.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The WS-FAM uses the token to create an instance of <ph id="ph1">&lt;xref:System.Security.Claims.ClaimsPrincipal&gt;</ph> for the authenticated user, which enables regular <ph id="ph2">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> authorization mechanisms to function.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Because HTTP is stateless, we need a way to avoid repeating this whole process every time that the user tries to access another protected resource.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This is where the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> comes in.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When the STS issues a security token for the user, <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> also creates a session security token for the user and puts it in a cookie.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>On subsequent requests, the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> intercepts this cookie and uses it to reconstruct the user’s <ph id="ph2">&lt;xref:System.Security.Claims.ClaimsPrincipal&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the overall flow of information in the passive redirect case.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The request is automatically redirected via the STS to establish credentials without a login page:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Timing diagram for sign&amp;#45;in with passive redirect<ept id="p1">]</ept><bpt id="p2">(../../../docs/framework/security/media/signinusingpassiveredirect.gif "</bpt>SignInUsingPassiveRedirect<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The following diagram shows more detail on what happens when the user has authenticated to the STS and their security tokens are processed by the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Timing for token processing with passive redirect<ept id="p1">]</ept><bpt id="p2">(../../../docs/framework/security/media/signinusingpassiveredirect-tokenprocessing.gif "</bpt>SignInUsingPassiveRedirect_TokenProcessing<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following diagram shows more detail on what happens when the user’s security tokens have been serialized into cookies and are intercepted by the <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>SAM timing diagram showing sign&amp;#45;in using controls<ept id="p1">]</ept><bpt id="p2">(../../../docs/framework/security/media/signinusingconrols-sam.gif "</bpt>SignInUsingConrols_SAM<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Events</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph>, and their parent class, <ph id="ph3">&lt;xref:System.IdentityModel.Services.HttpModuleBase&gt;</ph>, raise events at various stages of processing of an HTTP request.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You can handle these events in the <ph id="ph1">`global.asax`</ph> file of your <ph id="ph2">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The ASP.NET infrastructure invokes the module’s <ph id="ph1">&lt;xref:System.IdentityModel.Services.HttpModuleBase.Init%2A&gt;</ph> method to initialize the module.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName&gt;</ph> event is raised when the ASP.NET infrastructure invokes the <ph id="ph2">&lt;xref:System.IdentityModel.Services.HttpModuleBase.Init%2A&gt;</ph> method for the first time on one of the application’s modules that derive from <ph id="ph3">&lt;xref:System.IdentityModel.Services.HttpModuleBase&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This method accesses the static <ph id="ph1">&lt;xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration%2A?displayProperty=fullName&gt;</ph> property, which causes configuration to be loaded from the Web.config file.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This event is only raised the first time this property is accessed.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.Configuration.FederationConfiguration&gt;</ph> object that is initialized from configuration can be accessed through the <ph id="ph2">&lt;xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName&gt;</ph> property in an event handler.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can use this event to modify the configuration before it is applied to any modules.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>You can add a handler for this event in the Application_Start method:</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Each module overrides the <ph id="ph1">&lt;xref:System.IdentityModel.Services.HttpModuleBase.InitializeModule%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.Services.HttpModuleBase.InitializePropertiesFromConfiguration%2A?displayProperty=fullName&gt;</ph> abstract methods.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The first of these methods adds handlers for ASP.NET pipeline events that are of interest to the module.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In most cases the module’s default implementation will suffice.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The second of these methods initializes the module’s properties from its <ph id="ph1">&lt;xref:System.IdentityModel.Services.HttpModuleBase.FederationConfiguration%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>(This is a copy of the configuration that was loaded previously.) You may need to override this second method if you want to support the initialization of new properties from configuration in classes that you derive from <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph> or <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In such cases you would also need to derive from the appropriate configuration objects to support the added configuration properties; for example, from <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.IdentityConfiguration&gt;</ph>, <ph id="ph2">&lt;xref:System.IdentityModel.Services.Configuration.WsFederationConfiguration&gt;</ph>, or <ph id="ph3">&lt;xref:System.IdentityModel.Services.Configuration.FederationConfiguration&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The WS-FAM raises the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SecurityTokenReceived&gt;</ph> event when it intercepts a security token that has been issued by the STS.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The WS-FAM raises the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SecurityTokenValidated&gt;</ph> event after it has validated the token.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> raises the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenCreated&gt;</ph> event when it creates a session security token for the user.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph> raises the <ph id="ph2">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule.SessionSecurityTokenReceived&gt;</ph> event when it intercepts subsequent requests with the cookie that contains the session security token.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Before the WS-FAM redirects the user to the issuer, it raises the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.RedirectingToIdentityProvider&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The WS-Federation sign-in request is available through the <ph id="ph1">&lt;xref:System.IdentityModel.Services.RedirectingToIdentityProviderEventArgs.SignInRequestMessage%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.IdentityModel.Services.RedirectingToIdentityProviderEventArgs&gt;</ph> passed in the event.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>You may choose to modify the request before sending this out to the issuer.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The WS-FAM raises the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SignedIn&gt;</ph> event when the cookie is successfully written and the user is signed in.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The WS-FAM raises the <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SigningOut&gt;</ph> event one time per session as the session is being closed down for each user.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>It is not raised if the session is closed down on the client-side (for example, by deleting the session cookie).</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>In an SSO environment, the IP-STS can request each RP to sign out, too.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This will also raise this event, with <ph id="ph1">&lt;xref:System.IdentityModel.Services.SigningOutEventArgs.IsIPInitiated%2A&gt;</ph> set to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>You should not use the <ph id="ph1">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> property during any event raised by <ph id="ph2">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule&gt;</ph> or <ph id="ph3">&lt;xref:System.IdentityModel.Services.SessionAuthenticationModule&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This is because <ph id="ph1">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;</ph> is set after the authentication process, while events are raised during the authentication process.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Configuration of Federated Authentication</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The WS-FAM and SAM are configured through the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>federationConfiguration&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>wsFederation&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/wsfederation.md)</ept> child element configures default values for the WS-FAM properties; such as the <ph id="ph2">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.Issuer%2A&gt;</ph> property and the <ph id="ph3">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.Realm%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>(These values can be changed on a per request basis by providing handlers for some of the WS-FAM events; for example, <ph id="ph1">&lt;xref:System.IdentityModel.Services.WSFederationAuthenticationModule.RedirectingToIdentityProvider&gt;</ph>.) The cookie handler that is used by the SAM is configured through the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>cookieHandler&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/cookiehandler.md)</ept> child element.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>WIF provides a default cookie handler implemented in the <ph id="ph1">&lt;xref:System.IdentityModel.Services.ChunkedCookieHandler&gt;</ph> class that can have its chunk size set through the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>chunkedCookieHandler&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/chunkedcookiehandler.md)</ept> element.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`&lt;federationConfiguration&gt;`</ph> element references an <ph id="ph2">&lt;xref:System.IdentityModel.Configuration.IdentityConfiguration&gt;</ph>, which provides configuration for other WIF components used in the application, such as the <ph id="ph3">&lt;xref:System.Security.Claims.ClaimsAuthenticationManager&gt;</ph> and the <ph id="ph4">&lt;xref:System.Security.Claims.ClaimsAuthorizationManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The identity configuration may be referenced explicitly by specifying a named <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>identityConfiguration&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/identityconfiguration.md)</ept> element in the <ph id="ph2">`identityConfigurationName`</ph> attribute of the <ph id="ph3">`&lt;federationConfiguration&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>If the identity configuration is not referenced explicitly, the default identity configuration will be used.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The following XML shows a configuration of an ASP.NET relying party (RP) application.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IdentityModel.Configuration.SystemIdentityModelSection&gt;</ph> and <ph id="ph2">&lt;xref:System.IdentityModel.Services.Configuration.SystemIdentityModelServicesSection&gt;</ph> configuration sections are added under the <ph id="ph3">`&lt;configSections&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The SAM and WS-FAM are added to the HTTP Modules under the <ph id="ph1">`&lt;system.webServer&gt;`</ph><ph id="ph2">/</ph><ph id="ph3">`&lt;modules&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Finally the WIF components are configured under the <ph id="ph1">`&lt;system.identityModel&gt;`</ph><ph id="ph2">/</ph><ph id="ph3">`&lt;identityConfiguration&gt;`</ph> and <ph id="ph4">`&lt;system.identityModel.services&gt;`</ph><ph id="ph5">/</ph><ph id="ph6">`&lt;federationConfiguration&gt;`</ph> elements.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This configuration specifies the chunked cookie handler as it is the default cookie handler and there is not a cookie handler type specified in the <ph id="ph1">`&lt;cookieHandler&gt;`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>In the following example, both the <ph id="ph1">`requireHttps`</ph> attribute of the <ph id="ph2">`&lt;wsFederation&gt;`</ph> element and the <ph id="ph3">`requireSsl`</ph> attribute of the <ph id="ph4">`&lt;cookieHandler&gt;`</ph> element are <ph id="ph5">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This presents a potential security threat.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>In production, both these values should be set <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt><ph id="ph1">\&lt;</ph>federationConfiguration&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/windows-identity-foundation/federationconfiguration.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

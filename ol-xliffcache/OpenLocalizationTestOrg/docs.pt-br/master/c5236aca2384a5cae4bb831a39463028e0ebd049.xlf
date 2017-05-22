@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c5236aca2384a5cae4bb831a39463028e0ebd049</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\exceptions-and-performance.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0eb82bc336d79ad2374fa1c9e1522c249f66ba22</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">50b924edf7ae74765f4d2f8d783737514eb90658</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Exceptions and Performance | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Exceptions and Performance</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>One common concern related to exceptions is that if exceptions are used for code that routinely fails, the performance of the implementation will be unacceptable.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is a valid concern.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When a member throws an exception, its performance can be orders of magnitude slower.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, it is possible to achieve good performance while strictly adhering to the exception guidelines that disallow using error codes.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Two patterns described in this section suggest ways to do this.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use error codes because of concerns that exceptions might affect performance negatively.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To improve performance, it is possible to use either the Tester-Doer Pattern or the Try-Parse Pattern, described in the next two sections.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Tester-Doer Pattern</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Sometimes performance of an exception-throwing member can be improved by breaking the member into two.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Let’s look at the <ph id="ph1">&lt;xref:System.Collections.Generic.ICollection%601.Add%2A&gt;</ph> method of the <ph id="ph2">&lt;xref:System.Collections.Generic.ICollection%601&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The method <ph id="ph1">`Add`</ph> throws if the collection is read-only.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This can be a performance problem in scenarios where the method call is expected to fail often.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>One of the ways to mitigate the problem is to test whether the collection is writable before trying to add a value.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The member used to test a condition, which in our example is the property <ph id="ph1">`IsReadOnly`</ph>, is referred to as the tester.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The member used to perform a potentially throwing operation, the <ph id="ph1">`Add`</ph> method in our example, is referred to as the doer.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> the Tester-Doer Pattern for members that might throw exceptions in common scenarios to avoid performance problems related to exceptions.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Try-Parse Pattern</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For extremely performance-sensitive APIs, an even faster pattern than the Tester-Doer Pattern described in the previous section should be used.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The pattern calls for adjusting the member name to make a well-defined test case a part of the member semantics.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> defines a <ph id="ph2">&lt;xref:System.DateTime.Parse%2A&gt;</ph> method that throws an exception if parsing of a string fails.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It also defines a corresponding <ph id="ph1">&lt;xref:System.DateTime.TryParse%2A&gt;</ph> method that attempts to parse, but returns false if parsing is unsuccessful and returns the result of a successful parsing using an <ph id="ph2">`out`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When using this pattern, it is important to define the try functionality in strict terms.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>If the member fails for any reason other than the well-defined try, the member must still throw a corresponding exception.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> the Try-Parse Pattern for members that might throw exceptions in common scenarios to avoid performance problems related to exceptions.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the prefix "Try" and Boolean return type for methods implementing this pattern.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> provide an exception-throwing member for each member using the Try-Parse Pattern.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Design Guidelines for Exceptions<ept id="p1">](../../../docs/standard/design-guidelines/exceptions.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

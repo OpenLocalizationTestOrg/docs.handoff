@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ee4fba2eacbaaf5e30454673c996c9abd3bc1112</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\securing-method-access.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">592fba5a4d318fedba8a63f6147c245c6b63899a</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6db6e1710f3bf4ed9580ee553395aa9dfe3f12f7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Securing Method Access | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Securing Method Access</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Some methods might not be suitable to allow arbitrary untrusted code to call.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Such methods pose several risks: The method might provide some restricted information; it might believe any information passed to it; it might not do error checking on the parameters; or with the wrong parameters, it might malfunction or do something harmful.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>You should be aware of these cases and take action to help protect the method.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In some cases, you might need to restrict methods that are not intended for public use but still must be public.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, you might have an interface that needs to be called across your own DLLs and hence must be public, but you do not want to expose it publicly to prevent customers from using it or to prevent malicious code from exploiting the entry point into your component.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Another common reason to restrict a method not intended for public use (but that must be public) is to avoid having to document and support what might be a very internal interface.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Managed code offers several ways to restrict method access:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Limit the scope of accessibility to the class, assembly, or derived classes, if they can be trusted.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This is the simplest way to limit method access.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Note that, in general, derived classes can be less trustworthy than the class they derive from, though in some cases they share the parent class's identity.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In particular, do not infer trust from the keyword <bpt id="p1">**</bpt>protected<ept id="p1">**</ept>, which is not necessarily used in the security context.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Limit the method access to callers of a specified identity--essentially, any particular <bpt id="p1">[</bpt>evidence<ept id="p1">](http://msdn.microsoft.com/en-us/64ceb7c8-a0b4-46c4-97dc-6c22da0539da)</ept> (strong name, publisher, zone, and so on) you choose.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Limit the method access to callers having whatever permissions you select.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Similarly, declarative security allows you to control inheritance of classes.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You can use <bpt id="p1">**</bpt>InheritanceDemand<ept id="p1">**</ept> to do the following:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Require derived classes to have a specified identity or permission.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Require derived classes that override specific methods to have a specified identity or permission.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following example shows how to help protect a public class for limited access by requiring that callers be signed with a particular strong name.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This example uses the <ph id="ph1">&lt;xref:System.Security.Permissions.StrongNameIdentityPermissionAttribute&gt;</ph> with a <bpt id="p1">**</bpt>Demand<ept id="p1">**</ept> for the strong name.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For task-based information on how to sign an assembly with a strong name, see <bpt id="p1">[</bpt>Creating and Using Strong-Named Assemblies<ept id="p1">](../../../docs/framework/app-domains/create-and-use-strong-named-assemblies.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Excluding Classes and Members from Use by Untrusted Code</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Use the declarations shown in this section to prevent specific classes and methods, as well as properties and events, from being used by partially trusted code.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>By applying these declarations to a class, you apply the protection to all its methods, properties, and events; however, note that field access is not affected by declarative security.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Note also that link demands help protect against only the immediate callers and might still be subject to luring attacks.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A new transparency model has been introduced in the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Security-Transparent Code, Level 2<ept id="p1">](../../../docs/framework/misc/security-transparent-code-level-2.md)</ept> model identifies secure code with the <ph id="ph1">&lt;xref:System.Security.SecurityCriticalAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Security-critical code requires both callers and inheritors to be fully trusted.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Assemblies that are running under the code access security rules from earlier .NET Framework versions can call level 2 assemblies.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In this case, the security-critical attributes will be treated as link demands for full trust.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In strong-named assemblies, a <bpt id="p1">[</bpt>LinkDemand<ept id="p1">](../../../docs/framework/misc/link-demands.md)</ept> is applied to all publicly accessible methods, properties, and events therein to restrict their use to fully trusted callers.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To disable this feature, you must apply the <ph id="ph1">&lt;xref:System.Security.AllowPartiallyTrustedCallersAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Thus, explicitly marking classes to exclude untrusted callers is necessary only for unsigned assemblies or assemblies with this attribute; you can use these declarations to mark a subset of types therein that are not intended for untrusted callers.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The following examples show how to prevent classes and members from being used by untrusted code.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For public nonsealed classes:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For public sealed classes:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For public abstract classes:</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>For public virtual functions:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For public abstract functions:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For public override functions where the base class does not demand full trust:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For public override functions where the base class demands full trust:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For public interfaces:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Virtual Internal Overrides or Overloads Overridable Friend</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This section warns about a security issue when declaring a method as both <ph id="ph1">`virtual`</ph> and <ph id="ph2">`internal`</ph> (<ph id="ph3">`Overloads``Overridable``Friend`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This warning applies only to the .NET Framework versions 1.0 and 1.1, it does not apply to later versions.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework versions 1.0 and 1.1, you must be aware of a nuance of the type system accessibility when confirming that your code is unavailable to other assemblies.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>A method that is declared <bpt id="p1">**</bpt>virtual<ept id="p1">**</ept> and <bpt id="p2">**</bpt>internal<ept id="p2">**</ept> (<bpt id="p3">**</bpt>Overloads Overridable Friend<ept id="p3">**</ept> in Visual Basic) can override the parent class's vtable entry and can be used only from within the same assembly because it is internal.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>However, the accessibility for overriding is determined by the <bpt id="p1">**</bpt>virtual<ept id="p1">**</ept> keyword, and this can be overridden from another assembly as long as that code has access to the class itself.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If the possibility of an override presents a problem, use declarative security to fix it, or remove the <bpt id="p1">**</bpt>virtual<ept id="p1">**</ept> keyword if it is not strictly required.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Note that even if a language compiler prevents these overrides with a compilation error, it is possible for code written with other compilers to override.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

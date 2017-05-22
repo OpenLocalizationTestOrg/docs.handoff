@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1efb643293f060445d1e43d1ba919b72bb3e4cff</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\default-marshaling-behavior.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dbb432b887e6a823e2519acac0702753e9c899c0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a0b8998f6570c3b9df2b754adb9dd1ed05bfecdb</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Default Marshaling Behavior | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Default Marshaling Behavior</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Interop marshaling operates on rules that dictate how data associated with method parameters behaves as it passes between managed and unmanaged memory.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These built-in rules control such marshaling activities as data type transformations, whether a callee can change data passed to it and return those changes to the caller, and under which circumstances the marshaler provides performance optimizations.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This section identifies the default behavioral characteristics of the interop marshaling service.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>It presents detailed information on marshaling arrays, Boolean types, char types, delegates, classes, objects, strings, and structures.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Marshaling of generic types is not supported.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For more information see, <bpt id="p1">[</bpt>Interoperating Using Generic Types<ept id="p1">](http://msdn.microsoft.com/en-us/26b88e03-085b-4b53-94ba-a5a9c709ce58)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Memory management with the interop marshaler</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The interop marshaler always attempts to free memory allocated by unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This behavior complies with COM memory management rules, but differs from the rules that govern native C++.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Confusion can arise if you anticipate native C++ behavior (no memory freeing) when using platform invoke, which automatically frees memory for pointers.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For example, calling the following unmanaged method from a C++ DLL does not automatically free any memory.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>However, if you define the method as a platform invoke prototype, replace each <bpt id="p1">**</bpt>BSTR<ept id="p1">**</ept> type with a <ph id="ph1">&lt;xref:System.String&gt;</ph> type, and call <ph id="ph2">`MethodOne`</ph>, the common language runtime attempts to free <ph id="ph3">`b`</ph> twice.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You can change the marshaling behavior by using <ph id="ph1">&lt;xref:System.IntPtr&gt;</ph> types rather than <bpt id="p1">**</bpt>String<ept id="p1">**</ept> types.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The runtime always uses the <bpt id="p1">**</bpt>CoTaskMemFree<ept id="p1">**</ept> method to free memory.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the memory you are working with was not allocated with the <bpt id="p1">**</bpt>CoTaskMemAlloc<ept id="p1">**</ept> method, you must use an <bpt id="p2">**</bpt>IntPtr<ept id="p2">**</ept> and free the memory manually using the appropriate method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Similarly, you can avoid automatic memory freeing in situations where memory should never be freed, such as when using the <bpt id="p1">**</bpt>GetCommandLine<ept id="p1">**</ept> function from Kernel32.dll, which returns a pointer to kernel memory.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For details on manually freeing memory, see the <bpt id="p1">[</bpt>Buffers Sample<ept id="p1">](http://msdn.microsoft.com/en-us/e30d36e8-d7c4-4936-916a-8fdbe4d9ffd5)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Default marshaling for classes</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Classes can be marshaled only by COM interop and are always marshaled as interfaces.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In some cases the interface used to marshal the class is known as the class interface.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For information about overriding the class interface with an interface of your choice, see <bpt id="p1">[</bpt>Introducing the Class Interface<ept id="p1">](http://msdn.microsoft.com/en-us/733c0dd2-12e5-46e6-8de1-39d5b25df024)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Passing Classes to COM</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When a managed class is passed to COM, the interop marshaler automatically wraps the class with a COM proxy and passes the class interface produced by the proxy to the COM method call.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The proxy then delegates all calls on the class interface back to the managed object.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The proxy also exposes other interfaces that are not explicitly implemented by the class.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The proxy automatically implements interfaces such as <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept> on behalf of the class.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Passing Classes to .NET Code</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Coclasses are not typically used as method arguments in COM.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Instead, a default interface is usually passed in place of the coclass.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When an interface is passed into managed code, the interop marshaler is responsible for wrapping the interface with the proper wrapper and passing the wrapper to the managed method.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Determining which wrapper to use can be difficult.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Every instance of a COM object has a single, unique wrapper, no matter how many interfaces the object implements.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For example, a single COM object that implements five distinct interfaces has only one wrapper.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The same wrapper exposes all five interfaces.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If two instances of the COM object are created, then two instances of the wrapper are created.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>For the wrapper to maintain the same type throughout its lifetime, the interop marshaler must identify the correct wrapper the first time an interface exposed by the object is passed through the marshaler.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The marshaler identifies the object by looking at one of the interfaces the object implements.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For example, the marshaler determines that the class wrapper should be used to wrap the interface that was passed into managed code.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When the interface is first passed through the marshaler, the marshaler checks whether the interface is coming from a known object.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This check occurs in two situations:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>An interface is being implemented by another managed object that was passed to COM elsewhere.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The marshaler can readily identify interfaces exposed by managed objects and is able to match the interface with the managed object that provides the implementation.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The managed object is then passed to the method and no wrapper is needed.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>An object that has already been wrapped is implementing the interface.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To determine whether this is the case, the marshaler queries the object for its <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> interface and compares the returned interface to the interfaces of other objects that are already wrapped.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If the interface is the same as that of another wrapper, the objects have the same identity and the existing wrapper is passed to the method.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If an interface is not from a known object, the marshaler does the following:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The marshaler queries the object for the <bpt id="p1">**</bpt>IProvideClassInfo2<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If provided, the marshaler uses the CLSID returned from <bpt id="p1">**</bpt>IProvideClassInfo2.GetGUID<ept id="p1">**</ept> to identify the coclass providing the interface.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>With the CLSID, the marshaler can locate the wrapper from the registry if the assembly has previously been registered.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The marshaler queries the interface for the <bpt id="p1">**</bpt>IProvideClassInfo<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If provided, the marshaler uses the <bpt id="p1">**</bpt>ITypeInfo<ept id="p1">**</ept> returned from <bpt id="p2">**</bpt>IProvideClassInfo.GetClassinfo<ept id="p2">**</ept> to determine the CLSID of the class exposing the interface.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The marshaler can use the CLSID to locate the metadata for the wrapper.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>If the marshaler still cannot identify the class, it wraps the interface with a generic wrapper class called <bpt id="p1">**</bpt>System.__ComObject<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Default marshaling for delegates</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>A managed delegate is marshaled as a COM interface or as a function pointer, based on the calling mechanism:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>For platform invoke, a delegate is marshaled as an unmanaged function pointer by default.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For COM interop, a delegate is marshaled as a COM interface of type <bpt id="p1">**</bpt>_Delegate<ept id="p1">**</ept> by default.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>_Delegate<ept id="p1">**</ept> interface is defined in the Mscorlib.tlb type library and contains the <ph id="ph1">&lt;xref:System.Delegate.DynamicInvoke%2A?displayProperty=fullName&gt;</ph> method, which enables you to call the method that the delegate references.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The following table shows the marshaling options for the managed delegate data type.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute provides several <ph id="ph2">&lt;xref:System.Runtime.InteropServices.UnmanagedType&gt;</ph> enumeration values to marshal delegates.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Enumeration type</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Description of unmanaged format</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.FunctionPtr<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>An unmanaged function pointer.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.Interface<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>An interface of type <bpt id="p1">**</bpt>_Delegate<ept id="p1">**</ept>, as defined in Mscorlib.tlb.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Consider the following example code in which the methods of <ph id="ph1">`DelegateTestInterface`</ph> are exported to a COM type library.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Notice that only delegates marked with the <bpt id="p1">**</bpt>ref<ept id="p1">**</ept> (or <bpt id="p2">**</bpt>ByRef<ept id="p2">**</ept>) keyword are passed as In/Out parameters.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Type library representation</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>A function pointer can be dereferenced, just as any other unmanaged function pointer can be dereferenced.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>A reference to the function pointer to a managed delegate held by unmanaged code does not prevent the common language runtime from performing garbage collection on the managed object.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>For example, the following code is incorrect because the reference to the <ph id="ph1">`cb`</ph> object, passed to the <ph id="ph2">`SetChangeHandler`</ph> method, does not keep <ph id="ph3">`cb`</ph> alive beyond the life of the <ph id="ph4">`Test`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Once the <ph id="ph1">`cb`</ph> object is garbage collected, the function pointer passed to <ph id="ph2">`SetChangeHandler`</ph> is no longer valid.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>To compensate for unexpected garbage collection, the caller must ensure that the <ph id="ph1">`cb`</ph> object is kept alive as long as the unmanaged function pointer is in use.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Optionally, you can have the unmanaged code notify the managed code when the function pointer is no longer needed, as the following example shows.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Default marshaling for value types</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Most value types, such as integers and floating-point numbers, are <bpt id="p1">[</bpt>blittable<ept id="p1">](../../../docs/framework/interop/blittable-and-non-blittable-types.md)</ept> and do not require marshaling.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Other <bpt id="p1">[</bpt>non-blittable<ept id="p1">](../../../docs/framework/interop/blittable-and-non-blittable-types.md)</ept> types have dissimilar representations in managed and unmanaged memory and do require marshaling.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Still other types require explicit formatting across the interoperation boundary.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>This topic provides the follow information on formatted value types:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Value Types Used in Platform Invoke<ept id="p1">](#cpcondefaultmarshalingforvaluetypesanchor2)</ept></source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Value Types Used in COM Interop<ept id="p1">](#cpcondefaultmarshalingforvaluetypesanchor3)</ept></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>In addition to describing formatted types, this topic identifies <bpt id="p1">[</bpt>System Value Types<ept id="p1">](#cpcondefaultmarshalingforvaluetypesanchor1)</ept> that have unusual marshaling behavior.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>A formatted type is a complex type that contains information that explicitly controls the layout of its members in memory.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The member layout information is provided using the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.StructLayoutAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The layout can be one of the following <ph id="ph1">&lt;xref:System.Runtime.InteropServices.LayoutKind&gt;</ph> enumeration values:</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LayoutKind.Automatic<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Indicates that the common language runtime is free to reorder the members of the type for efficiency.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>However, when a value type is passed to unmanaged code, the layout of the members is predictable.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>An attempt to marshal such a structure automatically causes an exception.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LayoutKind.Sequential<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Indicates that the members of the type are to be laid out in unmanaged memory in the same order in which they appear in the managed type definition.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>LayoutKind.Explicit<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Indicates that the members are laid out according to the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.FieldOffsetAttribute&gt;</ph> supplied with each field.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Value Types Used in Platform Invoke</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>In the following example the <ph id="ph1">`Point`</ph> and <ph id="ph2">`Rect`</ph> types provide member layout information using the <bpt id="p1">**</bpt>StructLayoutAttribute<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>When marshaled to unmanaged code, these formatted types are marshaled as C-style structures.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>This provides an easy way of calling an unmanaged API that has structure arguments.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`POINT`</ph> and <ph id="ph2">`RECT`</ph> structures can be passed to the Microsoft Win32 API <bpt id="p1">**</bpt>PtInRect<ept id="p1">**</ept> function as follows:</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>You can pass structures using the following platform invoke definition:</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Rect`</ph> value type must be passed by reference because the unmanaged API is expecting a pointer to a <ph id="ph2">`RECT`</ph> to be passed to the function.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Point`</ph> value type is passed by value because the unmanaged API expects the <ph id="ph2">`POINT`</ph> to be passed on the stack.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>This subtle difference is very important.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>References are passed to unmanaged code as pointers.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Values are passed to unmanaged code on the stack.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>When a formatted type is marshaled as a structure, only the fields within the type are accessible.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>If the type has methods, properties, or events, they are inaccessible from unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Classes can also be marshaled to unmanaged code as C-style structures, provided they have fixed member layout.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The member layout information for a class is also provided with the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.StructLayoutAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The main difference between value types with fixed layout and classes with fixed layout is the way in which they are marshaled to unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Value types are passed by value (on the stack) and consequently any changes made to the members of the type by the callee are not seen by the caller.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Reference types are passed by reference (a reference to the type is passed on the stack); consequently, all changes made to blittable-type members of a type by the callee are seen by the caller.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>If a reference type has members of non-blittable types, conversion is required twice: the first time when an argument is passed to the unmanaged side and the second time on return from the call.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Due to this added overhead, In/Out parameters must be explicitly applied to an argument if the caller wants to see changes made by the callee.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>In the following example, the <ph id="ph1">`SystemTime`</ph> class has sequential member layout and can be passed to the Win32 API <bpt id="p1">**</bpt>GetSystemTime<ept id="p1">**</ept> function.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>GetSystemTime<ept id="p1">**</ept> function is defined as follows:</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The equivalent platform invoke definition for <bpt id="p1">**</bpt>GetSystemTime<ept id="p1">**</ept> is as follows:</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Notice that the <ph id="ph1">`SystemTime`</ph> argument is not typed as a reference argument because <ph id="ph2">`SystemTime`</ph> is a class, not a value type.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Unlike value types, classes are always passed by reference.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The following code example shows a different <ph id="ph1">`Point`</ph> class that has a method called <ph id="ph2">`SetXY`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Because the type has sequential layout, it can be passed to unmanaged code and marshaled as a structure.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>However, the <ph id="ph1">`SetXY`</ph> member is not callable from unmanaged code, even though the object is passed by reference.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Value Types Used in COM Interop</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Formatted types can also be passed to COM interop method calls.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>In fact, when exported to a type library, value types are automatically converted to structures.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>As the following example shows, the <ph id="ph1">`Point`</ph> value type becomes a type definition (typedef) with the name <ph id="ph2">`Point`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>All references to the <ph id="ph1">`Point`</ph> value type elsewhere in the type library are replaced with the <ph id="ph2">`Point`</ph> typedef.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Type library representation<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>The same rules used to marshal values and references to platform invoke calls are used when marshaling through COM interfaces.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>For example, when an instance of the <ph id="ph1">`Point`</ph> value type is passed from the .NET Framework to COM, the <ph id="ph2">`Point`</ph> is passed by value.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`Point`</ph> value type is passed by reference, a pointer to a <ph id="ph2">`Point`</ph> is passed on the stack.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The interop marshaler does not support higher levels of indirection (<bpt id="p1">**</bpt>Point <ph id="ph1">\*</ph><ph id="ph2">\*</ph><ept id="p1">**</ept>) in either direction.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Structures having the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.LayoutKind&gt;</ph> enumeration value set to <bpt id="p1">**</bpt>Explicit<ept id="p1">**</ept> cannot be used in COM interop because the exported type library cannot express an explicit layout.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>System Value Types</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System&gt;</ph> namespace has several value types that represent the boxed form of the runtime primitive types.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>For example, the value type <ph id="ph1">&lt;xref:System.Int32?displayProperty=fullName&gt;</ph> structure represents the boxed form of <bpt id="p1">**</bpt>ELEMENT_TYPE_I4<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Instead of marshaling these types as structures, as other formatted types are, you marshal them in the same way as the primitive types they box.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>System.Int32<ept id="p1">**</ept> is therefore marshaled as <bpt id="p2">**</bpt>ELEMENT_TYPE_I4<ept id="p2">**</ept> instead of as a structure containing a single member of type <bpt id="p3">**</bpt>long<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>The following table contains a list of the value types in the <bpt id="p1">**</bpt>System<ept id="p1">**</ept> namespace that are boxed representations of primitive types.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>System value type</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Element type</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_BOOLEAN<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_I1<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_UI1<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_CHAR<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_I2<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_U2<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_I4<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_U4<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_I8<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_U8<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_R4<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_R8<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_STRING<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_I<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_U<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>Some other value types in the <bpt id="p1">**</bpt>System<ept id="p1">**</ept> namespace are handled differently.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Because the unmanaged code already has well-established formats for these types, the marshaler has special rules for marshaling them.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>The following table lists the special value types in the <bpt id="p1">**</bpt>System<ept id="p1">**</ept> namespace, as well as the unmanaged type they are marshaled to.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>System value type</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>IDL type</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>DATE<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>DECIMAL<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>GUID<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>OLE_COLOR<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>The following code shows the definition of the unmanaged types <bpt id="p1">**</bpt>DATE<ept id="p1">**</ept>, <bpt id="p2">**</bpt>GUID<ept id="p2">**</ept>, <bpt id="p3">**</bpt>DECIMAL<ept id="p3">**</ept>, and <bpt id="p4">**</bpt>OLE_COLOR<ept id="p4">**</ept> in the Stdole2 type library.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>Type library representation</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The following code shows the corresponding definitions in the managed <ph id="ph1">`IValueTypes`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Type library representation</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Blittable and Non-Blittable Types<ept id="p1">](../../../docs/framework/interop/blittable-and-non-blittable-types.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Copying and Pinning<ept id="p1">](../../../docs/framework/interop/copying-and-pinning.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Default Marshaling for Arrays<ept id="p1">](../../../docs/framework/interop/default-marshaling-for-arrays.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Default Marshaling for Objects<ept id="p1">](../../../docs/framework/interop/default-marshaling-for-objects.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Default Marshaling for Strings<ept id="p1">](../../../docs/framework/interop/default-marshaling-for-strings.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

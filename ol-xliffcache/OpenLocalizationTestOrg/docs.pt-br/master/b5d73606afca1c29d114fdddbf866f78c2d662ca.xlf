@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b5d73606afca1c29d114fdddbf866f78c2d662ca</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\exception-throwing.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c3f15a7ba95bae2a788b261cf5dfeed18a422bb6</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9938c4b28866ea612b6f1d402f58e01600eb7b21</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Exception Throwing | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Exception Throwing</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Exception-throwing guidelines described in this section require a good definition of the meaning of execution failure.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Execution failure occurs whenever a member cannot do what it was designed to do (what the member name implies).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For example, if the <ph id="ph1">`OpenFile`</ph> method cannot return an opened file handle to the caller, it would be considered an execution failure.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Most developers have become comfortable with using exceptions for usage errors such as division by zero or null references.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>In the Framework, exceptions are used for all error conditions, including execution errors.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> return error codes.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Exceptions are the primary means of reporting errors in frameworks.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> report execution failures by throwing exceptions.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> terminating the process by calling <ph id="ph1">`System.Environment.FailFast`</ph> (.NET Framework 2.0 feature) instead of throwing an exception if your code encounters a situation where it is unsafe for further execution.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use exceptions for the normal flow of control, if possible.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Except for system failures and operations with potential race conditions, framework designers should design APIs so users can write code that does not throw exceptions.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, you can provide a way to check preconditions before calling a member so users can write code that does not throw exceptions.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The member used to check preconditions of another member is often referred to as a tester, and the member that actually does the work is called a doer.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>There are cases when the Tester-Doer Pattern can have an unacceptable performance overhead.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In such cases, the so-called Try-Parse Pattern should be considered (see <bpt id="p1">[</bpt>Exceptions and Performance<ept id="p1">](../../../docs/standard/design-guidelines/exceptions-and-performance.md)</ept> for more information).</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> the performance implications of throwing exceptions.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Throw rates above 100 per second are likely to noticeably impact the performance of most applications.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> document all exceptions thrown by publicly callable members because of a violation of the member contract (rather than a system failure) and treat them as part of your contract.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Exceptions that are a part of the contract should not change from one version to the next (i.e., exception type should not change, and new exceptions should not be added).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> have public members that can either throw or not based on some option.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> have public members that return exceptions as the return value or an <ph id="ph1">`out`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Returning exceptions from public APIs instead of throwing them defeats many of the benefits of exception-based error reporting.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using exception builder methods.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>It is common to throw the same exception from different places.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To avoid code bloat, use helper methods that create exceptions and initialize their properties.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Also, members that throw exceptions are not getting inlined.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Moving the throw statement inside the builder might allow the member to be inlined.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> throw exceptions from exception filter blocks.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>When an exception filter raises an exception, the exception is caught by the CLR, and the filter returns false.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This behavior is indistinguishable from the filter executing and returning false explicitly and is therefore very difficult to debug.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> explicitly throwing exceptions from finally blocks.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Implicitly thrown exceptions resulting from calling methods that throw are acceptable.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Design Guidelines for Exceptions<ept id="p1">](../../../docs/standard/design-guidelines/exceptions.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

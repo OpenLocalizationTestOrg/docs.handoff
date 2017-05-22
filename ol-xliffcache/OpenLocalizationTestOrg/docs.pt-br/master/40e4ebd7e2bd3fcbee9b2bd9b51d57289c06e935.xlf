@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">40e4ebd7e2bd3fcbee9b2bd9b51d57289c06e935</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\extending-hosting-using-servicehostfactory.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">368dbe9893bc19f7b80ced2e64730cc720f0e575</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cd3d77d3edb5345fad27724dba781816e4579bdf</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Extending Hosting Using ServiceHostFactory | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Extending Hosting Using ServiceHostFactory</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The standard <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> API for hosting services in <ph id="ph2">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> is an extensibility point in the <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> architecture.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Users can derive their own host classes from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>, usually to override <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening&gt;</ph>to use <ph id="ph3">&lt;xref:System.ServiceModel.Description.ServiceDescription&gt;</ph> to add default endpoints imperatively or modify behaviors, prior to opening the service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In the self-host environment, you do not have to create a custom <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> because you write the code that instantiates the host and then call <ph id="ph2">&lt;xref:System.ServiceModel.ICommunicationObject.Open&gt;</ph> on it after you instantiate it.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Between those two steps you can do whatever you want.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You could, for example, add a new <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This approach is not reusable.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The code that manipulates the description is coded into the host program (in this case, the Main() function), so it is difficult to reuse that logic in other contexts.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>There are also other ways of adding an <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> that do not require imperative code.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You can derive an attribute from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> and put that on your service implementation type or you can make a custom behavior configurable and compose it dynamically using configuration.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>However, a slight variation of the example can also be used to solve this problem.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>One approach is to move the code that adds the ServiceBehavior out of <ph id="ph1">`Main()`</ph> and into the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening%2A&gt;</ph> method of a custom derivative of <ph id="ph3">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Then, inside of <ph id="ph1">`Main()`</ph> you can use:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Now you have encapsulated the custom logic into a clean abstraction that can be easily reused across many different host executables.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It is not immediately obvious how to use this custom <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> from inside of Internet Information Services (IIS) or Windows Process Activation Service (WAS).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Those environments are different than the self-host environment, because the hosting environment is the one instantiating the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> on behalf of the application.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The IIS and WAS hosting infrastructure does not know anything about your custom <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>derivative.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> was designed to solve this problem of accessing your custom <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> from within IIS or WAS.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Because a custom host that is derived from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> is dynamically configured and potentially of various types, the hosting environment never instantiates it directly.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Instead, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses a factory pattern to provide a layer of indirection between the hosting environment and the concrete type of the service.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Unless you tell it otherwise, it uses a default implementation of <ph id="ph1">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> that returns an instance of <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>But you can also provide your own factory that returns your derived host by specifying the CLR type name of your factory implementation in the <ph id="ph1">@ServiceHost</ph> directive.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The intent is that for basic cases, implementing your own factory should be a straight forward exercise.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For example, here is a custom <ph id="ph1">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> that returns a derived <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To use this factory instead of the default factory, provide the type name in the <ph id="ph1">@ServiceHost</ph> directive as follows:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>While there is no technical limit on doing what you want to the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> you return from <ph id="ph2">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory.CreateServiceHost%2A&gt;</ph>, we suggest that you keep your factory implementations as simple as possible.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If you have lots of custom logic, it is better to put that logic inside of you host instead of inside the factory so that it can be reusable.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>There is one more layer to the hosting API that should be mentioned here.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> also has <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHostBase&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Activation.ServiceHostFactoryBase&gt;</ph>, from which <ph id="ph4">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> and <ph id="ph5">&lt;xref:System.ServiceModel.Activation.ServiceHostFactory&gt;</ph> respectively derive.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Those exist for more advanced scenarios where you must swap out large parts of the metadata system with your own customized creations.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

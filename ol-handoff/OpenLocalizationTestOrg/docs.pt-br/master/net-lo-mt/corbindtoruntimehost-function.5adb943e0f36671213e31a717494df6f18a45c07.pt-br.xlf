@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8fe291010e40b5399280c17e7d8526b6e51238ae</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\unmanaged-api\hosting\corbindtoruntimehost-function.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">504e5d22d400e68038d5d33a7aa2b3b933a57e70</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1d846e4d430890f97f35be5079f60cbe9d0ae5f0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>CorBindToRuntimeHost Function | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>CorBindToRuntimeHost Function</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Enables hosts to load a specified version of the common language runtime (CLR) into a process.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This function has been deprecated in the <ph id="ph1">[!INCLUDE[net_v40_long](../../../../includes/net-v40-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Syntax</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Parameters</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>[in] A string that describes the version of the CLR you want to load.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>A version number in the .NET Framework consists of four parts separated by periods: <bpt id="p1">*</bpt>major.minor.build.revision<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The string passed as <ph id="ph1">`pwszVersion`</ph> must start with the character "v" followed by the first three parts of the version number (for example, "v1.0.1529").</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Some versions of the CLR are installed with a policy statement that specifies compatibility with previous versions of the CLR.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>By default, the startup shim evaluates <ph id="ph1">`pwszVersion`</ph> against policy statements and loads the latest version of the runtime that is compatible with the version being requested.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>A host can force the shim to skip policy evaluation and load the exact version specified in <ph id="ph1">`pwszVersion`</ph> by passing a value of STARTUP_LOADER_SAFEMODE for the <ph id="ph2">`startupFlags`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`pwszVersion`</ph> is <ph id="ph2">`null,`</ph> the method does not load any version of the CLR.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Instead, it returns CLR_E_SHIM_RUNTIMELOAD, which indicates that it failed to load the runtime.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>[in] A string that specifies whether to load the server or the workstation build of the CLR.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Valid values are <ph id="ph1">`svr`</ph> and <ph id="ph2">`wks`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The server build is optimized to take advantage of multiple processors for garbage collections, and the workstation build is optimized for client applications running on a single-processor machine.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`pwszBuildFlavor`</ph>is set to null, the workstation build is loaded.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When running on a single-processor machine, the workstation build is always loaded, even if <ph id="ph1">`pwszBuildFlavor`</ph>is set to <ph id="ph2">`svr`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>However, if <ph id="ph1">`pwszBuildFlavor`</ph>is set to <ph id="ph2">`svr`</ph> and concurrent garbage collection is specified (see the description of the <ph id="ph3">`startupFlags`</ph> parameter), the server build is loaded.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Concurrent garbage collection is not supported in applications running the WOW64 x86 emulator on 64-bit systems that implement the Intel Itanium architecture (formerly called IA-64).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For more information about using WOW64 on 64-bit Windows systems, see <bpt id="p1">[</bpt>Running 32-bit Applications<ept id="p1">](http://msdn.microsoft.com/library/windows/desktop/aa384249.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>[in] The name of a host configuration file that specifies the version of the CLR to load.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>If the file name does not include a fully qualified path, the file is assumed to be in the same directory as the executable that is making the call.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>[in] Reserved for future extensibility.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>[in] A set of flags that controls concurrent garbage collection, domain-neutral code, and the behavior of the <ph id="ph1">`pwszVersion`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The default is single domain if no flag is set.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>For a list of supported values, see the <bpt id="p1">[</bpt>STARTUP_FLAGS enumeration<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/startup-flags-enumeration.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>[in] The <ph id="ph1">`CLSID`</ph> of the coclass that implements either the <bpt id="p1">[</bpt>ICorRuntimeHost<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/icorruntimehost-interface.md)</ept> or the <bpt id="p2">[</bpt>ICLRRuntimeHost<ept id="p2">](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-interface.md)</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Supported values are CLSID_CorRuntimeHost or CLSID_CLRRuntimeHost.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>[in] The <ph id="ph1">`IID`</ph> of the interface you are requesting.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Supported values are IID_ICorRuntimeHost or IID_ICLRRuntimeHost.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>[out] An interface pointer to the version of the runtime that was loaded.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Requirements</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Platforms:<ept id="p1">**</ept> See <bpt id="p2">[</bpt>System Requirements<ept id="p2">](../../../../docs/framework/get-started/system-requirements.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Header:<ept id="p1">**</ept> MSCorEE.idl</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Library:<ept id="p1">**</ept> MSCorEE.dll</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>.NET Framework Versions:<ept id="p1">**</ept> <ph id="ph1">[!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>CorBindToCurrentRuntime Function<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>CorBindToRuntime Function<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntime-function.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>CorBindToRuntimeByCfg Function<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimebycfg-function.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>CorBindToRuntimeEx Function<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ICorRuntimeHost Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/icorruntimehost-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Deprecated CLR Hosting Functions<ept id="p1">](../../../../docs/framework/unmanaged-api/hosting/deprecated-clr-hosting-functions.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7a8b26858597bd82fcdd75da50ec58626ce28833</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\retrieving-binary-data.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">493496020cfc7c079c7597b3efe0f7f4d885da03</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ec51cde1fd94b3928abe04021e7d324aefa7ea53</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Retrieving Binary Data | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Retrieving Binary Data</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>By default, the <bpt id="p1">**</bpt>DataReader<ept id="p1">**</ept> loads incoming data as a row as soon as an entire row of data is available.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Binary large objects (BLOBs) need different treatment, however, because they can contain gigabytes of data that cannot be contained in a single row.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Command.ExecuteReader<ept id="p1">**</ept> method has an overload that will take a <ph id="ph1">&lt;xref:System.Data.CommandBehavior&gt;</ph> argument to modify the default behavior of the <bpt id="p2">**</bpt>DataReader<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can pass <ph id="ph1">&lt;xref:System.Data.CommandBehavior&gt;</ph> to the <bpt id="p1">**</bpt>ExecuteReader<ept id="p1">**</ept> method to modify the default behavior of the <bpt id="p2">**</bpt>DataReader<ept id="p2">**</ept> so that instead of loading rows of data, it will load data sequentially as it is received.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This is ideal for loading BLOBs or other large data structures.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Note that this behavior may depend on your data source.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, returning a BLOB from Microsoft Access will load the entire BLOB being loaded into memory, rather than sequentially as it is received.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When setting the <bpt id="p1">**</bpt>DataReader<ept id="p1">**</ept> to use <bpt id="p2">**</bpt>SequentialAccess<ept id="p2">**</ept>, it is important to note the sequence in which you access the fields returned.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The default behavior of the <bpt id="p1">**</bpt>DataReader<ept id="p1">**</ept>, which loads an entire row as soon as it is available, allows you to access the fields returned in any order until the next row is read.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>When using <bpt id="p1">**</bpt>SequentialAccess<ept id="p1">**</ept> however, you must access the fields returned by the <bpt id="p2">**</bpt>DataReader<ept id="p2">**</ept> in order.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For example, if your query returns three columns, the third of which is a BLOB, you must return the values of the first and second fields before accessing the BLOB data in the third field.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If you access the third field before the first or second fields, the first and second field values are no longer available.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This is because <bpt id="p1">**</bpt>SequentialAccess<ept id="p1">**</ept> has modified the <bpt id="p2">**</bpt>DataReader<ept id="p2">**</ept> to return data in sequence and the data is not available after the <bpt id="p3">**</bpt>DataReader<ept id="p3">**</ept> has read past it.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When accessing the data in the BLOB field, use the <bpt id="p1">**</bpt>GetBytes<ept id="p1">**</ept> or <bpt id="p2">**</bpt>GetChars<ept id="p2">**</ept> typed accessors of the <bpt id="p3">**</bpt>DataReader<ept id="p3">**</ept>, which fill an array with data.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You can also use <bpt id="p1">**</bpt>GetString<ept id="p1">**</ept> for character data; however.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>to conserve system resources you might not want to load an entire BLOB value into a single string variable.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You can instead specify a specific buffer size of data to be returned, and a starting location for the first byte or character to be read from the returned data.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>GetBytes<ept id="p1">**</ept> and <bpt id="p2">**</bpt>GetChars<ept id="p2">**</ept> will return a <ph id="ph1">`long`</ph> value, which represents the number of bytes or characters returned.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If you pass a null array to <bpt id="p1">**</bpt>GetBytes<ept id="p1">**</ept> or <bpt id="p2">**</bpt>GetChars<ept id="p2">**</ept>, the long value returned will be the total number of bytes or characters in the BLOB.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can optionally specify an index in the array as a starting position for the data being read.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The following example returns the publisher ID and logo from the <bpt id="p1">**</bpt>pubs<ept id="p1">**</ept> sample database in Microsoft SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The publisher ID (<ph id="ph1">`pub_id`</ph>) is a character field, and the logo is an image, which is a BLOB.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Because the <bpt id="p1">**</bpt>logo<ept id="p1">**</ept> field is a bitmap, the example returns binary data using <bpt id="p2">**</bpt>GetBytes<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Notice that the publisher ID is accessed for the current row of data before the logo, because the fields must be accessed sequentially.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Working with DataReaders<ept id="p1">](http://msdn.microsoft.com/en-us/126a966a-d08d-4d22-a19f-f432908b2b54)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SQL Server Binary and Large-Value Data<ept id="p1">](../../../../docs/framework/data/adonet/sql/sql-server-binary-and-large-value-data.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

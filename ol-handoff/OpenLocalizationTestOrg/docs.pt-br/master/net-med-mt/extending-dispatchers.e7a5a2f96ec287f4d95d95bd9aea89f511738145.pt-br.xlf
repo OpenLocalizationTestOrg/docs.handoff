@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">693a71b5268d120d8b676d53c4b7808159ddbf80</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\extending-dispatchers.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5b7414e764fe5ab49e16cbcd6408d96f7fb54ef2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7a6b2603a424854a53df25e14c8879041e555477</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Extending Dispatchers | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Extending Dispatchers</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Dispatchers are responsible for pulling incoming messages out of the underlying channels, translating them into method invocations in application code, and sending the results back to the caller.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Dispatcher extensions allow you to modify this processing.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>You can implement message or parameter inspectors that inspect or modify the contents of messages or parameters.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can change the way messages are routed to operations or provide some other functionality.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This topic describes how to use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> classes in a <ph id="ph3">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> service application to modify the default execution behavior of a dispatcher or to intercept or modify messages, parameters, or return values prior to or subsequent to sending or retrieving them from the channel layer.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For more information about the equivalent client runtime message processing, see <bpt id="p1">[</bpt>Extending Clients<ept id="p1">](../../../../docs/framework/wcf/extending/extending-clients.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To understand the role that <ph id="ph1">&lt;xref:System.ServiceModel.IExtensibleObject%601&gt;</ph> types play in accessing shared state between various runtime customization objects, see <bpt id="p1">[</bpt>Extensible Objects<ept id="p1">](../../../../docs/framework/wcf/extending/extensible-objects.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Dispatchers</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The service model layer performs the conversion between the developer’s programming model and the underlying message exchange, commonly called the channel layer.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> the channel and endpoint dispatchers (<ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph>, respectively) are the service components responsible for accepting new channels, receiving messages, operation dispatch and invocation, and response processing.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Dispatcher objects are receiver objects, but callback contract implementations in duplex services also expose their dispatcher objects for inspection, modification, or extension.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The channel dispatcher (and companion <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph>) pulls messages out of the underling channel and passes the messages to their respective endpoint dispatchers.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Each endpoint dispatcher has a <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> that routes messages to the appropriate <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph>, which is responsible for calling the method that implements the operation.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Various optional and required extension classes are invoked along the way.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This topic explains how these pieces fit together, and how you might modify properties and plug your own code in to extend the base functionality.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Dispatcher properties and modified customization objects are inserted by using service, endpoint, contract, or operation behavior objects.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This topic does not describe how to use behaviors.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For more information about the types used to insert dispatcher modifications, see <bpt id="p1">[</bpt>Configuring and Extending the Runtime with Behaviors<ept id="p1">](../../../../docs/framework/wcf/extending/configuring-and-extending-the-runtime-with-behaviors.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following graphic provides a high-level view of the architectural items in a service.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>The dispatch runtime architecture<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/extending/media/wcfc-dispatchruntimearchc.gif "</bpt>wcfc_DispatchRuntimeArchc<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Channel Dispatchers</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> object is created to associate an <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IChannelListener&gt;</ph> at a particular URI (called a listen URI) with an instance of a service.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> object can have many <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> objects, each associated with only one listener and listen URI.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When a message arrives, the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> queries each of the associated <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> objects whether the endpoint can accept the message, and passes the message to the one that can.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>All properties that control the lifetime and behavior of a channel session are available for inspection or modification on the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>These include custom channel initializers, the channel listener, the host, the associated <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph>, and so on.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Endpoint Dispatchers</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> object is responsible for processing messages from a <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher&gt;</ph> when the destination address of a message matches the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.AddressFilter%2A&gt;</ph> and the message action matches the <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.ContractFilter%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If two <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> objects can accept a message, the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.FilterPriority%2A&gt;</ph> property value determines the higher priority endpoint.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher&gt;</ph> to acquire the two main service model extension points – the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> classes – that you can use to customize the processing of the dispatcher.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> class allows users to intercept and extend the dispatcher at the contract scope (that is, for all messages in a contract).</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> class allows users to intercept and extend the dispatcher at an operation scope (that is, for all messages in an operation).</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Scenarios</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>There a number of reasons to extend the dispatcher:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Custom Message Validation.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Users can enforce that a message is valid for a certain schema.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This can be done by implementing the message interceptor interfaces.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>Message Inspectors<ept id="p1">](../../../../docs/framework/wcf/samples/message-inspectors.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Custom Message Logging.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Users can inspect and log some set of application messages that flow through an endpoint.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This can also be accomplished with the message interceptor interfaces.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Custom Message Transformations.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Users can apply certain transformations to the message in the runtime (for example, for versioning).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This can be accomplished, again, with the message interceptor interfaces.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Custom Data Model.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Users can have a data serialization model other than those supported by default in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> (namely, <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractSerializer?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.Xml.Serialization.XmlSerializer?displayProperty=fullName&gt;</ph>, and raw messages).</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This can be done by implement the message formatter interfaces.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>Operation Formatter and Operation Selector<ept id="p1">](../../../../docs/framework/wcf/samples/operation-formatter-and-operation-selector.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Custom Parameter Validation.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Users can enforce that typed parameters are valid (as opposed to XML).</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This can be done using the parameter inspector interfaces.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Custom Operation Dispatching.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Users can implement dispatching on something other than action – for example, on the body element, or on a custom message property.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This can be done using the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>Operation Formatter and Operation Selector<ept id="p1">](../../../../docs/framework/wcf/samples/operation-formatter-and-operation-selector.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Object Pooling.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Users can pool instances rather than allocating a new one for every call.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This can be implemented using the instance provider interfaces.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>Pooling<ept id="p1">](../../../../docs/framework/wcf/samples/pooling.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Instance Leasing.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Users can implement a leasing pattern for instance lifetime, similar to that of .NET Framework Remoting.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This can be done using the instance context lifetime interfaces.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Custom Error Handling.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Users can control how both local errors are processed and how faults are communicated back to clients.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This can be implemented using the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IErrorHandler&gt;</ph> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Custom Authorization Behaviors.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Users can implement custom access control by extending the Contract or Operation run-time pieces and adding security checks based upon the tokens present in the message.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This can be accomplished using either the message interceptor or parameter interceptor interfaces.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For examples, see <bpt id="p1">[</bpt>Security Extensibility<ept id="p1">](../../../../docs/framework/wcf/samples/security-extensibility.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Because altering security properties has the potential to compromise the security of <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> applications, it is strongly recommended that you undertake security-related modifications with care and test thoroughly prior to deployment.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Custom WCF Runtime Validators.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>You can install custom validators that examine services, contracts, and bindings to enforce enterprise-level policies with respect to <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> applications.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>(For example, see <bpt id="p1">[</bpt>How to: Lock Down Endpoints in the Enterprise<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-lock-down-endpoints-in-the-enterprise.md)</ept>.)</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Using the DispatchRuntime Class</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> class either to modify the default behavior of a service or individual endpoint, or to insert objects that implement custom modifications to one or both of the following service processes (or client processes in the case of a duplex client):</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The transformation of incoming messages into objects and releasing those objects as method invocations on a service object.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The transformation of objects received from the response to a service operation invocation into outbound messages.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> enables you to intercept and extend the channel or endpoint dispatcher for all messages across a particular contract, even when a message is not recognized.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>When a message arrives that does not match any declared in the contract it is dispatched to the operation returned by the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.UnhandledDispatchOperation%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>To intercept or extend across all messages for a particular operation, see the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>There are four main areas of dispatcher extensibility exposed by the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Channel components use the properties of the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> and those of the associated channel dispatcher returned by the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.ChannelDispatcher%2A&gt;</ph> property to customize how the channel dispatcher accepts and closes channels.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This category includes the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher.ChannelInitializers%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InputSessionShutdownHandlers%2A&gt;</ph>properties.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Message components are customized for each message processed.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>This category includes the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.OperationSelector%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.Operations%2A&gt;</ph>, and the <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.ChannelDispatcher.ErrorHandlers%2A&gt;</ph>properties.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Instance components customize the creation, lifetime, and disposal of instances of the service type.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For more information about service object lifetimes, see the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This category includes the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceContextInitializers%2A&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceProvider%2A&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Security-related components can use the following properties:</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.SecurityAuditLogLocation%2A&gt;</ph> indicates where audit events are written.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.ImpersonateCallerForAllOperations%2A&gt;</ph> controls whether the service attempts to impersonate using the credentials provided by the incoming message.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageAuthenticationAuditLevel%2A&gt;</ph> controls whether successful message authentication events are written to the event log specified by <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.SecurityAuditLogLocation%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.PrincipalPermissionMode%2A&gt;</ph> controls how the <ph id="ph2">&lt;xref:System.Threading.Thread.CurrentPrincipal%2A&gt;</ph> property is set.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.ServiceAuthorizationAuditLevel%2A&gt;</ph> specifies how the auditing of authorization events is performed.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.SuppressAuditFailure%2A&gt;</ph> specifies whether to suppress non-critical exceptions that occur during the logging process.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Typically, custom extension objects are assigned to a <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> property or inserted into a collection by a service behavior (an object that implements <ph id="ph2">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph>), a contract behavior (an object that implements <ph id="ph3">&lt;xref:System.ServiceModel.Description.IContractBehavior&gt;</ph>), or an endpoint behavior (an object that implements <ph id="ph4">&lt;xref:System.ServiceModel.Description.IEndpointBehavior&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Then the installing behavior object is added to the appropriate collection of behaviors either programmatically or by implementing a custom <ph id="ph1">&lt;xref:System.ServiceModel.Configuration.BehaviorExtensionElement&gt;</ph> object to enable the behavior to be inserted using an application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Duplex clients (clients that implement a callback contract specified by a duplex service) also have a <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> object that can be accessed using the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.ClientRuntime.CallbackDispatchRuntime%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Using the DispatchOperation Class</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> class is the location for run-time modifications and the insertion point for custom extensions that are scoped to only one service operation.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>(To modify service run-time behavior for all messages in a contract, use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> class.)</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Install <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> modifications using a custom service behavior object.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.Operations%2A&gt;</ph> property to locate the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation&gt;</ph> object that represents a particular service operation.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The following properties control runtime execution at the operation level:</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.Action%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.ReplyAction%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.FaultContractInfos%2A&gt;</ph>, <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.IsOneWay%2A&gt;</ph>, <ph id="ph5">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.IsTerminating%2A&gt;</ph>, and <ph id="ph6">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.Name%2A&gt;</ph> properties obtain the respective values for the operation.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.TransactionAutoComplete%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.TransactionRequired%2A&gt;</ph> specify transaction behavior.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.ReleaseInstanceBeforeCall%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.ReleaseInstanceAfterCall%2A&gt;</ph> properties control the lifetime of the user-defined service object relative to the <ph id="ph3">&lt;xref:System.ServiceModel.InstanceContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.DeserializeRequest%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.SerializeReply%2A&gt;</ph>, and the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.Formatter%2A&gt;</ph> properties enable explicit control over the conversion from messages to objects and objects to messages.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.Impersonation%2A&gt;</ph> property specifies the operation impersonation level.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A&gt;</ph> property inserts custom call context extensions for the operation.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.AutoDisposeParameters%2A&gt;</ph> property controls when parameter objects are destroyed.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.Invoker%2A&gt;</ph> property to insert a custom invoker object.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchOperation.ParameterInspectors%2A&gt;</ph> property enables you to insert a custom parameter inspector that you can use to inspect or modify parameters and return values.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Inspect and Modify Messages on the Service<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-inspect-and-modify-messages-on-the-service.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Inspect or Modify Parameters<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-inspect-or-modify-parameters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Lock Down Endpoints in the Enterprise<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-lock-down-endpoints-in-the-enterprise.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">690977c83588a3301b58b29308fa11e8316c3789</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\destroying-threads.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">71eebcee6aa575e7ed970fcc808c4aeb91f362a2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f024f4f10d2cfa95b12cfb58ced654fc3726b47e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Destroying Threads | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Destroying Threads</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> method is used to stop a managed thread permanently.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When you call <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph>, the common language runtime throws a <ph id="ph2">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> in the target thread, which the target thread can catch.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>If a thread is executing unmanaged code when its <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> method is called, the runtime marks it <ph id="ph2">&lt;xref:System.Threading.ThreadState?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The exception is thrown when the thread returns to managed code.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Once a thread is aborted, it cannot be restarted.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> method does not cause the thread to abort immediately, because the target thread can catch the <ph id="ph2">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> and execute arbitrary amounts of code in a <ph id="ph3">`finally`</ph> block.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You can call <ph id="ph1">&lt;xref:System.Threading.Thread.Join%2A?displayProperty=fullName&gt;</ph> if you need to wait until the thread has ended.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Thread.Join%2A?displayProperty=fullName&gt;</ph> is a blocking call that does not return until the thread has actually stopped executing or an optional timeout interval has elapsed.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The aborted thread could call the <ph id="ph1">&lt;xref:System.Threading.Thread.ResetAbort%2A&gt;</ph> method or perform unbounded processing in a <ph id="ph2">`finally`</ph> block, so if you do not specify a timeout, the wait is not guaranteed to end.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Threads that are waiting on a call to the <ph id="ph1">&lt;xref:System.Threading.Thread.Join%2A?displayProperty=fullName&gt;</ph> method can be interrupted by other threads that call <ph id="ph2">&lt;xref:System.Threading.Thread.Interrupt%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Handling ThreadAbortException</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If you expect your thread to be aborted, either as a result of calling <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> from your own code or as a result of unloading an application domain in which the thread is running (<ph id="ph2">&lt;xref:System.AppDomain.Unload%2A?displayProperty=fullName&gt;</ph> uses <ph id="ph3">&lt;xref:System.Threading.Thread.Abort%2A?displayProperty=fullName&gt;</ph> to terminate threads), your thread must handle the <ph id="ph4">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> and perform any final processing in a <ph id="ph5">`finally`</ph> clause, as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Your clean-up code must be in the <ph id="ph1">`catch`</ph> clause or the <ph id="ph2">`finally`</ph> clause, because a <ph id="ph3">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> is rethrown by the system at the end of the <ph id="ph4">`finally`</ph> clause, or at the end of the <ph id="ph5">`catch`</ph> clause if there is no <ph id="ph6">`finally`</ph> clause.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You can prevent the system from rethrowing the exception by calling the <ph id="ph1">&lt;xref:System.Threading.Thread.ResetAbort%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>However, you should do this only if your own code caused the <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Using Threads and Threading<ept id="p1">](../../../docs/standard/threading/using-threads-and-threading.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5035d7907deda5b1629a2069d8b22d4a8cac4482</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\operation-formatter-and-operation-selector.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ea28d380b1c5b897ed15b6b3e4276c1d3f48f5a8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ca9a33a7a25619e61b74f5963249a6c99e6dd0ee</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Operation Formatter and Operation Selector | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Operation Formatter and Operation Selector</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> extensibility points can be used to allow message data in a different format from what <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> expects.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> formatters expect method parameters to be included under the <ph id="ph2">`soap:body`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The sample shows how to implement a custom operation formatter that parses parameter data from an HTTP GET query string instead and invokes methods using that data.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The sample is based on the <bpt id="p1">[</bpt>Getting Started<ept id="p1">](../../../../docs/framework/wcf/samples/getting-started-sample.md)</ept>, which implements the <ph id="ph1">`ICalculator`</ph> service contract.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>It shows how Add, Subtract, Multiply, and Divide messages can be changed to use HTTP GET for client-to-server requests and HTTP POST with POX messages for server-to-client responses.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>To do so, the sample provides the following:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`QueryStringFormatter`</ph>, which implements <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IClientMessageFormatter&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IDispatchMessageFormatter&gt;</ph> for the client and server, respectively, and processes the data in the query string.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`UriOperationSelector`</ph>, which implements <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> on the server to perform operation dispatch based on the operation name in the GET request.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EnableHttpGetRequestsBehavior`</ph> endpoint behavior (and corresponding configuration), which adds the necessary operation selector to the runtime.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Shows how to insert a new operation formatter into the runtime.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In this sample, both the client and the service are console applications (.exe).</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Key Concepts</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`QueryStringFormatter`</ph> - The operation formatter is the component in <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> that is responsible for converting a message into an array of parameter objects and an array of parameter objects into a message.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This is done on the client using the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IClientMessageFormatter&gt;</ph> interface and on the server with the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IDispatchMessageFormatter&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>These interfaces enable users to get the request and response messages from the <ph id="ph1">`Serialize`</ph> and <ph id="ph2">`Deserialize`</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In this sample, <ph id="ph1">`QueryStringFormatter`</ph> implements both of these interfaces and is implemented on the client and server.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Request:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The sample uses the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> class to convert parameter data in the request message to and from strings.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If a <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> is not available for a specific type, the sample formatter throws an exception.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`IClientMessageFormatter.SerializeRequest`</ph> method on the client, the formatter creates a URI with the appropriate To address and appends the operation name as a suffix.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This name is used to dispatch to the appropriate operation on the server.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>It then takes the array of parameter objects and serializes the parameter data to the URI query string using parameter names and the values converted by the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageHeaders.To%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageProperties.Via%2A&gt;</ph> properties are then set to this URI.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageProperties&gt;</ph> is accessed through the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Message.Properties%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`IDispatchMessageFormatter.DeserializeRequest`</ph> method on the server, the formatter retrieves the <ph id="ph2">`Via`</ph> URI in the incoming request message properties.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It parses the name-value pairs in the URI query string into parameter names and values and uses the parameter names and values to populate the array of parameters passed into the method.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Note that operation dispatch has already occurred, so the operation name suffix is ignored in this method.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Response:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this sample, HTTP GET is used only for the request.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The formatter delegates the sending of the response to the original formatter that would have been used to generate an XML message.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>One of the goals of this sample is to show how such a delegating formatter can be implemented.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>UriPathSuffixOperationSelector Class</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> interface enables users to implement their own logic for which operation a particular message should be dispatched.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>In this sample, <ph id="ph1">`UriPathSuffixOperationSelector`</ph> must be implemented on the server to select the appropriate operation because the operation name is included in the HTTP GET URI rather than an action header in the message.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The sample is set up to allow only case-insensitive operation names.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SelectOperation`</ph> method takes the incoming message and looks up the <ph id="ph2">`Via`</ph> URI in its message properties.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>It extracts the operation name suffix from the URI, looks up an internal table to get the operation name that the message should be dispatched to, and returns that operation name.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>EnableHttpGetRequestsBehavior Class</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UriPathSuffixOperationSelector`</ph> component can be set up programmatically or through an endpoint behavior.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The sample implements the <ph id="ph1">`EnableHttpGetRequestsBehavior`</ph> behavior, which is specified in service’s application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>On the server:</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.OperationSelector%2A&gt;</ph> is set to the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IDispatchOperationSelector&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> uses an exact-match address filter.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The URI on the incoming message contains an operation name suffix followed by a query string that contains parameter data, so the endpoint behavior also changes the address filter to be a prefix match filter.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>It uses the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph><ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&gt;</ph> for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Installing operation formatters</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Operation behaviors that specify formatters are unique.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>One such behavior is always implemented by default for every operation to create the necessary operation formatter.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>However, these behaviors look like just another operation behavior; they are not identifiable by any other attribute.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>To install a replacement behavior, the implementation must look for specific formatter behaviors that are installed by the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> type loader by default and either replace it or add a compatible behavior to run after the default behavior.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>These operation formatters behaviors can be set up programmatically prior to calling <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> or by specifying an operation behavior that is executed after the default one.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>However, it cannot easily be set up by an endpoint behavior (and therefore by configuration) because the behavior model does not allow a behavior to replace other behaviors or otherwise modify the description tree.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>On the client:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IClientMessageFormatter&gt;</ph> implementation must be implemented so that it can convert the requests into HTTP GET requests and delegate to the original formatter for responses.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>This is done by calling the <ph id="ph1">`EnableHttpGetRequestsBehavior.ReplaceFormatterBehavior`</ph> helper method.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>This must be done before calling <ph id="ph1">`CreateChannel`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>On the server:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IDispatchMessageFormatter&gt;</ph> interface must be implemented so that it can read HTTP GET requests and delegate to the original formatter for writing responses.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This is done by calling the same <ph id="ph1">`EnableHttpGetRequestsBehavior.ReplaceFormatterBehavior`</ph> helper method as the client (see the previous code sample).</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This must be done before <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>In this sample, we show how the formatter is manually modified before calling <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Another way to achieve the same thing is to derive a class from <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> that makes the calls to <ph id="ph2">`EnableHttpGetRequestsBehavior.ReplaceFormatterBehavior`</ph> before opening (please see hosting documentation and samples for examples).</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>User experience</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>On the server:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The server <ph id="ph1">`ICalculator`</ph> implementation does not need to change.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The App.config for the service must use a custom POX binding that sets the <ph id="ph1">`messageVersion`</ph> attribute of the <ph id="ph2">`textMessageEncoding`</ph> element to <ph id="ph3">`None`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The App.config for the service also must specify the custom <ph id="ph1">`EnableHttpGetRequestsBehavior`</ph> by adding it to the behavior extensions section and using it.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Add operation formatters before calling <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>On the client:</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The client implementation does not need to change.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The App.config for the client must use a custom POX binding that sets the <ph id="ph1">`messageVersion`</ph> attribute of the <ph id="ph2">`textMessageEncoding`</ph> element to <ph id="ph3">`None`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>One difference from the service is that the client must enable manual addressing so that the outgoing To address can be modified.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The App.config for the client must specify the same custom <ph id="ph1">`EnableHttpGetRequestsBehavior`</ph> as the server.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Add operation formatters before calling <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601.CreateChannel&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the operation requests and responses are displayed in the client console window.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>All four operations (Add, Subtract, Multiply, and Divide) must succeed.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
