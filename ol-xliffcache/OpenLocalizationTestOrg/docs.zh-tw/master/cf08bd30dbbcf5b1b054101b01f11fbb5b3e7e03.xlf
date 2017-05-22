@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cf08bd30dbbcf5b1b054101b01f11fbb5b3e7e03</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\using-dead-letter-queues-to-handle-message-transfer-failures.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">638a6c6db8f87edc17a51eb0bf4918907bc9377b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">83cde9e23932f95a98c366833edc8ae2f868414a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using Dead-Letter Queues to Handle Message Transfer Failures | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using Dead-Letter Queues to Handle Message Transfer Failures</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Queued messages can fail delivery.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These failed messages are recorded in a dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The failed delivery can be caused by reasons such as network failures, a deleted queue, a full queue, authentication failure, or a failure to deliver on time.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Queued messages can remain in the queue for a long time if the receiving application does not read them from the queue in a timely fashion.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This behavior may not be appropriate for time-sensitive messages.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Time-sensitive messages have a Time to Live (TTL) property set in the queued binding, which indicates how long the messages can be in the queue before they must expire.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Expired messages are sent to a special queue called the dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Messages can also be put in a dead-letter queue for other reasons, such as exceeding a queue quota or because of authentication failure.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Generally, applications write compensation logic to read messages from the dead-letter queue and failure reasons.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The compensation logic depends on the cause of the failure.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For example, in the case of authentication failure, you can correct the certificate attached with the message and resend the message.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If delivery failed because the target queue quota was reached, you can reattempt delivery in the hope that the quota problem was resolved.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Most queuing systems have a system-wide dead-letter queue where all failed messages from that system are stored.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Message Queuing (MSMQ) provides two system-wide dead-letter queues: a transactional system-wide dead-letter queue that stores messages that failed delivery to the transactional queue and a non-transactional system-wide dead-letter queue that stores messages that failed delivery to the non-transactional queue.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If two clients are sending messages to two different services, and therefore different queues in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> are sharing the same MSMQ service to send, then it is possible to have a mix of messages in the system dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This is not always optimal.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In several cases (security, for example), you may not want one client to read another client's messages from a dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A shared dead-letter queue also requires clients to browse through the queue to find a message that they sent, which can be prohibitively expensive based on the number of messages in the dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Therefore, in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph><ph id="ph2">`NetMsmqBinding`</ph>, <ph id="ph3">`MsmqIntegrationBinding,`</ph> and MSMQ on <ph id="ph4">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph> provide a custom dead-letter queue (sometimes referred to as an application-specific dead-letter queue).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The custom dead-letter queue provides isolation between clients that share the same MSMQ service to send messages.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>On <ph id="ph1">[!INCLUDE[ws2003](../../../../includes/ws2003-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wxp](../../../../includes/wxp-md.md)]</ph>, <ph id="ph3">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> provides a system-wide dead-letter queue for all queued client applications.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>On <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>, <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> provides a dead-letter queue for each queued client application.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Specifying Use of the Dead-Letter Queue</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A dead-letter queue is in the queue manager of the sending application.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>It stores messages that have expired or that have failed transfer or delivery.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The binding has the following dead-letter queue properties:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Reading Messages from the Dead-Letter Queue</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>An application that reads messages out of a dead-letter queue is similar to a <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service that reads from an application queue, except for the following minor differences:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To read messages from a system transactional dead-letter queue, the Uniform Resource Identifier (URI) must be of the form: net.msmq://localhost/system$;DeadXact.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>To read messages from a system non-transactional dead-letter queue, the URI must be of the form: net.msmq://localhost/system$;DeadLetter.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To read messages from a custom dead-letter queue, the URI must be of the form:net.msmq://localhost/private/<ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>custom-dlq-name<ept id="p1">*</ept>&gt; where <bpt id="p2">*</bpt>custom-dlq-name<ept id="p2">*</ept> is the name of the custom dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> how to address queues, see <bpt id="p1">[</bpt>Service Endpoints and Queue Addressing<ept id="p1">](../../../../docs/framework/wcf/feature-details/service-endpoints-and-queue-addressing.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> stack on the receiver matches addresses that the service is listening on with the address on the message.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If the addresses match, the message is dispatched; if not, the message is not dispatched.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This can cause problems when reading from the dead-letter queue, because messages in the dead-letter queue are typically addressed to the service and not the dead-letter queue service.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Therefore, the service reading from the dead-letter queue must install an address filter <ph id="ph1">`ServiceBehavior`</ph> that instructs the stack to match all messages in the queue independently of the addressee.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Specifically, you must add a <ph id="ph1">`ServiceBehavior`</ph> with the <ph id="ph2">&lt;xref:System.ServiceModel.AddressFilterMode&gt;</ph> parameter to the service reading messages from the dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Poison Message Handling from the Dead-Letter Queue</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Poison message handling is available on dead-letter queues, with some conditions.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Because you cannot create sub-queues from system queues, when reading from the system dead-letter queue, the <ph id="ph1">`ReceiveErrorHandling`</ph> cannot be set to <ph id="ph2">`Move`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Note that if you are reading from a custom dead-letter queue, you can have sub-queues and, therefore, <ph id="ph1">`Move`</ph> is a valid disposition for the poison message.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">`ReceiveErrorHandling`</ph> is set to <ph id="ph2">`Reject`</ph>, when reading from the custom dead letter queue, the poison message is put in the system dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If reading from the system dead-letter queue, the message is dropped (purged).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>A reject from a system dead-letter queue in MSMQ drops (purges) the message.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The following example shows how to create a dead-letter queue and how to use it to process expired messages.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The example is based on the example in <bpt id="p1">[</bpt>How to: Exchange Queued Messages with WCF Endpoints<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-exchange-queued-messages-with-wcf-endpoints.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The following example shows how to write the client code to the order processing service that uses a dead-letter queue for each application.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The example also shows how to process messages from the dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The following is code for a client that specifies a dead-letter queue for each application.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>S_DeadLetter#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/s_deadletter/cs/client.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>S_DeadLetter#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/s_deadletter/vb/client.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The following is code for the client configuration file.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The following is code for a service processing messages from a dead-letter queue.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>S_DeadLetter#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/s_deadletter/cs/dlservice.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>S_DeadLetter#3<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/s_deadletter/vb/dlservice.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The following is code for the dead-letter queue service configuration file.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Queues Overview<ept id="p1">](../../../../docs/framework/wcf/feature-details/queues-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Exchange Queued Messages with WCF Endpoints<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-exchange-queued-messages-with-wcf-endpoints.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Poison Message Handling<ept id="p1">](../../../../docs/framework/wcf/feature-details/poison-message-handling.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

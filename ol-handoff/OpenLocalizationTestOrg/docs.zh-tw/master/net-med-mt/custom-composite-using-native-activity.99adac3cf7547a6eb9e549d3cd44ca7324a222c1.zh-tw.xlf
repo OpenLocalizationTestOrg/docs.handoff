@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e273f426527c598b7ed3e71b318ad12351ae3ca7</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\samples\custom-composite-using-native-activity.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">28cae683f38687af0fa2ba6dd14ad2a83887a99b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f1db7ade31842c85ae9e6ef4515cf242296137ba</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Composite using Native Activity | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Composite using Native Activity</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to write a <ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> that schedules other <ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph> objects to control the flow of a workflow’s execution.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This sample uses two common control flows, Sequence and While, to demonstrate how to do this.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Sample Details</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Starting with <ph id="ph1">`MySequence`</ph>, the first thing to notice is that it derives from <ph id="ph2">&lt;xref:System.Activities.NativeActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.NativeActivity&gt;</ph> is the <ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph> object that exposes the full breadth of the workflow runtime through the <ph id="ph3">&lt;xref:System.Activities.NativeActivityContext&gt;</ph> passed to the <ph id="ph4">`Execute`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MySequence`</ph> exposes a public collection of <ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph> objects that gets populated by the workflow author.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Before the workflow is executed, the workflow runtime calls the <ph id="ph1">&lt;xref:System.Activities.Activity.CacheMetadata%2A&gt;</ph> method on each activity in a workflow.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>During this process, the runtime establishes parent-child relationships for data scoping and lifetime management.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The default implementation of the <ph id="ph1">&lt;xref:System.Activities.Activity.CacheMetadata%2A&gt;</ph> method uses the <ph id="ph2">&lt;xref:System.ComponentModel.TypeDescriptor&gt;</ph> instance class for the <ph id="ph3">`MySequence`</ph> activity to add any public property of type <ph id="ph4">&lt;xref:System.Activities.Activity&gt;</ph> or <ph id="ph5">&lt;xref:System.Collections.IEnumerable&gt;</ph><ph id="ph6">\&lt;</ph><ph id="ph7">&lt;xref:System.Activities.Activity&gt;</ph>&gt; as children of the <ph id="ph8">`MySequence`</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Whenever an activity exposes a public collection of child activities, it is likely those child activities share state.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>It is a best practice for the parent activity, in this case <ph id="ph1">`MySequence`</ph>, to also expose a collection of variables through which the child activities can accomplish this.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Like child activities, the <ph id="ph1">&lt;xref:System.Activities.Activity.CacheMetadata%2A&gt;</ph> method adds public properties of type <ph id="ph2">&lt;xref:System.Activities.Variable&gt;</ph> or <ph id="ph3">&lt;xref:System.Collections.IEnumerable&gt;</ph><ph id="ph4">\&lt;</ph><ph id="ph5">&lt;xref:System.Activities.Variable&gt;</ph>&gt; as variables associated with the <ph id="ph6">`MySequence`</ph> activity.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Besides the public variables, which are manipulated by the children of <ph id="ph1">`MySequence`</ph>, <ph id="ph2">`MySequence`</ph> must also keep track of where it is in the execution of its children.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It uses a private variable, <ph id="ph1">`currentIndex`</ph>, to accomplish this.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This variable is registered as part of the <ph id="ph1">`MySequence`</ph> environment by adding a call to the <ph id="ph2">&lt;xref:System.Activities.NativeActivityMetadata.AddImplementationVariable%2A&gt;</ph> method within the <ph id="ph3">`MySequence`</ph> activity’s <ph id="ph4">&lt;xref:System.Activities.Activity.CacheMetadata%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Activity&gt;</ph> objects added to the <ph id="ph2">`MySequence`</ph> <ph id="ph3">`Activities`</ph> collection cannot access variables added this way.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">`MySequence`</ph> is executed by the runtime, the runtime calls its <ph id="ph2">&lt;xref:System.Activities.NativeActivity.Execute%2A&gt;</ph> method, passing in an <ph id="ph3">&lt;xref:System.Activities.NativeActivityContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.NativeActivityContext&gt;</ph> is the activity’s proxy back into the runtime for dereferencing arguments and variables as well as scheduling other <ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph> objects, or <ph id="ph3">`ActivityDelegates`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MySequence`</ph> uses an <ph id="ph2">`InternalExecute`</ph> method to encapsulate the logic of scheduling the first child and all subsequent children in a single method.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It starts by dereferencing the <ph id="ph1">`currentIndex`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If it is equal to the count in the <ph id="ph1">`Activities`</ph> collection, then the sequence is finished, the activity returns without scheduling any work and the runtime moves it into the <ph id="ph2">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`currentIndex`</ph> is less than the count of activities, the next child is obtained from the <ph id="ph2">`Activities`</ph> collection and <ph id="ph3">`MySequence`</ph> calls<ph id="ph4">&lt;xref:System.Activities.NativeActivityContext.ScheduleActivity%2A&gt;</ph>, passing in the child to be scheduled and a <ph id="ph5">&lt;xref:System.Activities.CompletionCallback&gt;</ph> that points at the <ph id="ph6">`InternalExecute`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Finally, the <ph id="ph1">`currentIndex`</ph> is incremented and control is yielded back to the runtime.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>As long as an instance of <ph id="ph1">`MySequence`</ph> has a child <ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph> object scheduled, the runtime considers it to be in the Executing state.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When the child activity completes, the <ph id="ph1">&lt;xref:System.Activities.CompletionCallback&gt;</ph> is executed.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The loop continues from the top.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Like <ph id="ph1">`Execute`</ph>, a <ph id="ph2">&lt;xref:System.Activities.CompletionCallback&gt;</ph> takes an <ph id="ph3">&lt;xref:System.Activities.NativeActivityContext&gt;</ph>, giving the implementer access to the runtime.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MyWhile`</ph> differs from <ph id="ph2">`MySequence`</ph> in that it schedules a single <ph id="ph3">&lt;xref:System.Activities.Activity&gt;</ph> object repeatedly, and in that it uses a <ph id="ph4">&lt;xref:System.Activities.Activity%601&gt;</ph>&lt;bool<ph id="ph5">\&gt;</ph> named <ph id="ph6">`Condition`</ph> to determine whether this scheduling should occur.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Like <ph id="ph1">`MySequence`</ph>, <ph id="ph2">`MyWhile`</ph> uses an <ph id="ph3">`InternalExecute`</ph> method to centralize its scheduling logic.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It schedules the <ph id="ph1">`Condition`</ph><ph id="ph2">&lt;xref:System.Activities.Activity&gt;</ph>&lt;bool<ph id="ph3">\&gt;</ph> with a <ph id="ph4">&lt;xref:System.Activities.CompletionCallback%601&gt;</ph><ph id="ph5">\&lt;</ph>bool&gt; named <ph id="ph6">`OnEvaluationCompleted`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When the execution of <ph id="ph1">`Condition`</ph> is completed, its result becomes available through this <ph id="ph2">&lt;xref:System.Activities.CompletionCallback&gt;</ph> in a strongly-typed parameter named <ph id="ph3">`result`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`true`</ph>, <ph id="ph2">`MyWhile`</ph> calls  <ph id="ph3">&lt;xref:System.Activities.NativeActivityContext.ScheduleActivity%2A&gt;</ph>, passing in the <ph id="ph4">`Body`</ph><ph id="ph5">&lt;xref:System.Activities.Activity&gt;</ph> object and <ph id="ph6">`InternalExecute`</ph> as the <ph id="ph7">&lt;xref:System.Activities.CompletionCallback&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When the execution of <ph id="ph1">`Body`</ph> completes, <ph id="ph2">`Condition`</ph> gets scheduled again in <ph id="ph3">`InternalExecute`</ph>, starting the loop over again.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">`Condition`</ph> returns <ph id="ph2">`false`</ph>, an instance of <ph id="ph3">`MyWhile`</ph> gives control back to the runtime without scheduling the <ph id="ph4">`Body`</ph> and the runtime moves it to the <ph id="ph5">&lt;xref:System.Activities.ActivityInstanceState&gt;</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Open the Composite.sln sample solution in <ph id="ph1">[!INCLUDE[vs2010](../../../../includes/vs2010-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Build and run the solution.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

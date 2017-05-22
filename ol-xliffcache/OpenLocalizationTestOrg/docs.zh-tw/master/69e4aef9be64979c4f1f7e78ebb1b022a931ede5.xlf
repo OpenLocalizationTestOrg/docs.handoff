@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">69e4aef9be64979c4f1f7e78ebb1b022a931ede5</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\best-practices-data-contract-versioning.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8f6673b5ce19b46be54e6e84d01bd6788a711879</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">23761674034e2e1b8d816a08163989b9c3a3b2ed</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Best Practices: Data Contract Versioning | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Best Practices: Data Contract Versioning</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic lists the best practices for creating data contracts that can evolve easily over time.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> data contracts, see the topics in <bpt id="p1">[</bpt>Using Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/using-data-contracts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Note on Schema Validation</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In discussing data contract versioning, it is important to note that the data contract schema exported by <ph id="ph1">[!INCLUDE[indigo1](../../../includes/indigo1-md.md)]</ph> does not have any versioning support, other than the fact that elements are marked as optional by default.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This means that even the most common versioning scenario, such as adding a new data member, cannot be implemented in a way that is seamless with regard to a given schema.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The newer versions of a data contract (with a new data member, for example) do not validate using the old schema.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>However, there are many scenarios in which strict schema compliance is not required.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Many Web services platforms, including <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> and XML Web services created using ASP.NET, do not perform schema validation by default and therefore tolerate extra elements that are not described by the schema.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>When working with such platforms, many versioning scenarios are easier to implement.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Thus, there are two sets of data contract versioning guidelines: one set for scenarios where strict schema validity is important, and another set for scenarios when it is not.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Versioning When Schema Validation Is Required</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If strict schema validity is required in all directions (new-to-old and old-to-new), data contracts should be considered immutable.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If versioning is required, a new data contract should be created, with a different name or namespace, and the service contract using the data type should be versioned accordingly.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For example, a purchase order processing service contract named <ph id="ph1">`PoProcessing`</ph> with a <ph id="ph2">`PostPurchaseOrder`</ph> operation takes a parameter that conforms to a <ph id="ph3">`PurchaseOrder`</ph> data contract.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`PurchaseOrder`</ph> contract has to change, you must create a new data contract, that is, <ph id="ph2">`PurchaseOrder2`</ph>, which includes the changes.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>You must then handle the versioning at the service contract level.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For example, by creating a <ph id="ph1">`PostPurchaseOrder2`</ph> operation that takes the <ph id="ph2">`PurchaseOrder2`</ph> parameter, or by creating a <ph id="ph3">`PoProcessing2`</ph> service contract where the <ph id="ph4">`PostPurchaseOrder`</ph> operation takes a <ph id="ph5">`PurchaseOrder2`</ph> data contract.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Note that changes in data contracts that are referenced by other data contracts also extend to the service model layer.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, in the previous scenario the <ph id="ph1">`PurchaseOrder`</ph> data contract does not need to change.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, it contains a data member of a <ph id="ph1">`Customer`</ph> data contract, which in turn contained a data member of the <ph id="ph2">`Address`</ph> data contract, which does need to be changed.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In that case, you would need to create an <ph id="ph1">`Address2`</ph> data contract with the required changes, a <ph id="ph2">`Customer2`</ph> data contract that contains the <ph id="ph3">`Address2`</ph> data member, and a <ph id="ph4">`PurchaseOrder2`</ph> data contract that contains a <ph id="ph5">`Customer2`</ph> data member.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As in the previous case, the service contract would have to be versioned as well.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Although in these examples names are changed (by appending a "2"), the recommendation is to change namespaces instead of names by appending new namespaces with a version number or a date.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`http://schemas.contoso.com/2005/05/21/PurchaseOrder`</ph> data contract would change to the <ph id="ph2">`http://schemas.contoso.com/2005/10/14/PurchaseOrder`</ph> data contract.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../includes/crdefault-md.md)]</ph> Best Practices: <bpt id="p1">[</bpt>Service Versioning<ept id="p1">](../../../docs/framework/wcf/service-versioning.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Occasionally, you must guarantee strict schema compliance for messages sent by your application, but cannot rely on the incoming messages to be strictly schema-compliant.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In this case, there is a danger that an incoming message might contain extraneous data.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The extraneous values are stored and returned by <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> and thus results in schema-invalid messages being sent.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To avoid this problem, the round-tripping feature should be turned off.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>There are two ways to do this.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Do not implement the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IExtensibleDataObject&gt;</ph> interface on any of your types.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Apply a <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute&gt;</ph> attribute to your service contract with the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.IgnoreExtensionDataObject%2A&gt;</ph> property set to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> round-tripping, see <bpt id="p1">[</bpt>Forward-Compatible Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/forward-compatible-data-contracts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Versioning When Schema Validation Is Not Required</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Strict schema compliance is rarely required.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Many platforms tolerate extra elements not described by a schema.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>As long as this is tolerated, the full set of features described in <bpt id="p1">[</bpt>Data Contract Versioning<ept id="p1">](../../../docs/framework/wcf/feature-details/data-contract-versioning.md)</ept> and <bpt id="p2">[</bpt>Forward-Compatible Data Contracts<ept id="p2">](../../../docs/framework/wcf/feature-details/forward-compatible-data-contracts.md)</ept> can be used.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The following guidelines are recommended.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Some of the guidelines must be followed exactly in order to send new versions of a type where an older one is expected or send an old one where the new one is expected.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Other guidelines are not strictly required, but are listed here because they may be affected by the future of schema versioning.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Do not attempt to version data contracts by type inheritance.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>To create later versions, either change the data contract on an existing type or create a new unrelated type.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The use of inheritance together with data contracts is allowed, provided that inheritance is not used as a versioning mechanism and that certain rules are followed.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If a type derives from a certain base type, do not make it derive from a different base type in a future version (unless it has the same data contract).</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>There is one exception to this: you can insert a type into the hierarchy between a data contract type and its base type, but only if it does not contain data members with the same names as other members in any possible versions of the other types in the hierarchy.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>In general, using data members with the same names at different levels of the same inheritance hierarchy can lead to serious versioning problems and should be avoided.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Starting with the first version of a data contract, always implement <ph id="ph1">&lt;xref:System.Runtime.Serialization.IExtensibleDataObject&gt;</ph> to enable round-tripping.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>Forward-Compatible Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/forward-compatible-data-contracts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>If you have released one or more versions of a type without implementing this interface, implement it in the next version of the type.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>In later versions, do not change the data contract name or namespace.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If changing the name or namespace of the type underlying the data contract, be sure to preserve the data contract name and namespace by using the appropriate mechanisms, such as the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractAttribute.Name%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> naming, see <bpt id="p1">[</bpt>Data Contract Names<ept id="p1">](../../../docs/framework/wcf/feature-details/data-contract-names.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In later versions, do not change the names of any data members.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If changing the name of the field, property, or event underlying the data member, use the <ph id="ph1">`Name`</ph> property of the <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataMemberAttribute&gt;</ph> to preserve the existing data member name.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>In later versions, do not change the type of any field, property, or event underlying a data member such that the resulting data contract for that data member changes.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Keep in mind that interface types are equivalent to <ph id="ph1">&lt;xref:System.Object&gt;</ph> for the purposes of determining the expected data contract.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In later versions, do not change the order of the existing data members by adjusting the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataMemberAttribute.Order%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataMemberAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In later versions, new data members can be added.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>They should always follow these rules:</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataMemberAttribute.IsRequired%2A&gt;</ph> property should always be left at its default value of <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If a default value of <ph id="ph1">`null`</ph> or zero for the member is unacceptable, a callback method should be provided using the <ph id="ph2">&lt;xref:System.Runtime.Serialization.OnDeserializingAttribute&gt;</ph> to provide a reasonable default in case the member is not present in the incoming stream.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> the callback, see <bpt id="p1">[</bpt>Version-Tolerant Serialization Callbacks<ept id="p1">](../../../docs/framework/wcf/feature-details/version-tolerant-serialization-callbacks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Order`</ph> property on the <ph id="ph2">`DataMemberAttribute`</ph> should be used to make sure that all of the newly added data members appear after the existing data members.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The recommended way of doing this is as follows: None of the data members in the first version of the data contract should have their <ph id="ph1">`Order`</ph> property set.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>All of the data members added in version 2 of the data contract should have their <ph id="ph1">`Order`</ph> property set to 2.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>All of the data members added in version 3 of the data contract should have their <ph id="ph1">`Order`</ph> set to 3, and so on.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>It is permissible to have more than one data member set to the same <ph id="ph1">`Order`</ph> number.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Do not remove data members in later versions, even if the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataMemberAttribute.IsRequired%2A&gt;</ph> property was left at its default property of <ph id="ph2">`false`</ph> in prior versions.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Do not change the <ph id="ph1">`IsRequired`</ph> property on any existing data members from version to version.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>For required data members (where <ph id="ph1">`IsRequired`</ph> is <ph id="ph2">`true`</ph>), do not change the <ph id="ph3">`EmitDefaultValue`</ph> property from version to version.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Do not attempt to create branched versioning hierarchies.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>That is, there should always be a path in at least one direction from any version to any other version using only the changes permitted by these guidelines.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>For example, if version 1 of a Person data contract contains only the Name data member, you should not create version 2a of the contract adding only the Age member and version 2b adding only the Address member.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Going from 2a to 2b would involve removing Age and adding Address; going in the other direction would entail removing Address and adding Age.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Removing members is not permitted by these guidelines.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>You should generally not create new subtypes of existing data contract types in a new version of your application.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Likewise, you should not create new data contracts that are used in place of data members declared as Object or as interface types.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Creating these new classes is allowed only when you know that you can add the new types to the known types list of all instances of your old application.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For example, in version 1 of your application, you may have the LibraryItem data contract type with the Book and Newspaper data contract subtypes.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>LibraryItem would then have a known types list that contains Book and Newspaper.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Suppose you now add a Magazine type in version 2 which is a subtype of LibraryItem.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>If you send a Magazine instance from version 2 to version 1, the Magazine data contract is not found in the list of known types and an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>You should not add or remove enumeration members between versions.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>You should also not rename enumeration members, unless you use the Name property on the <ph id="ph1">`EnumMemberAttribute`</ph> attribute to keep their names in the data contract model the same.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Collections are interchangeable in the data contract model as described in <bpt id="p1">[</bpt>Collection Types in Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/collection-types-in-data-contracts.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>This allows for a great degree of flexibility.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>However, make sure that you do not inadvertently change a collection type in a non-interchangeable way from version to version.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>For example, do not change from a non-customized collection (that is, without the <ph id="ph1">`CollectionDataContractAttribute`</ph> attribute) to a customized one or a customized collection to a non-customized one.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Also, do not change the properties on the <ph id="ph1">`CollectionDataContractAttribute`</ph> from version to version.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The only allowed change is adding a Name or Namespace property if the underlying collection type's name or namespace has changed and you need to make its data contract name and namespace the same as in a previous version.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Some of the guidelines listed here can be safely ignored when special circumstances apply.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Make sure you fully understand the serialization, deserialization, and schema mechanisms involved before deviating from the guidelines.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Using Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/using-data-contracts.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Contract Versioning<ept id="p1">](../../../docs/framework/wcf/feature-details/data-contract-versioning.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Contract Names<ept id="p1">](../../../docs/framework/wcf/feature-details/data-contract-names.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Forward-Compatible Data Contracts<ept id="p1">](../../../docs/framework/wcf/feature-details/forward-compatible-data-contracts.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Version-Tolerant Serialization Callbacks<ept id="p1">](../../../docs/framework/wcf/feature-details/version-tolerant-serialization-callbacks.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d8db225d7cce03c42f61b89f0a392159b6dddd42</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\debug-trace-profile\asynchronousthreadabort-mda.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7af69ef9f806e68725a4d8e18dc1cb9b1343c39c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f4f3f582669f06e1202217129077a3abc1c23fe5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>asynchronousThreadAbort MDA | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>asynchronousThreadAbort MDA</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`asynchronousThreadAbort`</ph> managed debugging assistant (MDA) is activated when a thread attempts to introduce an asynchronous abort into another thread.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Synchronous thread aborts do not activate the <ph id="ph1">`asynchronousThreadAbort`</ph> MDA.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Symptoms</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>An application crashes with an unhandled <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> when the main application thread is aborted.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If the application were to continue to execute, the consequences might be worse than the application crashing, possibly resulting in further data corruption.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Operations meant to be atomic have likely been interrupted after partial completion, leaving application data in an unpredictable state.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> can be generated from seemingly random points in the execution of code, often in places from which an exception is not expected to arise.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The code might not be capable of handling such an exception, resulting in a corrupt state.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Symptoms can vary widely due to the randomness inherent to the problem.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Cause</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Code in one thread called the <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A?displayProperty=fullName&gt;</ph> method on a target thread to introduce an asynchronous thread abort.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The thread abort is asynchronous because the code that makes the call to <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> is running on a different thread than the target of the abort operation.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Synchronous thread aborts should not cause a problem because the thread performing the <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> should have done so only at a safe checkpoint where application state is consistent.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Asynchronous thread aborts present a problem because they are processed at unpredictable points in the target thread's execution.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To avoid this, code written to run on a thread that might be aborted in this manner would need to handle a <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> at almost every line of code, taking care to put application data back into a consistent state.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>It is not realistic to expect code to be written with this problem in mind or to write code that protects against all possible circumstances.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Calls into unmanaged code and <ph id="ph1">`finally`</ph> blocks will not be aborted asynchronously but immediately upon exit from one of these categories.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The cause might be difficult to determine due to the randomness inherent to the problem.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Resolution</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Avoid code design that requires the use of asynchronous thread aborts.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>There are several approaches more appropriate for interruption of a target thread that do not require a call to <ph id="ph1">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The safest is to introduce a mechanism, such as a common property, that signals the target thread to request an interrupt.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The target thread checks the signal at certain safe checkpoints.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If it notices that an interrupt has been requested, it can shut down gracefully.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Effect on the Runtime</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This MDA has no effect on the CLR.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It only reports data about asynchronous thread aborts.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Output</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The MDA reports the ID of the thread performing the abort and the ID of the thread that is the target of the abort.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>These will never be the same because this is limited to asynchronous aborts.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Activating the <ph id="ph1">`asynchronousThreadAbort`</ph> MDA requires only a call to <ph id="ph2">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> on a separate running thread.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Consider the consequences if the contents of the thread start function were a set of more complex operations which might be interrupted at any arbitrary point by the abort.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Thread&gt;</ph> <bpt id="p1"> [</bpt>Diagnosing Errors with Managed Debugging Assistants<ept id="p1">](../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

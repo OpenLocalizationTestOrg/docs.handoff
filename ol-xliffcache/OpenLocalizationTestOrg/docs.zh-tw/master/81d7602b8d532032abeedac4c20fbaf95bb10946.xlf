@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">81d7602b8d532032abeedac4c20fbaf95bb10946</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\net-native\measuring-startup-improvement-with-net-native.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b4f0e68acecc6e05dc0774452aca8a52f2c42f1c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ce903ee087233da626c574192d92931a4b68fa48</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Measuring Startup Improvement with .NET Native | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Measuring Startup Improvement with .NET Native</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> significantly improves the launch time of apps.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This improvement is particularly noticeable on portable, low-powered devices and with complex apps.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic helps you get started with the basic instrumentation needed to measure this startup improvement.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To facilitate performance investigations, the .NET Framework and Windows use an event framework called Event Tracing for Windows (ETW) that allows your app to notify tooling when events happen.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You can then use a tool called PerfView to easily view and analyze of ETW events.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This topic explains how to:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource&gt;</ph> class to emit events.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Use PerfView to gather those events.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Use PerfView to display those events.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Using EventSource to emit events</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource&gt;</ph> provides a base class from which to create a custom event provider.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Generally, you create a subclass of <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource&gt;</ph> and wrap the <ph id="ph2">`Write*`</ph> methods with your own event methods.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>A singleton pattern is generally used for each <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For example, the class in the following example can be used to measure two performance characteristics:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The time until the <ph id="ph1">`App`</ph> class constructor was called.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The time until the <ph id="ph1">`MainPage`</ph> constructor was called.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN_ETW#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_etw/cs/etw1.cs#1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>There are a few things to notice here.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>First, a singleton is created in <ph id="ph1">`AppEventSource.Log`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>That instance will be used for all logging.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Second, each event method has an <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This helps tooling associate the index of the <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource.WriteEvent%2A&gt;</ph> method with the method that was called on <ph id="ph2">`AppEventSource`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Note that these events are purely illustrative.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Most app code will run after these events.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>You should understand which events in code correspond to user interactions, measure those, and improve those benchmarks.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Also, the events themselves log only a single instance in time.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It’s often useful to have paired start and stop events for every operation.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>When examining app startup, the start event is generally the "Process/Start" event that the operating system emits.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For example, suppose you are creating an RSS reader.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>A few interesting locations to log an event are:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When the main page is first rendered.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When old RSS stories are deserialized from local storage.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When your app begins syncing new stories.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When your app has finished syncing new stories.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Instrumenting an app is straightforward: Just call the appropriate method on the derived class.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">`AppEventSource`</ph> from the previous example, you can instrument an app as follows:</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN_ETW#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_etw/cs/etw2.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When the app is instrumented, you’re ready to gather events.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Gathering events with PerfView</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>PerfView uses ETW events to help you do all sorts of performance investigations on your app.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>It also includes a configuration GUI that lets you turn logging for different types of events on or off.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>PerfView is a free tool and can be downloaded from the <bpt id="p1">[</bpt>Microsoft Download Center<ept id="p1">](http://www.microsoft.com/download/details.aspx?id=28567)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For more information, watch the <bpt id="p1">[</bpt>PerfView tutorial videos<ept id="p1">](http://channel9.msdn.com/Series/PerfView-Tutorial)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>PerfView cannot be used to collect events on ARM systems.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To collect events on ARM systems, use Windows Performance Recorder (WPR).</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Vance Morrison's blog post<ept id="p1">](http://blogs.msdn.com/b/vancem/archive/2012/12/19/collecting-etw-perfview-data-on-an-windows-rt-winrt-arm-surface-device.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>You can also invoke PerfView from the command line.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>To log only the events from your provider, open the Command Prompt window and enter the command:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>where:</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Indicates that you want to know when the process starts and stops.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>You need the Process/Start event for your app so it can be subtracted from other event times.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Turns off other providers that PerfView turns on by default, and turns on the MyCompany-MyApp provider.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>(The asterisk indicates that it is an <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventSource&gt;</ph>.)</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Indicates that you want to start collection and save the data to outputFile.etl.zip.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Run your app after starting PerfView.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>There are a few things to remember when running your app:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Use a release build, not a debug build.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Debug builds often contain extra error checking and error handling code that can cause your app to run slower than expected.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Running your app with a debugger attached affects the performance of your app.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Windows uses multiple caching strategies to speed up app launch times.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If your app is currently cached in memory and doesn't have to be loaded from disk, it will start faster.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>To ensure consistency, start and close your app a few times before measuring it.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>When you’ve run your app so that PerfView can collect emitted events, choose the <bpt id="p1">**</bpt>Stop Collection<ept id="p1">**</ept> button.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Generally, you should stop collection before closing your app so you don’t get extraneous events.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>However, if you’re measuring shutdown or suspension performance, you’ll want to continue collection.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Displaying the events</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>To view the events that have already been collected, use PerfView to open the .etl or .etl.zip file you created and choose <bpt id="p1">**</bpt>Events<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>ETW will have collected information about a large number of events, including events from other processes.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>To focus your investigation, complete the following text boxes in the events view:</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>In the <bpt id="p1">**</bpt>Process Filter<ept id="p1">**</ept> box, specify your app name (without ".exe").</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>In the <bpt id="p1">**</bpt>Event Types Filter<ept id="p1">**</ept> box, specify <ph id="ph1">`Process/Start | MyCompany-MyApp`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>This sets a filter for events from MyCompany-MyApp and the Windows Kernel/Process/Start event.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Select all the events listed in the left pane (Ctrl-A) and choose the <bpt id="p1">**</bpt>Enter<ept id="p1">**</ept> key.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Now, you should be able to see the timestamps from each event.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>These timestamps are relative to the start of the trace, so you have to subtract the time of each event from the start time of the process to identify the elapsed time since startup.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If you use Ctrl+Click to select two timestamps, you'll see the difference between them displayed in the status bar at the bottom of the page.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This makes it easy to see the elapsed time between any two events in the display (including process start).</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>You can open the shortcut menu for the view and select from a number of useful options, like exporting to CSV files or opening Microsoft Excel to save or process the data.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>By repeating the procedure for both your original app and the version you built by using the <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> tool chain, you can compare the difference in performance.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> apps generally start faster than non-<ph id="ph2">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> apps.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If you’re interested in digging deeper, PerfView can also identify the parts of your code that are taking the most time.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>For more information, watch the <bpt id="p1">[</bpt>PerfView tutorials<ept id="p1">](http://channel9.msdn.com/Series/PerfView-Tutorial)</ept> or read <bpt id="p2">[</bpt>Vance Morrison’s blog entry<ept id="p2">](http://blogs.msdn.com/b/vancem/archive/2011/12/28/publication-of-the-perfview-performance-analysis-tool.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

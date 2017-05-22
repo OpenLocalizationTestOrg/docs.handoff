@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e99dfb55cef2ffd5b80ca70975e2e53c894404a6</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\chaining-tasks-by-using-continuation-tasks.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">82044630b3fde8bf66b33850d6b1d4750ee7b17d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7ea839a3eda5c70fb9b1509a3b5cb24eae980d3a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Chaining Tasks by Using Continuation Tasks | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Chaining Tasks by Using Continuation Tasks</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In asynchronous programming, it is very common for one asynchronous operation, on completion, to invoke a second operation and pass data to it.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Traditionally, this has been done by using callback methods.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In the Task Parallel Library, the same functionality is provided by <bpt id="p1">*</bpt>continuation tasks<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A continuation task (also known just as a continuation) is an asynchronous task that is invoked by another task, which is known as the <bpt id="p1">*</bpt>antecedent<ept id="p1">*</ept>, when the antecedent finishes.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Continuations are relatively easy to use, but are nevertheless very powerful and flexible.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For example, you can:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Pass data from the antecedent to the continuation.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Specify the precise conditions under which the continuation will be invoked or not invoked.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Cancel a continuation either before it starts or cooperatively as it is running.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Provide hints about how the continuation should be scheduled.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Invoke multiple continuations from the same antecedent.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Invoke one continuation when all or any one of multiple antecedents complete.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Chain continuations one after another to any arbitrary length.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Use a continuation to handle exceptions thrown by the antecedent.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>About continuations</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>A continuation is a task that is created in the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>It is activated automatically when its antecedent task or tasks complete.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Start%2A?displayProperty=fullName&gt;</ph> on a continuation in user code throws an <ph id="ph2">&lt;xref:System.InvalidOperationException?displayProperty=fullName&gt;</ph> exception.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>A continuation is itself a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> and does not block the thread on which it is started.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=fullName&gt;</ph> method to block until the continuation task finishes.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Creating a continuation for a single antecedent</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You create a continuation that executes when its antecedent has completed by calling the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following example shows the basic pattern, (for clarity, exception handling is omitted).</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>It executes an antecedent task, <ph id="ph1">`taskA`</ph>, that returns a <ph id="ph2">&lt;xref:System.DayOfWeek&gt;</ph> object that indicates the name of the current day of the week.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When the antecedent finishes, the continuation task, <ph id="ph1">`taskB`</ph>, is passed the antecedent and displays a string that includes its result.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/simple1.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/simple1.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Creating a continuation for multiple antecedents</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>You can also create a continuation that will run when any or all of a group of tasks has completed.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>To execute a continuation when all antecedent tasks have completed, you call the static (<ph id="ph1">`Shared`</ph> in Visual Basic) <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=fullName&gt;</ph> method or the instance <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAll%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>To execute a continuation when any of the antecedent tasks has completed, you call the static (<ph id="ph1">`Shared`</ph> in Visual Basic) <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=fullName&gt;</ph> method or the instance <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAny%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Note that calls to the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=fullName&gt;</ph> overloads do not block the calling thread.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>However, you typically call all but the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.WhenAll%28System.Collections.Generic.IEnumerable%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=fullName&gt;</ph> and  <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.WhenAll%28System.Threading.Tasks.Task%5B%5D%29?displayProperty=fullName&gt;</ph> methods to retrieve the returned  <ph id="ph3">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> property, which does block the calling thread.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The following example calls the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.WhenAll%28System.Collections.Generic.IEnumerable%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=fullName&gt;</ph> method to create a continuation task that reflects the results of its ten antecedent tasks.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Each antecedent task squares an index value that ranges from one to ten.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>If the antecedents complete successfully (their <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Status%2A?displayProperty=fullName&gt;</ph> property is <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph>), the <ph id="ph3">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> property of the continuation is an array of the <ph id="ph4">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> values returned by each antecedent.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The example adds them to compute the sum of squares for all numbers between one and ten.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/whenall1.cs#5)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/whenall1.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Continuation options</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>When you create a single-task continuation, you can use a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A&gt;</ph> overload that takes a <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> enumeration value to specify the conditions under which the continuation starts.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For example, you can specify that the continuation is to run only if the antecedent completes successfully, or only if it completes in a faulted state.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the condition is not true when the antecedent is ready to invoke the continuation, the continuation transitions directly to the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph> state and cannot be started after that.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>A number of multi-task continuation methods, such as overloads of the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAll%2A?displayProperty=fullName&gt;</ph> method, also include a <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Only a subset of all <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> enumeration members are valid, however.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You can specify <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> values that have counterparts in the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskCreationOptions?displayProperty=fullName&gt;</ph> enumeration, such as <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph>, <ph id="ph4">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph>, and <ph id="ph5">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If you specify any of the <ph id="ph1">`NotOn`</ph> or <ph id="ph2">`OnlyOn`</ph> options with a multi-task continuation, an <ph id="ph3">&lt;xref:System.ArgumentOutOfRangeException&gt;</ph> exception will be thrown at run time.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>For more information on task continuation options, see the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions&gt;</ph> topic.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Passing Data to a Continuation</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=fullName&gt;</ph> method passes a reference to the antecedent to the user delegate of the continuation as an argument.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>If the antecedent is a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task%601?displayProperty=fullName&gt;</ph> object, and the task ran until it was completed, then the continuation can access the <ph id="ph2">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> property of the task.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> property blocks until the task has completed.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>However, if the task was canceled or faulted, attempting to access the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt;</ph> property throws an <ph id="ph2">&lt;xref:System.AggregateException&gt;</ph> exception.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>You can avoid this problem by using the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions&gt;</ph> option, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/result1.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/result1.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If you want the continuation to run even if the antecedent did not run to successful completion, you must guard against the exception.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>One approach is to test the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Status%2A?displayProperty=fullName&gt;</ph> property of the antecedent, and only attempt to access the <ph id="ph2">&lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt;</ph> property if the status is not <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph> or <ph id="ph4">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>You can also examine the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Exception%2A&gt;</ph> property of the antecedent.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Exception Handling<ept id="p1">](../../../docs/standard/parallel-programming/exception-handling-task-parallel-library.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The following example modifies the previous example to access antecedent's <ph id="ph1">&lt;xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=fullName&gt;</ph> property only if its status is <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/result2.cs#7)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/result2.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Canceling a Continuation</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Status%2A?displayProperty=fullName&gt;</ph> property of a continuation is set to <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph> in the following situations:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>It throws an <ph id="ph1">&lt;xref:System.OperationCanceledException&gt;</ph> exception in response to a cancellation request.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Just as with any task, if the exception contains the same token that was passed to the continuation, it is treated as an acknowledgement of cooperative cancellation.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The continuation is passed a <ph id="ph1">&lt;xref:System.Threading.CancellationToken?displayProperty=fullName&gt;</ph> whose <ph id="ph2">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property is <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>In this case, the continuation does not start, and it transitions to the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The continuation never runs because the condition set by its <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions&gt;</ph> argument was not met.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>For example, if an antecedent goes into a <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskStatus?displayProperty=fullName&gt;</ph> state, its continuation that was passed the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> option will not run but will transition to the <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph> state.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>If a task and its continuation represent two parts of the same logical operation, you can pass the same cancellation token to both tasks, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>It consists of an antecedent that generates a list of integers that are divisible by 33, which it passes to the continuation.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The continuation in turn displays the list.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Both the antecedent and the continuation pause regularly for random intervals.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>In addition, a <ph id="ph1">&lt;xref:System.Threading.Timer?displayProperty=fullName&gt;</ph> object is used to execute the <ph id="ph2">`Elapsed`</ph> method after a five-second timeout interval.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This calls the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Cancel%2A?displayProperty=fullName&gt;</ph> method, which causes the currently executing task to call the <ph id="ph2">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Whether the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Cancel%2A?displayProperty=fullName&gt;</ph> method is called when the antecedent or its continuation is executing depends on the duration of the randomly generated pauses.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If the antecedent is canceled, the continuation will not start.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If the antecedent is not canceled, the token can still be used to cancel the continuation.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/cancellation1.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/cancellation1.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>You can also prevent a continuation from executing if its antecedent is canceled without supplying the continuation a cancellation token by specifying the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> option when you create the continuation.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The following is a simple example.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/cancellation2.cs#8)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/cancellation2.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>After a continuation goes into the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph> state, it may affect continuations that follow, depending on the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskContinuationOptions&gt;</ph> that were specified for those continuations.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Continuations that are disposed will not start.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Continuations and Child Tasks</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>A continuation does not run until the antecedent and all of its attached child tasks have completed.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The continuation does not wait for detached child tasks to finish.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The following two examples illustrate child tasks that are attached to and detached from an antecedent that creates a continuation.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>In the following example, the continuation runs only after all child tasks have completed, and running the example multiple times produces identical output each time.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Note that the example launches the antecedent by calling the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=fullName&gt;</ph> method, since by default the <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.Run%2A?displayProperty=fullName&gt;</ph> method creates a parent task whose default task creation option is <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskCreationOptions?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/attached1.cs#9)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/attached1.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>If child tasks are detached from the antecedent, however, the continuation runs as soon as the antecedent has terminated, regardless of the state of the child tasks.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>As a result, multiple runs of the following example can produce variable output that depends on how the task scheduler handled each child task.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/detached1.cs#10)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/detached1.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The final status of the antecedent task depends on the final status of any attached child tasks.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The status of detached child tasks does not affect the parent.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Attached and Detached Child Tasks<ept id="p1">](../../../docs/standard/parallel-programming/attached-and-detached-child-tasks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Associating State with Continuations</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>You can associate arbitrary state with a task continuation.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A&gt;</ph> method provides overloaded versions that each take an <ph id="ph2">&lt;xref:System.Object&gt;</ph> value that represents the state of the continuation.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>You can later access this state object by using the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.AsyncState%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>This state object is <ph id="ph1">`null`</ph> if you do not provide a value.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Continuation state is useful when you convert existing code that uses the <bpt id="p1">[</bpt>Asynchronous Programming Model (APM)<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm.md)</ept> to use the TPL.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>In the APM, you typically provide object state in the <bpt id="p1">*</bpt><bpt id="p2">*</bpt>Begin<ept id="p2">*</ept>Method<ept id="p1">*</ept>** method and later access that state by using the <ph id="ph1">&lt;xref:System.IAsyncResult.AsyncState%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>By using the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A&gt;</ph> method, you can preserve this state when you convert code that uses the APM to use the TPL.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Continuation state can also be useful when you work with <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> objects in the <ph id="ph2">[!INCLUDE[vsprvs](../../../includes/vsprvs-md.md)]</ph> debugger.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>For example, in the <bpt id="p1">**</bpt>Parallel Tasks<ept id="p1">**</ept> window, the <bpt id="p2">**</bpt>Task<ept id="p2">**</ept> column displays the string representation of the state object for each task.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>For more information about the <bpt id="p1">**</bpt>Parallel Tasks<ept id="p1">**</ept> window, see <bpt id="p2">[</bpt>Using the Tasks Window<ept id="p2">](/visualstudio/debugger/using-the-tasks-window)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The following example shows how to use continuation state.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>It creates a chain of continuation tasks.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Each task provides the current time, a <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> object, for the <ph id="ph2">`state`</ph> parameter of the <ph id="ph3">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> object represents the time at which the continuation task is created.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Each task produces as its result a second <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> object that represents the time at which the task finishes.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>After all tasks finish, this example displays the creation time and the time at which each continuation task finishes.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_ContinuationState#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuationstate/cs/continuationstate.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_ContinuationState#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuationstate/vb/continuationstate.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Handling Exceptions Thrown from Continuations</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>An antecedent-continuation relationship is not a parent-child relationship.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Exceptions thrown by continuations are not propagated to the antecedent.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Therefore, handle exceptions thrown by continuations as you would handle them in any other task, as follows:</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>You can use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Wait%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.WaitAll%2A&gt;</ph>, or <ph id="ph3">&lt;xref:System.Threading.Tasks.Task.WaitAny%2A&gt;</ph> method, or its generic counterpart, to wait on the continuation.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>You can wait for an antecedent and its continuations in the same <ph id="ph1">`try`</ph> statement, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/exception1.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/exception1.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>You can use a second continuation to observe the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Exception%2A&gt;</ph> property of the first continuation.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>In the following example, a task attempts to read from a non-existent file.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The continuation then displays information about the exception in the antecedent task.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/exception2.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/exception2.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Because it was run with the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> option, the continuation executes only if an exception occurs in the antecedent, and therefore it can assume that the antecedent's <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.Exception%2A&gt;</ph> property is not <ph id="ph3">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>If the continuation executes whether or not an exception is thrown in the antecedent, it would have to check whether the antecedent's <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Exception%2A&gt;</ph> property is not <ph id="ph2">`null`</ph> before attempting to handle the exception, as the following code fragment shows.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Continuations#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/exception2.cs#11)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPL_Continuations#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/exception2.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Exception Handling<ept id="p1">](../../../docs/standard/parallel-programming/exception-handling-task-parallel-library.md)</ept> and <bpt id="p2">[</bpt>NIB: How to: Handle Exceptions Thrown by Tasks<ept id="p2">](http://msdn.microsoft.com/en-us/d6c47ec8-9de9-4880-beb3-ff19ae51565d)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>If the continuation is an attached child task that was created by using the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskContinuationOptions?displayProperty=fullName&gt;</ph> option, its exceptions will be propagated by the parent back to the calling thread, as is the case in any other attached child.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Attached and Detached Child Tasks<ept id="p1">](../../../docs/standard/parallel-programming/attached-and-detached-child-tasks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Task Parallel Library (TPL)<ept id="p1">](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

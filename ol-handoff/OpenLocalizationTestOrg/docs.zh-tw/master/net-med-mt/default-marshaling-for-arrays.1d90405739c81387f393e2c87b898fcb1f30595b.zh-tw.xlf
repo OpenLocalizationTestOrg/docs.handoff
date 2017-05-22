@@ -1,0 +1,567 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4981244fd1079008f4e63c8f863d5491ffaf509f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\default-marshaling-for-arrays.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">db20d760cd765c413721c9e2ba68d7185b5f9fea</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d0909e55f3668f1737c9c1c486af72420c26e2ea</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Default Marshaling for Arrays | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Default Marshaling for Arrays</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In an application consisting entirely of managed code, the common language runtime passes array types as In/Out parameters.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In contrast, the interop marshaler passes an array as In parameters by default.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>With <bpt id="p1">[</bpt>pinning optimization<ept id="p1">](../../../docs/framework/interop/copying-and-pinning.md)</ept>, a blittable array can appear to operate as an In/Out parameter when interacting with objects in the same apartment.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, if you later export the code to a type library used to generate the cross-machine proxy, and that library is used to marshal your calls across apartments, the calls can revert to true In parameter behavior.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Arrays are complex by nature, and the distinctions between managed and unmanaged arrays warrant more information than other non-blittable types.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This topic provides the following information on marshaling arrays:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Managed Arrays<ept id="p1">](#cpcondefaultmarshalingforarraysanchor1)</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Unmanaged Arrays<ept id="p1">](#cpcondefaultmarshalingforarraysanchor2)</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Passing Array Parameters to .NET Code<ept id="p1">](#cpcondefaultmarshalingforarraysanchor3)</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Passing Arrays to COM<ept id="p1">](#cpcondefaultmarshalingforarraysanchor4)</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Managed Arrays</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Managed array types can vary; however, the <ph id="ph1">&lt;xref:System.Array?displayProperty=fullName&gt;</ph> class is the base class of all array types.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>System.Array<ept id="p1">**</ept> class has properties for determining the rank, length, and lower and upper bounds of an array, as well as methods for accessing, sorting, searching, copying, and creating arrays.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>These array types are dynamic and do not have a corresponding static type defined in the base class library.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It is convenient to think of each combination of element type and rank as a distinct type of array.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Therefore, a one-dimensional array of integers is of a different type than a one-dimensional array of double types.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Similarly a two-dimensional array of integers is different from a one-dimensional array of integers.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The bounds of the array are not considered when comparing types.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>As the following table shows, any instance of a managed array must be of a specific element type, rank, and lower bound.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Managed array type</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Element type</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Rank</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Lower bound</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Signature notation</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_ARRAY<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Specified by type.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Specified by rank.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Optionally specified by bounds.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>type<ept id="p1">*</ept> <bpt id="p2">**</bpt>[<ept id="p2">**</ept> <bpt id="p3">*</bpt><ph id="ph1">n</ph><ept id="p3">*</ept>,<bpt id="p4">*</bpt>m<ept id="p4">*</ept> <bpt id="p5">**</bpt>]<ept id="p5">**</ept></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_CLASS<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Unknown</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Unknown</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Unknown</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>System.Array<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Specified by type.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>1</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>0</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>type<ept id="p1">*</ept> <bpt id="p2">**</bpt>[<ept id="p2">**</ept> <bpt id="p3">*</bpt><ph id="ph1">n</ph><ept id="p3">*</ept> <bpt id="p4">**</bpt>]<ept id="p4">**</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Unmanaged Arrays</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Unmanaged arrays are either COM-style safe arrays or C-style arrays with fixed or variable length.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Safe arrays are self-describing arrays that carry the type, rank, and bounds of the associated array data.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>C-style arrays are one-dimensional typed arrays with a fixed lower bound of 0.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The marshaling service has limited support for both types of arrays.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Passing Array Parameters to .NET Code</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Both C-style arrays and safe arrays can be passed to .NET code from unmanaged code as either a safe array or a C-style array.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The following table shows the unmanaged type value and the imported type.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Unmanaged type</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Imported type</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>SafeArray(<ept id="p1">**</ept> <bpt id="p2">*</bpt>Type<ept id="p2">*</ept> <bpt id="p3">**</bpt>)<ept id="p3">**</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept> <bpt id="p2">**</bpt><ph id="ph1">\&lt;</ph><ept id="p2">**</ept> <bpt id="p3">*</bpt>ConvertedType<ept id="p3">*</ept> <bpt id="p4">**</bpt><ph id="ph2">&gt;</ph><ept id="p4">**</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Rank = 1, lower bound = 0.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Size is known only if provided in the managed signature.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Safe arrays that are not rank = 1 or lower bound = 0 cannot be marshaled as <bpt id="p1">**</bpt>SZARRAY<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Type<ept id="p1">*</ept>  <bpt id="p2">**</bpt>[]<ept id="p2">**</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept> <bpt id="p2">**</bpt><ph id="ph1">\&lt;</ph><ept id="p2">**</ept> <bpt id="p3">*</bpt>ConvertedType<ept id="p3">*</ept> <bpt id="p4">**</bpt><ph id="ph2">&gt;</ph><ept id="p4">**</ept></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Rank = 1, lower bound = 0.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Size is known only if provided in the managed signature.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Safe Arrays</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>When a safe array is imported from a type library to a .NET assembly, the array is converted to a one-dimensional array of a known type (such as <bpt id="p1">**</bpt>int<ept id="p1">**</ept>).</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The same type conversion rules that apply to parameters also apply to array elements.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For example, a safe array of <bpt id="p1">**</bpt>BSTR<ept id="p1">**</ept> types becomes a managed array of strings and a safe array of variants becomes a managed array of objects.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>SAFEARRAY<ept id="p1">**</ept> element type is captured from the type library and saved in the <bpt id="p2">**</bpt>SAFEARRAY<ept id="p2">**</ept> value of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.UnmanagedType&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Because the rank and bounds of the safe array cannot be determined from the type library, the rank is assumed to equal 1 and the lower bound is assumed to equal 0.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The rank and bounds must be defined in the managed signature produced by the <bpt id="p1">[</bpt>Type Library Importer (Tlbimp.exe)<ept id="p1">](../../../docs/framework/tools/tlbimp-exe-type-library-importer.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If the rank passed to the method at run time differs, a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeArrayRankMismatchException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If the type of the array passed at run time differs, a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeArrayTypeMismatchException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The following example shows safe arrays in managed and unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Unmanaged signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Multidimensional, or nonzero-bound safe arrays, can be marshaled into managed code if the method signature produced by Tlbimp.exe is modified to indicate an element type of <bpt id="p1">**</bpt>ELEMENT_TYPE_ARRAY<ept id="p1">**</ept> instead of <bpt id="p2">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Alternatively, you can use the <bpt id="p1">**</bpt>/sysarray<ept id="p1">**</ept> switch with Tlbimp.exe to import all arrays as <ph id="ph1">&lt;xref:System.Array?displayProperty=fullName&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>In cases where the array being passed is known to be multidimensional, you can edit the Microsoft intermediate language (MSIL) code produced by Tlbimp.exe and then recompile it.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>For details about how to modify MSIL code, see <bpt id="p1">[</bpt>Customizing Runtime Callable Wrappers<ept id="p1">](http://msdn.microsoft.com/en-us/4652beaf-77d0-4f37-9687-ca193288c0be)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>C-Style Arrays</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>When a C-style array is imported from a type library to a .NET assembly, the array is converted to <bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The array element type is determined from the type library and preserved during the import.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The same conversion rules that apply to parameters also apply to array elements.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For example, an array of <bpt id="p1">**</bpt>LPStr<ept id="p1">**</ept> types becomes an array of <bpt id="p2">**</bpt>String<ept id="p2">**</ept> types.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Tlbimp.exe captures the array element type and applies the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute to the parameter.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The array rank is assumed to equal 1.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>If the rank is greater than 1, the array is marshaled as a one-dimensional array in column-major order.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The lower bound always equals 0.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Type libraries can contain arrays of fixed or variable length.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Tlbimp.exe can import only fixed-length arrays from type libraries because type libraries lack the information needed to marshal variable-length arrays.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>With fixed-length arrays, the size is imported from the type library and captured in the <bpt id="p1">**</bpt>MarshalAsAttribute<ept id="p1">**</ept> that is applied to the parameter.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>You must manually define type libraries containing variable-length arrays, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Unmanaged signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Although you can apply the <bpt id="p1">**</bpt>size_is<ept id="p1">**</ept> or <bpt id="p2">**</bpt>length_is<ept id="p2">**</ept> attributes to an array in Interface Definition Language (IDL) source to convey the size to a client, the Microsoft Interface Definition Language (MIDL) compiler does not propagate that information to the type library.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Without knowing the size, the interop marshaling service cannot marshal the array elements.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Consequently, variable-length arrays are imported as reference arguments.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Unmanaged signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Managed signature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>You can provide the marshaler with the array size by editing the Microsoft intermediate language (MSIL) code produced by Tlbimp.exe and then recompiling it.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>For details about how to modify MSIL code, see <bpt id="p1">[</bpt>Customizing Runtime Callable Wrappers<ept id="p1">](http://msdn.microsoft.com/en-us/4652beaf-77d0-4f37-9687-ca193288c0be)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>To indicate the number of elements in the array, apply the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> type to the array parameter of the managed method definition in one of the following ways:</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Identify another parameter that contains the number of elements in the array.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>The parameters are identified by position, starting with the first parameter as number 0.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Define the size of the array as a constant.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>When marshaling arrays from unmanaged code to managed code, the marshaler checks the <bpt id="p1">**</bpt>MarshalAsAttribute<ept id="p1">**</ept> associated with the parameter to determine the array size.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>If the array size is not specified, only one element is marshaled.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>MarshalAsAttribute<ept id="p1">**</ept> has no effect on marshaling managed arrays to unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>In that direction, the array size is determined by examination.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>There is no way to marshal a subset of a managed array.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The interop marshaler uses the <bpt id="p1">**</bpt>CoTaskMemAlloc<ept id="p1">**</ept> and <bpt id="p2">**</bpt>CoTaskMemFree<ept id="p2">**</ept> methods to allocate and retrieve memory.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Memory allocation performed by unmanaged code must also use these methods.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Passing Arrays to COM</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>All managed array types can be passed to unmanaged code from managed code.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Depending on the managed type and the attributes applied to it, the array can be accessed as a safe array or a C-style array, as shown in the following table.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Managed array type</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Exported as</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept> <bpt id="p2">**</bpt><ph id="ph1">\&lt;</ph><ept id="p2">**</ept> <bpt id="p3">*</bpt>type<ept id="p3">*</ept> <bpt id="p4">**</bpt><ph id="ph2">&gt;</ph><ept id="p4">**</ept></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.UnmanagedType&gt;</ph> <bpt id="p1">**</bpt>.SafeArray(<ept id="p1">**</ept> <bpt id="p2">*</bpt>type<ept id="p2">*</ept> <bpt id="p3">**</bpt>)<ept id="p3">**</ept></source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.LPArray<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Type is provided in the signature.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Rank is always 1, lower bound is always 0.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Size is always known at run time.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_ARRAY<ept id="p1">**</ept> <bpt id="p2">**</bpt><ph id="ph1">\&lt;</ph><ept id="p2">**</ept> <bpt id="p3">*</bpt>type<ept id="p3">*</ept> <bpt id="p4">**</bpt><ph id="ph2">&gt;</ph><ept id="p4">**</ept> <bpt id="p5">**</bpt><ph id="ph3">\&lt;</ph><ept id="p5">**</ept> <bpt id="p6">*</bpt>rank<ept id="p6">*</ept> <bpt id="p7">**</bpt><ph id="ph4">&gt;</ph><ept id="p7">**</ept>[<bpt id="p8">**</bpt><ph id="ph5">\&lt;</ph><ept id="p8">**</ept> <bpt id="p9">*</bpt>bounds<ept id="p9">*</ept> <bpt id="p10">**</bpt><ph id="ph6">&gt;</ph><ept id="p10">**</ept>]</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.SafeArray(<ept id="p1">**</ept> <bpt id="p2">*</bpt>type<ept id="p2">*</ept> <bpt id="p3">**</bpt>)<ept id="p3">**</ept></source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.LPArray<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Type, rank, bounds are provided in the signature.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Size is always known at run time.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>ELEMENT_TYPE_CLASS<ept id="p1">**</ept> <bpt id="p2">**</bpt><ph id="ph1">\&lt;</ph><ept id="p2">**</ept><ph id="ph2">&lt;xref:System.Array?displayProperty=fullName&gt;</ph><bpt id="p3">**</bpt><ph id="ph3">&gt;</ph><ept id="p3">**</ept></source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UT_Interface<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>UnmanagedType.SafeArray(<ept id="p1">**</ept> <bpt id="p2">*</bpt>type<ept id="p2">*</ept> <bpt id="p3">**</bpt>)<ept id="p3">**</ept></source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Type, rank, bounds, and size are always known at run time.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>There is a limitation in OLE Automation relating to arrays of structures that contain LPSTR or LPWSTR.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Therefore, <bpt id="p1">**</bpt>String<ept id="p1">**</ept> fields have to be marshaled as <bpt id="p2">**</bpt>UnmanagedType.BSTR<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Otherwise, an exception will be thrown.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>ELEMENT_TYPE_SZARRAY</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>When a method containing an <bpt id="p1">**</bpt>ELEMENT_TYPE_SZARRAY<ept id="p1">**</ept> parameter (one-dimensional array) is exported from a .NET assembly to a type library, the array parameter is converted to a <bpt id="p2">**</bpt>SAFEARRAY<ept id="p2">**</ept> of a given type.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The same conversion rules apply to the array element types.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>The contents of the managed array are automatically copied from managed memory into the <bpt id="p1">**</bpt>SAFEARRAY<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>The rank of the safe arrays is always 1 and the lower bound is always 0.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>The size is determined at run time by the size of the managed array being passed.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>The array can also be marshaled as a C-style array by using the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Although the marshaler has the length information needed to marshal the array, the array length is usually passed as a separate argument to convey the length to the callee.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>ELEMENT_TYPE_ARRAY</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>When a method containing an <bpt id="p1">**</bpt>ELEMENT_TYPE_ARRAY<ept id="p1">**</ept> parameter is exported from a .NET assembly to a type library, the array parameter is converted to a <bpt id="p2">**</bpt>SAFEARRAY<ept id="p2">**</ept> of a given type.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The contents of the managed array are automatically copied from managed memory into the <bpt id="p1">**</bpt>SAFEARRAY<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>The rank, size, and bounds of the safe arrays are determined at run time by the characteristics of the managed array.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The array can also be marshaled as a C-style array by applying the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Nested arrays cannot be marshaled.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>For example, the following signature generates an error when exported with the <bpt id="p1">[</bpt>Type Library Exporter (Tlbexp.exe)<ept id="p1">](../../../docs/framework/tools/tlbexp-exe-type-library-exporter.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>ELEMENT_TYPE_CLASS <ph id="ph1">\&lt;</ph>System.Array&gt;</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>When a method containing a <ph id="ph1">&lt;xref:System.Array?displayProperty=fullName&gt;</ph> parameter is exported from a .NET assembly to a type library, the array parameter is converted to an <bpt id="p1">**</bpt>_Array<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>The contents of the managed array are accessible only through the methods and properties of the <bpt id="p1">**</bpt>_Array<ept id="p1">**</ept> interface.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>System.Array<ept id="p1">**</ept> can also be marshaled as a <bpt id="p2">**</bpt>SAFEARRAY<ept id="p2">**</ept> by using the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>When marshaled as a safe array, the array elements are marshaled as variants.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Managed signature</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Unmanaged signature</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>Arrays within Structures</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Unmanaged structures can contain embedded arrays.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>By default, these embedded array fields are marshaled as a SAFEARRAY.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>In the following example, <ph id="ph1">`s1`</ph> is an embedded array that is allocated directly within the structure itself.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Unmanaged representation</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Arrays can be marshaled as <ph id="ph1">&lt;xref:System.Runtime.InteropServices.UnmanagedType&gt;</ph>, which requires you to set the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.MarshalAsAttribute&gt;</ph> field.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The size can be set only as a constant.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>The following code shows the corresponding managed definition of <ph id="ph1">`MyStruct`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Default Marshaling Behavior<ept id="p1">](../../../docs/framework/interop/default-marshaling-behavior.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Blittable and Non-Blittable Types<ept id="p1">](../../../docs/framework/interop/blittable-and-non-blittable-types.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Directional Attributes<ept id="p1">](http://msdn.microsoft.com/en-us/241ac5b5-928e-4969-8f58-1dbc048f9ea2)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Copying and Pinning<ept id="p1">](../../../docs/framework/interop/copying-and-pinning.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

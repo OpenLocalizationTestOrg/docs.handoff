@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">26fa442d1521a0294cd382fb2b30149415a95f6d</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\preview-events.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7b56d704a183e9093653101276ec3adc10555e15</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cf59f99e0f625e2c1532ce27fa441401f0ba830b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Preview Events | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Preview Events</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Preview events, also known as tunneling events, are routed events where the direction of the route travels from the application root towards the element that raised the event and is reported as the source in event data.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Not all event scenarios support or require preview events; this topic describes the situations where preview events exist, how applications or components should handle them, and cases where creating preview events in custom components or classes might be appropriate.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Preview Events and Input</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When you handle Preview events in general, be cautious about marking the events handled in the event data.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Handling a Preview event on any element other than the element that raised it (the element that is reported as the source in the event data) has the effect of not providing an element the opportunity to handle the event that it originated.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Sometimes this is the desired result, particularly if the elements in question exist in relationships within the compositing of a control.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For input events specifically, Preview events also share event data instances with the equivalent bubbling event.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If you use a Preview event class handler to mark the input event handled, the bubbling input event class handler will not be invoked.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Or, if you use a Preview event instance handler to mark the event handled, handlers for the bubbling event will not typically be invoked.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Class handlers or instance handlers can be registered or attached with an option to be invoked even if the event is marked handled, but that technique is not commonly used.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For more information about class handling and how it relates to Preview events see <bpt id="p1">[</bpt>Marking Routed Events as Handled, and Class Handling<ept id="p1">](../../../../docs/framework/wpf/advanced/marking-routed-events-as-handled-and-class-handling.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Working Around Event Suppression by Controls</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>One scenario where Preview events are commonly used is for composited control handling of input events.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Sometimes, the author of the control suppresses a certain event from originating from their control, perhaps in order to substitute a component-defined event that carries more information or implies a more specific behavior.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For instance, a <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph> suppresses <ph id="ph3">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> and <ph id="ph4">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> bubbling events raised by the <ph id="ph5">&lt;xref:System.Windows.Controls.Button&gt;</ph> or its composite elements in favor of capturing the mouse and raising a <ph id="ph6">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event that is always raised by the <ph id="ph7">&lt;xref:System.Windows.Controls.Button&gt;</ph> itself.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The event and its data still continue along the route, but because the <ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph> marks the event data as <ph id="ph2">&lt;xref:System.Windows.RoutedEventArgs.Handled%2A&gt;</ph>, only handlers for the event that specifically indicated they should act in the <ph id="ph3">`handledEventsToo`</ph> case  are invoked.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If other elements towards the root of your application still wanted an opportunity to handle a control-suppressed event, one alternative is to attach handlers in code with <ph id="ph1">`handledEventsToo`</ph> specified as <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>But often a simpler technique is to change the routing direction you handle to be the Preview equivalent of an input event.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For instance, if a control suppresses <ph id="ph1">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph>, try attaching a handler for <ph id="ph2">&lt;xref:System.Windows.UIElement.PreviewMouseLeftButtonDown&gt;</ph> instead.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This technique only works for base element input events such as <ph id="ph1">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>These input events use tunnel/bubble pairs, raise both events, and share the event data.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Each of these techniques has either side effects or limitations.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The side effect of handling the Preview event is that handling the event at that point might disable handlers that expect to handle the bubbling event, and therefore the limitation is that it is usually not a good idea to mark the event handled while it is still on the Preview part of the route.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The limitation of the <ph id="ph1">`handledEventsToo`</ph> technique is that you cannot specify a <ph id="ph2">`handledEventsToo`</ph> handler in <ph id="ph3">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> as an attribute, you must register the event handler in code after obtaining an object reference to the element where the handler is to be attached.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Marking Routed Events as Handled, and Class Handling<ept id="p1">](../../../../docs/framework/wpf/advanced/marking-routed-events-as-handled-and-class-handling.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

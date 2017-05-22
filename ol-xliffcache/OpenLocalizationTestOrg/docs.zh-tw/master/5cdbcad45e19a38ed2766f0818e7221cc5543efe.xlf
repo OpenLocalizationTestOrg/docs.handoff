@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5cdbcad45e19a38ed2766f0818e7221cc5543efe</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\error-handling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fbbf640f41b948384fae2be819b2846e055012c0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">78d2b0d51ac39c9fc12542ace0588b99e7e12722</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Error handling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Error handling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Error Handling in Windows Communication Foundation</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When a service encounters an unexpected exception or error, there are multiple ways to design an exception-handling solution.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>While there is no single "correct" or "best practice" error-handling solution, there are multiple valid paths for one to consider.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>It is normally recommended that one implement a hybrid solution that combines multiple approaches from the list below, depending on the complexity of the WCF implementation, the type and frequency of the exceptions, the handled vs. unhandled nature of the exceptions, and any associated tracing, logging, or policy requirements.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>These solutions are explained more deeply in the rest of this section.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The Microsoft Enterprise Library</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The Microsoft Enterprise Library Exception Handling Application Block helps implement common design patterns and create a consistent strategy for processing exceptions that occur in all architectural layers of an enterprise application.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>It is designed to support the typical code contained in catch statements in application components.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Instead of repeating this code (such as code that logs exception information) in identical catch blocks throughout an application, the Exception Handling Application Block allows developers to encapsulate this logic as reusable exception handlers.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This Library includes out-of-the-box a Fault Contract Exception Handler.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This exception handler is designed for use at Windows® Communication Foundation (WCF) service boundaries, and generates a new Fault Contract from the exception.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Application blocks aim to incorporate commonly used best practices and provide a common approach for exception handling throughout your application.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>On the other hand, custom error handlers and fault contracts developed on one’s own can also be very useful.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For instance, custom error handlers provide an excellent opportunity to automatically promote all exceptions to FaultExceptions and also to add logging capabilities to your application.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For more information, please see <bpt id="p1">[</bpt>Microsoft Enterprise Library<ept id="p1">](http://msdn.microsoft.com/library/ff632023.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Dealing with Expected Exceptions</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The proper course of action is to catch expected exceptions in every operation or relevant extensibility point, decide whether they can be recovered from, and return the proper custom fault in a FaultException<ph id="ph1">\&lt;</ph>T&gt;</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Dealing with Unexpected Exceptions using an IErrorHandler</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To deal with unexpected exceptions, the recommended course of action is to "hook" an IErrorHandler.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Error handlers only catch exceptions at the WCF runtime level (the "service model" layer), not at the channel layer.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The only way to hook an IErrorHandler at the channel level is to create a custom channel, which is not recommended in most scenarios.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>An "unexpected exception" is generally neither an irrecoverable exception nor a processing exception; it is, instead, an unexpected user exception.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>An irrecoverable exception (such as an out-of-memory exception) – one generally handled by the <bpt id="p1">[</bpt>Service Model Exception Handler<ept id="p1">](http://msdn.microsoft.com/library/system.servicemodel.dispatcher.exceptionhandler.aspx)</ept> automatically – cannot generally be handled gracefully, and the only reason to handle such an exception at all may be do additional logging or to return a standard exception to the client.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A processing exception occurs in the processing of the message – for example, at the serialization, encoder, or formatter level – generally cannot be handled at an IErrorHandler, because it is generally either too early or too late for the error handler to intervene by the time these exceptions occur.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Similarly, transport exceptions cannot be handled at an IErrorHandler.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>With an IErrorHandler, you can explicitly control the behavior of your application when an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You may:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Decide whether or not to send a fault to the client</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Replace an exception with a fault</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Replace a fault with another fault</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Perform logging or tracing</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Perform other custom activities</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>One can install a custom error handler by adding it to the ErrorHandlers property of the channel dispatchers for your service.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>It is possible to have more than one error handler and they are called in the order they are added to this collection.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>IErrorHandler.ProvideFault controls the fault message that is sent to the client.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This method is called regardless of the type of the exception thrown by an operation in your service.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If no operation is performed here, WCF assumes its default behaviour and continues as if there were no custom error handlers in place.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>One area that you could perhaps use this approach is when you want to create a central place for converting exceptions to faults before they are sent to the client (ensuring that the instance is not disposed and the channel is not moved to the Faulted state).</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The IErrorHandler.HandleError method is usually used to implement error-related behaviors such as error logging, system notifications, shutting down the application, etc. IErrorHandler.HandleError can be called at multiple places inside the service, and depending on where the error is thrown, the HandleError method may or may not be called by the same thread as the operation; no guarantees are made in this regard.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Dealing with Exceptions outside WCF</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Often, configuration exceptions, database connection string exceptions, and other similar exceptions may occur within the context of a WCF application, but are themselves are not exceptions caused by the service model or the web service itself.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>These exceptions are "regular" exceptions external to the web service, and should be handled just as other external exceptions in the environment are to be handled.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Tracing exceptions</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Tracing is the only "catch-all" place where one can potentially see all exceptions.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For more information on tracing and logging exceptions, see Tracing and Logging.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>URI template errors when using WebGetAttribute and WebInvokeAttribute</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The WebGet and WebInvoke attributes allow you to specify a URI template that maps components of the request address to operation parameters.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For example, the URI template "weather/{state}/{city}" maps the request address into literal tokens, a parameter named state, and a parameter named city.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>These parameters might then be bound by name to some of the formal parameters of the operation.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The template parameters appear in the form of strings within the URI while the formal parameters of a typed contract might be of non-string types.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Therefore, a conversion needs to take place before the operation can be invoked.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">[</bpt>table of conversion formats<ept id="p1">](http://msdn.microsoft.com/library/bb412172.aspx)</ept> is available.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>However, if the conversion fails, then there's no way to let the operation know that something has gone wrong.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The type conversion instead surfaces in the form of a dispatch failure.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>A type conversion dispatch failure can be inspected the same as with many other types of dispatch failures by installing an error handler.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The IErrorHandler extensibility point is called to handle service-level exceptions.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>From there, the response to be sent back to the caller – as well as perform any custom tasks and reporting – may be chosen.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Basic WCF Error Handling<ept id="p1">](http://msdn.microsoft.com/library/gg281715.aspx)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

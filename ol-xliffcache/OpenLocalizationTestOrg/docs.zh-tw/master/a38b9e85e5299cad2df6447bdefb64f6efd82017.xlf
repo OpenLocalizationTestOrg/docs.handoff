@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a38b9e85e5299cad2df6447bdefb64f6efd82017</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\net-native\serialization-and-metadata.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f6a1ddae4bf2b261191e1c394406f3f2cefa4dc3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3537dbd9fe62b4e510cd9ded3132a304b76b7979</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Serialization and Metadata | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Serialization and Metadata</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>If your app serializes and deserializes objects, you may need to add entries to your runtime directives (.rd.xml) file to ensure that the necessary metadata is present at run time.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>There are two categories of serializers, and each requires different handling in your runtime directives file:</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Reflection-based third-party serializers.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>These require modifications to your runtime directives file, and are discussed in the next section.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Non-reflection based serializers found in the .NET Framework class library.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>These may require modifications to your runtime directives file, and are discussed in the <bpt id="p1">[</bpt>Microsoft serializers<ept id="p1">](#Microsoft)</ept> section.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Third-party serializers</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Third-part serializers, including Newtonsoft.JSON, typically are reflection-based.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Given a binary large object (BLOB) of serialized data, the fields in the data are assigned to a concrete type by looking up the fields of the target type by name.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>At a minimum, using these libraries causes <bpt id="p1">[</bpt>MissingMetadataException<ept id="p1">](../../../docs/framework/net-native/missingmetadataexception-class-net-native.md)</ept> exceptions for each <ph id="ph1">&lt;xref:System.Type&gt;</ph> object that you try to serialize or deserialize in a <ph id="ph2">`List&lt;Type&gt;`</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The easiest way to address issues caused by missing metadata for these serializers is to collect types that will be used in serialization under a single namespace (such as <ph id="ph1">`App.Models`</ph>) and apply a <ph id="ph2">`Serialize`</ph> metadata directive to it:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For information about the syntax used in the example, see <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>Namespace&gt; Element<ept id="p1">](../../../docs/framework/net-native/namespace-element-net-native.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Microsoft serializers</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Although the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph>, <ph id="ph2">&lt;xref:System.Runtime.Serialization.Json.DataContractJsonSerializer&gt;</ph>, and <ph id="ph3">&lt;xref:System.Xml.Serialization.XmlSerializer&gt;</ph> classes do not rely on reflection, they do require code to be generated based on the object to be serialized or deserialized.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The overloaded constructors for each serializer include a <ph id="ph1">&lt;xref:System.Type&gt;</ph> parameter that specifies the type to be serialized or deserialized.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>How you specify that type in your code defines the action you must take, as discussed in the next two sections.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>typeof used in the constructor</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If you call a constructor of these serialization classes and include the C# <bpt id="p1">[</bpt>typeof<ept id="p1">](~/docs/csharp/language-reference/keywords/typeof.md)</ept> keyword in the method call, <bpt id="p2">**</bpt>you do not have to do any additional work<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, in each of the following calls to a serialization class constructor, the <ph id="ph1">`typeof`</ph> keyword is used as part of the expression passed to the constructor.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/serialize1.cs#5)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> compiler will automatically handle this code.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>typeof used outside the constructor</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>If you call a constructor of these serialization classes and use the C# <bpt id="p1">[</bpt>typeof<ept id="p1">](~/docs/csharp/language-reference/keywords/typeof.md)</ept> keyword outside the expression supplied to the constructor’s <ph id="ph1">&lt;xref:System.Type&gt;</ph> parameter, as in the following code, the <ph id="ph2">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> compiler cannot resolve the type:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/serialize1.cs#6)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In this case, you must specify the type in the runtime directives file by adding an entry like this:</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Similarly, if you call a constructor such as <ph id="ph1">&lt;xref:System.Xml.Serialization.XmlSerializer.%23ctor%28System.Type%2CSystem.Type%5B%5D%29?displayProperty=fullName&gt;</ph> and provide an array of additional <ph id="ph2">&lt;xref:System.Type&gt;</ph> objects to serialize, as in the following code, the <ph id="ph3">[!INCLUDE[net_native](../../../includes/net-native-md.md)]</ph> compiler cannot resolve these types.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ProjectN#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/serialize1.cs#7)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>You must add entries such as the following for each type to the runtime directives file:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>For information about the syntax used in the example, see <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>Type&gt; Element<ept id="p1">](../../../docs/framework/net-native/type-element-net-native.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Runtime Directives (rd.xml) Configuration File Reference<ept id="p1">](../../../docs/framework/net-native/runtime-directives-rd-xml-configuration-file-reference.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Runtime Directive Elements<ept id="p1">](../../../docs/framework/net-native/runtime-directive-elements.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt><ph id="ph1">\&lt;</ph>Type&gt; Element<ept id="p1">](../../../docs/framework/net-native/type-element-net-native.md)</ept><ph id="ph2"> </ph></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt><ph id="ph1">\&lt;</ph>Namespace&gt; Element<ept id="p1">](../../../docs/framework/net-native/namespace-element-net-native.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

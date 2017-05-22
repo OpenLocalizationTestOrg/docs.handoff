@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">afc8598f2ee2e02a8ce5cd22413a2167d3baafb4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\performance\reliability-best-practices.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">16d0de6af2d917240979cd97843baf0f5116cffb</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cc5ffdb95e78ca53f2ad8bcbd356cf22f062d35a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Reliability Best Practices | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Reliability Best Practices</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The following reliability rules are oriented to SQL Server; however, they also apply to any host-based server application.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It is extremely important that servers such as SQL Server not leak resources and not be brought down.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>However, that cannot be done by writing back-out code for every method that alters an object’s state.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The goal is not to write 100 percent reliable managed code that will recover from any errors in every location with back-out code.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>That would be a daunting task with little chance of success.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The common language runtime (CLR) cannot easily provide strong enough guarantees to managed code to make writing perfect code feasible.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Note that unlike ASP.NET, SQL Server uses only one process that cannot be recycled without taking a database down for an unacceptably long time.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>With these weaker guarantees and running in a single process, reliability is based on terminating threads or recycling application domains when necessary and taking precautions to ensure operating system resources such as handles or memory are not leaked.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Even with this simpler reliability constraint, there is still a significant reliability requirement:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Never leak operating system resources.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Identify all managed locks in all forms to the CLR.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Never break cross-application domain shared state, allowing <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> recycling to function smoothly.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Although it is theoretically possible to write managed code to handle <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>, <ph id="ph2">&lt;xref:System.StackOverflowException&gt;</ph>, and <ph id="ph3">&lt;xref:System.OutOfMemoryException&gt;</ph> exceptions, expecting developers to write such robust code throughout an entire application is unreasonable.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For that reason, out-of-band exceptions result in the executing thread being terminated; and if the terminated thread was editing shared state, which can be determined by whether the thread holds a lock, then the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> is unloaded.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>When a method that is editing shared state is terminated, the state will be corrupt because it is not possible to write reliable back-out code for updates to shared state.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, the only host that requires reliability is SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If your assembly will be run on SQL Server you should do the reliability work for every part of that assembly, even if there are specific features that are disabled when running in the database.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This is required because the code analysis engine examines code at the assembly level and cannot differentiate disabled code.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Another SQL Server programming consideration is that SQL Server runs everything in one process, and <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> recycling is used for cleaning up all resources such as memory and operating system handles.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You cannot depend on finalizers or destructors or <ph id="ph1">`try/finally`</ph> blocks for back-out code.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>They might be interrupted or not called.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Asynchronous exceptions can be thrown in unexpected locations, possibly every machine instruction: <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>, <ph id="ph2">&lt;xref:System.StackOverflowException&gt;</ph>, and <ph id="ph3">&lt;xref:System.OutOfMemoryException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Managed threads are not necessarily Win32 threads in SQL; they might be fibers.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Process-wide or cross-application domain mutable shared state is extremely difficult to alter safely and should be avoided whenever possible.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Out-of-memory conditions are not rare in SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If libraries hosted in SQL Server do not correctly update their shared state, there is a high probability that the code will not recover until the database has been restarted.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Additionally, in some extreme cases, it is possible this might cause the SQL Server process to fail, causing the database to reboot.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Rebooting the database can take down a Web site or affect company operations, hurting availability.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A slow leak of operating system resources such as memory or handles may cause the server to eventually fail allocating handles with no possibility of recovery, or potentially the server may slowly degrade in performance and reduces a customer’s application availability.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Clearly we want to avoid these scenarios.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Best Practice Rules</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The introduction focused on what the code review for the managed code that runs in the server would have to catch to increase the stability and reliability of the framework.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>All these checks are good practice in general and an absolute must on the server.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In the face of a dead lock or resource constraint, SQL Server will abort a thread or tear down an <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>When this happens, only back-out code in a constrained execution region (CER) is guaranteed to be run.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Use SafeHandle to Avoid Resource Leaks</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In the case of an <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> unload, you cannot depend on <ph id="ph2">`finally`</ph> blocks or finalizers being executed, so it is important to abstract all operating system resource access through the <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> class rather than <ph id="ph4">&lt;xref:System.IntPtr&gt;</ph>, <ph id="ph5">&lt;xref:System.Runtime.InteropServices.HandleRef&gt;</ph>, or similar classes.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This allows the CLR to track and close the handles you use even in the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> tear-down case.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> will be using a critical finalizer which the CLR will always run.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The operating system handle is stored in the safe handle from the moment it is created until the moment it is released.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>There is no window during which a <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> can occur to leak a handle.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Additionally, platform invoke will reference-count the handle, which allows close tracking of the lifetime of the handle, preventing a security issue with a race condition between <ph id="ph1">`Dispose`</ph> and a method that is currently using the handle.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Most classes that currently have a finalizer to simply clean up an operating system handle will not need the finalizer anymore.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Instead, the finalizer will be on the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derived class.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Note that <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is not a replacement for <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>There are still potential resource contention and performance advantages to explicitly dispose operating system resources.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Just realize that <ph id="ph1">`finally`</ph> blocks that do explicitly dispose of resources may not execute to completion.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> allows you to implement your own <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method that performs the work to free the handle, such as passing state to an operating system handle freeing routine or freeing a set of handles in a loop.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The CLR guarantees that this method is run.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>It is the responsibility of the author of the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> implementation to ensure that the handle is released in all circumstances.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Failure to do so will cause the handle to be leaked, which often results in the leakage of native resources associated with the handle.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Therefore it is critical to structure <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derived classes such that the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> implementation does not require the allocation of any resources that may not be available at invocation time.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Note that it is permissible to call methods that may fail within the implementation of <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> provided that your code can handle such failures and complete the contract to release the native handle.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>For debugging purposes, <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> has a <ph id="ph2">&lt;xref:System.Boolean&gt;</ph> return value which may be set to <ph id="ph3">`false`</ph> if a catastrophic error is encountered which prevents release of the resource.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Doing so will activate the <bpt id="p1">[</bpt>releaseHandleFailed<ept id="p1">](../../../docs/framework/debug-trace-profile/releasehandlefailed-mda.md)</ept> MDA, if enabled, to aid in identifying the problem.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>It does not affect the runtime in any other way; <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> will not be called again for the same resource and consequently the handle will be leaked.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is not appropriate in certain contexts.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Since the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> method can be run on a <ph id="ph2">&lt;xref:System.GC&gt;</ph> finalizer thread, any handles that are required to be freed on a particular thread should not be wrapped in a <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Runtime callable wrappers (RCWs) can be cleaned by the CLR without additional code.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>For code that uses platform invoke and treats a COM object as an <ph id="ph1">`IUnknown*`</ph> or an <ph id="ph2">&lt;xref:System.IntPtr&gt;</ph>, the code should be rewritten to use an RCW.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> may not be adequate for this scenario due to the possibility of an unmanaged release method calling back into managed code.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to encapsulate operating system resources.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Do not use <ph id="ph1">&lt;xref:System.Runtime.InteropServices.HandleRef&gt;</ph> or fields of type <ph id="ph2">&lt;xref:System.IntPtr&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Ensure Finalizers Do Not Have to Run to Prevent Leaking Operating System Resources</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Review your finalizers carefully to ensure that even if they do not run, a critical operating system resource is not leaked.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Unlike a normal <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> unload when the application is executing in a steady state or when a server such as SQL Server shuts down, objects are not finalized during an abrupt <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph> unload.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Ensure resources are not leaked in the case of an abrupt unload, since an application's correctness cannot be guaranteed, but the integrity of the server must be maintained by not leaking resources.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to free any operating system resources.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Ensure That finally Clauses Do Not Have to Run to Prevent Leaking Operating System Resources</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`finally`</ph> clauses are not guaranteed to run outside of CERs, requiring library developers to not rely on code within a <ph id="ph2">`finally`</ph> block to free unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is the recommended solution.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> for cleaning up operating system resources instead of <ph id="ph2">`Finalize`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Do not use <ph id="ph1">&lt;xref:System.IntPtr&gt;</ph>; use <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to encapsulate resources.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If the finally clause must run, place it in a CER.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>All Locks Should Go Through Existing Managed Locking Code</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The CLR must know when code is in a lock so that it will know to tear down the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> rather than just aborting the thread.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Aborting the thread could be dangerous as the data operated on by the thread could be left in an inconsistent state.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Therefore, the entire <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> has to be recycled.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The consequences of failing to identify a lock can be either deadlocks or incorrect results.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Use the methods <ph id="ph1">&lt;xref:System.Threading.Thread.BeginCriticalRegion%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Thread.EndCriticalRegion%2A&gt;</ph> to identify lock regions.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>They are static methods on the <ph id="ph1">&lt;xref:System.Threading.Thread&gt;</ph> class that only apply to the current thread, helping to prevent one thread from editing another thread’s lock count.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Monitor.Enter%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Monitor.Exit%2A&gt;</ph> have this CLR notification built in, so their usage is recommended as well as the use of the <bpt id="p1">[</bpt>lock Statement<ept id="p1">](~/docs/csharp/language-reference/keywords/lock-statement.md)</ept>, which uses these methods.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Other locking mechanisms such as spin locks and <ph id="ph1">&lt;xref:System.Threading.AutoResetEvent&gt;</ph> must call these methods to notify the CLR that a critical section is being entered.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>These methods do not take any locks; they inform the CLR that code is executing in a critical section and aborting the thread could leave shared state inconsistent.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If you have defined your own lock type, such as a custom <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLock&gt;</ph> class, use these lock count methods.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Mark and identify all locks using <ph id="ph1">&lt;xref:System.Threading.Thread.BeginCriticalRegion%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Thread.EndCriticalRegion%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Do not use <ph id="ph1">&lt;xref:System.Threading.Interlocked.CompareExchange%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Interlocked.Increment%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Interlocked.Decrement%2A&gt;</ph> in a loop.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Do not do a platform invoke of the Win32 variants of these methods.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Do not use <ph id="ph1">&lt;xref:System.Threading.Thread.Sleep%2A&gt;</ph> in a loop.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Do not use volatile fields.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Cleanup Code Must Be in a finally or a catch Block, Not Following a catch</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Cleanup code should never follow a <ph id="ph1">`catch`</ph> block; it should be in a <ph id="ph2">`finally`</ph> or in the <ph id="ph3">`catch`</ph> block itself.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>This should be a normal good practice.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`finally`</ph> block is generally preferred because it runs the same code both when an exception is thrown and when the end of the <ph id="ph2">`try`</ph> block is normally encountered.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>In the event of an unexpected exception being thrown, for example a <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>, the cleanup code will not run.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Any unmanaged resources that you would clean up in a <ph id="ph1">`finally`</ph> should ideally be wrapped in a <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to prevent leaks.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Note the C# <ph id="ph1">`using`</ph> keyword can be used effectively to dispose of objects, including handles.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Although <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> recycling can clean up resources on the finalizer thread, it is still important to put cleanup code in the correct place.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Note that if a thread receives an asynchronous exception without holding a lock, the CLR attempts to end the thread itself without having to recycle the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Ensuring that resources are cleaned up sooner rather than later helps by making more resources available, and by better managing the lifetime.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>If you do not explicitly close a handle to a file in some error code path then wait for the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> finalizer to clean it up, the next time your code runs it may fail trying to access the exact same file if the finalizer has not already run.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>For this reason, ensuring that cleanup code exists and works correctly will help recover from failures more cleanly and quickly, even though it is not strictly necessary.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Cleanup code after <ph id="ph1">`catch`</ph> needs to be in a <ph id="ph2">`finally`</ph> block.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Place calls to dispose in a finally block.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`catch`</ph> blocks should end in a throw or rethrow.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>While there will be exceptions, such as code detecting whether a network connection can be established where you might get any of a large number of exceptions, any code that requires the catching of a number of exceptions under normal circumstances should give an indication that the code should be tested to see if it will succeed.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Process-Wide Mutable Shared State Between Application Domains Should Be Eliminated or Use a Constrained Execution Region</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>As described in the introduction, it can be very difficult to write managed code that monitors process-wide shared state across application domains in a reliable manner.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Process-wide shared state is any sort of data structure shared between application domains, either in Win32 code, inside the CLR, or in managed code using remoting.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Any mutable shared state is very difficult to correctly write in managed code, and any static shared state might be done only with great care.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>If you have process-wide or machine-wide shared state, find some way to eliminate it or protect the shared state using a constrained execution region (CER).</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Note that any library with shared state that is not identified and corrected could cause a host, such as SQL Server, that requires clean <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> unloading to crash.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>If code uses a COM object, avoid sharing that COM object between application domains.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Locks Do Not Work Process-Wide or Between Application Domains.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>In the past, <ph id="ph1">&lt;xref:System.Threading.Monitor.Enter%2A&gt;</ph> and the <bpt id="p1">[</bpt>lock Statement<ept id="p1">](~/docs/csharp/language-reference/keywords/lock-statement.md)</ept> have been used to create global process locks.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>For example, this occurs when locking on <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> agile classes, such as <ph id="ph2">&lt;xref:System.Type&gt;</ph> instances from non-shared assemblies, <ph id="ph3">&lt;xref:System.Threading.Thread&gt;</ph> objects, interned strings, and some strings shared across application domains using remoting.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>These locks are no longer process-wide.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>To identify the presence of a process-wide interapplication domain lock, determine if the code within the lock uses any external, persisted resource such as a file on disk or possibly a database.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Note that taking a lock within an <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> might cause problems if the protected code uses an external resource because that code may run simultaneously across multiple application domains.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>This can be a problem when writing to one log file or binding to a socket for the entire process.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>These changes mean there is no easy way, using managed code, to get a process-global lock, other than using a named <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Create code that does not run in two application domains simultaneously, or use the <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>If existing code cannot be changed, do not use a Win32 named mutex to achieve this synchronization because running in fiber mode means you cannot guarantee the same operating system thread will acquire and release a mutex.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>You must use the managed <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> class, or a named <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph>, <ph id="ph3">&lt;xref:System.Threading.AutoResetEvent&gt;</ph>, or a <ph id="ph4">&lt;xref:System.Threading.Semaphore&gt;</ph> to synchronize the code lock in a manner that the CLR is aware of instead of synchronizing the lock using unmanaged code.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Avoid lock(typeof(MyType))</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Private and public <ph id="ph1">&lt;xref:System.Type&gt;</ph> objects in shared assemblies with only one copy of the code shared across all application domains also present problems.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>For shared assemblies, there is only one instance of a <ph id="ph1">&lt;xref:System.Type&gt;</ph> per process, meaning that multiple application domains share the exact same <ph id="ph2">&lt;xref:System.Type&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Taking a lock on a <ph id="ph1">&lt;xref:System.Type&gt;</ph> instance takes a lock that affects the entire process, not just the <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>If one <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> takes a lock on a <ph id="ph2">&lt;xref:System.Type&gt;</ph> object then that thread gets abruptly aborted, it will not release the lock.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>This lock then may cause other application domains to deadlock.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>A good way to take locks in static methods involves adding a static internal synchronization object to the code.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>This could be initialized in the class constructor if one is present, but if not it can be initialized like this:</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Then when taking a lock, use the <ph id="ph1">`InternalSyncObject`</ph> property to obtain an object to lock on.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>You do not need to use the property if you have initialized the internal synchronization object in your class constructor.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>The double checking lock initialization code should look like this example:</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>A Note About Lock(this)</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>It is generally acceptable to take a lock on an individual object that is publicly accessible.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>However, if the object is a singleton object that might cause an entire subsystem to deadlock, consider using the above design pattern as well.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>For example, a lock on the one <ph id="ph1">&lt;xref:System.Security.SecurityManager&gt;</ph> object could cause a deadlock within the <ph id="ph2">&lt;xref:System.AppDomain&gt;</ph> making the entire <ph id="ph3">&lt;xref:System.AppDomain&gt;</ph> unusable.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>It is good practice to not take a lock on a publicly accessible object of this type.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>However a lock on an individual collection or array should generally not present a problem.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Do not take locks on types that might be used across application domains or do not have a strong sense of identity.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Do not call <ph id="ph1">&lt;xref:System.Threading.Monitor.Enter%2A&gt;</ph> on a <ph id="ph2">&lt;xref:System.Type&gt;</ph>, <ph id="ph3">&lt;xref:System.Reflection.MethodInfo&gt;</ph>, <ph id="ph4">&lt;xref:System.Reflection.PropertyInfo&gt;</ph>, <ph id="ph5">&lt;xref:System.String&gt;</ph>, <ph id="ph6">&lt;xref:System.ValueType&gt;</ph>, <ph id="ph7">&lt;xref:System.Threading.Thread&gt;</ph>, or any object that derives from <ph id="ph8">&lt;xref:System.MarshalByRefObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Remove GC.KeepAlive Calls</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>A significant amount of existing code either does not use <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A&gt;</ph> when it should or uses it when it is not appropriate.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>After converting to <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph>, classes do not need to call <ph id="ph2">&lt;xref:System.GC.KeepAlive%2A&gt;</ph>, assuming they do not have a finalizer but rely on <ph id="ph3">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to finalize the operating system handles.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>While the performance cost of retaining a call to <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A&gt;</ph> may be negligible, the perception that a call to <ph id="ph2">&lt;xref:System.GC.KeepAlive%2A&gt;</ph> is either necessary or sufficient to solve a lifetime issue that may no longer exist makes the code more difficult to maintain.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>However, when using the COM interop CLR callable wrappers (RCWs), <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A&gt;</ph> is still required by code.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Remove <ph id="ph1">&lt;xref:System.GC.KeepAlive%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>Use the Host Protection Attribute</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionAttribute&gt;</ph> (HPA) provides the use of declarative security actions to determine host protection requirements, allowing the host to prevent even fully trusted code from calling certain methods which are inappropriate for the given host, such as <ph id="ph2">&lt;xref:System.Environment.Exit%2A&gt;</ph> or <ph id="ph3">&lt;xref:System.Windows.Forms.MessageBox.Show%2A&gt;</ph> for SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The HPA affects only unmanaged applications that host the common language runtime and implement host protection, such as SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>When applied, the security action results in the creation of a link demand based on the host resources the class or method exposes.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>If the code is run in a client application or on a server that is not host-protected, the attribute "evaporates"; it is not detected and therefore not applied.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>The purpose of this attribute is to enforce host-specific programming model guidelines, not security behavior.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>Although a link demand is used to check for conformance to programming model requirements, the <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionAttribute&gt;</ph> is not a security permission.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>If the host does not have programming model requirements, the link demands do not occur.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>This attribute identifies the following:</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Methods or classes that do not fit the host programming model, but are otherwise benign.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>Methods or classes that do not fit the host programming model and could lead to destabilizing server-managed user code.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Methods or classes that do not fit the host programming model and could lead to a destabilization of the server process itself.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>If you are creating a class library that is to be called by applications that may execute in a host protected environment, you should apply this attribute to members that expose <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph> resource categories.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>The .NET Framework class library members with this attribute cause only the immediate caller to be checked.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Your library member must also cause a check of its immediate caller in the same manner.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Please find more information on HPA in <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>For SQL Server, all methods used to introduce synchronization or threading must identified with the HPA.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>This includes methods that share state, are synchronized, or manage external processes.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph> values that impact SQL Server are <ph id="ph2">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph>, <ph id="ph3">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph>, and <ph id="ph4">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>However, any method that exposes any <ph id="ph1">&lt;xref:System.Security.Permissions.HostProtectionResource&gt;</ph> should be identified by a HPA, not just those using resources affecting SQL.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>Do Not Block Indefinitely in Unmanaged Code</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Blocking in unmanaged code instead of in managed code can cause a denial of service attack because the CLR is not able to abort the thread.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>A blocked thread prevents the CLR from unloading the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>, at least without doing some extremely unsafe operations.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>Blocking using a Win32 synchronization primitive is a clear example of something we cannot allow.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>Blocking in a call to <ph id="ph1">`ReadFile`</ph> on a socket should be avoided if possible — ideally the Win32 API should provide a mechanism for an operation like this to time out.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>Any method that calls into native should ideally use a Win32 call with a reasonable, finite timeout.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>If the user is allowed to specify the timeout, the user should not be allowed to specify an infinite timeout without some specific security permission.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>As a guideline, if a method will block for more than ~10 seconds, you need to be using a version that supports timeouts or you need additional CLR support.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Here are some examples of problematic API’s.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>Pipes (both anonymous and named) can be created with a timeout; however, code must ensure it never calls <ph id="ph1">`CreateNamedPipe`</ph> nor <ph id="ph2">`WaitNamedPipe`</ph> with NMPWAIT_WAIT_FOREVER.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Additionally, there can be unexpected blocking even if a timeout is specified.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>Calling <ph id="ph1">`WriteFile`</ph> on an anonymous pipe will block until all bytes are written, meaning if the buffer has unread data in it, the <ph id="ph2">`WriteFile`</ph> call will block until the reader has freed up space in the pipe’s buffer.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>Sockets should always use some API that honors a timeout mechanism.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>Blocking without a timeout in unmanaged code is a denial of service attack.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Do not perform platform invoke calls to <ph id="ph1">`WaitForSingleObject`</ph>, <ph id="ph2">`WaitForSingleObjectEx`</ph>, <ph id="ph3">`WaitForMultipleObjects`</ph>, <ph id="ph4">`MsgWaitForMultipleObjects`</ph>, and <ph id="ph5">`MsgWaitForMultipleObjectsEx`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>Do not use NMPWAIT_WAIT_FOREVER.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>Identify Any STA-Dependent Features.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>Identify any code that uses COM single-threaded apartments (STAs).</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>STAs are disabled in the SQL Server process.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>Features that depend on <ph id="ph1">`CoInitialize`</ph>, such as performance counters or the clipboard, must be disabled within SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Ensure Finalizers Are Free of Synchronization Problems</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>Multiple finalizer threads might exist in future versions of the .NET Framework, meaning the finalizers for different instances of the same type run simultaneously.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>They do not have to be completely thread safe; the garbage collector guarantees that only one thread will run the finalizer for a given object instance.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>However, the finalizers must be coded to avoid race conditions and deadlocks when running simultaneously on multiple different object instances.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>When using any external state, such as writing to a log file, in a finalizer, threading issues must be handled.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>Do not rely on finalization to provide thread safety.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Do not use thread local storage, managed or native, to store state on the finalizer thread.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>Finalizers must be free of synchronization problems.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>Do not use a static mutable state in a finalizer.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>Avoid Unmanaged Memory If Possible</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>Unmanaged memory can be leaked, just like an operating system handle.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>If possible, try to use memory on the stack using <bpt id="p1">[</bpt>stackalloc<ept id="p1">](~/docs/csharp/language-reference/keywords/stackalloc.md)</ept> or a pinned managed object such as the <bpt id="p2">[</bpt>fixed Statement<ept id="p2">](~/docs/csharp/language-reference/keywords/fixed-statement.md)</ept> or a <ph id="ph1">&lt;xref:System.Runtime.InteropServices.GCHandle&gt;</ph> using a byte[].</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.GC&gt;</ph> eventually cleans these up.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>However, if you must allocate unmanaged memory, consider using a class that derives from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to wrap the memory allocation.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Note that there is at least one case where <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> is not adequate.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>For COM method calls that allocate or free memory, it is common for one DLL to allocate memory via <ph id="ph1">`CoTaskMemAlloc`</ph> then another DLL frees that memory with <ph id="ph2">`CoTaskMemFree`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> in these places would be inappropriate since it will attempt to tie the lifetime of the unmanaged memory to the lifetime of the <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> instead of allowing the other DLL control the lifetime of the memory.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>Review All Uses of Catch(Exception)</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>Catch blocks that catch all exceptions instead of one specific exception will now catch the asynchronous exceptions as well.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>Examine every catch(Exception) block, looking for no important resource releasing or backout code that might be skipped, as well as potentially incorrect behavior within the catch block itself for handling a <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>, <ph id="ph2">&lt;xref:System.StackOverflowException&gt;</ph>, or <ph id="ph3">&lt;xref:System.OutOfMemoryException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>Note that it is possible this code might be logging or making some assumptions that it may only see certain exceptions, or that whenever an exception happens it failed for exactly one particular reason.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>These assumptions may need to be updated to include <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>Consider changing all places that catch all exceptions to catching a specific type of exception that you expect will be thrown, such as a <ph id="ph1">&lt;xref:System.FormatException&gt;</ph> from string formatting methods.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>This prevents the catch block from running on unexpected exceptions and will help ensure the code does not hide bugs by catching unexpected exceptions.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>As a general rule never handle an exception in library code (code that requires you to catch an exception may indicate a design flaw in the code you are calling).</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>In some cases you may want to catch an exception and throw a different exception type to provide more data.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>Use nested exceptions in this case, storing the real cause of the failure in the <ph id="ph1">&lt;xref:System.Exception.InnerException%2A&gt;</ph> property of the new exception.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>Review all catch blocks in managed code that catch all objects or catch all exceptions.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>In C#, this means flagging both <ph id="ph1">`catch`</ph> {} and <ph id="ph2">`catch(Exception)`</ph> {}.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>Consider making the exception type very specific, or review the code to ensure it does not act in a bad way if it catches an unexpected exception type.</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>Do Not Assume a Managed Thread Is a Win32 Thread – It Is a Fiber</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source>Using managed thread local storage does work, but you may not use unmanaged thread local storage or assume the code will run on the current operating system thread again.</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source>Do not change settings like the thread’s locale.</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>Do not call <ph id="ph1">`InitializeCriticalSection`</ph> or <ph id="ph2">`CreateMutex`</ph> via platform invoke because they require the operating system thread that enters a lock also exit the lock.</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source>Since this will not be the case when using fibers, Win32 critical sections and mutexes cannot be used in SQL directly.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve">
+          <source>Note that the managed <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> class does not handle these thread affinity concerns.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve">
+          <source>You can safely use most of the state on a managed <ph id="ph1">&lt;xref:System.Threading.Thread&gt;</ph> object, including managed thread local storage and the thread’s current UI culture.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>You can also use the <ph id="ph1">&lt;xref:System.ThreadStaticAttribute&gt;</ph>, which makes the value of an existing static variable accessible only by the current managed thread (this is another way of doing fiber local storage in the CLR).</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source>For programming model reasons, you can not change the current culture of a thread when running in SQL.</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve">
+          <source>SQL Server runs in fiber mode; do not use thread local storage.</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve">
+          <source>Avoid platform invoke calls to <ph id="ph1">`TlsAlloc`</ph>, <ph id="ph2">`TlsFree`</ph>, <ph id="ph3">`TlsGetValue`</ph>, and <ph id="ph4">`TlsSetValue.`</ph></source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve">
+          <source>Let SQL Server Handle Impersonation</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve">
+          <source>Since impersonation operates on the thread level and SQL can run in fiber mode, managed code should not impersonate users, and should not call <ph id="ph1">`RevertToSelf`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>Let SQL Server handle impersonation.</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source>Do not use <ph id="ph1">`RevertToSelf`</ph>, <ph id="ph2">`ImpersonateAnonymousToken`</ph>, <ph id="ph3">`DdeImpersonateClient`</ph>, <ph id="ph4">`ImpersonateDdeClientWindow`</ph>, <ph id="ph5">`ImpersonateLoggedOnUser`</ph>, <ph id="ph6">`ImpersonateNamedPipeClient`</ph>, <ph id="ph7">`ImpersonateSelf`</ph>, <ph id="ph8">`RpcImpersonateClient`</ph>, <ph id="ph9">`RpcRevertToSelf`</ph>, <ph id="ph10">`RpcRevertToSelfEx`</ph>, or <ph id="ph11">`SetThreadToken`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>Do Not Call Thread::Suspend</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>The ability to suspend a thread may appear a simple operation, but it can cause deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>If a thread holding a lock gets suspended by a second thread and then the second thread tries taking the same lock, a deadlock occurs.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Thread.Suspend%2A&gt;</ph> can interfere with security, class loading, remoting, and reflection currently.</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>Code Analysis Rule</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>Do not call <ph id="ph1">&lt;xref:System.Threading.Thread.Suspend%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>Consider using a real synchronization primitive instead, such as a <ph id="ph1">&lt;xref:System.Threading.Semaphore&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph> .</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>Protect Critical Operations with Constrained Execution Regions and Reliability Contracts</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>When performing a complex operation that updates a shared status or that needs to deterministically either fully succeed or fully fail, be sure that it is protected by a constrained execution region (CER).</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve">
+          <source>This guarantees that the code runs in every case, even an abrupt thread abort or an abrupt <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> unload.</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve">
+          <source>A CER is a particular <ph id="ph1">`try/finally`</ph> block immediately preceded by a call to <ph id="ph2">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve">
+          <source>Doing so instructs the just-in-time compiler to prepare all the code in the finally block before running the <ph id="ph1">`try`</ph> block.</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve">
+          <source>This guarantees that the code in the finally block is built and will run in all cases.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>It is not uncommon in a CER to have an empty <ph id="ph1">`try`</ph> block.</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source>Using a CER protects against asynchronous thread aborts and out-of-memory exceptions.</source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source>See <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup%2A&gt;</ph> for a form of a CER that additionally handles stack overflows for exceedingly deep code.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SQL Server Programming and Host Protection Attributes<ept id="p1">](../../../docs/framework/performance/sql-server-programming-and-host-protection-attributes.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

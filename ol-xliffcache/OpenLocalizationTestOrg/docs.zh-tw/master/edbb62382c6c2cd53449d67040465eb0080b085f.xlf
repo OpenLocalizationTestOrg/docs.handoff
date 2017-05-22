@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">edbb62382c6c2cd53449d67040465eb0080b085f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\parameter-design.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2d927b207d0dfc6a7781f51b923e9e68c7ebc287</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e070296ae9de5be1fdb4c524d5afc4502f5ab271</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Parameter Design | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Parameter Design</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This section provides broad guidelines on parameter design, including sections with guidelines for checking arguments.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In addition, you should refer to the guidelines described in <bpt id="p1">[</bpt>Naming Parameters<ept id="p1">](../../../docs/standard/design-guidelines/naming-parameters.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the least derived parameter type that provides the functionality required by the member.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For example, suppose you want to design a method that enumerates a collection and prints each item to the console.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Such a method should take <ph id="ph1">&lt;xref:System.Collections.IEnumerable&gt;</ph> as the parameter, not <ph id="ph2">&lt;xref:System.Collections.ArrayList&gt;</ph> or <ph id="ph3">&lt;xref:System.Collections.IList&gt;</ph>, for example.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use reserved parameters.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If more input to a member is needed in some future version, a new overload can be added.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> have publicly exposed methods that take pointers, arrays of pointers, or multidimensional arrays as parameters.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Pointers and multidimensional arrays are relatively difficult to use properly.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In almost all cases, APIs can be redesigned to avoid taking these types as parameters.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> place all <ph id="ph1">`out`</ph> parameters following all of the by-value and <ph id="ph2">`ref`</ph> parameters (excluding parameter arrays), even if it results in an inconsistency in parameter ordering between overloads (see <bpt id="p2">[</bpt>Member Overloading<ept id="p2">](../../../docs/standard/design-guidelines/member-overloading.md)</ept>).</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`out`</ph> parameters can be seen as extra return values, and grouping them together makes the method signature easier to understand.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> be consistent in naming parameters when overriding members or implementing interface members.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This better communicates the relationship between the methods.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Choosing Between Enum and Boolean Parameters</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use enums if a member would otherwise have two or more Boolean parameters.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use Booleans unless you are absolutely sure there will never be a need for more than two values.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Enums give you some room for future addition of values, but you should be aware of all the implications of adding values to enums, which are described in <bpt id="p1">[</bpt>Enum Design<ept id="p1">](../../../docs/standard/design-guidelines/enum.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using Booleans for constructor parameters that are truly two-state values and are simply used to initialize Boolean properties.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Validating Arguments</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> validate arguments passed to public, protected, or explicitly implemented members.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Throw <ph id="ph1">&lt;xref:System.ArgumentException?displayProperty=fullName&gt;</ph>, or one of its subclasses, if the validation fails.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Note that the actual validation does not necessarily have to happen in the public or protected member itself.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>It could happen at a lower level in some private or internal routine.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The main point is that the entire surface area that is exposed to the end users checks the arguments.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> throw <ph id="ph1">&lt;xref:System.ArgumentNullException&gt;</ph> if a null argument is passed and the member does not support null arguments.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> validate enum parameters.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Do not assume enum arguments will be in the range defined by the enum.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The CLR allows casting any integer value into an enum value even if the value is not defined in the enum.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use <ph id="ph1">&lt;xref:System.Enum.IsDefined%2A?displayProperty=fullName&gt;</ph> for enum range checks.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> be aware that mutable arguments might have changed after they were validated.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If the member is security sensitive, you are encouraged to make a copy and then validate and process the argument.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Parameter Passing</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>From the perspective of a framework designer, there are three main groups of parameters: by-value parameters, <ph id="ph1">`ref`</ph> parameters, and <ph id="ph2">`out`</ph> parameters.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>When an argument is passed through a by-value parameter, the member receives a copy of the actual argument passed in.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If the argument is a value type, a copy of the argument is put on the stack.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If the argument is a reference type, a copy of the reference is put on the stack.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Most popular CLR languages, such as C#, VB.NET, and C++, default to passing parameters by value.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>When an argument is passed through a <ph id="ph1">`ref`</ph> parameter, the member receives a reference to the actual argument passed in.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If the argument is a value type, a reference to the argument is put on the stack.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If the argument is a reference type, a reference to the reference is put on the stack.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Ref`</ph> parameters can be used to allow the member to modify arguments passed by the caller.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Out`</ph> parameters are similar to <ph id="ph2">`ref`</ph> parameters, with some small differences.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The parameter is initially considered unassigned and cannot be read in the member body before it is assigned some value.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Also, the parameter has to be assigned some value before the member returns.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> using <ph id="ph1">`out`</ph> or <ph id="ph2">`ref`</ph> parameters.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">`out`</ph> or <ph id="ph2">`ref`</ph> parameters requires experience with pointers, understanding how value types and reference types differ, and handling methods with multiple return values.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Also, the difference between <ph id="ph1">`out`</ph> and <ph id="ph2">`ref`</ph> parameters is not widely understood.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Framework architects designing for a general audience should not expect users to master working with <ph id="ph1">`out`</ph> or <ph id="ph2">`ref`</ph> parameters.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> pass reference types by reference.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>There are some limited exceptions to the rule, such as a method that can be used to swap references.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Members with Variable Number of Parameters</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Members that can take a variable number of arguments are expressed by providing an array parameter.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.String&gt;</ph> provides the following method:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>A user can then call the <ph id="ph1">&lt;xref:System.String.Format%2A?displayProperty=fullName&gt;</ph> method, as follows:</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Adding the C# params keyword to an array parameter changes the parameter to a so-called params array parameter and provides a shortcut to creating a temporary array.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Doing this allows the user to call the method by passing the array elements directly in the argument list.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Note that the params keyword can be added only to the last parameter in the parameter list.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> adding the params keyword to array parameters if you expect the end users to pass arrays with a small number of elements.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If it’s expected that lots of elements will be passed in common scenarios, users will probably not pass these elements inline anyway, and so the params keyword is not necessary.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> using params arrays if the caller would almost always have the input already in an array.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For example, members with byte array parameters would almost never be called by passing individual bytes.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For this reason, byte array parameters in the .NET Framework do not use the params keyword.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use params arrays if the array is modified by the member taking the params array parameter.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Because of the fact that many compilers turn the arguments to the member into a temporary array at the call site, the array might be a temporary object, and therefore any modifications to the array will be lost.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using the params keyword in a simple overload, even if a more complex overload could not use it.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Ask yourself if users would value having the params array in one overload even if it wasn’t in all overloads.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> try to order parameters to make it possible to use the params keyword.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> providing special overloads and code paths for calls with a small number of arguments in extremely performance-sensitive APIs.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>This makes it possible to avoid creating array objects when the API is called with a small number of arguments.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Form the names of the parameters by taking a singular form of the array parameter and adding a numeric suffix.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>You should only do this if you are going to special-case the entire code path, not just create an array and call the more general method.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> be aware that null could be passed as a params array argument.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>You should validate that the array is not null before processing.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use the <ph id="ph1">`varargs`</ph> methods, otherwise known as the ellipsis.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Some CLR languages, such as C++, support an alternative convention for passing variable parameter lists called <ph id="ph1">`varargs`</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The convention should not be used in frameworks, because it is not CLS compliant.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Pointer Parameters</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>In general, pointers should not appear in the public surface area of a well-designed managed code framework.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Most of the time, pointers should be encapsulated.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>However, in some cases pointers are required for interoperability reasons, and using pointers in such cases is appropriate.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> provide an alternative for any member that takes a pointer argument, because pointers are not CLS-compliant.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> doing expensive argument checking of pointer arguments.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> follow common pointer-related conventions when designing members with pointers.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For example, there is no need to pass the start index, because simple pointer arithmetic can be used to accomplish the same result.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Member Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/member.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

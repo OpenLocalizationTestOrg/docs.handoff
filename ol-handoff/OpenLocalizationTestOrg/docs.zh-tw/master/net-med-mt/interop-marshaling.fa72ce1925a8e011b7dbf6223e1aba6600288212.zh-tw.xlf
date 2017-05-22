@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">661a13e1c40890492827e3c41cea773295050f00</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\interop-marshaling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6eb809ae229f4f319d4d189ad59587f053ac5b7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">560d32d149d20188f4ce7dc44424dbd866886ba8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Interop Marshaling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Interop Marshaling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="top"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Interop marshaling governs how data is passed in method arguments and return values between managed and unmanaged memory during calls.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Interop marshaling is a run-time activity performed by the common language runtime's marshaling service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Most data types have common representations in both managed and unmanaged memory.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The interop marshaler handles these types for you.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Other types can be ambiguous or not represented at all in managed memory.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>An ambiguous type can have either multiple unmanaged representations that map to a single managed type, or missing type information, such as the size of an array.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For ambiguous types, the marshaler provides a default representation and alternative representations where multiple representations exist.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You can supply explicit instructions to the marshaler on how it is to marshal an ambiguous type.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This overview contains the following sections:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Platform Invoke and COM Interop Models<ept id="p1">](#platform_invoke_and_com_interop_models)</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Marshaling and COM Apartments<ept id="p1">](#marshaling_and_com_apartments)</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Marshaling Remote Calls<ept id="p1">](#marshaling_remote_calls)</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Related Topics<ept id="p1">](#related_topics)</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Reference<ept id="p1">](#reference)</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Platform Invoke and COM Interop Models</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The common language runtime provides two mechanisms for interoperating with unmanaged code:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Platform invoke, which enables managed code to call functions exported from an unmanaged library.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>COM interop, which enables managed code to interact with Component Object Model (COM) objects through interfaces.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Both platform invoke and COM interop use interop marshaling to accurately move method arguments between caller and callee and back, if required.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>As the following illustration shows, a platform invoke method call flows from managed to unmanaged code and never the other way, except when <bpt id="p1">[</bpt>callback functions<ept id="p1">](../../../docs/framework/interop/callback-functions.md)</ept> are involved.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Even though platform invoke calls can flow only from managed to unmanaged code, data can flow in both directions as input or output parameters.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>COM interop method calls can flow in either direction.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Platform invoke<ept id="p1">](../../../docs/framework/interop/media/interopmarshaling.png "interopmarshaling")</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Platform invoke and COM interop call flow</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>At the lowest level, both mechanisms use the same interop marshaling service; however, certain data types are supported exclusively by COM interop or platform invoke.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>For details, see <bpt id="p1">[</bpt>Default Marshaling Behavior<ept id="p1">](../../../docs/framework/interop/default-marshaling-behavior.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Marshaling and COM Apartments</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The interop marshaler marshals data between the common language runtime heap and the unmanaged heap.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Marshaling occurs whenever the caller and callee cannot operate on the same instance of data.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The interop marshaler makes it possible for the caller and callee to appear to be operating on the same data even if they have their own copy of the data.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>COM also has a marshaler that marshals data between COM apartments or different COM processes.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>When calling between managed and unmanaged code within the same COM apartment, the interop marshaler is the only marshaler involved.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When calling between managed code and unmanaged code in a different COM apartment or a different process, both the interop marshaler and the COM marshaler are involved.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>COM Clients and Managed Servers</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>An exported managed server with a type library registered by the <bpt id="p1">[</bpt>Regasm.exe (Assembly Registration Tool)<ept id="p1">](../../../docs/framework/tools/regasm-exe-assembly-registration-tool.md)</ept> has a <ph id="ph1">`ThreadingModel`</ph> registry entry set to <ph id="ph2">`Both`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This value indicates that the server can be activated in a single-threaded apartment (STA) or a multithreaded apartment (MTA).</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The server object is created in the same apartment as its caller, as shown in the following table.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>COM client</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>.NET server</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Marshaling requirements</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>STA</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Both`</ph> becomes STA.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Same-apartment marshaling.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>MTA</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Both`</ph> becomes MTA.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Same-apartment marshaling.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Because the client and server are in the same apartment, the interop marshaling service automatically handles all data marshaling.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The following illustration shows the interop marshaling service operating between managed and unmanaged heaps within the same COM-style apartment.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Interop marshaling<ept id="p1">](../../../docs/framework/interop/media/interopheap.gif "interopheap")</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Same-apartment marshaling process</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If you plan to export a managed server, be aware that the COM client determines the apartment of the server.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>A managed server called by a COM client initialized in an MTA must ensure thread safety.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Managed Clients and COM Servers</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The default setting for managed client apartments is MTA; however, the application type of the .NET client can change the default setting.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">[!INCLUDE[vbprvblong](../../../includes/vbprvblong-md.md)]</ph> client apartment setting is STA.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>You can use the <ph id="ph1">&lt;xref:System.STAThreadAttribute?displayProperty=fullName&gt;</ph>, the <ph id="ph2">&lt;xref:System.MTAThreadAttribute?displayProperty=fullName&gt;</ph>, the <ph id="ph3">&lt;xref:System.Threading.Thread.ApartmentState%2A?displayProperty=fullName&gt;</ph> property, or the <ph id="ph4">&lt;xref:System.Web.UI.Page.AspCompatMode%2A?displayProperty=fullName&gt;</ph> property to examine and change the apartment setting of a managed client.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The author of the component sets the thread affinity of a COM server.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The following table shows the combinations of apartment settings for .NET clients and COM servers.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>It also shows the resulting marshaling requirements for the combinations.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>.NET client</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>COM server</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Marshaling requirements</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>MTA (default)</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>MTA</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>STA</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Interop marshaling.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Interop and COM marshaling.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>STA</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>MTA</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>STA</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Interop and COM marshaling.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Interop marshaling.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>When a managed client and unmanaged server are in the same apartment, the interop marshaling service handles all data marshaling.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>However, when client and server are initialized in different apartments, COM marshaling is also required.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The following illustration shows the elements of a cross-apartment call.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>COM marshaling<ept id="p1">](../../../docs/framework/interop/media/singleprocessmultapt.gif "singleprocessmultapt")</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Cross-apartment call between a .NET client and COM object</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For cross-apartment marshaling, you can do the following:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Accept the overhead of the cross-apartment marshaling, which is noticeable only when there are many calls across the boundary.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>You must register the type library of the COM component for calls to successfully cross the apartment boundary.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Alter the main thread by setting the client thread to STA or MTA.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>For example, if your C# client calls many STA COM components, you can avoid cross-apartment marshaling by setting the main thread to STA.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Once the thread of a C# client is set to STA, calls to MTA COM components will require cross-apartment marshaling.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For instructions on explicitly selecting an apartment model, see <bpt id="p1">[</bpt>Managed and Unmanaged Threading<ept id="p1">](http://msdn.microsoft.com/en-us/db425c20-4b2f-4433-bf96-76071c7881e5)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Marshaling Remote Calls</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>As with cross-apartment marshaling, COM marshaling is involved in each call between managed and unmanaged code whenever the objects reside in separate processes.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>A COM client that invokes a managed server on a remote host uses distributed COM (DCOM).</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>A managed client that invokes a COM server on a remote host uses DCOM.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The following illustration shows how interop marshaling and COM marshaling provide communications channels across process and host boundaries.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>COM marshaling<ept id="p1">](../../../docs/framework/interop/media/interophost.gif "interophost")</ept></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Cross-process marshaling</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Preserving Identity</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>The common language runtime preserves the identity of managed and unmanaged references.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The following illustration shows the flow of direct unmanaged references (top row) and direct managed references (bottom row) across process and host boundaries.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>COM callable wrapper and runtime callable wrapper<ept id="p1">](../../../docs/framework/interop/media/interopdirectref.gif "interopdirectref")</ept></source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Reference passing across process and host boundaries</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>In this illustration:</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>An unmanaged client gets a reference to a COM object from a managed object that gets this reference from a remote host.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The remoting mechanism is DCOM.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>A managed client gets a reference to a managed object from a COM object that gets this reference from a remote host.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The remoting mechanism is DCOM.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The exported type library of the managed server must be registered.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The number of process boundaries between caller and callee is irrelevant; the same direct referencing occurs for in-process and out-of-process calls.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Managed Remoting</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The runtime also provides managed remoting, which you can use to establish a communications channel between managed objects across process and host boundaries.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Managed remoting can accommodate a firewall between the communicating components, as the following illustration shows.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>SOAP or TcpChannel<ept id="p1">](../../../docs/framework/interop/media/interopremotesoap.gif "interopremotesoap")</ept></source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Remote calls across firewalls using SOAP or the TcpChannel class</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Some unmanaged calls can be channeled through SOAP, such as the calls between <bpt id="p1">[</bpt>serviced components<ept id="p1">](http://msdn.microsoft.com/en-us/f109ee24-81ad-4d99-9892-51ac6f34978c)</ept> and COM.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Related Topics</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Title</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Default Marshaling Behavior<ept id="p1">](../../../docs/framework/interop/default-marshaling-behavior.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Describes the rules that the interop marshaling service uses to marshal data.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Marshaling Data with Platform Invoke<ept id="p1">](../../../docs/framework/interop/marshaling-data-with-platform-invoke.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Describes how to declare method parameters and pass arguments to functions exported by unmanaged libraries.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Marshaling Data with COM Interop<ept id="p1">](../../../docs/framework/interop/marshaling-data-with-com-interop.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Describes how to customize COM wrappers to alter marshaling behavior.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Migrate Managed-Code DCOM to WCF<ept id="p1">](../../../docs/framework/interop/how-to-migrate-managed-code-dcom-to-wcf.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Describes how to migrate from DCOM to WCF.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Map HRESULTs and Exceptions<ept id="p1">](../../../docs/framework/interop/how-to-map-hresults-and-exceptions.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Describes how to map custom exceptions to HRESULTs and provides the complete mapping from each HRESULT to its comparable exception class in the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Interoperating Using Generic Types<ept id="p1">](http://msdn.microsoft.com/en-us/26b88e03-085b-4b53-94ba-a5a9c709ce58)</ept></source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Describes which actions are supported when using generic types for COM interoperability.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Interoperating with Unmanaged Code<ept id="p1">](../../../docs/framework/interop/index.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Describes interoperability services provided by the common language runtime.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Advanced COM Interoperability<ept id="p1">](http://msdn.microsoft.com/en-us/3ada36e5-2390-4d70-b490-6ad8de92f2fb)</ept></source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Provides links to more information about incorporating COM components into your .NET Framework application.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Design Considerations for Interoperation<ept id="p1">](http://msdn.microsoft.com/en-us/b59637f6-fe35-40d6-ae72-901e7a707689)</ept></source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Provides tips for writing integrated COM components.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

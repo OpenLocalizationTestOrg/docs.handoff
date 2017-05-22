@@ -1,0 +1,855 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">355806cfca8fd207114c1bf31c949ffc8a733913</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\xaml-syntax-in-detail.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6f34508b20b461fcf28b586a389957deba78104c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b038cf44a5e3a1d4ad9fe54fefe2437300efe29c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>XAML Syntax In Detail | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>XAML Syntax In Detail</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic defines the terms that are used to describe the elements of XAML syntax.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These terms are used frequently throughout the remainder of this documentation, both for WPF documentation specifically and for the other frameworks that use XAML or the basic XAML concepts enabled by the XAML language support at the System.Xaml level.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic expands on the basic terminology introduced in the topic <bpt id="p1">[</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The XAML Language Specification</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The XAML syntax terminology defined here is also defined or referenced within the XAML language specification.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>XAML is a language based on XML and follows or expands upon XML structural rules.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Some of the terminology is shared from or is based on the terminology commonly used when describing the XML language or the XML document object model.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For more information about the XAML language specification, download <bpt id="p1">[</bpt><ph id="ph1">\[</ph>MS-XAML<ph id="ph2">\]</ph><ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=114525)</ept> from the Microsoft Download Center.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>XAML and CLR</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>XAML is a markup language.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph>, as implied by its name, enables runtime execution.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>XAML is not by itself one of the common languages that is directly consumed by the CLR runtime.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Instead, you can think of XAML as supporting its own type system.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The particular XAML parsing system that is used by WPF is built on the CLR and the CLR type system.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>XAML types are mapped to CLR types to instantiate a run time representation when the XAML for WPF is parsed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For this reason, the remainder of discussion of syntax in this document will include references to the CLR type system, even though the equivalent syntax discussions in the XAML language specification do not.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>(Per the XAML language specification level, XAML types could be mapped to any other type system, which does not have to be the CLR, but that would require the creation and use of a different XAML parser.)</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Members of Types and Class Inheritance</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Properties and events as they appear as XAML members of a <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> type are often inherited from base types.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For example, consider this example: <ph id="ph1">`&lt;Button Background="Blue" .../&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> property is not an immediately declared property on the <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph> class, if you were to look at the class definition, reflection results, or the documentation.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Instead, <ph id="ph1">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> is inherited from the base <ph id="ph2">&lt;xref:System.Windows.Controls.Control&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The class inheritance behavior of <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> XAML elements is a significant departure from a schema-enforced interpretation of XML markup.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Class inheritance can become complex, particularly when intermediate base classes are abstract, or when interfaces are involved.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This is one reason that the set of XAML elements and their permissible attributes is difficult to represent accurately and completely using the schema types that are typically used for <ph id="ph1">[!INCLUDE[TLA2#tla_xml](../../../../includes/tla2sharptla-xml-md.md)]</ph> programming, such as DTD or XSD format.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Another reason is that extensibility and type-mapping features of the XAML language itself preclude completeness of any fixed representation of the permissible types and members.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Object Element Syntax</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Object element syntax<ept id="p1">*</ept> is the XAML markup syntax that instantiates a CLR class or structure by declaring an XML element.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This syntax resembles the element syntax of other markup languages such as HTML.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Object element syntax begins with a left angle bracket (<ph id="ph1">\&lt;</ph>), followed immediately by the type name of the class or structure being instantiated.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Zero or more spaces can follow the type name, and zero or more attributes may also be declared on the object element, with one or more spaces separating each attribute name="value" pair.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Finally, one of the following must be true:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The element and tag must be closed by a forward slash (/) followed immediately by a right angle bracket (&gt;).</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The opening tag must be completed by a right angle bracket (&gt;).</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Other object elements, property elements, or inner text, can follow the opening tag.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Exactly what content may be contained here is typically constrained by the object model of the element.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The equivalent closing tag for the object element must also exist, in proper nesting and balance with other opening and closing tag pairs.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>XAML as implemented by .NET has a set of rules that map object elements into types, attributes into properties or events, and XAML namespaces to CLR namespaces plus assembly.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For WPF and the .NET Framework, XAML object elements map to <ph id="ph1">[!INCLUDE[TLA#tla_net](../../../../includes/tlasharptla-net-md.md)]</ph> types as defined in referenced assemblies, and the attributes map to members of those types.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When you reference a CLR type in XAML, you have access to the inherited members of that type as well.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For example, the following example is object element syntax that instantiates a new instance of the <ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph> class, and also specifies a <ph id="ph2">&lt;xref:System.Windows.FrameworkElement.Name%2A&gt;</ph> attribute and a value for that attribute:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#SyntaxOE<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/Page1.xaml#syntaxoe)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The following example is object element syntax that also includes XAML content property syntax.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The inner text contained within will be used to set the <ph id="ph1">&lt;xref:System.Windows.Controls.TextBox&gt;</ph> XAML content property, <ph id="ph2">&lt;xref:System.Windows.Controls.TextBox.Text%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#ThisIsATextBox<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/Page1.xaml#thisisatextbox)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Content Models</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>A class might support a usage as a XAML object element in terms of the syntax, but that element will only function properly in an application or page when it is placed in an expected position of an overall content model or element tree.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Windows.Controls.MenuItem&gt;</ph> should typically only be placed as a child of a <ph id="ph2">&lt;xref:System.Windows.Controls.Primitives.MenuBase&gt;</ph> derived class such as <ph id="ph3">&lt;xref:System.Windows.Controls.Menu&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Content models for specific elements are documented as part of the remarks on the class pages for controls and other <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> classes that can be used as XAML elements.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Properties of Object Elements</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Properties in XAML are set by a variety of possible syntaxes.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Which syntax can be used for a particular property will vary, based on the underlying type system characteristics of the property that you are setting.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>By setting values of properties, you add features or characteristics to objects as they exist in the run time object graph.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The initial state of the created object from a object element is based on the default constructor behavior.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Typically, your application will use something other than a completely default instance of any given object.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Attribute Syntax (Properties)</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Attribute syntax is the XAML markup syntax that sets a value for a property by declaring an attribute on an existing object element.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The attribute name must match the CLR member name of the property of the class that backs the relevant object element.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The attribute name is followed by an assignment operator (=).</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The attribute value must be a string enclosed within quotes.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>You can use alternating quotes to place a literal quotation mark within an attribute.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For instance you can use single quotes as a means to declare a string that contains a double quote character within it.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Whether you use single or double quotes, you should use a matching pair for opening and closing the attribute value string.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>There are also escape sequences or other techniques available for working around character restrictions imposed by any particular XAML syntax.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>XML Character Entities and XAML<ept id="p1">](../../../../docs/framework/xaml-services/xml-character-entities-and-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In order to be set through attribute syntax, a property must be public and must be writeable.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The value of the property in the backing type system must be a value type, or must be a reference type that can be instantiated or referenced by a XAML processor when accessing the relevant backing type.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For WPF XAML events, the event that is referenced as the attribute name must be public and have a public delegate.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The property or event must be a member of the class or structure that is instantiated by the containing object element.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Processing of Attribute Values</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The string value contained within the opening and closing quotation marks is processed by a XAML processor.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>For properties, the default processing behavior is determined by the type of the underlying CLR property.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The attribute value is filled by one of the following, using this processing order:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>If the XAML processor encounters a curly brace, or an object element that derives from <ph id="ph1">&lt;xref:System.Windows.Markup.MarkupExtension&gt;</ph>, then the referenced markup extension is evaluated first rather than processing the value as a string, and the object returned by the markup extension is used as the value.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>In many cases the object returned by a markup extension will be a reference to an existing object, or an expression that defers evaluation until run time, and is not a newly instantiated object.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If the property is declared with an attributed <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>, or the value type of that property is declared with an attributed <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>, the string value of the attribute is submitted to the type converter as a conversion input, and the converter will return a new object instance.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If there is no <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>, a direct conversion to the property type is attempted.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This final level is a direct conversion at the parser-native value between XAML language primitive types, or a check for the names of named constants in an enumeration (the parser then accesses the matching values).</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Enumeration Attribute Values</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Enumerations in XAML are processed intrinsically by XAML parsers, and the members of an enumeration should be specified by specifying the string name of one of the enumeration's named constants.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>For nonflag enumeration values, the native behavior is to process the string of an attribute value and resolve it to one of the enumeration values.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>You do not specify the enumeration in the format <bpt id="p1">*</bpt>Enumeration<ept id="p1">*</ept>.<bpt id="p2">*</bpt>Value<ept id="p2">*</ept>, as you do in code.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Instead, you specify only <bpt id="p1">*</bpt>Value<ept id="p1">*</ept>, and <bpt id="p2">*</bpt>Enumeration<ept id="p2">*</ept> is inferred by the type of the property you are setting.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If you specify an attribute in the <bpt id="p1">*</bpt>Enumeration<ept id="p1">*</ept>.<bpt id="p2">*</bpt>Value<ept id="p2">*</ept> form, it will not resolve correctly.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For flagwise enumerations, the behavior is based on the <ph id="ph1">&lt;xref:System.Enum.Parse%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>You can specify multiple values for a flagwise enumeration by separating each value with a comma.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>However, you cannot combine enumeration values that are not flagwise.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>For instance, you cannot use the comma syntax to attempt to create a <ph id="ph1">&lt;xref:System.Windows.Trigger&gt;</ph> that acts on multiple conditions of a nonflag enumeration:</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Flagwise enumerations that support attributes that are settable in XAML are rare in WPF.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>However, one such enumeration is <ph id="ph1">&lt;xref:System.Windows.Media.StyleSimulations&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>You could, for instance, use the comma-delimited flagwise attribute syntax to modify the example provided in the Remarks for the <ph id="ph1">&lt;xref:System.Windows.Documents.Glyphs&gt;</ph> class; <ph id="ph2">`StyleSimulations = "BoldSimulation"`</ph> could become <ph id="ph3">`StyleSimulations = "BoldSimulation,ItalicSimulation"`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Input.KeyBinding.Modifiers%2A?displayProperty=fullName&gt;</ph> is another property where more than one enumeration value can be specified.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>However, this property happens to be a special case, because the <ph id="ph1">&lt;xref:System.Windows.Input.ModifierKeys&gt;</ph> enumeration supports its own type converter.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The type converter for modifiers uses a plus sign (+) as a delimiter rather than a comma (,).</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>This conversion supports the more traditional syntax to represent key combinations in Microsoft Windows programming, such as "Ctrl+Alt".</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Properties and Event Member Name References</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>When specifying an attribute, you can reference any property or event that exists as a member of the CLR type you instantiated for the containing object element.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Or, you can reference an attached property or attached event, independent of the containing object element.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>(Attached properties are discussed in an upcoming section.)</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>You can also name any event from any object that is accessible through the default namespace by using a <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>event<ept id="p2">*</ept> partially qualified name; this syntax supports attaching handlers for routed events where the handler is intended to handle events routing from child elements, but the parent element does not also have that event in its members table.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>This syntax resembles an attached event syntax, but the event here is not a true attached event.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Instead, you are referencing an event with a qualified name.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>For some scenarios, property names are sometimes provided as the value of an attribute, rather than the attribute name.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>That property name can also include qualifiers, such as the property specified in the form <bpt id="p1">*</bpt>ownerType<ept id="p1">*</ept>.<bpt id="p2">*</bpt>dependencyPropertyName<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>This scenario is common when writing styles or templates in XAML.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The processing rules for property names provided as an attribute value are different, and are governed by the type of the property being set or by the behaviors of particular WPF subsystems.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>For details, see <bpt id="p1">[</bpt>Styling and Templating<ept id="p1">](../../../../docs/framework/wpf/controls/styling-and-templating.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Another usage for property names is when an attribute value describes a property-property relationship.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>This feature is used for data binding and for storyboard targets, and is enabled by the <ph id="ph1">&lt;xref:System.Windows.PropertyPath&gt;</ph> class and its type converter.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>For a more complete description of the lookup semantics, see <bpt id="p1">[</bpt>PropertyPath XAML Syntax<ept id="p1">](../../../../docs/framework/wpf/advanced/propertypath-xaml-syntax.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Property Element Syntax</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Property element syntax<ept id="p1">*</ept> is a syntax that diverges somewhat from the basic XML syntax rules for elements.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>In XML, the value of an attribute is a de facto string, with the only possible variation being which string encoding format is being used.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>In XAML, you can assign other object elements to be the value of a property.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>This capability is enabled by the property element syntax.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Instead of the property being specified as an attribute within the element tag, the property is specified using an opening element tag in <bpt id="p1">*</bpt>elementTypeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>propertyName<ept id="p2">*</ept> form, the value of the property is specified within, and then the property element is closed.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Specifically, the syntax begins with a left angle bracket (<ph id="ph1">\&lt;</ph>), followed immediately by the type name of the class or structure that the property element syntax is contained within.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>This is followed immediately by a single dot (.), then by the name of a property, then by a right angle bracket (&gt;).</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>As with attribute syntax, that property must exist within the declared public members of the specified type.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The value to be assigned to the property is contained within the property element.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Typically, the value is given as one or more object elements, because specifying objects as values is the scenario that property element syntax is intended to address.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Finally, an equivalent closing tag specifying the same <bpt id="p1">*</bpt>elementTypeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>propertyName<ept id="p2">*</ept> combination must be provided, in proper nesting and balance with other element tags.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>For example, the following is property element syntax for the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.ContextMenu%2A&gt;</ph> property of a <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#ContextMenu<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/Page1.xaml#contextmenu)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The value within a property element can also be given as inner text, in cases where the property type being specified is a primitive value type, such as <ph id="ph1">&lt;xref:System.String&gt;</ph>, or an enumeration where a name is specified.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>These two usages are somewhat uncommon, because each of these cases could also use a simpler attribute syntax.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>One scenario for filling a property element with a string is for properties that are not the XAML content property but still are used for representation of UI text, and particular whitespace elements such as linefeeds are required to appear in that UI text.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Attribute syntax cannot preserve linefeeds, but property element syntax can, so long as significant whitespace preservation is active (for details, see <bpt id="p1">[</bpt>Whitespace Processing in XAML<ept id="p1">](../../../../docs/framework/xaml-services/whitespace-processing-in-xaml.md)</ept>).</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Another scenario is so that <bpt id="p1">[</bpt>x:Uid Directive<ept id="p1">](../../../../docs/framework/xaml-services/x-uid-directive.md)</ept> can be applied to the property element and thus mark the value within as a value that should be localized in the WPF output BAML or by other techniques.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>A property element is not represented in the WPF logical tree.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>A property element is just a particular syntax for setting a property, and is not an element that has an instance or object backing it.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>(For details on the logical tree concept, see <bpt id="p1">[</bpt>Trees in WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/trees-in-wpf.md)</ept>.)</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>For properties where both attribute and property element syntax are supported, the two syntaxes generally have the same result, although subtleties such as whitespace handling can vary slightly between syntaxes.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Collection Syntax</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>The XAML specification requires XAML processor implementations to identify properties where the value type is a collection.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>The general XAML processor implementation in .NET is based on managed code and the CLR, and it identifies collection types through one of the following:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Type implements <ph id="ph1">&lt;xref:System.Collections.IList&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Type implements <ph id="ph1">&lt;xref:System.Collections.IDictionary&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Type derives from <ph id="ph1">&lt;xref:System.Array&gt;</ph> (for more information about arrays in XAML, see <bpt id="p1">[</bpt>x:Array Markup Extension<ept id="p1">](../../../../docs/framework/xaml-services/x-array-markup-extension.md)</ept>.)</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>If the type of a property is a collection, then the inferred collection type does not need to be specified in the markup as an object element.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Instead, the elements that are intended to become the items in the collection are specified as one or more child elements of the property element.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Each such item is evaluated to an object during loading and added to the collection by calling the <ph id="ph1">`Add`</ph> method of the implied collection.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.Windows.Style.Triggers%2A&gt;</ph> property of <ph id="ph2">&lt;xref:System.Windows.Style&gt;</ph> takes the specialized collection type <ph id="ph3">&lt;xref:System.Windows.TriggerCollection&gt;</ph>, which implements <ph id="ph4">&lt;xref:System.Collections.IList&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>It is not necessary to instantiate a <ph id="ph1">&lt;xref:System.Windows.TriggerCollection&gt;</ph> object element in the markup.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Instead, you specify one or more <ph id="ph1">&lt;xref:System.Windows.Trigger&gt;</ph> items as elements within the <ph id="ph2">`Style.Triggers`</ph> property element, where <ph id="ph3">&lt;xref:System.Windows.Trigger&gt;</ph> (or a derived class) is the type expected as the item type for the strongly typed and implicit <ph id="ph4">&lt;xref:System.Windows.TriggerCollection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#SyntaxPECollection<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/Page1.xaml#syntaxpecollection)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>A property may be both a collection type and the XAML content property for that type and derived types, which is discussed in the next section of this topic.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>An implicit collection element creates a member in the logical tree representation, even though it does not appear in the markup as an element.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Usually the constructor of the parent type performs the instantiation for the collection that is one of its properties, and the initially empty collection becomes part of the object tree.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>The generic list and dictionary interfaces (<ph id="ph1">&lt;xref:System.Collections.Generic.IList%601&gt;</ph> and <ph id="ph2">&lt;xref:System.Collections.Generic.IDictionary%602&gt;</ph>) are not supported for collection detection.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>However, you can use the <ph id="ph1">&lt;xref:System.Collections.Generic.List%601&gt;</ph> class as a base class, because it implements <ph id="ph2">&lt;xref:System.Collections.IList&gt;</ph> directly, or <ph id="ph3">&lt;xref:System.Collections.Generic.Dictionary%602&gt;</ph> as a base class, because it implements <ph id="ph4">&lt;xref:System.Collections.IDictionary&gt;</ph> directly.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>In the .NET Reference pages for collection types, this syntax with the deliberate omission of the object element for a collection is occasionally noted in the XAML syntax sections as Implicit Collection Syntax.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>With the exception of the root element, every object element in a XAML file that is nested as a child element of another element is really an element that is one or both of the following cases: a member of an implicit collection property of its parent element, or an element that specifies the value of the XAML content property for the parent element (XAML content properties will be discussed in an upcoming section).</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>In other words, the relationship of parent elements and child elements in a markup page is really a single object at the root, and every object element beneath the root is either a single instance that provides a property value of the parent, or one of the items within a collection that is also a collection-type property value of the parent.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>This single-root concept is common with XML, and is frequently reinforced in the behavior of APIs that load XAML such as <ph id="ph1">&lt;xref:System.Windows.Markup.XamlReader.Load%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The following example is a syntax with the object element for a collection (<ph id="ph1">&lt;xref:System.Windows.Media.GradientStopCollection&gt;</ph>) specified explicitly.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Note that it is not always possible to explicitly declare the collection.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>For instance, attempting to declare <ph id="ph1">&lt;xref:System.Windows.TriggerCollection&gt;</ph> explicitly in the previously shown <ph id="ph2">&lt;xref:System.Windows.Style.Triggers%2A&gt;</ph> example would fail.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Explicitly declaring the collection requires that the collection class must support a default constructor, and <ph id="ph1">&lt;xref:System.Windows.TriggerCollection&gt;</ph> does not have a default constructor.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>XAML Content Properties</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>XAML content syntax is a syntax that is only enabled on classes that specify the <ph id="ph1">&lt;xref:System.Windows.Markup.ContentPropertyAttribute&gt;</ph> as part of their class declaration.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Markup.ContentPropertyAttribute&gt;</ph> references the property name that is the content property for that type of element (including derived classes).</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>When processed by a XAML processor, any child elements or inner text that are found between the opening and closing tags of the object element will be assigned to be the value of the XAML content property for that object.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>You are permitted to specify explicit property elements for the content property, but this usage is not generally shown in the XAML syntax sections in the .NET reference.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>The explicit/verbose technique has occasional value for markup clarity or as a matter of markup style, but usually the intent of a content property is to streamline the markup so that elements that are intuitively related as parent-child can be nested directly.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>Property element tags for other properties on an element are not assigned as "content" per a strict XAML language definition; they are processed previously in the XAML parser's processing order and are not considered to be "content".</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>XAML Content Property Values Must Be Contiguous</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>The value of a XAML content property must be given either entirely before or entirely after any other property elements on that object element.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>This is true whether the value of a XAML content property is specified as a string, or as one or more objects.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>For example, the following markup does not parse:</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>This is illegal essentially because if this syntax were made explicit by using property element syntax for the content property, then the content property would be set twice:</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>A similarly illegal example is if the content property is a collection, and child elements are interspersed with property elements:</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Content Properties and Collection Syntax Combined</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>In order to accept more than a single object element as content, the type of the content property must specifically be a collection type.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Similar to property element syntax for collection types, a XAML processor must identify types that are collection types.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>If an element has a XAML content property and the type of the XAML content property is a collection, then the implied collection type does not need to be specified in the markup as an object element and the XAML content property does not need to be specified as a property element.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Therefore the apparent content model in the markup can now have more than one child element assigned as the content.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>The following is content syntax for a <ph id="ph1">&lt;xref:System.Windows.Controls.Panel&gt;</ph> derived class.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>All <ph id="ph1">&lt;xref:System.Windows.Controls.Panel&gt;</ph> derived classes establish the XAML content property to be <ph id="ph2">&lt;xref:System.Windows.Controls.Panel.Children%2A&gt;</ph>, which requires a value of type <ph id="ph3">&lt;xref:System.Windows.Controls.UIElementCollection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#SyntaxContent<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/page5.xaml#syntaxcontent)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>Note that neither the property element for <ph id="ph1">&lt;xref:System.Windows.Controls.Panel.Children%2A&gt;</ph> nor the element for the <ph id="ph2">&lt;xref:System.Windows.Controls.UIElementCollection&gt;</ph> is required in the markup.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>This is a design feature of XAML so that recursively contained elements that define a <ph id="ph1">[!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]</ph> are more intuitively represented as a tree of nested elements with immediate parent-child element relationships, without intervening property element tags or collection objects.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>In fact, <ph id="ph1">&lt;xref:System.Windows.Controls.UIElementCollection&gt;</ph> cannot be specified explicitly in markup as an object element, by design.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Because its only intended use is as an implicit collection, <ph id="ph1">&lt;xref:System.Windows.Controls.UIElementCollection&gt;</ph> does not expose a public default constructor and thus cannot be instantiated as an object element.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>Mixing Property Elements and Object Elements in an Object with a Content Property</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>The XAML specification declares that a XAML processor can enforce that object elements that are used to fill the XAML content property within an object element must be contiguous, and must not be mixed.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>This restriction against mixing property elements and content is enforced by the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> XAML processors.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>You can have a child object element as the first immediate markup within an object element.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>Then you can introduce property elements.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>Or, you can specify one or more property elements, then content, then more property elements.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>But once a property element follows content, you cannot introduce any further content, you can only add property elements.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>This content / property element order requirement does not apply to inner text used as content.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>However, it is still a good markup style to keep inner text contiguous, because significant whitespace will be difficult to detect visually in the markup if property elements are interspersed with inner text.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>XAML Namespaces</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>None of the preceding syntax examples specified a XAML namespace other than the default XAML namespace.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>In typical <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> applications, the default XAML namespace is specified to be the <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>You can specify XAML namespaces other than the default XAML namespace and still use similar syntax.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>But then, anywhere where a class is named that is not accessible within the default XAML namespace, that class name must be preceded with the prefix of the XAML namespace as mapped to the corresponding CLR namespace.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">`&lt;custom:Example/&gt;`</ph> is object element syntax to instantiate an instance of the <ph id="ph2">`Example`</ph> class, where the CLR namespace containing that class (and possibly the external assembly information that contains backing types) was previously mapped to the <ph id="ph3">`custom`</ph> prefix.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>For more information about XAML namespaces, see <bpt id="p1">[</bpt>XAML Namespaces and Namespace Mapping for WPF XAML<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-namespaces-and-namespace-mapping-for-wpf-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>Markup Extensions</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>XAML defines a markup extension programming entity that enables an escape from the normal XAML processor handling of string attribute values or object elements, and defers the processing to a backing class.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>The character that identifies a markup extension to a XAML processor when using attribute syntax is the opening curly brace ({), followed by any character other than a closing curly brace (}).</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>The first string following the opening curly brace must reference the class that provides the particular extension behavior, where the reference may omit the substring "Extension" if that substring is part of the true class name.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>Thereafter, a single space may appear, and then each succeeding character is used as input by the extension implementation, up until the closing curly brace is encountered.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>The .NET XAML implementation uses the <ph id="ph1">&lt;xref:System.Windows.Markup.MarkupExtension&gt;</ph> abstract class as the basis for all of the markup extensions supported by <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> as well as other frameworks or technologies.</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>The markup extensions that <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> specifically implements are often intended to provide a means to reference other existing objects, or to make deferred references to objects that will be evaluated at run time.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>For example, a simple WPF data binding is accomplished by specifying the <ph id="ph1">`{Binding}`</ph> markup extension in place of the value that a particular property would ordinarily take.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>Many of the WPF markup extensions enable an attribute syntax for properties where an attribute syntax would not otherwise be possible.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:System.Windows.Style&gt;</ph> object is a relatively complex type that contains a nested series of objects and properties.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Styles in WPF are typically defined as a resource in a <ph id="ph1">&lt;xref:System.Windows.ResourceDictionary&gt;</ph>, and then referenced through one of the two WPF markup extensions that request a resource.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>The markup extension defers the evaluation of the property value to a resource lookup and enables providing the value of the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Style%2A&gt;</ph> property, taking type <ph id="ph2">&lt;xref:System.Windows.Style&gt;</ph>, in attribute syntax as in the following example:</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>Here, <ph id="ph1">`StaticResource`</ph> identifies the <ph id="ph2">&lt;xref:System.Windows.StaticResourceExtension&gt;</ph> class providing the markup extension implementation.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>The next string <ph id="ph1">`MyStyle`</ph> is used as the input for the non-default <ph id="ph2">&lt;xref:System.Windows.StaticResourceExtension&gt;</ph> constructor, where the parameter as taken from the extension string declares the requested <ph id="ph3">&lt;xref:System.Windows.ResourceKey&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MyStyle`</ph> is expected to be the <bpt id="p1">[</bpt>x:Key<ept id="p1">](../../../../docs/framework/xaml-services/x-key-directive.md)</ept> value of a <ph id="ph2">&lt;xref:System.Windows.Style&gt;</ph> defined as a resource.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>StaticResource Markup Extension<ept id="p1">](../../../../docs/framework/wpf/advanced/staticresource-markup-extension.md)</ept> usage requests that the resource be used to provide the <ph id="ph1">&lt;xref:System.Windows.Style&gt;</ph> property value through static resource lookup logic at load time.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>For more information about markup extensions, see <bpt id="p1">[</bpt>Markup Extensions and WPF XAML<ept id="p1">](../../../../docs/framework/wpf/advanced/markup-extensions-and-wpf-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>For a reference of markup extensions and other XAML programming features enabled in the general .NET XAML implementation, see <bpt id="p1">[</bpt>XAML Namespace (x:) Language Features<ept id="p1">](../../../../docs/framework/xaml-services/xaml-namespace-x-language-features.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>For WPF-specific markup extensions, see <bpt id="p1">[</bpt>WPF XAML Extensions<ept id="p1">](../../../../docs/framework/wpf/advanced/wpf-xaml-extensions.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>Attached Properties</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>Attached properties are a programming concept introduced in XAML whereby properties can be owned and defined by a particular type, but set as attributes or property elements on any element.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>The primary scenario that attached properties are intended for is to enable child elements in a markup structure to report information to a parent element without requiring an extensively shared object model across all elements.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>Conversely, attached properties can be used by parent elements to report information to child elements.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>For more information on the purpose of attached properties and how to create your own attached properties, see <bpt id="p1">[</bpt>Attached Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/attached-properties-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>Attached properties use a syntax that superficially resembles property element syntax, in that you also specify a <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>propertyName<ept id="p2">*</ept> combination.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>There are two important differences:</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>You can use the <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>propertyName<ept id="p2">*</ept> combination even when setting an attached property through attribute syntax.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>Attached properties are the only case where qualifying the property name is a requirement in an attribute syntax.</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>You can also use property element syntax for attached properties.</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source>However, for typical property element syntax, the <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept> you specify is the object element that contains the property element.</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source>If you are referring to an attached property, then the <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept> is the class that defines the attached property, not the containing object element.</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>Attached Events</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source>Attached events are another programming concept introduced in XAML where events can be defined by a specific type, but handlers may be attached on any object element.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve">
+          <source>In the WOF implementation, often the type that defines an attached event is a static type that defines a service, and sometimes those attached events are exposed by a routed event alias in types that expose the service.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve">
+          <source>Handlers for attached events are specified through attribute syntax.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>As with attached events, the attribute syntax is expanded for attached events to allow a <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>eventName<ept id="p2">*</ept> usage, where <bpt id="p3">*</bpt>typeName<ept id="p3">*</ept> is the class that provides <ph id="ph1">`Add`</ph> and <ph id="ph2">`Remove`</ph> event handler accessors for the attached event infrastructure, and <bpt id="p4">*</bpt>eventName<ept id="p4">*</ept> is the event name.</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source>Anatomy of a XAML Root Element</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve">
+          <source>The following table shows a typical XAML root element broken down, showing the specific attributes of a root element:</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve">
+          <source>Opening object element of the root element</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve">
+          <source>The default (<ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph>) XAML namespace</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve">
+          <source>The XAML language XAML namespace</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve">
+          <source>The partial class declaration that connects markup to any code-behind defined for the partial class</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve">
+          <source>End of object element for the root.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>Object is not closed yet because the element contains child elements</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source>Optional and Nonrecommended XAML Usages</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>The following sections describe XAML usages that are technically supported by XAML processors, but that produce verbosity or other aesthetic issues that interfere with XAML files remaining human-readable when your develop applications that contain XAML sources.</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>Optional Property Element Usages</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>Optional property element usages include explicitly writing out element content properties that the XAML processor considers implicit.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source>For example, when you declare the contents of a <ph id="ph1">&lt;xref:System.Windows.Controls.Menu&gt;</ph>, you could choose to explicitly declare the <ph id="ph2">&lt;xref:System.Windows.Controls.ItemsControl.Items%2A&gt;</ph> collection of the <ph id="ph3">&lt;xref:System.Windows.Controls.Menu&gt;</ph> as a <ph id="ph4">`&lt;Menu.Items&gt;`</ph> property element tag, and place each <ph id="ph5">&lt;xref:System.Windows.Controls.MenuItem&gt;</ph> within <ph id="ph6">`&lt;Menu.Items&gt;`</ph>, rather than using the implicit XAML processor behavior that all child elements of a <ph id="ph7">&lt;xref:System.Windows.Controls.Menu&gt;</ph> must be a <ph id="ph8">&lt;xref:System.Windows.Controls.MenuItem&gt;</ph> and are placed in the <ph id="ph9">&lt;xref:System.Windows.Controls.ItemsControl.Items%2A&gt;</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>Sometimes the optional usages can help to visually clarify the object structure as represented in the markup.</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>Or sometimes an explicit property element usage can avoid markup that is technically functional but visually confusing, such as nested markup extensions within an attribute value.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>Full typeName.memberName Qualified Attributes</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>memberName<ept id="p2">*</ept> form for an attribute actually works more universally than just the routed event case.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>But in other situations that form is superfluous and you should avoid it, if only for reasons of markup style and readability.</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve">
+          <source>In the following example, each of the three references to the <ph id="ph1">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> attribute are completely equivalent:</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#TypeNameProp<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/page8.xaml#typenameprop)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Button.Background`</ph> works because the qualified lookup for that property on <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph> is successful (<ph id="ph3">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> was inherited from Control) and <ph id="ph4">&lt;xref:System.Windows.Controls.Button&gt;</ph> is the class of the object element or a base class.</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Control.Background`</ph> works because the <ph id="ph2">&lt;xref:System.Windows.Controls.Control&gt;</ph> class actually defines <ph id="ph3">&lt;xref:System.Windows.Controls.Control.Background%2A&gt;</ph> and <ph id="ph4">&lt;xref:System.Windows.Controls.Control&gt;</ph> is a <ph id="ph5">&lt;xref:System.Windows.Controls.Button&gt;</ph> base class.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>However, the following <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>memberName<ept id="p2">*</ept> form example does not work and is thus shown commented:</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#TypeNameBadProp<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/page8.xaml#typenamebadprop)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.Label&gt;</ph> is another derived class of <ph id="ph2">&lt;xref:System.Windows.Controls.Control&gt;</ph>, and if you had specified <ph id="ph3">`Label.Background`</ph> within a <ph id="ph4">&lt;xref:System.Windows.Controls.Label&gt;</ph> object element, this usage would have worked.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>However, because <ph id="ph1">&lt;xref:System.Windows.Controls.Label&gt;</ph> is not the class or base class of <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph>, the specified XAML processor behavior is to then process <ph id="ph3">`Label.Background`</ph> as an attached property.</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Label.Background`</ph> is not an available attached property, and this usage fails.</source>
+        </trans-unit>
+        <trans-unit id="367" translate="yes" xml:space="preserve">
+          <source>baseTypeName.memberName Property Elements</source>
+        </trans-unit>
+        <trans-unit id="368" translate="yes" xml:space="preserve">
+          <source>In an analogous way to how the <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>memberName<ept id="p2">*</ept> form works for attribute syntax, a <bpt id="p3">*</bpt>baseTypeName<ept id="p3">*</ept>.<bpt id="p4">*</bpt>memberName<ept id="p4">*</ept> syntax works for property element syntax.</source>
+        </trans-unit>
+        <trans-unit id="369" translate="yes" xml:space="preserve">
+          <source>For instance, the following syntax works:</source>
+        </trans-unit>
+        <trans-unit id="370" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>XAMLOvwSupport#GoofyPE<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/XAMLOvwSupport/CSharp/page8.xaml#goofype)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="371" translate="yes" xml:space="preserve">
+          <source>Here, the property element was given as <ph id="ph1">`Control.Background`</ph> even though the property element was contained in <ph id="ph2">`Button`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="372" translate="yes" xml:space="preserve">
+          <source>But just like <bpt id="p1">*</bpt>typeName<ept id="p1">*</ept>.<bpt id="p2">*</bpt>memberName<ept id="p2">*</ept> form for attributes, <bpt id="p3">*</bpt>baseTypeName<ept id="p3">*</ept>.<bpt id="p4">*</bpt>memberName<ept id="p4">*</ept> is poor style in markup, and you should avoid it.</source>
+        </trans-unit>
+        <trans-unit id="373" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="374" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="375" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Namespace (x:) Language Features<ept id="p1">](../../../../docs/framework/xaml-services/xaml-namespace-x-language-features.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="376" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>WPF XAML Extensions<ept id="p1">](../../../../docs/framework/wpf/advanced/wpf-xaml-extensions.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="377" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="378" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>TypeConverters and XAML<ept id="p1">](../../../../docs/framework/wpf/advanced/typeconverters-and-xaml.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="379" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML and Custom Classes for WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-and-custom-classes-for-wpf.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">32a57af8ddd807042f2f4f7c2be154a06bfb66ca</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\how-to-use-separate-x-509-certificates-for-signing-and-encryption.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dff1ac6c9f0fba744403643a932526ad4f56b652</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">795872a3a2bc322e6c18c313c5157f684ac144b1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Use Separate X.509 Certificates for Signing and Encryption | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Use Separate X.509 Certificates for Signing and Encryption</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic shows how to configure <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> to use different certificates for message signing and encryption on both the client and service.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>To enable separate certificates to be used for signing and encryption, a custom client or service credentials (or both) must be created because <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> does not provide an API to set multiple client or service certificates.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Additionally, a security token manager must be provided to leverage the multiple certificates' information and to create an appropriate security token provider for specified key usage and message direction.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the main classes used, the classes they inherit from (shown by an upward-pointing arrow), and the return types of certain methods and properties.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MyClientCredentials`</ph> is a custom implementation of <ph id="ph2">&lt;xref:System.ServiceModel.Description.ClientCredentials&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Its properties shown in the diagram all return instances of <ph id="ph1">&lt;xref:System.Security.Cryptography.X509Certificates.X509Certificate2&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Its method <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials.CreateSecurityTokenManager%2A&gt;</ph> returns an instance of <ph id="ph2">`MyClientCredentialsSecurityTokenManager`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`MyClientCredentialsSecurityTokenManager`</ph> is a custom implementation of <ph id="ph2">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Its method <ph id="ph1">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager.CreateSecurityTokenProvider%2A&gt;</ph> returns an instance of <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.X509SecurityTokenProvider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Chart showing how client credentials are used<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/extending/media/e4971edd-a59f-4571-b36f-7e6b2f0d610f.gif "</bpt>e4971edd-a59f-4571-b36f-7e6b2f0d610f<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> custom credentials, see <bpt id="p1">[</bpt>Walkthrough: Creating Custom Client and Service Credentials<ept id="p1">](../../../../docs/framework/wcf/extending/walkthrough-creating-custom-client-and-service-credentials.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In addition, you must create a custom identity verifier, and link it to a security binding element in a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You must also use the custom credentials instead of the default credentials.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the classes involved in the custom binding, and how the custom identity verifier is linked.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>There are several binding elements involved, all of which inherit from <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement&gt;</ph> has the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.LocalClientSecuritySettings&gt;</ph> property, which returns an instance of <ph id="ph3">&lt;xref:System.ServiceModel.Security.IdentityVerifier&gt;</ph>, from which <ph id="ph4">`MyIdentityVerifier`</ph> is customized.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Chart showing a custom binding element<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/extending/media/dddea4a2-0bb4-4921-9bf4-20d4d82c3da5.gif "</bpt>dddea4a2-0bb4-4921-9bf4-20d4d82c3da5<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> creating a custom identity verifier, see How to: <bpt id="p1">[</bpt>How to: Create a Custom Client Identity Verifier<ept id="p1">](../../../../docs/framework/wcf/extending/how-to-create-a-custom-client-identity-verifier.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To use separate certificates for signing and encryption</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Define a new client credentials class that inherits from the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Implement four new properties to allow multiple certificates specification: <ph id="ph1">`ClientSigningCertificate`</ph>, <ph id="ph2">`ClientEncryptingCertificate`</ph>, <ph id="ph3">`ServiceSigningCertificate`</ph>, and <ph id="ph4">`ServiceEncryptingCertificate`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Also override the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ClientCredentials.CreateSecurityTokenManager%2A&gt;</ph> method to return an instance of the customized <ph id="ph2">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager&gt;</ph> class that is defined in the next step.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#1)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Define a new client security token manager that inherits from the <ph id="ph1">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.ClientCredentialsSecurityTokenManager.CreateSecurityTokenProvider%2A&gt;</ph> method to create an appropriate security token provider.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`requirement`</ph> parameter (a <ph id="ph2">&lt;xref:System.IdentityModel.Selectors.SecurityTokenRequirement&gt;</ph>) provides the message direction and key usage.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Define a new service credentials class that inherits from the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceCredentials&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Implement four new properties to allow multiple certificates specification: <ph id="ph1">`ClientSigningCertificate`</ph>, <ph id="ph2">`ClientEncryptingCertificate`</ph>, <ph id="ph3">`ServiceSigningCertificate`</ph>, and <ph id="ph4">`ServiceEncryptingCertificate`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Also override the <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceCredentials.CreateSecurityTokenManager%2A&gt;</ph> method to return an instance of the customized <ph id="ph2">&lt;xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager&gt;</ph> class that is defined in the next step.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#3<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Define a new service security token manager that inherits from the <ph id="ph1">&lt;xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager.CreateSecurityTokenProvider%2A&gt;</ph> method to create an appropriate security token provider given the passed-in message direction and key usage.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#4<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>To use multiple certificates on the client</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Create a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The security binding element must operate in duplex mode to allow different security token providers to be present for requests and responses.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>One way to do this is to use a duplex-capable transport or to use the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CompositeDuplexBindingElement&gt;</ph> as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Link the customized <ph id="ph1">&lt;xref:System.ServiceModel.Security.IdentityVerifier&gt;</ph> which is defined in the next step to the security binding element.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Replace the default client credentials with the customized client credentials previously created.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#5<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Define a custom <ph id="ph1">&lt;xref:System.ServiceModel.Security.IdentityVerifier&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The service has multiple identities because different certificates are used to encrypt the request and to sign the response.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>In the following sample, the provided custom identity verifier does not perform any endpoint identity checking for demonstration purposes.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This is not recommended practice for production code.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#6<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#6<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>To use multiple certificates on the service</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Create a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The security binding element must operate in a duplex mode to allow different security token providers to be present for requests and responses.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>As with the client, use a duplex-capable transport or use <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CompositeDuplexBindingElement&gt;</ph> as shown in the following code.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Replace the default service credentials with the customized service credentials previously created.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_FourCerts#7<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_fourcerts/cs/source.cs#7)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_FourCerts#7<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_fourcerts/vb/source.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Walkthrough: Creating Custom Client and Service Credentials<ept id="p1">](../../../../docs/framework/wcf/extending/walkthrough-creating-custom-client-and-service-credentials.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

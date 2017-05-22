@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c98824d329fb1bd4d753d9254d4795f23cd488ef</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\tpl-and-traditional-async-programming.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">aca638809d82c17f50810d96b664473ba009f138</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1f8350324ed0349277422d3f0320964564adf99d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>TPL and Traditional .NET Framework Asynchronous Programming | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>TPL and Traditional .NET Framework Asynchronous Programming</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The .NET Framework provides the following two standard patterns for performing I/O-bound and compute-bound asynchronous operations:</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Asynchronous Programming Model (APM), in which asynchronous operations are represented by a pair of Begin/End methods such as <ph id="ph1">&lt;xref:System.IO.FileStream.BeginRead%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.IO.Stream.EndRead%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Event-based asynchronous pattern (EAP), in which asynchronous operations are represented by a method/event pair that are named <bpt id="p1">*</bpt>OperationName<ept id="p1">*</ept>Async and <bpt id="p2">*</bpt>OperationName<ept id="p2">*</ept>Completed, for example, <ph id="ph1">&lt;xref:System.Net.WebClient.DownloadStringAsync%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.WebClient.DownloadStringCompleted?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>(EAP was introduced in the .NET Framework version 2.0.)</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The Task Parallel Library (TPL) can be used in various ways in conjunction with either of the asynchronous patterns.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>You can expose both APM and EAP operations as Tasks to library consumers, or you can expose the APM patterns but use Task objects to implement them internally.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In both scenarios, by using Task objects, you can simplify the code and take advantage of the following useful functionality:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Register callbacks, in the form of task continuations, at any time after the task has started.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Coordinate multiple operations that execute in response to a <ph id="ph1">`Begin_`</ph> method, by using the <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAll%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAny%2A&gt;</ph> methods, or the <ph id="ph4">&lt;xref:System.Threading.Tasks.Task.WaitAll%2A&gt;</ph> method or the <ph id="ph5">&lt;xref:System.Threading.Tasks.Task.WaitAny%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Encapsulate asynchronous I/O-bound and compute-bound operations in the same Task object.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Monitor the status of the Task object.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Marshal the status of an operation to a Task object by using <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskCompletionSource%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Wrapping APM Operations in a Task</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Both the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskFactory?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskFactory%601?displayProperty=fullName&gt;</ph> classes provide several overloads of the <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory.FromAsync%2A?displayProperty=fullName&gt;</ph> and <ph id="ph4">&lt;xref:System.Threading.Tasks.TaskFactory%601.FromAsync%2A?displayProperty=fullName&gt;</ph> methods that let you encapsulate an APM Begin/End method pair in one <ph id="ph5">&lt;xref:System.Threading.Tasks.Task&gt;</ph> or <ph id="ph6">&lt;xref:System.Threading.Tasks.Task%601&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The various overloads accommodate any Begin/End method pair that have from zero to three input parameters.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For pairs that have <ph id="ph1">`End`</ph> methods that return a value (<ph id="ph2">`Function`</ph> in Visual Basic), use the methods in <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory%601&gt;</ph> that create a <ph id="ph4">&lt;xref:System.Threading.Tasks.Task%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For <ph id="ph1">`End`</ph> methods that return void (<ph id="ph2">`Sub`</ph> in Visual Basic), use the methods in <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskFactory&gt;</ph> that create a <ph id="ph4">&lt;xref:System.Threading.Tasks.Task&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For those few cases in which the <ph id="ph1">`Begin`</ph> method has more than three parameters or contains <ph id="ph2">`ref`</ph> or <ph id="ph3">`out`</ph> parameters, additional <ph id="ph4">`FromAsync`</ph> overloads that encapsulate only the <ph id="ph5">`End`</ph> method are provided.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following example shows the signature for the <ph id="ph1">`FromAsync`</ph> overload that matches the <ph id="ph2">&lt;xref:System.IO.FileStream.BeginRead%2A?displayProperty=fullName&gt;</ph> and <ph id="ph3">&lt;xref:System.IO.FileStream.EndRead%2A?displayProperty=fullName&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This overload takes three input parameters, as follows.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#01<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#01)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#01<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#01)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The first parameter is a <ph id="ph1">&lt;xref:System.Func%606&gt;</ph> delegate that matches the signature of the <ph id="ph2">&lt;xref:System.IO.FileStream.BeginRead%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The second parameter is a <ph id="ph1">&lt;xref:System.Func%602&gt;</ph> delegate that takes an <ph id="ph2">&lt;xref:System.IAsyncResult&gt;</ph> and returns a <ph id="ph3">`TResult`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">&lt;xref:System.IO.FileStream.EndRead%2A&gt;</ph> returns an integer, the compiler infers the type of <ph id="ph2">`TResult`</ph> as <ph id="ph3">&lt;xref:System.Int32&gt;</ph> and the type of the task as <ph id="ph4">&lt;xref:System.Threading.Tasks.Task&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The last four parameters are identical to those in the <ph id="ph1">&lt;xref:System.IO.FileStream.BeginRead%2A?displayProperty=fullName&gt;</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The buffer in which to store the file data.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The offset in the buffer at which to begin writing data.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The maximum amount of data to read from the file.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>An optional object that stores user-defined state data to pass to the callback.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Using ContinueWith for the Callback Functionality</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If you require access to the data in the file, as opposed to just the number of bytes, the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskFactory.FromAsync%2A&gt;</ph> method is not sufficient.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Instead, use <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph>, whose <ph id="ph2">`Result`</ph> property contains the file data.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>You can do this by adding a continuation to the original task.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The continuation performs the work that would typically be performed by the <ph id="ph1">&lt;xref:System.AsyncCallback&gt;</ph> delegate.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>It is invoked when the antecedent completes, and the data buffer has been filled.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>(The <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> object should be closed before returning.)</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following example shows how to return a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> that encapsulates the BeginRead/EndRead pair of the <ph id="ph2">&lt;xref:System.IO.FileStream&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#03<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#03)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#03<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#03)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The method can then be called, as follows.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#04<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#04)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#04<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#04)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Providing Custom State Data</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In typical <ph id="ph1">&lt;xref:System.IAsyncResult&gt;</ph> operations, if your <ph id="ph2">&lt;xref:System.AsyncCallback&gt;</ph> delegate requires some custom state data, you have to pass it in through the last parameter in the <ph id="ph3">`Begin`</ph> method, so that the data can be packaged into the <ph id="ph4">&lt;xref:System.IAsyncResult&gt;</ph> object that is eventually passed to the callback method.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This is typically not required when the <ph id="ph1">`FromAsync`</ph> methods are used.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If the custom data is known to the continuation, then it can be captured directly in the continuation delegate.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The following example resembles the previous example, but instead of examining the <ph id="ph1">`Result`</ph> property of the antecedent, the continuation examines the custom state data that is directly accessible to the user delegate of the continuation.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#05<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#05)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#05<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#05)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Synchronizing Multiple FromAsync Tasks</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The static <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAll%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskFactory.ContinueWhenAny%2A&gt;</ph> methods provide added flexibility when used in conjunction with the <ph id="ph3">`FromAsync`</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The following example shows how to initiate multiple asynchronous I/O operations, and then wait for all of them to complete before you execute the continuation.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#06<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#06)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#06<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#06)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>FromAsync Tasks For Only the End Method</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For those few cases in which the <ph id="ph1">`Begin`</ph> method requires more than three input parameters, or has <ph id="ph2">`ref`</ph> or <ph id="ph3">`out`</ph> parameters, you can use the <ph id="ph4">`FromAsync`</ph> overloads, for example, <ph id="ph5">&lt;xref:System.Threading.Tasks.TaskFactory%601.FromAsync%28System.IAsyncResult%2CSystem.Func%7BSystem.IAsyncResult%2C%600%7D%29?displayProperty=fullName&gt;</ph>, that represent only the <ph id="ph6">`End`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>These methods can also be used in any scenario in which you are passed an <ph id="ph1">&lt;xref:System.IAsyncResult&gt;</ph> and want to encapsulate it in a Task.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#07<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#07)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#07<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#07)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Starting and Canceling FromAsync Tasks</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The task returned by a <ph id="ph1">`FromAsync`</ph> method has a status of WaitingForActivation and will be started by the system at some point after the task is created.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>If you attempt to call Start on such a task, an exception will be raised.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>You cannot cancel a <ph id="ph1">`FromAsync`</ph> task, because the underlying .NET Framework APIs currently do not support in-progress cancellation of file or network I/O.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>You can add cancellation functionality to a method that encapsulates a <ph id="ph1">`FromAsync`</ph> call, but you can only respond to the cancellation before <ph id="ph2">`FromAsync`</ph> is called or after it completed (for example, in a continuation task).</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Some classes that support EAP, for example, <ph id="ph1">&lt;xref:System.Net.WebClient&gt;</ph>, do support cancellation, and you can integrate that native cancellation functionality by using cancellation tokens.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Exposing Complex EAP Operations As Tasks</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The TPL does not provide any methods that are specifically designed to encapsulate an event-based asynchronous operation in the same way that the <ph id="ph1">`FromAsync`</ph> family of methods wrap the <ph id="ph2">&lt;xref:System.IAsyncResult&gt;</ph> pattern.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>However, the TPL does provide the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskCompletionSource%601?displayProperty=fullName&gt;</ph> class, which can be used to represent any arbitrary set of operations as a <ph id="ph2">&lt;xref:System.Threading.Tasks.Task%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The operations may be synchronous or asynchronous, and may be I/O bound or compute-bound, or both.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The following example shows how to use a <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskCompletionSource%601&gt;</ph> to expose a set of asynchronous <ph id="ph2">&lt;xref:System.Net.WebClient&gt;</ph> operations to client code as a basic <ph id="ph3">&lt;xref:System.Threading.Tasks.Task%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The method lets you enter an array of Web URLs, and a term or name to search for, and then returns the number of times the search term occurs on each site.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/snippet10.cs#10)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/snippet10.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For a more complete example, which includes additional exception handling and shows how to call the method from client code, see <bpt id="p1">[</bpt>How to: Wrap EAP Patterns in a Task<ept id="p1">](../../../docs/standard/parallel-programming/how-to-wrap-eap-patterns-in-a-task.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Remember that any task that is created by a <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskCompletionSource%601&gt;</ph> will be started by that TaskCompletionSource and, therefore, user code should not call the Start method on that task.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Implementing the APM Pattern By Using Tasks</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>In some scenarios, it may be desirable to directly expose the <ph id="ph1">&lt;xref:System.IAsyncResult&gt;</ph> pattern by using Begin/End method pairs in an API.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>For example, you may want to maintain consistency with existing APIs, or you may have automated tools that require this pattern.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>In such cases, you can use Tasks to simplify how the APM pattern is implemented internally.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The following example shows how to use tasks to implement an APM Begin/End method pair for a long-running compute-bound method.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>FromAsync#09<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#09)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>FromAsync#09<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#09)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Using the StreamExtensions Sample Code</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The Streamextensions.cs file, in <bpt id="p1">[</bpt>Samples for Parallel Programming with the .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=165717)</ept> on the MSDN Web site, contains several reference implementations that use Task objects for asynchronous file and network I/O.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Task Parallel Library (TPL)<ept id="p1">](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

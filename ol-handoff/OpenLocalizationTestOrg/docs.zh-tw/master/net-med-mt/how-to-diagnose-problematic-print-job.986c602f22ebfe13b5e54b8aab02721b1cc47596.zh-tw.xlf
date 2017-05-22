@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2f3d819c78e2005d122d4333e385eb1b8a39f3df</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\how-to-diagnose-problematic-print-job.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2cdb4f003ca73ea769abea7e1a90a3d035609f4a</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d8b3c9333c7b5c5086aa072ef3b3ba4259873686</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Diagnose Problematic Print Job | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Diagnose Problematic Print Job</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Network administrators often field complaints from users about print jobs that do not print or print slowly.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The rich set of print job properties exposed in the <ph id="ph1">[!INCLUDE[TLA#tla_api#plural](../../../../includes/tlasharptla-apisharpplural-md.md)]</ph> of <ph id="ph2">[!INCLUDE[TLA#tla_winfx](../../../../includes/tlasharptla-winfx-md.md)]</ph> provide a means for performing a rapid remote diagnosis of print jobs.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The major steps for creating this kind of utility are as follows.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Identify the print job that the user is complaining about.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Users often cannot do this precisely.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>They may not know the names of the print servers or printers.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>They may describe the location of the printer in different terminology than was used in setting its <ph id="ph1">&lt;xref:System.Printing.PrintQueue.Location%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Accordingly, it is a good idea to generate a list of the user's currently submitted jobs.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If there is more than one, then communication between the user and the print system administrator can be used to pinpoint the job that is having problems.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The substeps are as follows.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Obtain a list of all print servers.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Loop through the servers to query their print queues.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Within each pass of the server loop, loop through all the server's queues to query their jobs</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Within each pass of the queue loop, loop through its jobs and gather identifying information about those that were submitted by the complaining user.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When the problematic print job has been identified, examine relevant properties to see what might be the problem.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>For example, is job in an error state or did the printer servicing the queue go offline before the job could print?</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The code below is series of code examples.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The first code example contains the loop through the print queues.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>(Step 1c above.) The variable <ph id="ph1">`myPrintQueues`</ph> is the <ph id="ph2">&lt;xref:System.Printing.PrintQueueCollection&gt;</ph> object for the current print server.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The code example begins by refreshing the current print queue object with <ph id="ph1">&lt;xref:System.Printing.PrintQueue.Refresh%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This ensures that the object's properties accurately represent the state of the physical printer that it represents.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Then the application gets the collection of print jobs currently in the print queue by using <ph id="ph1">&lt;xref:System.Printing.PrintQueue.GetPrintJobInfoCollection%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Next the application loops through the <ph id="ph1">&lt;xref:System.Printing.PrintSystemJobInfo&gt;</ph> collection and compares each <ph id="ph2">&lt;xref:System.Printing.PrintSystemJobInfo.Submitter%2A&gt;</ph> property with the alias of the complaining user.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If they match, the application adds identifying information about the job to the string that will be presented.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>(The <ph id="ph1">`userName`</ph> and <ph id="ph2">`jobList`</ph> variables are initialized earlier in the application.)</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>DiagnoseProblematicPrintJob#EnumerateJobsInQueues<ept id="p2">](../../../../samples/snippets/cpp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CPP/Program.cpp#enumeratejobsinqueues)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>DiagnoseProblematicPrintJob#EnumerateJobsInQueues<ept id="p4">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CSharp/Program.cs#enumeratejobsinqueues)</ept><ept id="p3">]</ept> <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>DiagnoseProblematicPrintJob#EnumerateJobsInQueues<ept id="p6">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/visualbasic/program.vb#enumeratejobsinqueues)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The next code example picks up the application at Step 2.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>(See above.) The problematic job has been identified and the application prompts for the information that will identify it.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>From this information it creates <ph id="ph1">&lt;xref:System.Printing.PrintServer&gt;</ph>, <ph id="ph2">&lt;xref:System.Printing.PrintQueue&gt;</ph>, and <ph id="ph3">&lt;xref:System.Printing.PrintSystemJobInfo&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>At this point the application contains a branching structure corresponding to the two ways of checking a print job's status:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>You can read the flags of the <ph id="ph1">&lt;xref:System.Printing.PrintSystemJobInfo.JobStatus%2A&gt;</ph> property which is of type <ph id="ph2">&lt;xref:System.Printing.PrintJobStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>You can read each relevant property such as <ph id="ph1">&lt;xref:System.Printing.PrintSystemJobInfo.IsBlocked%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Printing.PrintSystemJobInfo.IsInError%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>This example demonstrates both methods, so the user was previously prompted as to which method to use and responded with "Y" if he or she wanted to use the flags of the <ph id="ph1">&lt;xref:System.Printing.PrintSystemJobInfo.JobStatus%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>See below for the details of the two methods.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Finally, the application uses a method called <bpt id="p1">**</bpt>ReportQueueAndJobAvailability<ept id="p1">**</ept> to report on whether the job can be printed at this time of day.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This method is discussed in <bpt id="p1">[</bpt>Discover Whether a Print Job Can Be Printed At This Time of Day<ept id="p1">](../../../../docs/framework/wpf/advanced/how-to-discover-whether-a-print-job-can-be-printed-at-this-time-of-day.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>DiagnoseProblematicPrintJob#IdentifyAndDiagnoseProblematicJob<ept id="p2">](../../../../samples/snippets/cpp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CPP/Program.cpp#identifyanddiagnoseproblematicjob)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>DiagnoseProblematicPrintJob#IdentifyAndDiagnoseProblematicJob<ept id="p4">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CSharp/Program.cs#identifyanddiagnoseproblematicjob)</ept><ept id="p3">]</ept> <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>DiagnoseProblematicPrintJob#IdentifyAndDiagnoseProblematicJob<ept id="p6">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/visualbasic/program.vb#identifyanddiagnoseproblematicjob)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>To check print job status using the flags of the <ph id="ph1">&lt;xref:System.Printing.PrintSystemJobInfo.JobStatus%2A&gt;</ph> property, you check each relevant flag to see if it is set.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The standard way to see if one bit is set in a set of bit flags is to perform a logical AND operation with the set of flags as one operand and the flag itself as the other.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Since the flag itself has only one bit set, the result of the logical AND is that, at most, that same bit is set.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>To find out whether it is or not, just compare the result of the logical AND with the flag itself.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Printing.PrintJobStatus&gt;</ph>, the <bpt id="p1">[</bpt>&amp; Operator (C# Reference)<ept id="p1">](~/docs/csharp/language-reference/operators/and-operator.md)</ept>, and <ph id="ph2">&lt;xref:System.FlagsAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For each attribute whose bit is set, the code reports this to the console screen and sometimes suggests a way to respond.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>(The <bpt id="p1">**</bpt>HandlePausedJob<ept id="p1">**</ept> method that is called if the job or queue is paused is discussed below.)</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobAttributes<ept id="p2">](../../../../samples/snippets/cpp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CPP/Program.cpp#spottroubleusingjobattributes)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobAttributes<ept id="p4">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CSharp/Program.cs#spottroubleusingjobattributes)</ept><ept id="p3">]</ept> <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobAttributes<ept id="p6">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/visualbasic/program.vb#spottroubleusingjobattributes)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>To check print job status using separate properties, you simply read each property and, if the property is <ph id="ph1">`true`</ph>, report to the console screen and possibly suggest a way to respond.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>(The <bpt id="p1">**</bpt>HandlePausedJob<ept id="p1">**</ept> method that is called if the job or queue is paused is discussed below.)</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobProperties<ept id="p2">](../../../../samples/snippets/cpp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CPP/Program.cpp#spottroubleusingjobproperties)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobProperties<ept id="p4">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CSharp/Program.cs#spottroubleusingjobproperties)</ept><ept id="p3">]</ept> <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>DiagnoseProblematicPrintJob#SpotTroubleUsingJobProperties<ept id="p6">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/visualbasic/program.vb#spottroubleusingjobproperties)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>HandlePausedJob<ept id="p1">**</ept> method enables the application's user to remotely resume paused jobs.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Because there might be a good reason why the print queue was paused, the method begins by prompting for a user decision about whether to resume it.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If the answer is "Y", then the <ph id="ph1">&lt;xref:System.Printing.PrintQueue.Resume%2A?displayProperty=fullName&gt;</ph> method is called.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Next the user is prompted to decide if the job itself should be resumed, just in case it is paused independently of the print queue.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>(Compare <ph id="ph1">&lt;xref:System.Printing.PrintQueue.IsPaused%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Printing.PrintSystemJobInfo.IsPaused%2A?displayProperty=fullName&gt;</ph>.) If the answer is "Y", then <ph id="ph3">&lt;xref:System.Printing.PrintSystemJobInfo.Resume%2A?displayProperty=fullName&gt;</ph> is called; otherwise <ph id="ph4">&lt;xref:System.Printing.PrintSystemJobInfo.Cancel%2A&gt;</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cpp</bpt><bpt id="p2">[</bpt>DiagnoseProblematicPrintJob#HandlePausedJob<ept id="p2">](../../../../samples/snippets/cpp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CPP/Program.cpp#handlepausedjob)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-csharp</bpt><bpt id="p4">[</bpt>DiagnoseProblematicPrintJob#HandlePausedJob<ept id="p4">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/CSharp/Program.cs#handlepausedjob)</ept><ept id="p3">]</ept> <bpt id="p5">[!code-vb</bpt><bpt id="p6">[</bpt>DiagnoseProblematicPrintJob#HandlePausedJob<ept id="p6">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/DiagnoseProblematicPrintJob/visualbasic/program.vb#handlepausedjob)</ept><ept id="p5">]</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>&amp; Operator (C# Reference)<ept id="p1">](~/docs/csharp/language-reference/operators/and-operator.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Documents in WPF<ept id="p1">](../../../../docs/framework/wpf/advanced/documents-in-wpf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Printing Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/printing-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

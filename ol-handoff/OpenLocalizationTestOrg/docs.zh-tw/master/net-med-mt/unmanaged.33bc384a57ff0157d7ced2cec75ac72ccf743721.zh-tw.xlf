@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">22deacb4397d786dbd6c63b34b7502bb7b061b29</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\garbage-collection\unmanaged.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7291afd5198c48053b24d3b1057aed261f5bfa4d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d463370b777a19d8185de54b2b1f7aa8f518cd0d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Cleaning Up Unmanaged Resources | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Cleaning Up Unmanaged Resources</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>For the majority of the objects that your app creates, you can rely on .NET's garbage collector to handle memory management.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>However, when you create objects that include unmanaged resources, you must explicitly release those resources when you finish using them in your app.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The most common types of unmanaged resource are objects that wrap operating system resources, such as files, windows, network connections, or database connections.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Although the garbage collector is able to track the lifetime of an object that encapsulates an unmanaged resource, it doesn't know how to release and clean up the unmanaged resource.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If your types use unmanaged resources, you should do the following:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Implement the <bpt id="p1">[</bpt>dispose pattern<ept id="p1">](../../../docs/standard/design-guidelines/dispose-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This requires that you provide an <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation to enable the deterministic release of  unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>A consumer of your type calls <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> when the object (and the resources it uses) is no longer needed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method immediately releases the unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Provide for your unmanaged resources to be released in the event that a consumer of your type forgets to call <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>There are two ways to do this:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Use a safe handle to wrap your unmanaged resource.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This is the recommended technique.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Safe handles are derived from the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle?displayProperty=fullName&gt;</ph> class and include a robust <ph id="ph2">&lt;xref:System.Object.Finalize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>When you use a safe handle, you simply implement the <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> interface and call your safe handle's <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle.Dispose%2A&gt;</ph> method in your <ph id="ph3">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The safe handle's finalizer is called automatically by the garbage collector if its <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method is not called.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>—or—</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Finalization enables the non-deterministic release of unmanaged resources when the consumer of a type fails to call <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> to dispose of them deterministically.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, because object finalization can be a complex and error-prone operation, we recommend that you use a safe handle instead of providing your own finalizer.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Consumers of your type can then call your <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A?displayProperty=fullName&gt;</ph> implementation directly to free memory used by unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When you properly implement a <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method, either your safe handle's <ph id="ph2">&lt;xref:System.Object.Finalize%2A&gt;</ph> method or your own override of the <ph id="ph3">&lt;xref:System.Object.Finalize%2A?displayProperty=fullName&gt;</ph> method becomes a safeguard to clean up resources in the event that the <ph id="ph4">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method is not called.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>In This Section</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Implementing a Dispose Method<ept id="p1">](../../../docs/standard/garbage-collection/implementing-dispose.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Describes how to implement the <bpt id="p1">[</bpt>dispose pattern<ept id="p1">](../../../docs/standard/design-guidelines/dispose-pattern.md)</ept> for releasing unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Using Objects That Implement IDisposable<ept id="p1">](../../../docs/standard/garbage-collection/using-objects.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Describes how consumers of a type ensure that its <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> implementation is called.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>We recommend using the C# <ph id="ph1">`using`</ph> statement or the Visual Basic <ph id="ph2">`Using`</ph> statement to do this.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Defines the <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method for releasing unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Provides for object finalization if unmanaged resources are not released by the <ph id="ph1">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Suppresses finalization.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This method is customarily called from a <ph id="ph1">`Dispose`</ph> method to prevent a finalizer from executing.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2dfcc4cf1f35ebd21d3bd9cc6fbea1ae3c13c467</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\transactions\enlisting-resources-as-participants-in-a-transaction.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">08ad17cbceacb5a3523a33e7aa8521a406b4a9d2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3515e34164421e4e894e7ecf7ed84a76b3223395</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Enlisting Resources as Participants in a Transaction | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Enlisting Resources as Participants in a Transaction</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Each resource participating in a transaction is managed by a resource manager, whose actions are coordinated by a transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The coordination is done through notifications given to subscribers who have enlisted in a transaction through the transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic covers how a resource (or multiple resources) can be enlisted in a transaction, as well as the different types of enlistment.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept> topic covers how transaction commitment can be coordinated among enlisted resources.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Enlisting Resources in a Transaction</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In order for a resource to participate in a transaction, it must enlist in the transaction.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction&gt;</ph> class defines a set of methods whose names begin with <bpt id="p1">**</bpt>Enlist<ept id="p1">**</ept> that provide this functionality.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The different <bpt id="p1">**</bpt>Enlist<ept id="p1">**</ept> methods correspond to the different types of enlistment that a resource manager may have.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Specifically, you use the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> methods for volatile resources, and the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method for durable resources.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The durability (or conversely the volatility) of a resource manager refers to whether the resource manager supports failure recovery.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If a resource manager supports failure recovery, it persists data to durable storage during Phase1 (prepare) such that if the resource manager goes down, it can re-enlist in the transaction upon recovery and perform the proper actions based on the notifications received from the TM.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In general, volatile resource managers manage volatile resources such as an in-memory data structure (for example, an in-memory transacted-hashtable), and durable resource managers manage resources that have a more persistent backing store (for example, a database whose backing store is disk).</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For simplicity, after deciding whether to use the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> method based on your resource's durability support, you should enlist your resource to participate in Two Phase Commit (2PC) by implementing the <ph id="ph3">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface for your resource manager.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For more information on 2PC, see <bpt id="p1">[</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A single participant can enlist for more than one of these protocols by calling <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> multiple times.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Durable Enlistment</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> methods are used to enlist a resource manager for participation in the transaction as a durable resource.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>It is expected that if a durable resource manager is brought down in the middle of a transaction, it can perform recovery once it is brought back online by reenlisting (using the <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> method) in all transactions in which it was a participant and did not complete phase 2, and call <ph id="ph2">&lt;xref:System.Transactions.TransactionManager.RecoveryComplete%2A&gt;</ph> once it finishes recovery processing.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For more information on recovery, see <bpt id="p1">[</bpt>Performing Recovery<ept id="p1">](../../../../docs/framework/data/transactions/performing-recovery.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> methods all take a <ph id="ph2">&lt;xref:System.Guid&gt;</ph> object as their first parameter.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Guid&gt;</ph> is used by the transaction manager to associate a durable enlistment with a particular resource manager.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As such, it is imperative that a resource manager consistently uses the same <ph id="ph1">&lt;xref:System.Guid&gt;</ph> to identify itself even across different resource managers upon restarting, otherwise the recovery can fail.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The second parameter of the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method is a reference to the object that the resource manager implements to receive transaction notifications.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The overload you use informs the transaction manager whether your resource manager supports the Single Phase Commit (SPC) optimization.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Most of the time you would implement the <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface to take part in Two-Phase Commit (2PC).</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>However, if you want to optimize the commit process, you can consider implementing the <ph id="ph1">&lt;xref:System.Transactions.ISinglePhaseNotification&gt;</ph> interface for SPC.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information on SPC, see <bpt id="p1">[</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept> and <bpt id="p2">[</bpt>Optimization using Single Phase Commit and Promotable Single Phase Notification<ept id="p2">](../../../../docs/framework/data/transactions/optimization-spc-and-promotable-spn.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The third parameter is an <ph id="ph1">&lt;xref:System.Transactions.EnlistmentOptions&gt;</ph> enumeration, whose value can be either <ph id="ph2">&lt;xref:System.Transactions.EnlistmentOptions&gt;</ph> or <ph id="ph3">&lt;xref:System.Transactions.EnlistmentOptions&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If the value is set to <ph id="ph1">&lt;xref:System.Transactions.EnlistmentOptions&gt;</ph>, the enlistment may enlist additional resource managers upon receiving the Prepare notification from the transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>However, you should be aware that this type of enlistment is not eligible for the Single Phase Commit optimization.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Volatile Enlistment</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Participants managing volatile resources such as a cache should enlist using the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Such objects might not be able to obtain the outcome of a transaction or recover the state of any transaction they participate in after a system failure.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>As stated previously, a resource manager would make a volatile enlistment if it manages an in-memory, volatile resource.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>One of the benefits of using <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> is that it does not force an unnecessary escalation of the transaction.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For more information on transaction escalation, see <bpt id="p1">[</bpt>Transaction Management Escalation<ept id="p1">](../../../../docs/framework/data/transactions/transaction-management-escalation.md)</ept> topic.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Enlisting volatilely implies both a difference in how the enlistment is handled by the transaction manager, as well as what is expected of the resource manager by the transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This is because a volatile resource manager does not perform recovery.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> methods do not take a <ph id="ph2">&lt;xref:System.Guid&gt;</ph> parameter, because a volatile resource manager does not perform recovery and would not call the <ph id="ph3">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> method which needs a <ph id="ph4">&lt;xref:System.Guid&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>As with durable enlistments, whichever overload method you use to enlist denotes to the transaction manager whether your resource manager supports the Single Phase Commit optimization.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Since a volatile resource manager cannot perform recovery, no recovery information is written for a volatile enlistment during the Prepare phase.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Therefore, calling the <ph id="ph1">&lt;xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A&gt;</ph> method results in an <ph id="ph2">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The following example shows how to enlist such an object as a participant in a transaction using the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistVolatile%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Tx_Enlist#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/tx_enlist/cs/enlist.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Tx_Enlist#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/tx_enlist/vb/enlist.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Optimizing Performance</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Transactions.Transaction&gt;</ph> class also provides the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A&gt;</ph> method to enlist a Promotable Single Phase Enlistment (PSPE).</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This allows a durable resource manager (RM) to host and "own" a transaction that can later be escalated to be managed by the MSDTC if necessary.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For more information on this, see <bpt id="p1">[</bpt>Optimization using Single Phase Commit and Promotable Single Phase Notification<ept id="p1">](../../../../docs/framework/data/transactions/optimization-spc-and-promotable-spn.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Optimization using Single Phase Commit and Promotable Single Phase Notification<ept id="p1">](../../../../docs/framework/data/transactions/optimization-spc-and-promotable-spn.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Committing a Transaction in Single-Phase and Multi-Phase<ept id="p1">](../../../../docs/framework/data/transactions/committing-a-transaction-in-single-phase-and-multi-phase.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

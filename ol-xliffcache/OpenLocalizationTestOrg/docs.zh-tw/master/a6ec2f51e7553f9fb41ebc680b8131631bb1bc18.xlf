@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a6ec2f51e7553f9fb41ebc680b8131631bb1bc18</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\sql-server-connection-pooling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e9deaa0e31dbcbb0e05162944ad19b42d4b99280</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">371b9859832508781e7d5588ae4189aa177a36a7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>SQL Server Connection Pooling (ADO.NET) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>SQL Server Connection Pooling (ADO.NET)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Connecting to a database server typically consists of several time-consuming steps.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>A physical channel such as a socket or a named pipe must be established, the initial handshake with the server must occur, the connection string information must be parsed, the connection must be authenticated by the server, checks must be run for enlisting in the current transaction, and so on.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In practice, most applications use only one or a few different configurations for connections.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This means that during application execution, many identical connections will be repeatedly opened and closed.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To minimize the cost of opening connections, <ph id="ph1">[!INCLUDE[vstecado](../../../../includes/vstecado-md.md)]</ph> uses an optimization technique called <bpt id="p1">*</bpt>connection pooling<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Connection pooling reduces the number of times that new connections must be opened.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">*</bpt>pooler<ept id="p1">*</ept> maintains ownership of the physical connection.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>It manages connections by keeping alive a set of active connections for each given connection configuration.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Whenever a user calls <ph id="ph1">`Open`</ph> on a connection, the pooler looks for an available connection in the pool.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If a pooled connection is available, it returns it to the caller instead of opening a new connection.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>When the application calls <ph id="ph1">`Close`</ph> on the connection, the pooler returns it to the pooled set of active connections instead of closing it.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Once the connection is returned to the pool, it is ready to be reused on the next <ph id="ph1">`Open`</ph> call.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Only connections with the same configuration can be pooled.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[vstecado](../../../../includes/vstecado-md.md)]</ph> keeps several pools at the same time, one for each configuration.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Connections are separated into pools by connection string, and by Windows identity when integrated security is used.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Connections are also pooled based on whether they are enlisted in a transaction.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When using <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection.ChangePassword%2A&gt;</ph>, the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlCredential&gt;</ph> instance affects the connection pool.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Different instances of <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlCredential&gt;</ph> will use different connection pools, even if the user ID and password are the same.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Pooling connections can significantly enhance the performance and scalability of your application.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>By default, connection pooling is enabled in <ph id="ph1">[!INCLUDE[vstecado](../../../../includes/vstecado-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Unless you explicitly disable it, the pooler optimizes the connections as they are opened and closed in your application.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You can also supply several connection string modifiers to control connection pooling behavior.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For more information, see "Controlling Connection Pooling with Connection String Keywords" later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When connection pooling is enabled, and if a timeout error or other login error occurs, an exception will be thrown and subsequent connection attempts will fail for the next five seconds, the "blocking period".</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If the application attempts to connect within the blocking period, the first exception will be thrown again.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Subsequent failures after a blocking period ends will result in a new blocking periods that is twice as long as the previous blocking period, up to a maximum of one minute.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Pool Creation and Assignment</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>When a connection is first opened, a connection pool is created based on an exact matching algorithm that associates the pool with the connection string in the connection.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Each connection pool is associated with a distinct connection string.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When a new connection is opened, if the connection string is not an exact match to an existing pool, a new pool is created.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Connections are pooled per process, per application domain, per connection string and when integrated security is used, per Windows identity.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Connection strings must also be an exact match; keywords supplied in a different order for the same connection will be pooled separately.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In the following C# example, three new <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> objects are created, but only two connection pools are required to manage them.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Note that the first and second connection strings differ by the value assigned for <ph id="ph1">`Initial Catalog`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`MinPoolSize`</ph> is either not specified in the connection string or is specified as zero, the connections in the pool will be closed after a period of inactivity.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>However, if the specified <ph id="ph1">`MinPoolSize`</ph> is greater than zero, the connection pool is not destroyed until the <ph id="ph2">`AppDomain`</ph> is unloaded and the process ends.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Maintenance of inactive or empty pools involves minimal system overhead.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The pool is automatically cleared when a fatal error occurs, such as a failover.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Adding Connections</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>A connection pool is created for each unique connection string.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>When a pool is created, multiple connection objects are created and added to the pool so that the minimum pool size requirement is satisfied.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Connections are added to the pool as needed, up to the maximum pool size specified (100 is the default).</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Connections are released back into the pool when they are closed or disposed.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object is requested, it is obtained from the pool if a usable connection is available.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To be usable, a connection must be unused, have a matching transaction context or be unassociated with any transaction context, and have a valid link to the server.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The connection pooler satisfies requests for connections by reallocating connections as they are released back into the pool.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If the maximum pool size has been reached and no usable connection is available, the request is queued.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The pooler then tries to reclaim any connections until the time-out is reached (the default is 15 seconds).</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>If the pooler cannot satisfy the request before the connection times out, an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>We strongly recommend that you always close the connection when you are finished using it so that the connection will be returned to the pool.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>You can do this using either the <ph id="ph1">`Close`</ph> or <ph id="ph2">`Dispose`</ph> methods of the <ph id="ph3">`Connection`</ph> object, or by opening all connections inside a <ph id="ph4">`using`</ph> statement in C#, or a <ph id="ph5">`Using`</ph> statement in <ph id="ph6">[!INCLUDE[vbprvb](../../../../includes/vbprvb-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Connections that are not explicitly closed might not be added or returned to the pool.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>using Statement<ept id="p1">](~/docs/csharp/language-reference/keywords/using-statement.md)</ept> or <bpt id="p2">[</bpt>How to: Dispose of a System Resource<ept id="p2">](~/docs/visual-basic/programming-guide/language-features/control-flow/how-to-dispose-of-a-system-resource.md)</ept> for <ph id="ph1">[!INCLUDE[vbprvb](../../../../includes/vbprvb-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Do not call <ph id="ph1">`Close`</ph> or <ph id="ph2">`Dispose`</ph> on a <ph id="ph3">`Connection`</ph>, a <ph id="ph4">`DataReader`</ph>, or any other managed object in the <ph id="ph5">`Finalize`</ph> method of your class.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>In a finalizer, only release unmanaged resources that your class owns directly.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>If your class does not own any unmanaged resources, do not include a <ph id="ph1">`Finalize`</ph> method in your class definition.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Garbage Collection<ept id="p1">](../../../../docs/standard/garbage-collection/index.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Login and logout events will not be raised on the server when a connection is fetched from or returned to the connection pool.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>This is because the connection is not actually closed when it is returned to the connection pool.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Audit Login Event Class<ept id="p1">](http://msdn2.microsoft.com/library/ms190260.aspx)</ept> and <bpt id="p2">[</bpt>Audit Logout Event Class<ept id="p2">](http://msdn2.microsoft.com/library/ms175827.aspx)</ept> in <ph id="ph1">[!INCLUDE[ssNoVersion](../../../../includes/ssnoversion-md.md)]</ph> Books Online.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Removing Connections</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The connection pooler removes a connection from the pool after it has been idle for approximately 4-8 minutes, or if the pooler detects that the connection with the server has been severed.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Note that a severed connection can be detected only after attempting to communicate with the server.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>If a connection is found that is no longer connected to the server, it is marked as invalid.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Invalid connections are removed from the connection pool only when they are closed or reclaimed.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If a connection exists to a server that has disappeared, this connection can be drawn from the pool even if the connection pooler has not detected the severed connection and marked it as invalid.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>This is the case because the overhead of checking that the connection is still valid would eliminate the benefits of having a pooler by causing another round trip to the server to occur.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>When this occurs, the first attempt to use the connection will detect that the connection has been severed, and an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Clearing the Pool</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[vstecado](../../../../includes/vstecado-md.md)]</ph> 2.0 introduced two new methods to clear the pool: <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection.ClearAllPools%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Data.SqlClient.SqlConnection.ClearPool%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ClearAllPools`</ph> clears the connection pools for a given provider, and <ph id="ph2">`ClearPool`</ph> clears the connection pool that is associated with a specific connection.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>If there are connections being used at the time of the call, they are marked appropriately.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>When they are closed, they are discarded instead of being returned to the pool.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Transaction Support</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Connections are drawn from the pool and assigned based on transaction context.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Unless <ph id="ph1">`Enlist=false`</ph> is specified in the connection string, the connection pool makes sure that the connection is enlisted in the <ph id="ph2">&lt;xref:System.Transactions.Transaction.Current%2A&gt;</ph> context.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>When a connection is closed and returned to the pool with an enlisted <ph id="ph1">`System.Transactions`</ph> transaction, it is set aside in such a way that the next request for that connection pool with the same <ph id="ph2">`System.Transactions`</ph> transaction will return the same connection if it is available.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If such a request is issued, and there are no pooled connections available, a connection is drawn from the non-transacted part of the pool and enlisted.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>If no connections are available in either area of the pool, a new connection is created and enlisted.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>When a connection is closed, it is released back into the pool and into the appropriate subdivision based on its transaction context.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Therefore, you can close the connection without generating an error, even though a distributed transaction is still pending.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>This allows you to commit or abort the distributed transaction later.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Controlling Connection Pooling with Connection String Keywords</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ConnectionString`</ph> property of the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object supports connection string key/value pairs that can be used to adjust the behavior of the connection pooling logic.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Pool Fragmentation</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Pool fragmentation is a common problem in many Web applications where the application can create a large number of pools that are not freed until the process exits.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This leaves a large number of connections open and consuming memory, which results in poor performance.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Pool Fragmentation Due to Integrated Security</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Connections are pooled according to the connection string plus the user identity.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Therefore, if you use Basic authentication or Windows Authentication on the Web site and an integrated security login, you get one pool per user.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Although this improves the performance of subsequent database requests for a single user, that user cannot take advantage of connections made by other users.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>It also results in at least one connection per user to the database server.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>This is a side effect of a particular Web application architecture that developers must weigh against security and auditing requirements.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Pool Fragmentation Due to Many Databases</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Many Internet service providers host several Web sites on a single server.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>They may use a single database to confirm a Forms authentication login and then open a connection to a specific database for that user or group of users.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The connection to the authentication database is pooled and used by everyone.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>However, there is a separate pool of connections to each database, which increase the number of connections to the server.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>This is also a side-effect of the application design.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>There is a relatively simple way to avoid this side effect without compromising security when you connect to <ph id="ph1">[!INCLUDE[ssNoVersion](../../../../includes/ssnoversion-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Instead of connecting to a separate database for each user or group, connect to the same database on the server and then execute the <ph id="ph1">[!INCLUDE[tsql](../../../../includes/tsql-md.md)]</ph> USE statement to change to the desired database.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The following code fragment demonstrates creating an initial connection to the <ph id="ph1">`master`</ph> database and then switching to the desired database specified in the <ph id="ph2">`databaseName`</ph> string variable.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Application Roles and Connection Pooling</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>After a <ph id="ph1">[!INCLUDE[ssNoVersion](../../../../includes/ssnoversion-md.md)]</ph> application role has been activated by calling the <ph id="ph2">`sp_setapprole`</ph> system stored procedure, the security context of that connection cannot be reset.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>However, if pooling is enabled, the connection is returned to the pool, and an error occurs when the pooled connection is reused.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>For more information, see the Knowledge Base article, "<bpt id="p1">[</bpt>SQL application role errors with OLE DB resource pooling<ept id="p1">](http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q229564)</ept>."</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Application Role Alternatives</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>We recommend that you take advantage of security mechanisms that you can use instead of application roles.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Creating Application Roles in SQL Server<ept id="p1">](../../../../docs/framework/data/adonet/sql/creating-application-roles-in-sql-server.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Connection Pooling<ept id="p1">](../../../../docs/framework/data/adonet/connection-pooling.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SQL Server and ADO.NET<ept id="p1">](../../../../docs/framework/data/adonet/sql/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Performance Counters<ept id="p1">](../../../../docs/framework/data/adonet/performance-counters.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">be886c8d042d6ba1b7eb3704dbff372c854649be</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\creating-asynchronous-activities-in-wf.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cf41f78fb365f892e99a95213ecf41e93691df5e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">73e7b409cfbd020d996f951aff3b4efebe87d80f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating Asynchronous Activities in WF | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating Asynchronous Activities in WF</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> provides activity authors a base class to use that enables derived activities to implement asynchronous execution logic.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is useful for custom activities that must perform asynchronous work without holding the workflow scheduler thread and blocking any activities that may be able to run in parallel.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic provides an overview of how to create custom asynchronous activities using <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Using AsyncCodeActivity</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities?displayProperty=fullName&gt;</ph> provides custom activity authors with different base classes for different activity authoring requirements.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Each one carries a particular semantic and provides a workflow author (and the activity runtime) a corresponding contract.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> based activity is an activity that performs work asynchronously relative to the scheduler thread and whose execution logic is expressed in managed code.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>As a result of going asynchronous, an <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> may induce an idle point during execution.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Due to the volatile nature of asynchronous work, an <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> always creates a no persist block for the duration of the activity’s execution.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This prevents the workflow runtime from persisting the workflow instance in the middle of the asynchronous work, and also prevents the workflow instance from unloading while the asynchronous code is executing.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>AsyncCodeActivity Methods</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Activities that derive from <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> can create asynchronous execution logic by overriding the <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph> methods with custom code.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>When called by the runtime, these methods are passed an <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivityContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivityContext&gt;</ph> allows the activity author to provide shared state across <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph><ph id="ph3">/ </ph><ph id="ph4">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph> in the context’s <ph id="ph5">&lt;xref:System.Activities.AsyncCodeActivityContext.UserState%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>In the following example, a <ph id="ph1">`GenerateRandom`</ph> activity generates a random number asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ActivityExample#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_ActivityExample/cs/Program.cs#8)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The previous example activity derives from <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity%601&gt;</ph>, and has an elevated <ph id="ph2">`OutArgument&lt;int&gt;`</ph> named <ph id="ph3">`Result`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The value returned by the <ph id="ph1">`GetRandom`</ph> method is extracted and returned by the <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity%601.EndExecute%2A&gt;</ph> override, and this value is set as the <ph id="ph3">`Result`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Asynchronous activities that do not return a result should derive from <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In the following example, a <ph id="ph1">`DisplayRandom`</ph> activity is defined which derives from <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This activity is like the <ph id="ph1">`GetRandom`</ph> activity but instead of returning a result it displays a message to the console.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ActivityExample#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_ActivityExample/cs/Program.cs#11)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Note that because there is no return value, <ph id="ph1">`DisplayRandom`</ph> uses an <ph id="ph2">&lt;xref:System.Action&gt;</ph> instead of a <ph id="ph3">&lt;xref:System.Func%602&gt;</ph> to invoke its delegate, and the delegate returns no value.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> also provides a <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.Cancel%2A&gt;</ph> override.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>While <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph> are required overrides, <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.Cancel%2A&gt;</ph> is optional, and can be overridden so the activity can clean up its outstanding asynchronous state when it is being canceled or aborted.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If clean up is possible and <ph id="ph1">`AsyncCodeActivity.ExecutingActivityInstance.IsCancellationRequested`</ph> is <ph id="ph2">`true`</ph>, the activity should call <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivityContext.MarkCanceled%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Any exceptions thrown from this method are fatal to the workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ActivityExample#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_ActivityExample/cs/Program.cs#10)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Invoking Asynchronous Methods on a Class</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Many of the classes in the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> provide asynchronous functionality, and this functionality can be asynchronously invoked by using an <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> based activity.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the following example from the <bpt id="p1">[</bpt>Using AsyncOperationContext in an Activity<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/using-asyncoperationcontext-in-an-activity-sample.md)</ept>, an activity is created that asynchronously creates a file by using the <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ActivityExample#12<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_ActivityExample/cs/Program.cs#12)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Sharing State Between the BeginExecute and EndExecute Methods</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In the previous example, the <ph id="ph1">&lt;xref:System.IO.FileStream&gt;</ph> object that was created in <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph> was accessed in the <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This is possible because the <ph id="ph1">`file`</ph> variable was passed in the <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivityContext.UserState%2A?displayProperty=fullName&gt;</ph> property in <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This is the correct method for sharing state between <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>It is incorrect to use a member variable in the derived class (<ph id="ph1">`FileWriter`</ph> in this case) to share state between <ph id="ph2">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph> because the activity object may be referenced by multiple activity instances.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Attempting to use a member variable to share state can result in values from one <ph id="ph1">&lt;xref:System.Activities.ActivityInstance&gt;</ph> overwriting or consuming values from another <ph id="ph2">&lt;xref:System.Activities.ActivityInstance&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Accessing Argument Values</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The environment of an <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> consists of the arguments defined on the activity.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>These arguments can be accessed from the <ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity.BeginExecute%2A&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.Activities.AsyncCodeActivity.EndExecute%2A&gt;</ph> overrides using the <ph id="ph4">&lt;xref:System.Activities.AsyncCodeActivityContext&gt;</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The arguments cannot be accessed in the delegate, but the argument values or any other desired data can be passed in to the delegate using its parameters.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>In the following example, a random number-generating activity is defined that obtains the inclusive upper bound from its <ph id="ph1">`Max`</ph> argument.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The value of the argument is passed in to the asynchronous code when the delegate is invoked.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CFX_ActivityExample#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CFX/CFX_ActivityExample/cs/Program.cs#9)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Scheduling Actions or Child Activities Using AsyncCodeActivity</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Activities.AsyncCodeActivity&gt;</ph> derived custom activities  provide a method for performing work asynchronously with regard to the workflow thread, but do not provide the ability to schedule child activities or actions.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>However, asynchronous behavior can be incorporated with scheduling of child activities through composition.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>An asynchronous activity can be created, and then composed with an <ph id="ph1">&lt;xref:System.Activities.Activity&gt;</ph> or <ph id="ph2">&lt;xref:System.Activities.NativeActivity&gt;</ph> derived activity to provide asynchronous behavior and scheduling of child activities or actions.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, an activity could be created that derives from <ph id="ph1">&lt;xref:System.Activities.Activity&gt;</ph>, and has as its implementation a <ph id="ph2">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> containing the asynchronous activity as well the other activities that implement the logic of the activity.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>For more examples of composing activities using <ph id="ph1">&lt;xref:System.Activities.Activity&gt;</ph> and <ph id="ph2">&lt;xref:System.Activities.NativeActivity&gt;</ph>, see <bpt id="p1">[</bpt>How to: Create an Activity<ept id="p1">](../../../docs/framework/windows-workflow-foundation/how-to-create-an-activity.md)</ept>, <bpt id="p2">[</bpt>Activity Authoring Options<ept id="p2">](../../../docs/framework/windows-workflow-foundation/activity-authoring-options-in-wf.md)</ept>, and the <bpt id="p3">[</bpt>Composite<ept id="p3">](../../../docs/framework/windows-workflow-foundation/samples/composite.md)</ept> activity samples.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Using AsyncOperationContext in an Activity<ept id="p1">](../../../docs/framework/windows-workflow-foundation/samples/using-asyncoperationcontext-in-an-activity-sample.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

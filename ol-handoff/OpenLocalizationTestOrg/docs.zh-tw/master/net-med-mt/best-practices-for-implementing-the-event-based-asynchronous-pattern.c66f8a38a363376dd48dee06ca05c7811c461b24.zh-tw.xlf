@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7cbbbf3467062ee069e171c2fe1dad681b392955</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\asynchronous-programming-patterns\best-practices-for-implementing-the-event-based-asynchronous-pattern.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f6ab4062dd86a58948620ad1f6e27f751b332152</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">882e2f464da3e3b13566a18afcd18c2a633ac26c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Best Practices for Implementing the Event-based Asynchronous Pattern | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Best Practices for Implementing the Event-based Asynchronous Pattern</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The Event-based Asynchronous Pattern provides you with an effective way to expose asynchronous behavior in classes, with familiar event and delegate semantics.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>To implement Event-based Asynchronous Pattern, you need to follow some specific behavioral requirements.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The following sections describe requirements and guidelines you should consider when you implement a class that follows the Event-based Asynchronous Pattern.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For an overview, see <bpt id="p1">[</bpt>Implementing the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/implementing-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Required Behavioral Guarantees</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If you implement the Event-based Asynchronous Pattern, you must provide a number of guarantees to ensure that your class will behave properly and clients of your class can rely on such behavior.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Completion</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Always invoke the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event handler when you have successful completion, an error, or a cancellation.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Applications should never encounter a situation where they remain idle and completion never occurs.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>One exception to this rule is if the asynchronous operation itself it designed so that it never completes.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Completed Event and EventArgs</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For each separate <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> method, apply the following design requirements:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Define a <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event on the same class as the method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Define an <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class and accompanying delegate for the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph2">`Completed`</ph> event that derives from the <ph id="ph3">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The default class name should be of the form <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`CompletedEventArgs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Ensure that the <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class is specific to the return values of the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept> method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When you use the <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class, you should never require developers to cast the result.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following code example shows good and bad implementation of this design requirement respectively.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Do not define an <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> class for returning methods that return <ph id="ph2">`void`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Instead, use an instance of the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Ensure that you always raise the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This event should be raised on successful completion, on an error, or on cancellation.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Applications should never encounter a situation where they remain idle and completion never occurs.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Ensure that you catch any exceptions that occur in the asynchronous operation and assign the caught exception to the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If there was an error completing the task, the results should not be accessible.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A&gt;</ph> property is not <ph id="ph2">`null`</ph>, ensure that accessing any property in the <ph id="ph3">&lt;xref:System.EventArgs&gt;</ph> structure raises an exception.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.RaiseExceptionIfNecessary%2A&gt;</ph> method to perform this verification.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Model a time out as an error.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>When a time out occurs, raise the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event and assign a <ph id="ph2">&lt;xref:System.TimeoutException&gt;</ph> to the <ph id="ph3">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If your class supports multiple concurrent invocations, ensure that the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event contains the appropriate <ph id="ph2">`userSuppliedState`</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Ensure that the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event is raised on the appropriate thread and at the appropriate time in the application lifecycle.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For more information, see the Threading and Contexts section.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Simultaneously Executing Operations</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If your class supports multiple concurrent invocations, enable the developer to track each invocation separately by defining the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> overload that takes an object-valued state parameter, or task ID, called <ph id="ph2">`userSuppliedState`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This parameter should always be the last parameter in the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> method's signature.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If your class defines the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> overload that takes an object-valued state parameter, or task ID, be sure to track the lifetime of the operation with that task ID, and be sure to provide it back into the completion handler.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>There are helper classes available to assist.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For more information on concurrency management, see <bpt id="p1">[</bpt>Walkthrough: Implementing a Component That Supports the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/component-that-supports-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>If your class defines the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> method without the state parameter, and it does not support multiple concurrent invocations, ensure that any attempt to invoke <bpt id="p2">*</bpt>MethodName<ept id="p2">*</ept><ph id="ph2">`Async`</ph> before the prior <bpt id="p3">*</bpt>MethodName<ept id="p3">*</ept><ph id="ph3">`Async`</ph> invocation has completed raises an <ph id="ph4">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In general, do not raise an exception if the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> method without the <ph id="ph2">`userSuppliedState`</ph> parameter is invoked multiple times so that there are multiple outstanding operations.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>You can raise an exception when your class explicitly cannot handle that situation, but assume that developers can handle these multiple indistinguishable callbacks</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Accessing Results</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If there was an error during execution of the asynchronous operation, the results should not be accessible.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Ensure that accessing any property in the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs&gt;</ph> when <ph id="ph2">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A&gt;</ph> is not <ph id="ph3">`null`</ph> raises the exception referenced by <ph id="ph4">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs&gt;</ph> class provides the <ph id="ph2">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.RaiseExceptionIfNecessary%2A&gt;</ph> method for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Ensure that any attempt to access the result raises an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> stating that the operation was canceled.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.RaiseExceptionIfNecessary%2A?displayProperty=fullName&gt;</ph> method to perform this verification.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Progress Reporting</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Support progress reporting, if possible.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>This enables developers to provide a better application user experience when they use your class.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If you implement a <ph id="ph1">`ProgressChanged`</ph><ph id="ph2">/</ph><bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph3">`ProgressChanged`</ph> event, ensure that there are no such events raised for a particular asynchronous operation after that operation's <bpt id="p2">*</bpt>MethodName<ept id="p2">*</ept><ph id="ph4">`Completed`</ph> event has been raised.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If the standard <ph id="ph1">&lt;xref:System.ComponentModel.ProgressChangedEventArgs&gt;</ph> is being populated, ensure that the <ph id="ph2">&lt;xref:System.ComponentModel.ProgressChangedEventArgs.ProgressPercentage%2A&gt;</ph> can always be interpreted as a percentage.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The percentage does not need to be accurate, but it should represent a percentage.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If your progress reporting metric must be something other than a percentage, derive a class from the <ph id="ph1">&lt;xref:System.ComponentModel.ProgressChangedEventArgs&gt;</ph> class and leave <ph id="ph2">&lt;xref:System.ComponentModel.ProgressChangedEventArgs.ProgressPercentage%2A&gt;</ph> at 0.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Avoid using a reporting metric other than a percentage.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Ensure that the <ph id="ph1">`ProgressChanged`</ph> event is raised on the appropriate thread and at the appropriate time in the application lifecycle.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For more information, see the Threading and Contexts section.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>IsBusy Implementation</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Do not expose an <ph id="ph1">`IsBusy`</ph> property if your class supports multiple concurrent invocations.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>For example, XML Web service proxies do not expose an <ph id="ph1">`IsBusy`</ph> property because they support multiple concurrent invocations of asynchronous methods.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IsBusy`</ph> property should return <ph id="ph2">`true`</ph> after the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph3">`Async`</ph> method has been called and before the <bpt id="p2">*</bpt>MethodName<ept id="p2">*</ept><ph id="ph4">`Completed`</ph> event has been raised.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Otherwise it should return <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.BackgroundWorker&gt;</ph> and <ph id="ph2">&lt;xref:System.Net.WebClient&gt;</ph> components are examples of classes that expose an <ph id="ph3">`IsBusy`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Cancellation</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Support cancellation, if possible.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>This enables developers to provide a better application user experience when they use your class.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>In the case of cancellation, set the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Cancelled%2A&gt;</ph> flag in the <ph id="ph2">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Ensure that any attempt to access the result raises an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph> stating that the operation was canceled.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.RaiseExceptionIfNecessary%2A?displayProperty=fullName&gt;</ph> method to perform this verification.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Ensure that calls to a cancellation method always return successfully, and never raise an exception.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>In general, a client is not notified as to whether an operation is truly cancelable at any given time, and is not notified as to whether a previously issued cancellation has succeeded.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>However, the application will always be given notification when a cancellation succeeded, because the application takes part in the completion status.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Raise the <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event when the operation is canceled.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Errors and Exceptions</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Catch any exceptions that occur in the asynchronous operation and set the value of the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A?displayProperty=fullName&gt;</ph> property to that exception.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Threading and Contexts</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>For correct operation of your class, it is critical that the client's event handlers are invoked on the proper thread or context for the given application model, including <ph id="ph1">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> and Windows Forms applications.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Two important helper classes are provided to ensure that your asynchronous class behaves correctly under any application model: <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperationManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperationManager&gt;</ph> provides one method, <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperationManager.CreateOperation%2A&gt;</ph>, which returns an <ph id="ph3">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Your <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Async`</ph> method calls <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperationManager.CreateOperation%2A&gt;</ph> and your class uses the returned <ph id="ph3">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> to track the lifetime of the asynchronous task.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>To report progress, incremental results, and completion to the client, call the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.Post%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperation.OperationCompleted%2A&gt;</ph> methods on the <ph id="ph3">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> is responsible for marshaling calls to the client's event handlers to the proper thread or context.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>You can circumvent these rules if you explicitly want to go against the policy of the application model, but still benefit from the other advantages of using the Event-based Asynchronous Pattern.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>For example, you may want a class operating in Windows Forms to be free threaded.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>You can create a free threaded class, as long as developers understand the implied restrictions.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Console applications do not synchronize the execution of <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.Post%2A&gt;</ph> calls.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>This can cause <ph id="ph1">`ProgressChanged`</ph> events to be raised out of order.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>If you wish to have serialized execution of <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.Post%2A&gt;</ph> calls, implement and install a <ph id="ph2">&lt;xref:System.Threading.SynchronizationContext?displayProperty=fullName&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>For more information about using <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperationManager&gt;</ph> to enable your asynchronous operations, see <bpt id="p1">[</bpt>Walkthrough: Implementing a Component That Supports the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/component-that-supports-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Guidelines</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Ideally, each method invocation should be independent of others.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>You should avoid coupling invocations with shared resources.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>If resources are to be shared among invocations, you will need to provide a proper synchronization mechanism in your implementation.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Designs that require the client to implement synchronization are discouraged.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For example, you could have an asynchronous method that receives a global static object as a parameter; multiple concurrent invocations of such a method could result in data corruption or deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>If you implement a method with the multiple-invocation overload (<ph id="ph1">`userState`</ph> in the signature), your class will need to manage a collection of user states, or task IDs, and their corresponding pending operations.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>This collection should be protected with <ph id="ph1">`lock`</ph> regions, because the various invocations add and remove <ph id="ph2">`userState`</ph> objects in the collection.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Consider reusing <ph id="ph1">`CompletedEventArgs`</ph> classes where feasible and appropriate.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In this case, the naming is not consistent with the method name, because a given delegate and <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> type are not tied to a single method.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>However, forcing developers to cast the value retrieved from a property on the <ph id="ph1">&lt;xref:System.EventArgs&gt;</ph> is never acceptable.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>If you are authoring a class that derives from <ph id="ph1">&lt;xref:System.ComponentModel.Component&gt;</ph>, do not implement and install your own <ph id="ph2">&lt;xref:System.Threading.SynchronizationContext&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Application models, not components, control the <ph id="ph1">&lt;xref:System.Threading.SynchronizationContext&gt;</ph> that is used.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>When you use multithreading of any sort, you potentially expose yourself to very serious and complex bugs.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Before implementing any solution that uses multithreading, see <bpt id="p1">[</bpt>Managed Threading Best Practices<ept id="p1">](../../../docs/standard/threading/managed-threading-best-practices.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Implementing the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/implementing-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Multithreaded Programming with the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/multithreaded-programming-with-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Deciding When to Implement the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/deciding-when-to-implement-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Best Practices for Implementing the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/best-practices-for-implementing-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Use Components That Support the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/how-to-use-components-that-support-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Walkthrough: Implementing a Component That Supports the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/component-that-supports-the-event-based-asynchronous-pattern.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

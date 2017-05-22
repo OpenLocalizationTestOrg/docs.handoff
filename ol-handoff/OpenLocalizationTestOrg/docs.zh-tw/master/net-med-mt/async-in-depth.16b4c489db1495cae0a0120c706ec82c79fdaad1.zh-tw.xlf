@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e865f50759a257aca197121508ed95518ea3832a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\async-in-depth.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0bee7c802e4df7e2e09ae53a25d845a408f41cb1</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0a34d7d91057f57010143dca9623406775888a7f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Async in depth</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>In-depth explanation of how asynchronous code works in .NET</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>.NET, .NET Core, .NET Standard</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Async in depth</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Writing I/O- and CPU-bound asynchronous code is straightforward using the .NET Task-based async model.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The model is exposed by the <ph id="ph1">`Task`</ph> and <ph id="ph2">`Task&lt;T&gt;`</ph> types and the <ph id="ph3">`async`</ph> and <ph id="ph4">`await`</ph> language keywords.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This article explains how to use .NET async and provides insight into the async framework used under the covers.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Task and Task<ph id="ph1">&amp;lt;</ph>T<ph id="ph2">&amp;gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Tasks are constructs used to implement what is known as the <bpt id="p1">[</bpt>Promise Model of Concurrency<ept id="p1">](https://en.wikipedia.org/wiki/Futures_and_promises)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In short, they offer you a "promise" that work will be completed at a later point, letting you coordinate with the promise with a clean API.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Task`</ph> represents a single operation which does not return a value.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Task&lt;T&gt;`</ph> represents a single operation which returns a value of type <ph id="ph2">`T`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>It’s important to reason about tasks as abstractions of work happening asynchronously, and <bpt id="p1">*</bpt>not<ept id="p1">*</ept> an abstraction over threading.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>By default, tasks execute on the current thread and delegate work to the Operating System, as appropriate.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Optionally, tasks can be be explicitly requested to run on a separate thread via the <ph id="ph1">`Task.Run`</ph> API.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Tasks expose an API protocol for monitoring, waiting upon and accessing the result value (in the case of <ph id="ph1">`Task&lt;T&gt;`</ph>) of a task.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Language integration, with the <ph id="ph1">`await`</ph> keyword, provides a higher-level abstraction for using tasks.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">`await`</ph> allows your application or service to perform useful work while a task is running by yielding control to its caller until the task is done.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Your code does not need to rely on callbacks or events to continue execution after the task has been completed.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The language and task API integration does that for you.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If you’re using <ph id="ph1">`Task&lt;T&gt;`</ph>, the <ph id="ph2">`await`</ph> keyword will additionally "unwrap" the value returned when the Task is complete.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The details of how this works are explained further below.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can learn more about tasks and the different ways to interact with them in the <bpt id="p1">[</bpt>Task-based Asynchronous Pattern (TAP) Article<ept id="p1">](https://msdn.microsoft.com/library/hh873175.aspx)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Deeper Dive into Tasks for an I/O-Bound Operation</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following section describes a 10,000 foot view of what happens with a typical async I/O call.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Let's start with a couple examples.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The first example calls an async method and returns an active task, likely yet to complete.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The second example adds the use of he <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph> keywords to operate on the task.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The call to <ph id="ph1">`GetStringAsync()`</ph> calls through lower-level .NET libraries (perhaps calling other async methods) until it reaches a P/Invoke interop call into a native networking library.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The native library may subsequently call into a System API call (such as <ph id="ph1">`write()`</ph> to a socket on Linux).</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A task object will be created at the native/managed boundary, possibly using <bpt id="p1">[</bpt>TaskCompletionSource<ept id="p1">](xref:System.Threading.Tasks.TaskCompletionSource%601.SetResult(%600))</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The task object will be passed up through the layers, possibly operated on or directly returned, eventually returned to the initial caller.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the second example above, a <ph id="ph1">`Task&lt;T&gt;`</ph> object will be returned from <ph id="ph2">`GetStringAsync`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The use of the <ph id="ph1">`await`</ph> keyword causes the method to return a newly created task object.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Control returns to the caller from this location in the <ph id="ph1">`GetFirstCharactersCountAsync`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The methods and properties of the <bpt id="p1">[</bpt>Task<ph id="ph1">&amp;lt;</ph>T<ph id="ph2">&amp;gt;</ph><ept id="p1">](xref:System.Threading.Tasks.Task%601)</ept> object enable callers to monitor the progress of the task, which will complete when the remaining code in GetFirstCharactersCountAsync has executed.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>After the System API call, the request is now in kernel space, making its way to the networking subsystem of the OS (such as <ph id="ph1">`/net`</ph> in the Linux Kernel).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Here the OS will handle the networking request <bpt id="p1">*</bpt>asynchronously<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Details may be different depending on the OS used (the device driver call may be scheduled as a signal sent back to the runtime, or a device driver call may be made and <bpt id="p1">*</bpt>then<ept id="p1">*</ept> a signal sent back), but eventually the runtime will be informed that the networking request is in progress.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>At this time, the work for the device driver will either be scheduled, in-progress, or already finished (the request is already out "over the wire") - but because this is all happening asynchronously, the device driver is able to immediately handle something else!</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For example, in Windows an OS thread makes a call to the network device driver and asks it to perform the networking operation via an Interrupt Request Packet (IRP) which represents the operation.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The device driver receives the IRP, makes the call to the network, marks the IRP as "pending", and returns back to the OS.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Because the OS thread now knows that the IRP is "pending", it doesn't have any more work to do for this job and "returns" back so that it can be used to perform other work.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>When the request is fulfilled and data comes back through the device driver, it notifies the CPU of new data received via an interrupt.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>How this interrupt gets handled will vary depending on the OS, but eventually the data will be passed through the OS until it reaches a system interop call (for example, in Linux an interrupt handler will schedule the bottom half of the IRQ to pass the data up through the OS asynchronously).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Note that this <bpt id="p1">*</bpt>also<ept id="p1">*</ept> happens asynchronously!</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The result is queued up until the next available thread is able execute the async method and "unwrap" the result of the completed task.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Throughout this entire process, a key takeaway is that <bpt id="p1">**</bpt>no thread is dedicated to running the task<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Although work is executed in some context (that is, the OS does have to pass data to a device driver and respond to an interrupt), there is no thread dedicated to <bpt id="p1">*</bpt>waiting<ept id="p1">*</ept> for data from the request to come back.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This allows the system to handle a much larger volume of work rather than waiting for some I/O call to finish.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Although the above may seem like a lot of work to be done, when measured in terms of wall clock time, it’s miniscule compared to the time it takes to do the actual I/O work.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Although not at all precise, a potential timeline for such a call would look like this:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>0-1————————————————————————————————————————————————–2-3</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Time spent from points <ph id="ph1">`0`</ph> to <ph id="ph2">`1`</ph> is everything up until an async method yields control to its caller.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Time spent from points <ph id="ph1">`1`</ph> to <ph id="ph2">`2`</ph> is the time spent on I/O, with no CPU cost.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Finally, time spent from points <ph id="ph1">`2`</ph> to <ph id="ph2">`3`</ph> is passing control back (and potentially a value) to the async method, at which point it is executing again.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>What does this mean for a server scenario?</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>This model works well with a typical server scenario workload.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Because there are no threads dedicated to blocking on unfinished tasks, the server threadpool can service a much higher volume of web requests.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Consider two servers: one that runs async code, and one that does not.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For the purpose of this example, each server only has 5 threads available to service requests.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Note that these numbers are imaginarily small and serve only in a demonstrative context.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Assume both servers receive 6 concurrent requests.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Each request performs an I/O operation.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The server <bpt id="p1">*</bpt>without<ept id="p1">*</ept> async code has to queue up the 6th request until one of the 5 threads have finished the I/O-bound work and written a response.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>At the point that the 20th request comes in, the server might start to slow down, because the queue is getting too long.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The server <bpt id="p1">*</bpt>with<ept id="p1">*</ept> async code running on it still queues up the 6th request, but because it uses <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph>, each of its threads are freed up when the I/O-bound work starts, rather than when it finishes.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>By the time the 20th request comes in, the queue for incoming requests will be far smaller (if it has anything in it at all), and the server won't slow down.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Although this is a contrived example, it works in a very similar fashion in the real world.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>In fact, you can expect a server to be able to handle an order of magnitude more requests using <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph> than if it were dedicating a thread for each request it receives.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>What does this mean for client scenario?</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The biggest gain for using <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph> for a client app is an increase in responsiveness.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Although you can make an app responsive by spawning threads manually, the act of spawning a thread is an expensive operation relative to just using <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Especially for something like a mobile game, impacting the UI thread as little as possible where I/O is concerned is crucial.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>More importantly, because I/O-bound work spends virtually no time on the CPU, dedicating an entire CPU thread to perform barely any useful work would be a poor use of resources.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Additionally, dispatching work to the UI thread (such as updating a UI) is very simple with <ph id="ph1">`async`</ph> methods, and does not require extra work (such as calling a thread-safe delegate).</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Deeper Dive into Task and Task<ph id="ph1">&lt;T&gt;</ph> for a CPU-Bound Operation</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>CPU-bound <ph id="ph1">`async`</ph> code is a bit different than I/O-bound <ph id="ph2">`async`</ph> code.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Because the work is done on the CPU, there's no way to get around dedicating a thread to the computation.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The use of <ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph> provides you with a clean way to interact with a background thread and keep the caller of the async method responsive.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Note that this does not provide any protection for shared data.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>If you are using shared data, you will still need to apply an appropriate synchronization strategy.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Here's a 10,000 foot view of a CPU-bound async call:</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`CalculateResult()`</ph> executes on the thread it was called on.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>When it calls <ph id="ph1">`Task.Run`</ph>, it queues the expensive CPU-bound operation, <ph id="ph2">`DoExpensiveCalculation()`</ph>, on the thread pool and receives a <ph id="ph3">`Task&lt;int&gt;`</ph> handle.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`DoExpensiveCalculation()`</ph> is eventually run concurrently on the next available thread, likely on another CPU core.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>It's possible to do concurrent work while <ph id="ph1">`DoExpensiveCalculation()`</ph> is busy on another thread, because the thread which called <ph id="ph2">`CalculateResult()`</ph> is still executing.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Once <ph id="ph1">`await`</ph> is encountered, the execution of <ph id="ph2">`CalculateResult()`</ph> is yielded to its caller, allowing other work to be done with the current thread while <ph id="ph3">`DoExpensiveCalculation()`</ph> is churning out a result.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Once it has finished, the result is queued up to run on the main thread.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Eventually, the main thread will return to executing <ph id="ph1">`CalculateResult()`</ph>, at which point it will have the result of <ph id="ph2">`DoExpensiveCalculation()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Why does async help here?</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`async`</ph> and <ph id="ph2">`await`</ph> are the best practice managing CPU-bound work when you need responsiveness.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>There are multiple patterns for using async with CPU-bound work.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>It's important to note that there is a small cost to using async and it's not recommended for tight loops.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>It's up to you to determine how you write your code around this new capability.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

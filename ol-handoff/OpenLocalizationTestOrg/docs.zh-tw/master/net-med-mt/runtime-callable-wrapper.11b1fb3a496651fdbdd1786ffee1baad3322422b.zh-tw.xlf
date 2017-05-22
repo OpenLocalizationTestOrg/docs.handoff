@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7884a0a1dc48009367beb11d4fd84c91b0a29242</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\runtime-callable-wrapper.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6769038d0eeec73de15f9eb1183d736bf0c7090</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3aa8d1d6cf9a2b7cb7e91166bc715605e1d70575</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Runtime Callable Wrapper | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Runtime Callable Wrapper</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The common language runtime exposes COM objects through a proxy called the runtime callable wrapper (RCW).</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Although the RCW appears to be an ordinary object to .NET clients, its primary function is to marshal calls between a .NET client and a COM object.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The runtime creates exactly one RCW for each COM object, regardless of the number of references that exist on that object.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The runtime maintains a single RCW per process for each object.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If you create an RCW in one application domain or apartment, and then pass a reference to another application domain or apartment, a proxy to the first object will be used.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>As the following illustration shows, any number of managed clients can hold a reference to the COM objects that expose INew and INewer interfaces.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>RCW<ept id="p1">](../../../docs/framework/interop/media/rcw.gif "rcw")</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Accessing COM objects through the runtime callable wrapper</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Using metadata derived from a type library, the runtime creates both the COM object being called and a wrapper for that object.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Each RCW maintains a cache of interface pointers on the COM object it wraps and releases its reference on the COM object when the RCW is no longer needed.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The runtime performs garbage collection on the RCW.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Among other activities, the RCW marshals data between managed and unmanaged code, on behalf of the wrapped object.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Specifically, the RCW provides marshaling for method arguments and method return values whenever the client and server have different representations of the data passed between them.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The standard wrapper enforces built-in marshaling rules.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For example, when a .NET client passes a String type as part of an argument to an unmanaged object, the wrapper converts the string to a BSTR type.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Should the COM object return a BSTR to its managed caller, the caller receives a String.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Both the client and the server send and receive data that is familiar to them.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Other types require no conversion.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For instance, a standard wrapper will always pass a 4-byte integer between managed and unmanaged code without converting the type.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Marshaling selected interfaces</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The primary goal of the <bpt id="p1">[</bpt>runtime callable wrapper<ept id="p1">](../../../docs/framework/interop/runtime-callable-wrapper.md)</ept> (RCW) is to hide the differences between the managed and unmanaged programming models.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To create a seamless transition, the RCW consumes selected COM interfaces without exposing them to the .NET client, as shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>RCW With Interfaces<ept id="p1">](../../../docs/framework/interop/media/rcwwithinterfaces.gif "rcwwithinterfaces")</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>COM interfaces and the runtime callable wrapper</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When created as an early-bound object, the RCW is a specific type.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It implements the interfaces that the COM object implements and exposes the methods, properties, and events from the object's interfaces.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In the illustration, the RCW exposes the INew interface but consumes the <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Further, the RCW exposes all members of the INew interface to the .NET client.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The RCW consumes the interfaces listed in the following table, which are exposed by the object it wraps.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IDispatch<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>For late binding to COM objects through reflection.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IErrorInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Provides a textual description of the error, its source, a Help file, Help context, and the GUID of the interface that defined the error (always <bpt id="p1">**</bpt>GUID_NULL<ept id="p1">**</ept> for .NET classes).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IProvideClassInfo<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If the COM object being wrapped implements <bpt id="p1">**</bpt>IProvideClassInfo<ept id="p1">**</ept>, the RCW extracts the type information from this interface to provide better type identity.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For object identity, type coercion, and lifetime management:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>-   Object identity</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The runtime distinguishes between COM objects by comparing the value of the <bpt id="p1">**</bpt>IUnknown<ept id="p1">**</ept> interface for each object.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>-   Type coercion</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The RCW recognizes the dynamic type discovery performed by the <bpt id="p1">**</bpt>QueryInterface<ept id="p1">**</ept> method.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>-   Lifetime management</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Using the <bpt id="p1">**</bpt>QueryInterface<ept id="p1">**</ept> method, the RCW gets and holds a reference to an unmanaged object until the runtime performs garbage collection on the wrapper, which releases the unmanaged object.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The RCW optionally consumes the interfaces listed in the following table, which are exposed by the object it wraps.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IConnectionPoint<ept id="p1">**</ept> and <bpt id="p2">**</bpt>IConnectionPointContainer<ept id="p2">**</ept></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The RCW converts objects that expose the connection-point event style to delegate-based events.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IDispatchEx<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If the class implements <bpt id="p1">**</bpt>IDispatchEx<ept id="p1">**</ept>, the RCW implements <bpt id="p2">**</bpt>IExpando<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>IDispatchEx<ept id="p1">**</ept> interface is an extension of the <bpt id="p2">**</bpt>IDispatch<ept id="p2">**</ept> interface that, unlike <bpt id="p3">**</bpt>IDispatch<ept id="p3">**</ept>, enables enumeration, addition, deletion, and case-sensitive calling of members.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>IEnumVARIANT<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Enables COM types that support enumerations to be treated as collections.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>COM Wrappers<ept id="p1">](../../../docs/framework/interop/com-wrappers.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Marshaling Selected Interfaces<ept id="p1">](http://msdn.microsoft.com/en-us/fdb97fd0-f694-4832-bf15-a4e7cf413840)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>COM Callable Wrapper<ept id="p1">](../../../docs/framework/interop/com-callable-wrapper.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Type Library to Assembly Conversion Summary<ept id="p1">](http://msdn.microsoft.com/en-us/bf3f90c5-4770-4ab8-895c-3ba1055cc958)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Importing a Type Library as an Assembly<ept id="p1">](../../../docs/framework/interop/importing-a-type-library-as-an-assembly.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

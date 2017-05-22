@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a168b5a76450787e683fdaee96e0593dd9fd3eed</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\reflection-and-codedom\security-issues-in-reflection-emit.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">77d5b562348fdfd0feec28f21cd10374327ff4ff</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b5b9a000f59d2ebcc46dd3de6747156789c4fbcc</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Security Issues in Reflection Emit | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Security Issues in Reflection Emit</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> provides three ways to emit Microsoft intermediate language (MSIL), each with its own security issues:</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dynamic assemblies<ept id="p1">](#Dynamic_Assemblies)</ept></source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Anonymously hosted dynamic methods<ept id="p1">](#Anonymously_Hosted_Dynamic_Methods)</ept></source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dynamic methods associated with existing assemblies<ept id="p1">](#Dynamic_Methods_Associated_with_Existing_Assemblies)</ept></source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Regardless of the way you generate dynamic code, executing the generated code requires all the permissions that are required by the types and methods the generated code uses.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The permissions that are required for reflecting on code and emitting code have changed with succeeding releases of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Version Information<ept id="p1">](#Version_Information)</ept>, later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Dynamic Assemblies</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Dynamic assemblies are created by using overloads of the <ph id="ph1">&lt;xref:System.AppDomain.DefineDynamicAssembly%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Most overloads of this method are deprecated in the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, because of the elimination of machine-wide security policy.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>(See <bpt id="p1">[</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept>.) The remaining overloads can be executed by any code, regardless of trust level.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>These overloads fall into two groups: those that specify a list of attributes to apply to the dynamic assembly when it is created, and those that do not.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If you do not specify the transparency model for the assembly, by applying the <ph id="ph1">&lt;xref:System.Security.SecurityRulesAttribute&gt;</ph> attribute when you create it, the transparency model is inherited from the emitting assembly.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Attributes that you apply to the dynamic assembly after it is created, by using the <ph id="ph1">&lt;xref:System.Reflection.Emit.AssemblyBuilder.SetCustomAttribute%2A&gt;</ph> method, do not take effect until the assembly has been saved to disk and loaded into memory again.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Code in a dynamic assembly can access visible types and members in other assemblies.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Dynamic assemblies do not use the <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flags that allow dynamic methods to access nonpublic types and members.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Transient dynamic assemblies are created in memory and never saved to disk, so they require no file access permissions.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Saving a dynamic assembly to disk requires <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph> with the appropriate flags.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Generating Dynamic Assemblies from Partially Trusted Code</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Consider the conditions in which an assembly with Internet permissions can generate a transient dynamic assembly and execute its code:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The dynamic assembly uses only public types and members of other assemblies.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The permissions demanded by those types and members are included in the grant set of the partially trusted assembly.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The assembly is not saved to disk.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Debug symbols are not generated.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">`Internet`</ph> and <ph id="ph2">`LocalIntranet`</ph> permission sets do not include the necessary permissions.)</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Anonymously Hosted Dynamic Methods</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Anonymously hosted dynamic methods are created by using the two <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod&gt;</ph> constructors that do not specify an associated type or module, <ph id="ph2">&lt;xref:System.Reflection.Emit.DynamicMethod.%23ctor%28System.String%2CSystem.Type%2CSystem.Type%5B%5D%29&gt;</ph> and <ph id="ph3">&lt;xref:System.Reflection.Emit.DynamicMethod.%23ctor%28System.String%2CSystem.Type%2CSystem.Type%5B%5D%2CSystem.Boolean%29&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>These constructors place the dynamic methods in a system-provided, fully trusted, security-transparent assembly.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>No permissions are required to use these constructors or to emit code for the dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Instead, when an anonymously hosted dynamic method is created, the call stack is captured.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When the method is constructed, security demands are made against the captured call stack.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Conceptually, demands are made during the construction of the method.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>That is, demands could be made as each MSIL instruction is emitted.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In the current implementation, all demands are made when the <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod.CreateDelegate%2A?displayProperty=fullName&gt;</ph> method is called or when the just-in-time (JIT) compiler is invoked, if the method is invoked without calling <ph id="ph2">&lt;xref:System.Reflection.Emit.DynamicMethod.CreateDelegate%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>If the application domain permits it, anonymously hosted dynamic methods can skip JIT visibility checks, subject to the following restriction: The nonpublic types and members accessed by an anonymously hosted dynamic method must be in assemblies whose grant sets are equal to, or subsets of, the grant set of the emitting call stack.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This restricted ability to skip JIT visibility checks is enabled if the application domain grants <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If your method uses only public types and members, no permissions are required during construction.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>If you specify that JIT visibility checks should be skipped, the demand that is made when the method is constructed includes <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag and the grant set of the assembly that contains the nonpublic member that is being accessed.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Because the grant set of the nonpublic member is taken into consideration, partially trusted code that has been granted <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> cannot elevate its privileges by executing nonpublic members of trusted assemblies.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>As with any other emitted code, executing the dynamic method requires whatever permissions are demanded by the methods the dynamic method uses.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The system assembly that hosts anonymously-hosted dynamic methods uses the <ph id="ph1">&lt;xref:System.Security.SecurityRuleSet?displayProperty=fullName&gt;</ph> transparency model, which is the transparency model that was used in the .NET Framework before the <ph id="ph2">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For more information, see the <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Generating Anonymously Hosted Dynamic Methods from Partially Trusted Code</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Consider the conditions in which an assembly with Internet permissions can generate an anonymously hosted dynamic method and execute it:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The dynamic method uses only public types and members.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>If its grant set includes <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph>, it can use nonpublic types and members of any assembly whose grant set is equal to, or a subset of, the grant set of the emitting assembly.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The permissions that are required by all the types and members used by the dynamic method are included in the grant set of the partially trusted assembly.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Dynamic methods do not support debug symbols.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Dynamic Methods Associated with Existing Assemblies</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>To associate a dynamic method with a type or module in an existing assembly, use any of the <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod&gt;</ph> constructors that specify the associated type or module.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The permissions that are required to call these constructors vary, because associating a dynamic method with an existing type or module gives the dynamic method access to nonpublic types and members:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>A dynamic method that is associated with a type has access to all members of that type, even private members, and to all internal types and members in the assembly that contains the associated type.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>A dynamic method that is associated with a module has access to all the <ph id="ph1">`internal`</ph> types and members (<ph id="ph2">`Friend`</ph> in Visual Basic, <ph id="ph3">`assembly`</ph> in common language runtime metadata) in the module.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In addition, you can use a constructor that specifies the ability to skip the visibility checks of the JIT compiler.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Doing so gives your dynamic method access to all types and members in all assemblies, regardless of access level.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The permissions demanded by the constructor depend on how much access you decide to give your dynamic method:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>If your method uses only public types and members, and you associate it with your own type or your own module, no permissions are required.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>If you specify that JIT visibility checks should be skipped, the constructor demands <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>If you associate the dynamic method with another type, even another type in your own assembly, the constructor demands <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag and <ph id="ph3">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph4">&lt;xref:System.Security.Permissions.SecurityPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If you associate the dynamic method with a type or module in another assembly, the constructor demands two things: <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag, and the grant set of the assembly that contains the other module.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>That is, your call stack must include all the permissions in the grant set of the target module, plus <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For backward compatibility, if the demand for the target grant set plus <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> fails, the constructor demands <ph id="ph2">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.SecurityPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Although the items in this list are described in terms of the grant set of the emitting assembly, remember that the demands are made against the full call stack, including the application domain boundary.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>For more information, see the <ph id="ph1">&lt;xref:System.Reflection.Emit.DynamicMethod&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Generating Dynamic Methods from Partially Trusted Code</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The recommended way to generate dynamic methods from partially trusted code is to use <bpt id="p1">[</bpt>anonymously hosted dynamic methods<ept id="p1">](#Anonymously_Hosted_Dynamic_Methods)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Consider the conditions in which an assembly with Internet permissions can generate a dynamic method and execute it:</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Either the dynamic method is associated with the module or type that emits it, or its grant set includes <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> and it is associated with a module in an assembly whose grant set is equal to, or a subset of, the grant set of the emitting assembly.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The dynamic method uses only public types and members.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>If its grant set includes <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> and it is associated with a module in an assembly whose grant set is equal to, or a subset of, the grant set of the emitting assembly, it can use types and members marked <ph id="ph2">`internal`</ph> (<ph id="ph3">`Friend`</ph> in Visual Basic, <ph id="ph4">`assembly`</ph> in common language runtime metadata) in the associated module.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The permissions demanded by all the types and members used by the dynamic method are included in the grant set of the partially trusted assembly.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The dynamic method does not skip JIT visibility checks.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Dynamic methods do not support debug symbols.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Version Information</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>, machine-wide security policy is eliminated and security transparency becomes the default enforcement mechanism.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v20SP1_long](../../../includes/net-v20sp1-long-md.md)]</ph>, <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag is no longer required when emitting dynamic assemblies and dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This flag is required in all earlier versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag is included by default in the <ph id="ph3">`FullTrust`</ph> and <ph id="ph4">`LocalIntranet`</ph> named permission sets, but not in the <ph id="ph5">`Internet`</ph> permission set.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Therefore, in earlier versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph>, a library can be used with Internet permissions only if it executes an <ph id="ph2">&lt;xref:System.Security.PermissionSet.Assert%2A&gt;</ph> for <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Such libraries require careful security review because coding errors could result in security holes.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[net_v20SP1_short](../../../includes/net-v20sp1-short-md.md)]</ph> allows code to be emitted in partial trust scenarios without issuing any security demands, because generating code is not inherently a privileged operation.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>That is, the generated code has no more permissions than the assembly that emits it.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>This allows libraries that emit code to be security transparent and removes the need to assert <ph id="ph1">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag&gt;</ph>, which simplifies the task of writing a secure library.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>In addition, the <ph id="ph1">[!INCLUDE[net_v20SP1_short](../../../includes/net-v20sp1-short-md.md)]</ph> introduces the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag for accessing nonpublic types and members from partially trusted dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Earlier versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> require the <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag for dynamic methods that access nonpublic types and members; this is a permission that should never be granted to partially trusted code.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Finally, the <ph id="ph1">[!INCLUDE[net_v20SP1_short](../../../includes/net-v20sp1-short-md.md)]</ph> introduces anonymously hosted methods.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Obtaining Information on Types and Members</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[dnprdnlong](../../../includes/dnprdnlong-md.md)]</ph>, no permissions are required to obtain information about nonpublic types and members.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Reflection is used to obtain information needed to emit dynamic methods.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.Reflection.MethodInfo&gt;</ph> objects are used to emit method calls.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Earlier versions of the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> require <ph id="ph2">&lt;xref:System.Security.Permissions.ReflectionPermission&gt;</ph> with the <ph id="ph3">&lt;xref:System.Security.Permissions.ReflectionPermissionFlag?displayProperty=fullName&gt;</ph> flag.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Security Considerations for Reflection<ept id="p1">](../../../docs/framework/reflection-and-codedom/security-considerations-for-reflection.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Security Considerations for Reflection<ept id="p1">](../../../docs/framework/reflection-and-codedom/security-considerations-for-reflection.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Emitting Dynamic Methods and Assemblies<ept id="p1">](../../../docs/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

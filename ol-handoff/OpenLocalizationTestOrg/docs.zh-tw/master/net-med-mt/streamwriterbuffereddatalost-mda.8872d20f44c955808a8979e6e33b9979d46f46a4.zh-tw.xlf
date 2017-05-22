@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">841dc5aea191b9d38324698a928b8557323defaa</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\debug-trace-profile\streamwriterbuffereddatalost-mda.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">356dec48911498d5bed8a79062782f99b0d30ed0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2336fce30001307806bfdefcb94ae40987df909e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>streamWriterBufferedDataLost MDA | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>streamWriterBufferedDataLost MDA</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`streamWriterBufferedDataLost`</ph> managed debugging assistant (MDA) is activated when a <ph id="ph2">&lt;xref:System.IO.StreamWriter&gt;</ph> is written to, but the <ph id="ph3">&lt;xref:System.IO.StreamWriter.Flush%2A&gt;</ph> or <ph id="ph4">&lt;xref:System.IO.StreamWriter.Close%2A&gt;</ph> method is not subsequently called before the instance of the <ph id="ph5">&lt;xref:System.IO.StreamWriter&gt;</ph> is destroyed.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When this MDA is enabled, the runtime determines whether any buffered data still exists within the <ph id="ph1">&lt;xref:System.IO.StreamWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If buffered data does exist, the MDA is activated.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Calling the <ph id="ph1">&lt;xref:System.GC.Collect%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.GC.WaitForPendingFinalizers%2A&gt;</ph> methods can force finalizers to run.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Finalizers will otherwise run at seemingly arbitrary times, and possibly not at all on process exit.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Explicitly running finalizers with this MDA enabled will help to more reliably reproduce this type of problem.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Symptoms</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.IO.StreamWriter&gt;</ph> does not write the last 1–4 KB of data to a file.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Cause</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.IO.StreamWriter&gt;</ph> buffers data internally, which requires that the <ph id="ph2">&lt;xref:System.IO.StreamWriter.Close%2A&gt;</ph> or <ph id="ph3">&lt;xref:System.IO.StreamWriter.Flush%2A&gt;</ph> method be called to write the buffered data to the underlying data store.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.IO.StreamWriter.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IO.StreamWriter.Flush%2A&gt;</ph> is not appropriately called, data buffered in the <ph id="ph3">&lt;xref:System.IO.StreamWriter&gt;</ph> instance might not be written as expected.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The following is an example of poorly written code that this MDA should catch.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The preceding code will activate this MDA more reliably if a garbage collection is triggered and then suspended until finalizers have finished.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>To track down this type of problem, you can add the following code to the end of the preceding method in a debug build.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This will help to reliably activate the MDA, but of course it does not fix the cause of the problem.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Resolution</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Make sure you call <ph id="ph1">&lt;xref:System.IO.StreamWriter.Close%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IO.StreamWriter.Flush%2A&gt;</ph> on the <ph id="ph3">&lt;xref:System.IO.StreamWriter&gt;</ph> before closing an application or any code block that has an instance of a <ph id="ph4">&lt;xref:System.IO.StreamWriter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>One of the best mechanisms for achieving this is creating the instance with a C# <ph id="ph1">`using`</ph> block (<ph id="ph2">`Using`</ph> in Visual Basic), which will ensure the <ph id="ph3">&lt;xref:System.IO.StreamWriter.Dispose%2A&gt;</ph> method for the writer is invoked, resulting in the instance being correctly closed.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following code shows the same solution, using <ph id="ph1">`try/finally`</ph> instead of <ph id="ph2">`using`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If neither of these solutions can be used (for example, if a <ph id="ph1">&lt;xref:System.IO.StreamWriter&gt;</ph> is stored in a static variable and you cannot easily run code at the end of its lifetime), then calling <ph id="ph2">&lt;xref:System.IO.StreamWriter.Flush%2A&gt;</ph> on the <ph id="ph3">&lt;xref:System.IO.StreamWriter&gt;</ph> after its last use or setting the <ph id="ph4">&lt;xref:System.IO.StreamWriter.AutoFlush%2A&gt;</ph> property to <ph id="ph5">`true`</ph> before its first use should avoid this problem.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Effect on the Runtime</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This MDA has no effect on the runtime.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Output</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A message indicating that this violation occurred.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Diagnosing Errors with Managed Debugging Assistants<ept id="p1">](../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

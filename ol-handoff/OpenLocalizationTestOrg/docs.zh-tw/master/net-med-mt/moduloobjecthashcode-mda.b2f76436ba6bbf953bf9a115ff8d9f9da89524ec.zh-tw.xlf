@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e888aed70a78bc9fe732a18d894b7b63da3452fb</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\debug-trace-profile\moduloobjecthashcode-mda.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">eb1b27891ea4c9309b74ee4a48754cf676d548d2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bb1dc80c20b4e61274fda781f405e86b2edb3336</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>moduloObjectHashcode MDA | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>moduloObjectHashcode MDA</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`moduloObjectHashcode`</ph> managed debugging assistant (MDA) changes the behavior of the <ph id="ph2">&lt;xref:System.Object&gt;</ph> class to perform a modulo operation on the hash code returned by the <ph id="ph3">&lt;xref:System.Object.GetHashCode%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The default modulus for this MDA is 1, which causes <ph id="ph1">&lt;xref:System.Object.GetHashCode%2A&gt;</ph> to return 0 for all objects.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Symptoms</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>After moving to a new version of the common language runtime (CLR), a program no longer executes properly:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The program is getting the wrong object from a <ph id="ph1">&lt;xref:System.Collections.Hashtable&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The order of enumeration from a <ph id="ph1">&lt;xref:System.Collections.Hashtable&gt;</ph> has a change that breaks the program.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Two objects that used to be equal are no longer equal.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Two objects that used to not be equal are now equal.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Cause</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Your program may be getting the wrong object from a <ph id="ph1">&lt;xref:System.Collections.Hashtable&gt;</ph> because the implementation of the <ph id="ph2">&lt;xref:System.Object.Equals%2A&gt;</ph> method on the class for the key into the <ph id="ph3">&lt;xref:System.Collections.Hashtable&gt;</ph> tests for equality of objects by comparing the results of the call to the <ph id="ph4">&lt;xref:System.Object.GetHashCode%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Hash codes should not be used to test for object equality because two objects may have the same hash code even if their respective fields have different values.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>These hash code collisions, although rare in practice, do occur.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The effect this has on a <ph id="ph1">&lt;xref:System.Collections.Hashtable&gt;</ph> lookup is that two keys which are not equal appear to be equal, and the wrong object is returned from the <ph id="ph2">&lt;xref:System.Collections.Hashtable&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For performance reasons, the implementation of <ph id="ph1">&lt;xref:System.Object.GetHashCode%2A&gt;</ph> can change between runtime versions, so collisions that might not occur on one version might occur on subsequent versions.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Enable this MDA to test whether your code has bugs when hash codes collide.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When enabled, this MDA causes the <ph id="ph1">&lt;xref:System.Object.GetHashCode%2A&gt;</ph> method to return 0, resulting in all hash codes colliding.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The only effect enabling this MDA should have on your program is that your program runs slower.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The order of enumeration from a <ph id="ph1">&lt;xref:System.Collections.Hashtable&gt;</ph> may change from one version of the runtime to another if the algorithm used to compute the hash codes for the key change.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To test whether your program has taken a dependency on the order of enumeration of keys or values out of a hash table, you can enable this MDA.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Resolution</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Never use hash codes as a substitute for object identity.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Implement the override of the <ph id="ph1">&lt;xref:System.Object.Equals%2A?displayProperty=fullName&gt;</ph> method to not compare hash codes.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Do not create dependencies on the order of enumerations of keys or values in hash tables.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Effect on the Runtime</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Applications run more slowly when this MDA is enabled.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This MDA simply takes the hash code that would have been returned and instead returns the remainder when divided by a modulus.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Output</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>There is no output for this MDA.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`modulus`</ph> attribute specifies the modulus used on the hash code.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The default value is 1.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Diagnosing Errors with Managed Debugging Assistants<ept id="p1">](../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
