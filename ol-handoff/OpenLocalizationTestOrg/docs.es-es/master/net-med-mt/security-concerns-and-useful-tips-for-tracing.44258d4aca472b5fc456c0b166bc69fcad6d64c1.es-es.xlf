@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">78456a0c5a207651d01d671fb1e67d1d5efde4e2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\diagnostics\tracing\security-concerns-and-useful-tips-for-tracing.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4be60053195b46106bcb56d17987b194a7fa61e5</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">93e289a8161eff37ab3bb02ea879b4d2cd799451</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Security Concerns and Useful Tips for Tracing | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Security Concerns and Useful Tips for Tracing</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how you can protect sensitive information from being exposed, as well as useful tips when using WebHost.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Using a Custom Trace Listener with WebHost</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If you are writing your own trace listener, you should be aware of the possibility that traces might be lost in the case of a Web-hosted service.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When WebHost recycles, it shuts down the live process while a duplicate takes over.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>However, the two processes must still have access to the same resource for some time, which is dependent on the listener type.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this case, , <ph id="ph1">`XmlWriterTraceListener`</ph> creates a new trace file for the second process; while Windows event tracing manages multiple processes within the same session and gives access to the same file.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If your own listener does not provide similar functionalities, traces can be lost when the file is locked up by the two processes.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You should also be aware that a custom trace listener can send traces and messages on the wire, for example, to a remote database.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>As an application deployer, you should configure custom listeners with appropriate access control.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>You should also apply security control on any personal information that can be exposed at the remote location.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Logging Sensitive Information</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Traces contain message headers when a message is in scope.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>When tracing is enabled, personal information in application-specific headers, such as, a query string; and body information, such as, a credit card number, can become visible in the logs.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The application deployer is responsible for enforcing access control on the configuration and trace files.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If you do not want this kind of information to be visible, you should disable tracing, or filter out part of the data if you want to share the trace logs.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The following tips can help you to prevent the content of a trace file from being exposed unintentionally:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Ensure that the log files are protected by Access Control Lists (ACL) both in WebHost and self-host scenarios.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Choose a file extension that cannot be easily served using a Web request.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, the .xml file extension is not a safe choice.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can check the IIS administration guide to see a list of extensions that can be served.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Specify an absolute path for the log file location, which should be outside of the WebHost vroot public directory to prevent it from being accessed by an external party using a Web browser.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>By default, keys and personally identifiable information (PII) such as username and password are not logged in traces and logged messages.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A machine administrator, however, can use the <ph id="ph1">`enableLoggingKnownPII`</ph> attribute in the <ph id="ph2">`machineSettings`</ph> element of the Machine.config file to permit applications running on the machine to log known personally identifiable information (PII) as follows:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>An application deployer can then use the <ph id="ph1">`logKnownPii`</ph> attribute in either the App.config or Web.config file to enable PII logging as follows:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Only when both settings are <ph id="ph1">`true`</ph> is PII logging enabled.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The combination of two switches allows the flexibility to log known PII for each application.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You should be aware that if you specify two or more custom sources in a configuration file, only the attributes of the first source are read.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The others are ignored.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This means that, for the following App.config, file, PII is not logged for both sources even though PII logging is explicitly enabled for the second source.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`&lt;machineSettings enableLoggingKnownPii="Boolean"/&gt;`</ph> element exists outside the Machine.config file, the system throws a <ph id="ph2">&lt;xref:System.Configuration.ConfigurationErrorsException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The changes are effective only when the application starts or restarts.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>An event is logged at startup when both attributes are set to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>An event is also logged if <ph id="ph1">`logKnownPii`</ph> is set to <ph id="ph2">`true`</ph> but <ph id="ph3">`enableLoggingKnownPii`</ph> is <ph id="ph4">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For more information on PII logging, see <bpt id="p1">[</bpt>PII Security Lockdown<ept id="p1">](../../../../../docs/framework/wcf/samples/pii-security-lockdown.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The machine administrator and application deployer should exercise extreme caution when using these two switches.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If PII logging is enabled, security keys and PII are logged.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If it is disabled, sensitive and application-specific data is still logged in message headers and bodies.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For a more thorough discussion on privacy and protecting PII from being exposed, see <bpt id="p1">[</bpt>User Privacy<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=94647)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>In addition, the IP address of the message sender is logged once per connection for connection-oriented transports, and once per message sent otherwise.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This is done without the consent of the sender.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>However, this logging only occurs at the Information or Verbose tracing levels, which are not the default or recommended tracing levels in production, except for live debugging.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Tracing<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/tracing/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

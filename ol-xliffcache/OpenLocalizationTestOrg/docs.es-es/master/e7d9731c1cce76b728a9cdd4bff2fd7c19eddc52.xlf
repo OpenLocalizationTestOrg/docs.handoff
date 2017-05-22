@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e7d9731c1cce76b728a9cdd4bff2fd7c19eddc52</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\guidelines-for-collections.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0114f2cfe4ca783f873fdcf99224b8840f179704</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d4f221506cff2e660999d327ed6d7e089933b10e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Guidelines for Collections | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Guidelines for Collections</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Any type designed specifically to manipulate a group of objects having some common characteristic can be considered a collection.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It is almost always appropriate for such types to implement <ph id="ph1">&lt;xref:System.Collections.IEnumerable&gt;</ph> or <ph id="ph2">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph>, so in this section we only consider types implementing one or both of those interfaces to be collections.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use weakly typed collections in public APIs.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The type of all return values and parameters representing collection items should be the exact item type, not any of its base types (this applies only to public members of the collection).</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use <ph id="ph1">&lt;xref:System.Collections.ArrayList&gt;</ph> or <ph id="ph2">&lt;xref:System.Collections.Generic.List%601&gt;</ph> in public APIs.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>These types are data structures designed to be used in internal implementation, not in public APIs.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`List&lt;T&gt;`</ph> is optimized for performance and power at the cost of cleanness of the APIs and flexibility.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For example, if you return <ph id="ph1">`List&lt;T&gt;`</ph>, you will not ever be able to receive notifications when client code modifies the collection.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Also, <ph id="ph1">`List&lt;T&gt;`</ph> exposes many members, such as <ph id="ph2">&lt;xref:System.Collections.Generic.List%601.BinarySearch%2A&gt;</ph>, that are not useful or applicable in many scenarios.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The following two sections describe types (abstractions) designed specifically for use in public APIs.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use <ph id="ph1">`Hashtable`</ph> or <ph id="ph2">`Dictionary&lt;TKey,TValue&gt;`</ph> in public APIs.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>These types are data structures designed to be used in internal implementation.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Public APIs should use <ph id="ph1">&lt;xref:System.Collections.IDictionary&gt;</ph>, <ph id="ph2">`IDictionary &lt;TKey, TValue&gt;`</ph>, or a custom type implementing one or both of the interfaces.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use <ph id="ph1">&lt;xref:System.Collections.Generic.IEnumerator%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Collections.IEnumerator&gt;</ph>, or any other type that implements either of these interfaces, except as the return type of a <ph id="ph3">`GetEnumerator`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Types returning enumerators from methods other than <ph id="ph1">`GetEnumerator`</ph> cannot be used with the <ph id="ph2">`foreach`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> implement both <ph id="ph1">`IEnumerator&lt;T&gt;`</ph> and <ph id="ph2">`IEnumerable&lt;T&gt;`</ph> on the same type.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The same applies to the nongeneric interfaces <ph id="ph1">`IEnumerator`</ph> and <ph id="ph2">`IEnumerable`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Collection Parameters</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the least-specialized type possible as a parameter type.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Most members taking collections as parameters use the <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> using <ph id="ph1">&lt;xref:System.Collections.Generic.ICollection%601&gt;</ph> or <ph id="ph2">&lt;xref:System.Collections.ICollection&gt;</ph> as a parameter just to access the <ph id="ph3">`Count`</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Instead, consider using <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> or <ph id="ph2">`IEnumerable`</ph> and dynamically checking whether the object implements <ph id="ph3">`ICollection&lt;T&gt;`</ph> or <ph id="ph4">`ICollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Collection Properties and Return Values</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> provide settable collection properties.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Users can replace the contents of the collection by clearing the collection first and then adding the new contents.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If replacing the whole collection is a common scenario, consider providing the <ph id="ph1">`AddRange`</ph> method on the collection.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use <ph id="ph1">`Collection&lt;T&gt;`</ph> or a subclass of <ph id="ph2">`Collection&lt;T&gt;`</ph> for properties or return values representing read/write collections.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`Collection&lt;T&gt;`</ph> does not meet some requirement (e.g., the collection must not implement <ph id="ph2">&lt;xref:System.Collections.IList&gt;</ph>), use a custom collection by implementing <ph id="ph3">`IEnumerable&lt;T&gt;`</ph>, <ph id="ph4">`ICollection&lt;T&gt;`</ph>, or <ph id="ph5">&lt;xref:System.Collections.Generic.IList%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use <ph id="ph1">&lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;</ph>, a subclass of <ph id="ph2">`ReadOnlyCollection&lt;T&gt;`</ph>, or in rare cases <ph id="ph3">`IEnumerable&lt;T&gt;`</ph> for properties or return values representing read-only collections.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In general, prefer <ph id="ph1">`ReadOnlyCollection&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If it does not meet some requirement (e.g., the collection must not implement <ph id="ph1">`IList`</ph>), use a custom collection by implementing <ph id="ph2">`IEnumerable&lt;T&gt;`</ph>, <ph id="ph3">`ICollection&lt;T&gt;`</ph>, or <ph id="ph4">`IList&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If you do implement a custom read-only collection, implement <ph id="ph1">`ICollection&lt;T&gt;.ReadOnly`</ph> to return false.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In cases where you are sure that the only scenario you will ever want to support is forward-only iteration, you can simply use <ph id="ph1">`IEnumerable&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using subclasses of generic base collections instead of using the collections directly.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This allows for a better name and for adding helper members that are not present on the base collection types.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This is especially applicable to high-level APIs.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> returning a subclass of <ph id="ph1">`Collection&lt;T&gt;`</ph> or <ph id="ph2">`ReadOnlyCollection&lt;T&gt;`</ph> from very commonly used methods and properties.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This will make it possible for you to add helper methods or change the collection implementation in the future.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using a keyed collection if the items stored in the collection have unique keys (names, IDs, etc.).</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Keyed collections are collections that can be indexed by both an integer and a key and are usually implemented by inheriting from <ph id="ph1">`KeyedCollection&lt;TKey,TItem&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Keyed collections usually have larger memory footprints and should not be used if the memory overhead outweighs the benefits of having the keys.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> return null values from collection properties or from methods returning collections.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Return an empty collection or an empty array instead.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The general rule is that null and empty (0 item) collections or arrays should be treated the same.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Snapshots Versus Live Collections</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Collections representing a state at some point in time are called snapshot collections.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example, a collection containing rows returned from a database query would be a snapshot.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Collections that always represent the current state are called live collections.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For example, a collection of <ph id="ph1">`ComboBox`</ph> items is a live collection.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> return snapshot collections from properties.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Properties should return live collections.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Property getters should be very lightweight operations.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Returning a snapshot requires creating a copy of an internal collection in an O(n) operation.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use either a snapshot collection or a live <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> (or its subtype) to represent collections that are volatile (i.e., that can change without explicitly modifying the collection).</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>In general, all collections representing a shared resource (e.g., files in a directory) are volatile.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Such collections are very difficult or impossible to implement as live collections unless the implementation is simply a forward-only enumerator.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Choosing Between Arrays and Collections</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> prefer collections over arrays.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Collections provide more control over contents, can evolve over time, and are more usable.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>In addition, using arrays for read-only scenarios is discouraged because the cost of cloning the array is prohibitive.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Usability studies have shown that some developers feel more comfortable using collection-based APIs.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>However, if you are developing low-level APIs, it might be better to use arrays for read-write scenarios.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Arrays have a smaller memory footprint, which helps reduce the working set, and access to elements in an array is faster because it is optimized by the runtime.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using arrays in low-level APIs to minimize memory consumption and maximize performance.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use byte arrays instead of collections of bytes.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use arrays for properties if the property would have to return a new array (e.g., a copy of an internal array) every time the property getter is called.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Implementing Custom Collections</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> inheriting from <ph id="ph1">`Collection&lt;T&gt;`</ph>, <ph id="ph2">`ReadOnlyCollection&lt;T&gt;`</ph>, or <ph id="ph3">`KeyedCollection&lt;TKey,TItem&gt;`</ph> when designing new collections.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> implement <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> when designing new collections.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Consider implementing <ph id="ph1">`ICollection&lt;T&gt;`</ph> or even <ph id="ph2">`IList&lt;T&gt;`</ph> where it makes sense.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>When implementing such custom collection, follow the API pattern established by <ph id="ph1">`Collection&lt;T&gt;`</ph> and <ph id="ph2">`ReadOnlyCollection&lt;T&gt;`</ph> as closely as possible.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>That is, implement the same members explicitly, name the parameters like these two collections name them, and so on.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> implementing nongeneric collection interfaces (<ph id="ph1">`IList`</ph> and <ph id="ph2">`ICollection`</ph>) if the collection will often be passed to APIs taking these interfaces as input.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> implementing collection interfaces on types with complex APIs unrelated to the concept of a collection.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> inherit from nongeneric base collections such as <ph id="ph1">`CollectionBase`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">`Collection&lt;T&gt;`</ph>, <ph id="ph2">`ReadOnlyCollection&lt;T&gt;`</ph>, and <ph id="ph3">`KeyedCollection&lt;TKey,TItem&gt;`</ph> instead.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Naming Custom Collections</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Collections (types that implement <ph id="ph1">`IEnumerable`</ph>) are created mainly for two reasons: (1) to create a new data structure with structure-specific operations and often different performance characteristics than existing data structures (e.g.,  <ph id="ph2">&lt;xref:System.Collections.Generic.List%601&gt;</ph>, <ph id="ph3">&lt;xref:System.Collections.Generic.LinkedList%601&gt;</ph>, <ph id="ph4">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph>), and (2) to create a specialized collection for holding a specific set of items (e.g.,  <ph id="ph5">&lt;xref:System.Collections.Specialized.StringCollection&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Data structures are most often used in the internal implementation of applications and libraries.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Specialized collections are mainly to be exposed in APIs (as property and parameter types).</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the "Dictionary" suffix in names of abstractions implementing <ph id="ph1">`IDictionary`</ph> or <ph id="ph2">`IDictionary&lt;TKey,TValue&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the "Collection" suffix in names of types implementing <ph id="ph1">`IEnumerable`</ph> (or any of its descendants) and representing a list of items.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the appropriate data structure name for custom data structures.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> using any suffixes implying particular implementation, such as "LinkedList" or "Hashtable," in names of collection abstractions.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> prefixing collection names with the name of the item type.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>For example, a collection storing items of type <ph id="ph1">`Address`</ph> (implementing <ph id="ph2">`IEnumerable&lt;Address&gt;`</ph>) should be named <ph id="ph3">`AddressCollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If the item type is an interface, the "I" prefix of the item type can be omitted.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Thus, a collection of <ph id="ph1">&lt;xref:System.IDisposable&gt;</ph> items can be called <ph id="ph2">`DisposableCollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using the "ReadOnly" prefix in names of read-only collections if a corresponding writeable collection might be added or already exists in the framework.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>For example, a read-only collection of strings should be called <ph id="ph1">`ReadOnlyStringCollection`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Usage Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/usage-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

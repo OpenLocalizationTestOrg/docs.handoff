@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7a3877f077a24578ede5f3dd6707cc5484fc4c6e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\dispose-pattern.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c19eb208c36b21f90376aa9be5daf47b0f2edf73</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">08ceaa10bcb5bb6b1e11abfcd2e4f0dc13c18e8a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Dispose Pattern | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Dispose Pattern</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>All programs acquire one or more system resources, such as memory, system handles, or database connections, during the course of their execution.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Developers have to be careful when using such system resources, because they must be released after they have been acquired and used.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The CLR provides support for automatic memory management.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Managed memory (memory allocated using the C# operator <ph id="ph1">`new`</ph>) does not need to be explicitly released.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>It is released automatically by the garbage collector (GC).</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This frees developers from the tedious and difficult task of releasing memory and has been one of the main reasons for the unprecedented productivity afforded by the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Unfortunately, managed memory is just one of many types of system resources.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Resources other than managed memory still need to be released explicitly and are referred to as unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The GC was specifically not designed to manage such unmanaged resources, which means that the responsibility for managing unmanaged resources lies in the hands of the developers.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The CLR provides some help in releasing unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Object?displayProperty=fullName&gt;</ph> declares a virtual method <ph id="ph2">&lt;xref:System.Object.Finalize%2A&gt;</ph> (also called the finalizer) that is called by the GC before the object’s memory is reclaimed by the GC and can be overridden to release unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Types that override the finalizer are referred to as finalizable types.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Although finalizers are effective in some cleanup scenarios, they have two significant drawbacks:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The finalizer is called when the GC detects that an object is eligible for collection.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This happens at some undetermined period of time after the resource is not needed anymore.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The delay between when the developer could or would like to release the resource and the time when the resource is actually released by the finalizer might be unacceptable in programs that acquire many scarce resources (resources that can be easily exhausted) or in cases in which resources are costly to keep in use (e.g., large unmanaged memory buffers).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>When the CLR needs to call a finalizer, it must postpone collection of the object’s memory until the next round of garbage collection (the finalizers run between collections).</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This means that the object’s memory (and all objects it refers to) will not be released for a longer period of time.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Therefore, relying exclusively on finalizers might not be appropriate in many scenarios when it is important to reclaim unmanaged resources as quickly as possible, when dealing with scarce resources, or in highly performant scenarios in which the added GC overhead of finalization is unacceptable.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The Framework provides the <ph id="ph1">&lt;xref:System.IDisposable?displayProperty=fullName&gt;</ph> interface that should be implemented to provide the developer a manual way to release unmanaged resources as soon as they are not needed.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It also provides the <ph id="ph1">&lt;xref:System.GC.SuppressFinalize%2A?displayProperty=fullName&gt;</ph> method that can tell the GC that an object was manually disposed of and does not need to be finalized anymore, in which case the object’s memory can be reclaimed earlier.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Types that implement the <ph id="ph1">`IDisposable`</ph> interface are referred to as disposable types.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The Dispose Pattern is intended to standardize the usage and implementation of finalizers and the <ph id="ph1">`IDisposable`</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The main motivation for the pattern is to reduce the complexity of the implementation of the <ph id="ph1">&lt;xref:System.Object.Finalize%2A&gt;</ph> and the <ph id="ph2">&lt;xref:System.IDisposable.Dispose%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The complexity stems from the fact that the methods share some but not all code paths (the differences are described later in the chapter).</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In addition, there are historical reasons for some elements of the pattern related to the evolution of language support for deterministic resource management.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> implement the Basic Dispose Pattern on types containing instances of disposable types.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>Basic Dispose Pattern<ept id="p1">](#basic_pattern)</ept> section for details on the basic pattern.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If a type is responsible for the lifetime of other disposable objects, developers need a way to dispose of them, too.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Using the container’s <ph id="ph1">`Dispose`</ph> method is a convenient way to make this possible.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> implement the Basic Dispose Pattern and provide a finalizer on types holding resources that need to be freed explicitly and that do not have finalizers.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For example, the pattern should be implemented on types storing unmanaged memory buffers.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Finalizable Types<ept id="p1">](#finalizable_types)</ept> section discusses guidelines related to implementing finalizers.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> implementing the Basic Dispose Pattern on classes that themselves don’t hold unmanaged resources or disposable objects but are likely to have subtypes that do.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>A great example of this is the <ph id="ph1">&lt;xref:System.IO.Stream?displayProperty=fullName&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Although it is an abstract base class that doesn’t hold any resources, most of its subclasses do and because of this, it implements this pattern.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Basic Dispose Pattern</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The basic implementation of the pattern involves implementing the <ph id="ph1">`System.IDisposable`</ph> interface and declaring the <ph id="ph2">`Dispose(bool)`</ph> method that implements all resource cleanup logic to be shared between the <ph id="ph3">`Dispose`</ph> method and the optional finalizer.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following example shows a simple implementation of the basic pattern:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The Boolean parameter <ph id="ph1">`disposing`</ph> indicates whether the method was invoked from the <ph id="ph2">`IDisposable.Dispose`</ph> implementation or from the finalizer.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Dispose(bool)`</ph> implementation should check the parameter before accessing other reference objects (e.g., the resource field in the preceding sample).</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Such objects should only be accessed when the method is called from the <ph id="ph1">`IDisposable.Dispose`</ph> implementation (when the <ph id="ph2">`disposing`</ph> parameter is equal to true).</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If the method is invoked from the finalizer (<ph id="ph1">`disposing`</ph> is false), other objects should not be accessed.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The reason is that objects are finalized in an unpredictable order and so they, or any of their dependencies, might already have been finalized.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Also, this section applies to classes with a base that does not already implement the Dispose Pattern.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>If you are inheriting from a class that already implements the pattern, simply override the <ph id="ph1">`Dispose(bool)`</ph> method to provide additional resource cleanup logic.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> declare a protected virtual void <ph id="ph1">`Dispose(bool disposing)`</ph> method to centralize all logic related to releasing unmanaged resources.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>All resource cleanup should occur in this method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The method is called from both the finalizer and the <ph id="ph1">`IDisposable.Dispose`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The parameter will be false if being invoked from inside a finalizer.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>It should be used to ensure any code running during finalization is not accessing other finalizable objects.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Details of implementing finalizers are described in the next section.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> implement the <ph id="ph1">`IDisposable`</ph> interface by simply calling <ph id="ph2">`Dispose(true)`</ph> followed by <ph id="ph3">`GC.SuppressFinalize(this)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The call to <ph id="ph1">`SuppressFinalize`</ph> should only occur if <ph id="ph2">`Dispose(true)`</ph> executes successfully.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> make the parameterless <ph id="ph1">`Dispose`</ph> method virtual.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Dispose(bool)`</ph> method is the one that should be overridden by subclasses.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> declare any overloads of the <ph id="ph1">`Dispose`</ph> method other than <ph id="ph2">`Dispose()`</ph> and <ph id="ph3">`Dispose(bool)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Dispose`</ph> should be considered a reserved word to help codify this pattern and prevent confusion among implementers, users, and compilers.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Some languages might choose to automatically implement this pattern on certain types.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> allow the <ph id="ph1">`Dispose(bool)`</ph> method to be called more than once.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The method might choose to do nothing after the first call.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> throwing an exception from within <ph id="ph1">`Dispose(bool)`</ph> except under critical situations where the containing process has been corrupted (leaks, inconsistent shared state, etc.).</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Users expect that a call to <ph id="ph1">`Dispose`</ph> will not raise an exception.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`Dispose`</ph> could raise an exception, further finally-block cleanup logic will not execute.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>To work around this, the user would need to wrap every call to <ph id="ph1">`Dispose`</ph> (within the finally block!) in a try block, which leads to very complex cleanup handlers.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If executing a <ph id="ph1">`Dispose(bool disposing)`</ph> method, never throw an exception if disposing is false.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Doing so will terminate the process if executing inside a finalizer context.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> throw an <ph id="ph1">&lt;xref:System.ObjectDisposedException&gt;</ph> from any member that cannot be used after the object has been disposed of.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> providing method <ph id="ph1">`Close()`</ph>, in addition to the <ph id="ph2">`Dispose()`</ph>, if close is standard terminology in the area.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>When doing so, it is important that you make the <ph id="ph1">`Close`</ph> implementation identical to <ph id="ph2">`Dispose`</ph> and consider implementing the <ph id="ph3">`IDisposable.Dispose`</ph> method explicitly.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Finalizable Types</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Finalizable types are types that extend the Basic Dispose Pattern by overriding the finalizer and providing finalization code path in the <ph id="ph1">`Dispose(bool)`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Finalizers are notoriously difficult to implement correctly, primarily because you cannot make certain (normally valid) assumptions about the state of the system during their execution.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The following guidelines should be taken into careful consideration.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Note that some of the guidelines apply not just to the <ph id="ph1">`Finalize`</ph> method, but to any code called from a finalizer.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>In the case of the Basic Dispose Pattern previously defined, this means logic that executes inside <ph id="ph1">`Dispose(bool disposing)`</ph> when the <ph id="ph2">`disposing`</ph> parameter is false.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If the base class already is finalizable and implements the Basic Dispose Pattern, you should not override <ph id="ph1">`Finalize`</ph> again.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>You should instead just override the <ph id="ph1">`Dispose(bool)`</ph> method to provide additional resource cleanup logic.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The following code shows an example of a finalizable type:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> making types finalizable.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Carefully consider any case in which you think a finalizer is needed.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>There is a real cost associated with instances with finalizers, from both a performance and code complexity standpoint.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Prefer using resource wrappers such as <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> to encapsulate unmanaged resources where possible, in which case a finalizer becomes unnecessary because the wrapper is responsible for its own resource cleanup.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> make value types finalizable.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Only reference types actually get finalized by the CLR, and thus any attempt to place a finalizer on a value type will be ignored.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The C# and C++ compilers enforce this rule.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> make a type finalizable if the type is responsible for releasing an unmanaged resource that does not have its own finalizer.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>When implementing the finalizer, simply call <ph id="ph1">`Dispose(false)`</ph> and place all resource cleanup logic inside the <ph id="ph2">`Dispose(bool disposing)`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> implement the Basic Dispose Pattern on every finalizable type.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This gives users of the type a means to explicitly perform deterministic cleanup of those same resources for which the finalizer is responsible.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> access any finalizable objects in the finalizer code path, because there is significant risk that they will have already been finalized.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>For example, a finalizable object A that has a reference to another finalizable object B cannot reliably use B in A’s finalizer, or vice versa.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Finalizers are called in a random order (short of a weak ordering guarantee for critical finalization).</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Also, be aware that objects stored in static variables will get collected at certain points during an application domain unload or while exiting the process.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Accessing a static variable that refers to a finalizable object (or calling a static method that might use values stored in static variables) might not be safe if <ph id="ph1">&lt;xref:System.Environment.HasShutdownStarted%2A?displayProperty=fullName&gt;</ph> returns true.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> make your <ph id="ph1">`Finalize`</ph> method protected.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>C#, C++, and VB.NET developers do not need to worry about this, because the compilers help to enforce this guideline.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> let exceptions escape from the finalizer logic, except for system-critical failures.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>If an exception is thrown from a finalizer, the CLR will shut down the entire process (as of .NET Framework version 2.0), preventing other finalizers from executing and resources from being released in a controlled manner.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> creating and using a critical finalizable object (a type with a type hierarchy that contains <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.CriticalFinalizerObject&gt;</ph>) for situations in which a finalizer absolutely must execute even in the face of forced application domain unloads and thread aborts.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Common Design Patterns<ept id="p1">](../../../docs/standard/design-guidelines/common-design-patterns.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Garbage Collection<ept id="p1">](../../../docs/standard/garbage-collection/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

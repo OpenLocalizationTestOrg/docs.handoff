@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5bda5296991568c4224863dbeb4b983ea70c1e11</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\cancellation-in-managed-threads.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6c69f15a5c4c1c6c0c43fb47e6226d669e1914b4</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">982139a8f2e5a38883d7398e62c9bbf72f3edc2a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Cancellation in Managed Threads | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Cancellation in Managed Threads</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, the .NET Framework uses a unified model for cooperative cancellation of asynchronous or long-running synchronous operations.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This model is based on a lightweight object called a cancellation token.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The object that invokes one or more cancelable operations, for example by creating new threads or tasks, passes the token to each operation.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Individual operations can in turn pass copies of the token to other operations.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>At some later time, the object that created the token can use it to request that the operations stop what they are doing.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Only the requesting object can issue the cancellation request, and each listener is responsible for noticing the request and responding to it in an appropriate and timely manner.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The general pattern for implementing the cooperative cancellation model is:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Instantiate a <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource&gt;</ph> object, which manages and sends cancellation notification to the individual cancellation tokens.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Pass the token returned by the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Token%2A?displayProperty=fullName&gt;</ph> property to each task or thread that listens for cancellation.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Provide a mechanism for each task or thread to respond to cancellation.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Cancel%2A?displayProperty=fullName&gt;</ph> method to provide notification of cancellation.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource&gt;</ph> class implements the <ph id="ph2">&lt;xref:System.IDisposable&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You should be sure to call the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Dispose%2A?displayProperty=fullName&gt;</ph> method when you have finished using the cancellation token source to free any unmanaged resources it holds.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The following illustration shows the relationship between a token source and all the copies of its token.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>CancellationTokenSource and cancellation tokens<ept id="p1">]</ept><bpt id="p2">(../../../docs/standard/threading/media/vs-cancellationtoken.png "</bpt>VS_CancellationToken<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The new cancellation model makes it easier to create cancellation-aware applications and libraries, and it supports the following features:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Cancellation is cooperative and is not forced on the listener.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The listener determines how to gracefully terminate in response to a cancellation request.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Requesting is distinct from listening.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>An object that invokes a cancelable operation can control when (if ever) cancellation is requested.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The requesting object issues the cancellation request to all copies of the token by using just one method call.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A listener can listen to multiple tokens simultaneously by joining them into one <bpt id="p1">*</bpt>linked token<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>User code can notice and respond to cancellation requests from library code, and library code can notice and respond to cancellation requests from user code.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Listeners can be notified of cancellation requests by polling, callback registration, or waiting on wait handles.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Cancellation Types</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The cancellation framework is implemented as a set of related types, which are listed in the following table.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Type name</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Object that creates a cancellation token, and also issues the cancellation request for all copies of that token.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Lightweight value type passed to one or more listeners, typically as a method parameter.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Listeners monitor the value of the <ph id="ph1">`IsCancellationRequested`</ph> property of the token by polling, callback, or wait handle.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Overloads of this exception's constructor accept a <ph id="ph1">&lt;xref:System.Threading.CancellationToken&gt;</ph> as a parameter.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Listeners can optionally throw this exception to verify the source of the cancellation and notify others that it has responded to a cancellation request.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The new cancellation model is integrated into the <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> in several types.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The most important ones are <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.Threading.Tasks.Task%601?displayProperty=fullName&gt;</ph> and <ph id="ph4">&lt;xref:System.Linq.ParallelEnumerable?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>We recommend that you use this new cancellation model for all new library and application code.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Code Example</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>In the following example, the requesting object creates a <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource&gt;</ph> object, and then passes its <ph id="ph2">&lt;xref:System.Threading.CancellationTokenSource.Token%2A&gt;</ph> property to the cancelable operation.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The operation that receives the request monitors the value of the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property of the token by polling.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>When the value becomes <ph id="ph1">`true`</ph>, the listener can terminate in whatever manner is appropriate.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In this example, the method just exits, which is all that is required in many cases.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The example uses the <ph id="ph1">&lt;xref:System.Threading.ThreadPool.QueueUserWorkItem%2A&gt;</ph> method to demonstrate that the new cancellation framework is compatible with legacy APIs.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For an example that uses the new, preferred <ph id="ph1">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph> type, see <bpt id="p1">[</bpt>How to: Cancel a Task and Its Children<ept id="p1">](../../../docs/standard/parallel-programming/how-to-cancel-a-task-and-its-children.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex1.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex1.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Operation Cancellation Versus Object Cancellation</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>In the new cancellation framework, cancellation refers to operations, not objects.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The cancellation request means that the operation should stop as soon as possible after any required cleanup is performed.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>One cancellation token should refer to one "cancelable operation," however that operation may be implemented in your program.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>After the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A&gt;</ph> property of the token has been set to <ph id="ph2">`true`</ph>, it cannot be reset to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Therefore, cancellation tokens cannot be reused after they have been canceled.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If you require an object cancellation mechanism, you can base it on the operation cancellation mechanism by calling the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.Register%2A?displayProperty=fullName&gt;</ph> method, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/objectcancellation1.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/objectcancellation1.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If an object supports more than one concurrent cancelable operation, pass a separate token as input to each distinct cancelable operation.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>That way, one operation can be cancelled without affecting the others.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Listening and Responding to Cancellation Requests</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>In the user delegate, the implementer of a cancelable operation determines how to terminate the operation in response to a cancellation request.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In many cases, the user delegate can just perform any required cleanup and then return immediately.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>However, in more complex cases, it might be necessary for the user delegate to notify library code that cancellation has occurred.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>In such cases, the correct way to terminate the operation is for the delegate to call the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.ThrowIfCancellationRequested%2A&gt;</ph>, method, which will cause an <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph> to be thrown.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Library code can catch this exception on the user delegate thread and examine the exception's token to determine whether the exception indicates cooperative cancellation or some other exceptional situation.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> class handles <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph> in this way.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Cancellation<ept id="p1">](../../../docs/standard/parallel-programming/task-cancellation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Listening by Polling</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>For long-running computations that loop or recurse, you can listen for a cancellation request by periodically polling the value of the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.IsCancellationRequested%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>If its value is <ph id="ph1">`true`</ph>, the method should clean up and terminate as quickly as possible.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The optimal frequency of polling depends on the type of application.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>It is up to the developer to determine the best polling frequency for any given program.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Polling itself does not significantly impact performance.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The following example shows one possible way to poll.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex11.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex11.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For a more complete example, see <bpt id="p1">[</bpt>How to: Listen for Cancellation Requests by Polling<ept id="p1">](../../../docs/standard/threading/how-to-listen-for-cancellation-requests-by-polling.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Listening by Registering a Callback</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Some operations can become blocked in such a way that they cannot check the value of the cancellation token in a timely manner.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>For these cases, you can register a callback method that unblocks the method when a cancellation request is received.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.CancellationToken.Register%2A&gt;</ph> method returns a <ph id="ph2">&lt;xref:System.Threading.CancellationTokenRegistration&gt;</ph> object that is used specifically for this purpose.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The following example shows how to use the <ph id="ph1">&lt;xref:System.Threading.CancellationToken.Register%2A&gt;</ph> method to cancel an asynchronous Web request.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex4.cs#4)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex4.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.CancellationTokenRegistration&gt;</ph> object manages thread synchronization and ensures that the callback will stop executing at a precise point in time.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>In order to ensure system responsiveness and to avoid deadlocks, the following guidelines must be followed when registering callbacks:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The callback method should be fast because it is called synchronously and therefore the call to <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource.Cancel%2A&gt;</ph> does not return until the callback returns.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If you call <ph id="ph1">&lt;xref:System.Threading.CancellationTokenRegistration.Dispose%2A&gt;</ph> while the callback is running, and you hold a lock that the callback is waiting on, your program can deadlock.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>After <ph id="ph1">`Dispose`</ph> returns, you can free any resources required by the callback.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Callbacks should not perform any manual thread or <ph id="ph1">&lt;xref:System.Threading.SynchronizationContext&gt;</ph> usage in a callback.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If a callback must run on a particular thread, use the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenRegistration?displayProperty=fullName&gt;</ph> constructor that enables you to specify that the target syncContext is the active <ph id="ph2">&lt;xref:System.Threading.SynchronizationContext.Current%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Performing manual threading in a callback can cause deadlock.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>For a more complete example, see <bpt id="p1">[</bpt>How to: Register Callbacks for Cancellation Requests<ept id="p1">](../../../docs/standard/threading/how-to-register-callbacks-for-cancellation-requests.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Listening by Using a Wait Handle</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>When a cancelable operation can block while it waits on a synchronization primitive such as a <ph id="ph1">&lt;xref:System.Threading.ManualResetEvent?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Semaphore?displayProperty=fullName&gt;</ph>, you can use the <ph id="ph3">&lt;xref:System.Threading.CancellationToken.WaitHandle%2A?displayProperty=fullName&gt;</ph> property to enable the operation to wait on both the event and the cancellation request.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The wait handle of the cancellation token will become signaled in response to a cancellation request, and the method can use the return value of the <ph id="ph1">&lt;xref:System.Threading.WaitHandle.WaitAny%2A&gt;</ph> method to determine whether it was the cancellation token that signaled.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The operation can then just exit, or throw a <ph id="ph1">&lt;xref:System.OperationCanceledException&gt;</ph>, as appropriate.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex9.cs#5)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex9.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>In new code that targets the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, <ph id="ph2">&lt;xref:System.Threading.ManualResetEventSlim?displayProperty=fullName&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.SemaphoreSlim?displayProperty=fullName&gt;</ph> both support the new cancellation framework in their <ph id="ph4">`Wait`</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>You can pass the <ph id="ph1">&lt;xref:System.Threading.CancellationToken&gt;</ph> to the method, and when the cancellation is requested, the event wakes up and throws an <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex10.cs#6)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex10.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For a more complete example, see <bpt id="p1">[</bpt>How to: Listen for Cancellation Requests That Have Wait Handles<ept id="p1">](../../../docs/standard/threading/how-to-listen-for-cancellation-requests-that-have-wait-handles.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Listening to Multiple Tokens Simultaneously</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>In some cases, a listener may have to listen to multiple cancellation tokens simultaneously.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>For example, a cancelable operation may have to monitor an internal cancellation token in addition to a token passed in externally as an argument to a method parameter.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>To accomplish this, create a linked token source that can join two or more tokens into one token, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Cancellation#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex13.cs#7)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Cancellation#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex13.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Notice that you must call <ph id="ph1">`Dispose`</ph> on the linked token source when you are done with it.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For a more complete example, see <bpt id="p1">[</bpt>How to: Listen for Multiple Cancellation Requests<ept id="p1">](../../../docs/standard/threading/how-to-listen-for-multiple-cancellation-requests.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Cooperation Between Library Code and User Code</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The unified cancellation framework makes it possible for library code to cancel user code, and for user code to cancel library code in a cooperative manner.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Smooth cooperation depends on each side following these guidelines:</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>If library code provides cancelable operations, it should also provide public methods that accept an external cancellation token so that user code can request cancellation.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>If library code calls into user code, the library code should interpret an OperationCanceledException(externalToken) as <bpt id="p1">*</bpt>cooperative cancellation<ept id="p1">*</ept>, and not necessarily as a failure exception.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>User-delegates should attempt to respond to cancellation requests from library code in a timely manner.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Linq.ParallelEnumerable?displayProperty=fullName&gt;</ph> are examples of classes that follows these guidelines.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Task Cancellation<ept id="p1">](../../../docs/standard/parallel-programming/task-cancellation.md)</ept>and <bpt id="p2">[</bpt>How to: Cancel a PLINQ Query<ept id="p2">](../../../docs/standard/parallel-programming/how-to-cancel-a-plinq-query.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Managed Threading Basics<ept id="p1">](../../../docs/standard/threading/managed-threading-basics.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

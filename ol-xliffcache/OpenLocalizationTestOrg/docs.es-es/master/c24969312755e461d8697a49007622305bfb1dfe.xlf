@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c24969312755e461d8697a49007622305bfb1dfe</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-disable-encryption-of-digital-signatures.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">331ffbad3f04c92537002ad45dfd081a98438fe5</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e958af39f0abc7d45eab6c141ee8161eb3e04abc</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Disable Encryption of Digital Signatures | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Disable Encryption of Digital Signatures</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>By default, a message is signed and the signature is digitally encrypted.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This is controlled by creating a custom binding with an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement&gt;</ph> or the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph> and setting the <ph id="ph3">`MessageProtectionOrder`</ph> property of either class to a <ph id="ph4">&lt;xref:System.ServiceModel.Security.MessageProtectionOrder&gt;</ph> enumeration value.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">&lt;xref:System.ServiceModel.Security.MessageProtectionOrder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This process consumes up to 30 percent more time than simply signing and encrypting based on the overall message size (the smaller the message, the greater the performance impact).</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Disabling encryption of the signature, however, might allow an attacker to guess the content of the message.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This is possible because the signature element contains the hash code of the plain text of every signed part in the message.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, although the message body is encrypted by default, the unencrypted signature contains the hash code of the message body before the encryption.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the set of possible values for the signed and encrypted part is small, an attacker might be able to deduce the contents by looking at the hash value.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Encrypting the signature mitigates this attack vector.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Therefore, disable encryption of the signature only when the value of the content is low or the set of possible content values is large and nondeterministic, and the performance gain is more important than mitigating the attack described above.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If there is nothing in the message that is encrypted, the signature element is not encrypted, even when the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName&gt;</ph> property is set to <ph id="ph3">&lt;xref:System.ServiceModel.Security.MessageProtectionOrder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This behavior occurs even with system-provided bindings; all system-provided bindings have the message protection order set to <ph id="ph1">`SignBeforeEncryptAndEncryptSignature`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>However, the Web Services Description Language (WSDL) <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> generates will still contain the <ph id="ph2">`&lt;sp:EncryptSignature&gt;`</ph> assertion.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>To disable digital signing</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CustomBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>How to: Create a Custom Binding Using the SecurityBindingElement<ept id="p1">](../../../../docs/framework/wcf/feature-details/how-to-create-a-custom-binding-using-the-securitybindingelement.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Add either an <ph id="ph1">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement&gt;</ph> or a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph> to the binding collection.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph2">&lt;xref:System.ServiceModel.Security.MessageProtectionOrder&gt;</ph>, or set the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph4">&lt;xref:System.ServiceModel.Security.MessageProtectionOrder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Security Capabilities with Custom Bindings<ept id="p1">](../../../../docs/framework/wcf/feature-details/security-capabilities-with-custom-bindings.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">126256e87c03c53443465e3cda9d6639f73ece27</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\securing-exception-handling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">10566cf9c02b9d64b1af5a93ea94051236b85734</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7acfc758dd2148f5c8439c8f71fc06b021c081a4</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Securing Exception Handling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Securing Exception Handling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In Visual C++ and Visual Basic, a filter expression further up the stack runs before any <bpt id="p1">**</bpt>finally<ept id="p1">**</ept> statement.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>catch<ept id="p1">**</ept> block associated with that filter runs after the <bpt id="p2">**</bpt>finally<ept id="p2">**</ept> statement.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Using User-Filtered Exceptions<ept id="p1">](../../../docs/standard/exceptions/using-user-filtered-exception-handlers.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This section examines the security implications of this order.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Consider the following pseudocode example that illustrates the order in which filter statements and <bpt id="p1">**</bpt>finally<ept id="p1">**</ept> statements run.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This code prints the following.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The filter runs before the <bpt id="p1">**</bpt>finally<ept id="p1">**</ept> statement, so security issues can be introduced by anything that makes a state change where execution of other code could take advantage.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This pseudocode allows a filter higher up the stack to run arbitrary code.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Other examples of operations that would have a similar effect are temporary impersonation of another identity, setting an internal flag that bypasses some security check, or changing the culture associated with the thread.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The recommended solution is to introduce an exception handler to isolate the code's changes to thread state from callers' filter blocks.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>However, it is important that the exception handler be properly introduced or this problem will not be fixed.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following example switches the UI culture, but any kind of thread state change could be similarly exposed.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The correct fix in this case is to wrap the existing <bpt id="p1">**</bpt>try<ept id="p1">**</ept><ph id="ph1">/</ph><bpt id="p2">**</bpt>finally<ept id="p2">**</ept> block in a <bpt id="p3">**</bpt>try<ept id="p3">**</ept><ph id="ph2">/</ph><bpt id="p4">**</bpt>catch<ept id="p4">**</ept> block.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Simply introducing a <bpt id="p1">**</bpt>catch-throw<ept id="p1">**</ept> clause into the existing <bpt id="p2">**</bpt>try<ept id="p2">**</ept><ph id="ph1">/</ph><bpt id="p3">**</bpt>finally<ept id="p3">**</ept> block does not fix the problem, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This does not fix the problem because the <bpt id="p1">**</bpt>finally<ept id="p1">**</ept> statement has not run before the <ph id="ph1">`FilterFunc`</ph> gets control.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following example fixes the problem by ensuring that the <bpt id="p1">**</bpt>finally<ept id="p1">**</ept> clause has executed before offering an exception up the callers' exception filter blocks.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

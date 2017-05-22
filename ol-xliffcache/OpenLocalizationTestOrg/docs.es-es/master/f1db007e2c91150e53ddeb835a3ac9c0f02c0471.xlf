@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f1db007e2c91150e53ddeb835a3ac9c0f02c0471</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\spinwait.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8dddfb538f27b2aafe839dd764ea8901638e496d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8c5e18e0d936a8ec1ed0808eb5631ec7b66cd33b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>SpinWait | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>SpinWait</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait?displayProperty=fullName&gt;</ph> is a lightweight synchronization type that you can use in low-level scenarios to avoid the expensive context switches and kernel transitions that are required for kernel events.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>On multicore computers, when a resource is not expected to be held for long periods of time, it can be more efficient for a waiting thread to spin in user mode for a few dozen or a few hundred cycles, and then retry to acquire the resource.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If the resource is available after spinning, then you have saved several thousand cycles.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>If the resource is still not available, then you have spent only a few cycles and can still enter a kernel-based wait.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This spinning-then-waiting combination is sometimes referred to as a <bpt id="p1">*</bpt>two-phase wait operation<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> is designed to be used in conjunction with the .NET Framework types that wrap kernel events such as <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> can also be used by itself for basic spinning functionality in just one program.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> is more than just an empty loop.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>It is carefully implemented to provide correct spinning behavior for the general case, and will itself initiate context switches if it spins long enough (roughly the length of time required for a kernel transition).</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, on single-core computers, <ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> yields the time slice of the thread immediately because spinning blocks forward progress on all threads.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> also yields even on multi-core machines to prevent the waiting thread from blocking higher-priority threads or the garbage collector.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Therefore, if you are using a <ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> in a two-phase wait operation, we recommend that you invoke the kernel wait before the <ph id="ph2">&lt;xref:System.Threading.SpinWait&gt;</ph> itself initiates a context switch.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> provides the <ph id="ph2">&lt;xref:System.Threading.SpinWait.NextSpinWillYield%2A&gt;</ph> property, which you can check before every call to <ph id="ph3">&lt;xref:System.Threading.SpinWait.SpinOnce%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When the property returns <ph id="ph1">`true`</ph>, initiate your own Wait operation.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>How to: Use SpinWait to Implement a Two-Phase Wait Operation<ept id="p1">](../../../docs/standard/threading/how-to-use-spinwait-to-implement-a-two-phase-wait-operation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If you are not performing a two-phase wait operation but are just spinning until some condition is true, you can enable <ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> to perform its context switches so that it is a good citizen in the Windows operating system environment.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following basic example shows a <ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph> in a lock-free stack.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If you require a high-performance, thread-safe stack, consider using <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentStack%601?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CDS_SpinWait#05<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/cds_spinwait/cs/spinwait.cs#05)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>CDS_SpinWait#05<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cds_spinwait/vb/cds_spinwait1.vb#05)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Threading Objects and Features<ept id="p1">](../../../docs/standard/threading/threading-objects-and-features.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

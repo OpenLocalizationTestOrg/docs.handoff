@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c199f571589bee9d79adf07e8d4463409b24d18d</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\unmanaged-api\profiling\icorprofilercallback4-rejitcompilationstarted-method.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8d58f86a33fd0dfc06dbe3fc2ee4e88fccde5b2d</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">acb1656b0a72e9fcedd46f86a94287690b6f285d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>ICorProfilerCallback4::ReJITCompilationStarted Method | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>ICorProfilerCallback4::ReJITCompilationStarted Method</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Notifies the profiler that the just-in-time (JIT) compiler has started to recompile a function.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Syntax</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Parameters</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>[in] The ID of the function that the JIT compiler has started to recompile.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>[in] The recompilation ID of the new version of the function.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>[in] <ph id="ph1">`true`</ph> to indicate that blocking may cause the runtime to wait for the calling thread to return from this callback; <ph id="ph2">`false`</ph> to indicate that blocking will not affect the operation of the runtime.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`true`</ph> does not harm the runtime, but can affect the profiling results.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Remarks</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>It is possible to receive more than one pair of <ph id="ph1">`ReJITCompilationStarted`</ph> and <bpt id="p1">[</bpt>ReJITCompilationFinished<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback4-rejitcompilationfinished-method.md)</ept> method calls for each function because of the way the runtime handles class constructors.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, the runtime starts to recompile method A, but the class constructor for class B needs to be run.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Therefore, the runtime recompiles the constructor for class B and runs it.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>While the constructor is running, it makes a call to method A, which causes method A to be recompiled again.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In this scenario, the first recompilation of method A is halted.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>However, both attempts to recompile method A are reported with JIT recompilation events.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Profilers must support the sequence of JIT recompilation callbacks in cases where two threads are simultaneously making callbacks.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For example, thread A calls <ph id="ph1">`ReJITCompilationStarted`</ph>; however, before thread A calls <bpt id="p1">[</bpt>ReJITCompilationFinished<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback4-rejitcompilationfinished-method.md)</ept>, thread B calls <bpt id="p2">[</bpt>ICorProfilerCallback::ExceptionSearchFunctionEnter<ept id="p2">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-exceptionsearchfunctionenter-method.md)</ept> with the function ID from the <ph id="ph2">`ReJITCompilationStarted`</ph> callback for thread A. It might appear that the function ID should not yet be valid because a call to <bpt id="p3">[</bpt>ReJITCompilationFinished<ept id="p3">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback4-rejitcompilationfinished-method.md)</ept> had not yet been received by the profiler.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>However, in this case, the function ID is valid.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Requirements</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Platforms:<ept id="p1">**</ept> See <bpt id="p2">[</bpt>System Requirements<ept id="p2">](../../../../docs/framework/get-started/system-requirements.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Header:<ept id="p1">**</ept> CorProf.idl, CorProf.h</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Library:<ept id="p1">**</ept> CorGuids.lib</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>.NET Framework Versions:<ept id="p1">**</ept> <ph id="ph1">[!INCLUDE[net_current_v45plus](../../../../includes/net-current-v45plus-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ICorProfilerCallback Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ICorProfilerCallback4 Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback4-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>JITCompilationFinished Method<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-jitcompilationfinished-method.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ReJITCompilationFinished Method<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback4-rejitcompilationfinished-method.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

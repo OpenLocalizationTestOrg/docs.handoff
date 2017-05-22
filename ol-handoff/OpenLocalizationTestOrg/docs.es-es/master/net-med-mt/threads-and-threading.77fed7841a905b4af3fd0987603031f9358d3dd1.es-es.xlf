@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">620df543af460a092a56356d4cab5473f6854ddf</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\threads-and-threading.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">829a8f5f2c0d332083e85079e1099275a8702167</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f1acafe78bb183335d06e4050c645dce5edf6020</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Threads and Threading | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Threads and Threading</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Operating systems use processes to separate the different applications that they are executing.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Threads are the basic unit to which an operating system allocates processor time, and more than one thread can be executing code inside that process.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Each thread maintains exception handlers, a scheduling priority, and a set of structures the system uses to save the thread context until it is scheduled.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The thread context includes all the information the thread needs to seamlessly resume execution, including the thread's set of CPU registers and stack, in the address space of the thread's host process.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The .NET Framework further subdivides an operating system process into lightweight managed subprocesses, called application domains, represented by <ph id="ph1">&lt;xref:System.AppDomain?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>One or more managed threads (represented by <ph id="ph1">&lt;xref:System.Threading.Thread?displayProperty=fullName&gt;</ph>) can run in one or any number of application domains within the same managed process.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Although each application domain is started with a single thread, code in that application domain can create additional application domains and additional threads.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The result is that a managed thread can move freely between application domains inside the same managed process; you might have only one thread moving among several application domains.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>An operating system that supports preemptive multitasking creates the effect of simultaneous execution of multiple threads from multiple processes.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It does this by dividing the available processor time among the threads that need it, allocating a processor time slice to each thread one after another.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The currently executing thread is suspended when its time slice elapses, and another thread resumes running.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>When the system switches from one thread to another, it saves the thread context of the preempted thread and reloads the saved thread context of the next thread in the thread queue.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The length of the time slice depends on the operating system and the processor.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Because each time slice is small, multiple threads appear to be executing at the same time, even if there is only one processor.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This is actually the case on multiprocessor systems, where the executable threads are distributed among the available processors.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When To Use Multiple Threads</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Software that requires user interaction must react to the user's activities as rapidly as possible to provide a rich user experience.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>At the same time, however, it must do the calculations necessary to present data to the user as fast as possible.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If your application uses only one thread of execution, you can combine <bpt id="p1">[</bpt>asynchronous programming<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously.md)</ept> with<bpt id="p2">[</bpt>.NET Framework remoting<ept id="p2">](http://msdn.microsoft.com/en-us/eccb1d31-0a22-417a-97fd-f4f1f3aa4462)</ept> or <bpt id="p3">[</bpt>XML Web services<ept id="p3">](http://msdn.microsoft.com/en-us/1e64af78-d705-4384-b08d-591a45f4379c)</ept> created using ASP.NET to use the processing time of other computers in addition to that of your own to increase responsiveness to the user and decrease the data processing time of your application.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you are doing intensive input/output work, you can also use I/O completion ports to increase your application's responsiveness.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Advantages of Multiple Threads</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Using more than one thread, however, is the most powerful technique available to increase responsiveness to the user and process the data necessary to get the job done at almost the same time.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>On a computer with one processor, multiple threads can create this effect, taking advantage of the small periods of time in between user events to process the data in the background.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For example, a user can edit a spreadsheet while another thread is recalculating other parts of the spreadsheet within the same application.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Without modification, the same application would dramatically increase user satisfaction when run on a computer with more than one processor.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Your single application domain could use multiple threads to accomplish the following tasks:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Communicate over a network, to a Web server, and to a database.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Perform operations that take a large amount of time.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Distinguish tasks of varying priority.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For example, a high-priority thread manages time-critical tasks, and a low-priority thread performs other tasks.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Allow the user interface to remain responsive, while allocating time to background tasks.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Disadvantages of Multiple Threads</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>It is recommended that you use as few threads as possible, thereby minimizing the use of operating-system resources and improving performance.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Threading also has resource requirements and potential conflicts to be considered when designing your application.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The resource requirements are as follows:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The system consumes memory for the context information required by processes, <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept> objects, and threads.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Therefore, the number of processes, <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept> objects, and threads that can be created is limited by available memory.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Keeping track of a large number of threads consumes significant processor time.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>If there are too many threads, most of them will not make significant progress.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If most of the current threads are in one process, threads in other processes are scheduled less frequently.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Controlling code execution with many threads is complex, and can be a source of many bugs.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Destroying threads requires knowing what could happen and handling those issues.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Providing shared access to resources can create conflicts.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>To avoid conflicts, you must synchronize, or control the access to, shared resources.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Failure to synchronize access properly (in the same or different application domains) can lead to problems such as deadlocks (in which two threads stop responding while each waits for the other to complete) and race conditions (when an anomalous result occurs due to an unexpected critical dependence on the timing of two events).</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The system provides synchronization objects that can be used to coordinate resource sharing among multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Reducing the number of threads makes it easier to synchronize resources.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Resources that require synchronization include:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>System resources (such as communications ports).</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Resources shared by multiple processes (such as file handles).</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The resources of a single application domain (such as global, static, and instance fields) accessed by multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Threading and Application Design</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In general, using the <ph id="ph1">&lt;xref:System.Threading.ThreadPool&gt;</ph> class is the easiest way to handle multiple threads for relatively short tasks that will not block other threads and when you do not expect any particular scheduling of the tasks.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>However, there are a number of reasons to create your own threads:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>If you need a task to have a particular priority.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>If you have a task that might run a long time (and therefore block other tasks).</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>If you need to place threads into a single-threaded apartment (all <bpt id="p1">**</bpt>ThreadPool<ept id="p1">**</ept> threads are in the multithreaded apartment).</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>If you need a stable identity associated with the thread.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For example, you should use a dedicated thread to abort that thread, suspend it, or discover it by name.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If you need to run background threads that interact with the user interface, the .NET Framework version 2.0 provides a <ph id="ph1">&lt;xref:System.ComponentModel.BackgroundWorker&gt;</ph> component that communicates using events, with cross-thread marshaling to the user-interface thread.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Threading and Exceptions</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Do handle exceptions in threads.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Unhandled exceptions in threads, even background threads, generally terminate the process.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>There are three exceptions to this rule:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.ThreadAbortException&gt;</ph> is thrown in a thread because <ph id="ph2">&lt;xref:System.Threading.Thread.Abort%2A&gt;</ph> was called.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.AppDomainUnloadedException&gt;</ph> is thrown in a thread because the application domain is being unloaded.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The common language runtime or a host process terminates the thread.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Exceptions in Managed Threads<ept id="p1">](../../../docs/standard/threading/exceptions-in-managed-threads.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework versions 1.0 and 1.1, the common language runtime silently traps some exceptions, for example in thread pool threads.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>This may corrupt application state and eventually cause applications to hang, which might be very difficult to debug.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Synchronizing Data for Multithreading<ept id="p1">](../../../docs/standard/threading/synchronizing-data-for-multithreading.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>The Managed Thread Pool<ept id="p1">](../../../docs/standard/threading/the-managed-thread-pool.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">672d2717905195084c381ea692aa426b5e3ca09c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\common-client-technologies\creating-the-gamepiececollection-class.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1e32dbf9e8b21ec9a7a11e8daa1c6122d52943c0</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">11a02b712f42d04f9f7d6893d5c13b8be56c17b8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating the GamePieceCollection Class | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating the GamePieceCollection Class</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>GamePieceCollection<ept id="p1">**</ept> class derives from the generic List class, and introduces methods to more easily manage multiple <bpt id="p2">**</bpt>GamePiece<ept id="p2">**</ept> objects.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Creating the Code</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The constructor of the <bpt id="p1">**</bpt>GamePieceCollection<ept id="p1">**</ept> class initializes the private member <bpt id="p2">*</bpt>capturedIndex<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This field is used to track which of the game pieces currently has the mouse capture.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ManipulationXNA#_GamePieceCollection_PrivateMembersAndConstructor<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/manipulationxna/cs/gamepiececollection.cs#_gamepiececollection_privatemembersandconstructor)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>ProcessInertia<ept id="p1">**</ept> and the <bpt id="p2">**</bpt>Draw<ept id="p2">**</ept> methods simplify the code needed in the game <bpt id="p3">[</bpt>Game.Update<ept id="p3">](http://msdn.microsoft.com/library/microsoft.xna.framework.game.update.aspx)</ept> and <bpt id="p4">[</bpt>Game.Draw<ept id="p4">](http://msdn.microsoft.com/library/microsoft.xna.framework.game.draw.aspx)</ept> methods by enumerating all of the game pieces in the collection and calling the respective method on each <bpt id="p5">**</bpt>GamePiece<ept id="p5">**</ept> object.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ManipulationXNA#_GamePieceCollection_ProcessInertiaAndDraw<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/manipulationxna/cs/gamepiececollection.cs#_gamepiececollection_processinertiaanddraw)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>UpdateFromMouse<ept id="p1">**</ept> method is also called during game update.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>It enables only one game piece to have the mouse capture by first checking to see if the current capture (if any) is still in effect.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If so, no other piece is allowed to check for capture.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If no piece currently has the capture, the <bpt id="p1">**</bpt>UpdateFromMouse<ept id="p1">**</ept> method enumerates each game piece from last to first, and checks to see if that piece reports a mouse capture.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If so, that piece becomes the current captured piece, and no further processing takes place.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>UpdateFromMouse<ept id="p1">**</ept> method checks the last item in the collection first so that if two pieces are overlapped, the one with the higher Z-order will obtain the capture.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Z-order is not explicit nor changeable; it is governed simply by the order in which game pieces are added to the collection.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>ManipulationXNA#_GamePieceCollection_UpdateFromMouse<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/manipulationxna/cs/gamepiececollection.cs#_gamepiececollection_updatefrommouse)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Manipulations and Inertia<ept id="p1">](../../../docs/framework/common-client-technologies/manipulations-and-inertia.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Using Manipulations and Inertia in an XNA Application<ept id="p1">](../../../docs/framework/common-client-technologies/use-manipulations-and-inertia-in-an-xna-application.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Creating the GamePiece Class<ept id="p1">](../../../docs/framework/common-client-technologies/creating-the-gamepiece-class.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Creating the Game1 Class<ept id="p1">](../../../docs/framework/common-client-technologies/creating-the-game1-class.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Full Code Listings<ept id="p1">](../../../docs/framework/common-client-technologies/full-code-listings.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

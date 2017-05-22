@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">145ae478cf1fb1d406dcda142a2d1a6c7dbd2108</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\unmanaged-api\profiling\setting-up-a-profiling-environment.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a294a23595c62084c87fdecd862786ba9a19c571</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e7aaab7e0c57bbac791f69ebdfe968ce45e0c07b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Setting Up a Profiling Environment | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Setting Up a Profiling Environment</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>There have been substantial changes to profiling in the <ph id="ph1">[!INCLUDE[net_v40_long](../../../../includes/net-v40-long-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When a managed process (application or service) starts, it loads the common language runtime (CLR).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When the CLR is initialized, it evaluates the following two environmental variables to decide whether the process should connect to a profiler:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>COR_ENABLE_PROFILING: The CLR connects to a profiler only if this environment variable exists and is set to 1.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>COR_PROFILER: If the COR_ENABLE_PROFILING check passes, the CLR connects to the profiler that has this CLSID or ProgID, which must have been stored previously in the registry.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The COR_PROFILER environment variable is defined as a string, as shown in the following two examples.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To profile a CLR application, you must set the COR_ENABLE_PROFILING and COR_PROFILER environment variables before you run the application.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You must also make sure that the profiler DLL is registered.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_short](../../../../includes/net-v40-short-md.md)]</ph>, profilers do not have to be registered.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>To use .NET Framework versions 2.0, 3.0, and 3.5 profilers in the <ph id="ph1">[!INCLUDE[net_v40_short](../../../../includes/net-v40-short-md.md)]</ph> and later versions, you must set the COMPLUS_ProfAPI_ProfilerCompatibilitySetting environment variable.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Environment Variable Scope</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>How you set the COR_ENABLE_PROFILING and COR_PROFILER environment variables will determine their scope of influence.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You can set these variables in one of the following ways:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If you set the variables in an <bpt id="p1">[</bpt>ICorDebug::CreateProcess<ept id="p1">](../../../../docs/framework/unmanaged-api/debugging/icordebug-createprocess-method.md)</ept> call, they will apply only to the application that you are running at the time.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>(They will also apply to other applications started by that application that inherit the environment.)</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If you set the variables in a Command Prompt window, they will apply to all applications that are started from that window.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If you set the variables at the user level, they will apply to all applications that you start with File Explorer.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A Command Prompt window that you open after you set the variables will have these environment settings, and so will any application that you start from that window.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To set environment variables at the user level, right-click <bpt id="p1">**</bpt>My Computer<ept id="p1">**</ept>, click <bpt id="p2">**</bpt>Properties<ept id="p2">**</ept>, click the <bpt id="p3">**</bpt>Advanced<ept id="p3">**</ept> tab, click <bpt id="p4">**</bpt>Environment Variables<ept id="p4">**</ept>, and add the variables to the <bpt id="p5">**</bpt>User variables<ept id="p5">**</ept> list.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you set the variables at the computer level, they will apply to all applications that are started on that computer.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A Command Prompt window that you open on that computer will have these environment settings, and so will any application that you start from that window.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This means that every managed process on that computer will start with your profiler.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To set environment variables at the computer level, right-click <bpt id="p1">**</bpt>My Computer<ept id="p1">**</ept>, click <bpt id="p2">**</bpt>Properties<ept id="p2">**</ept>, click the <bpt id="p3">**</bpt>Advanced<ept id="p3">**</ept> tab, click <bpt id="p4">**</bpt>Environment Variables<ept id="p4">**</ept>, add the variables to the <bpt id="p5">**</bpt>System variables<ept id="p5">**</ept> list, and then restart your computer.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>After restarting, the variables will be available system-wide.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If you are profiling a Windows Service, you must restart your computer after you set the environment variables and register the profiler DLL.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>For more information about these considerations, see the section <bpt id="p1">[</bpt>Profiling a Windows Service<ept id="p1">](#windows_service)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Additional Considerations</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The profiler class implements the <bpt id="p1">[</bpt>ICorProfilerCallback<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)</ept> and <bpt id="p2">[</bpt>ICorProfilerCallback2<ept id="p2">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback2-interface.md)</ept> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, a profiler must implement <ph id="ph1">`ICorProfilerCallback2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If it does not, <ph id="ph1">`ICorProfilerCallback2`</ph> will not be loaded.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Only one profiler can profile a process at one time in a given environment.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>You can register two different profilers in different environments, but each must profile separate processes.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The profiler must be implemented as an in-process COM server DLL, which is mapped into the same address space as the process that is being profiled.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>This means that the profiler runs in-process.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The .NET Framework does not support any other type of COM server.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For example, if a profiler wants to monitor applications from a remote computer, it must implement collector agents on each computer.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>These agents will batch results and communicate them to the central data collection computer.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Because the profiler is a COM object that is instantiated in-process, each profiled application will have its own copy of the profiler.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Therefore, a single profiler instance does not have to handle data from multiple applications.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>However, you will have to add logic to the profiler's logging code to prevent log file overwrites from other profiled applications.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Initializing the Profiler</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>When both environment variable checks pass, the CLR creates an instance of the profiler in a similar manner to the COM <ph id="ph1">`CoCreateInstance`</ph> function.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The profiler is not loaded through a direct call to <ph id="ph1">`CoCreateInstance`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Therefore, a call to <ph id="ph1">`CoInitialize`</ph>, which requires setting the threading model, is avoided.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The CLR then calls the <bpt id="p1">[</bpt>ICorProfilerCallback::Initialize<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-initialize-method.md)</ept> method in the profiler.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The signature of this method is as follows.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The profiler must query <ph id="ph1">`pICorProfilerInfoUnk`</ph> for an <bpt id="p1">[</bpt>ICorProfilerInfo<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)</ept> or <bpt id="p2">[</bpt>ICorProfilerInfo2<ept id="p2">](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo2-interface.md)</ept> interface pointer and save it so that it can request more information later during profiling.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Setting Event Notifications</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The profiler then calls the <bpt id="p1">[</bpt>ICorProfilerInfo::SetEventMask<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-seteventmask-method.md)</ept> method to specify which categories of notifications it is interested in.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, if the profiler is interested only in function enter and leave notifications and garbage collection notifications, it specifies the following.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>By setting the notifications mask in this manner, the profiler can limit which notifications it receives.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This approach helps the user build a simple or special-purpose profiler.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>It also reduces CPU time that would be wasted sending notifications that the profiler would just ignore.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Certain profiler events are immutable.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This means that as soon as these events are set in the <ph id="ph1">`ICorProfilerCallback::Initialize`</ph> callback, they cannot be turned off and new events cannot be turned on.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Attempts to change an immutable event will result in <ph id="ph1">`ICorProfilerInfo::SetEventMask`</ph> returning a failed HRESULT.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Profiling a Windows Service</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Profiling a Windows Service is like profiling a common language runtime application.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Both profiling operations are enabled through environment variables.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Because a Windows Service is started when the operating system starts, the environment variables discussed previously in this topic must already be present and set to the required values before the system starts.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In addition, the profiling DLL must already be registered on the system.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>After you set the COR_ENABLE_PROFILING and COR_PROFILER environment variables and register the profiler DLL, you should restart the target computer so that the Windows Service can detect those changes.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Note that these changes will enable profiling on a system-wide basis.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>To prevent every managed application that subsequently runs from being profiled, you should delete the system environment variables after you restart the target computer.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>This technique also leads to every CLR process getting profiled.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The profiler should add logic to its <bpt id="p1">[</bpt>ICorProfilerCallback::Initialize<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-initialize-method.md)</ept> callback to detect whether the current process is of interest.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If it is not, the profiler can fail the callback without performing the initialization.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Profiling Overview<ept id="p1">](../../../../docs/framework/unmanaged-api/profiling/profiling-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6a25d9733cdf04bbfb6bbf9026db5603c49d768c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\data\xml\xml-type-support-implementation-notes.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e2241d77d3c6388d64e5cd8f76e2cd11287f79dc</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7aa751d748c6c3393c433ce8b56273207a23ec61</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>XML Type Support Implementation Notes | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>XML Type Support Implementation Notes</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes some implementation details that you want to be aware of.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>List Mappings</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Collections.IList&gt;</ph>, <ph id="ph2">&lt;xref:System.Collections.ICollection&gt;</ph>, <ph id="ph3">&lt;xref:System.Collections.IEnumerable&gt;</ph>, <bpt id="p1">**</bpt>Type[]<ept id="p1">**</ept>, and <ph id="ph4">&lt;xref:System.String&gt;</ph> types are used to represent XML Schema definition language (XSD) list types.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Union Mappings</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Union types are represented using the <ph id="ph1">&lt;xref:System.Xml.Schema.XmlAtomicValue&gt;</ph> or <ph id="ph2">&lt;xref:System.String&gt;</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The source type or the destination type must therefore always be either <ph id="ph1">&lt;xref:System.String&gt;</ph> or <ph id="ph2">&lt;xref:System.Xml.Schema.XmlAtomicValue&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Xml.Schema.XmlSchemaDatatype&gt;</ph> object represents a list type the object converts the input string value to a list of one or more objects.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Xml.Schema.XmlSchemaDatatype&gt;</ph> represents a union type then an attempt is made to parse the input value as a member type of the union.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>If the parse attempt fails then the conversion is attempted with the next member of the union and so on until the conversion is successful, or there are no other member types to try, in which case an exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Differences Between CLR and XML Data Types</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The following describes certain mismatches that can occur between CLR types and XML data types and how they are handled.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`xs`</ph> prefix is mapped to the http://www.w3.org/2001/XMLSchema and namespace URI.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>System.TimeSpan and xs:duration</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`xs:duration`</ph> type is partially ordered in that there are certain duration values that are different but equivalent.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This means that for the <ph id="ph1">`xs:duration`</ph> type value such as 1 month (P1M) is less than 32 days (P32D), larger than 27 days (P27D) and equivalent to 28, 29 or 30 days.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.TimeSpan&gt;</ph> class does not support this partial ordering.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Instead, it picks a specific number of days for 1 year and 1 month; 365 days and 30 days respectively.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For more information on the <ph id="ph1">`xs:duration`</ph> type, see the W3C XML Schema Part 2: Datatypes Recommendation at http://www.w3.org/TR/xmlschema-2/.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>xs:time, Gregorian Date Types, and System.DateTime</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When an <ph id="ph1">`xs:time`</ph> value is mapped to a <ph id="ph2">&lt;xref:System.DateTime&gt;</ph> object, the <ph id="ph3">&lt;xref:System.DateTime.MinValue&gt;</ph> field is used to initialize the date properties of the <ph id="ph4">&lt;xref:System.DateTime&gt;</ph> object (such as <ph id="ph5">&lt;xref:System.DateTime.Year%2A&gt;</ph>, <ph id="ph6">&lt;xref:System.DateTime.Month%2A&gt;</ph>, and <ph id="ph7">&lt;xref:System.DateTime.Day%2A&gt;</ph>) to the smallest possible <ph id="ph8">&lt;xref:System.DateTime&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Similarly, instances of <ph id="ph1">`xs:gMonth`</ph>, <ph id="ph2">`xs:gDay`</ph>, <ph id="ph3">`xs:gYear`</ph>, <ph id="ph4">`xs:gYearMonth`</ph> and <ph id="ph5">`xs:gMonthDay`</ph> are also mapped to a <ph id="ph6">&lt;xref:System.DateTime&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Unused properties on the <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> object are initialized to those from <ph id="ph2">&lt;xref:System.DateTime.MinValue&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You cannot rely on the <ph id="ph1">&lt;xref:System.DateTime.Year%2A?displayProperty=fullName&gt;</ph> value when the content is typed as <ph id="ph2">`xs:gMonthDay`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.DateTime.Year%2A?displayProperty=fullName&gt;</ph> value is always set to 1904 in this case.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>xs:anyURI and System.Uri</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When an instance of <ph id="ph1">`xs:anyURI`</ph> that represents a relative URI is mapped to a <ph id="ph2">&lt;xref:System.Uri&gt;</ph>, the <ph id="ph3">&lt;xref:System.Uri&gt;</ph> object does not have a base URI.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Type Support in the System.Xml Classes<ept id="p1">](../../../../docs/standard/data/xml/type-support-in-the-system-xml-classes.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

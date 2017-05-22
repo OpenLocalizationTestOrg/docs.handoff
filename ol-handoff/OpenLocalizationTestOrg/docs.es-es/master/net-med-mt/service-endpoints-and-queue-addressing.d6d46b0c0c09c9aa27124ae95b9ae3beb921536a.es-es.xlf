@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">387dddf28cbab843445cea4d51e4260cb07b0487</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\service-endpoints-and-queue-addressing.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a1c5aab278db7d16c260ae4ed40bdeba23de221b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">eb217b96be8c5579d52bb768705da837e241d6a3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Service Endpoints and Queue Addressing | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Service Endpoints and Queue Addressing</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic discusses how clients address services that read from queues and how service endpoints map to queues.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>As a reminder, the following illustration shows the classic <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> queued application deployment.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Queued Application Diagram<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/distributed-queue-figure.jpg "</bpt>Distributed-Queue-Figure<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For the client to send the message to the service, the client addresses the message to the Target Queue.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For the service to read messages from the queue, it sets its listen address to the Target Queue.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Addressing in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> is Uniform Resource Identifier (URI)-based while Message Queuing (MSMQ) queue names are not URI-based.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>It is therefore essential to understand how to address queues created in MSMQ using <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>MSMQ Addressing</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>MSMQ uses paths and format names to identify a queue.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Paths specify a host name and a <ph id="ph1">`QueueName`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Optionally, there can be a <ph id="ph1">`Private$`</ph> between the host name and the <ph id="ph2">`QueueName`</ph> to indicate a private queue that is not published in the Active Directory directory service.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Path names are mapped to "FormatNames" to determine additional aspects of the address, including routing and queue manager transfer protocol.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The Queue Manager supports two transfer protocols: native MSMQ protocol and SOAP Reliable Messaging Protocol (SRMP).</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> MSMQ path and format names, see <bpt id="p1">[</bpt>About Message Queuing<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94837)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>NetMsmqBinding and Service Addressing</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When addressing a message to a service, the scheme in the URI is chosen based on the transport used for communication.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Each transport in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> has a unique scheme.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The scheme must reflect the nature of transport used for communication.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, net.tcp, net.pipe, HTTP, and so on.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The MSMQ queued transport in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> exposes a net.msmq scheme.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Any message addressed using the net.msmq scheme is sent using the <ph id="ph1">`NetMsmqBinding`</ph> over the MSMQ queued transport channel.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The addressing of a queue in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> is based on the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>net.msmq: // <ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>host-name<ept id="p1">*</ept>&gt; / [private/] <ph id="ph2">\&lt;</ph><bpt id="p2">*</bpt>queue-name<ept id="p2">*</ept><ph id="ph3">&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>where:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>host-name<ept id="p1">*</ept>&gt; is the name of the machine that hosts the Target Queue.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>[private] is optional.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It is used when addressing a Target Queue that is a private queue.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To address a public queue, you must not specify private.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Note that, unlike MSMQ paths, there is no "$" in the <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> URI form.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>queue-name<ept id="p1">*</ept>&gt; is the name of the queue.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The queue name can also refer to a subqueue.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Thus, <ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>queue-name<ept id="p1">*</ept>&gt; = <ph id="ph2">\&lt;</ph><bpt id="p2">*</bpt>name-of-queue<ept id="p2">*</ept>&gt;[;<bpt id="p3">*</bpt>sub-queue-name<ept id="p3">*</ept>].</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Example1: To address a private queue PurchaseOrders hosted on computer abc atadatum.com, the URI would be net.msmq://abc.adatum.com/private/PurchaseOrders.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Example2: To address a public queue AccountsPayable hosted on computer def atadatum.com, the URI would be net.msmq://def.adatum.com/AccountsPayable.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The queue address is used as the Listen URI by the Listener to read messages from.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In other words, the queue address is equivalent to the listen port of TCP socket.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>An endpoint that reads from a queue must specify the address of the queue using the same scheme specified previously when opening the ServiceHost.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For examples, see <bpt id="p1">[</bpt>Net MSMQ Binding<ept id="p1">](../../../../docs/framework/wcf/samples/net-msmq-binding.md)</ept> and <bpt id="p2">[</bpt>Message Queuing Integration Binding Samples<ept id="p2">](http://msdn.microsoft.com/en-us/997d11cb-f2c5-4ba0-9209-92843d4d0e1a)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Multiple Contracts in a Queue</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Messages in a queue can implement different contracts.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In this case, it is essential that one of the following is true to successfully read and process all messages:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Specify an endpoint for a service that implements all the contracts.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This is the recommended approach.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Specify multiple endpoints with different contracts, but ensure that all the endpoints use the same <ph id="ph1">`NetMsmqBinding`</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The dispatching logic in ServiceModel uses a message pump that reads messages out of the transport channel for dispatch, which eventually de-multiplexes messages based on the contract to different endpoints.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>A message pump is created for a listen URI/Binding pair.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The queue address is used as the Listen URI by the queued listener.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Having all the endpoints use the same binding object ensures that a single message pump is used to read the message and de-multiplex to relevant endpoints based on the contract.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>SRMP Messaging</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>As previously discussed, you can use the SRMP protocol for queue-to-queue transfers.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This is commonly used when an HTTP transport transmits messages between the Transmission Queue and the Target Queue.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>To use the SRMP transfer protocol, address messages using the net.msmq URI scheme, as mentioned previously, and specify the choice of SRMP or Secured SRMP in the <ph id="ph1">`QueueTransferProtocol`</ph> property of the <ph id="ph2">`NetMsmqBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Specifying the <ph id="ph1">`QueueTransferProtocol`</ph> property is a send-only feature.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This is an indication by the client which kind of queue transfer protocol to use.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Using Active Directory</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>MSMQ comes with support for Active Directory integration.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>When MSMQ is installed with Active Directory integration, the machine must be part of a Windows domain.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Active Directory is used to publish queues for discovery; such queues are called <bpt id="p1">*</bpt>public queues<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>When addressing a queue, the queue can be resolved using Active Directory.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This is similar to how Domain Name System (DNS) is used to resolve the IP address of a network name.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UseActiveDirectory`</ph> property in <ph id="ph2">`NetMsmqBinding`</ph> is a Boolean that indicates whether the queued channel must use Active Directory to resolve the queue URI.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>By default it is set to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`UseActiveDirectory`</ph> property is set to <ph id="ph2">`true`</ph>, then the queued channel uses Active Directory to convert the net.msmq:// URI to format name.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UseActiveDirectory`</ph> property is meaningful only for the client that is sending the message because it is used to resolve the address of the queue when sending messages.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Mapping net.msmq URI to Message Queuing Format Names</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The queued channel handles mapping the net.msmq URI name provided to the channel to MSMQ format names.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The following table summarizes the rules used to map between them.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>WCF URI-based queue address</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Use Active Directory property</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Queue Transfer Protocol property</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Resulting MSMQ format names</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Net.msmq://<ph id="ph1">\&lt;</ph>machine-name&gt;/private/abc</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>False (default)</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Native (default)</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>DIRECT=OS:machine-name\private$\abc</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Net.msmq://<ph id="ph1">\&lt;</ph>machine-name&gt;/private/abc</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>False</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>SRMP</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>DIRECT=http://machine/msmq/private$/abc</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Net.msmq://<ph id="ph1">\&lt;</ph>machine-name&gt;/private/abc</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>True</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Native</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>PUBLIC=some-guid (the GUID of the queue)</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Reading Messages from the Dead-Letter Queue or the Poison-Message Queue</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To read messages from a poison-message queue that is a subqueue of the target queue, open the <ph id="ph1">`ServiceHost`</ph> with the address of the subqueue.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Example: A service that reads from the poison-message queue of the PurchaseOrders private queue from the local machine would address net.msmq://localhost/private/PurchaseOrders;poison.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>To read messages from a system transactional dead-letter queue, the URI must be of the form: net.msmq://localhost/system$;DeadXact.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>To read messages from a system nontransactional dead-letter queue, the URI must be of the form: net.msmq://localhost/system$;DeadLetter.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>When using a custom dead-letter queue, note that the dead-letter queue must reside on the local computer.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>As such, the URI for the dead-letter queue is restricted to the form:</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>net.msmq: //localhost/ [private/]  <ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>custom-dead-letter-queue-name<ept id="p1">*</ept>&gt;.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service verifies that all messages it receives were addressed to the particular queue it is listening on.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>If the message’s destination queue does not match the queue it is found in, the service does not process the message.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>This is an issue that services listening to a dead-letter queue must address because any message in the dead-letter queue was meant to be delivered elsewhere.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>To read messages from a dead-letter queue, or from a poison queue, a <ph id="ph1">`ServiceBehavior`</ph> with the <ph id="ph2">&lt;xref:System.ServiceModel.AddressFilterMode&gt;</ph> parameter must be used.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>For an example, see <bpt id="p1">[</bpt>Dead Letter Queues<ept id="p1">](../../../../docs/framework/wcf/samples/dead-letter-queues.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>MsmqIntegrationBinding and Service Addressing</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`MsmqIntegrationBinding`</ph> is used for communication with traditional MSMQ applications.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>To ease interoperation with an existing MSMQ application, <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports only format name addressing.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Thus, messages sent using this binding must conform to the URI scheme:</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>msmq.formatname:<ph id="ph1">\&lt;</ph><bpt id="p1">*</bpt>MSMQ-format-name<ept id="p1">*</ept><ph id="ph2">&gt;&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The MSMQ-format-name is of the form specified by MSMQ in <bpt id="p1">[</bpt>About Message Queuing<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94837)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Note that you can only use direct format names, and public and private format names (requires Active Directory integration) when receiving messages from a queue using <ph id="ph1">`MsmqIntegrationBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>However, it is advised that you use direct format names.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>For example, on <ph id="ph1">[!INCLUDE[wv](../../../../includes/wv-md.md)]</ph>, using any other format name causes an error because the system attempts to open a subqueue, which can only be opened with direct format names.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>When addressing SRMP using <ph id="ph1">`MsmqIntegrationBinding`</ph>, there is no requirement to add /msmq/ in the direct format name to help Internet Information Services (IIS) with dispatching.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>For example: When addressing a queue abc using the SRMP protocol, instead of DIRECT=http://adatum.com/msmq/private$/abc, you should use DIRECT=http://adatum.com/private$/abc.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Note that you cannot use net.msmq:// addressing with <ph id="ph1">`MsmqIntegrationBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">`MsmqIntegrationBinding`</ph> supports free-form MSMQ format name addressing, you can use a <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service that uses this binding to use multicast and distribution list features in MSMQ.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>One exception is specifying <ph id="ph1">`CustomDeadLetterQueue`</ph> when using the <ph id="ph2">`MsmqIntegrationBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>It must be of the form net.msmq://, similar to how it is specified using the <ph id="ph1">`NetMsmqBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Web Hosting a Queued Application<ept id="p1">](../../../../docs/framework/wcf/feature-details/web-hosting-a-queued-application.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

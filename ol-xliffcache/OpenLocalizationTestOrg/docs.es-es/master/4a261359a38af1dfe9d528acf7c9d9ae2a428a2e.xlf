@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4a261359a38af1dfe9d528acf7c9d9ae2a428a2e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\asynchronous-programming-patterns\component-that-supports-the-event-based-asynchronous-pattern.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5430ebe04e1a79fa536a1c1b19af8924416ebc9e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5084540a4cf93435de79547f5af44add13ea157d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Implementing a Component That Supports the Event-based Asynchronous Pattern | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Implementing a Component That Supports the Event-based Asynchronous Pattern</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>If you are writing a class with some operations that may incur noticeable delays, consider giving it asynchronous functionality by implementing the <bpt id="p1">[</bpt>Event-based Asynchronous Pattern Overview<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This walkthrough illustrates how to create a component that implements the Event-based Asynchronous Pattern.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>It is implemented using helper classes from the <ph id="ph1">&lt;xref:System.ComponentModel?displayProperty=fullName&gt;</ph> namespace, which ensures that the component works correctly under any application model, including <ph id="ph2">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph>, Console applications and Windows Forms applications.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This component is also designable with a <ph id="ph1">&lt;xref:System.Windows.Forms.PropertyGrid&gt;</ph> control and your own custom designers.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>When you are through, you will have an application that computes prime numbers asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Your application will have a main user interface (UI) thread and a thread for each prime number calculation.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Although testing whether a large number is prime can take a noticeable amount of time, the main UI thread will not be interrupted by this delay, and the form will be responsive during the calculations.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>You will be able to run as many calculations as you like concurrently and selectively cancel pending calculations.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Tasks illustrated in this walkthrough include:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Creating the Component</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Defining Public Asynchronous Events and Delegates</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Defining Private Delegates</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Implementing Public Events</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Implementing the Completion Method</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Implementing the Worker Methods</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Implementing Start and Cancel Methods</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To copy the code in this topic as a single listing, see <bpt id="p1">[</bpt>How to: Implement a Component That Supports the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/component-that-supports-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Creating the Component</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The first step is to create the component that will implement the Event-based Asynchronous Pattern.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>To create the component</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Create a class called <ph id="ph1">`PrimeNumberCalculator`</ph> that inherits from <ph id="ph2">&lt;xref:System.ComponentModel.Component&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Defining Public Asynchronous Events and Delegates</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Your component communicates to clients using events.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">*</bpt>MethodName<ept id="p1">*</ept><ph id="ph1">`Completed`</ph> event alerts clients to the completion of an asynchronous task, and the <bpt id="p2">*</bpt>MethodName<ept id="p2">*</ept><ph id="ph2">`ProgressChanged`</ph> event informs clients of the progress of an asynchronous task.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To define asynchronous events for clients of your component:</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Import the <ph id="ph1">&lt;xref:System.Threading?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.Collections.Specialized?displayProperty=fullName&gt;</ph> namespaces at the top of your file.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#11)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Before the <ph id="ph1">`PrimeNumberCalculator`</ph> class definition, declare delegates for progress and completion events.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#7)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`PrimeNumberCalculator`</ph> class definition, declare events for reporting progress and completion to clients.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#8)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>After the <ph id="ph1">`PrimeNumberCalculator`</ph> class definition, derive the <ph id="ph2">`CalculatePrimeCompletedEventArgs`</ph> class for reporting the outcome of each calculation to the client's event handler for the <ph id="ph3">`CalculatePrimeCompleted`</ph>.event.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In addition to the <ph id="ph1">`AsyncCompletedEventArgs`</ph> properties, this class enables the client to determine what number was tested, whether it is prime, and what the first divisor is if it is not prime.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Checkpoint</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>At this point, you can build the component.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>To test your component</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Compile the component.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>You will receive two compiler warnings:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>These warnings will be cleared in the next section.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Defining Private Delegates</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The asynchronous aspects of the <ph id="ph1">`PrimeNumberCalculator`</ph> component are implemented internally with a special delegate known as a <ph id="ph2">&lt;xref:System.Threading.SendOrPostCallback&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.SendOrPostCallback&gt;</ph> represents a callback method that executes on a <ph id="ph2">&lt;xref:System.Threading.ThreadPool&gt;</ph> thread.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The callback method must have a signature that takes a single parameter of type <ph id="ph1">&lt;xref:System.Object&gt;</ph>, which means you will need to pass state among delegates in a wrapper class.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Threading.SendOrPostCallback&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>To implement your component's internal asynchronous behavior:</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Declare and create the <ph id="ph1">&lt;xref:System.Threading.SendOrPostCallback&gt;</ph> delegates in the <ph id="ph2">`PrimeNumberCalculator`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Create the <ph id="ph1">&lt;xref:System.Threading.SendOrPostCallback&gt;</ph> objects in a utility method called <ph id="ph2">`InitializeDelegates`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You will need two delegates: one for reporting progress to the client, and one for reporting completion to the client.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#9)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#20<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#20)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#20<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#20)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">`InitializeDelegates`</ph> method in your component's constructor.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#21<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#21)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#21<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#21)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Declare a delegate in the <ph id="ph1">`PrimeNumberCalculator`</ph> class that handles the actual work to be done asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This delegate wraps the worker method that tests whether a number is prime.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The delegate takes an <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> parameter, which will be used to track the lifetime of the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#22<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#22)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#22<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#22)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Create a collection for managing lifetimes of pending asynchronous operations.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The client needs a way to track operations as they are executed and completed, and this tracking is done by requiring the client to pass a unique token, or task ID, when the client makes the call to the asynchronous method.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PrimeNumberCalculator`</ph> component must keep track of each call by associating the task ID with its corresponding invocation.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If the client passes a task ID that is not unique, the <ph id="ph1">`PrimeNumberCalculator`</ph> component must raise an exception.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PrimeNumberCalculator`</ph> component keeps track of task ID by using a special collection class called a <ph id="ph2">&lt;xref:System.Collections.Specialized.HybridDictionary&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>In the class definition, create a <ph id="ph1">&lt;xref:System.Collections.Specialized.HybridDictionary&gt;</ph> called <ph id="ph2">`userTokenToLifetime`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#23<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#23)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#23<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#23)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Implementing Public Events</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Components that implement the Event-based Asynchronous Pattern communicate to clients using events.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>These events are invoked on the proper thread with the help of the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>To raise events to your component's clients:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Implement public events for reporting to clients.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>You will need an event for reporting progress and one for reporting completion.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#24<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#24)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#24<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#24)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Implementing the Completion Method</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The completion delegate is the method that the underlying, free-threaded asynchronous behavior will invoke when the asynchronous operation ends by successful completion, error, or cancellation.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This invocation happens on an arbitrary thread.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This method is where the client's task ID is removed from the internal collection of unique client tokens.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>This method also ends the lifetime of a particular asynchronous operation by calling the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.PostOperationCompleted%2A&gt;</ph> method on the corresponding <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This call raises the completion event on the thread that is appropriate for the application model.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>After the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.PostOperationCompleted%2A&gt;</ph> method is called, this instance of <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> can no longer be used, and any subsequent attempts to use it will throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CompletionMethod`</ph> signature must hold all state necessary to describe the outcome of the asynchronous operation.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>It holds state for the number that was tested by this particular asynchronous operation, whether the number is prime, and the value of its first divisor if it is not a prime number.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>It also holds state describing any exception that occurred, and the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> corresponding to this particular task.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>To complete an asynchronous operation:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Implement the completion method.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>It takes six parameters, which it uses to populate a <ph id="ph1">`CalculatePrimeCompletedEventArgs`</ph> that is returned to the client through the client's <ph id="ph2">`CalculatePrimeCompletedEventHandler`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>It removes the client's task ID token from the internal collection, and it ends the asynchronous operation's lifetime with a call to <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.PostOperationCompleted%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> marshals the call to the thread or context that is appropriate for the application model.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#26<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#26)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#26<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#26)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Checkpoint</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>At this point, you can build the component.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>To test your component</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Compile the component.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>You will receive one compiler warning:</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>This warning will be resolved in the next section.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Implementing the Worker Methods</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>So far, you have implemented the supporting asynchronous code for the <ph id="ph1">`PrimeNumberCalculator`</ph> component.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Now you can implement the code that does the actual work.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>You will implement three methods: <ph id="ph1">`CalculateWorker`</ph>, <ph id="ph2">`BuildPrimeNumberList`</ph>, and <ph id="ph3">`IsPrime`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Together, <ph id="ph1">`BuildPrimeNumberList`</ph> and <ph id="ph2">`IsPrime`</ph> comprise a well-known algorithm called the Sieve of Eratosthenes, which determines if a number is prime by finding all the prime numbers up to the square root of the test number.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>If no divisors are found by that point, the test number is prime.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If this component were written for maximum efficiency, it would remember all the prime numbers discovered by various invocations for different test numbers.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>It would also check for trivial divisors like 2, 3, and 5.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The intent of this example is to demonstrate how time-consuming operations can be executed asynchronously, however, so these optimizations are left as an exercise for you.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CalculateWorker`</ph> method is wrapped in a delegate and is invoked asynchronously with a call to <ph id="ph2">`BeginInvoke`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Progress reporting is implemented in the <ph id="ph1">`BuildPrimeNumberList`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>On fast computers, <ph id="ph1">`ProgressChanged`</ph> events can be raised in rapid succession.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The client thread, on which these events are raised, must be able to handle this situation.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>User interface code may be flooded with messages and unable to keep up, resulting in hanging behavior.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>For an example user interface that handles this situation, see <bpt id="p1">[</bpt>How to: Implement a Client of the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/how-to-implement-a-client-of-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>To execute the prime number calculation asynchronously:</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">`TaskCanceled`</ph> utility method.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>This checks the task lifetime collection for the given task ID, and returns <ph id="ph1">`true`</ph> if the task ID is not found.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#32<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#32)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#32<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#32)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">`CalculateWorker`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>It takes two parameters: a number to test, and an <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#27<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#27)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#27<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#27)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">`BuildPrimeNumberList`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>It takes two parameters: the number to test, and an <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>It uses the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> to report progress and incremental results.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>This assures that the client's event handlers are called on the proper thread or context for the application model.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">`BuildPrimeNumberList`</ph> finds a prime number, it reports this as an incremental result to the client's event handler for the <ph id="ph2">`ProgressChanged`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>This requires a class derived from <ph id="ph1">&lt;xref:System.ComponentModel.ProgressChangedEventArgs&gt;</ph>, called <ph id="ph2">`CalculatePrimeProgressChangedEventArgs`</ph>, which has one added property called <ph id="ph3">`LatestPrimeNumber`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`BuildPrimeNumberList`</ph> method also periodically calls the <ph id="ph2">`TaskCanceled`</ph> method and exits if the method returns <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">`IsPrime`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>It takes three parameters: a list of known prime numbers, the number to test, and an output parameter for the first divisor found.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Given the list of prime numbers, it determines if the test number is prime.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#28<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#28)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#28<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#28)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Derive <ph id="ph1">`CalculatePrimeProgressChangedEventArgs`</ph> from <ph id="ph2">&lt;xref:System.ComponentModel.ProgressChangedEventArgs&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>This class is necessary for reporting incremental results to the client's event handler for the <ph id="ph1">`ProgressChanged`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>It has one added property called <ph id="ph1">`LatestPrimeNumber`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#29<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#29)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#29<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#29)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Checkpoint</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>At this point, you can build the component.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>To test your component</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Compile the component.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>All that remains to be written are the methods to start and cancel asynchronous operations, <ph id="ph1">`CalculatePrimeAsync`</ph> and <ph id="ph2">`CancelAsync`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Implementing the Start and Cancel Methods</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>You start the worker method on its own thread by calling <ph id="ph1">`BeginInvoke`</ph> on the delegate that wraps it.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>To manage the lifetime of a particular asynchronous operation, you call the <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperationManager.CreateOperation%2A&gt;</ph> method on the <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperationManager&gt;</ph> helper class.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>This returns an <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>, which marshals calls on the client's event handlers to the proper thread or context.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>You cancel a particular pending operation by calling <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation.PostOperationCompleted%2A&gt;</ph> on its corresponding <ph id="ph2">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>This ends that operation, and any subsequent calls to its <ph id="ph1">&lt;xref:System.ComponentModel.AsyncOperation&gt;</ph> will throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>To implement Start and Cancel functionality:</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">`CalculatePrimeAsync`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Make sure the client-supplied token (task ID) is unique with respect to all the tokens representing currently pending tasks.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>If the client passes in a non-unique token, <ph id="ph1">`CalculatePrimeAsync`</ph> raises an exception.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Otherwise, the token is added to the task ID collection.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">`CancelAsync`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`taskId`</ph> parameter exists in the token collection, it is removed.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>This prevents canceled tasks that have not started from running.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>If the task is running, the <ph id="ph1">`BuildPrimeNumberList`</ph> method exits when it detects that the task ID has been removed from the lifetime collection.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>System.ComponentModel.AsyncOperationManager#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/CS/primenumbercalculatormain.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>System.ComponentModel.AsyncOperationManager#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Winforms/System.ComponentModel.AsyncOperationManager/VB/primenumbercalculatormain.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Checkpoint</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>At this point, you can build the component.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>To test your component</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Compile the component.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PrimeNumberCalculator`</ph> component is now complete and ready to use.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>For an example client that uses the <ph id="ph1">`PrimeNumberCalculator`</ph> component, see <bpt id="p1">[</bpt>How to: Implement a Client of the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/how-to-implement-a-client-of-the-event-based-asynchronous-pattern.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>Next Steps</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>You can fill out this example by writing <ph id="ph1">`CalculatePrime`</ph>, the synchronous equivalent of <ph id="ph2">`CalculatePrimeAsync`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>This will make the <ph id="ph1">`PrimeNumberCalculator`</ph> component fully compliant with the Event-based Asynchronous Pattern.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>You can improve this example by retaining the list of all the prime numbers discovered by various invocations for different test numbers.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>Using this approach, each task will benefit from the work done by previous tasks.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Be careful to protect this list with <ph id="ph1">`lock`</ph> regions, so access to the list by different threads is serialized.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>You can also improve this example by testing for trivial divisors, like 2, 3, and 5.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Run an Operation in the Background<ept id="p1">](../../../docs/framework/winforms/controls/how-to-run-an-operation-in-the-background.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Event-based Asynchronous Pattern Overview<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>NOT IN BUILD: Multithreading in Visual Basic<ept id="p1">](http://msdn.microsoft.com/en-us/c731a50c-09c1-4468-9646-54c86b75d269)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Implement a Component That Supports the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/component-that-supports-the-event-based-asynchronous-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Multithreaded Programming with the Event-based Asynchronous Pattern<ept id="p1">](../../../docs/standard/asynchronous-programming-patterns/multithreaded-programming-with-the-event-based-asynchronous-pattern.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

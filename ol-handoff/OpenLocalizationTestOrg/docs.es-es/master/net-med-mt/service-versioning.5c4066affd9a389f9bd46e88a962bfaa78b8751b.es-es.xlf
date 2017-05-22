@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">43b171c13cbc5956bbcafc8749c0edd206d245f0</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\service-versioning.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">80b9bd61f9a83eae62c12e9ebc31e972859981c7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d18b92bbea6b49869bde0b2195e5a3d849dfb15a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Service Versioning | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Service Versioning</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>After initial deployment, and potentially several times during their lifetime, services (and the endpoints they expose) may need to be changed for a variety of reasons, such as changing business needs, information technology requirements, or to address other issues.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Each change introduces a new version of the service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic explains how to consider versioning in <ph id="ph1">[!INCLUDE[indigo1](../../../includes/indigo1-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Four Categories of Service Changes</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The changes to services that may be required can be classified into four categories:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Contract changes: For example, an operation might be added, or a data element in a message might be added or changed.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Address changes: For example, a service moves to a different location where endpoints have new addresses.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Binding changes: For example, a security mechanism changes or its settings change.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Implementation changes: For example, when an internal method implementation changes.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Some of these changes are called "breaking" and others are "nonbreaking."</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>A change is <bpt id="p1">*</bpt>nonbreaking<ept id="p1">*</ept> if all messages that would have been processed successfully in the previous version are processed successfully in the new version.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Any change that does not meet that criterion is a <bpt id="p1">*</bpt>breaking<ept id="p1">*</ept> change.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Service Orientation and Versioning</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>One of the tenets of service orientation is that services and clients are autonomous (or independent).</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Among other things, this implies that service developers cannot assume that they control or even know about all service clients.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This eliminates the option of rebuilding and redeploying all clients when a service changes versions.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This topic assumes the service adheres to this tenet and therefore must be changed or "versioned" independent of its clients.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In cases where a breaking change is unexpected and cannot be avoided, an application may choose to ignore this tenet and require that clients be rebuilt and redeployed with a new version of the service.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Contract Versioning</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Contracts used by a client do not need to be the same as the contract used by the service; they need only to be compatible.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For service contracts, compatibility means new operations exposed by the service can be added but existing operations cannot be removed or changed semantically.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For data contracts, compatibility means new schema type definitions can be added but existing schema type definitions cannot be changed in breaking ways.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Breaking changes might include removing data members or changing their data type incompatibly.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>This feature allows the service some latitude in changing the version of its contracts without breaking clients.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The next two sections explain nonbreaking and breaking changes that can be made to <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> data and service contracts.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Data Contract Versioning</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>This section deals with data versioning when using the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph> and <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractAttribute&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Strict Versioning</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In many scenarios when changing versions is an issue, the service developer does not have control over the clients and therefore cannot make assumptions about how they would react to changes in the message XML or schema.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In these cases, you must guarantee that the new messages will validate against the old schema, for two reasons:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The old clients were developed with the assumption that the schema will not change.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>They may fail to process messages that they were never designed for.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The old clients may perform actual schema validation against the old schema before even attempting to process the messages.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The recommended approach in such scenarios is to treat existing data contracts as immutable and create new ones with unique XML qualified names.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The service developer would then either add new methods to an existing service contract or create a new service contract with methods that use the new data contract.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>It will often be the case that a service developer needs to write some business logic that should run within all versions of a data contract plus version-specific business code for each version of the data contract.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The appendix at the end of this topic explains how interfaces can be used to satisfy this need.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Lax Versioning</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>In many other scenarios, the service developer can make the assumption that adding a new, optional member to the data contract will not break existing clients.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This requires the service developer to investigate whether existing clients are not performing schema validation and that they ignore unknown data members.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In these scenarios, it is possible to take advantage of data contract features for adding new members in a nonbreaking way.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The service developer can make this assumption with confidence if the data contract features for versioning were already used for the first version of the service.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph>, ASP.NET Web Services, and many other Web service stacks support <bpt id="p1">*</bpt>lax versioning<ept id="p1">*</ept>: that is, they do not throw exceptions for new unknown data members in received data.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>It is easy to mistakenly believe that adding a new member will not break existing clients.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If you are unsure that all clients can handle lax versioning, the recommendation is to use the strict versioning guidelines and treat data contracts as immutable.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>For detailed guidelines for both lax and strict versioning of data contracts, see <bpt id="p1">[</bpt>Best Practices: Data Contract Versioning<ept id="p1">](../../../docs/framework/wcf/best-practices-data-contract-versioning.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Distinguishing Between Data Contract and .NET Types</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>A .NET class or structure can be projected as a data contract by applying the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractAttribute&gt;</ph> attribute to the class.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The .NET type and its data contract projections are two distinct matters.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>It is possible to have multiple .NET types with the same data contract projection.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This distinction is especially useful in allowing you to change the .NET type while maintaining the projected data contract, thereby maintaining compatibility with existing clients even in the strict sense of the word.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>There are two things you should always do to maintain this distinction between .NET type and data contract:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Specify a <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractAttribute.Name%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataContractAttribute.Namespace%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You should always specify the name and namespace of your data contract to prevent your .NET type’s name and namespace from being exposed in the contract.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This way, if you decide later to change the .NET namespace or type name, your data contract remains the same.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Specify <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataMemberAttribute.Name%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>You should always specify the name of your data members to prevent your .NET member name from being exposed in the contract.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This way, if you decide later to change the .NET name of the member, your data contract remains the same.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Changing or Removing Members</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Changing the name or data type of a member, or removing data members is a breaking change even if lax versioning is allowed.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If this is necessary, create a new data contract.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>If service compatibility is of high importance, you might consider ignoring unused data members in your code and leave them in place.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>If you are splitting up a data member into multiple members, you might consider leaving the existing member in place as a property that can perform the required splitting and re-aggregation for down-level clients (clients that are not upgraded to the latest version).</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Similarly, changes to the data contract’s name or namespace are breaking changes.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Round-Trips of Unknown Data</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In some scenarios, there is a need to "round-trip" unknown data that comes from members added in a new version.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>For example, a "versionNew" service sends data with some newly added members to a "versionOld" client.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The client ignores the newly added members when processing the message, but it resends that same data, including the newly added members, back to the versionNew service.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The typical scenario for this is data updates where data is retrieved from the service, changed, and returned.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>To enable round-tripping for a particular type, the type must implement the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IExtensibleDataObject&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The interface contains one property, <ph id="ph1">&lt;xref:System.Runtime.Serialization.IExtensibleDataObject.ExtensionData%2A&gt;</ph> that returns the <ph id="ph2">&lt;xref:System.Runtime.Serialization.ExtensionDataObject&gt;</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The property is used to store any data from future versions of the data contract that is unknown to the current version.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>This data is opaque to the client, but when the instance is serialized, the content of the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IExtensibleDataObject.ExtensionData%2A&gt;</ph> property is written with the rest of the data contract members' data.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>It is recommended that all your types implement this interface to accommodate new and unknown future members.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Data Contract Libraries</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>There may be libraries of data contracts where a contract is published to a central repository, and service and type implementers implement and expose data contracts from that repository.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In that case, when you publish a data contract to the repository, you have no control over who creates types that implement it.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Thus, you cannot modify the contract once it is published, rendering it effectively immutable.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>When Using the XmlSerializer</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The same versioning principles apply when using the <ph id="ph1">&lt;xref:System.Xml.Serialization.XmlSerializer&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>When strict versioning is required, treat data contracts as immutable and create new data contracts with unique, qualified names for the new versions.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>When you are sure that lax versioning can be used, you can add new serializable members in new versions but not change or remove existing members.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Xml.Serialization.XmlSerializer&gt;</ph> uses the <ph id="ph2">&lt;xref:System.Xml.Serialization.XmlAnyElementAttribute&gt;</ph> and <ph id="ph3">&lt;xref:System.Xml.Serialization.XmlAnyAttributeAttribute&gt;</ph> attributes to support round-tripping of unknown data.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Message Contract Versioning</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The guidelines for message contract versioning are very similar to versioning data contracts.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>If strict versioning is required, you should not change your message body but instead create a new message contract with a unique qualified name.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If you know that you can use lax versioning, you can add new message body parts but not change or remove existing ones.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This guidance applies both to bare and wrapped message contracts.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Message headers can always be added, even if strict versioning is in use.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The MustUnderstand flag may affect versioning.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>In general, the versioning model for headers in <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> is as described in the SOAP specification.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Service Contract Versioning</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Similar to data contract versioning, service contract versioning also involves adding, changing, and removing operations.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Specifying Name, Namespace, and Action</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>By default, the name of a service contract is the name of the interface.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Its default namespace is "http://tempuri.org", and each operation’s action is "http://tempuri.org/contractname/methodname".</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>It is recommended that you explicitly specify a name and namespace for the service contract, and an action for each operation to avoid using "http://tempuri.org" and to prevent interface and method names from being exposed in the service’s contract.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Adding Parameters and Operations</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Adding service operations exposed by the service is a nonbreaking change because existing clients need not be concerned about those new operations.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Adding operations to a duplex callback contract is a breaking change.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Changing Operation Parameter or Return Types</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Changing parameter or return types generally is a breaking change unless the new type implements the same data contract implemented by the old type.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>To make such a change, add a new operation to the service contract or define a new service contract.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Removing Operations</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Removing operations is also a breaking change.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>To make such a change, define a new service contract and expose it on a new endpoint.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Fault Contracts</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.FaultContractAttribute&gt;</ph> attribute enables a service contract developer to specify information about faults that can be returned from the contract's operations.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The list of faults described in a service's contract is not considered exhaustive.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>At any time, an operation may return faults that are not described in its contract.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Therefore changing the set of faults described in the contract is not considered breaking.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>For example, adding a new fault to the contract using the <ph id="ph1">&lt;xref:System.ServiceModel.FaultContractAttribute&gt;</ph> or removing an existing fault from the contract.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Service Contract Libraries</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Organizations may have libraries of contracts where a contract is published to a central repository and service implementers implement contracts from that repository.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>In this case, when you publish a service contract to the repository you have no control over who creates services that implement it.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Therefore, you cannot modify the service contract once published, rendering it effectively immutable.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> supports contract inheritance, which can be used to create a new contract that extends existing contracts.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>To use this feature, define a new service contract interface that inherits from the old service contract interface, then add methods to the new interface.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>You then change the service that implements the old contract to implement the new contract and change the "versionOld" endpoint definition to use the new contract.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>To "versionOld" clients, the endpoint will continue to appear as exposing the "versionOld" contract; to "versionNew" clients, the endpoint will appear to expose the "versionNew" contract.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Address and Binding Versioning</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Changes to endpoint address and binding are breaking changes unless clients are capable of dynamically discovering the new endpoint address or binding.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>One mechanism for implementing this capability is by using a Universal Discovery Description and Integration (UDDI) registry and the UDDI Invocation Pattern where a client attempts to communicate with an endpoint and, upon failure, queries a well-known UDDI registry for the current endpoint metadata.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The client then uses the address and binding from this metadata to communicate with the endpoint.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>If this communication succeeds, the client caches the address and binding information for future use.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Routing Service and Versioning</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>If the changes made to a service are breaking changes and you need to have two or more different versions of a service running simultaneously you can use the WCF Routing Service to route messages to the appropriate service instance.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The WCF Routing Service uses content-based routing, in other words, it uses information within the message to determine where to route the message.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> the WCF Routing Service see <bpt id="p1">[</bpt>Routing Service<ept id="p1">](../../../docs/framework/wcf/feature-details/routing-service.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>For an example of how to use the WCF Routing Service for service versioning see <bpt id="p1">[</bpt>How To: Service Versioning<ept id="p1">](../../../docs/framework/wcf/feature-details/how-to-service-versioning.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Appendix</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>The general data contract versioning guidance when strict versioning is needed is to treat data contracts as immutable and create new ones when changes are required.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>A new class needs to be created for each new data contract, so a mechanism is needed to avoid having to take existing code that was written in terms of the old data contract class and rewrite it in terms of the new data contract class.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>One such mechanism is to use interfaces to define the members of each data contract and write internal implementation code in terms of the interfaces rather than the data contract classes that implement the interfaces.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The following code for version 1 of a service shows an <ph id="ph1">`IPurchaseOrderV1`</ph> interface and a <ph id="ph2">`PurchaseOrderV1`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>While the service contract’s operations would be written in terms of <ph id="ph1">`PurchaseOrderV1`</ph>, the actual business logic would be in terms of <ph id="ph2">`IPurchaseOrderV1`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Then, in version 2, there would be a new <ph id="ph1">`IPurchaseOrderV2`</ph> interface and a new <ph id="ph2">`PurchaseOrderV2`</ph> class as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>The service contract would be updated to include new operations that are written in terms of <ph id="ph1">`PurchaseOrderV2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Existing business logic written in terms of <ph id="ph1">`IPurchaseOrderV1`</ph> would continue to work for <ph id="ph2">`PurchaseOrderV2`</ph> and new business logic that needs the <ph id="ph3">`OrderDate`</ph> property would be written in terms of <ph id="ph4">`IPurchaseOrderV2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Contract Equivalence<ept id="p1">](../../../docs/framework/wcf/feature-details/data-contract-equivalence.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Version-Tolerant Serialization Callbacks<ept id="p1">](../../../docs/framework/wcf/feature-details/version-tolerant-serialization-callbacks.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

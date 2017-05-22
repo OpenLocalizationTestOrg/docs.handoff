@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c958b9d3ce5545b19686f8b259c0b9533f385ba2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\wcf\linq-considerations-wcf-data-services.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">682d393b8cd1c1b743ff6a387b210edb9ed06235</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0f1cf04d759686297e918b20e59c1cb9c3d6e2c0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>LINQ Considerations (WCF Data Services) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>LINQ Considerations (WCF Data Services)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic provides information about the way in which LINQ queries are composed and executed when you are using the <ph id="ph1">[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)]</ph> client and limitations of using LINQ to query a data service that implements the <ph id="ph2">[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> composing and executing queries against an <ph id="ph2">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph>-based data service, see <bpt id="p1">[</bpt>Querying the Data Service<ept id="p1">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Composing LINQ Queries</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>LINQ enables you to compose queries against a collection of objects that implements <ph id="ph1">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Both the <bpt id="p1">**</bpt>Add Service Reference<ept id="p1">**</ept> dialog box in <ph id="ph1">[!INCLUDE[vs_current_short](../../../../includes/vs-current-short-md.md)]</ph> and the DataSvcUtil.exe tool are used to generate a representation of an <ph id="ph2">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> service as an entity container class that inherits from <ph id="ph3">&lt;xref:System.Data.Services.Client.DataServiceContext&gt;</ph>, as well as objects that represent the entities returned in feeds.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>These tools also generate properties on the entity container class for the collections that are exposed as feeds by the service.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Each of these properties of the class that encapsulates the data service return a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph> class implements the <ph id="ph2">&lt;xref:System.Linq.IQueryable%601&gt;</ph> interface defined by LINQ, you can compose a LINQ query against feeds exposed by the data service, which are translated by the client library into a query request URI that is sent to the data service on execution.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The set of queries expressible in the LINQ syntax is broader than those enabled in the URI syntax that is used by <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> data services.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.NotSupportedException&gt;</ph> is raised when the query cannot be mapped to a URI in the target data service.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph> the <bpt id="p1">[</bpt>Unsupported LINQ Methods<ept id="p1">](../../../../docs/framework/data/wcf/linq-considerations-wcf-data-services.md#unsupportedMethods)</ept> in this topic.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The following example is a LINQ query that returns <ph id="ph1">`Orders`</ph> that have a freight cost of more than $30 and sorts the results by the shipping date, starting with the latest ship date:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#AddQueryOptionsLinqSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#addqueryoptionslinqspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#AddQueryOptionsLinqSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#addqueryoptionslinqspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This LINQ query is translated into the following query URI that is executed against the Northwind-based <bpt id="p1">[</bpt>quickstart<ept id="p1">](../../../../docs/framework/data/wcf/quickstart-wcf-data-services.md)</ept> data service:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For more general information about LINQ, see <bpt id="p1">[</bpt>LINQ (Language-Integrated Query)<ept id="p1">](http://msdn.microsoft.com/library/a73c4aec-5d15-4e98-b962-1274021ea93d)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>LINQ enables you to compose queries by using both the language-specific declarative query syntax, shown in the previous example, as well as a set of query methods known as standard query operators.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>An equivalent query to the previous example can be composed by using only the method-based syntax, as shown the following example:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#AddQueryOptionsLinqExpressionSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#addqueryoptionslinqexpressionspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#AddQueryOptionsLinqExpressionSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#addqueryoptionslinqexpressionspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)]</ph> client is able to translate both kinds of composed queries into a query URI, and you can extend a LINQ query by appending query methods to a query expression.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>When you compose LINQ queries by appending method syntax to a query expression or a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>, the operations are added to the query URI in the order in which methods are called.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This is equivalent to calling the <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601.AddQueryOption%2A&gt;</ph> method to add each query option to the query URI.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Executing LINQ Queries</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Certain LINQ query methods, such as <ph id="ph1">&lt;xref:System.Linq.Enumerable.First%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29&gt;</ph> or <ph id="ph2">&lt;xref:System.Linq.Enumerable.Single%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29&gt;</ph>, when appended to the query, cause the query to be executed.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A query is also executed when results are enumerated implicitly, such as during a <ph id="ph1">`foreach`</ph> loop or when the query is assigned to a <ph id="ph2">`List`</ph> collection.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Querying the Data Service<ept id="p1">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The client executes a LINQ query in two parts.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Whenever possible, LINQ expressions in a query are first evaluated on the client, and then a URI-based query is generated and sent to the data service for evaluation against data in the service.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>For more information, see the section <bpt id="p1">[</bpt>Client versus Server Execution<ept id="p1">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md#executingQueries)</ept> in <bpt id="p2">[</bpt>Querying the Data Service<ept id="p2">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When a LINQ query cannot be translated in an <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph>-compliant query URI, an exception is raised when execution is attempted.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Querying the Data Service<ept id="p1">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>LINQ Query Examples</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The examples in the following sections demonstrate the kinds of LINQ queries that can be executed against an <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> service.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Filtering</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The LINQ query examples in this section filter data in the feed returned by the service.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following examples are equivalent queries that filter the returned <ph id="ph1">`Orders`</ph> entities so that only orders with a freight cost greater than $30 are returned:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Using LINQ query syntax:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqWhereClauseSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqwhereclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqWhereClauseSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqwhereclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Using LINQ query methods:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqWhereMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqwheremethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqWhereMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqwheremethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The URI query string <ph id="ph1">`$filter`</ph> option:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQueryWhereMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#explicitquerywheremethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQueryWhereMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#explicitquerywheremethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>All of the previous examples are translated to the query URI: <ph id="ph1">`http://localhost:12345/northwind.svc/Orders()?$filter=Freight gt 30M`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Sorting</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The following examples show equivalent queries that sort returned data both by the company name and by postal code, descending:</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Using LINQ query syntax:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqOrderByClauseSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqorderbyclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqOrderByClauseSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqorderbyclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Using LINQ query methods:</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqOrderByMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqorderbymethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqOrderByMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqorderbymethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>URI query string <ph id="ph1">`$orderby`</ph> option):</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQueryOrderByMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#explicitqueryorderbymethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQueryOrderByMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#explicitqueryorderbymethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>All of the previous examples are translated to the query URI: <ph id="ph1">`http://localhost:12345/northwind.svc/Customers()?$orderby=CompanyName,PostalCode desc`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Projection</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The following examples show equivalent queries that project returned data into the narrower <ph id="ph1">`CustomerAddress`</ph> type:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Using LINQ query syntax:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSelectClauseSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqselectclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSelectClauseSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqselectclausespecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Using LINQ query methods:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSelectMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqselectmethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSelectMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqselectmethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`$select`</ph> query option cannot be added to a query URI by using the <ph id="ph2">&lt;xref:System.Data.Services.Client.DataServiceQuery%601.AddQueryOption%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>We recommend that you use the LINQ <ph id="ph1">&lt;xref:System.Linq.Enumerable.Select%2A&gt;</ph> method to have the client generate the <ph id="ph2">`$select`</ph> query option in the request URI.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Both of the previous examples are translated to the query URI: <ph id="ph1">`"http://localhost:12345/northwind.svc/Customers()?$filter=Country eq 'GerGerm'&amp;$select=CustomerID,Address,City,Region,PostalCode,Country"`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Client Paging</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The following examples show equivalent queries that request a page of sorted order entities that includes 25 orders, skipping the first 50 orders:</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Applying query methods to a LINQ query:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSkipTakeMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqskiptakemethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqSkipTakeMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqskiptakemethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>URI query string <ph id="ph1">`$skip`</ph> and <ph id="ph2">`$top`</ph> options):</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQuerySkipTakeMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#explicitqueryskiptakemethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#ExplicitQuerySkipTakeMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#explicitqueryskiptakemethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Both of the previous examples are translated to the query URI: <ph id="ph1">`http://localhost:12345/northwind.svc/Orders()?$orderby=OrderDate desc&amp;$skip=50&amp;$top=25`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Expand</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>When you query an <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> data service, you can request that entities related to the entity targeted by the query be included the returned feed.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601.Expand%2A&gt;</ph> method is called on the <ph id="ph2">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph> for the entity set targeted by the LINQ query, with the related entity set name supplied as the <ph id="ph3">`path`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Loading Deferred Content<ept id="p1">](../../../../docs/framework/data/wcf/loading-deferred-content-wcf-data-services.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The following examples show equivalent ways to use the <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601.Expand%2A&gt;</ph> method in a query:</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>In LINQ query syntax:</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqQueryExpandSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqqueryexpandspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqQueryExpandSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqqueryexpandspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>With LINQ query methods:</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqQueryExpandMethodSpecific<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria northwind client/cs/source.cs#linqqueryexpandmethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Astoria Northwind Client#LinqQueryExpandMethodSpecific<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria northwind client/vb/source.vb#linqqueryexpandmethodspecific)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Both of the previous examples are translated to the query URI: <ph id="ph1">`http://localhost:12345/northwind.svc/Orders()?$filter=CustomerID eq 'ALFKI'&amp;$expand=Order_Details`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Unsupported LINQ Methods</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The following table contains the classes of LINQ methods are not supported and cannot be included in a query executed against an <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> service:</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Operation Type</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Unsupported Method</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Set operators</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>All set operators are unsupported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>, which included the following:</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Ordering operators</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The following ordering operators that require <ph id="ph1">&lt;xref:System.Collections.Generic.IComparer%601&gt;</ph> are unsupported against a <ph id="ph2">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Projection and filtering operators</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The following projection and filtering operators that accept a positional argument are unsupported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Grouping operators</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>All grouping operators are unsupported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>, including the following:</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Grouping operations must be performed on the client.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Aggregate operators</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>All aggregate operations are unsupported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>, including the following:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Aggregate operations must either be performed on the client or be encapsulated by a service operation.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Paging operators</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The following paging operators are not supported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">-   </ph><ph id="ph2">&lt;xref:System.Linq.Enumerable.TakeWhile%2A&gt;</ph> <bpt id="p1">**</bpt>Note:<ept id="p1">**</ept>  Paging operators that are executed on an empty sequence return null.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Other operators</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The following other operators are not supported against a <ph id="ph1">&lt;xref:System.Data.Services.Client.DataServiceQuery%601&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>1.  <ph id="ph1">&lt;xref:System.Linq.Enumerable.Empty%2A&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>2.  <ph id="ph1">&lt;xref:System.Linq.Enumerable.Range%2A&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>3.  <ph id="ph1">&lt;xref:System.Linq.Enumerable.Repeat%2A&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>4.  <ph id="ph1">&lt;xref:System.Linq.Enumerable.ToDictionary%2A&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>5.  <ph id="ph1">&lt;xref:System.Linq.Enumerable.ToLookup%2A&gt;</ph></source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Supported Expression Functions</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>The following common-language runtime (CLR) methods and properties are supported because they can be translated in a query expression for inclusion in the request URI to an <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> service:</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.String&gt;</ph> Member</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Supported <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> Function</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.DateTime&gt;</ph> Member<bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept></source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Supported <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> Function</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;sup&gt;</bpt>1<ept id="p1">&lt;/sup&gt;</ept>The equivalent date and time properties of <ph id="ph1">&lt;xref:Microsoft.VisualBasic.DateAndTime?displayProperty=fullName&gt;</ph>, as well as the <ph id="ph2">&lt;xref:Microsoft.VisualBasic.DateAndTime.DatePart%2A&gt;</ph> method in Visual Basic are also supported.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Math&gt;</ph> Member</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Supported <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> Function</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Linq.Expressions.Expression?qualifyHint=False&amp;autoUpgrade=True&gt;</ph> Member</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Supported <ph id="ph1">[!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]</ph> Function</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The client may also be able to evaluate additional CLR functions on the client.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.NotSupportedException&gt;</ph> is raised for any expression that cannot be evaluated on the client and cannot be translated into a valid request URI for evaluation on the server.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Querying the Data Service<ept id="p1">](../../../../docs/framework/data/wcf/querying-the-data-service-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Query Projections<ept id="p1">](../../../../docs/framework/data/wcf/query-projections-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Object Materialization<ept id="p1">](../../../../docs/framework/data/wcf/object-materialization-wcf-data-services.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>OData: URI Conventions<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=185564)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

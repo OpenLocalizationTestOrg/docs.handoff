@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c34eaafd844f868251bfd587fd3180602edddaf1</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\security\how-to-encrypt-xml-elements-with-asymmetric-keys.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">75f0b3bd432957a0e9b82c9d3e7fa28c4eb818cf</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">18a2ee5fc38a5fe4dc974d90eb03d44343df3bd3</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Encrypt XML Elements with Asymmetric Keys | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Encrypt XML Elements with Asymmetric Keys</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>You can use the classes in the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml&gt;</ph> namespace to encrypt an element within an XML document.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>XML Encryption is a standard way to exchange or store encrypted XML data, without worrying about the data being easily read.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information about the XML Encryption standard, see the World Wide Web Consortium (W3C) specification for XML Encryption located at http://www.w3.org/TR/xmldsig-core/.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You can use XML Encryption to replace any XML element or document with an &lt;<ph id="ph1">`EncryptedData`</ph>&gt; element that contains the encrypted XML data.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The &lt;<ph id="ph1">`EncryptedData`</ph>&gt; element can also contain sub elements that include information about the keys and processes used during encryption.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>XML Encryption allows a document to contain multiple encrypted elements and allows an element to be encrypted multiple times.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The code example in this procedure shows how to create an &lt;<ph id="ph1">`EncryptedData`</ph>&gt; element along with several other sub elements that you can use later during decryption.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This example encrypts an XML element using two keys.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>It generates an RSA public/private key pair and saves the key pair to a secure key container.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The example then creates a separate session key using the Advanced Encryption Standard (AES) algorithm, also called the Rijndael algorithm.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The example uses the AES session key to encrypt the XML document and then uses the RSA public key to encrypt the AES session key.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Finally, the example saves the encrypted AES session key and the encrypted XML data to the XML document within a new &lt;<ph id="ph1">`EncryptedData`</ph>&gt; element.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To decrypt the XML element, you retrieve the RSA private key from the key container, use it to decrypt the session key, and then use the session key to decrypt the document.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For more information about how to decrypt an XML element that was encrypted using this procedure, see <bpt id="p1">[</bpt>How to: Decrypt XML Elements with Asymmetric Keys<ept id="p1">](../../../docs/standard/security/how-to-decrypt-xml-elements-with-asymmetric-keys.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This example is appropriate for situations where multiple applications need to share encrypted data or where an application needs to save encrypted data between the times that it runs.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To encrypt an XML element with an asymmetric key</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">&lt;xref:System.Security.Cryptography.CspParameters&gt;</ph> object and specify the name of the key container.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Generate a symmetric key using the <ph id="ph1">&lt;xref:System.Security.Cryptography.RSACryptoServiceProvider&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The key is automatically saved to the key container when you pass the <ph id="ph1">&lt;xref:System.Security.Cryptography.CspParameters&gt;</ph> object to the constructor of the <ph id="ph2">&lt;xref:System.Security.Cryptography.RSACryptoServiceProvider&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This key will be used to encrypt the AES session key and can be retrieved later to decrypt it.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Create an <ph id="ph1">&lt;xref:System.Xml.XmlDocument&gt;</ph> object by loading an XML file from disk.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Xml.XmlDocument&gt;</ph> object contains the XML element to encrypt.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Find the specified element in the <ph id="ph1">&lt;xref:System.Xml.XmlDocument&gt;</ph> object and create a new <ph id="ph2">&lt;xref:System.Xml.XmlElement&gt;</ph> object to represent the element you want to encrypt.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In this example, the <ph id="ph1">`"creditcard"`</ph> element is encrypted.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#5)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Create a new session key using the <ph id="ph1">&lt;xref:System.Security.Cryptography.RijndaelManaged&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>This key will encrypt the XML element, and then be encrypted itself and placed in the XML document.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#6)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Create a new instance of the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedXml&gt;</ph> class and use it to encrypt the specified element using the session key.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A&gt;</ph> method returns the encrypted element as an array of encrypted bytes.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#7)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Construct an <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> object and populate it with the URL identifier of the encrypted XML element.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This URL identifier lets a decrypting party know that the XML contains an encrypted element.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>You can use the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedXml.XmlEncElementUrl&gt;</ph> field to specify the URL identifier.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The plaintext XML element will be replaced by an &lt;<ph id="ph1">`EncryptedData`</ph>&gt; element encapsulated by this <ph id="ph2">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#8)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Create an <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptionMethod&gt;</ph> object that is initialized to the URL identifier of the cryptographic algorithm used to generate the session key.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Pass the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptionMethod&gt;</ph> object to the <ph id="ph2">&lt;xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#9)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Create an <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedKey&gt;</ph> object to contain the encrypted session key.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Encrypt the session key, add it to the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedKey&gt;</ph> object, and enter a session key name and key identifier URL.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#10)</ept><ept id="p1">]</ept>   <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.DataReference&gt;</ph> object that maps the encrypted data to a particular session key.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This optional step allows you to easily specify that multiple parts of an XML document were encrypted by a single key.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#11)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Add the encrypted key to the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#12<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#12)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#12<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#12)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.KeyInfo&gt;</ph> object to specify the name of the RSA key.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Add it to the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This helps the decrypting party identify the correct asymmetric key to use when decrypting the session key.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#13<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#13)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#13<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#13)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Add the encrypted element data to the <ph id="ph1">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#14<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#14)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#14<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#14)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Replace the element from the original <ph id="ph1">&lt;xref:System.Xml.XmlDocument&gt;</ph> object with the <ph id="ph2">&lt;xref:System.Security.Cryptography.Xml.EncryptedData&gt;</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#15<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#15)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#15<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#15)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Save the <ph id="ph1">&lt;xref:System.Xml.XmlDocument&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#16<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#16)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#16<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#16)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This example assumes that a file named <ph id="ph1">`"test.xml"`</ph> exists in the same directory as the compiled program.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>It also assumes that <ph id="ph1">`"test.xml"`</ph> contains a <ph id="ph2">`"creditcard"`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>You can place the following XML into a file called <ph id="ph1">`test.xml`</ph> and use it with this example.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>HowToEncryptXMLElementAsymmetric#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/cs/sample.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>HowToEncryptXMLElementAsymmetric#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToEncryptXMLElementAsymmetric/vb/sample.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Compiling the Code</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>To compile this example, you need to include a reference to <ph id="ph1">`System.Security.dll`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Include the following namespaces: <ph id="ph1">&lt;xref:System.Xml&gt;</ph>, <ph id="ph2">&lt;xref:System.Security.Cryptography&gt;</ph>, and <ph id="ph3">&lt;xref:System.Security.Cryptography.Xml&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>.NET Framework Security</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Never store a symmetric cryptographic key in plaintext or transfer a symmetric key between machines in plaintext.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Additionally, never store or transfer the private key of an asymmetric key pair in plaintext.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>For more information about symmetric and asymmetric cryptographic keys, see <bpt id="p1">[</bpt>Generating Keys for Encryption and Decryption<ept id="p1">](../../../docs/standard/security/generating-keys-for-encryption-and-decryption.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Never embed a key directly into your source code.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Embedded keys can be easily read from an assembly using the <bpt id="p1">[</bpt>Ildasm.exe (IL Disassembler)<ept id="p1">](../../../docs/framework/tools/ildasm-exe-il-disassembler.md)</ept> or by opening the assembly in a text editor such as Notepad.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>When you are done using a cryptographic key, clear it from memory by setting each byte to zero or by calling the <ph id="ph1">&lt;xref:System.Security.Cryptography.SymmetricAlgorithm.Clear%2A&gt;</ph> method of the managed cryptography class.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Cryptographic keys can sometimes be read from memory by a debugger or read from a hard drive if the memory location is paged to disk.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Decrypt XML Elements with Asymmetric Keys<ept id="p1">](../../../docs/standard/security/how-to-decrypt-xml-elements-with-asymmetric-keys.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

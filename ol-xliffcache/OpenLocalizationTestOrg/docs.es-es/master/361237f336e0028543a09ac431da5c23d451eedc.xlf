@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">361237f336e0028543a09ac431da5c23d451eedc</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\transactions\performing-recovery.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f85d169d3ca7f782abb35f32dc4795bc38e97963</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8b8f3f702a2de6b136f71496d164b6fdcaaf6469</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Performing Recovery | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Performing Recovery</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>A resource manager facilitates resolution of durable enlistments in a transaction by reenlisting the transaction participant after resource failure.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The Recovery Process</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>To durably enlist a resource (described by an implementation of the <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> interface) that can later be eligible for recovery, you should call the <ph id="ph2">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In addition, you must provide the <ph id="ph1">&lt;xref:System.Transactions.Transaction.EnlistDurable%2A&gt;</ph> method with a resource manager identifier (a <ph id="ph2">&lt;xref:System.Guid&gt;</ph>) that is used to consistently label the participant of the transaction in the event of a resource failure.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For this reason, the <ph id="ph1">&lt;xref:System.Guid&gt;</ph> that is provided to the initial Enlist call should be identical to the <bpt id="p1">*</bpt>resourceManagerIdentifier<ept id="p1">*</ept> parameter in the <ph id="ph2">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> call during recovery.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Otherwise, <ph id="ph1">&lt;xref:System.Transactions.TransactionException&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For more information on durable enlistments, see <bpt id="p1">[</bpt>Enlisting Resources as Participants in a Transaction<ept id="p1">](../../../../docs/framework/data/transactions/enlisting-resources-as-participants-in-a-transaction.md)</ept> .</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In the prepare phase (phase 1) of the 2PC protocol, when your implementation of a durable resource manager receives the <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification.Prepare%2A&gt;</ph> notification, it should log its prepare record during this phase.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The record should contain all the information that is necessary to complete the transaction on commit.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The prepare record can later be accessed during recovery by retrieving the <ph id="ph1">&lt;xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A&gt;</ph> property of the <bpt id="p1">*</bpt>preparingEnlistment<ept id="p1">*</ept> callback.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The record logging does not need to be performed within the <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification.Prepare%2A&gt;</ph> method as the RM can do this on a worker thread.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The recovery process consists of the following two steps:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Step 1 - ReEnlist</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The resource manager examines the prepare information record for each enlistment that is in-doubt.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This is done by examining the <ph id="ph1">&lt;xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Transactions.PreparingEnlistment&gt;</ph> callback, which is passed to the resource manager in the <ph id="ph3">&lt;xref:System.Transactions.IEnlistmentNotification.Prepare%2A&gt;</ph> notification during phase 1.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>For each such enlistment it examines, it invokes <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> on the transaction manager.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This method passes on a unique <ph id="ph1">&lt;xref:System.Guid&gt;</ph> that identifies the resource manager, as well as the enlistment's information in a byte array.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>A new <ph id="ph1">&lt;xref:System.Transactions.Enlistment&gt;</ph> object is returned.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>If the reenlistment fails with an exception, the resource manager will need to retry at a later time.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You should only call the <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> method when a resource manager restarts from failure.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In addition, you should only reenlist unresolved transactions logged by a resource manager during the initial Prepare phase of a two-phase commit.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Any attempt to call this method at invalid times can produce erroneous results.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When a participant is reenlisted using this method, the phase 2 methods of <ph id="ph1">&lt;xref:System.Transactions.IEnlistmentNotification&gt;</ph> that correspond to the transaction's outcome (that is, <ph id="ph2">&lt;xref:System.Transactions.IEnlistmentNotification.Commit%2A&gt;</ph> , <ph id="ph3">&lt;xref:System.Transactions.IEnlistmentNotification.Rollback%2A&gt;</ph> or <ph id="ph4">&lt;xref:System.Transactions.IEnlistmentNotification.InDoubt%2A&gt;</ph> ) are called as appropriate.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Step 2 - Completing the recovery</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When all the reenlistments are finished, the resource manager calls the <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.RecoveryComplete%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This method completes the recovery and informs the transaction manager that the resource manager has no more in-doubt transactions.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>By doing so, the resource manager guarantees that it will not invoke the <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.Reenlist%2A&gt;</ph> method again.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>A resource manager is not required to resolve all in-doubt transactions before enlisting in new transactions.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The first step can be performed at any time after the resource manager establishes a relationship with the transaction manager, but after <ph id="ph1">&lt;xref:System.Transactions.TransactionManager.RecoveryComplete%2A&gt;</ph> has been invoked (step 2); step 1 cannot be performed again.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Step 2 can be repeated multiple times without affecting the outcome of transactions.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

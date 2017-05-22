@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">857e62502d52486a0341dfd94ca6aa8da2bf5b39</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\potential-pitfalls-with-plinq.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8d260516447b25bf25c22d665168dc2625ee4bf3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">83ab43c1d789c7526f63aeef1b66f77faaf9607e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Potential Pitfalls with PLINQ | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Potential Pitfalls with PLINQ</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In many cases, PLINQ can provide significant performance improvements over sequential LINQ to Objects queries.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>However, the work of parallelizing the query execution introduces complexity that can lead to problems that, in sequential code, are not as common or are not encountered at all.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic lists some practices to avoid when you write PLINQ queries.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Do Not Assume That Parallel Is Always Faster</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Parallelization sometimes causes a PLINQ query to run slower than its LINQ to Objects equivalent.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The basic rule of thumb is that queries that have few source elements and fast user delegates are unlikely to speedup much.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>However, because many factors are involved in performance, we recommend that you measure actual results before you decide whether to use PLINQ.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Understanding Speedup in PLINQ<ept id="p1">](../../../docs/standard/parallel-programming/understanding-speedup-in-plinq.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Avoid Writing to Shared Memory Locations</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In sequential code, it is not uncommon to read from or write to static variables or class fields.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>However, whenever multiple threads are accessing such variables concurrently, there is a big potential for race conditions.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Even though you can use locks to synchronize access to the variable, the cost of synchronization can hurt performance.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Therefore, we recommend that you avoid, or at least limit, access to shared state in a PLINQ query as much as possible.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Avoid Over-Parallelization</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>By using the <ph id="ph1">`AsParallel`</ph> operator, you incur the overhead costs of partitioning the source collection and synchronizing the worker threads.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The benefits of parallelization are further limited by the number of processors on the computer.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>There is no speedup to be gained by running multiple compute-bound threads on just one processor.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Therefore, you must be careful not to over-parallelize a query.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The most common scenario in which over-parallelization can occur is in nested queries, as shown in the following snippet.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>PLINQ#20<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/plinq/cs/plinqsamples.cs#20)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>PLINQ#20<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/plinq/vb/plinq2_vb.vb#20)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In this case, it is best to parallelize only the outer data source (customers) unless one or more of the following conditions apply:</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The inner data source (cust.Orders) is known to be very long.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You are performing an expensive computation on each order.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>(The operation shown in the example is not expensive.)</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The target system is known to have enough processors to handle the number of threads that will be produced by parallelizing the query on <ph id="ph1">`cust.Orders`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In all cases, the best way to determine the optimum query shape is to test and measure.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Measure PLINQ Query Performance<ept id="p1">](../../../docs/standard/parallel-programming/how-to-measure-plinq-query-performance.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Avoid Calls to Non-Thread-Safe Methods</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Writing to non-thread-safe instance methods from a PLINQ query can lead to data corruption which may or may not go undetected in your program.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>It can also lead to exceptions.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the following example, multiple threads would be attempting to call the <ph id="ph1">`Filestream.Write`</ph> method simultaneously, which is not supported by the class.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Limit Calls to Thread-Safe Methods</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Most static methods in the .NET Framework are thread-safe and can be called from multiple threads concurrently.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>However, even in these cases, the synchronization involved can lead to significant slowdown in the query.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You can test for this yourself by inserting some calls to <ph id="ph1">&lt;xref:System.Console.WriteLine%2A&gt;</ph> in your queries.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Although this method is used in the documentation examples for demonstration purposes, do not use it in PLINQ queries.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Avoid Unnecessary Ordering Operations</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When PLINQ executes a query in parallel, it divides the source sequence into partitions that can be operated on concurrently on multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>By default, the order in which the partitions are processed and the results are delivered is not predictable (except for operators such as <ph id="ph1">`OrderBy`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>You can instruct PLINQ to preserve the ordering of any source sequence, but this has a negative impact on performance.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The best practice, whenever possible, is to structure queries so that they do not rely on order preservation.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Order Preservation in PLINQ<ept id="p1">](../../../docs/standard/parallel-programming/order-preservation-in-plinq.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Prefer ForAll to ForEach When It Is Possible</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Although PLINQ executes a query on multiple threads, if you consume the results in a <ph id="ph1">`foreach`</ph> loop (<ph id="ph2">`For Each`</ph> in Visual Basic), then the query results must be merged back into one thread and accessed serially by the enumerator.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>In some cases, this is unavoidable; however, whenever possible, use the <ph id="ph1">`ForAll`</ph> method to enable each thread to output its own results, for example, by writing to a thread-safe collection such as <ph id="ph2">&lt;xref:System.Collections.Concurrent.ConcurrentBag%601?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The same issue applies to <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=fullName&gt;</ph> In other words, <ph id="ph2">`source.AsParallel().Where().ForAll(...)`</ph> should be strongly preferred to</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Parallel.ForEach(source.AsParallel().Where(), ...)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Be Aware of Thread Affinity Issues</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Some technologies, for example, COM interoperability for Single-Threaded Apartment (STA) components, Windows Forms, and Windows Presentation Foundation (WPF), impose thread affinity restrictions that require code to run on a specific thread.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, in both Windows Forms and WPF, a control can only be accessed on the thread on which it was created.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If you try to access the shared state of a Windows Forms control in a PLINQ query, an exception is raised if you are running in the debugger.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>(This setting can be turned off.) However, if your query is consumed on the UI thread, then you can access the control from the <ph id="ph1">`foreach`</ph> loop that enumerates the query results because that code executes on just one thread.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Do Not Assume that Iterations of ForEach, For and ForAll Always Execute in Parallel</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>It is important to keep in mind that individual iterations in a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=fullName&gt;</ph> or <ph id="ph3">&lt;xref:System.Linq.ParallelEnumerable.ForAll%2A&gt;</ph> loop may but do not have to execute in parallel.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Therefore, you should avoid writing any code that depends for correctness on parallel execution of iterations or on the execution of iterations in any particular order.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>For example, this code is likely to deadlock:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In this example, one iteration sets an event, and all other iterations wait on the event.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>None of the waiting iterations can complete until the event-setting iteration has completed.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>However, it is possible that the waiting iterations block all threads that are used to execute the parallel loop, before the event-setting iteration has had a chance to execute.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This results in a deadlock – the event-setting iteration will never execute, and the waiting iterations will never wake up.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>In particular, one iteration of a parallel loop should never wait on another iteration of the loop to make progress.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>If the parallel loop decides to schedule the iterations sequentially but in the opposite order, a deadlock will occur.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Parallel LINQ (PLINQ)<ept id="p1">](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

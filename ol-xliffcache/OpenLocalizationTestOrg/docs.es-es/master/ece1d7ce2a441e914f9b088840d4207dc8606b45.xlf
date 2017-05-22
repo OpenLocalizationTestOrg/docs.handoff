@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ece1d7ce2a441e914f9b088840d4207dc8606b45</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\diagnostics\tracing\configuring-tracing.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6d7143cedc0be2761418727dbaf30ec2ffcd806a</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">336c4bf64fdff0a06b36deb221d952f807b1e8b6</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Configuring Tracing | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Configuring Tracing</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how you can enable tracing, configure trace sources to emit traces and set trace levels, set activity tracing and propagation to support end-to-end trace correlation, and set trace listeners to access traces.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For tracing settings recommendations in production or debugging environment, refer to <bpt id="p1">[</bpt>Recommended Settings for Tracing and Message Logging<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/tracing/recommended-settings-for-tracing-and-message-logging.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>On Windows 8 you must run your application elevated (Run as Administrator) in order for your application to generate trace logs.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Enabling Tracing</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../../includes/indigo1-md.md)]</ph> outputs the following data for diagnostic tracing:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Traces for process milestones across all components of the applications, such as operation calls, code exceptions, warnings and other significant processing events.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Windows error events when the tracing feature malfunctions.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Event Logging<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/event-logging/index.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> tracing is built on top of <ph id="ph2">&lt;xref:System.Diagnostics&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>To use tracing, you should define trace sources in the configuration file or in code.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> defines a trace source for each <ph id="ph2">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> assembly.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`System.ServiceModel`</ph> trace source is the most general <ph id="ph2">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> trace source, and records processing milestones across the <ph id="ph3">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> communication stack, from entering/leaving transport to entering/leaving user code.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`System.ServiceModel.MessageLogging`</ph> trace source records all messages that flow through the system.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Tracing is not enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To activate tracing, you must create a trace listener and set a trace level other than "Off" for the selected trace source in configuration; otherwise, <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> does not generate any traces.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If you do not specify a listener, tracing is automatically disabled.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If a listener is defined, but no level is specified, the level is set to "Off" by default, which means that no trace is emitted.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If you use <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> extensibility points such as custom operation invokers, you should emit your own traces.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This is because if you implement an extensibility point, <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> can no longer emit the standard traces in the default path.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you do not implement manual tracing support by emitting traces, you may not see the traces you expect.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can configure tracing by editing the application’s configuration file—either Web.config for Web-hosted applications, or Appname.exe.config for self-hosted applications.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The following is an example of such edit.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For more information on these settings, see the "Configuring Trace Listeners to Consume Traces" section.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To edit the configuration file of a <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> service project in <ph id="ph2">[!INCLUDE[vs_current_short](../../../../../includes/vs-current-short-md.md)]</ph>, right click the application’s configuration file—either Web.config for Web-hosted applications, or Appname.exe.config for self-hosted application in <bpt id="p1">**</bpt>Solution Explorer<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Then choose the <bpt id="p1">**</bpt>Edit WCF Configuration<ept id="p1">**</ept> context menu item.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This launches the <bpt id="p1">[</bpt>Configuration Editor Tool (SvcConfigEditor.exe)<ept id="p1">](../../../../../docs/framework/wcf/configuration-editor-tool-svcconfigeditor-exe.md)</ept>, which enables you to modify configuration settings for <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> services using a graphical user interface.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Configuring Trace Sources to Emit Traces</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> defines a trace source for each assembly.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Traces generated within an assembly are accessed by the listeners defined for that source.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The following trace sources are defined:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel: Logs all stages of <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> processing, whenever configuration is read, a message is processed in transport, security processing, a message is dispatched in user code, and so on.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.MessageLogging: Logs all messages that flow through the system.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>System.IdentityModel.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.Activation.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>System.IO.Log: Logging for the .NET Framework interface to the Common Log File System (CLFS).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>System.Runtime.Serialization: Logs when objects are read or written.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>CardSpace.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>You can configure each trace source to use the same (shared) listener, as indicated in the following configuration example.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>In addition, you can add user-defined trace sources, as demonstrated by the following example, to emit user code traces.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../../includes/crabout-md.md)]</ph> creating user-defined trace sources, see <bpt id="p1">[</bpt>Extending Tracing<ept id="p1">](../../../../../docs/framework/wcf/samples/extending-tracing.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Configuring Trace Listeners to Consume Traces</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>At runtime, <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> feeds trace data to the listeners which process the data.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> provides several predefined listeners for <ph id="ph2">&lt;xref:System.Diagnostics&gt;</ph>, which differ in the format they use for output.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You can also add custom listener types.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>You can use <ph id="ph1">`add`</ph> to specify the name and type of the trace listener you want to use.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>In our example configuration, we named the Listener <ph id="ph1">`traceListener`</ph> and added the standard .NET Framework trace listener (<ph id="ph2">`System.Diagnostics.XmlWriterTraceListener`</ph>) as the type we want to use.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>You can add any number of trace listeners for each source.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If the trace listener emits the trace to a file, you must specify the output file location and name in the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This is done by setting <ph id="ph1">`initializeData`</ph> to the name of the file for that listener.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If you do not specify a file name, a random file name is generated based on the listener type used.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Diagnostics.XmlWriterTraceListener&gt;</ph> is used, a file name with no extension is generated.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>If you implement a custom listener, you can also use this attribute to receive initialization data other than a filename.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For example, you can specify a database identifier for this attribute.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can configure a custom trace listener to send traces on the wire, for example, to a remote database.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>As an application deployer, you should enforce proper access control on the trace logs in the remote machine.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>You can also configure a trace listener programmatically.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>How to: Create and Initialize Trace Listeners<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94648)</ept> and <bpt id="p2">[</bpt>Creating a Custom TraceListener<ept id="p2">](http://go.microsoft.com/fwlink/?LinkId=96239)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">`System.Diagnostics.XmlWriterTraceListener`</ph> is not thread-safe, the trace source may lock resources exclusively when outputting traces.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>When many threads output traces to a trace source configured to use this listener, resource contention may occur, which results in a significant performance issue.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>To resolve this problem, you should implement a custom listener that is thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Trace Level</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The tracing level is controlled by the <ph id="ph1">`switchValue`</ph> setting of the trace source.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The available tracing levels are described in the following table.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Trace Level</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Nature of the Tracked Events</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Content of the Tracked Events</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Tracked Events</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>User Target</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Off</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>No traces are emitted.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Critical</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>"Negative" events: events that indicate an unexpected processing or an error condition.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Unhandled exceptions including the following are logged:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>-   OutOfMemoryException</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>-   ThreadAbortException (the CLR invokes any ThreadAbortExceptionHandler)</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>-   StackOverflowException (cannot be caught)</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>-   ConfigurationErrorsException</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>-   SEHException</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>-   Application start errors</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>-   Failfast events</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>-   System hangs</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>-   Poison messages: message traces that cause the application to fail.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Application developers</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Error</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>"Negative" events: events that indicate an unexpected processing or an error condition.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Unexpected processing has happened.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The application was not able to perform a task as expected.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>However, the application is still up and running.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>All exceptions are logged.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Application developers</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Warning</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>"Negative" events: events that indicate an unexpected processing or an error condition.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>A possible problem has occurred or may occur, but the application still functions correctly.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>However, it may not continue to work properly.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>-   The application is receiving more requests than its throttling settings allow.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>-   The receiving queue is near its maximum configured capacity.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>-   Timeout has exceeded.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>-   Credentials are rejected.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Application developers</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Information</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>"Positive" events: events that mark successful milestones</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Important and successful milestones of application execution, regardless of whether the application is working properly or not.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>In general, messages helpful for monitoring and diagnosing system status, measuring performance or profiling are generated.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>You can use such information for capacity planning and performance management:</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>-   Channels are created.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>-   Endpoint listeners are created.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>-   Message enters/leaves transport.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>-   Security token is retrieved.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>-   Configuration setting is read.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Application developers</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Product developers.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Verbose</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>"Positive" events: events that mark successful milestones.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Low level events for both user code and servicing are emitted.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>In general, you can use this level for debugging or application optimization.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>-   Understood message header.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Application developers</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Product developers.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>ActivityTracing</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Flow events between processing activities and components.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>This level allows administrators and developers to correlate applications in the same application domain:</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>-   Traces for activity boundaries, such as start/stop.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>-   Traces for transfers.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>All</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>All</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Application may function properly.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>All events are emitted.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>All previous events.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>All</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>The levels from Verbose to Critical are stacked on top of each other, that is, each trace level includes all levels above it except the Off level.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>For example, a listener listening at the Warning level receives Critical, Error, and Warning traces.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>The All level includes events from Verbose to Critical and Activity tracing events.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>The Information, Verbose, and ActivityTracing levels generate a lot of traces, which may negatively impact message throughput if you have used up all available resources on the machine.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Configuring Activity Tracing and Propagation for Correlation</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`activityTracing`</ph> value specified for the <ph id="ph2">`switchValue`</ph> attribute is used to enable activity tracing, which emits traces for activity boundaries and transfers within endpoints.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>When you use certain extensibility features in <ph id="ph1">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph>, you might get a <ph id="ph2">&lt;xref:System.NullReferenceException&gt;</ph> when activity tracing is enabled.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>To fix this problem, check your application's configuration file and ensure that the <ph id="ph1">`switchValue`</ph> attribute for your trace source is not set to <ph id="ph2">`activityTracing`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`propagateActivity`</ph> attribute indicates whether the activity should be propagated to other endpoints that participate in the message exchange.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>By setting this value to <ph id="ph1">`true`</ph>, you can take trace files generated by any two endpoints and observe how a set of traces on one endpoint flowed to a set of traces on another endpoint.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../../includes/crabout-md.md)]</ph> activity tracing and propagation, see <bpt id="p1">[</bpt>Propagation<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/tracing/propagation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Both <ph id="ph1">`propagateActivity`</ph>and <ph id="ph2">`ActivityTracing`</ph>Boolean values apply to the System.ServiceModel TraceSource.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The<ph id="ph1">`ActivityTracing`</ph>value also applies to any trace source, including <ph id="ph2">[!INCLUDE[indigo2](../../../../../includes/indigo2-md.md)]</ph> or user-defined ones.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>You cannot use the <ph id="ph1">`propagateActivity`</ph> attribute with user-defined trace sources.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>For user code activity ID propagation, make sure you do not set ServiceModel <ph id="ph1">`ActivityTracing`</ph>, while still having ServiceModel <ph id="ph2">`propagateActivity`</ph> attribute set to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Tracing<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/tracing/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Administration and Diagnostics<ept id="p1">](../../../../../docs/framework/wcf/diagnostics/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Create and Initialize Trace Listeners<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=94648)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Creating a Custom TraceListener<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=96239)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
