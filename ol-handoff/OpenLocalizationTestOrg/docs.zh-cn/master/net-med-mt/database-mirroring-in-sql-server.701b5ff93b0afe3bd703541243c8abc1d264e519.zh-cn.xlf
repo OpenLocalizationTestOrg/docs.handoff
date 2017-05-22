@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2b0b9e72c2a3e1b2abc1b9adb8714cca53ad2773</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\sql\database-mirroring-in-sql-server.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">849362a12a536356b177f93710d3b1ceea058f20</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a36fa40984dc89d0a8c735befe4642b00b3170e0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Database Mirroring in SQL Server | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Database Mirroring in SQL Server</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Database mirroring in SQL Server allows you to keep a copy, or mirror, of a SQL Server database on a standby server.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Mirroring ensures that two separate copies of the data exist at all times, providing high availability and complete data redundancy.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The .NET Data Provider for SQL Server provides implicit support for database mirroring, so that the developer does not need to take any action or write any code once it has been configured for a SQL Server database.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In addition, the <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object supports an explicit connection mode that allows supplying the name of a failover partner server in the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The following simplified sequence of events occurs for a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object that targets a database configured for mirroring:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The client application successfully connects to the principal database, and the server sends back the name of the partner server, which is then cached on the client.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If the server containing the principal database fails or connectivity is interrupted, connection and transaction state is lost.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The client application attempts to re-establish a connection to the principal database and fails.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The client application then transparently attempts to establish a connection to the mirror database on the partner server.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If it succeeds, the connection is redirected to the mirror database, which then becomes the new principal database.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Specifying the Failover Partner in the Connection String</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If you supply the name of a failover partner server in the connection string, the client will transparently attempt a connection with the failover partner if the principal database is unavailable when the client application first connects.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If you omit the name of the failover partner server and the principal database is unavailable when the client application first connects then a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlException&gt;</ph> is raised.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> is successfully opened, the failover partner name is returned by the server and supersedes any values supplied in the connection string.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You must explicitly specify the initial catalog or database name in the connection string for database mirroring scenarios.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the client receives failover information on a connection that doesn't have an explicitly specified initial catalog or database, the failover information is not cached and the application does not attempt to fail over if the principal server fails.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If a connection string has a value for the failover partner, but no value for the initial catalog or database, an <ph id="ph1">`InvalidArgumentException`</ph> is raised.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Retrieving the Current Server Name</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In the event of a failover, you can retrieve the name of the server to which the current connection is actually connected by using the <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection.DataSource%2A&gt;</ph> property of a <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The following code fragment retrieves the name of the active server, assuming that the connection variable references an open <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>When a failover event occurs and the connection is switched to the mirror server, the <bpt id="p1">**</bpt>DataSource<ept id="p1">**</ept> property is updated to reflect the mirror name.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>SqlClient Mirroring Behavior</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The client always tries to connect to the current principal server.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If it fails, it tries the failover partner.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If the mirror database has already been switched to the principal role on the partner server, the connection succeeds and the new principal-mirror mapping is sent to the client and cached for the lifetime of the calling <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It is not stored in persistent storage and is not available for subsequent connections in a different <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept> or process.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>However, it is available for subsequent connections within the same <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Note that another <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept> or process running on the same or a different computer always has its pool of connections, and those connections are not reset.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In that case, if the primary database goes down, each process or <bpt id="p1">**</bpt>AppDomain<ept id="p1">**</ept> fails once, and the pool is automatically cleared.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Mirroring support on the server is configured on a per-database basis.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>If data manipulation operations are executed against other databases not included in the principal/mirror set, either by using multipart names or by changing the current database, the changes to these other databases do not propagate in the event of failure.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>No error is generated when data is modified in a database that is not mirrored.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The developer must evaluate the possible impact of such operations.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Database Mirroring Resources</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For conceptual documentation and information on configuring, deploying and administering mirroring, see the following resources in SQL Server Books Online.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Resource</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Database Mirroring<ept id="p1">](http://msdn.microsoft.com/library/bb934127.aspx)</ept> in SQL Server Books Online</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Describes how to set up and configure mirroring in SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

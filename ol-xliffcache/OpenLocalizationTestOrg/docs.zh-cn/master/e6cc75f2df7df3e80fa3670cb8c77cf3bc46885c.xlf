@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e6cc75f2df7df3e80fa3670cb8c77cf3bc46885c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\pooling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d253a3dea9dd5e673cf60e5dfea348b937e29be2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b6426c1b077b19844f4f5c1196312ed1e3fb2a22</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Pooling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Pooling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to extend <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> to support object pooling.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The sample demonstrates how to create an attribute that is syntactically and semantically similar to the <ph id="ph1">`ObjectPoolingAttribute`</ph> attribute functionality of Enterprise Services.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Object pooling can provide a dramatic boost to an application's performance.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, it can have the opposite effect if it is not used properly.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Object pooling helps reduce the overhead of recreating frequently used objects that require extensive initialization.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>However, if a call to a method on a pooled object takes a considerable amount of time to complete, object pooling queues additional requests as soon as the maximum pool size is reached.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Thus it may fail to serve some object creation requests by throwing a timeout exception.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The first step in creating a <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> extension is to decide the extensibility point to use.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> the term <bpt id="p1">*</bpt>dispatcher<ept id="p1">*</ept> refers to a run-time component responsible for converting incoming messages into method invocations on the user’s service and for converting return values from that method to an outgoing message.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service creates a dispatcher for each endpoint.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> client must use a dispatcher if the contract associated with that client is a duplex contract.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The channel and endpoint dispatchers offer channel-and contract-wide extensibility by exposing various properties that control the behavior of the dispatcher.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.EndpointDispatcher.DispatchRuntime%2A&gt;</ph> property also enables you to inspect, modify, or customize the dispatching process.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This sample focuses on the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceProvider%2A&gt;</ph> property that points to the object that provides the instances of the service class.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The IInstanceProvider</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, the dispatcher creates instances of the service class using a <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceProvider%2A&gt;</ph>, which implements the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This interface has three methods:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%2CSystem.ServiceModel.Channels.Message%29&gt;</ph>: When a message arrives the Dispatcher calls the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%2CSystem.ServiceModel.Channels.Message%29&gt;</ph> method to create an instance of the service class to process the message.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The frequency of the calls to this method is determined by the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For example, if the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode%2A&gt;</ph> property is set to <ph id="ph2">&lt;xref:System.ServiceModel.InstanceContextMode&gt;</ph> a new instance of service class is created to process each message that arrives, so <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%2CSystem.ServiceModel.Channels.Message%29&gt;</ph> is called whenever a message arrives.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%29&gt;</ph>: This is identical to the previous method, except this is invoked when there is no Message argument.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.ReleaseInstance%28System.ServiceModel.InstanceContext%2CSystem.Object%29&gt;</ph>: When a service instance's lifetime has elapsed, the Dispatcher calls the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.ReleaseInstance%28System.ServiceModel.InstanceContext%2CSystem.Object%29&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Just like for the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%2CSystem.ServiceModel.Channels.Message%29&gt;</ph> method, the frequency of the calls to this method is determined by the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The Object Pool</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A custom <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider&gt;</ph> implementation provides the required object pooling semantics for a service.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Therefore, this sample has an <ph id="ph1">`ObjectPoolingInstanceProvider`</ph> type that provides custom implementation of <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider&gt;</ph> for pooling.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">`Dispatcher`</ph> calls the <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.IInstanceProvider.GetInstance%28System.ServiceModel.InstanceContext%2CSystem.ServiceModel.Channels.Message%29&gt;</ph> method, instead of creating a new instance, the custom implementation looks for an existing object in an in-memory pool.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If one is available, it is returned.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Otherwise, a new object is created.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The implementation for <ph id="ph1">`GetInstance`</ph> is shown in the following sample code.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The custom <ph id="ph1">`ReleaseInstance`</ph> implementation adds the released instance back to the pool and decrements the <ph id="ph2">`ActiveObjectsCount`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Dispatcher`</ph> can call these methods from different threads, and therefore synchronized access to the class level members in the <ph id="ph2">`ObjectPoolingInstanceProvider`</ph> class is required.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ReleaseInstance`</ph> method provides a "clean up initialization" feature.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Normally the pool maintains a minimum number of objects for the lifetime of the pool.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>However, there can be periods of excessive usage that require creating additional objects in the pool to reach the maximum limit specified in the configuration.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Eventually, when the pool becomes less active, those surplus objects can become an extra overhead.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Therefore, when the <ph id="ph1">`activeObjectsCount`</ph> reaches zero, an idle timer is started that triggers and performs a clean-up cycle.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Adding the Behavior</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Dispatcher-layer extensions are hooked up using the following behaviors:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Service Behaviors.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>These allow for the customization of the entire service runtime.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Endpoint Behaviors.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>These allow for the customization of service endpoints, specifically a Channel and Endpoint Dispatcher.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Contract Behaviors.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>These allow for the customization of both <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.ClientRuntime&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> classes on the client and the service respectively.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For the purpose of an object pooling extension a service behavior must be created.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Service behaviors are created by implementing the <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>There are several ways to make the service model aware of the custom behaviors:</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Using a custom attribute.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Imperatively adding it to the service description’s behaviors collection.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Extending the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This sample uses a custom attribute.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> is constructed it examines the attributes used in the service’s type definition and adds the available behaviors to the service description’s behaviors collection.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The interface <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> has three methods in it -- <ph id="ph2">&lt;xref:System.ServiceModel.Description.IServiceBehavior.Validate%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters%2A&gt;</ph>, and <ph id="ph4">&lt;xref:System.ServiceModel.Description.IServiceBehavior.ApplyDispatchBehavior%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior.Validate%2A&gt;</ph> method is used to ensure that the behavior can be applied to the service.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>In this sample, the implementation ensures that the service is not configured with <ph id="ph1">&lt;xref:System.ServiceModel.InstanceContextMode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters%2A&gt;</ph> method is used to configure the service's bindings.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>It is not required in this scenario.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior.ApplyDispatchBehavior%2A&gt;</ph> is used to configure the service's dispatchers.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This method is called by <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> when the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> is being initialized.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The following parameters are passed into this method:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Description`</ph>: This argument provides the service description for the entire service.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This can be used to inspect description data about the service’s endpoints, contracts, bindings, and other data.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ServiceHostBase`</ph>: This argument provides the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHostBase&gt;</ph> that is currently being initialized.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In the custom <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> implementation a new instance of <ph id="ph2">`ObjectPoolingInstanceProvider`</ph> is instantiated and assigned to the <ph id="ph3">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime.InstanceProvider%2A&gt;</ph> property in each <ph id="ph4">&lt;xref:System.ServiceModel.Dispatcher.DispatchRuntime&gt;</ph> in the ServiceHostBase.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>In addition to an <ph id="ph1">&lt;xref:System.ServiceModel.Description.IServiceBehavior&gt;</ph> implementation the <ph id="ph2">&lt;xref:System.EnterpriseServices.ObjectPoolingAttribute&gt;</ph> class has several members to customize the object pool using the attribute arguments.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>These members include <ph id="ph1">&lt;xref:System.EnterpriseServices.ObjectPoolingAttribute.MaxPoolSize%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.EnterpriseServices.ObjectPoolingAttribute.MinPoolSize%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.EnterpriseServices.ObjectPoolingAttribute.CreationTimeout%2A&gt;</ph>, to match the object pooling feature set provided by .NET Enterprise Services.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The object pooling behavior can now be added to a <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service by annotating the service implementation with the newly created custom <ph id="ph2">`ObjectPooling`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Running the Sample</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The sample demonstrates the performance benefits that can be gained by using object pooling in certain scenarios.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The service application implements two services -- <ph id="ph1">`WorkService`</ph> and <ph id="ph2">`ObjectPooledWorkService`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Both services share the same implementation -- they both require expensive initialization and then expose a <ph id="ph1">`DoWork()`</ph> method that is relatively cheap.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The only difference is that the <ph id="ph1">`ObjectPooledWorkService`</ph> has object pooling configured:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>When you run the client, it times calling the <ph id="ph1">`WorkService`</ph> 5 times.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>It then times calling the <ph id="ph1">`ObjectPooledWorkService`</ph> 5 times.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The difference in time is then displayed:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The first time the client is run both services appear to take about the same amount of time.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>If you re-run the sample, you can see that the <ph id="ph1">`ObjectPooledWorkService`</ph> returns much quicker because an instance of that object already exists in the pool.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>To build the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If you use Svcutil.exe to regenerate the configuration for this sample, be sure to modify the endpoint name in the client configuration to match the client code.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

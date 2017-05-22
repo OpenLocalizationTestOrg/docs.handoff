@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">46d8ae9b5356e8441805ee099b3c5c473f9f72aa</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\concepts\linq\how-to-join-two-collections-linq-to-xml.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fc29eaa484a24ea6d93ff31c85ab20aecea62511</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2fc9918e7b274a21a5a40f9904a61fb2d57c12b6</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Join Two Collections (LINQ to XML) (C#) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Join Two Collections (LINQ to XML) (C#)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>An element or attribute in an XML document can sometimes refer to another element or attribute.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For example, the <bpt id="p1">[</bpt>Sample XML File: Customers and Orders (LINQ to XML)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-linq-to-xml-2.md)</ept> XML document contains a list of customers and a list of orders.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">`Customer`</ph> element contains a <ph id="ph2">`CustomerID`</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">`Order`</ph> element contains a <ph id="ph2">`CustomerID`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CustomerID`</ph> element in each order refers to the <ph id="ph2">`CustomerID`</ph> attribute in a customer.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The topic <bpt id="p1">[</bpt>Sample XSD File: Customers and Orders<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/sample-xsd-file-customers-and-orders1.md)</ept> contains an XSD that can be used to validate this document.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>It uses the <ph id="ph1">`xs:key`</ph> and <ph id="ph2">`xs:keyref`</ph> features of XSD to establish that the <ph id="ph3">`CustomerID`</ph> attribute of the <ph id="ph4">`Customer`</ph> element is a key, and to establish a relationship between the <ph id="ph5">`CustomerID`</ph> element in each <ph id="ph6">`Order`</ph> element and the <ph id="ph7">`CustomerID`</ph> attribute in each <ph id="ph8">`Customer`</ph> element.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>With <ph id="ph1">[!INCLUDE[sqltecxlinq](../../../../csharp/programming-guide/concepts/linq/includes/sqltecxlinq_md.md)]</ph>, you can take advantage of this relationship by using the <ph id="ph2">`join`</ph> clause.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Note that because there is no index available, such joining will have poor runtime performance.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For more detailed information about <ph id="ph1">`join`</ph>, see <bpt id="p1">[</bpt>Join Operations (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/join-operations.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The following example joins the <ph id="ph1">`Customer`</ph> elements to the <ph id="ph2">`Order`</ph> elements, and generates a new XML document that includes the <ph id="ph3">`CompanyName`</ph> element in the orders.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Before executing the query, the example validates that the document complies with the schema in <bpt id="p1">[</bpt>Sample XSD File: Customers and Orders<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/sample-xsd-file-customers-and-orders1.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This ensures that the join clause will always work.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This query first retrieves all <ph id="ph1">`Customer`</ph> elements, and then joins them to the <ph id="ph2">`Order`</ph> elements.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>It selects only the orders for customers with a <ph id="ph1">`CustomerID`</ph> greater than "K".</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>It then projects a new <ph id="ph1">`Order`</ph> element that contains the customer information within each order.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This example uses the following XML document: <bpt id="p1">[</bpt>Sample XML File: Customers and Orders (LINQ to XML)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-linq-to-xml-2.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This example uses the following XSD schema: <bpt id="p1">[</bpt>Sample XSD File: Customers and Orders<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/sample-xsd-file-customers-and-orders1.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Note that joining in this fashion will not perform very well.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Joins are performed via a linear search.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>There are no hash tables or indexes to help with performance.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This code produces the following output:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Advanced Query Techniques (LINQ to XML) (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/advanced-query-techniques-linq-to-xml.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

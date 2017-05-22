@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">450616025fa19c3756d7108ff05e67ea4a4ebd35</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\weak-event-patterns.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">68d038166a10d070b6d061dd3d275abeba824923</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e11c879d47f04d945dafbbed2882fbbe4feb10da</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Weak Event Patterns | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Weak Event Patterns</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In applications, it is possible that handlers that are attached to event sources will not be destroyed in coordination with the listener object that attached the handler to the source.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This situation can lead to memory leaks.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> introduces a design pattern that can be used to address this issue, by providing a dedicated manager class for particular events and implementing an interface on listeners for that event.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This design pattern is known as the <bpt id="p1">*</bpt>weak event pattern<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Why Implement the Weak Event Pattern?</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Listening for events can lead to memory leaks.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The typical technique for listening to an event is to use the language-specific syntax that attaches a handler to an event on a source.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For example, in <ph id="ph1">[!INCLUDE[TLA#tla_cshrp](../../../../includes/tlasharptla-cshrp-md.md)]</ph>, that syntax is: <ph id="ph2">`source.SomeEvent += new SomeEventHandler(MyEventHandler)`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This technique creates a strong reference from the event source to the event listener.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Ordinarily, attaching an event handler for a listener causes the listener to have an object lifetime that is influenced by the object lifetime of the source (unless the event handler is explicitly removed).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>But in certain circumstances, you might want the object lifetime of the listener to be controlled by other factors, such as whether it currently belongs to the visual tree of the application, and not by the lifetime of the source.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Whenever the source object lifetime extends beyond the object lifetime of the listener, the normal event pattern leads to a memory leak: the listener is kept alive longer than intended.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The weak event pattern is designed to solve this memory leak problem.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The weak event pattern can be used whenever a listener needs to register for an event, but the listener does not explicitly know when to unregister.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The weak event pattern can also be used whenever the object lifetime of the source exceeds the useful object lifetime of the listener.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>(In this case, <bpt id="p1">*</bpt>useful<ept id="p1">*</ept> is determined by you.) The weak event pattern allows the listener to register for and receive the event without affecting the object lifetime characteristics of the listener in any way.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In effect, the implied reference from the source does not determine whether the listener is eligible for garbage collection.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The reference is a weak reference, thus the naming of the weak event pattern and the related <ph id="ph1">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The listener can be garbage collected or otherwise destroyed, and the source can continue without retaining noncollectible handler references to a now destroyed object.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Who Should Implement the Weak Event Pattern?</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Implementing the weak event pattern is interesting primarily for control authors.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>As a control author, you are largely responsible for the behavior and containment of your control and the impact it has on applications in which it is inserted.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This includes the control object lifetime behavior, in particular the handling of the described memory leak problem.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Certain scenarios inherently lend themselves to the application of the weak event pattern.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>One such scenario is data binding.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In data binding, it is common for the source object to be completely independent of the listener object, which is a target of a binding.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Many aspects of <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> data binding already have the weak event pattern applied in how the events are implemented.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>How to Implement the Weak Event Pattern</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>There are three ways to implement weak event pattern.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The following table lists the three approaches and provides some guidance for when you should use each.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Approach</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When to Implement</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Use an existing weak event manager class</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If the event you want to subscribe to has a corresponding <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph>, use the existing weak event manager.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For a list of weak event managers that are included with WPF, see the inheritance hierarchy in the <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Note, however, that there are relatively few weak event managers that are included with WPF, so you will probably need to choose one of the other approaches.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Use a generic weak event manager class</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Use a generic <ph id="ph1">&lt;xref:System.Windows.WeakEventManager%602&gt;</ph> when an existing <ph id="ph2">&lt;xref:System.Windows.WeakEventManager&gt;</ph> is not available, you want an easy way to implement, and you are not concerned about efficiency.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The generic <ph id="ph1">&lt;xref:System.Windows.WeakEventManager%602&gt;</ph> is less efficient than an existing or custom weak event manager.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For example, the generic class does more reflection to discover the event given the event's name.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Also, the code to register the event by using the generic <ph id="ph1">&lt;xref:System.Windows.WeakEventManager%602&gt;</ph> is more verbose than using an existing or custom <ph id="ph2">&lt;xref:System.Windows.WeakEventManager&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Create a custom weak event manager class</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Create a custom <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph> when you an existing <ph id="ph2">&lt;xref:System.Windows.WeakEventManager&gt;</ph> is not available and you want the best efficiency.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Using a custom <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph> to subscribe to an event will be more efficient, but you do incur the cost of writing more code at the beginning.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The following sections describe how to implement the weak event pattern.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>For purposes of this discussion, the event to subscribe to has the following characteristics.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The event name is <ph id="ph1">`SomeEvent`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The event is raised by the <ph id="ph1">`EventSource`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The event handler has type: <ph id="ph1">`SomeEventEventHandler`</ph> (or <ph id="ph2">`EventHandler&lt;SomeEventEventArgs&gt;`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The event passes a parameter of type <ph id="ph1">`SomeEventEventArgs`</ph> to the event handlers.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Using an Existing Weak Event Manager Class</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Find an existing weak event manager.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For a list of weak event managers that are included with WPF, see the inheritance hierarchy in the <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Use the new weak event manager instead of the normal event hookup.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>For example, if your code uses the following pattern to subscribe to an event:</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Change it to the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Similarly, if your code uses the following pattern to unsubscribe to an event:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Change it to the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Using the Generic Weak Event Manager Class</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Use the generic <ph id="ph1">&lt;xref:System.Windows.WeakEventManager%602&gt;</ph> class instead of the normal event hookup.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>When you use <ph id="ph1">&lt;xref:System.Windows.WeakEventManager%602&gt;</ph> to register event listeners, you supply the event source and <ph id="ph2">&lt;xref:System.EventArgs&gt;</ph> type as the type parameters to the class and call <ph id="ph3">&lt;xref:System.Windows.WeakEventManager%602.AddHandler%2A&gt;</ph> as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Creating a Custom Weak Event Manager Class</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Copy the following class template to your project.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This class inherits from the <ph id="ph1">&lt;xref:System.Windows.WeakEventManager&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>WeakEvents#WeakEventManagerTemplate<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/WeakEvents/CSharp/WeakEventManagerTemplate.cs#weakeventmanagertemplate)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Replace the <ph id="ph1">`SomeEventWeakEventManager`</ph> name with your own name.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Replace the three names described previously with the corresponding names for your event.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">`SomeEvent`</ph>, <ph id="ph2">`EventSource`</ph>, and <ph id="ph3">`SomeEventEventArgs`</ph>)</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Set the visibility (public / internal / private) of the weak event manager class to the same visibility as event it manages.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Use the new weak event manager instead of the normal event hookup.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For example, if your code uses the following pattern to subscribe to an event:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Change it to the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Similarly, if your code uses the following pattern to unsubscribe to an event:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Change it to the following pattern:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Binding Overview<ept id="p1">](../../../../docs/framework/wpf/data/data-binding-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

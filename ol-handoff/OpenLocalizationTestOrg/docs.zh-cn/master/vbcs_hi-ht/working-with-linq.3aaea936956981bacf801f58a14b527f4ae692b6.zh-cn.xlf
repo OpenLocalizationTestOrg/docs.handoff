@@ -1,0 +1,588 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ec86c558b9aa9c6269fcf9890978f61a934c081f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\tutorials\working-with-linq.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_hi-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9f5a3dc613e037c1eb7292b880908df96bdfb1c2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8554ce1e8199971d9c3bd1fe53af72552da2013c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Working with LINQ</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>This tutorial teaches you how to generate sequences with LINQ, write methods for use in LINQ queries, and distinguish between eager and lazy evaluation.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>.NET, .NET Core</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Working with LINQ</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Introduction</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This tutorial teaches you a number of features in .NET Core and the C# language.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You’ll learn:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>How to generate sequences with LINQ</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>How to write methods that can be easily used in LINQ queries.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>How to distinguish between eager and lazy evaluation.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You'll learn these techniques by building an application that demonstrates one of the basic skills of any magician: the <bpt id="p1">[</bpt>faro shuffle<ept id="p1">](https://en.wikipedia.org/wiki/Faro_shuffle)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Briefly, a faro shuffle is a technique where you split a card deck exactly in half, then the shuffle interleaves each one card from each half to rebuild the original deck.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Magicians use this technique because every card is in a known location after each shuffle, and the order is a repeating pattern.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For our purposes, it is a light hearted look at manipulating sequences of data.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The application you'll build will construct a card deck, and then perform a sequence of shuffles, writing the sequence out each time.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You'll also compare the updated order to the original order.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This tutorial has multiple steps.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>After each step, you can run the application and see the progress.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You can also see the <bpt id="p1">[</bpt>completed sample<ept id="p1">](https://github.com/dotnet/docs/blob/master/samples/csharp/getting-started/console-linq)</ept> in the dotnet/docs GitHub repository.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For download instructions, see <bpt id="p1">[</bpt>Samples and Tutorials<ept id="p1">](../../samples-and-tutorials/index.md#viewing-and-downloading-samples)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You’ll need to setup your machine to run .NET core.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can find the installation instructions on the <bpt id="p1">[</bpt>.NET Core<ept id="p1">](https://www.microsoft.com/net/core)</ept> page.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You can run this application on Windows, Ubuntu Linux, OS X or in a Docker container.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>You’ll need to install your favorite code editor.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The descriptions below use <bpt id="p1">[</bpt>Visual Studio Code<ept id="p1">](https://code.visualstudio.com/)</ept> which is an open source, cross platform editor.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>However, you can use whatever tools you are comfortable with.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Create the Application</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The first step is to create a new application.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Open a command prompt and create a new directory for your application.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Make that the current directory.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Type the command <ph id="ph1">`dotnet new console`</ph> at the command prompt.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This creates the starter files for a basic "Hello World" application.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If you've never used C# before, <bpt id="p1">[</bpt>this tutorial<ept id="p1">](console-teleprompter.md)</ept> explains the structure of a C# program.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>You can read that and then return here to learn more about LINQ.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Creating the Data Set</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Let's start by creating a deck of cards.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>You'll do this using a LINQ query that has two sources (one for the four suits, one for the thirteen values).</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>You'll combine those sources into a 52 card deck.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`Console.WriteLine`</ph> statement inside a <ph id="ph2">`foreach`</ph> loop displays the cards.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Here's the query:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The multiple <ph id="ph1">`from`</ph> clauses produce a <ph id="ph2">`SelectMany`</ph>, which creates a single sequence from combining each element in the first sequence with each element in the second sequence.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The order is important for our purposes.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The first element in the first source sequence (Suits) is combined with every element in the second sequence (Values).</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>This produces all thirteen cards of first suit.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>That process is repeated with each element in the first sequence (Suits).</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The end result is a deck of cards ordered by suits, followed by values.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Next, you'll need to build the Suits() and Ranks() methods.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Let's start with a really simple set of <bpt id="p1">*</bpt>iterator methods<ept id="p1">*</ept> that generate the sequence as an enumerable of strings:</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>These two methods both utilize the <ph id="ph1">`yield return`</ph> syntax to produce a sequence as they run.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The compiler builds an object that implements <ph id="ph1">`IEnumerable&lt;T&gt;`</ph> and generates the sequence of strings as they are requested.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Go ahead and run the sample you've built at this point.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>It will display all 52 cards in the deck.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>You may find it very helpful to run this sample under a debugger to observe how the <ph id="ph1">`Suits()`</ph> and <ph id="ph2">`Values()`</ph> methods execute.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>You can clearly see that each string in each sequence is generated only as it is needed.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Console window showing the app writing out 52 cards</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Manipulating the Order</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Next, let's build a utility method that can perform the shuffle.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The first step is to split the deck in two.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Take()`</ph> and <ph id="ph2">`Skip()`</ph> methods that are part of the LINQ APIs provide that feature for us:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The shuffle method doesn't exist in the standard library, so you'll have to write your own.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This new method illustrates several techniques that you'll use with LINQ-based programs, so let's explain each part of the method in steps.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The signature for the method creates an <bpt id="p1">*</bpt>extension method<ept id="p1">*</ept>:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>An extension method is a special purpose <bpt id="p1">*</bpt>static method.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>You can see the addition of the <ph id="ph1">`this`</ph> modifier on the first argument to the method.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>That means you call the method as though it were a member method of the type of the first argument.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Extension methods can be declared only inside <ph id="ph1">`static`</ph> classes, so let's create a new static class called <ph id="ph2">`extensions`</ph> for this functionality.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>You'll add more extension methods as you continue this tutorial, and those will be placed in the same class.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>This method declaration also follows a standard idiom where the input and output types are <ph id="ph1">`IEnumerable&lt;T&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>That practice enables LINQ methods to be chained together to perform more complex queries.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>You will be enumerating both sequences at once, interleaving the elements, and creating one object.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Writing a LINQ method that works with two sequences requires that you understand how <ph id="ph1">`IEnumerable`</ph> works.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IEnumerable`</ph> interface has one method: <ph id="ph2">`GetEnumerator()`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The object returned by <ph id="ph1">`GetEnumerator()`</ph> has a method to move to the next element, and a property that retrieves the current element in the sequence.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>You will use those two members to enumerate the collection and return the elements.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This Interleave method will be an iterator method, so instead of building a collection and returning the collection, you'll use the <ph id="ph1">`yield return`</ph> syntax shown above.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Here's the implementation of that method:</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>InterleaveSequenceWith<ept id="p2">](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Now that you've written this method, go back to the <ph id="ph1">`Main`</ph> method and shuffle the deck once:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Comparisons</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Let's see how many shuffles it takes to set the deck back to its original order.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>You'll need to write a method that determines if two sequences are equal.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>After you have that method, you'll need to place the code that shuffles the deck in a loop, and check to see when the deck is back in order.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Writing a method to determine if the two sequences are equal should be straightforward.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>It's a similar structure to the method you wrote to shuffle the deck.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Only this time, instead of yield returning each element, you'll compare the matching elements of each sequence.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>When the entire sequence has been enumerated, if every element matches, the sequences are the same:</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>SequenceEquals<ept id="p2">](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>This shows a second Linq idiom: terminal methods.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>They take a sequence as input (or in this case, two sequences), and return a single scalar value.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>These methods, when they are used, are always the final method of a query.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>(Hence the name).</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>You can see this in action when you use it to determine when the deck is back in its original order.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Put the shuffle code inside a loop, and stop when the sequence is back in its original order by applying the <ph id="ph1">`SequenceEquals()`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>You can see it would always be the final method in any query, because it returns a single value instead of a sequence:</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Run the sample, and see how the deck rearranges on each shuffle, until it returns to its original configuration after 8 iterations.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Optimizations</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>The sample you've built so far executes an <bpt id="p1">*</bpt>in shuffle<ept id="p1">*</ept>, where the top and bottom cards stay the same on each run.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Let's make one change, and run an <bpt id="p1">*</bpt>out shuffle<ept id="p1">*</ept>, where all 52 cards change position.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>For an out shuffle, you interleave the deck so that the first card in the bottom half becomes the first card in the deck.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>That means the last card in the top half becomes the bottom card.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>That's just a one line change.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Update the call to shuffle to change the order of the top and bottom halves of the deck:</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Run the program again, and you'll see that it takes 52 iterations for the deck to reorder itself.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>You'll also start to notice some serious performance degradations as the program continues to run.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>There are a number of reasons for this.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Let's tackle one of the major causes: inefficient use of <bpt id="p1">*</bpt>lazy evaluation<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>LINQ queries are evaluated lazily.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The sequences are generated only as the elements are requested.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Usually, that's a major benefit of LINQ.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>However, in a use such as this program, this causes exponential growth in execution time.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>The original deck was generated using a LINQ query.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Each shuffle is generated by performing three LINQ queries on the previous deck.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>All these are performed lazily.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>That also means they are performed again each time the sequence is requested.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>By the time you get to the 52nd iteration, you're regenerating the original deck many, many times.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Let's write a log to demonstrate this behavior.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Then, you'll fix it.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Here's a log method that can be appended to any query to mark that the query executed.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>LogQuery<ept id="p2">](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Next, instrument the definition of each query with a log message:</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Notice that you don't log every time you access a query.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>You log only when you create the original query.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The program still takes a long time to run, but now you can see why.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>If you run out of patience running the outer shuffle with logging turned on, switch back to the inner shuffle.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>You'll still see the lazy evaluation effects.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>In one run, it executes 2592 queries, including all the value and suit generation.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>There is an easy way to update this program to avoid all those executions.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>There are LINQ methods <ph id="ph1">`ToArray()`</ph> and <ph id="ph2">`ToList()`</ph> that cause the query to run, and store the results in an array or a list, respectively.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>You use these methods to cache the data results of a query rather than execute the source query again.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Append the queries that generate the card decks with a call to <ph id="ph1">`ToArray()`</ph> and run the query again:</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>Main<ept id="p2">](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Run again, and the inner shuffle is down to 30 queries.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Run again with the outer shuffle and you'll see similar improvements.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>(It now executes 162 queries).</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Don't misinterpret this example by thinking that all queries should run eagerly.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>This example is designed to highlight the use cases where lazy evaluation can cause performance difficulties.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>That's because each new arrangement of the deck of cards is built from the previous arrangement.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Using lazy evaluation means each new deck configuration is built from the original deck, even executing the code that built the <ph id="ph1">`startingDeck`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>That causes a large amount of extra work.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>In practice, some algorithms run much better using eager evaluation, and others run much better using lazy evaluation.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>(In general, lazy evaluation is a much better choice when the data source is a separate process, like a database engine.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>In those cases, lazy evaluation enables more complex queries to execute only one round trip to the database process.) LINQ enables both lazy and eager evaluation.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Measure, and pick the best choice.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Preparing for New Features</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>The code you've written for this sample is an example of creating a simple prototype that does the job.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>This is a great way to explore a problem space, and for many features, it may be the best permanent solution.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>You've leveraged <bpt id="p1">*</bpt>anonymous types<ept id="p1">*</ept> for the cards, and each card is represented by strings.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Anonymous Types<ept id="p1">*</ept> have many productivity advantages.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>You don't need to define a class yourself to represent the storage.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The compiler generates the type for you.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The compiler generated type utilizes many of the best practices for simple data objects.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>It's <bpt id="p1">*</bpt>immutable<ept id="p1">*</ept>, meaning that none of its properties can be changed after it has been constructed.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Anonymous types are internal to an assembly, so they aren't seen as part of the public API for that assembly.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Anonymous types also contain an override of the <ph id="ph1">`ToString()`</ph> method that returns a formatted string with each of the values.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Anonymous types also have disadvantages.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>They don't have accessible names, so you can't use them as return values or arguments.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>You'll notice that any methods above that used these anonymous types are generic methods.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>The override of <ph id="ph1">`ToString()`</ph> may not be what you want as the application grows more features.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The sample also uses strings for the suit and the rank of each card.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>That's quite open ended.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The C# type system can help us make better code, by leveraging <ph id="ph1">`enum`</ph> types for those values.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>Start with the suits.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>This is a perfect time to use an <ph id="ph1">`enum`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>Suit enum<ept id="p2">](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Suits()`</ph> method also changes type and implementation:</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>Suit IEnumerable<ept id="p2">](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet4)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>Next, do the same change with the Rank of the cards:</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>Rank enum<ept id="p2">](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>And the method that generates them:</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>Rank IEnumerable<ept id="p2">](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet5)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>As one final cleanup, let's make a type to represent the card, instead of relying on an anonymous type.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Anonymous types are great for lightweight, local types, but in this example, the playing card is one of the main concepts.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>It should be a concrete type.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!CODE-csharp</bpt><bpt id="p2">[</bpt>PlayingCard<ept id="p2">](../../../samples/csharp/getting-started/console-linq/playingcard.cs?name=snippet1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>This type uses <bpt id="p1">*</bpt>auto-implemented read-only properties<ept id="p1">*</ept> which are set in the constructor, and then cannot be modified.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>It also makes use of the new <bpt id="p1">*</bpt>string interpolation<ept id="p1">*</ept> feature that makes it easier to format string output.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Update the query that generates the starting deck to use the new type:</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>Compile and run again.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>The output is a little cleaner, and the code is a bit more clear and can be extended more easily.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>Conclusion</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>This sample should you some of the methods used in LINQ, how to create your own methods that will be easily used with LINQ enabled code.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>It also showed you the differences between lazy and eager evaluation, and the affect that decision can have on performance.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>You learned a bit about one magician's technique.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>Magician's use the faro shuffle because they can control where every card moves in the deck.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>In some tricks, the magician has an audience member place a card on top of the deck, and shuffles a few times, knowing where that card goes.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Other illusions require the deck set a certain way.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>A magician will set the deck prior to performing the trick.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Then she will shuffle the deck 5 times using an inner shuffle.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>On stage, she can show what looks like a random deck, shuffle it 3 more times, and have the deck set exactly how she wants.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

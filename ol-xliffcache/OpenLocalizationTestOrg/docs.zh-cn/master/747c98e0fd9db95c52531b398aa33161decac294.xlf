@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">747c98e0fd9db95c52531b398aa33161decac294</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\migration-guide\mitigation-ziparchiveentry-fullname-path-separator.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-hi-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f174f2d681a548e685761e341ed536522b564d85</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">54b0e7eea5e0354257a6ef534ce025a40fa5b416</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Mitigation: ZipArchiveEntry.FullName Path Separator | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Mitigation: ZipArchiveEntry.FullName Path Separator</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Starting with apps that target the <ph id="ph1">[!INCLUDE[net_v461](../../../includes/net-v461-md.md)]</ph>, the path separator used in the <ph id="ph2">&lt;xref:System.IO.Compression.ZipArchiveEntry.FullName%2A?displayProperty=fullName&gt;</ph> property has changed from the backslash ("<ph id="ph3">\\</ph>") used in previous versions of the .NET Framework to a forward slash ("/").</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.Compression.ZipArchiveEntry?displayProperty=fullName&gt;</ph> objects are created by calling one of the overloads of the <ph id="ph2">&lt;xref:System.IO.Compression.ZipFile.CreateFromDirectory%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Impact</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The change brings the .NET implementation into conformity with section 4.4.17.1 of the <bpt id="p1">[</bpt>.ZIP File Format Specification<ept id="p1">](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT)</ept> and allows .ZIP archives to be decompressed on non-Windows systems.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Decompressing a zip file created  by an app that targets a previous version of the .NET Framework on non-Windows operating systems such as the Macintosh fails to preserve the directory structure.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For example, on the Macintosh, it creates a set of files whose filename concatenates the directory path, along with any backslash ("<ph id="ph1">\\</ph>") characters, and the filename.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>As a result, the directory structure of decompressed files is not preserved.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The impact of this change on .ZIP files that are decompressed on the Windows operating system by APIs in the .NET Framework <ph id="ph1">&lt;xref:System.IO&gt;</ph> namespace should be minimal, since these APIs can seamlessly handle either a slash ("/") or a backslash ("<ph id="ph2">\\</ph>") as the path separator character.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Mitigation</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If this behavior is undesirable, you can opt out of by adding a configuration setting to the <bpt id="p1">[</bpt><ph id="ph1">\&lt;</ph>runtime&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/runtime-element.md)</ept> section of your application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The following shows both the <ph id="ph1">`&lt;runtime&gt;`</ph> section and the opt-out switch.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In addition, apps that target previous versions of the .NET Framework but are running on the <ph id="ph1">[!INCLUDE[net_v461](../../../includes/net-v461-md.md)]</ph> and later versions can opt in to this behavior by adding a configuration setting to the <bpt id="p1">[</bpt><ph id="ph2">\&lt;</ph>runtime&gt;<ept id="p1">](../../../docs/framework/configure-apps/file-schema/runtime/runtime-element.md)</ept> section of the application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following shows both the <ph id="ph1">`&lt;runtime&gt;`</ph> section and the opt-in switch.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Retargeting Changes<ept id="p1">](../../../docs/framework/migration-guide/retargeting-changes-in-the-net-framework-4-6-1.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Application Compatibility in 4.6.1<ept id="p1">](../../../docs/framework/migration-guide/application-compatibility-in-the-net-framework-4-6-1.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

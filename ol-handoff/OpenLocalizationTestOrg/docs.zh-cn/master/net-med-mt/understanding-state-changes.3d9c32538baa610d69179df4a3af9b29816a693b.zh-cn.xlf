@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f8180d4adedbaae2ad41179d79a6e76c7044063b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\understanding-state-changes.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4b34a259395d077555e680b29b8f29be38a6901c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8b22e9493b0764f4230e22e331da557ef1b12ef8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Understanding State Changes | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Understanding State Changes</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic discusses the states and transitions that channels have, the types used to structure channel states, and how to implement them.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>State Machines and Channels</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Objects that deal with communication, for example sockets, usually present a state machine whose state transitions relate to allocating network resources, making or accepting connections, closing connections and terminating communication.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The channel state machine provides a uniform model of the states of a communication object that abstracts the underlying implementation of that object.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> interface provides a set of states, state transition methods and state transition events.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>All channels, channel factories and channel listeners implement the channel state machine.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The events Closed, Closing, Faulted, Opened and Opening signal an external observer after a state transition occurs.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The methods Abort, Close, and Open (and their asynchronous equivalents) cause state transitions.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The state property returns the current state as defined by <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationState&gt;</ph>:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>ICommunicationObject, CommunicationObject, and States and State Transition</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> starts out in the Created state where its various properties can be configured.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Once in the Opened state, the object is usable for sending and receiving messages but its properties are considered immutable.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Once in the Closing state, the object can no longer process new send or receive requests, but existing requests have a chance to complete until the Close timeout is reached.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If an unrecoverable error occurs, the object transitions to the Faulted state where it can be inspected for information about the error and ultimately closed.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>When in the Closed state the object has essentially reached the end of the state machine.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Once an object transitions from one state to the next, it does not go back to a previous state.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> states and state transitions.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>State transitions can be caused by calling one of the three methods: Abort, Open, or Close.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>They could also be caused by calling other implementation-specific methods.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Transitioning to the Faulted state could happen as a result of errors while opening or after having opened the communication object.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Every <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> starts out in the Created state.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>In this state, an application can configure the object by setting its properties.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Once an object is in a state other than Created, it is considered immutable.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Channel state transitition<ept id="p1">](../../../../docs/framework/wcf/extending/media/channelstatetranitionshighleveldiagram.gif "ChannelStateTranitionsHighLevelDiagram")</ept></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Figure 1.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The ICommunicationObject State Machine.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> provides an abstract base class named <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> that implements <ph id="ph3">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> and the channel state machine.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following graphic is a modified state diagram that is specific to <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In addition to the <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> state machine, it shows the timing when additional <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> methods are invoked.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>State changes<ept id="p1">](../../../../docs/framework/wcf/extending/media/wcfc-wcfchannelsigure5statetransitionsdetailsc.gif "wcfc_WCFChannelsigure5StateTransitionsDetailsc")</ept></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Figure 2.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The CommunicationObject implementation of the ICommunicationObject state machine including calls to events and protected methods.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>ICommunicationObject Events</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> exposes the five events defined by <ph id="ph2">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>These events are designed for code using the communication object to be notified of state transitions.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>As shown in Figure 2 above, each event is fired once after the object’s state transitions to the state named by the event.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>All five events are of the <ph id="ph1">`EventHandler`</ph> type which is defined as:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> implementation, the sender is either the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> itself or whatever was passed in as the sender to the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> constructor (if that constructor overload was used).</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The EventArgs parameter, <ph id="ph1">`e`</ph>, is always <ph id="ph2">`EventArgs.Empty`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Derived Object Callbacks</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In addition to the five events, <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> declares eight protected virtual methods designed to allow a derived object to be called back before and after state transitions occur.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Close%2A?displayProperty=fullName&gt;</ph> methods have three such callbacks associated with each of them.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For example, corresponding to <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Open%2A?displayProperty=fullName&gt;</ph> there is <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening%2A?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpen%2A?displayProperty=fullName&gt;</ph>, and <ph id="ph4">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpened%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Associated with <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Close%2A?displayProperty=fullName&gt;</ph> are the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClose%2A?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClosing%2A?displayProperty=fullName&gt;</ph>, and <ph id="ph4">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClosed%2A?displayProperty=fullName&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Similarly, the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Abort%2A?displayProperty=fullName&gt;</ph> method has a corresponding <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnAbort%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>While <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpen%2A?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClose%2A?displayProperty=fullName&gt;</ph>, and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnAbort%2A?displayProperty=fullName&gt;</ph> have no default implementation, the other callbacks do have a default implementation which is necessary for state machine correctness.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If you override those methods be sure to call the base implementation or correctly replace it.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpening%2A?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClosing%2A?displayProperty=fullName&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnFaulted%2A?displayProperty=fullName&gt;</ph> fire the corresponding <ph id="ph4">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Opening?displayProperty=fullName&gt;</ph>, <ph id="ph5">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Closing?displayProperty=fullName&gt;</ph> and <ph id="ph6">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Faulted?displayProperty=fullName&gt;</ph> events.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnOpened%2A?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.OnClosed%2A?displayProperty=fullName&gt;</ph> set the object state to Opened and Closed respectively then fire the corresponding <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Opened?displayProperty=fullName&gt;</ph> and <ph id="ph4">&lt;xref:System.ServiceModel.Channels.CommunicationObject.Closed?displayProperty=fullName&gt;</ph> events.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>State Transition Methods</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> provides implementations of Abort, Close and Open.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>It also provides a Fault method which causes a state transition to the Faulted state.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Figure 2 shows the <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> state machine with each transition labeled by the method that causes it (unlabeled transitions happen inside the implementation of the method that caused the last labeled transition).</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>All <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> implementations of communication state gets/sets are thread-synchronized.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Constructor</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> provides three constructors, all of which leave the object in the Created state.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The constructors are defined as:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The first constructor is a default constructor that delegates to the constructor overload that takes an object:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The constructor that takes an object uses that parameter as the object to be locked when synchronizing access to communication object state:</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Finally, a third constructor takes an additional parameter that is used as the sender argument when <ph id="ph1">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> events are fired.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The previous two constructors set the sender to this.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Open Method</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Precondition: State is Created.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Post-condition: State is Opened or Faulted.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>May throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The Open() method will try to open the communication object and set the state to Opened.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If it encounters an error, it will set the state to Faulted.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The method first checks that the current state is Created.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If the current state is Opening or Opened it throws an <ph id="ph1">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>If the current state is Closing or Closed, it throws a <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationObjectAbortedException&gt;</ph> if the object has been terminated and <ph id="ph2">&lt;xref:System.ObjectDisposedException&gt;</ph> otherwise.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>If the current state is Faulted, it throws a <ph id="ph1">&lt;xref:System.ServiceModel.CommunicationObjectFaultedException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>It then sets the state to Opening and calls OnOpening() (which raises the Opening event), OnOpen() and OnOpened() in that order.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>OnOpened() sets the state to Opened and raises the Opened event.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>If any of these throws an exception, Open()calls Fault() and lets the exception bubble up.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the Open process in more detail.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>State changes<ept id="p1">](../../../../docs/framework/wcf/extending/media/wcfc-wcfchannelsigurecoopenflowchartf.gif "wcfc_WCFChannelsigureCOOpenFlowChartf")</ept></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Override the OnOpen method to implement custom open logic such as opening an inner communication object.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Close Method</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Precondition: None.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Post-condition: State is Closed.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>May throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The Close() method can be called at any state.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>It tries to close the object normally.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>If an error is encountered, it terminates the object.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The method does nothing if the current state is Closing or Closed.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Otherwise it sets the state to Closing.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If the original state was Created, Opening or Faulted, it calls Abort() (see the following diagram).</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>If the original state was Opened, it calls OnClosing() (which raises the Closing event), OnClose() and OnClosed() in that order.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>If any of these throws an exception, Close()calls Abort() and lets the exception bubble up.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>OnClosed() sets the state to Closed and raises the Closed event.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the Close process in more detail.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>State changes<ept id="p1">](../../../../docs/framework/wcf/extending/media/wcfc-wcfchannelsguire7ico-closeflowchartc.gif "wcfc_WCFChannelsguire7ICO-CloseFlowChartc")</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Override the OnClose method to implement custom close logic, such as closing an inner communication object.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>All graceful closing logic that may block for a long time (for example, waiting for the other side to respond) should be implemented in OnClose() because it takes a timeout parameter and because it is not called as part of Abort().</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Abort</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Precondition: None.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Post-condition: State is Closed.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>May throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The Abort() method does nothing if the current state is Closed or if the object has been terminated before (for example, possibly by having Abort() executing on another thread).</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Otherwise it sets the state to Closing and calls OnClosing() (which raises the Closing event), OnAbort(), and OnClosed() in that order (does not call OnClose because the object is being terminated, not closed).</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>OnClosed() sets the state to Closed and raises the Closed event.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>If any of these throw an exception, it is re-thrown to the caller of Abort.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Implementations of OnClosing(), OnClosed() and OnAbort() should not block (for example, on input/output).</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The following diagram shows the Abort process in more detail.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>State changes<ept id="p1">](../../../../docs/framework/wcf/extending/media/wcfc-wcfchannelsigure8ico-abortflowchartc.gif "wcfc_WCFChannelsigure8ICO-AbortFlowChartc")</ept></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Override the OnAbort method to implement custom terminate logic such as terminating an inner communication object.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Fault</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The Fault method is specific to <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> and is not part of the <ph id="ph2">&lt;xref:System.ServiceModel.ICommunicationObject&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>It is included here for completeness.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Precondition: None.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Post-condition: State is Faulted.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>May throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The Fault() method does nothing if the current state is Faulted or Closed.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Otherwise it sets the state to Faulted and call OnFaulted(), which raises the Faulted event.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>If OnFaulted throws an exception it is re-thrown.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>ThrowIfXxx Methods</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>CommunicationObject has three protected methods that can be used to throw exceptions if the object is in a specific state.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposed%2A&gt;</ph> throws an exception if the state is Closing, Closed or Faulted.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrImmutable%2A&gt;</ph> throws an exception if the state is not Created.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen%2A&gt;</ph> throws an exception if the state is not Opened.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The exceptions thrown depend on the state.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The following table shows the different states and the corresponding exception type thrown by calling a ThrowIfXxx that throws on that state.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>State</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Has Abort been called?</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Exception</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Created</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Opening</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Opened</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Closing</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Closing</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.CommunicationObjectAbortedException?displayProperty=fullName&gt;</ph> in the case that an object was closed by a previous and explicit call of Abort.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>If you call Close on the object then an <ph id="ph1">&lt;xref:System.ObjectDisposedException?displayProperty=fullName&gt;</ph> is thrown.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Faulted</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Timeouts</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Several of the methods we discussed take timeout parameters.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>These are Close, Open (certain overloads and asynchronous versions), OnClose and OnOpen.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>These methods are designed to allow for lengthy operations (for example, blocking on input/output while gracefully closing down a connection) so the timeout parameter indicates how long such operations can take before being interrupted.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Implementations of any of these methods should use the supplied timeout value to ensure it returns to the caller within that timeout.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Implementations of other methods that do not take a timeout are not designed for lengthy operations and should not block on input/output.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The exception are the Open() and Close() overloads that do not take a timeout.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>These use a default timeout value supplied by the derived class.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.CommunicationObject&gt;</ph> exposes two protected abstract properties named <ph id="ph2">&lt;xref:System.ServiceModel.Channels.CommunicationObject.DefaultCloseTimeout%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.CommunicationObject.DefaultOpenTimeout%2A&gt;</ph> defined as:</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>A derived class implements these properties to provide the default timeout for the Open() and Close() overloads that do not take a timeout value.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Then the Open() and Close() implementations delegate to the overload that takes a timeout passing it the default timeout value, for example:</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>IDefaultCommunicationTimeouts</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>This interface has four read-only properties for providing default timeout values for open, send, receive, and close.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Each implementation is responsible for obtaining the default values in whatever manner appropriate.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>As a convenience, <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ChannelFactoryBase&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ChannelListenerBase&gt;</ph> default these values to 1 minute each.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

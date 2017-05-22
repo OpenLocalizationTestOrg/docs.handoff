@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a5ed269d5c5f6e6e598a8f99d16c516ffb542171</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\ui-automation\server-side-ui-automation-provider-implementation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2e53d929e917f8fb73867897458f181bcb1dd3f3</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ee96b9eaf57ae0bed22d6d96af52f36aefdda107</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Server-Side UI Automation Provider Implementation | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Server-Side UI Automation Provider Implementation</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This documentation is intended for .NET Framework developers who want to use the managed <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> classes defined in the <ph id="ph2">&lt;xref:System.Windows.Automation&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For the latest information about <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph>, see <bpt id="p1">[</bpt>Windows Automation API: UI Automation<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=156746)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This section describes how to implement a server-side UI Automation provider for a custom control.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The implementation for <ph id="ph1">[!INCLUDE[TLA#tla_wpf](../../../includes/tlasharptla-wpf-md.md)]</ph> elements and non-<ph id="ph2">[!INCLUDE[TLA2#tla_wpf](../../../includes/tla2sharptla-wpf-md.md)]</ph> elements (such as those designed for <ph id="ph3">[!INCLUDE[TLA#tla_winforms](../../../includes/tlasharptla-winforms-md.md)]</ph>) is fundamentally different.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_wpf](../../../includes/tla2sharptla-wpf-md.md)]</ph> elements provide support for <ph id="ph2">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> through a class derived from <ph id="ph3">&lt;xref:System.Windows.Automation.Peers.AutomationPeer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Non-<ph id="ph1">[!INCLUDE[TLA2#tla_wpf](../../../includes/tla2sharptla-wpf-md.md)]</ph> elements provide support through implementations of provider interfaces.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Security Considerations</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Providers should be written so that they can work in a partial-trust environment.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Because UIAutomationClient.dll is not configured to run under partial trust, your provider code should not reference that assembly.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If it does so, the code may run in a full-trust environment but then fail in a partial-trust environment.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In particular, do not use fields from classes in UIAutomationClient.dll such as those in <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Instead, use the equivalent fields from classes in UIAutomationTypes.dll, such as <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElementIdentifiers&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Provider Implementation by Windows Presentation Foundation Elements</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For more information on this topic, please see <bpt id="p1">[</bpt>UI Automation of a WPF Custom Control<ept id="p1">](../../../docs/framework/wpf/controls/ui-automation-of-a-wpf-custom-control.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Provider Implementation by non-WPF Elements</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Custom controls that are not part of the <ph id="ph1">[!INCLUDE[TLA2#tla_wpf](../../../includes/tla2sharptla-wpf-md.md)]</ph> framework, but that are written in managed code (most often these are <ph id="ph2">[!INCLUDE[TLA#tla_winforms](../../../includes/tlasharptla-winforms-md.md)]</ph> controls), provide support for <ph id="ph3">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> by implementing interfaces.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Every element must implement at least one of the interfaces listed in the first table in the next section.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In addition, if the element supports one or more control patterns, it must implement the appropriate interface for each control pattern.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Your <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> provider project must reference the following assemblies:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>UIAutomationProviders.dll</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>UIAutomationTypes.dll</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>WindowsBase.dll</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Provider Interfaces</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Every <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> provider must implement one of the following interfaces.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Provides functionality for a simple control hosted in a window, including support for control patterns and properties.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Inherits from <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Adds functionality for an element in a complex control, including navigation within the fragment, setting focus, and returning the bounding rectangle of the element.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Inherits from <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragment&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Adds functionality for the root element in a complex control, including locating a child element at specified coordinates and setting the focus state for the entire control.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The following interfaces provide added functionality but are not required to be implemented.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Interface</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Enables the provider to track requests for events.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Enables repositioning of window-based elements within the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree of a fragment.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>All other interfaces in the <ph id="ph1">&lt;xref:System.Windows.Automation.Provider&gt;</ph> namespace are for control pattern support.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Requirements for Non-WPF Providers</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>In order to communicate with <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph>, your control must implement the following main areas of functionality:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Functionality</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Implementation</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Expose the provider to <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>In response to a WM_GETOBJECT message sent to the control window, return the object that implements <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple&gt;</ph> (or a derived interface).</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For fragments, this must be the provider for the fragment root.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Provide property values</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.GetPropertyValue%2A&gt;</ph> to provide or override values.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Enable the client to interact with the control</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Implement interfaces that support control patterns, such as <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IInvokeProvider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Return these pattern providers in your implementation of <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.GetPatternProvider%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Raise events</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Call one of the static methods of <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.AutomationInteropProvider&gt;</ph> to raise an event that a client can listen for.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Enable navigation and focusing within a fragment</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragment&gt;</ph> for each element within the fragment.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>(Not necessary for elements that are not part of a fragment.)</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Enable focusing and location of child element in a fragment</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>(Not necessary for elements that are not fragment roots.)</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Property Values in Non-WPF Providers</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> providers for custom controls must support certain properties that can be used by the automation system as well as by client applications.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>For elements that are hosted in windows (HWNDs), <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> can retrieve some properties from the default window provider, but must obtain others from the custom provider.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Providers for HWND based controls do not usually need to provide the following properties (identified by field values):</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElementIdentifiers.RuntimeIdProperty&gt;</ph> of a simple element or fragment root hosted in a window is obtained from the window; however, fragment elements below the root (such as list items in a list box) must provide their own identifiers.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragment.GetRuntimeId%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElementIdentifiers.IsKeyboardFocusableProperty&gt;</ph> should be returned for providers hosted in a <ph id="ph2">[!INCLUDE[TLA#tla_winforms](../../../includes/tlasharptla-winforms-md.md)]</ph> control.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>In this case, the default window provider may be unable to retrieve the correct value.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationElementIdentifiers.NameProperty&gt;</ph> is usually supplied by the host provider.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>For example, if a custom control is derived from <ph id="ph1">&lt;xref:System.Windows.Forms.Control&gt;</ph>, the name is derived from the <ph id="ph2">`Text`</ph> property of the control.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>For example code, see <bpt id="p1">[</bpt>Return Properties from a UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/return-properties-from-a-ui-automation-provider.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Events in Non-WPF Providers</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> providers should raise events to notify client applications of changes in the state of the UI.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The following methods are used to raise events.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Method</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Raises various events, including events triggered by control patterns.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Raises an event when a <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> property has changed.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Raises an event when the structure of the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree has changed; for example, by the removal or addition of an element.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The purpose of an event is to notify the client of something taking place in the <ph id="ph1">[!INCLUDE[TLA#tla_ui](../../../includes/tlasharptla-ui-md.md)]</ph>, whether or not the activity is triggered by the <ph id="ph2">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> system itself.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>For example, the event identified by <ph id="ph1">&lt;xref:System.Windows.Automation.InvokePatternIdentifiers.InvokedEvent&gt;</ph> should be raised whenever the control is invoked, either through direct user input or by the client application calling <ph id="ph2">&lt;xref:System.Windows.Automation.InvokePattern.Invoke%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>To optimize performance, a provider can selectively raise events, or raise no events at all if no client application is registered to receive them.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The following methods are used for optimization.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Method</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This static property specifies whether any client applications have subscribed to <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> events.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The provider's implementation of this interface on a fragment root enables it to be advised when clients register and unregister event handlers for events on the fragment.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Non-WPF Provider Navigation</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Providers for simple controls such as a custom button hosted in a window (HWND) do not need to support navigation within the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Navigation to and from the element is handled by the default provider for the host window, which is specified in the implementation of <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.HostRawElementProvider%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>When you implement a provider for a complex custom control, however, you must support navigation between the root node of the fragment and its descendants, and between sibling nodes.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Elements of a fragment other than the root must return a <ph id="ph1">`null`</ph> reference  from <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.HostRawElementProvider%2A&gt;</ph>, because they are not directly hosted in a window, and no default provider can support navigation to and from them.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The structure of the fragment is determined by your implementation of <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragment.Navigate%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For each possible direction from each fragment, this method returns the provider object for the element in that direction.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>If there is no element in that direction, the method returns a <ph id="ph1">`null`</ph> reference.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The fragment root supports navigation only to child elements.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>For example, a list box returns the first item in the list when the direction is <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.NavigateDirection&gt;</ph>, and the last item when the direction is <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.NavigateDirection&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The fragment root does not support navigation to a parent or siblings; this is handled by the host window provider.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Elements of a fragment that are not the root must support navigation to the parent, and to any siblings and children they have.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Non-WPF Provider Reparenting</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Pop-up windows are actually top-level windows, and so by default appear in the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree as children of the desktop.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In many cases, however, pop-up windows are logically children of some other control.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>For example, the drop-down list of a combo box is logically a child of the combo box.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Similarly, a menu pop-up window is logically a child of the menu.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> provides support to reparent pop-up windows so that they appear to be children of the associated control.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>To reparent a pop-up window:</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Create a provider for the pop-up window.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>This requires that the class of the pop-up window is known in advance.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Implement all properties and patterns as usual for that pop-up, as though it were a control in its own right.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.HostRawElementProvider%2A&gt;</ph> property so that it returns the value obtained from <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.AutomationInteropProvider.HostProviderFromHandle%2A&gt;</ph>, where the parameter is the window handle of the pop-up window.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderFragment.Navigate%2A&gt;</ph> for the pop-up window and its parent so that navigation is handled properly from the logical parent to the logical children, and between sibling children.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> encounters the pop-up window, it recognizes that navigation is being overridden from the default, and skips over the pop-up window when it is encountered as a child of the desktop.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Instead, the node will only be reachable through the fragment.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Reparenting is not suitable for cases where a control can host a window of any class.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>For example, a rebar can host any type of HWND in its bands.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>To handle these cases, <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> supports an alternative form of HWND relocation, as described in the next section.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Non-WPF Provider Repositioning</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> fragments may contain two or more elements that are each contained in a window (HWND).</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Because each HWND has its own default provider that considers the HWND to be a child of a containing HWND, the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree will, by default, show the HWNDs in the fragment as children of the parent window.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>In most cases this is desirable behavior, but sometimes it can lead to confusion because it does not match the logical structure of the <ph id="ph1">[!INCLUDE[TLA2#tla_ui](../../../includes/tla2sharptla-ui-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>A good example of this is a rebar control.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>A rebar contains bands, each of which can in turn contain an HWND-based control such as a toolbar, an edit box, or a combo box.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The default window provider for the rebar HWND sees the band control HWNDs as children, and the rebar provider sees the bands as children.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Because the HWND provider and the rebar provider are working in tandem and combining their children, both the bands and the HWND-based controls appear as children of the rebar.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Logically, however, only the bands should appear as children of the rebar, and each band provider should be coupled with the default HWND provider for the control it contains.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>To accomplish this, the fragment root provider for the rebar exposes a set of children representing the bands.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Each band has a single provider that may expose properties and patterns.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>In its implementation of <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderSimple.HostRawElementProvider%2A&gt;</ph>, the band provider returns the default window provider for the control HWND, which it obtains by calling <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.AutomationInteropProvider.HostProviderFromHandle%2A&gt;</ph>, passing in the control's window handle.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Finally, the fragment root provider for the rebar implements the <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderHwndOverride&gt;</ph> interface, and in its implementation of <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.IRawElementProviderHwndOverride.GetOverrideProviderForHwnd%2A&gt;</ph> it returns the appropriate band provider for the control contained in the specified HWND.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>UI Automation Providers Overview<ept id="p1">](../../../docs/framework/ui-automation/ui-automation-providers-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Expose a Server-side UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/expose-a-server-side-ui-automation-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Return Properties from a UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/return-properties-from-a-ui-automation-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Raise Events from a UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/raise-events-from-a-ui-automation-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Enable Navigation in a UI Automation Fragment Provider<ept id="p1">](../../../docs/framework/ui-automation/enable-navigation-in-a-ui-automation-fragment-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Support Control Patterns in a UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/support-control-patterns-in-a-ui-automation-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Simple Provider Sample<ept id="p1">](http://msdn.microsoft.com/en-us/c10a6255-e8dc-494b-a051-15111b47984a)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Fragment Provider Sample<ept id="p1">](http://msdn.microsoft.com/en-us/778ef1bc-8610-4bc9-886e-aeff94a8a13e)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

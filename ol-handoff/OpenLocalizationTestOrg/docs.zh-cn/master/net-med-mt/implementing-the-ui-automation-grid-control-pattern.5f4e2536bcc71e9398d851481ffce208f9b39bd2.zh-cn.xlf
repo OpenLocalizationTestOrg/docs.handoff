@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d8320ce4469ff20948a24338a7958595176c2c79</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\ui-automation\implementing-the-ui-automation-grid-control-pattern.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1db6f70577adaa4f3a193c005c5c905240219f6b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cda1df9628233efd108bd41374c6f2473b3f1476</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Implementing the UI Automation Grid Control Pattern | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Implementing the UI Automation Grid Control Pattern</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This documentation is intended for .NET Framework developers who want to use the managed <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> classes defined in the <ph id="ph2">&lt;xref:System.Windows.Automation&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For the latest information about <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph>, see <bpt id="p1">[</bpt>Windows Automation API: UI Automation<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=156746)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic introduces guidelines and conventions for implementing <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridProvider&gt;</ph>, including information about properties, methods, and events.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Links to additional references are listed at the end of the overview.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Automation.GridPattern&gt;</ph> control pattern is used to support controls that act as containers for a collection of child elements.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The children of this element must implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridItemProvider&gt;</ph> and be organized in a two-dimensional logical coordinate system that can be traversed by row and column.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For examples of controls that implement this control pattern, see <bpt id="p1">[</bpt>Control Pattern Mapping for UI Automation Clients<ept id="p1">](../../../docs/framework/ui-automation/control-pattern-mapping-for-ui-automation-clients.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Implementation Guidelines and Conventions</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>When implementing the Grid control pattern, note the following guidelines and conventions:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Grid coordinates are zero-based with the upper left (or upper right cell depending on locale) having coordinates (0, 0).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If a cell is empty, a UI Automation element must still be returned in order to support the <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridItemProvider.ContainingGrid%2A&gt;</ph> property for that cell.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This is possible when the layout of child elements in the grid is similar to a ragged array (see example below).</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Windows Explorer view showing ragged layout.<ept id="p1">](../../../docs/framework/ui-automation/media/uia-gridpattern-ragged-array.PNG "UIA_GridPattern_Ragged_Array")</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Example of a Grid Control with Empty Coordinates</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A grid with a single item is still required to implement <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridProvider&gt;</ph> if it is logically considered to be a grid.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The number of child items in the grid is immaterial.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Hidden rows and columns, depending on the provider implementation, may be loaded in the <ph id="ph1">[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]</ph> tree and therefore will be reflected in the <ph id="ph2">&lt;xref:System.Windows.Automation.GridPattern.GridPatternInformation.RowCount%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Windows.Automation.GridPattern.GridPatternInformation.ColumnCount%2A&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If the hidden rows and columns have not yet been loaded, they should not be counted.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridProvider&gt;</ph> does not enable active manipulation of a grid; <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.ITransformProvider&gt;</ph> must be implemented to enable this functionality.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Use a <ph id="ph1">&lt;xref:System.Windows.Automation.StructureChangedEventHandler&gt;</ph> to listen for structural or layout changes to the grid such as cells that have been added, removed, or merged.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Use a <ph id="ph1">&lt;xref:System.Windows.Automation.AutomationFocusChangedEventHandler&gt;</ph> to track traversal through the items or cells of a grid.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Required Members for IGridProvider</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The following properties and methods are required for implementing the IGridProvider interface.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Required members</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Type</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>None</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>None</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Method</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>None</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This control pattern has no associated events.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Exceptions</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Providers must throw the following exceptions.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Exception type</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Condition</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>-   If the requested row coordinate is larger than the <ph id="ph1">&lt;xref:System.Windows.Automation.Provider.IGridProvider.RowCount%2A&gt;</ph> or the column coordinate is larger than the <ph id="ph2">&lt;xref:System.Windows.Automation.Provider.IGridProvider.ColumnCount%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>-   If either of the requested row or column coordinates is less than zero.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>UI Automation Control Patterns Overview<ept id="p1">](../../../docs/framework/ui-automation/ui-automation-control-patterns-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Support Control Patterns in a UI Automation Provider<ept id="p1">](../../../docs/framework/ui-automation/support-control-patterns-in-a-ui-automation-provider.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>UI Automation Control Patterns for Clients<ept id="p1">](../../../docs/framework/ui-automation/ui-automation-control-patterns-for-clients.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Implementing the UI Automation GridItem Control Pattern<ept id="p1">](../../../docs/framework/ui-automation/implementing-the-ui-automation-griditem-control-pattern.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>UI Automation Tree Overview<ept id="p1">](../../../docs/framework/ui-automation/ui-automation-tree-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Use Caching in UI Automation<ept id="p1">](../../../docs/framework/ui-automation/use-caching-in-ui-automation.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

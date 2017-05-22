@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6876fbf144ecc5702078c448685604ce3d338bcc</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\xaml-loading-and-dependency-properties.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ad19d16568d92d3cdf84912cabd7d8fce81857fd</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b6215be67fbd91c9173642e3ed7c92df38e8e001</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>XAML Loading and Dependency Properties | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>XAML Loading and Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The current <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> implementation of its <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor is inherently dependency property aware.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor uses property system methods for dependency properties when loading binary <ph id="ph3">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> and processing attributes that are dependency properties.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This effectively bypasses the property wrappers.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When you implement custom dependency properties, you must account for this behavior and should avoid placing any other code in your property wrapper other than the property system methods <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This topic assumes that you understand dependency properties both as consumer and author and have read <bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept> and <bpt id="p2">[</bpt>Custom Dependency Properties<ept id="p2">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You should also have read <bpt id="p1">[</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept> and <bpt id="p2">[</bpt>XAML Syntax In Detail<ept id="p2">](../../../../docs/framework/wpf/advanced/xaml-syntax-in-detail.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The WPF XAML Loader Implementation, and Performance</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For implementation reasons, it is computationally less expensive to identify a property as a dependency property and access the property system <ph id="ph1">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> method to set it, rather than using the property wrapper and its setter.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This is because a <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor must infer the entire object model of the backing code based only on knowing the type and member relationships that are indicated by the structure of the markup and various strings.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The type is looked up through a combination of xmlns and assembly attributes, but identifying the members, determining which could support being set as an attribute, and resolving what types the property values support would otherwise require extensive reflection using <ph id="ph1">&lt;xref:System.Reflection.PropertyInfo&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Because dependency properties on a given type are accessible as a storage table through the property system, the <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> implementation of its <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor uses this table and infers that any given property <bpt id="p1">*</bpt>ABC<ept id="p1">*</ept> can be more efficiently set by calling <ph id="ph3">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> on the containing <ph id="ph4">&lt;xref:System.Windows.DependencyObject&gt;</ph> derived type, using the dependency property identifier <bpt id="p2">*</bpt>ABCProperty<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Implications for Custom Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Because the current <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> implementation of the <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor behavior for property setting bypasses the wrappers entirely, you should not put any additional logic into the set definitions of the wrapper for your custom dependency property.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If you put such logic in the set definition, then the logic will not be executed when the property is set in <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> rather than in code.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Similarly, other aspects of the <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processor that obtain property values from <ph id="ph2">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> processing also use <ph id="ph3">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> rather than using the wrapper.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Therefore, you should also avoid any additional implementation in the <ph id="ph1">`get`</ph> definition beyond the <ph id="ph2">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> call.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following example is a recommended dependency property definition with wrappers, where the property identifier is stored as a <ph id="ph1">`public`</ph> <ph id="ph2">`static`</ph> <ph id="ph3">`readonly`</ph> field, and the <ph id="ph4">`get`</ph> and <ph id="ph5">`set`</ph> definitions contain no code beyond the necessary property system methods that define the dependency property backing.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>WPFAquariumSln#AGWithWrapper<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/WPFAquariumSln/CSharp/WPFAquariumObjects/Class1.cs#agwithwrapper)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>WPFAquariumSln#AGWithWrapper<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/WPFAquariumSln/visualbasic/wpfaquariumobjects/class1.vb#agwithwrapper)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Property Metadata<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-metadata.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Collection-Type Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/collection-type-dependency-properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Dependency Property Security<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-security.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Safe Constructor Patterns for DependencyObjects<ept id="p1">](../../../../docs/framework/wpf/advanced/safe-constructor-patterns-for-dependencyobjects.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

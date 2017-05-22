@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dc0bd1d44192bce0adffc8efd5a089771539f62f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\generics\generics-in-the-run-time.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">aa8f467f9cedcc6bf8fe0614ceb9a93353490c5c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e54d7665326c25fef51f0f47159848dec3038e7d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Generics in the Run Time (C# Programming Guide) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Generics in the Run Time (C# Programming Guide)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When a generic type or method is compiled into Microsoft intermediate language (MSIL), it contains metadata that identifies it as having type parameters.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>How the MSIL for a generic type is used differs based on whether the supplied type parameter is a value type or reference type.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>When a generic type is first constructed with a value type as a parameter, the runtime creates a specialized generic type with the supplied parameter or parameters substituted in the appropriate locations in the MSIL.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Specialized generic types are created one time for each unique value type that is used as a parameter.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, suppose your program code declared a stack that is constructed of integers:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#42<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_1.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>At this point, the runtime generates a specialized version of the <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class that has the integer substituted appropriately for its parameter.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Now, whenever your program code uses a stack of integers, the runtime reuses the generated specialized <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>In the following example, two instances of a stack of integers are created, and they share a single instance of the <ph id="ph1">`Stack&lt;int&gt;`</ph> code:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#43<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_2.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>However, suppose that another <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class with a different value type such as a <ph id="ph2">`long`</ph> or a user-defined structure as its parameter is created at another point in your code.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>As a result, the runtime generates another version of the generic type and substitutes a <ph id="ph1">`long`</ph> in the appropriate locations in MSIL.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Conversions are no longer necessary because each specialized generic class natively contains the value type.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Generics work somewhat differently for reference types.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The first time a generic type is constructed with any reference type, the runtime creates a specialized generic type with object references substituted for the parameters in the MSIL.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Then, every time that a constructed type is instantiated with a reference type as its parameter, regardless of what type it is, the runtime reuses the previously created specialized version of the generic type.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This is possible because all references are the same size.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For example, suppose you had two reference types, a <ph id="ph1">`Customer`</ph> class and an <ph id="ph2">`Order`</ph> class, and also suppose that you created a stack of <ph id="ph3">`Customer`</ph> types:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#47<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_3.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#44<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_4.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>At this point, the runtime generates a specialized version of the <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class that stores object references that will be filled in later instead of storing data.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Suppose the next line of code creates a stack of another reference type, which is named <ph id="ph1">`Order`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#45<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_5.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Unlike with value types, another specialized version of the <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class is not created for the <ph id="ph2">`Order`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Instead, an instance of the specialized version of the <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class is created and the <ph id="ph2">`orders`</ph> variable is set to reference it.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Suppose that you then encountered a line of code to create a stack of a <ph id="ph1">`Customer`</ph> type:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideGenerics#46<ept id="p2">](../../../csharp/programming-guide/generics/codesnippet/CSharp/generics-in-the-run-time_6.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>As with the previous use of the <ph id="ph1">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class created by using the <ph id="ph2">`Order`</ph> type, another instance of the specialized <ph id="ph3">&lt;xref:System.Collections.Generic.Stack%601&gt;</ph> class is created.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The pointers that are contained therein are set to reference an area of memory the size of a <ph id="ph1">`Customer`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Because the number of reference types can vary wildly from program to program, the C# implementation of generics greatly reduces the amount of code by reducing to one the number of specialized classes created by the compiler for generic classes of reference types.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Moreover, when a generic C# class is instantiated by using a value type or reference type parameter, reflection can query it at runtime and both its actual type and its type parameter can be ascertained.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>C# Programming Guide<ept id="p1">](../../../csharp/programming-guide/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Introduction to Generics<ept id="p1">](../../../csharp/programming-guide/generics/introduction-to-generics.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Generics<ept id="p1">](https://msdn.microsoft.com/library/ms172192)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

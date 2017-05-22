@@ -1,0 +1,531 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dd2fafa26fdf94b3e921a290e3c0cbdcf9a884a5</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\performance\lazy-initialization.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6f9c3abd6be839ff80d31dfc8d08fac57232705</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c6f30b7c5940be4ae38753db33c9fe6103fcf83d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Lazy Initialization | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Lazy Initialization</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Lazy initialization<ept id="p1">*</ept> of an object means that its creation is deferred until it is first used.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>(For this topic, the terms <bpt id="p1">*</bpt>lazy initialization<ept id="p1">*</ept> and <bpt id="p2">*</bpt>lazy instantiation<ept id="p2">*</ept> are synonymous.) Lazy initialization is primarily used to improve performance, avoid wasteful computation, and reduce program memory requirements.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These are the most common scenarios:</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When you have an object that is expensive to create, and the program might not use it.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, assume that you have in memory a <ph id="ph1">`Customer`</ph> object that has an <ph id="ph2">`Orders`</ph> property that contains a large array of <ph id="ph3">`Order`</ph> objects that, to be initialized, requires a database connection.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If the user never asks to display the Orders or use the data in a computation, then there is no reason to use system memory or computing cycles to create it.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>By using <ph id="ph1">`Lazy&lt;Orders&gt;`</ph> to declare the <ph id="ph2">`Orders`</ph> object for lazy initialization, you can avoid wasting system resources when the object is not used.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When you have an object that is expensive to create, and you want to defer its creation until after other expensive operations have been completed.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example, assume that your program loads several object instances when it starts, but only some of them are required immediately.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>You can improve the startup performance of the program by deferring initialization of the objects that are not required until the required objects have been created.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Although you can write your own code to perform lazy initialization, we recommend that you use <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> instead.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> and its related types also support thread-safety and provide a consistent exception propagation policy.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following table lists the types that the .NET Framework version 4 provides to enable lazy initialization in different scenarios.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Type</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>A wrapper class that provides lazy initialization semantics for any class library or user-defined type.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Resembles <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> except that it provides lazy initialization semantics on a thread-local basis.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Every thread has access to its own unique value.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Provides advanced <ph id="ph1">`static`</ph> (<ph id="ph2">`Shared`</ph> in Visual Basic) methods for lazy initialization of objects without the overhead of a class.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Basic Lazy Initialization</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>To define a lazy-initialized type, for example, <ph id="ph1">`MyType`</ph>, use <ph id="ph2">`Lazy&lt;MyType&gt;`</ph> (<ph id="ph3">`Lazy(Of MyType)`</ph> in Visual Basic), as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>If no delegate is passed in the <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> constructor, the wrapped type is created by using <ph id="ph2">&lt;xref:System.Activator.CreateInstance%2A?displayProperty=fullName&gt;</ph> when the value property is first accessed.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>If the type does not have a default constructor, a run-time exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In the following example, assume that <ph id="ph1">`Orders`</ph> is a class that contains an array of <ph id="ph2">`Order`</ph> objects retrieved from a database.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`Customer`</ph> object contains an instance of <ph id="ph2">`Orders`</ph>, but depending on user actions, the data from the <ph id="ph3">`Orders`</ph> object might not be required.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>You can also pass a delegate in the <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> constructor that invokes a specific constructor overload on the wrapped type at creation time, and perform any other initialization steps that are required, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>After the Lazy object is created, no instance of <ph id="ph1">`Orders`</ph> is created until the <ph id="ph2">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property of the Lazy variable is accessed for the first time.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>On first access, the wrapped type is created and returned, and stored for any future access.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object always returns the same object or value that it was initialized with.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Therefore, the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property is read-only.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> stores a reference type, you cannot assign a new object to it.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>(However, you can change the value of its settable public fields and properties.) If <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> stores a value type, you cannot modify its value.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Nevertheless, you can create a new variable by invoking the variable constructor again by using new arguments.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#4)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The new lazy instance, like the earlier one, does not instantiate <ph id="ph1">`Orders`</ph> until its <ph id="ph2">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property is first accessed.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Thread-Safe Initialization</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>By default, <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> objects are thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>That is, if the constructor does not specify the kind of thread safety, the <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> objects it creates are thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In multi-threaded scenarios, the first thread to access the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property of a thread-safe <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph> object initializes it for all subsequent accesses on all threads, and all threads share the same data.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Therefore, it does not matter which thread initializes the object, and race conditions are benign.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>You can extend this consistency to error conditions by using exception caching.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For more information, see the next section, <bpt id="p1">[</bpt>Exceptions in Lazy Objects<ept id="p1">](../../../docs/framework/performance/lazy-initialization.md#ExceptionsInLazyObjects)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The following example shows that the same <ph id="ph1">`Lazy&lt;int&gt;`</ph> instance has the same value for three separate threads.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#8)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If you require separate data on each thread, use the <ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601&gt;</ph> type, as described later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Some <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> constructors have a Boolean parameter named <ph id="ph2">`isThreadSafe`</ph> that is used to specify whether the <ph id="ph3">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property will be accessed from multiple threads.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If you intend to access the property from just one thread, pass in <ph id="ph1">`false`</ph> to obtain a modest performance benefit.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If you intend to access the property from multiple threads, pass in <ph id="ph1">`true`</ph> to instruct the <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph> instance to correctly handle race conditions in which one thread throws an exception at initialization time.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Some <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> constructors have a <ph id="ph2">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph> parameter named <ph id="ph3">`mode`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>These constructors provide an additional thread safety mode.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The following table shows how the thread safety of a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object is affected by constructor parameters that specify thread safety.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Each constructor has at most one such parameter.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Thread safety of the object</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`LazyThreadSafetyMode`</ph> <ph id="ph2">`mode`</ph> parameter</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Boolean <ph id="ph1">`isThreadSafe`</ph> parameter</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>No thread safety parameters</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Fully thread-safe; only one thread at a time tries to initialize the value.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Yes.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Not thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Not applicable.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Fully thread-safe; threads race to initialize the value.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Not applicable.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Not applicable.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>As the table shows, specifying <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph> for the <ph id="ph2">`mode`</ph> parameter is the same as specifying <ph id="ph3">`true`</ph> for the <ph id="ph4">`isThreadSafe`</ph> parameter, and specifying <ph id="ph5">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph> is the same as specifying <ph id="ph6">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Specifying <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph> allows multiple threads to attempt to initialize the <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Only one thread can win this race, and all the other threads receive the value that was initialized by the successful thread.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>If an exception is thrown on a thread during initialization, that thread does not receive the value set by the successful thread.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Exceptions are not cached, so a subsequent attempt to access the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property can result in successful initialization.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>This differs from the way exceptions are treated in other modes, which is described in the following section.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>For more information, see the <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Exceptions in Lazy Objects</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>As stated earlier, a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object always returns the same object or value that it was initialized with, and therefore the <ph id="ph2">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property is read-only.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If you enable exception caching, this immutability also extends to exception behavior.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If a lazy-initialized object has exception caching enabled and throws an exception from its initialization method when the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property is first accessed, that same exception is thrown on every subsequent attempt to access the <ph id="ph2">&lt;xref:System.Lazy%601.Value%2A&gt;</ph>property.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>In other words, the constructor of the wrapped type is never re-invoked, even in multithreaded scenarios.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Therefore, the <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object cannot throw an exception on one access and return a value on a subsequent access.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Exception caching is enabled when you use any <ph id="ph1">&lt;xref:System.Lazy%601?displayProperty=fullName&gt;</ph> constructor that takes an initialization method (<ph id="ph2">`valueFactory`</ph> parameter); for example, it is enabled when you use the <ph id="ph3">`Lazy(T)(Func(T))`</ph>constructor.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If the constructor also takes a <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph> value (<ph id="ph2">`mode`</ph> parameter), specify <ph id="ph3">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph> or <ph id="ph4">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Specifying an initialization method enables exception caching for these two modes.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The initialization method can be very simple.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>For example, it might call the default constructor for <ph id="ph1">`T`</ph>: <ph id="ph2">`new Lazy&lt;Contents&gt;(() =&gt; new Contents(), mode)`</ph> in C#, or <ph id="ph3">`New Lazy(Of Contents)(Function() New Contents())`</ph> in Visual Basic.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>If you use a <ph id="ph1">&lt;xref:System.Lazy%601?displayProperty=fullName&gt;</ph>constructor that does not specify an initialization method, exceptions that are thrown by the default constructor for <ph id="ph2">`T`</ph> are not cached.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>For more information, see the <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph> enumeration.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If you create a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object with the <ph id="ph2">`isThreadSafe`</ph> constructor parameter set to <ph id="ph3">`false`</ph> or the <ph id="ph4">`mode`</ph> constructor parameter set to <ph id="ph5">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph>, you must access the <ph id="ph6">&lt;xref:System.Lazy%601&gt;</ph> object from a single thread or provide your own synchronization.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This applies to all aspects of the object, including exception caching.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>As noted in the previous section, <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> objects created by specifying <ph id="ph2">&lt;xref:System.Threading.LazyThreadSafetyMode?displayProperty=fullName&gt;</ph> treat exceptions differently.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>With <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>, multiple threads can compete to initialize the <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>In this case, exceptions are not cached, and attempts to access the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property can continue until initialization is successful.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The following table summarizes the way the <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> constructors control exception caching.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Constructor</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Thread safety mode</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Uses initialization method</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Exceptions are cached</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Lazy(T)()</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>)</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Lazy(T)(Func(T))</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>)</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Lazy(T)(Boolean)</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`True`</ph> (<ph id="ph2">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>) or <ph id="ph3">`false`</ph> (<ph id="ph4">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>)</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Lazy(T)(Func(T), Boolean)</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`True`</ph> (<ph id="ph2">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>) or <ph id="ph3">`false`</ph> (<ph id="ph4">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>)</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Lazy(T)(LazyThreadSafetyMode)</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>User-specified</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Lazy(T)(Func(T), LazyThreadSafetyMode)</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>User-specified</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>No if user specifies <ph id="ph1">&lt;xref:System.Threading.LazyThreadSafetyMode&gt;</ph>; otherwise, yes.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Implementing a Lazy-Initialized Property</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>To implement a public property by using lazy initialization, define the backing field of the property as a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph>, and return the <ph id="ph2">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property from the <ph id="ph3">`get`</ph> accessor of the property.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#5)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property is read-only; therefore, the property that exposes it has no <ph id="ph2">`set`</ph> accessor.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>If you require a read/write property backed by a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object, the <ph id="ph2">`set`</ph> accessor must create a new <ph id="ph3">&lt;xref:System.Lazy%601&gt;</ph> object and assign it to the backing store.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`set`</ph> accessor must create a lambda expression that returns the new property value that was passed to the <ph id="ph2">`set`</ph> accessor, and pass that lambda expression to the constructor for the new <ph id="ph3">&lt;xref:System.Lazy%601&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The next access of the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property will cause initialization of the new <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph>, and its <ph id="ph3">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property will thereafter return the new value that was assigned to the property.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The reason for this convoluted arrangement is to preserve the multithreading protections built into <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Otherwise, the property accessors would have to cache the first value returned by the <ph id="ph1">&lt;xref:System.Lazy%601.Value%2A&gt;</ph> property and only modify the cached value, and you would have to write your own thread-safe code to do that.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Because of the additional initializations required by a read/write property backed by a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> object, the performance might not be acceptable.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Furthermore, depending on the specific scenario, additional coordination might be required to avoid race conditions between setters and getters.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Thread-Local Lazy Initialization</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>In some multithreaded scenarios, you might want to give each thread its own private data.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Such data is called <bpt id="p1">*</bpt>thread-local data<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 3.5 and earlier, you could apply the <ph id="ph1">`ThreadStatic`</ph> attribute to a static variable to make it thread-local.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>However, using the <ph id="ph1">`ThreadStatic`</ph> attribute can lead to subtle errors.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>For example, even basic initialization statements will cause the variable to be initialized only on the first thread that accesses it, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#6)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>On all other threads, the variable will be initialized by using its default value (zero).</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>As an alternative in the .NET Framework version 4, you can use the <ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601?displayProperty=fullName&gt;</ph> type to create an instance-based, thread-local variable that is initialized on all threads by the <ph id="ph2">&lt;xref:System.Action%601&gt;</ph> delegate that you provide.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>In the following example, all threads that access <ph id="ph1">`counter`</ph> will see its starting value as 1.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#7)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601&gt;</ph> wraps its object in much the same way as <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph>, with these essential differences:</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Each thread initializes the thread-local variable by using its own private data that is not accessible from other threads.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601.Value%2A?displayProperty=fullName&gt;</ph> property is read-write, and can be modified any number of times.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>This can affect exception propagation, for example, one <ph id="ph1">`get`</ph> operation can raise an exception but the next one can successfully initialize the value.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>If no initialization delegate is provided, <ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601&gt;</ph> will initialize its wrapped type by using the default value of the type.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>In this regard, <ph id="ph1">&lt;xref:System.Threading.ThreadLocal%601&gt;</ph> is consistent with the <ph id="ph2">&lt;xref:System.ThreadStaticAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates that every thread that accesses the <ph id="ph1">`ThreadLocal&lt;int&gt;`</ph> instance gets its own unique copy of the data.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#9)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Thread-Local Variables in Parallel.For and ForEach</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>When you use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=fullName&gt;</ph> method or <ph id="ph2">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=fullName&gt;</ph> method to iterate over data sources in parallel, you can use the overloads that have built-in support for thread-local data.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>In these methods, the thread-locality is achieved by using local delegates to create, access, and clean up the data.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Write a Parallel.For Loop with Thread-Local Variables<ept id="p1">](../../../docs/standard/parallel-programming/how-to-write-a-parallel-for-loop-with-thread-local-variables.md)</ept> and <bpt id="p2">[</bpt>How to: Write a Parallel.ForEach Loop with Thread-Local Variables<ept id="p2">](../../../docs/standard/parallel-programming/how-to-write-a-parallel-foreach-loop-with-thread-local-variables.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Using Lazy Initialization for Low-Overhead Scenarios</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>In scenarios where you have to lazy-initialize a large number of objects, you might decide that wrapping each object in a <ph id="ph1">&lt;xref:System.Lazy%601&gt;</ph> requires too much memory or too many computing resources.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Or, you might have stringent requirements about how lazy initialization is exposed.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>In such cases, you can use the <ph id="ph1">`static`</ph> (<ph id="ph2">`Shared`</ph> in Visual Basic) methods of the <ph id="ph3">&lt;xref:System.Threading.LazyInitializer?displayProperty=fullName&gt;</ph> class to lazy-initialize each object without wrapping it in an instance of <ph id="ph4">&lt;xref:System.Lazy%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>In the following example, assume that, instead of wrapping an entire <ph id="ph1">`Orders`</ph> object in one <ph id="ph2">&lt;xref:System.Lazy%601&gt;</ph> object, you have lazy-initialized individual <ph id="ph3">`Order`</ph> objects only if they are required.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Lazy#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/lazy/cs/cs_lazycodefile.cs#10)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>Lazy#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/lazy/vb/lazy_vb.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>In this example, notice that the initialization procedure is invoked on every iteration of the loop.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>In multi-threaded scenarios, the first thread to invoke the initialization procedure is the one whose value is seen by all threads.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>Later threads also invoke the initialization procedure, but their results are not used.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>If this kind of potential race condition is not acceptable, use the overload of <ph id="ph1">&lt;xref:System.Threading.LazyInitializer.EnsureInitialized%2A?displayProperty=fullName&gt;</ph> that takes a Boolean argument and a synchronization object.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Managed Threading Basics<ept id="p1">](../../../docs/standard/threading/managed-threading-basics.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Threads and Threading<ept id="p1">](../../../docs/standard/threading/threads-and-threading.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Task Parallel Library (TPL)<ept id="p1">](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>How to: Perform Lazy Initialization of Objects<ept id="p1">](../../../docs/framework/performance/how-to-perform-lazy-initialization-of-objects.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

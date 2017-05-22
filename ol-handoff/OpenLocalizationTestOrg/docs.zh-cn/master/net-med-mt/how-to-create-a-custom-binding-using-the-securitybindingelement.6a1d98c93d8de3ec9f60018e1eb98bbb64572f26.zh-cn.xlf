@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">01d61428cda61c4e96d87c8747ce23d5cea91df7</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-create-a-custom-binding-using-the-securitybindingelement.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5231fafc1d2e01200e3bc88121de55e2ec497661</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1ebed5f3f5253cd424d8a30e0a182d579695153e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Binding Using the SecurityBindingElement | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Create a Custom Binding Using the SecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> includes several system-provided bindings that can be configured but do not provide full flexibility when configuring all the security options that <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> supports.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic demonstrates how to create a custom binding directly from individual binding elements and highlights some of the security settings that can be specified when creating such a binding.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> creating custom bindings, see <bpt id="p1">[</bpt>Extending Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/extending-bindings.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.SecurityBindingElement&gt;</ph> does not support the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> channel shape, which is the default channel shape use by the TCP transport when <ph id="ph3">&lt;xref:System.ServiceModel.TransferMode&gt;</ph> is set to <ph id="ph4">&lt;xref:System.ServiceModel.TransferMode.Buffered&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>You must set <ph id="ph1">&lt;xref:System.ServiceModel.TransferMode&gt;</ph> to <ph id="ph2">&lt;xref:System.ServiceModel.TransferMode.Streamed&gt;</ph> in order to use <ph id="ph3">&lt;xref:System.ServiceModel.Channels.SecurityBindingElement&gt;</ph> in this scenario.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Creating a Custom Binding</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> all bindings are made up of <bpt id="p1">*</bpt>binding elements<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Each binding element derives from the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For the standard system-provided bindings, the binding elements are created and configured for you, although you can customize some of the property settings.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In contrast, to create a custom binding, binding elements are created and configured and a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CustomBinding&gt;</ph> is created from the binding elements.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>To do this, you add the individual binding elements to a collection represented by an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElementCollection&gt;</ph> class, and then set the <ph id="ph2">`Elements`</ph> property of the <ph id="ph3">`CustomBinding`</ph> equal to that object.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You must add the binding elements in the following order: Transaction Flow, Reliable Session, Security, Composite Duplex, One-way, Stream Security, Message Encoding, and Transport.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Note that not all the binding elements listed are required in every binding.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>SecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Three binding elements relate to message level security, all of which derive from the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.SecurityBindingElement&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The three are <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportSecurityBindingElement&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph>, and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportSecurityBindingElement&gt;</ph> is used to provide Mixed mode security.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The other two elements are used when the message layer provides security.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Additional classes are used when transport level security is provided:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Required Binding Elements</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>There are a large number of possible binding elements that can be combined into a binding.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Not all of these combinations are valid.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This section describes the required elements that must be present in a security binding.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Valid security bindings depend on many factors, including the following:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Security mode.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Transport protocol.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The message exchange pattern (MEP) specified in the contract.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The following table shows the valid binding element stack configurations for each combination of the preceding factors.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Note that these are minimal requirements.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>You can add additional binding elements to the binding, such as message encoding binding elements, transaction binding elements, and other binding elements.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Security Mode</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Transport</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Contract Message Exchange Pattern</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Contract Message Exchange Pattern</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Contract Message Exchange Pattern</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Transport</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Https</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>HttpsTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>HttpsTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>TCP</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Message</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Http</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement (authentication mode = SecureConversation)</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>CompositeDuplexBindingElement</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>HttpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>HttpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>HttpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Tcp</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>SecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>SecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement (authentication mode = SecureConversation)</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Mixed (transport with message credentials)</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Https</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>TransportSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>TransportSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>HttpsTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>HttpsTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>TCP</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>TransportSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement (authentication mode = SecureConversation)</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>SymmetricSecurityBindingElement (authentication mode = SecureConversation)</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>OneWayBindingElement</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>SSL or Windows StreamSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>TcpTransportBindingElement</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Note that there are many configurable settings on the SecurityBindingElements.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>SecurityBindingElement Authentication Modes<ept id="p1">](../../../../docs/framework/wcf/feature-details/securitybindingelement-authentication-modes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph> <bpt id="p1">[</bpt>Secure Conversations and Secure Sessions<ept id="p1">](../../../../docs/framework/wcf/feature-details/secure-conversations-and-secure-sessions.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Procedures</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>To create a custom binding that uses a SymmetricSecurityBindingElement</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Create an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElementCollection&gt;</ph> class with the name <ph id="ph2">`outputBec`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Call the static method <ph id="ph1">`M:System.ServiceModel.Channels.SecurityBindingElement.CreateSspiNegotiationBindingElement(true)`</ph>, which returns an instance of the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph> to the collection (<ph id="ph2">`outputBec`</ph>) by calling the <ph id="ph3">`Add`</ph> method of the <ph id="ph4">&lt;xref:System.Collections.ObjectModel.Collection%601&gt;</ph> of <ph id="ph5">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Create an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TextMessageEncodingBindingElement&gt;</ph> class and add it to the collection (<ph id="ph2">`outputBec`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>This specifies the encoding used by the binding.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.HttpTransportBindingElement&gt;</ph> and add it to the collection (<ph id="ph2">`outputBec`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>This specifies that the binding uses the HTTP transport.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Create a new custom binding by creating an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.CustomBinding&gt;</ph> class and passing the collection <ph id="ph2">`outputBec`</ph> to the constructor.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The resulting custom binding shares many of the same characteristics as the standard <ph id="ph1">&lt;xref:System.ServiceModel.WSHttpBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>It specifies message-level security and Windows credentials but disables secure sessions, requires that the service credential be specified out-of-band, and does not encrypt signatures.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>The last can be controlled only by setting the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A&gt;</ph> property as shown in step 4.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The other two can be controlled using settings on the standard binding.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The following example provides a complete function to create a custom binding that uses a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Code</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_CustomBinding#20<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_custombinding/cs/c_custombinding.cs#20)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_CustomBinding#20<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_custombinding/vb/source.vb#20)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Extending Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/extending-bindings.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>System-Provided Bindings<ept id="p1">](../../../../docs/framework/wcf/system-provided-bindings.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

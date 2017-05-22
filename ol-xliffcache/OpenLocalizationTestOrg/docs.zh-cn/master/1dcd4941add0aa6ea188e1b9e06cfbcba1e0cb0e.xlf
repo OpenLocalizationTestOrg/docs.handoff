@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1dcd4941add0aa6ea188e1b9e06cfbcba1e0cb0e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\performance\constrained-execution-regions.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e3dc15332107bee2406b1d4c63459d1d9626ecc8</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b428273cdbbc3864d762df5bf82bb9fc4ba689f9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Constrained Execution Regions | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Constrained Execution Regions</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>A constrained execution region (CER) is part of a mechanism for authoring reliable managed code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>A CER defines an area in which the common language runtime (CLR) is constrained from throwing out-of-band exceptions that would prevent the code in the area from executing in its entirety.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Within that region, user code is constrained from executing code that would result in the throwing of out-of-band exceptions.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph> method must immediately precede a <ph id="ph2">`try`</ph> block and marks <ph id="ph3">`catch`</ph>, <ph id="ph4">`finally`</ph>, and <ph id="ph5">`fault`</ph> blocks as constrained execution regions.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Once marked as a constrained region, code must only call other code with strong reliability contracts, and code should not allocate or make virtual calls to unprepared or unreliable methods unless the code is prepared to handle failures.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The CLR delays thread aborts for code that is executing in a CER.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Constrained execution regions are used in different forms in the CLR in addition to an annotated <ph id="ph1">`try`</ph> block, notably critical finalizers executing in classes derived from the <ph id="ph2">&lt;xref:System.Runtime.ConstrainedExecution.CriticalFinalizerObject&gt;</ph> class and code executed using the <ph id="ph3">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>CER Advance Preparation</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The CLR prepares CERs in advance to avoid out-of-memory conditions.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Advance preparation is required so the CLR does not cause an out of memory condition during just-in-time compilation or type loading.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The developer is required to indicate that a code region is a CER:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The top level CER region and methods in the full call graph that have the <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute&gt;</ph> attribute applied are prepared in advance.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute&gt;</ph> can only state guarantees of <ph id="ph2">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph> or <ph id="ph3">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Advance preparation cannot be performed for calls that cannot be statically determined, such as virtual dispatch.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareMethod%2A&gt;</ph> method in these cases.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When using the <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup%2A&gt;</ph> method, the <ph id="ph2">&lt;xref:System.Runtime.ConstrainedExecution.PrePrepareMethodAttribute&gt;</ph> attribute should be applied to the clean up code.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Constraints</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Users are constrained in the type of code they can write in a CER.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The code cannot cause an out-of-band exception, such as might result from the following operations:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Explicit allocation.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Boxing.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Acquiring a lock.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Calling unprepared methods virtually.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Calling methods with a weak or nonexistent reliability contract.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, these constraints are guidelines.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Diagnostics are provided through code analysis tools.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Reliability Contracts</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute&gt;</ph> is a custom attribute that documents the reliability guarantees and the corruption state of a given method.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Reliability Guarantees</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Reliability guarantees, represented by <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph> enumeration values, indicate the degree of reliability of a given method:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions, the method might fail.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In this case, the method reports back to the calling method whether it succeeded or failed.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The method must be contained in a CER to ensure that it can report the return value.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The method, type, or assembly has no concept of a CER and is most likely not safe to call within a CER without substantial mitigation from state corruption.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>It does not take advantage of CER guarantees.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This implies the following:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions the method might fail.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The method might or might not report that it failed.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The method is not written to use a CER, the most likely scenario.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If a method, type, or assembly is not explicitly identified to succeed, it is implicitly identified as <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Cer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions, the method is guaranteed to succeed.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To achieve this level of reliability you should always construct a CER around the method that is called, even when it is called from within a non-CER region.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>A method is successful if it accomplishes what is intended, although success can be viewed subjectively.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example, marking Count with <ph id="ph1">`ReliabilityContractAttribute(Cer.Success)`</ph> implies that when it is run under a CER, it always returns a count of the number of elements in the <ph id="ph2">&lt;xref:System.Collections.ArrayList&gt;</ph> and it can never leave the internal fields in an undetermined state.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>However, the <ph id="ph1">&lt;xref:System.Threading.Interlocked.CompareExchange%2A&gt;</ph> method is marked as success as well, with the understanding that success may mean the value could not be replaced with a new value due to a race condition.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The key point is that the method behaves in the way it is documented to behave, and CER code does not need to be written to expect any unusual behavior beyond what correct but unreliable code would look like.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Corruption levels</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Corruption levels, represented by <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Consistency&gt;</ph> enumeration values, indicate how much state may be corrupted in a given environment:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Consistency&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions, the common language runtime (CLR) makes no guarantees regarding state consistency in the current application domain.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Consistency&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions, the method is guaranteed to limit state corruption to the current instance.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Consistency&gt;</ph>, Under exceptional conditions, the CLR makes no guarantees regarding state consistency; that is, the condition might corrupt the process.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.Consistency&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Under exceptional conditions, the method is guaranteed not to corrupt state.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Reliability try/catch/finally</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The reliability <ph id="ph1">`try/catch/finally`</ph> is an exception handling mechanism with the same level of predictability guarantees as the unmanaged version.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`catch/finally`</ph> block is the CER.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Methods in the block require advance preparation and must be noninterruptible.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, code informs the runtime that a try is reliable by calling <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph> immediately preceding a try block.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph> is a member of <ph id="ph2">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers&gt;</ph>, a compiler support class.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Call <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph> directly pending its availability through compilers.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Noninterruptible Regions</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>A noninterruptible region groups a set of instructions into a CER.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>In .NET Framework version 2.0, pending availability through compiler support, user code creates non-interruptible regions with a reliable try/catch/finally that contains an empty try/catch block preceded by a <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A&gt;</ph> method call.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Critical Finalizer Object</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Runtime.ConstrainedExecution.CriticalFinalizerObject&gt;</ph> guarantees that garbage collection will execute the finalizer.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Upon allocation, the finalizer and its call graph are prepared in advance.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The finalizer method executes in a CER, and must obey all the constraints on CERs and finalizers.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Any types inheriting from <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> and <ph id="ph2">&lt;xref:System.Runtime.InteropServices.CriticalHandle&gt;</ph> are guaranteed to have their finalizer execute within a CER.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Implement <ph id="ph1">&lt;xref:System.Runtime.InteropServices.SafeHandle.ReleaseHandle%2A&gt;</ph> in <ph id="ph2">&lt;xref:System.Runtime.InteropServices.SafeHandle&gt;</ph> derived classes to execute any code that is required to free the handle.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Code Not Permitted in CERs</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The following operations are not permitted in CERs:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Explicit allocations.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Acquiring a lock.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Boxing.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Multidimensional array access.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Method calls through reflection.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Monitor.Enter%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.IO.FileStream.Lock%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Security checks.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Do not perform demands, only link demands.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Reflection.Emit.OpCodes.Isinst&gt;</ph> and <ph id="ph2">&lt;xref:System.Reflection.Emit.OpCodes.Castclass&gt;</ph> for COM objects and proxies</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Getting or setting fields on a transparent proxy.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Serialization.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Function pointers and delegates.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Reliability Best Practices<ept id="p1">](../../../docs/framework/performance/reliability-best-practices.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

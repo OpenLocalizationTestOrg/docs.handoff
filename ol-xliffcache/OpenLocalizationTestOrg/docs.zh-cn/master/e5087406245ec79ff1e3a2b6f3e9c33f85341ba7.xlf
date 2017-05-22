@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e5087406245ec79ff1e3a2b6f3e9c33f85341ba7</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\dependency-property-security.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c9dfe7d9cff0275cfa5b938f5878a57a1bc09776</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ed0d5db5719a8ed13a745fa4a4f58b30a93a3f9c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Dependency Property Security | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Dependency Property Security</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Dependency properties should generally be considered to be public properties.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The nature of the <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> property system prevents the ability to make security guarantees about a dependency property value.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Access and Security of Wrappers and Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Typically, dependency properties are implemented along with "wrapper" <ph id="ph1">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> properties that simplify getting or setting the property from an instance.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>But the wrappers are really just convenience methods that implement the underlying <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> static calls that are used when interacting with dependency properties.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Thinking of it in another way, the properties are exposed as <ph id="ph1">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> properties that happen to be backed by a dependency property rather than by a private field.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Security mechanisms applied to the wrappers do not parallel the property system behavior and access of the underlying dependency property.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Placing a security demand on the wrapper will only prevent the usage of the convenience method but will not prevent calls to <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetValue%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Similarly, placing protected or private access level on the wrappers does not provide any effective security.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If you are writing your own dependency properties, you should declare the wrappers and the <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier field as public members, so that callers do not get misleading information about the true access level of that property (because of its store being implemented as a dependency property).</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>For a custom dependency property, you can register your property as a read-only dependency property, and this does provide an effective means of preventing a property being set by anyone that does not hold a reference to the <ph id="ph1">&lt;xref:System.Windows.DependencyPropertyKey&gt;</ph> for that property.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Read-Only Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/read-only-dependency-properties.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Declaring a <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> identifier field private is not forbidden, and it can conceivably be used to help reduce the immediately exposed namespace of a custom class, but such a property should not be considered "private" in the same sense as the <ph id="ph2">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> language definitions define that access level, for reasons described in the next section.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Property System Exposure of Dependency Properties</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It is not generally useful, and it is potentially misleading, to declare a <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> as any access level other than public.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>That access level setting only prevents someone from being able to get a reference to the instance from the declaring class.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>But there are several aspects of the property system that will return a <ph id="ph1">&lt;xref:System.Windows.DependencyProperty&gt;</ph> as the means of identifying a particular property as it exists on an instance of a class or a derived class instance, and this identifier is still usable in a <ph id="ph2">&lt;xref:System.Windows.DependencyObject.SetValue%2A&gt;</ph> call even if the original static identifier is declared as nonpublic.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Also, <ph id="ph1">&lt;xref:System.Windows.DependencyObject.OnPropertyChanged%2A&gt;</ph> virtual methods receive information of any existing dependency property that changed value.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In addition, the <ph id="ph1">&lt;xref:System.Windows.DependencyObject.GetLocalValueEnumerator%2A&gt;</ph> method returns identifiers for any property on instances with a locally set value.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Validation and Security</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Applying a demand to a <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.ValidateValueCallback%2A&gt;</ph> and expecting the validation failure on a demand failure to prevent a property from being set is not an adequate security mechanism.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Set-value invalidation enforced through <ph id="ph1">&lt;xref:System.Windows.DependencyProperty.ValidateValueCallback%2A&gt;</ph> could also be suppressed by malicious callers, if those callers are operating within the application domain.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Custom Dependency Properties<ept id="p1">](../../../../docs/framework/wpf/advanced/custom-dependency-properties.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

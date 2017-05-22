@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7d92e389dde5e4e9a3c33d56a0811f09869fb3c9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\threading\overview-of-synchronization-primitives.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">653ddf32d6fadf0b3f3d4c2b7863c17c59a2b898</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">01231398836d7fe5536af08d88005bdc785f9952</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Overview of Synchronization Primitives | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Overview of Synchronization Primitives</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="top"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> The .NET Framework provides a range of synchronization primitives for controlling the interactions of threads and avoiding race conditions.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These can be roughly divided into three categories: locking, signaling, and interlocked operations.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The categories are not tidy nor clearly defined: Some synchronization mechanisms have characteristics of multiple categories; events that release a single thread at a time are functionally like locks; the release of any lock can be thought of as a signal; and interlocked operations can be used to construct locks.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>However, the categories are still useful.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>It is important to remember that thread synchronization is cooperative.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If even one thread bypasses a synchronization mechanism and accesses the protected resource directly, that synchronization mechanism cannot be effective.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This overview contains the following sections:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Locking<ept id="p1">](#locking)</ept></source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Signaling<ept id="p1">](#signaling)</ept></source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Lightweight Synchronization Types<ept id="p1">](#lightweight_synchronization_types)</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>SpinWait<ept id="p1">](#spinwait)</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Interlocked Operations<ept id="p1">](#interlocked_operations)</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Locking</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Locks give control of a resource to one thread at a time, or to a specified number of threads.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A thread that requests an exclusive lock when the lock is in use blocks until the lock becomes available.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Exclusive Locks</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The simplest form of locking is the <ph id="ph1">`lock`</ph> statement in C# and the <ph id="ph2">`SyncLock`</ph> statement in Visual Basic, which controls access to a block of code.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Such a block is frequently referred to as a critical section.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`lock`</ph> statement is implemented by using the <ph id="ph2">&lt;xref:System.Threading.Monitor.Enter%2A?displayProperty=fullName&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Monitor.Exit%2A?displayProperty=fullName&gt;</ph> methods, and it uses <ph id="ph4">`try…catch…finally`</ph> block to ensure that the lock is released.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In general, using the <ph id="ph1">`lock`</ph> or <ph id="ph2">`SyncLock`</ph> statement to protect small blocks of code, never spanning more than a single method, is the best way to use the <ph id="ph3">&lt;xref:System.Threading.Monitor&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Although powerful, the <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> class is prone to orphan locks and deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Monitor Class</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> class provides additional functionality, which can be used in conjunction with the <ph id="ph2">`lock`</ph> statement:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor.TryEnter%2A&gt;</ph> method allows a thread that is blocked waiting for the resource to give up after a specified interval.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>It returns a Boolean value indicating success or failure, which can be used to detect and avoid potential deadlocks.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor.Wait%2A&gt;</ph> method is called by a thread in a critical section.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It gives up control of the resource and blocks until the resource is available again.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor.Pulse%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Monitor.PulseAll%2A&gt;</ph> methods allow a thread that is about to release the lock or to call <ph id="ph3">&lt;xref:System.Threading.Monitor.Wait%2A&gt;</ph> to put one or more threads into the ready queue, so that they can acquire the lock.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Timeouts on <ph id="ph1">&lt;xref:System.Threading.Monitor.Wait%2A&gt;</ph> method overloads allow waiting threads to escape to the ready queue.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> class can provide locking in multiple application domains if the object used for the lock derives from <ph id="ph2">&lt;xref:System.MarshalByRefObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> has thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>That is, a thread that entered the monitor must exit by calling <ph id="ph1">&lt;xref:System.Threading.Monitor.Exit%2A&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Monitor.Wait%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> class is not instantiable.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Its methods are static (<ph id="ph1">`Shared`</ph> in Visual Basic), and act on an instantiable lock object.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Monitors<ept id="p1">](http://msdn.microsoft.com/library/33fe4aef-b44b-42fd-9e72-c908e39e75db)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Mutex Class</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Threads request a <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> by calling an overload of its <ph id="ph2">&lt;xref:System.Threading.WaitHandle.WaitOne%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Overloads with timeouts are provided, to allow threads to give up the wait.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Unlike the <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph> class, a mutex can be either local or global.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Global mutexes, also called named mutexes, are visible throughout the operating system, and can be used to synchronize threads in multiple application domains or processes.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Local mutexes derive from <ph id="ph1">&lt;xref:System.MarshalByRefObject&gt;</ph>, and can be used across application domain boundaries.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In addition, <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> derives from <ph id="ph2">&lt;xref:System.Threading.WaitHandle&gt;</ph>, which means that it can be used with the signaling mechanisms provided by <ph id="ph3">&lt;xref:System.Threading.WaitHandle&gt;</ph>, such as the <ph id="ph4">&lt;xref:System.Threading.WaitHandle.WaitAll%2A&gt;</ph>, <ph id="ph5">&lt;xref:System.Threading.WaitHandle.WaitAny%2A&gt;</ph>, and <ph id="ph6">&lt;xref:System.Threading.WaitHandle.SignalAndWait%2A&gt;</ph> methods.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Like <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Mutex&gt;</ph> has thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Unlike <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph>, a <ph id="ph2">&lt;xref:System.Threading.Mutex&gt;</ph> is an instantiable object.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Mutexes<ept id="p1">](../../../docs/standard/threading/mutexes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>SpinLock Class</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph>, you can use the <ph id="ph2">&lt;xref:System.Threading.SpinLock&gt;</ph> class when the overhead required by <ph id="ph3">&lt;xref:System.Threading.Monitor&gt;</ph> degrades performance.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> encounters a locked critical section, it simply spins in a loop until the lock becomes available.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>If the lock is held for a very short time, spinning can provide better performance than blocking.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>However, if the lock is held for more than a few tens of cycles, <ph id="ph1">&lt;xref:System.Threading.SpinLock&gt;</ph> performs just as well as <ph id="ph2">&lt;xref:System.Threading.Monitor&gt;</ph>, but will use more CPU cycles and thus can degrade the performance of other threads or processes.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Other Locks</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Locks need not be exclusive.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>It is often useful to allow a limited number of threads concurrent access to a resource.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Semaphores and reader-writer locks are designed to control this kind of pooled resource access.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>ReaderWriterLock Class</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> class addresses the case where a thread that changes data, the writer, must have exclusive access to a resource.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>When the writer is not active, any number of readers can access the resource (for example, by calling the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterReadLock%2A&gt;</ph> method).</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>When a thread requests exclusive access, (for example, by calling the <ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim.EnterWriteLock%2A&gt;</ph> method), subsequent reader requests block until all existing readers have exited the lock, and the writer has entered and exited the lock.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.ReaderWriterLockSlim&gt;</ph> has thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Reader-Writer Locks<ept id="p1">](../../../docs/standard/threading/reader-writer-locks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Semaphore Class</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Semaphore&gt;</ph> class allows a specified number of threads to access a resource.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Additional threads requesting the resource block until a thread releases the semaphore.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Like the <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> class, <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph> derives from <ph id="ph3">&lt;xref:System.Threading.WaitHandle&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Also like <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph>, a <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph> can be either local or global.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>It can be used across application domain boundaries.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Unlike <ph id="ph1">&lt;xref:System.Threading.Monitor&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Mutex&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.ReaderWriterLock&gt;</ph>, <ph id="ph4">&lt;xref:System.Threading.Semaphore&gt;</ph> does not have thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This means it can be used in scenarios where one thread acquires the semaphore and another releases it.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Semaphore and SemaphoreSlim<ept id="p1">](../../../docs/standard/threading/semaphore-and-semaphoreslim.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SemaphoreSlim?displayProperty=fullName&gt;</ph> is a lightweight semaphore for synchronization within a single process boundary.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Signaling</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The simplest way to wait for a signal from another thread is to call the <ph id="ph1">&lt;xref:System.Threading.Thread.Join%2A&gt;</ph> method, which blocks until the other thread completes.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Thread.Join%2A&gt;</ph> has two overloads that allow the blocked thread to break out of the wait after a specified interval has elapsed.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Wait handles provide a much richer set of waiting and signaling capabilities.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Wait Handles</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Wait handles derive from the <ph id="ph1">&lt;xref:System.Threading.WaitHandle&gt;</ph> class, which in turn derives from <ph id="ph2">&lt;xref:System.MarshalByRefObject&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Thus, wait handles can be used to synchronize the activities of threads across application domain boundaries.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Threads block on wait handles by calling the instance method <ph id="ph1">&lt;xref:System.Threading.WaitHandle.WaitOne%2A&gt;</ph> or one of the static methods <ph id="ph2">&lt;xref:System.Threading.WaitHandle.WaitAll%2A&gt;</ph>, <ph id="ph3">&lt;xref:System.Threading.WaitHandle.WaitAny%2A&gt;</ph>, or <ph id="ph4">&lt;xref:System.Threading.WaitHandle.SignalAndWait%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>How they are released depends on which method was called, and on the kind of wait handles.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Wait Handles<ept id="p1">](http://msdn.microsoft.com/library/48d10b6f-5fd7-407c-86ab-0179aef72489)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Event Wait Handles</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Event wait handles include the <ph id="ph1">&lt;xref:System.Threading.EventWaitHandle&gt;</ph> class and its derived classes, <ph id="ph2">&lt;xref:System.Threading.AutoResetEvent&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.ManualResetEvent&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Threads are released from an event wait handle when the event wait handle is signaled by calling its <ph id="ph1">&lt;xref:System.Threading.EventWaitHandle.Set%2A&gt;</ph> method or by using the <ph id="ph2">&lt;xref:System.Threading.WaitHandle.SignalAndWait%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Event wait handles either reset themselves automatically, like a turnstile that allows only one thread through each time it is signaled, or must be reset manually, like a gate that is closed until signaled and then open until someone closes it.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>As their names imply, <ph id="ph1">&lt;xref:System.Threading.AutoResetEvent&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph> represent the former and latter, respectively.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.ManualResetEventSlim?displayProperty=fullName&gt;</ph> is a lightweight event for synchronization within a single process boundary.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>An <ph id="ph1">&lt;xref:System.Threading.EventWaitHandle&gt;</ph> can represent either type of event, and can be either local or global.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The derived classes <ph id="ph1">&lt;xref:System.Threading.AutoResetEvent&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent&gt;</ph> are always local.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Event wait handles do not have thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Any thread can signal an event wait handle.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>EventWaitHandle, AutoResetEvent, CountdownEvent, ManualResetEvent<ept id="p1">](../../../docs/standard/threading/eventwaithandle-autoresetevent-countdownevent-manualresetevent.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Mutex and Semaphore Classes</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph> classes derive from <ph id="ph3">&lt;xref:System.Threading.WaitHandle&gt;</ph>, they can be used with the static methods of <ph id="ph4">&lt;xref:System.Threading.WaitHandle&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For example, a thread can use the <ph id="ph1">&lt;xref:System.Threading.WaitHandle.WaitAll%2A&gt;</ph> method to wait until all three of the following are true: an <ph id="ph2">&lt;xref:System.Threading.EventWaitHandle&gt;</ph> is signaled, a <ph id="ph3">&lt;xref:System.Threading.Mutex&gt;</ph> is released, and a <ph id="ph4">&lt;xref:System.Threading.Semaphore&gt;</ph> is released.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Similarly, a thread can use the <ph id="ph1">&lt;xref:System.Threading.WaitHandle.WaitAny%2A&gt;</ph> method to wait until any one of those conditions is true.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>For a <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph> or a <ph id="ph2">&lt;xref:System.Threading.Semaphore&gt;</ph>, being signaled means being released.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>If either type is used as the first argument of the <ph id="ph1">&lt;xref:System.Threading.WaitHandle.SignalAndWait%2A&gt;</ph> method, it is released.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In the case of a <ph id="ph1">&lt;xref:System.Threading.Mutex&gt;</ph>, which has thread affinity, an exception is thrown if the calling thread does not own the mutex.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>As noted previously, semaphores do not have thread affinity.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Barrier</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Barrier&gt;</ph> class provides a way to cyclically synchronize multiple threads so that they all block at the same point and wait for all other threads to complete.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>A barrier is useful when one or more threads require the results of another thread before continuing to the next phase of an algorithm.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Barrier<ept id="p1">](../../../docs/standard/threading/barrier.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Lightweight Synchronization Types</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>, you can use synchronization primitives that provide fast performance by avoiding expensive reliance on Win32 kernel objects such as wait handles whenever possible.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>In general, you should use these types when wait times are short and only when the original synchronization types have been tried and found to be unsatisfactory.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The lightweight types cannot be used in scenarios that require cross-process communication.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.SemaphoreSlim?displayProperty=fullName&gt;</ph> is a lightweight version of <ph id="ph2">&lt;xref:System.Threading.Semaphore?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.ManualResetEventSlim?displayProperty=fullName&gt;</ph> is a lightweight version of <ph id="ph2">&lt;xref:System.Threading.ManualResetEvent?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.CountdownEvent?displayProperty=fullName&gt;</ph> represents an event that becomes signaled when its count is zero.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Barrier?displayProperty=fullName&gt;</ph> enables multiple threads to synchronize with one another without requiring control by a master thread.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>A barrier prevents each thread from continuing until all threads have reached a specified point.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>SpinWait</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Starting with the <ph id="ph1">[!INCLUDE[net_v40_short](../../../includes/net-v40-short-md.md)]</ph>, you can use the <ph id="ph2">&lt;xref:System.Threading.SpinWait?displayProperty=fullName&gt;</ph> structure when a thread has to wait for an event to be signaled or a condition to be met, but when the actual wait time is expected to be less than the waiting time required by using a wait handle or by otherwise blocking the current thread.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>By using <ph id="ph1">&lt;xref:System.Threading.SpinWait&gt;</ph>, you can specify a short period of time to spin while waiting, and then yield (for example, by waiting or sleeping) only if the condition was not met in the specified time.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Back to top<ept id="p1">](#top)</ept></source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Interlocked Operations</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Interlocked operations are simple atomic operations performed on a memory location by static methods of the <ph id="ph1">&lt;xref:System.Threading.Interlocked&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Those atomic operations include addition, increment and decrement, exchange, conditional exchange depending on a comparison, and read operations for 64-bit values on 32-bit platforms.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The guarantee of atomicity is limited to individual operations; when multiple operations must be performed as a unit, a more coarse-grained synchronization mechanism must be used.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Although none of these operations are locks or signals, they can be used to construct locks and signals.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Because they are native to the Windows operating system, interlocked operations are extremely fast.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Interlocked operations can be used with volatile memory guarantees to write applications that exhibit powerful non-blocking concurrency.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>However, they require sophisticated, low-level programming, so for most purposes, simple locks are a better choice.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>For a conceptual overview, see <bpt id="p1">[</bpt>Interlocked Operations<ept id="p1">](../../../docs/standard/threading/interlocked-operations.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Synchronizing Data for Multithreading<ept id="p1">](../../../docs/standard/threading/synchronizing-data-for-multithreading.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Monitors<ept id="p1">](http://msdn.microsoft.com/library/33fe4aef-b44b-42fd-9e72-c908e39e75db)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Mutexes<ept id="p1">](../../../docs/standard/threading/mutexes.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Semaphore and SemaphoreSlim<ept id="p1">](../../../docs/standard/threading/semaphore-and-semaphoreslim.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>EventWaitHandle, AutoResetEvent, CountdownEvent, ManualResetEvent<ept id="p1">](../../../docs/standard/threading/eventwaithandle-autoresetevent-countdownevent-manualresetevent.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Wait Handles<ept id="p1">](http://msdn.microsoft.com/library/48d10b6f-5fd7-407c-86ab-0179aef72489)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Interlocked Operations<ept id="p1">](../../../docs/standard/threading/interlocked-operations.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Reader-Writer Locks<ept id="p1">](../../../docs/standard/threading/reader-writer-locks.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Barrier<ept id="p1">](../../../docs/standard/threading/barrier.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SpinWait<ept id="p1">](../../../docs/standard/threading/spinwait.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>SpinLock<ept id="p1">](../../../docs/standard/threading/spinlock.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

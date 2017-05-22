@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f694d542d1994c0f9c18886c4e0154343ea0c710</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\extension-methods.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a14d2e9cbe1c981717cc1524a0fab78f43a96dca</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">24e0b98ce46ecec4affb1fe4fc71ed628d1b83a0</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Extension Methods | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Extension Methods</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Extension methods are a language feature that allows static methods to be called using instance method call syntax.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These methods must take at least one parameter, which represents the instance the method is to operate on.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The class that defines such extension methods is referred to as the "sponsor" class, and it must be declared as static.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>To use extension methods, one must import the namespace defining the sponsor class.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> frivolously defining extension methods, especially on types you don’t own.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If you do own source code of a type, consider using regular instance methods instead.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If you don’t own, and you want to add a method, be very careful.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Liberal use of extension methods has the potential of cluttering APIs of types that were not designed to have these methods.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using extension methods in any of the following scenarios:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>To provide helper functionality relevant to every implementation of an interface, if said functionality can be written in terms of the core interface.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This is because concrete implementations cannot otherwise be assigned to interfaces.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`LINQ to Objects`</ph> operators are implemented as extension methods for all <ph id="ph2">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph> types.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Thus, any <ph id="ph1">`IEnumerable&lt;&gt;`</ph> implementation is automatically LINQ-enabled.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When an instance method would introduce a dependency on some type, but such a dependency would break dependency management rules.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>For example, a dependency from <ph id="ph1">&lt;xref:System.String&gt;</ph> to <ph id="ph2">&lt;xref:System.Uri?displayProperty=fullName&gt;</ph> is probably not desirable, and so <ph id="ph3">`String.ToUri()`</ph> instance method returning <ph id="ph4">`System.Uri`</ph> would be the wrong design from a dependency management perspective.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>A static extension method <ph id="ph1">`Uri.ToUri(this string str)`</ph> returning <ph id="ph2">`System.Uri`</ph> would be a much better design.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> defining extension methods on <ph id="ph1">&lt;xref:System.Object?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>VB users will not be able to call such methods on object references using the extension method syntax.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>VB does not support calling such methods because, in VB, declaring a reference as Object forces all method invocations on it to be late bound (actual member called is determined at runtime), while bindings to extension methods are determined at compile-time (early bound).</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Note that the guideline applies to other languages where the same binding behavior is present, or where extension methods are not supported.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> put extension methods in the same namespace as the extended type unless it is for adding methods to interfaces or for dependency management.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> defining two or more extension methods with the same signature, even if they reside in different namespaces.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> defining extension methods in the same namespace as the extended type if the type is an interface and if the extension methods are meant to be used in most or all cases.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> define extension methods implementing a feature in namespaces normally associated with other features.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Instead, define them in the namespace associated with the feature they belong to.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> generic naming of namespaces dedicated to extension methods (e.g., "Extensions").</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Use a descriptive name (e.g., "Routing") instead.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Member Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/member.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

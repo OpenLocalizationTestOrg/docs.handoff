@@ -1,0 +1,999 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4642f8d1bd6192ed66012634e02c71195ce1b5c8</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\dataflow-task-parallel-library.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3b8cb3c9f410d7f022918f75458430b00a89713b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">67096a470047f03922da524c40b388e7a299cee5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Dataflow (Task Parallel Library) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Dataflow (Task Parallel Library)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="top"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> The Task Parallel Library (TPL) provides dataflow components to help increase the robustness of concurrency-enabled applications.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>These dataflow components are collectively referred to as the <bpt id="p1">*</bpt>TPL Dataflow Library<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This dataflow model promotes actor-based programming by providing in-process message passing for coarse-grained dataflow and pipelining tasks.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The dataflow components build on the types and scheduling infrastructure of the TPL and integrate with the C#, <ph id="ph1">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>, and F# language support for asynchronous programming.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>These dataflow components are useful when you have multiple operations that must communicate with one another asynchronously or when you want to process data as it becomes available.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For example, consider an application that processes image data from a web camera.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>By using the dataflow model, the application can process image frames as they become available.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the application enhances image frames, for example, by performing light correction or red-eye reduction, you can create a <bpt id="p1">*</bpt>pipeline<ept id="p1">*</ept> of dataflow components.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Each stage of the pipeline might use more coarse-grained parallelism functionality, such as the functionality that is provided by the TPL, to transform the image.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This document provides an overview of the TPL Dataflow Library.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>It describes the programming model, the predefined dataflow block types, and how to configure dataflow blocks to meet the specific requirements of your applications.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library (<ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow?displayProperty=fullName&gt;</ph> namespace) is not distributed with the <ph id="ph2">[!INCLUDE[net_v45](../../../includes/net-v45-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To install the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow&gt;</ph> namespace, open your project in <ph id="ph2">[!INCLUDE[vs_dev11_long](../../../includes/vs-dev11-long-md.md)]</ph>, choose <bpt id="p1">**</bpt>Manage NuGet Packages<ept id="p1">**</ept> from the Project menu, and search online for the <ph id="ph3">`Microsoft.Tpl.Dataflow`</ph> package.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This document contains the following sections:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Programming Model<ept id="p1">](#model)</ept></source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Predefined Dataflow Block Types<ept id="p1">](#predefined_types)</ept></source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Configuring Dataflow Block Behavior<ept id="p1">](#behavior)</ept></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Custom Dataflow Blocks<ept id="p1">](#custom)</ept></source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Programming Model</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides a foundation for message passing and parallelizing CPU-intensive and I/O-intensive applications that have high throughput and low latency.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It also gives you explicit control over how data is buffered and moves around the system.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To better understand the dataflow programming model, consider an application that asynchronously loads images from disk and creates a composite of those images.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Traditional programming models typically require that you use callbacks and synchronization objects, such as locks, to coordinate tasks and access to shared data.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>By using the dataflow programming model, you can create dataflow objects that process images as they are read from disk.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Under the dataflow model, you declare how data is handled when it becomes available, and also any dependencies between data.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Because the runtime manages dependencies between data, you can often avoid the requirement to synchronize access to shared data.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In addition, because the runtime schedules work based on the asynchronous arrival of data, dataflow can improve responsiveness and throughput by efficiently managing the underlying threads.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For an example that uses the dataflow programming model to implement image processing in a Windows Forms application, see <bpt id="p1">[</bpt>Walkthrough: Using Dataflow in a Windows Forms Application<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-dataflow-in-a-windows-forms-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Sources and Targets</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library consists of <bpt id="p1">*</bpt>dataflow blocks<ept id="p1">*</ept>, which are data structures that buffer and process data.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The TPL defines three kinds of dataflow blocks: <bpt id="p1">*</bpt>source blocks<ept id="p1">*</ept>, <bpt id="p2">*</bpt>target blocks<ept id="p2">*</ept>, and <bpt id="p3">*</bpt>propagator blocks<ept id="p3">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>A source block acts as a source of data and can be read from.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A target block acts as a receiver of data and can be written to.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>A propagator block acts as both a source block and a target block, and can be read from and written to.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The TPL defines the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601?displayProperty=fullName&gt;</ph> interface to represent sources, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601?displayProperty=fullName&gt;</ph> to represent targets, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.IPropagatorBlock%602?displayProperty=fullName&gt;</ph> to represent propagators.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.IPropagatorBlock%602&gt;</ph> inherits from both <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides several predefined dataflow block types that implement the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.IPropagatorBlock%602&gt;</ph> interfaces.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>These dataflow block types are described in this document in the section <bpt id="p1">[</bpt>Predefined Dataflow Block Types<ept id="p1">](#predefined_types)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Connecting Blocks</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>You can connect dataflow blocks to form <bpt id="p1">*</bpt>pipelines<ept id="p1">*</ept>, which are linear sequences of dataflow blocks, or <bpt id="p2">*</bpt>networks<ept id="p2">*</ept>, which are graphs of dataflow blocks.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>A pipeline is one form of network.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In a pipeline or network, sources asynchronously propagate data to targets as that data becomes available.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.LinkTo%2A?displayProperty=fullName&gt;</ph> method links a source dataflow block to a target block.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>A source can be linked to zero or more targets; targets can be linked from zero or more sources.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>You can add or remove dataflow blocks to or from a pipeline or network concurrently.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The predefined dataflow block types handle all thread-safety aspects of linking and unlinking.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For an example that connects dataflow blocks to form a basic pipeline, see <bpt id="p1">[</bpt>Walkthrough: Creating a Dataflow Pipeline<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-creating-a-dataflow-pipeline.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For an example that connects dataflow blocks to form a more complex network, see <bpt id="p1">[</bpt>Walkthrough: Using Dataflow in a Windows Forms Application<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-dataflow-in-a-windows-forms-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For an example that unlinks a target from a source after the source offers the target a message, see <bpt id="p1">[</bpt>How to: Unlink Dataflow Blocks<ept id="p1">](../../../docs/standard/parallel-programming/how-to-unlink-dataflow-blocks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Filtering</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>When you call the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.LinkTo%2A?displayProperty=fullName&gt;</ph> method to link a source to a target, you can supply a delegate that determines whether the target block accepts or rejects a message based on the value of that message.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This filtering mechanism is a useful way to guarantee that a dataflow block receives only certain values.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>For most of the predefined dataflow block types, if a source block is connected to multiple target blocks, when a target block rejects a message, the source offers that message to the next target.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The order in which a source offers messages to targets is defined by the source and can vary according to the type of the source.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Most source block types stop offering a message after one target accepts that message.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>One exception to this rule is the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> class, which offers each message to all targets, even if some targets reject the message.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For an example that uses filtering to process only certain messages, see <bpt id="p1">[</bpt>Walkthrough: Using Dataflow in a Windows Forms Application<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-dataflow-in-a-windows-forms-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Because each predefined source dataflow block type guarantees that messages are propagated out in the order in which they are received, every message must be read from the source block before the source block can process the next message.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Therefore, when you use filtering to connect multiple targets to a source, make sure that at least one target block receives each message.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Otherwise, your application might deadlock.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Message Passing</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The dataflow programming model is related to the concept of <bpt id="p1">*</bpt>message passing<ept id="p1">*</ept>, where independent components of a program communicate with one another by sending messages.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>One way to propagate messages among application components is to call the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.Post%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.SendAsync%2A?displayProperty=fullName&gt;</ph> methods to send messages to target dataflow blocks post (<ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.Post%2A&gt;</ph> acts synchronously; <ph id="ph4">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.SendAsync%2A&gt;</ph> acts asynchronously) and the <ph id="ph5">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.Receive%2A&gt;</ph>, <ph id="ph6">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.ReceiveAsync%2A&gt;</ph>, and <ph id="ph7">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.TryReceive%2A&gt;</ph> methods to receive messages from source blocks.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>You can combine these methods with dataflow pipelines or networks by sending input data to the head node (a target block), and receiving output data from the terminal node of the pipeline or the terminal nodes of the network (one or more source blocks).</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>You can also use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.Choose%2A&gt;</ph> method to read from the first of the provided sources that has data available and perform action on that data.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Source blocks offer data to target blocks by calling the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601.OfferMessage%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The target block responds to an offered message in one of three ways: it can accept the message, decline the message, or postpone the message.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>When the target accepts the message, the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601.OfferMessage%2A&gt;</ph> method returns <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowMessageStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>When the target declines the message, the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601.OfferMessage%2A&gt;</ph> method returns <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowMessageStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>When the target requires that it no longer receives any messages from the source, <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601.OfferMessage%2A&gt;</ph> returns <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowMessageStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The predefined source block types do not offer messages to linked targets after such a return value is received, and they automatically unlink from such targets.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>When a target block postpones the message for later use, the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601.OfferMessage%2A&gt;</ph> method returns <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowMessageStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>A target block that postpones a message can later calls the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.ReserveMessage%2A?displayProperty=fullName&gt;</ph> method to try to reserve the offered message.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>At this point, the message is either still available and can be used by the target block, or the message has been taken by another target.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>When the target block later requires the message or no longer needs the message, it calls the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.ConsumeMessage%2A?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.ReleaseReservation%2A&gt;</ph> method, respectively.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Message reservation is typically used by the dataflow block types that operate in non-greedy mode.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Non-greedy mode is explained later in this document.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Instead of reserving a postponed message, a target block can also use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.ConsumeMessage%2A?displayProperty=fullName&gt;</ph> method to attempt to directly consume the postponed message.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Dataflow Block Completion</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Dataflow blocks also support the concept of <bpt id="p1">*</bpt>completion<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>A dataflow block that is in the completed state does not perform any further work.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Each dataflow block has an associated <ph id="ph1">&lt;xref:System.Threading.Tasks.Task?displayProperty=fullName&gt;</ph> object, known as a <bpt id="p1">*</bpt>completion task<ept id="p1">*</ept>, that represents the completion status of the block.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Because you can wait for a <ph id="ph1">&lt;xref:System.Threading.Tasks.Task&gt;</ph> object to finish, by using completion tasks, you can wait for one or more terminal nodes of a dataflow network to finish.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock&gt;</ph> interface defines the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Complete%2A&gt;</ph> method, which informs the dataflow block of a request for it to complete, and the <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Completion%2A&gt;</ph> property, which returns the completion task for the dataflow block.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Both <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph> inherit the <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>There are two ways to determine whether a dataflow block completed without error, encountered one or more errors, or was canceled.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The first way is to call the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=fullName&gt;</ph> method on the completion task in a <ph id="ph2">`try`</ph><ph id="ph3">-</ph><ph id="ph4">`catch`</ph> block (<ph id="ph5">`Try`</ph><ph id="ph6">-</ph><ph id="ph7">`Catch`</ph> in Visual Basic).</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The following example creates an <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object that throws <ph id="ph2">&lt;xref:System.ArgumentOutOfRangeException&gt;</ph> if its input value is less than zero.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.AggregateException&gt;</ph> is thrown when this example calls <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.Wait%2A&gt;</ph> on the completion task.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ArgumentOutOfRangeException&gt;</ph> is accessed through the <ph id="ph2">&lt;xref:System.AggregateException.InnerExceptions%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.AggregateException&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#10<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#10)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#10<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#10)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>This example demonstrates the case in which an exception goes unhandled in the delegate of an execution dataflow block.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>We recommend that you handle exceptions in the bodies of such blocks.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>However, if you are unable to do so, the block behaves as though it was canceled and does not process incoming messages.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>When a dataflow block is canceled explicitly, the <ph id="ph1">&lt;xref:System.AggregateException&gt;</ph> object contains <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph> in the <ph id="ph3">&lt;xref:System.AggregateException.InnerExceptions%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>For more information about dataflow cancellation, see Enabling Cancellation later in this document.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The second way to determine the completion status of a dataflow block is to use a continuation off of the completion task, or to use the asynchronous language features of C# and Visual Basic to asynchronously wait for the completion task.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The delegate that you provide to the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=fullName&gt;</ph> method takes a <ph id="ph2">&lt;xref:System.Threading.Tasks.Task&gt;</ph> object that represents the antecedent task.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In the case of the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Completion%2A&gt;</ph> property, the delegate for the continuation takes the completion task itself.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>The following example resembles the previous one, except that it also uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.ContinueWith%2A&gt;</ph> method to create a completion task that prints the status of the overall dataflow operation.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#11<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#11)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#11<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#11)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>You can also use properties such as <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.IsCanceled%2A&gt;</ph> in the body of the continuation task to determine additional information about the completion status of a dataflow block.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>For more information about continuation tasks and how they relate to cancellation and error handling, see <bpt id="p1">[</bpt>Chaining Tasks by Using Continuation Tasks<ept id="p1">](../../../docs/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks.md)</ept>, <bpt id="p2">[</bpt>Task Cancellation<ept id="p2">](../../../docs/standard/parallel-programming/task-cancellation.md)</ept>, <bpt id="p3">[</bpt>Exception Handling<ept id="p3">](../../../docs/standard/parallel-programming/exception-handling-task-parallel-library.md)</ept>, and <bpt id="p4">[</bpt>NIB: How to: Handle Exceptions Thrown by Tasks<ept id="p4">](http://msdn.microsoft.com/en-us/d6c47ec8-9de9-4880-beb3-ff19ae51565d)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>[<bpt id="p1">[</bpt>go to top<ept id="p1">](#top)</ept>]</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Predefined Dataflow Block Types</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides several predefined dataflow block types.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>These types are divided into three categories: <bpt id="p1">*</bpt>buffering blocks<ept id="p1">*</ept>, <bpt id="p2">*</bpt>execution blocks<ept id="p2">*</ept>, and <bpt id="p3">*</bpt>grouping blocks<ept id="p3">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The following sections describe the block types that make up these categories.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Buffering Blocks</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Buffering blocks hold data for use by data consumers.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides three buffering block types: <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601?displayProperty=fullName&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>BufferBlock(T)</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> class represents a general-purpose asynchronous messaging structure.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>This class stores a first in, first out (FIFO) queue of messages that can be written to by multiple sources or read from by multiple targets.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>When a target receives a message from a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> object, that message is removed from the message queue.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Therefore, although a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> object can have multiple targets, only one target will receive each message.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> class is useful when you want to pass multiple messages to another component, and that component must receive each message.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>The following basic example posts several <ph id="ph1">&lt;xref:System.Int32&gt;</ph> values to a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> object and then reads those values back from that object.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#1<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#1<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>For a complete example that demonstrates how to write messages to and read messages from a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> object, see <bpt id="p1">[</bpt>How to: Write Messages to and Read Messages from a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-write-messages-to-and-read-messages-from-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>BroadcastBlock(T)</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> class is useful when you must pass multiple messages to another component, but that component needs only the most recent value.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>This class is also useful when you want to broadcast a message to multiple components.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The following basic example posts a <ph id="ph1">&lt;xref:System.Double&gt;</ph> value to a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> object and then reads that value back from that object several times.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Because values are not removed from <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> objects after they are read, the same value is available every time.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#2<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#2)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#2<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>For a complete example that demonstrates how to use <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> to broadcast a message to multiple target blocks, see <bpt id="p1">[</bpt>How to: Specify a Task Scheduler in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-a-task-scheduler-in-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>WriteOnceBlock(T)</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> class resembles the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> class, except that a <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object can be written to one time only.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>You can think of <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> as being similar to the C# <bpt id="p1">[</bpt>readonly<ept id="p1">](~/docs/csharp/language-reference/keywords/readonly.md)</ept> (<bpt id="p2">[</bpt>ReadOnly<ept id="p2">](~/docs/visual-basic/language-reference/modifiers/readonly.md)</ept> in <ph id="ph2">[!INCLUDE[vbprvb](../../../includes/vbprvb-md.md)]</ph>) keyword, except that a <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object becomes immutable after it receives a value instead of at construction.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Like the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BroadcastBlock%601&gt;</ph> class, when a target receives a message from a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object, that message is not removed from that object.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Therefore, multiple targets receive a copy of the message.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> class is useful when you want to propagate only the first of multiple messages.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>The following basic example posts multiple <ph id="ph1">&lt;xref:System.String&gt;</ph> values to a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object and then reads the value back from that object.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Because a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object can be written to one time only, after a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> object receives a message, it discards subsequent messages.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#3<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#3)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#3<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>For a complete example that demonstrates how to use <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.WriteOnceBlock%601&gt;</ph> to receive the value of the first operation that finishes, see <bpt id="p1">[</bpt>How to: Unlink Dataflow Blocks<ept id="p1">](../../../docs/standard/parallel-programming/how-to-unlink-dataflow-blocks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Execution Blocks</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Execution blocks call a user-provided delegate for each piece of received data.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides three execution block types: <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602?displayProperty=fullName&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>ActionBlock(T)</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> class is a target block that calls a delegate when it receives data.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Think of a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object as a delegate that runs asynchronously when data becomes available.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>The delegate that you provide to an <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object can be of type <ph id="ph2">&lt;xref:System.Action&gt;</ph> or type <ph id="ph3">`System.Func\&lt;TInput, Task&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>When you use an <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object with <ph id="ph2">&lt;xref:System.Action&gt;</ph>, processing of each input element is considered completed when the delegate returns.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>When you use an <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object with <ph id="ph2">`System.Func\&lt;TInput, Task&gt;`</ph>, processing of each input element is considered completed only when the returned <ph id="ph3">&lt;xref:System.Threading.Tasks.Task&gt;</ph> object is completed.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>By using these two mechanisms, you can use <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> for both synchronous and asynchronous processing of each input element.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>The following basic example posts multiple <ph id="ph1">&lt;xref:System.Int32&gt;</ph> values to an <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> object prints those values to the console.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>This example then sets the block to the completed state and waits for all dataflow tasks to finish.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#4<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#4)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#4<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>For complete examples that demonstrate how to use delegates with the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> class, see <bpt id="p1">[</bpt>How to: Perform Action When a Dataflow Block Receives Data<ept id="p1">](../../../docs/standard/parallel-programming/how-to-perform-action-when-a-dataflow-block-receives-data.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>TransformBlock(TInput, TOutput)</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> class resembles the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph> class, except that it acts as both a source and as a target.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>The delegate that you pass to a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object returns a value of type <ph id="ph2">`TOutput`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>The delegate that you provide to a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object can be of type <ph id="ph2">`System.Func&lt;TInput, TOutput&gt;`</ph> or type <ph id="ph3">`System.Func&lt;TInput, Task&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>When you use a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object with <ph id="ph2">`System.Func\&lt;TInput, TOutput&gt;`</ph>, processing of each input element is considered completed when the delegate returns.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>When you use a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object used with <ph id="ph2">`System.Func&lt;TInput, Task&lt;TOutput&gt;&gt;`</ph>, processing of each input element is considered completed only when the returned <ph id="ph3">&lt;xref:System.Threading.Tasks.Task&gt;</ph> object is completed.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>As with <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, by using these two mechanisms, you can use <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> for both synchronous and asynchronous processing of each input element.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The following basic example creates a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object that computes the square root of its input.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> object takes <ph id="ph2">&lt;xref:System.Int32&gt;</ph> values as input and produces <ph id="ph3">&lt;xref:System.Double&gt;</ph> values as output.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#5<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#5)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#5<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#5)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>For complete examples that uses <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> in a network of dataflow blocks that performs image processing in a Windows Forms application, see <bpt id="p1">[</bpt>Walkthrough: Using Dataflow in a Windows Forms Application<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-dataflow-in-a-windows-forms-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>TransformManyBlock(TInput, TOutput)</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> class resembles the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> class, except that <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> produces zero or more output values for each input value, instead of only one output value for each input value.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>The delegate that you provide to a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object can be of type <ph id="ph2">`System.Func&lt;TInput, IEnumerable&lt;TOutput&gt;&gt;`</ph> or <ph id="ph3">`type System.Func&lt;TInput, Task&lt;IEnumerable&lt;TOutput&gt;&gt;&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>When you use a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object with <ph id="ph2">`System.Func&lt;TInput, IEnumerable&lt;TOutput&gt;&gt;`</ph>, processing of each input element is considered completed when the delegate returns.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>When you use a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object with <ph id="ph2">`System.Func&lt;TInput, Task&lt;IEnumerable&lt;TOutput&gt;&gt;&gt;`</ph>, processing of each input element is considered complete only when the returned <ph id="ph3">`System.Threading.Tasks.Task&lt;IEnumerable&lt;TOutput&gt;&gt;`</ph> object is completed.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>The following basic example creates a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object that splits strings into their individual character sequences.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object takes <ph id="ph2">&lt;xref:System.String&gt;</ph> values as input and produces <ph id="ph3">&lt;xref:System.Char&gt;</ph> values as output.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#6<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#6)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#6<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#6)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>For complete examples that use <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> to produce multiple independent outputs for each input in a dataflow pipeline, see <bpt id="p1">[</bpt>Walkthrough: Creating a Dataflow Pipeline<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-creating-a-dataflow-pipeline.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Degree of Parallelism</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Every <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> object buffers input messages until the block is ready to process them.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>By default, these classes process messages in the order in which they are received, one message at a time.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>You can also specify the degree of parallelism to enable <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> objects to process multiple messages concurrently.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>For more information about concurrent execution, see the section Specifying the Degree of Parallelism later in this document.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>For an example that sets the degree of parallelism to enable an execution dataflow block to process more than one message at a time, see <bpt id="p1">[</bpt>How to: Specify the Degree of Parallelism in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-the-degree-of-parallelism-in-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>Summary of Delegate Types</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>The following table summarizes the delegate types that you can provide to <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>This table also specifies whether the delegate type operates synchronously or asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>Type</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>Synchronous Delegate Type</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Asynchronous Delegate Type</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`System.Func\&lt;TInput, TOutput&gt;`</ph>2`</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>You can also use lambda expressions when you work with execution block types.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>For an example that shows how to use a lambda expression with an execution block, see <bpt id="p1">[</bpt>How to: Perform Action When a Dataflow Block Receives Data<ept id="p1">](../../../docs/standard/parallel-programming/how-to-perform-action-when-a-dataflow-block-receives-data.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>Grouping Blocks</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>Grouping blocks combine data from one or more sources and under various constraints.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>The TPL Dataflow Library provides three join block types: <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>BatchBlock(T)</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> class combines sets of input data, which are known as batches, into arrays of output data.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>You specify the size of each batch when you create a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object receives the specified count of input elements, it asynchronously propagates out an array that contains those elements.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>If a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object is set to the completed state but does not contain enough elements to form a batch, it propagates out a final array that contains the remaining input elements.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> class operates in either <bpt id="p1">*</bpt>greedy<ept id="p1">*</ept> or <bpt id="p2">*</bpt>non-greedy<ept id="p2">*</ept> mode.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>In greedy mode, which is the default, a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object accepts every message that it is offered and propagates out an array after it receives the specified count of elements.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>In non-greedy mode, a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object postpones all incoming messages until enough sources have offered messages to the block to form a batch.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>Greedy mode typically performs better than non-greedy mode because it requires less processing overhead.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>However, you can use non-greedy mode when you must coordinate consumption from multiple sources in an atomic fashion.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>Specify non-greedy mode by setting <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.GroupingDataflowBlockOptions.Greedy%2A&gt;</ph> to <ph id="ph2">`False`</ph> in the <ph id="ph3">`dataflowBlockOptions`</ph> parameter in the <ph id="ph4">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601.%23ctor%2A&gt;</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>The following basic example posts several <ph id="ph1">&lt;xref:System.Int32&gt;</ph> values to a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object that holds ten elements in a batch.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>To guarantee that all values propagate out of the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph>, this example calls the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Complete%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Complete%2A&gt;</ph> method sets the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object to the completed state, and therefore, the <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object propagates out any remaining elements as a final batch.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#7<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#7)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#7<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#7)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>For a complete example that uses <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> to improve the efficiency of database insert operations, see <bpt id="p1">[</bpt>Walkthrough: Using BatchBlock and BatchedJoinBlock to Improve Efficiency<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-batchblock-and-batchedjoinblock-to-improve-efficiency.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>JoinBlock(T1, T2, ...)</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> classes collect input elements and propagate out <ph id="ph3">&lt;xref:System.Tuple%602?displayProperty=fullName&gt;</ph> or <ph id="ph4">&lt;xref:System.Tuple%603?displayProperty=fullName&gt;</ph> objects that contain those elements.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> classes do not inherit from <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>Instead, they provide properties, <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602.Target1%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602.Target2%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603.Target3%2A&gt;</ph>, that implement <ph id="ph4">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>Like <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> operate in either greedy or non-greedy mode.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>In greedy mode, which is the default, a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> object accepts every message that it is offered and propagates out a tuple after each of its targets receives at least one message.</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>In non-greedy mode, a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> object postpones all incoming messages until all targets have been offered the data that is required to create a tuple.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>At this point, the block engages in a two-phase commit protocol to atomically retrieve all required items from the sources.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>This postponement makes it possible for another entity to consume the data in the meantime, to allow the overall system to make forward progress.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>The following basic example demonstrates a case in which a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> object requires multiple data to compute a value.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>This example creates a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%603&gt;</ph> object that requires two <ph id="ph2">&lt;xref:System.Int32&gt;</ph> values and a <ph id="ph3">&lt;xref:System.Char&gt;</ph> value to perform an arithmetic operation.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#8<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#8)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#8<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#8)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>For a complete example that uses <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> objects in non-greedy mode to cooperatively share a resource, see <bpt id="p1">[</bpt>How to: Use JoinBlock to Read Data From Multiple Sources<ept id="p1">](../../../docs/standard/parallel-programming/how-to-use-joinblock-to-read-data-from-multiple-sources.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>BatchedJoinBlock(T1, T2, ...)</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> and <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%603&gt;</ph> classes collect batches of input elements and propagate out <ph id="ph3">`System.Tuple(IList(T1), IList(T2))`</ph> or <ph id="ph4">`System.Tuple(IList(T1), IList(T2), IList(T3))`</ph> objects that contain those elements.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>Think of <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> as a combination of <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>Specify the size of each batch when you create a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> also provides properties, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602.Target1%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602.Target2%2A&gt;</ph>, that implement <ph id="ph4">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>When the specified count of input elements are received from across all targets, the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> object asynchronously propagates out a <ph id="ph2">`System.Tuple(IList(T1), IList(T2))`</ph> object that contains those elements.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>The following basic example creates a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> object that holds results, <ph id="ph2">&lt;xref:System.Int32&gt;</ph> values, and errors that are <ph id="ph3">&lt;xref:System.Exception&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>This example performs multiple operations and writes results to the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602.Target1%2A&gt;</ph> property, and errors to the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602.Target2%2A&gt;</ph> property, of the <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>Because the count of successful and failed operations is unknown in advance, the <ph id="ph1">&lt;xref:System.Collections.Generic.IList%601&gt;</ph> objects enable each target to receive zero or more values.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPLDataflow_Overview#9<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_overview/cs/program.cs#9)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>TPLDataflow_Overview#9<ept id="p4">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_overview/vb/program.vb#9)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>For a complete example that uses <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> to capture both the results and any exceptions that occur while the program reads from a database, see <bpt id="p1">[</bpt>Walkthrough: Using BatchBlock and BatchedJoinBlock to Improve Efficiency<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-batchblock-and-batchedjoinblock-to-improve-efficiency.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source>[<bpt id="p1">[</bpt>go to top<ept id="p1">](#top)</ept>]</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source>Configuring Dataflow  Block Behavior</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>You can enable additional options by providing a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions?displayProperty=fullName&gt;</ph> object to the constructor of dataflow block types.</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source>These options control behavior such the scheduler that manages the underlying task and the degree of parallelism.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions&gt;</ph> also has derived types that specify behavior that is specific to certain dataflow block types.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve">
+          <source>The following table summarizes which options type is associated with each dataflow block type.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>Dataflow Block Type</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions&gt;</ph> type</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve">
+          <source>The following sections provide additional information about the important kinds of dataflow block options that are available through the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions?displayProperty=fullName&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.GroupingDataflowBlockOptions?displayProperty=fullName&gt;</ph> classes.</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve">
+          <source>Specifying the Task Scheduler</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve">
+          <source>Every predefined dataflow block uses the TPL task scheduling mechanism to perform activities such as propagating data to a target, receiving data from a source, and running user-defined delegates when data becomes available.</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> is an abstract class that represents a task scheduler that queues tasks onto threads.</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve">
+          <source>The default task scheduler, <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler.Default%2A&gt;</ph>, uses the <ph id="ph2">&lt;xref:System.Threading.ThreadPool&gt;</ph> class to queue and execute work.</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve">
+          <source>You can override the default task scheduler by setting the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.TaskScheduler%2A&gt;</ph> property when you construct a dataflow block object.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>When the same task scheduler manages multiple dataflow blocks, it can enforce policies across them.</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source>For example, if multiple dataflow blocks are each configured to target the exclusive scheduler of the same <ph id="ph1">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> object, all work that runs across these blocks is serialized.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>Similarly, if these blocks are configured to target the concurrent scheduler of the same <ph id="ph1">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> object, and that scheduler is configured to have a maximum concurrency level, all work from these blocks is limited to that number of concurrent operations.</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>For an example that uses the <ph id="ph1">&lt;xref:System.Threading.Tasks.ConcurrentExclusiveSchedulerPair&gt;</ph> class to enable read operations to occur in parallel, but write operations to occur exclusively of all other operations, see <bpt id="p1">[</bpt>How to: Specify a Task Scheduler in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-a-task-scheduler-in-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>For more information about task schedulers in the TPL, see the <ph id="ph1">&lt;xref:System.Threading.Tasks.TaskScheduler&gt;</ph> class topic.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source>Specifying the Degree of Parallelism</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>By default, the three execution block types that the TPL Dataflow Library provides, <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph>, process one message at a time.</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>These dataflow block types also process messages in the order in which they are received.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>To enable these dataflow blocks to process messages concurrently, set the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions.MaxDegreeOfParallelism%2A?displayProperty=fullName&gt;</ph> property when you construct the dataflow block object.</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>The default value of <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions.MaxDegreeOfParallelism%2A&gt;</ph> is 1, which guarantees that the dataflow block processes one message at a time.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>Setting this property to a value that is larger than 1 enables the dataflow block to process multiple messages concurrently.</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve">
+          <source>Setting this property to <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.Unbounded?displayProperty=fullName&gt;</ph> enables the underlying task scheduler to manage the maximum degree of concurrency.</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve">
+          <source>When you specify a maximum degree of parallelism that is larger than 1, multiple messages are processed simultaneously, and therefore, messages might not be processed in the order in which they are received.</source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve">
+          <source>The order in which the messages are output from the block will, however, be correctly ordered.</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions.MaxDegreeOfParallelism%2A&gt;</ph> property represents the maximum degree of parallelism, the dataflow block might execute with a lesser degree of parallelism than you specify.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>The dataflow block might use a lesser degree of parallelism to meet its functional requirements or because there is a lack of available system resources.</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source>A dataflow block never chooses more parallelism than you specify.</source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source>The value of the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions.MaxDegreeOfParallelism%2A&gt;</ph> property is exclusive to each dataflow block object.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>For example, if four dataflow block objects each specify 1 for the maximum degree of parallelism, all four dataflow block objects can potentially run in parallel.</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source>For an example that sets the maximum degree of parallelism to enable lengthy operations to occur in parallel, see <bpt id="p1">[</bpt>How to: Specify the Degree of Parallelism in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-the-degree-of-parallelism-in-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="367" translate="yes" xml:space="preserve">
+          <source>Specifying the Number of Messages per Task</source>
+        </trans-unit>
+        <trans-unit id="368" translate="yes" xml:space="preserve">
+          <source>The predefined dataflow block types use tasks to process multiple input elements.</source>
+        </trans-unit>
+        <trans-unit id="369" translate="yes" xml:space="preserve">
+          <source>This helps minimize the number of task objects that are required to process data, which enables applications to run more efficiently.</source>
+        </trans-unit>
+        <trans-unit id="370" translate="yes" xml:space="preserve">
+          <source>However, when the tasks from one set of dataflow blocks are processing data, the tasks from other dataflow blocks might need to wait for processing time by queuing messages.</source>
+        </trans-unit>
+        <trans-unit id="371" translate="yes" xml:space="preserve">
+          <source>To enable better fairness among dataflow tasks, set the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.MaxMessagesPerTask%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="372" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.MaxMessagesPerTask%2A&gt;</ph> is set to <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.Unbounded?displayProperty=fullName&gt;</ph>, which is the default, the task used by a dataflow block processes as many messages as are available.</source>
+        </trans-unit>
+        <trans-unit id="373" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.MaxMessagesPerTask%2A&gt;</ph> is set to a value other than <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.Unbounded&gt;</ph>, the dataflow block processes at most this number of messages per <ph id="ph3">&lt;xref:System.Threading.Tasks.Task&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="374" translate="yes" xml:space="preserve">
+          <source>Although setting the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.MaxMessagesPerTask%2A&gt;</ph> property can increase fairness among tasks, it can cause the system to create more tasks than are necessary, which can decrease performance.</source>
+        </trans-unit>
+        <trans-unit id="375" translate="yes" xml:space="preserve">
+          <source>Enabling Cancellation</source>
+        </trans-unit>
+        <trans-unit id="376" translate="yes" xml:space="preserve">
+          <source>The TPL provides a mechanism that enables tasks to coordinate cancellation in a cooperative manner.</source>
+        </trans-unit>
+        <trans-unit id="377" translate="yes" xml:space="preserve">
+          <source>To enable dataflow blocks to participate in this cancellation mechanism, set the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlockOptions.CancellationToken%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="378" translate="yes" xml:space="preserve">
+          <source>When this <ph id="ph1">&lt;xref:System.Threading.CancellationToken&gt;</ph> object is set to the canceled state, all dataflow blocks that monitor this token finish execution of their current item but do not start processing subsequent items.</source>
+        </trans-unit>
+        <trans-unit id="379" translate="yes" xml:space="preserve">
+          <source>These dataflow blocks also clear any buffered messages, release connections to any source and target blocks, and transition to the canceled state.</source>
+        </trans-unit>
+        <trans-unit id="380" translate="yes" xml:space="preserve">
+          <source>By transitioning to the canceled state, the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.IDataflowBlock.Completion%2A&gt;</ph> property has the <ph id="ph2">&lt;xref:System.Threading.Tasks.Task.Status%2A&gt;</ph> property set to <ph id="ph3">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph>, unless an exception occurred during processing.</source>
+        </trans-unit>
+        <trans-unit id="381" translate="yes" xml:space="preserve">
+          <source>In that case, <ph id="ph1">&lt;xref:System.Threading.Tasks.Task.Status%2A&gt;</ph> is set to <ph id="ph2">&lt;xref:System.Threading.Tasks.TaskStatus&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="382" translate="yes" xml:space="preserve">
+          <source>For an example that demonstrates how to use cancellation in a Windows Forms application, see <bpt id="p1">[</bpt>How to: Cancel a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-cancel-a-dataflow-block.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="383" translate="yes" xml:space="preserve">
+          <source>For more information about cancellation in the TPL, see <bpt id="p1">[</bpt>Task Cancellation<ept id="p1">](../../../docs/standard/parallel-programming/task-cancellation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="384" translate="yes" xml:space="preserve">
+          <source>Specifying Greedy Versus Non-Greedy Behavior</source>
+        </trans-unit>
+        <trans-unit id="385" translate="yes" xml:space="preserve">
+          <source>Several grouping dataflow block types can operate in either <bpt id="p1">*</bpt>greedy<ept id="p1">*</ept> or <bpt id="p2">*</bpt>non-greedy<ept id="p2">*</ept> mode.</source>
+        </trans-unit>
+        <trans-unit id="386" translate="yes" xml:space="preserve">
+          <source>By default, the predefined dataflow block types operate in greedy mode.</source>
+        </trans-unit>
+        <trans-unit id="387" translate="yes" xml:space="preserve">
+          <source>For join block types such as <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph>, greedy mode means that the block immediately accepts data even if the corresponding data with which to join is not yet available.</source>
+        </trans-unit>
+        <trans-unit id="388" translate="yes" xml:space="preserve">
+          <source>Non-greedy mode means that the block postpones all incoming messages until one is available on each of its targets to complete the join.</source>
+        </trans-unit>
+        <trans-unit id="389" translate="yes" xml:space="preserve">
+          <source>If any of the postponed messages are no longer available, the join block releases all postponed messages and restarts the process.</source>
+        </trans-unit>
+        <trans-unit id="390" translate="yes" xml:space="preserve">
+          <source>For the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> class, greedy and non-greedy behavior is similar, except that under non-greedy mode, a <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> object postpones all incoming messages until enough are available from distinct sources to complete a batch.</source>
+        </trans-unit>
+        <trans-unit id="391" translate="yes" xml:space="preserve">
+          <source>To specify non-greedy mode for a dataflow block, set <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.GroupingDataflowBlockOptions.Greedy%2A&gt;</ph> to <ph id="ph2">`False`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="392" translate="yes" xml:space="preserve">
+          <source>For an example that demonstrates how to use non-greedy mode to enable multiple join blocks to share a data source more efficiently, see <bpt id="p1">[</bpt>How to: Use JoinBlock to Read Data From Multiple Sources<ept id="p1">](../../../docs/standard/parallel-programming/how-to-use-joinblock-to-read-data-from-multiple-sources.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="393" translate="yes" xml:space="preserve">
+          <source>[<bpt id="p1">[</bpt>go to top<ept id="p1">](#top)</ept>]</source>
+        </trans-unit>
+        <trans-unit id="394" translate="yes" xml:space="preserve">
+          <source>Custom Dataflow Blocks</source>
+        </trans-unit>
+        <trans-unit id="395" translate="yes" xml:space="preserve">
+          <source>Although the TPL Dataflow Library provides many predefined block types, you can create additional block types that perform custom behavior.</source>
+        </trans-unit>
+        <trans-unit id="396" translate="yes" xml:space="preserve">
+          <source>Implement the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601&gt;</ph> or <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.ITargetBlock%601&gt;</ph> interfaces directly or use the  <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.DataflowBlock.Encapsulate%2A&gt;</ph> method to build a complex block that encapsulates the behavior of existing block types.</source>
+        </trans-unit>
+        <trans-unit id="397" translate="yes" xml:space="preserve">
+          <source>For examples that show how to implement custom dataflow block functionality, see <bpt id="p1">[</bpt>Walkthrough: Creating a Custom Dataflow Block Type<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-creating-a-custom-dataflow-block-type.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="398" translate="yes" xml:space="preserve">
+          <source>[<bpt id="p1">[</bpt>go to top<ept id="p1">](#top)</ept>]</source>
+        </trans-unit>
+        <trans-unit id="399" translate="yes" xml:space="preserve">
+          <source>Related Topics</source>
+        </trans-unit>
+        <trans-unit id="400" translate="yes" xml:space="preserve">
+          <source>Title</source>
+        </trans-unit>
+        <trans-unit id="401" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="402" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Write Messages to and Read Messages from a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-write-messages-to-and-read-messages-from-a-dataflow-block.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="403" translate="yes" xml:space="preserve">
+          <source>Demonstrates how to write messages to and read messages from a <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BufferBlock%601&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="404" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Implement a Producer-Consumer Dataflow Pattern<ept id="p1">](../../../docs/standard/parallel-programming/how-to-implement-a-producer-consumer-dataflow-pattern.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="405" translate="yes" xml:space="preserve">
+          <source>Describes how to use the dataflow model to implement a producer-consumer pattern, where the producer sends messages to a dataflow block, and the consumer reads messages from that block.</source>
+        </trans-unit>
+        <trans-unit id="406" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Perform Action When a Dataflow Block Receives Data<ept id="p1">](../../../docs/standard/parallel-programming/how-to-perform-action-when-a-dataflow-block-receives-data.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="407" translate="yes" xml:space="preserve">
+          <source>Describes how to provide delegates to the execution dataflow block types, <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ActionBlock%601&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.TransformBlock%602&gt;</ph>, and <ph id="ph3">&lt;xref:System.Threading.Tasks.Dataflow.TransformManyBlock%602&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="408" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Creating a Dataflow Pipeline<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-creating-a-dataflow-pipeline.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="409" translate="yes" xml:space="preserve">
+          <source>Describes how to create a dataflow pipeline that downloads text from the web and performs operations on that text.</source>
+        </trans-unit>
+        <trans-unit id="410" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Unlink Dataflow Blocks<ept id="p1">](../../../docs/standard/parallel-programming/how-to-unlink-dataflow-blocks.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="411" translate="yes" xml:space="preserve">
+          <source>Demonstrates how to use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ISourceBlock%601.LinkTo%2A&gt;</ph> method to unlink a target block from its source after the source offers a message to the target.</source>
+        </trans-unit>
+        <trans-unit id="412" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Using Dataflow in a Windows Forms Application<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-dataflow-in-a-windows-forms-application.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="413" translate="yes" xml:space="preserve">
+          <source>Demonstrates how to create a network of dataflow blocks that perform image processing in a Windows Forms application.</source>
+        </trans-unit>
+        <trans-unit id="414" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Cancel a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-cancel-a-dataflow-block.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="415" translate="yes" xml:space="preserve">
+          <source>Demonstrates how to use cancellation in a Windows Forms application.</source>
+        </trans-unit>
+        <trans-unit id="416" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Use JoinBlock to Read Data From Multiple Sources<ept id="p1">](../../../docs/standard/parallel-programming/how-to-use-joinblock-to-read-data-from-multiple-sources.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="417" translate="yes" xml:space="preserve">
+          <source>Explains how to use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.JoinBlock%602&gt;</ph> class to perform an operation when data is available from multiple sources, and how to use non-greedy mode to enable multiple join blocks to share a data source more efficiently.</source>
+        </trans-unit>
+        <trans-unit id="418" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Specify the Degree of Parallelism in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-the-degree-of-parallelism-in-a-dataflow-block.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="419" translate="yes" xml:space="preserve">
+          <source>Describes how to set the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions.MaxDegreeOfParallelism%2A&gt;</ph> property to enable an execution dataflow block to process more than one message at a time.</source>
+        </trans-unit>
+        <trans-unit id="420" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Specify a Task Scheduler in a Dataflow Block<ept id="p1">](../../../docs/standard/parallel-programming/how-to-specify-a-task-scheduler-in-a-dataflow-block.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="421" translate="yes" xml:space="preserve">
+          <source>Demonstrates how to associate a specific task scheduler when you use dataflow in your application.</source>
+        </trans-unit>
+        <trans-unit id="422" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Using BatchBlock and BatchedJoinBlock to Improve Efficiency<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-using-batchblock-and-batchedjoinblock-to-improve-efficiency.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="423" translate="yes" xml:space="preserve">
+          <source>Describes how to use the <ph id="ph1">&lt;xref:System.Threading.Tasks.Dataflow.BatchBlock%601&gt;</ph> class to improve the efficiency of database insert operations, and how to use the <ph id="ph2">&lt;xref:System.Threading.Tasks.Dataflow.BatchedJoinBlock%602&gt;</ph> class to capture both the results and any exceptions that occur while the program reads from a database.</source>
+        </trans-unit>
+        <trans-unit id="424" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Creating a Custom Dataflow Block Type<ept id="p1">](../../../docs/standard/parallel-programming/walkthrough-creating-a-custom-dataflow-block-type.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="425" translate="yes" xml:space="preserve">
+          <source>Demonstrates two ways to create a dataflow block type that implements custom behavior.</source>
+        </trans-unit>
+        <trans-unit id="426" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Task Parallel Library (TPL)<ept id="p1">](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="427" translate="yes" xml:space="preserve">
+          <source>Introduces the TPL, a library that simplifies parallel and concurrent programming in <ph id="ph1">[!INCLUDE[dnprdnshort](../../../includes/dnprdnshort-md.md)]</ph> applications.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

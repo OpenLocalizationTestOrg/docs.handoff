@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0df12b5583a6cbad2f89ba5824c58f0521727231</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\optimizing-performance-application-resources.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9c8956f6df682f9455c782c02d49cd020f882e82</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">667edb9973252831894a26ea7d085cca2dd9a6b8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Optimizing Performance: Application Resources | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Optimizing Performance: Application Resources</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> allows you to share application resources so that you can support a consistent look or behavior across similar-typed elements.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic provides a few recommendations in this area that can help you improve the performance of your applications.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information on resources, see <bpt id="p1">[</bpt>XAML Resources<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-resources.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Sharing resources</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>If your application uses custom controls and defines resources in a <ph id="ph1">&lt;xref:System.Windows.ResourceDictionary&gt;</ph> (or XAML Resources node), it is recommended that you either define the resources at the <ph id="ph2">&lt;xref:System.Windows.Application&gt;</ph> or <ph id="ph3">&lt;xref:System.Windows.Window&gt;</ph> object level, or define them in the default theme for the custom controls.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Defining resources in a custom control's <ph id="ph1">&lt;xref:System.Windows.ResourceDictionary&gt;</ph> imposes a performance impact for every instance of that control.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, if you have performance-intensive brush operations defined as part of the resource definition of a custom control and many instances of the custom control, the application's working set will increase significantly.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To illustrate this point, consider the following.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Let's say you are developing a card game using <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For most card games, you need 52 cards with 52 different faces.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>You decide to implement a card custom control and you define 52 brushes (each representing a card face) in the resources of your card custom control.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>In your main application, you initially create 52 instances of this card custom control.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Each instance of the card custom control generates 52 instances of <ph id="ph1">&lt;xref:System.Windows.Media.Brush&gt;</ph> objects, which gives you a total of 52 * 52 <ph id="ph2">&lt;xref:System.Windows.Media.Brush&gt;</ph> objects in your application.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>By moving the brushes out of the card custom control resources to the <ph id="ph1">&lt;xref:System.Windows.Application&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.Window&gt;</ph> object level, or defining them in the default theme for the custom control, you reduce the working set of the application, since you are now sharing the 52 brushes among 52 instances of the card control.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Sharing a Brush without Copying</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If you have multiple elements using the same <ph id="ph1">&lt;xref:System.Windows.Media.Brush&gt;</ph> object, define the brush as a resource and reference it, rather than defining the brush inline in <ph id="ph2">[!INCLUDE[TLA#tla_titlexaml](../../../../includes/tlasharptla-titlexaml-md.md)]</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This method will create one instance and reuse it, whereas defining brushes inline in <ph id="ph1">[!INCLUDE[TLA#tla_titlexaml](../../../../includes/tlasharptla-titlexaml-md.md)]</ph> creates a new instance for each element.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The following markup sample illustrates this point:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet7<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/BrushResource.xaml#performancesnippet7)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Use Static Resources when Possible</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A static resource provides a value for any XAML property attribute by looking up a reference to an already defined resource.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Lookup behavior for that resource is analogous to compile-time lookup.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A dynamic resource, on the other hand, will create a temporary expression during the initial compilation and thus defer lookup for resources until the requested resource value is actually required in order to construct an object.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Lookup behavior for that resource is analogous to run-time lookup, which imposes a performance impact.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Use static resources whenever possible in your application, using dynamic resources only when necessary.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The following markup sample shows the use of both types of resources:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet8<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/DynamicResource.xaml#performancesnippet8)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Optimizing WPF Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-wpf-application-performance.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Planning for Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/planning-for-application-performance.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Taking Advantage of Hardware<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-taking-advantage-of-hardware.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Layout and Design<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-layout-and-design.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>2D Graphics and Imaging<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-2d-graphics-and-imaging.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Object Behavior<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-object-behavior.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Text<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-text.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Data Binding<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-data-binding.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Other Performance Recommendations<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-other-recommendations.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

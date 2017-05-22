@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d86cfc195ae5339caa4f3824f1b47f2d13e3ff36</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\object-lifetime-events.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b4048ea91a0e7a3d597341fbcef7a47cc7c8818e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3a09de9539e369560d8b5e2ae68ebfdd184ba316</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Object Lifetime Events | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Object Lifetime Events</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes the specific <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> events that signify stages in an object lifetime of creation, use, and destruction.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic assumes that you understand dependency properties from the perspective of a consumer of existing dependency properties on <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> classes, and have read the <bpt id="p1">[</bpt>Dependency Properties Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-properties-overview.md)</ept> topic.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In order to follow the examples in this topic, you should also understand <ph id="ph1">[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]</ph> (see <bpt id="p1">[</bpt>XAML Overview (WPF)<ept id="p1">](../../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept>) and know how to write <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> applications.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Object Lifetime Events</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>All objects in <ph id="ph1">[!INCLUDE[TLA#tla_netframewk](../../../../includes/tlasharptla-netframewk-md.md)]</ph> managed code go through a similar set of stages of life, creation, use, and destruction.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Many objects also have a finalization stage of life that occurs as part of the destruction phase.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> objects, more specifically the visual objects that <ph id="ph2">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> identifies as elements, also have a set of common stages of object life.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> programming and application models expose these stages as a series of events.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>There are four main types of objects in <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> with respect to lifetime events; elements in general, window elements, navigation hosts, and application objects.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Windows and navigation hosts are also within the larger grouping of visual objects (elements).</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This topic describes the lifetime events that are common to all elements and then introduces the more specific ones that apply to application definitions, windows or navigation hosts.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Common Lifetime Events for Elements</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Any WPF framework-level element (those objects deriving from either <ph id="ph1">&lt;xref:System.Windows.FrameworkElement&gt;</ph> or <ph id="ph2">&lt;xref:System.Windows.FrameworkContentElement&gt;</ph>) has three common lifetime events: <ph id="ph3">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph>, and <ph id="ph5">&lt;xref:System.Windows.FrameworkElement.Unloaded&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Initialized</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph> is raised first, and roughly corresponds to the initialization of the object by the call to its constructor.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Because the event happens in response to initialization, you are guaranteed that all properties of the object are set.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>(An exception is expression usages such as dynamic resources or binding; these will be unevaluated expressions.) As a consequence of the requirement that all properties are set, the sequence of <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph> being raised by nested elements that are defined in markup appears to occur in order of deepest elements in the element tree first, then parent elements toward the root.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This order is because the parent-child relationships and containment are properties, and therefore the parent cannot report initialization until the child elements that fill the property are also completely initialized.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When you are writing handlers in response to the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph> event, you must consider that there is no guarantee that all other elements in the element tree (either logical tree or visual tree) around where the handler is attached have been created, particularly parent elements.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Member variables may be null, or data sources might not yet be populated by the underlying binding (even at the expression level).</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Loaded</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> is raised next.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event is raised before the final rendering, but after the layout system has calculated all necessary values for rendering.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> entails that the logical tree that an element is contained within is complete, and connects to a presentation source that provides the HWND and the rendering surface.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Standard data binding (binding to local sources, such as other properties or directly defined data sources) will have occurred prior to <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Asynchronous data binding (external or dynamic sources) might have occurred, but by definition of its asynchronous nature cannot be guaranteed to have occurred.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The mechanism by which the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event is raised is different than <ph id="ph2">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Initialized&gt;</ph> event is raised element by element, without a direct coordination by a completed element tree.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>By contrast, the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event is raised as a coordinated effort throughout the entire element tree (specifically, the logical tree).</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>When all elements in the tree are in a state where they are considered loaded, the <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event is first raised on the root element.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event is then raised successively on each child element.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>This behavior might superficially resemble tunneling for a routed event.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>However, no information is carried from event to event.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Each element always has the opportunity to handle its <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Loaded&gt;</ph> event, and marking the event data as handled has no effect beyond that element.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Unloaded</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Unloaded&gt;</ph> is raised last and is initiated by either the presentation source or the visual parent being removed.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When <ph id="ph1">&lt;xref:System.Windows.FrameworkElement.Unloaded&gt;</ph> is raised and handled, the element that is the event source parent (as determined by <ph id="ph2">&lt;xref:System.Windows.FrameworkElement.Parent%2A&gt;</ph> property) or any given element upwards in the logical or visual trees may have already been unset, meaning that data binding, resource references, and styles may not be set to their normal or last known run-time value.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Lifetime Events Application Model Elements</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Building on the common lifetime events for elements are the following application model elements: <ph id="ph1">&lt;xref:System.Windows.Application&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Window&gt;</ph>, <ph id="ph3">&lt;xref:System.Windows.Controls.Page&gt;</ph>, <ph id="ph4">&lt;xref:System.Windows.Navigation.NavigationWindow&gt;</ph>, and <ph id="ph5">&lt;xref:System.Windows.Controls.Frame&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>These extend the common lifetime events with additional events that are relevant to their specific purpose.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>These are discussed in detail in the following locations:</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Application&gt;</ph>: <bpt id="p1">[</bpt>Application Management Overview<ept id="p1">](../../../../docs/framework/wpf/app-development/application-management-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Window&gt;</ph>: <bpt id="p1">[</bpt>WPF Windows Overview<ept id="p1">](../../../../docs/framework/wpf/app-development/wpf-windows-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.Controls.Page&gt;</ph>, <ph id="ph2">&lt;xref:System.Windows.Navigation.NavigationWindow&gt;</ph>, and <ph id="ph3">&lt;xref:System.Windows.Controls.Frame&gt;</ph>: <bpt id="p1">[</bpt>Navigation Overview<ept id="p1">](../../../../docs/framework/wpf/app-development/navigation-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Dependency Property Value Precedence<ept id="p1">](../../../../docs/framework/wpf/advanced/dependency-property-value-precedence.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

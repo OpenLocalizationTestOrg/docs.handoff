@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fee4c2ee9bca46cee7b006b42bc1a76b98c427c4</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\custom-stream-upgrades.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">21ef35e14dd32ef8ba979764603a1de222790aae</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9533d8af8e8635ec274a56fe7727e2436fa947a9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Custom Stream Upgrades | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Custom Stream Upgrades</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Stream-oriented transports such as TCP and Named Pipes operate on a continuous stream of bytes between the client and server.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This stream is realized by a  <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In a stream upgrade, the client wants to add an optional protocol layer to the channel stack, and asks the other end of the communication channel to do so.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The stream upgrade consists in replacing the original <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph> object with an upgraded one.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, you can build a compression stream directly on top of the transport stream.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this case the original transport <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph> is replaced with one that wraps the compression <ph id="ph2">&lt;xref:System.IO.Stream&gt;</ph> around the original one.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>You can apply multiple stream upgrades, each wrapping the preceding one.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>How Stream Upgrades Work</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>There are four components to the stream upgrade process.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>An upgrade stream <bpt id="p1">*</bpt>Initiator<ept id="p1">*</ept> begins the process: at run-time it can initiate a request to the other end of its connection to upgrade the channel transport layer.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>An upgrade stream <bpt id="p1">*</bpt>Acceptor<ept id="p1">*</ept> carries out the upgrade: at run-time it receives the upgrade request from the other machine, and if possible, accepts the upgrade.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>An upgrade <bpt id="p1">*</bpt>Provider<ept id="p1">*</ept> creates the <bpt id="p2">*</bpt>Initiator<ept id="p2">*</ept> on the client and the <bpt id="p3">*</bpt>Acceptor<ept id="p3">*</ept> on the server.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>A stream upgrade <bpt id="p1">*</bpt>Binding Element<ept id="p1">*</ept> is added to the bindings on the service and the client, and creates the provider at runtime.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Note that in the case of multiple upgrades, the Initiator and Acceptor encapsulate state machines to enforce which upgrade transitions are valid for each Initiation.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>How to Implement a Stream Upgrade</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> provides four <ph id="ph2">`abstract`</ph> classes that you can implement:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To implement a custom stream upgrade, do the following.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This procedure implements a minimal stream upgrade process on both the client and server machines.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Create a class that implements <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeInitiator&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeInitiator.InitiateUpgrade%2A&gt;</ph> method to take in the stream to be upgraded, and return the upgraded stream.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>This method works synchronously; there are analogous methods to initiate the upgrade asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeInitiator.GetNextUpgrade%2A&gt;</ph> method to check for additional upgrades.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Create a class that implements <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeAcceptor&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A&gt;</ph> method to take in the stream to be upgraded, and return the upgraded stream.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This method works synchronously; there are analogous methods to accept the upgrade asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.CanUpgrade%2A&gt;</ph> method to determine if the upgrade requested is supported by this upgrade acceptor at this point in the upgrade process.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Create a class the implements <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeProvider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeProvider.CreateUpgradeAcceptor%2A&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.StreamUpgradeProvider.CreateUpgradeInitiator%2A&gt;</ph> methods to return instances of the acceptor and initiator defined in steps 2 and 1.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Create a class that implements <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeBindingElement.BuildClientStreamUpgradeProvider%2A&gt;</ph> method on the client and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.StreamUpgradeBindingElement.BuildServerStreamUpgradeProvider%2A&gt;</ph> method on the service.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelFactory%2A&gt;</ph> method on the client and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelListener%2A&gt;</ph> method on the service to add the upgrade Binding Element to <ph id="ph3">&lt;xref:System.ServiceModel.Channels.BindingContext.BindingParameters%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Add the new stream upgrade binding element to bindings on the server and client machines.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Security Upgrades</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Adding a security upgrade is a specialized version of the general stream upgrade process.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> already provides two binding elements for upgrading stream security.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The configuration of transport-level security is encapsulated by the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.WindowsStreamSecurityBindingElement&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.SslStreamSecurityBindingElement&gt;</ph> which can be configured and added to a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>These binding elements extend the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeBindingElement&gt;</ph> class that builds the client and server stream upgrade providers.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>These binding elements have methods that create the specialized security stream upgrade provider classes, which are not <ph id="ph1">`public`</ph>, so for these two cases all you need to do is to add the binding element to the binding.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For security scenarios not met by the above two binding elements, three security-related <ph id="ph1">`abstract`</ph> classes are derived from the above initiator, acceptor and provider base classes:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The process of implementing a security stream upgrade is the same as before, with the difference that you would derive from these three classes.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Override the additional properties in these classes to supply security information to the runtime.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Multiple Upgrades</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>To create additional upgrade requests repeat the above process: create additional extensions of <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeProvider&gt;</ph> and binding elements.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Add the binding elements to the binding.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The additional binding elements are processed sequentially, starting with the first binding element added to the binding.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelFactory%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelListener%2A&gt;</ph> each upgrade provider can determine how to layer itself on any pre-existing upgrade binding parameters.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>It should then replace the existing upgrade binding parameter with a new composite upgrade binding parameter.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Alternatively, one upgrade provider can support multiple upgrades.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For example, you might want to implement a custom stream upgrade provider that supports both security and compression.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Do the following steps:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Subclass <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamSecurityUpgradeProvider&gt;</ph> to write the provider class that creates the Initiator and Acceptor.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Subclass the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamSecurityUpgradeInitiator&gt;</ph> making sure to override the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.StreamUpgradeInitiator.GetNextUpgrade%2A&gt;</ph> method to return the content types for the compression stream and the secure stream in order.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Subclass the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamSecurityUpgradeAcceptor&gt;</ph> that understands the custom content types in its <ph id="ph2">&lt;xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.CanUpgrade%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The stream will be upgraded after each call to <ph id="ph1">&lt;xref:System.ServiceModel.Channels.StreamUpgradeInitiator.GetNextUpgrade%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.CanUpgrade%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

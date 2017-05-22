@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5b90c48846b00c5ca9024c6445febf05a4a84c72</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\creating-a-long-running-workflow-service.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">079b8a8b5bab0e57cac989b2fa001630a1224bbf</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b7ef29721d2c3a2365030041992848b8566e0e00</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating a Long-running Workflow Service | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating a Long-running Workflow Service</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how to create a long-running workflow service.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Long running workflow services may run for long periods of time.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>At some point the workflow may go idle waiting for some additional information.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When this occurs the workflow is persisted to a SQL database and is removed from memory.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>When the additional information becomes available the workflow instance is loaded back into memory and continues executing.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this scenario you are implementing a very simplified ordering system.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The client sends an initial message to the workflow service to start the order.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>It returns an order ID to the client.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>At this point the workflow service is waiting for another message from the client and goes into the idle state and is persisted to a SQL Server database.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>When the client sends the next message to order an item, the workflow service is loaded back into memory and finishes processing the order.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>In the code sample it returns a string stating the item has been added to the order.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The code sample is not meant to be a real world application of the technology, but rather a simple sample that illustrates long running workflow services.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This topic assumes you know how to create <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> projects and solutions.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>You must have the following software installed to use this walkthrough:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Microsoft SQL Server 2008</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Microsoft  <ph id="ph1">[!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You are familiar with WCF and <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> and know how to create projects/solutions.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To Setup the SQL Database</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In order for workflow service instances to be persisted you must have Microsoft SQL Server installed and you must configure a database to store the persisted workflow instances.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Run Microsoft SQL Management Studio by clicking the <bpt id="p1">**</bpt>Start<ept id="p1">**</ept> button, selecting <bpt id="p2">**</bpt>All Programs<ept id="p2">**</ept>, <bpt id="p3">**</bpt>Microsoft SQL Server 2008<ept id="p3">**</ept>, and <bpt id="p4">**</bpt>Microsoft SQL Management Studio<ept id="p4">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Connect<ept id="p1">**</ept> button to log on to the SQL Server instance</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Right click <bpt id="p1">**</bpt>Databases<ept id="p1">**</ept> in the tree view and select <bpt id="p2">**</bpt>New Database..<ept id="p2">**</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>to create a new database called <ph id="ph1">`SQLPersistenceStore`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Run the SqlWorkflowInstanceStoreSchema.sql script file located in the C:\Windows\Microsoft.NET\Framework\v4.0\SQL\en directory on the SQLPersistenceStore database to set up the needed database schemas.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Run the SqlWorkflowInstanceStoreLogic.sql script file located in the C:\Windows\Microsoft.NET\Framework\v4.0\SQL\en directory on the SQLPersistenceStore database to set up the needed database logic.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>To Create the Web Hosted Workflow Service</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Create an empty <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> solution, name it <ph id="ph2">`OrderProcessing`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Add a new <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> Workflow Service Application project called <ph id="ph2">`OrderService`</ph> to the solution.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In the project properties dialog, select the <bpt id="p1">**</bpt>Web<ept id="p1">**</ept> tab.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Start Action<ept id="p1">**</ept> select <bpt id="p2">**</bpt>Specific Page<ept id="p2">**</ept> and specify <ph id="ph1">`Service1.xamlx`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Workflow Service Project Web Properties<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/startaction.png "</bpt>StartAction<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Servers<ept id="p1">**</ept> select <bpt id="p2">**</bpt>Use Local IIS Web server<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Local Web Server Settings<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/uselocalwebserver.png "</bpt>UseLocalWebServer<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You must run <ph id="ph1">[!INCLUDE[vs_current_long](../../../../includes/vs-current-long-md.md)]</ph> in administrator mode to make this setting.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>These two steps configure the workflow service project to be hosted by IIS.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Open <ph id="ph1">`Service1.xamlx`</ph> if it is not open already and delete the existing <bpt id="p1">**</bpt>ReceiveRequest<ept id="p1">**</ept> and <bpt id="p2">**</bpt>SendResponse<ept id="p2">**</ept> activities.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>Sequential Service<ept id="p1">**</ept> activity and click the <bpt id="p2">**</bpt>Variables<ept id="p2">**</ept> link and add the variables shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Doing this adds some variables that will be used later on in the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If CorrelationHandle is not in the Variable Type drop-down, select <bpt id="p1">**</bpt>Browse for types<ept id="p1">**</ept> from the drop-down.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Type CorrelationHandle in the <bpt id="p1">**</bpt>Type name<ept id="p1">**</ept> box, select CorrelationHandle from the listbox and click <bpt id="p2">**</bpt>OK<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Add Variables<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addvariables.gif "</bpt>AddVariables<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Drag and drop a <bpt id="p1">**</bpt>ReceiveAndSendReply<ept id="p1">**</ept> activity template into the <bpt id="p2">**</bpt>Sequential Service<ept id="p2">**</ept> activity.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This set of activities will receive a message from a client and send a reply back.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>Receive<ept id="p1">**</ept> activity and set the properties highlighted in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Set Receive Activity Properties<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreceiveproperties.png "</bpt>SetReceiveProperties<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The DisplayName property sets the name displayed for the Receive activity in the designer.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The ServiceContractName and OperationName properties specify the name of the service contract and operation that are implemented by the Receive activity.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> how contracts are used in Workflow services see <bpt id="p1">[</bpt>Using Contracts in Workflow<ept id="p1">](../../../../docs/framework/wcf/feature-details/using-contracts-in-workflow.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link in the <bpt id="p2">**</bpt>ReceiveStartOrder<ept id="p2">**</ept> activity and set the properties shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Notice that the <bpt id="p1">**</bpt>Parameters<ept id="p1">**</ept> radio button is selected, a parameter named <ph id="ph1">`p_customerName`</ph> is bound to the <ph id="ph2">`customerName`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This configures the <bpt id="p1">**</bpt>Receive<ept id="p1">**</ept> activity to receive some data and bind that data to local variables.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the data received by the Receive activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreceivecontent.png "</bpt>SetReceiveContent<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Select The <bpt id="p1">**</bpt>SendReplyToReceive<ept id="p1">**</ept> activity and set the highlighted property shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the properties of the SendReply activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreplyproperties.png "</bpt>SetReplyProperties<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link in the <bpt id="p2">**</bpt>SendReplyToStartOrder<ept id="p2">**</ept> activity and set the properties shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Notice that the <bpt id="p1">**</bpt>Parameters<ept id="p1">**</ept> radio button is selected; a parameter named <ph id="ph1">`p_orderId`</ph> is bound to the <ph id="ph2">`orderId`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This setting specifies that the SendReplyToStartOrder activity will return a value of type string to the caller.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Configuring the SendReply activity content data<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreplycontent.png "</bpt>SetReplyContent<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Drag and drop an Assign activity in between the <bpt id="p1">**</bpt>Receive<ept id="p1">**</ept> and <bpt id="p2">**</bpt>SendReply<ept id="p2">**</ept> activities and set the properties as shown in the following illustration:</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding an assign activity<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addassign.png "</bpt>AddAssign<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>This creates a new order ID and places the value in the orderId variable.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>ReplyToStartOrder<ept id="p1">**</ept> activity.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In the properties window click the ellipsis button for <bpt id="p1">**</bpt>CorrelationInitializers<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>Add initializer<ept id="p1">**</ept> link, enter <ph id="ph1">`orderIdHandle`</ph> in the Initializer text box, select Query correlation initializer for the Correlation type, and select p_orderId under the XPATH Queries dropdown box.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>These settings are shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Click <bpt id="p1">**</bpt>OK<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This initializes a correlation between the client and this instance of the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>When a message containing this order ID is received it is routed to this instance of the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding a correlation initializer<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addcorrelationinitializers.png "</bpt>AddCorrelationInitializers<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Drag and drop another <bpt id="p1">**</bpt>ReceiveAndSendReply<ept id="p1">**</ept> activity to the end of the workflow (outside the <bpt id="p2">**</bpt>Sequence<ept id="p2">**</ept> containing the first <bpt id="p3">**</bpt>Receive<ept id="p3">**</ept> and <bpt id="p4">**</bpt>SendReply<ept id="p4">**</ept> activities).</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>This will receive the second message sent by the client and respond to it.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>Sequence<ept id="p1">**</ept> that contains the newly added <bpt id="p2">**</bpt>Receive<ept id="p2">**</ept> and <bpt id="p3">**</bpt>SendReply<ept id="p3">**</ept> activities and click the <bpt id="p4">**</bpt>Variables<ept id="p4">**</ept> button.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Add the variable highlighted in the following illustration:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Adding new variables<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addorderitemidvariable.png "</bpt>AddOrderItemIdVariable<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>Receive<ept id="p1">**</ept> activity and set the properties shown in the following illustration:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Set the Receive acitivity properties<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreceiveproperties2.png "</bpt>SetReceiveProperties2<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define...<ept id="p1">**</ept> link in the <bpt id="p2">**</bpt>ReceiveAddItem<ept id="p2">**</ept> activity and add the parameters shown in the following illustration:This configures the receive activity to accept two parameters, the order ID and the ID of the item being ordered.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Specifying parameters for the second receive<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/addreceive2parameters.png "</bpt>AddReceive2Parameters<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>CorrelateOn<ept id="p1">**</ept> ellipsis button and enter <ph id="ph1">`orderIdHandle`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>XPath Queries<ept id="p1">**</ept>, click the drop down arrow and select <ph id="ph1">`p_orderId`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>This configures the correlation on the second receive activity.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> correlation see <bpt id="p1">[</bpt>Correlation<ept id="p1">](../../../../docs/framework/wcf/feature-details/correlation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the CorrelatesOn property<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/correlateson.png "</bpt>CorrelatesOn<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Drag and drop an <bpt id="p1">**</bpt>If<ept id="p1">**</ept> activity immediately after the <bpt id="p2">**</bpt>ReceiveAddItem<ept id="p2">**</ept> activity.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>This activity acts just like an if statement.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Set the <bpt id="p1">**</bpt>Condition<ept id="p1">**</ept> property to <ph id="ph1">`itemId=="Zune HD" (itemId="Zune HD" for Visual Basic)`</ph></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Drag and drop an <bpt id="p1">**</bpt>Assign<ept id="p1">**</ept> activity in to the <bpt id="p2">**</bpt>Then<ept id="p2">**</ept> section and another into the <bpt id="p3">**</bpt>Else<ept id="p3">**</ept> section set the properties of the <bpt id="p4">**</bpt>Assign<ept id="p4">**</ept> activities as shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Assigning the result of the service call<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/resultassign.png "</bpt>ResultAssign<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>If the condition is <ph id="ph1">`true`</ph> the <bpt id="p1">**</bpt>Then<ept id="p1">**</ept> section will be executed.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>If the condition is <ph id="ph1">`false`</ph> the <bpt id="p1">**</bpt>Else<ept id="p1">**</ept> section is executed.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Select the <bpt id="p1">**</bpt>SendReplyToReceive<ept id="p1">**</ept> activity and set the <bpt id="p2">**</bpt>DisplayName<ept id="p2">**</ept> property shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the SendReply activity properties<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/setreply2properties.png "</bpt>SetReply2Properties<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Click the <bpt id="p1">**</bpt>Define ...<ept id="p1">**</ept> link in the <bpt id="p2">**</bpt>SetReplyToAddItem<ept id="p2">**</ept> activity and configure it as shown in the following illustration.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>This configures the <bpt id="p1">**</bpt>SendReplyToAddItem<ept id="p1">**</ept> activity to return the value in the <ph id="ph1">`orderResult`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">![</bpt>Setting the data binding for the SendReply activit<ept id="p1">]</ept><bpt id="p2">(../../../../docs/framework/wcf/feature-details/media/replytoadditemcontent.gif "</bpt>ReplyToAddItemContent<ept id="p2">")</ept></source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Open the web.config file and add the following elements in the <ph id="ph1">\&lt;</ph>behavior&gt; section to enable workflow persistence.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Make sure to replace your host and SQL server instance name in the previous code snippet.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Build the solution.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>To Create a Client Application to Call the Workflow Service</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Add a new Console application project called <ph id="ph1">`OrderClient`</ph> to the solution.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Add references to the following assemblies to the <ph id="ph1">`OrderClient`</ph> project</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.dll</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>System.ServiceModel.Activities.dll</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Add a service reference to the workflow service and specify <ph id="ph1">`OrderService`</ph> as the namespace.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`Main()`</ph> method of the client project add the following code:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Build the solution and run the <ph id="ph1">`OrderClient`</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The client will display the following text:</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>To verify that the workflow service has been persisted, start the SQL Server Management Studio by going to the <bpt id="p1">**</bpt>Start<ept id="p1">**</ept> menu, Selecting <bpt id="p2">**</bpt>All Programs<ept id="p2">**</ept>, <bpt id="p3">**</bpt>Microsoft SQL Server 2008<ept id="p3">**</ept>, <bpt id="p4">**</bpt>SQL Server Management Studio<ept id="p4">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>In the left hand pane expand, <bpt id="p1">**</bpt>Databases<ept id="p1">**</ept>, <bpt id="p2">**</bpt>SQLPersistenceStore<ept id="p2">**</ept>, <bpt id="p3">**</bpt>Views<ept id="p3">**</ept> and right click <bpt id="p4">**</bpt>System.Activities.DurableInstancing.Instances<ept id="p4">**</ept> and select <bpt id="p5">**</bpt>Select Top 1000 Rows<ept id="p5">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>In the <bpt id="p1">**</bpt>Results<ept id="p1">**</ept> pane verify you see at least one instance listed.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>There may be other instances from prior runs if an exception occurred while running.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>You can delete existing rows by right clicking <bpt id="p1">**</bpt>System.Activities.DurableInstancing.Instances<ept id="p1">**</ept> and selecting <bpt id="p2">**</bpt>Edit Top 200 rows<ept id="p2">**</ept>, pressing the <bpt id="p3">**</bpt>Execute<ept id="p3">**</ept> button, selecting all rows in the results pane and selecting <bpt id="p4">**</bpt>delete<ept id="p4">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>To verify the instance displayed in the database is the instance your application created, verify the instances view is empty prior to running the client.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Once the client is running re-run the query (Select Top 1000 Rows) and verify a new instance has been added.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>Press enter to send the add item message to the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>The client will display the following text:</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Workflow Services<ept id="p1">](../../../../docs/framework/wcf/feature-details/workflow-services.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

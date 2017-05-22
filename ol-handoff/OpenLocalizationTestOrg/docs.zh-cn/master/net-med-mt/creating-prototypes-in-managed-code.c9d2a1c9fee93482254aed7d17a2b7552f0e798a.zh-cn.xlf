@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c0d27af2e9ce68d3d8ae0dc12d05c50f22a43a78</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\interop\creating-prototypes-in-managed-code.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e5299b3d773c2cd6f0ebe55ef8d8f9d2ea3d69fc</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">16cf0793ea79c4c928a09e62e00b1348784152a5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating Prototypes in Managed Code | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating Prototypes in Managed Code</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic describes how to access unmanaged functions and introduces several attribute fields that annotate method definition in managed code.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For examples that demonstrate how to construct .NET-based declarations to be used with platform invoke, see <bpt id="p1">[</bpt>Marshaling Data with Platform Invoke<ept id="p1">](../../../docs/framework/interop/marshaling-data-with-platform-invoke.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Before you can access an unmanaged DLL function from managed code, you need to know the name of the function and the name of the DLL that exports it.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>With this information, you can begin to write the managed definition for an unmanaged function that is implemented in a DLL.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Furthermore, you can adjust the way that platform invoke creates the function and marshals data to and from the function.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Win32 API functions that allocate a string enable you to free the string by using a method such as <ph id="ph1">`LocalFree`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Platform invoke handles such parameters differently.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>For platform invoke calls, make the parameter an <ph id="ph1">`IntPtr`</ph> type instead of a <ph id="ph2">`String`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Use methods that are provided by the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.Marshal?displayProperty=fullName&gt;</ph> class to convert the type to a string manually and free it manually.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Declaration Basics</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Managed definitions to unmanaged functions are language-dependent, as you can see in the following examples.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For more complete code examples, see <bpt id="p1">[</bpt>Platform Invoke Examples<ept id="p1">](../../../docs/framework/interop/platform-invoke-examples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To apply the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.BestFitMapping&gt;</ph>, <ph id="ph2">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.CallingConvention&gt;</ph>, <ph id="ph3">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.ExactSpelling&gt;</ph>, <ph id="ph4">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.PreserveSig&gt;</ph>, <ph id="ph5">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.SetLastError&gt;</ph>, or <ph id="ph6">&lt;xref:System.Runtime.InteropServices.DllImportAttribute.ThrowOnUnmappableChar&gt;</ph> fields to a <ph id="ph7">[!INCLUDE[vbprvbext](../../../includes/vbprvbext-md.md)]</ph> declaration, you must use the <ph id="ph8">&lt;xref:System.Runtime.InteropServices.DllImportAttribute&gt;</ph> attribute instead of the <ph id="ph9">`Declare`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Adjusting the Definition</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Whether you set them explicitly or not, attribute fields are at work defining the behavior of managed code.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Platform invoke operates according to the default values set on various fields that exist as metadata in an assembly.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You can alter this default behavior by adjusting the values of one or more fields.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In many cases, you use the <ph id="ph1">&lt;xref:System.Runtime.InteropServices.DllImportAttribute&gt;</ph> to set a value.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following table lists the complete set of attribute fields that pertain to platform invoke.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For each field, the table includes the default value and a link to information on how to use these fields to define unmanaged DLL functions.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Field</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Enables or disables best-fit mapping.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Specifies the calling convention to use in passing method arguments.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`WinAPI`</ph>, which corresponds to <ph id="ph2">`__stdcall`</ph> for the 32-bit Intel-based platforms.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Controls name mangling and the way that string arguments should be marshaled to the function.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`CharSet.Ansi`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Specifies the DLL entry point to be called.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Controls whether an entry point should be modified to correspond to the character set.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The default value varies by programming language.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Controls whether the managed method signature should be transformed into an unmanaged signature that returns an HRESULT and has an additional [out, retval] argument for the return value.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The default is <ph id="ph1">`true`</ph> (the signature should not be transformed).</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Enables the caller to use the <ph id="ph1">`Marshal.GetLastWin32Error`</ph> API function to determine whether an error occurred while executing the method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In Visual Basic, the default is <ph id="ph1">`true`</ph>; in C# and C++, the default is <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Controls throwing of an exception on an unmappable Unicode character that is converted to an ANSI "?" character.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For detailed reference information, see <ph id="ph1">&lt;xref:System.Runtime.InteropServices.DllImportAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Platform invoke security considerations</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Assert`</ph>, <ph id="ph2">`Deny`</ph>, and <ph id="ph3">`PermitOnly`</ph> members of the <ph id="ph4">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> enumeration are referred to as <bpt id="p1">*</bpt>stack walk modifiers<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>These members are ignored if they are used as declarative attributes on platform invoke declarations and COM Interface Definition Language (IDL) statements.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Platform Invoke Examples</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The platform invoke samples in this section illustrate the use of the <ph id="ph1">`RegistryPermission`</ph> attribute with the stack walk modifiers.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In the following code example, the <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph><ph id="ph2">`Assert`</ph>, <ph id="ph3">`Deny`</ph>, and <ph id="ph4">`PermitOnly`</ph> modifiers are ignored.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>However, the <ph id="ph1">`Demand`</ph> modifier in the following example is accepted.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> modifiers do work correctly if they are placed on a class that contains (wraps) the platform invoke call.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> modifiers also work correctly in a nested scenario where they are placed on the caller of the platform invoke call:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>COM Interop Examples</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The COM interop samples in this section illustrate the use of the <ph id="ph1">`RegistryPermission`</ph> attribute with the stack walk modifiers.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The following COM interop interface declarations ignore the <ph id="ph1">`Assert`</ph>, <ph id="ph2">`Deny`</ph>, and <ph id="ph3">`PermitOnly`</ph> modifiers, similarly to the platform invoke examples in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Additionally, the <ph id="ph1">`Demand`</ph> modifier is not accepted in COM interop interface declaration scenarios, as shown in the following example.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Consuming Unmanaged DLL Functions<ept id="p1">](../../../docs/framework/interop/consuming-unmanaged-dll-functions.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Specifying an Entry Point<ept id="p1">](../../../docs/framework/interop/specifying-an-entry-point.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Specifying a Character Set<ept id="p1">](../../../docs/framework/interop/specifying-a-character-set.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Platform Invoke Examples<ept id="p1">](../../../docs/framework/interop/platform-invoke-examples.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Platform Invoke Security Considerations<ept id="p1">](http://msdn.microsoft.com/en-us/bbcc67f7-50b5-4917-88ed-cb15470409fb)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Identifying Functions in DLLs<ept id="p1">](../../../docs/framework/interop/identifying-functions-in-dlls.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Creating a Class to Hold DLL Functions<ept id="p1">](../../../docs/framework/interop/creating-a-class-to-hold-dll-functions.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Calling a DLL Function<ept id="p1">](../../../docs/framework/interop/calling-a-dll-function.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
