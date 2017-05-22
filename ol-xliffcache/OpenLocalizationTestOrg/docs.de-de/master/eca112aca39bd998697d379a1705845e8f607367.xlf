@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">eca112aca39bd998697d379a1705845e8f607367</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\visual-basic\programming-guide\language-features\events\walkthrough-declaring-and-raising-events.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e0d31b29b8ee2e8abd91792228b91f95aadc99ca</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">08e9eb23952794d4f5e310fbce91d380ceb3f51c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Declaring and Raising Events (Visual Basic) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Walkthrough: Declaring and Raising Events (Visual Basic)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This walkthrough demonstrates how to declare and raise events for a class named <ph id="ph1">`Widget`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>After you complete the steps, you might want to read the companion topic, <bpt id="p1">[</bpt>Walkthrough: Handling Events<ept id="p1">](../../../../visual-basic/programming-guide/language-features/events/walkthrough-handling-events.md)</ept>, which shows how to use events from <ph id="ph1">`Widget`</ph> objects to provide status information in an application.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The Widget Class</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Assume for the moment that you have a <ph id="ph1">`Widget`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Your <ph id="ph1">`Widget`</ph> class has a method that can take a long time to execute, and you want your application to be able to put up some kind of completion indicator.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Of course, you could make the <ph id="ph1">`Widget`</ph> object show a percent-complete dialog box, but then you would be stuck with that dialog box in every project in which you used the <ph id="ph2">`Widget`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A good principle of object design is to let the application that uses an object handle the user interface—unless the whole purpose of the object is to manage a form or dialog box.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The purpose of <ph id="ph1">`Widget`</ph> is to perform other tasks, so it is better to add a <ph id="ph2">`PercentDone`</ph> event and let the procedure that calls <ph id="ph3">`Widget`</ph>'s methods handle that event and display status updates.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PercentDone`</ph> event can also provide a mechanism for canceling the task.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>To build the code example for this topic</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Open a new <ph id="ph1">[!INCLUDE[vbprvb](../../../../csharp/programming-guide/concepts/linq/includes/vbprvb_md.md)]</ph> Windows Application project and create a form named <ph id="ph2">`Form1`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Add two buttons and a label to <ph id="ph1">`Form1`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Name the objects as shown in the following table.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Object</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Property</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Setting</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Start Task</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`(Name)`</ph>, <ph id="ph2">`Text`</ph></source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>lblPercentDone, 0</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>On the <bpt id="p1">**</bpt>Project<ept id="p1">**</ept> menu, choose <bpt id="p2">**</bpt>Add Class<ept id="p2">**</ept> to add a class named <ph id="ph1">`Widget.vb`</ph> to the project.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To declare an event for the Widget class</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`Event`</ph> keyword to declare an event in the <ph id="ph2">`Widget`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Note that an event can have <ph id="ph1">`ByVal`</ph> and <ph id="ph2">`ByRef`</ph> arguments, as <ph id="ph3">`Widget`</ph>'s <ph id="ph4">`PercentDone`</ph> event demonstrates:</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbcnWalkthroughDeclaringAndRaisingEvents#1<ept id="p2">](../../../../visual-basic/programming-guide/language-features/events/codesnippet/VisualBasic/walkthrough-declaring-and-raising-events_1.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>When the calling object receives a <ph id="ph1">`PercentDone`</ph> event, the <ph id="ph2">`Percent`</ph> argument contains the percentage of the task that is complete.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Cancel`</ph> argument can be set to <ph id="ph2">`True`</ph> to cancel the method that raised the event.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>You can declare event arguments just as you do arguments of procedures, with the following exceptions: Events cannot have <ph id="ph1">`Optional`</ph> or <ph id="ph2">`ParamArray`</ph> arguments, and events do not have return values.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PercentDone`</ph> event is raised by the <ph id="ph2">`LongTask`</ph> method of the <ph id="ph3">`Widget`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`LongTask`</ph> takes two arguments: the length of time the method pretends to be doing work, and the minimum time interval before <ph id="ph2">`LongTask`</ph> pauses to raise the <ph id="ph3">`PercentDone`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To raise the PercentDone event</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>To simplify access to the <ph id="ph1">`Timer`</ph> property used by this class, add an <ph id="ph2">`Imports`</ph> statement to the top of the declarations section of your class module, above the <ph id="ph3">`Class Widget`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbcnWalkthroughDeclaringAndRaisingEvents#2<ept id="p2">](../../../../visual-basic/programming-guide/language-features/events/codesnippet/VisualBasic/walkthrough-declaring-and-raising-events_2.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Add the following code to the <ph id="ph1">`Widget`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>VbVbcnWalkthroughDeclaringAndRaisingEvents#3<ept id="p2">](../../../../visual-basic/programming-guide/language-features/events/codesnippet/VisualBasic/walkthrough-declaring-and-raising-events_3.vb)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>When your application calls the <ph id="ph1">`LongTask`</ph> method, the <ph id="ph2">`Widget`</ph> class raises the <ph id="ph3">`PercentDone`</ph> event every <ph id="ph4">`MinimumInterval`</ph> seconds.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When the event returns, <ph id="ph1">`LongTask`</ph> checks to see if the <ph id="ph2">`Cancel`</ph> argument was set to <ph id="ph3">`True`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>A few disclaimers are necessary here.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For simplicity, the <ph id="ph1">`LongTask`</ph> procedure assumes you know in advance how long the task will take.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This is almost never the case.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Dividing tasks into chunks of even size can be difficult, and often what matters most to users is simply the amount of time that passes before they get an indication that something is happening.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>You may have spotted another flaw in this sample.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Timer`</ph> property returns the number of seconds that have passed since midnight; therefore, the application gets stuck if it is started just before midnight.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>A more careful approach to measuring time would take boundary conditions such as this into consideration, or avoid them altogether, using properties such as <ph id="ph1">`Now`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Now that the <ph id="ph1">`Widget`</ph> class can raise events, you can move to the next walkthrough.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Walkthrough: Handling Events<ept id="p1">](../../../../visual-basic/programming-guide/language-features/events/walkthrough-handling-events.md)</ept> demonstrates how to use <ph id="ph1">`WithEvents`</ph> to associate an event handler with the <ph id="ph2">`PercentDone`</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Walkthrough: Handling Events<ept id="p1">](../../../../visual-basic/programming-guide/language-features/events/walkthrough-handling-events.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Events<ept id="p1">](../../../../visual-basic/programming-guide/language-features/events/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

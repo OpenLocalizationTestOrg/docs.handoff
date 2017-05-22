@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">775f00c9457571f747dacb2a1271a2cb926c8f00</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\instance-activation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f1b70ec71d137b6369618961e32c81c59a489b4e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f28c94ecbb7e260b0e3110654b9ab8f1f9791a6b</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Instance Activation | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Instance Activation</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store runs an internal task that periodically wakes up and detects runnable or activatable workflow instances in the persistence database.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>If it finds a runnable workflow instance, it notifies the workflow host that is capable of activating the instance.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If the instance store finds an activatable workflow instance, it notifies a generic host that activates a workflow host, which in turn runs the workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The following sections in this topic explain the instance activation process in detail.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="RunnableSection"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept> Detecting and Activating Runnable Workflow Instances</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store considers a workflow instance <bpt id="p1">*</bpt>runnable<ept id="p1">*</ept> if the instance is not in the suspended state or the completed state and satisfies the following conditions:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The instance is unlocked and has a pending timer that has expired.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The instance has an expired lock on it.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The instance is unlocked and its status is <bpt id="p1">**</bpt>Executing<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store raises the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent&gt;</ph> when it finds a runnable instance.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>After this, the SqlWorkflowInstanceStore stops monitoring until the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand&gt;</ph> is called once on the store.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>A workflow host that has subscribed for the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent&gt;</ph> and capable of loading the instance executes the <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand&gt;</ph> against the instance store to load the instance into memory.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>A workflow host is considered capable of loading a workflow instance if the host and the instance have metadata property <bpt id="p1">**</bpt>WorkflowServiceType<ept id="p1">**</ept> set to the same value.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Detecting and Activating Activatable Workflow Instances</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A workflow instance is considered <bpt id="p1">*</bpt>activatable<ept id="p1">*</ept> if the instance is runnable and there is no workflow host that is capable of loading the instance is running on the computer.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>See Detecting and Activating Runnable Workflow Instances above for the definition of a runnable workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store raises the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent&gt;</ph> when it finds an activatable workflow instance in the database.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>After this, the SqlWorkflowInstanceStore stops monitoring until the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand&gt;</ph> is called once on the store.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When a generic host that has subscribed for the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent&gt;</ph> receives the event, it executes the <ph id="ph2">&lt;xref:System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand&gt;</ph> against the instance store to obtain activation parameters required to create a workflow host.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The generic host uses these activation parameters to create a workflow host, which in turn loads and runs the runnable service instance.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Generic Hosts</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A generic host is a host with the value of the metadata property <bpt id="p1">**</bpt>WorkflowServiceType<ept id="p1">**</ept> for generic hosts is set to <bpt id="p2">**</bpt>WorkflowServiceType.Any<ept id="p2">**</ept> to indicate that it can handle any workflow type.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A generic host has an XName parameter named <bpt id="p1">**</bpt>ActivationType<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Currently, the SQL Workflow Instance Store supports generic hosts with value of the ActivationType parameter set to <bpt id="p1">**</bpt>WAS<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If the ActivationType is not set to WAS, the SQL Workflow Instance Store throws an <ph id="ph1">&lt;xref:System.Runtime.DurableInstancing.InstancePersistenceException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The Workflow Management Service that ships with the <ph id="ph1">[!INCLUDE[dublin](../../../includes/dublin-md.md)]</ph> is a generic host that has the activation type set to <bpt id="p1">**</bpt>WAS<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For WAS activation, a generic host requires a set of activation parameters to derive the endpoint address at which new hosts can be activated.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The activation parameters for WAS activation are name of the site, path to the application relative to the site, and path to the service relative to the application.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The SQL Workflow Instance Store stores these activation parameters during the execution of the <ph id="ph1">&lt;xref:System.Activities.DurableInstancing.SaveWorkflowCommand&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Runnable Instances Detection Period</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Runnable Instances Detection Period<ept id="p1">**</ept> property of the SQL Workflow Instance Store specifies the time period after which the SQL Workflow Instance Store runs a detection task to detect any runnable or activatable workflow instances in the persistence database after the previous detection cycle.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Runnable Instances Detection Period<ept id="p1">](../../../docs/framework/windows-workflow-foundation/runnable-instances-detection-period.md)</ept> for more details on this property.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

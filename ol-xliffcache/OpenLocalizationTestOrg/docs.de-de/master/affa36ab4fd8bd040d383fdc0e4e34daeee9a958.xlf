@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">affa36ab4fd8bd040d383fdc0e4e34daeee9a958</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\xaml-services\defining-custom-types-for-use-with-net-framework-xaml-services.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a0cc8b40a66ae3fd93bdb9b07a20f17fa8b9c804</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1410fc23c8f87aa4f667842ff16cfe96298cdff9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Defining Custom Types for Use with .NET Framework XAML Services | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Defining Custom Types for Use with .NET Framework XAML Services</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>When you define custom types that are business objects or are types that do not have a dependency on specific frameworks, there are certain best practices for XAML you can follow.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>If you follow these practices, .NET Framework XAML Services and its XAML readers and XAML writers can discover the XAML characteristics of your type and give it appropriate representation in a XAML node stream using the XAML type system.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic describes best practices for type definitions, member definitions, and CLR attributing of types or members.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Constructor Patterns and Type Definitions for XAML</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To be instantiated as an object element in XAML, a custom class must meet the following requirements:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The custom class must be public and must expose a default (parameterless) public constructor.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>(See following section for notes regarding structures.)</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The custom class must not be a nested class.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The extra "dot" in the full-name path makes the class-namespace division ambiguous, and interferes with other XAML features such as attached properties.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>If an object can be instantiated as an object element, the created object can fill the property element form of any properties that take the object as their underlying type.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>You can still provide object values for types that do not meet these criteria, if you enable a value converter.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Type Converters and Markup Extensions for XAML<ept id="p1">](../../../docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Structures</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Structures are always able to be constructed in XAML, by CLR definition.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>This is because a CLR compiler implicitly creates a default constructor for a structure.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This constructor initializes all property values to their defaults.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In some cases, the default construction behavior for a structure is not desirable.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This might be because the structure is intended to fill values and function conceptually as a union.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>As a union, the contained values might have mutually exclusive interpretations, and therefore, none of its properties are settable.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>An example of such a structure in the WPF vocabulary is <ph id="ph1">&lt;xref:System.Windows.GridLength&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Such structures should implement a type converter so that the values can be expressed in attribute form, by using string conventions that create the different interpretations or modes of the structure values.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The structure should also expose similar behavior for code construction through a non-default constructor.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Interfaces</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Interfaces can be used as underlying types of members.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The XAML type system checks the assignable list and expects that the object that is provided as the value can be assigned to the interface.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>There is no concept of how the interface must be presented as a XAML type as long as a relevant assignable type supports the XAML construction requirements.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Factory Methods</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Factory methods are a XAML 2009 feature.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>They modify the XAML principle that objects must have default constructors.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Factory methods are not documented in this topic.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>x:FactoryMethod Directive<ept id="p1">](../../../docs/framework/xaml-services/x-factorymethod-directive.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Enumerations</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Enumerations have XAML native type conversion behavior.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Enumeration constant names specified in XAML are resolved against the underlying enumeration type, and return the enumeration value to a XAML object writer.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>XAML supports a flags-style usage for enumerations with <ph id="ph1">&lt;xref:System.FlagsAttribute&gt;</ph> applied.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>XAML Syntax In Detail<ept id="p1">](../../../docs/framework/wpf/advanced/xaml-syntax-in-detail.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>(<bpt id="p1">[</bpt>XAML Syntax In Detail<ept id="p1">](../../../docs/framework/wpf/advanced/xaml-syntax-in-detail.md)</ept> is written for the WPF audience, but most of the information in that topic is relevant for XAML that is not specific to a particular implementing framework.)</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Member Definitions</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Types can define members for XAML usage.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>It is possible for types that define members that are XAML-usable even if that specific type is not XAML-usable.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This is possible because of CLR inheritance.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>So long as some type that inherits the member supports XAML usage as a type, and the member supports XAML usage for its underlying type or has a native XAML syntax available, that member is XAML-usable.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Properties</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If you define properties as a public CLR property using the typical CLR <ph id="ph1">`get`</ph> and <ph id="ph2">`set`</ph> accessor patterns and language-appropriate keywording, the XAML type system can report the property as a member with appropriate information provided for <ph id="ph3">&lt;xref:System.Xaml.XamlMember&gt;</ph> properties, such as <ph id="ph4">&lt;xref:System.Xaml.XamlMember.IsReadPublic%2A&gt;</ph> and <ph id="ph5">&lt;xref:System.Xaml.XamlMember.IsWritePublic%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Specific properties can enable a text syntax by applying <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Type Converters and Markup Extensions for XAML<ept id="p1">](../../../docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>In the absence of a text syntax or native XAML conversion and in the absence of further indirection, such as a markup extension usage, the type of a property (<ph id="ph1">&lt;xref:System.Xaml.XamlMember.TargetType%2A&gt;</ph> in the XAML type system) must be able to return an instance to a XAML object writer by treating the target type as a CLR type.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If using XAML 2009, <bpt id="p1">[</bpt>x:Reference Markup Extension<ept id="p1">](../../../docs/framework/xaml-services/x-reference-markup-extension.md)</ept> can be used to provide values if the previous considerations are not met; however, that is more of a usage issue than a type definition issue.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Events</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If you define events as a public CLR event, the XAML type system can report the event as a member with <ph id="ph1">&lt;xref:System.Xaml.XamlMember.IsEvent%2A&gt;</ph> as <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Wiring the event handlers is not within the scope of .NET Framework XAML Services capabilities; this is left to specific frameworks and implementations.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Methods</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Inline code for methods is not a default XAML capability.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In most cases you do not directly reference method members from XAML, and the role of methods in XAML is only to provide support for specific XAML patterns.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>x:FactoryMethod Directive<ept id="p1">](../../../docs/framework/xaml-services/x-factorymethod-directive.md)</ept> is an exception.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Fields</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>CLR design guidelines discourage nonstatic fields.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>For static fields, you can access static field values only through <bpt id="p1">[</bpt>x:Static Markup Extension<ept id="p1">](../../../docs/framework/xaml-services/x-static-markup-extension.md)</ept>; in this case you are not doing anything special in the CLR definition to expose a field for <bpt id="p2">[</bpt>x:Static<ept id="p2">](../../../docs/framework/xaml-services/x-static-markup-extension.md)</ept> usages.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Attachable Members</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Attachable members are exposed to XAML through an accessor method pattern on a defining type.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The defining type itself does not need to be XAML-usable as an object.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>In fact, a common pattern is to declare a service class whose role is to own the attachable member and implement the related behaviors, but serve no other function such as a UI representation.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For the following sections, the placeholder <bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> represents the name of your attachable member.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>That name must be valid in the <bpt id="p1">[</bpt>XamlName Grammar<ept id="p1">](../../../docs/framework/xaml-services/xamlname-grammar.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Be cautious of name collisions between these patterns and other methods of a type.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If a member exists that matches one of the patterns, it can be interpreted as an attachable member usage pathway by a XAML processor even if that was not your intention.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The GetPropertyName Accessor</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The signature for the <ph id="ph1">`Get`</ph><bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> accessor must be:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`public static object Get`</ph> <bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> <ph id="ph2">`(object`</ph>  <ph id="ph3">`target`</ph> <ph id="ph4">`)`</ph></source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`target`</ph> object can be specified as a more specific type in your implementation.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>You can use this to scope the usage of your attachable member; usages outside your intended scope will throw invalid cast exceptions that are then surfaced by a XAML parse error.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The parameter name <ph id="ph1">`target`</ph> is not a requirement, but is named <ph id="ph2">`target`</ph> by convention in most implementations.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The return value can be specified as a more specific type in your implementation.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>To support a <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> enabled text syntax for attribute usage of the attachable member, apply <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> to the <ph id="ph3">`Get`</ph><bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> accessor.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Applying to the <ph id="ph1">`get`</ph> instead of the <ph id="ph2">`set`</ph> may seem nonintuitive; however, this convention can support the concept of read-only attachable members that are serializable, which is useful in designer scenarios.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The SetPropertyName Accessor</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The signature for the Set<bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> accessor must be:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`public static void Set`</ph> <bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> <ph id="ph2">`(object`</ph>  <ph id="ph3">`target`</ph> <ph id="ph4">`, object`</ph>  <ph id="ph5">`value`</ph> <ph id="ph6">`)`</ph></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`target`</ph> object can be specified as a more specific type in your implementation, with same logic and consequences as described in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`value`</ph> object can be specified as a more specific type in your implementation.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Remember that the value for this method is the input coming from the XAML usage, typically in attribute form.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>From attribute form there must be value converter support for a text syntax, and you attribute on the <ph id="ph1">`Get`</ph><bpt id="p1">*</bpt>PropertyName<ept id="p1">*</ept> accessor.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Attachable Member Stores</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The accessor methods are typically not enough to provide a means to place attachable member values into an object graph, or to retrieve values out of the object graph and serialize them properly.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>To provide this functionality, the <ph id="ph1">`target`</ph> objects in the previous accessor signatures must be capable of storing values.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The storage mechanism should be consistent with the attachable member principle that the member is attachable to targets where the attachable member is not in the members list.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>.NET Framework XAML Services provides an implementation technique for attachable member stores through the APIs <ph id="ph1">&lt;xref:System.Xaml.IAttachedPropertyStore&gt;</ph> and <ph id="ph2">&lt;xref:System.Xaml.AttachablePropertyServices&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Xaml.IAttachedPropertyStore&gt;</ph> is used by the XAML writers to discover the store implementation, and should be implemented on the type that is the <ph id="ph2">`target`</ph> of the accessors.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The static <ph id="ph1">&lt;xref:System.Xaml.AttachablePropertyServices&gt;</ph> APIs are used within the body of the accessors, and refer to the attachable member by its <ph id="ph2">&lt;xref:System.Xaml.AttachableMemberIdentifier&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>XAML-Related CLR Attributes</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Correctly attributing your types, members, and assemblies is important in order to report XAML type system information to .NET Framework XAML Services.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>This is relevant if you intend your types for use with XAML systems that are directly based on .NET Framework XAML Services XAML readers and XAML writers, or if you define or use a XAML-utilizing framework that is based on those XAML readers and XAML writers.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>For a listing of each XAML-related attribute that is relevant for XAML support of your custom types, see <bpt id="p1">[</bpt>XAML-Related CLR Attributes for Custom Types and Libraries<ept id="p1">](../../../docs/framework/xaml-services/xaml-related-clr-attributes-for-custom-types-and-libraries.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Usage</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Usage of custom types requires that the markup author must map a prefix for the assembly and CLR namespace that contain the custom type.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>This procedure is not documented in this topic.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Access Level</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>XAML provides a means to load and instantiate types that have an <ph id="ph1">`internal`</ph> access level.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This capability is provided so that user code can define its own types, and then instantiate those classes from markup that is also part of the same user code scope.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>An example from WPF is whenever user code defines a <ph id="ph1">&lt;xref:System.Windows.Controls.UserControl&gt;</ph> that is intended as a way to refactor a UI behavior, but not as part of any possible extension mechanism that might be implied by declaring the supporting class with <ph id="ph2">`public`</ph> access level.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Such a <ph id="ph1">&lt;xref:System.Windows.Controls.UserControl&gt;</ph> can be declared with <ph id="ph2">`internal`</ph> access if the backing code is compiled into the same assembly from which it is referenced as a XAML type.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For an application that loads XAML under full trust and uses <ph id="ph1">&lt;xref:System.Xaml.XamlObjectWriter&gt;</ph>, loading classes with <ph id="ph2">`internal`</ph> access level is always enabled.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>For an application that loads XAML under partial trust, you can control the access level characteristics by using the <ph id="ph1">&lt;xref:System.Xaml.Permissions.XamlAccessLevel&gt;</ph> API.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Also, deferral mechanisms (such as the WPF template system) must be able to propagate any access level permissions and preserve them for the eventual run time evaluations; this is handled internally by passing the <ph id="ph1">&lt;xref:System.Xaml.Permissions.XamlAccessLevel&gt;</ph> information.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>WPF Implementation</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>WPF XAML uses a partial-trust access model where if BAML is loaded under partial trust, access is restricted to <ph id="ph1">&lt;xref:System.Xaml.Permissions.XamlAccessLevel.AssemblyAccessTo%2A&gt;</ph> for the assembly that is the BAML source.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>For deferral, WPF uses <ph id="ph1">&lt;xref:System.Xaml.IXamlObjectWriterFactory.GetParentSettings%2A?displayProperty=fullName&gt;</ph> as a mechanism for passing the access level information.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>In WPF XAML terminology, an <bpt id="p1">*</bpt>internal type<ept id="p1">*</ept> is a type that is defined by the same assembly that also includes the referencing XAML.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Such a type can be mapped through a XAML namespace that deliberately omits the assembly= portion of a mapping, for example, <ph id="ph1">`xmlns:local="clr-namespace:WPFApplication1"`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>If BAML references an internal type and that type has <ph id="ph1">`internal`</ph> access level, this generates a <ph id="ph2">`GeneratedInternalTypeHelper`</ph> class for the assembly.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>If you want to avoid <ph id="ph1">`GeneratedInternalTypeHelper`</ph>, you either must use <ph id="ph2">`public`</ph> access level, or must factor the relevant class into a separate assembly and make that assembly dependent.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>XAML-Related CLR Attributes for Custom Types and Libraries<ept id="p1">](../../../docs/framework/xaml-services/xaml-related-clr-attributes-for-custom-types-and-libraries.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Services<ept id="p1">](../../../docs/framework/xaml-services/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

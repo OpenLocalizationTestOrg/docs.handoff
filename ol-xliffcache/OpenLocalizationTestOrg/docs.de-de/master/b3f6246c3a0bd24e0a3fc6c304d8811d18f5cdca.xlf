@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b3f6246c3a0bd24e0a3fc6c304d8811d18f5cdca</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\windows-workflow-foundation\samples\transaction-convoy-scope.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8a3790606adb742f77c15975f526cffe2e16727a</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e3b5e7c6fde0fe81636d2c9558a3e75eb6c655f2</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Transaction Convoy Scope | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Transaction Convoy Scope</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates how to create a Parallel Convoy messaging activity pattern in conjunction with a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> to model a protocol where a number of operations can happen in any order all under the same transaction.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This sample also demonstrates how a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> automatically creates a new transaction when one is not flowed to the server, so the client does not make use of any transactions.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The sample consists of two workflow projects that represent the client and server.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The client project runs a workflow that begins by sending a message to bootstrap the server workflow, which initializes a correlation and starts a transactional scope for the remainder of the messaging activities.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The client <ph id="ph1">&lt;xref:System.Activities.Statements.Sequence&gt;</ph> activity contains an initial <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph> and <ph id="ph3">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> pair and then a <ph id="ph4">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity with three branches.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Each branch sends a one-way message to the server.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Activities.Statements.Parallel.CompletionCondition%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Activities.Statements.Parallel&gt;</ph> activity is set to <ph id="ph3">`false`</ph> so that all three branches complete.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The server workflow is similar to the client workflow except the messaging activities are oriented towards the server side of the communication and they are contained within a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> activity so that all work done executes under the same transaction.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>When the first message is received on the server, a transaction is created and is made ambient for the scope of the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> body so that any activity within this scope can access the transaction.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>After this, all receives execute in parallel.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>All receives must execute exactly once as described by the completion condition on the parallel activity.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>An implicit persistence point exists at the end of the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph> body and the persistence operation is also executed under the same transaction.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>To use this sample</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">[!INCLUDE[vs2010](../../../../includes/vs2010-md.md)]</ph>, open the ParallelConvoySample.sln solution file.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To build the solution, press CTRL+SHIFT+B.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Ensure both projects are set to start.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>In <bpt id="p1">**</bpt>Solution Explorer<ept id="p1">**</ept>, right-click the solution and select <bpt id="p2">**</bpt>Set Startup Projects<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Select <bpt id="p1">**</bpt>Multiple Startup Projects<ept id="p1">**</ept> and ensure the action for both projects is set to <bpt id="p2">**</bpt>Start<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>To run the solution, press CTRL+F5.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The server prints <ph id="ph1">`Server is running`</ph>, which indicates the server is ready.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Press any key in the client console window to start the sample.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> and <ph id="ph2">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

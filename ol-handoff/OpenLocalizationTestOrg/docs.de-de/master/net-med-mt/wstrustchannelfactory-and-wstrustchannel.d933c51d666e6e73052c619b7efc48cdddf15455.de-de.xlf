@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7ef404c39967bdb99d33737dba7f39705c0089ad</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\wstrustchannelfactory-and-wstrustchannel.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">97d410d35a84489058e3ac4933487871505a2954</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">db1831b13ce3f95293926fdacfd8a30fd32bbe7a</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>WSTrustChannelFactory and WSTrustChannel | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>WSTrustChannelFactory and WSTrustChannel</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>If you are already familiar with Windows Communication Foundation (WCF), you know that a WCF client is already federation aware.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>By configuring a WCF client with a <ph id="ph1">&lt;xref:System.ServiceModel.WSFederationHttpBinding&gt;</ph> or similar custom binding, you can enable federated authentication to a service.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>WCF obtains the token that is issued by the security token service (STS) behind the scenes and uses this token to authenticate to the service.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The main limitation to this approach is that there is no visibility into the client’s communications with the server.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>WCF automatically generates the request security token (RST) to the STS based on the issued token parameters on the binding.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This means that the client cannot vary the RST parameters per request, inspect the request security token response (RSTR) to get information such as display claims, or cache the token for future use.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Currently, the WCF client is suitable for basic federation scenarios.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>However, one of the major scenarios that Windows Identity Foundation (WIF) supports requires control over the RST at a level that WCF does not easily allow.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Therefore, WIF adds features that give you more control over communication with the STS.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>WIF supports the following federation scenarios:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Using a WCF client without any WIF dependencies to authenticate to a federated service</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Enabling WIF on a WCF client to insert an ActAs or OnBehalfOf element into the RST to the STS</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Using WIF alone to obtain a token from the STS and then enable a WCF client to authenticate with this token.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>ClaimsAwareWebService<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=248406)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The first scenario is self-explanatory: Existing WCF clients will continue to work with WIF relying parties and STSs.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This topic discusses the remaining two scenarios.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Enhancing an Existing WCF Client with ActAs / OnBehalfOf</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In a typical identity delegation scenario, a client calls a middle-tier service, which then calls a back-end service.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The middle-tier service acts as, or acts on behalf of, the client.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>What is the difference between ActAs and OnBehalfOf?</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>From the WS-Trust procotol standpoint:</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>An ActAs RST element indicates that the requestor wants a token that contains claims about two distinct entities: the requestor, and an external entity represented by the token in the ActAs element.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>An OnBehalfOf RST element indicates that the requestor wants a token that contains claims only about one entity: the external entity represented by the token in the OnBehalfOf element.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The ActAs feature is typically used in scenarios that require composite delegation, where the final recipient of the issued token can inspect the entire delegation chain and see not just the client, but all intermediaries.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>This lets it perform access control, auditing and other related activities based on the entire identity delegation chain.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The ActAs feature is commonly used in multi-tiered systems to authenticate and pass information about identities between the tiers without having to pass this information at the application/business logic layer.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The OnBehalfOf feature is used in scenarios where only the identity of the original client is important and is effectively the same as the identity impersonation feature available in Windows.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>When OnBehalfOf is used, the final recipient of the issued token can only see claims about the original client, and the information about intermediaries is not preserved.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>One common pattern where the OnBehalfOf feature is used is the proxy pattern where the client cannot access the STS directly but instead communicates through a proxy gateway.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The proxy gateway authenticates the caller and puts information about the caller into the OnBehalfOf element of the RST message that it then sends to the real STS for processing.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The resulting token contains only claims related to the client of the proxy, making the proxy completely transparent to the receiver of the issued token.Note that WIF does not support <ph id="ph1">\&lt;</ph>wsse:SecurityTokenReference&gt; or <ph id="ph2">\&lt;</ph>wsa:EndpointReferences&gt; as a child of <ph id="ph3">\&lt;</ph>wst:OnBehalfOf&gt;.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The WS-Trust specification allows for three ways to identify the original requestor (on behalf of whom the proxy is acting).</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>These are:</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Security token reference.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>A reference to a token, either in the message, or possibly retrieved out of band).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Endpoint reference.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Used as a key to look up data, again out of band.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Security token.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Identifies the original requestor directly.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>WIF supports only security tokens, either encrypted or unencrypted, as a direct child element of <ph id="ph1">\&lt;</ph>wst:OnBehalfOf&gt;.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>This information is conveyed to a WS-Trust issuer using the ActAs and OnBehalfOf token elements in the RST.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>WCF exposes an extensibility point on the binding that allows arbitrary XML elements to be added to the RST.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>However, because the extensibility point is tied to the binding, scenarios that require the RST contents to vary per call must re-create the client for every call, which decreases performance.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>WIF uses extension methods on the <ph id="ph1">`ChannelFactory`</ph> class to allow developers to attach any token that is obtained out of band to the RST.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The following code example shows how to take a token that represents the client (such as an X.509, username, or Security Assertion Markup Language (SAML) token) and attach it to the RST that is sent to the issuer.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>WIF provides the following benefits:</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The RST can be modified per channel; therefore, middle-tier services do not have to re-create the channel factory for each client, which improves performance.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This works with existing WCF clients, which makes an easy upgrade path possible for existing WCF middle-tier services that want to enable identity delegation semantics.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>However, there is still no visibility into the client’s communication with the STS.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>We’ll examine this in the third scenario.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Communicating Directly with an Issuer and Using the Issued Token to Authenticate</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For some advanced scenarios, enhancing a WCF client is not enough.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Developers who use only WCF typically use Message In / Message Out contracts and handle client-side parsing of the issuer response manually.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>WIF introduces the <ph id="ph1">&lt;xref:System.ServiceModel.Security.WSTrustChannelFactory&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Security.WSTrustChannel&gt;</ph> classes to let the client communicate directly with a WS-Trust issuer.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Security.WSTrustChannelFactory&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Security.WSTrustChannel&gt;</ph> classes enable strongly typed RST and RSTR objects to flow between the client and issuer, as shown in the following code example.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Note that the <ph id="ph1">`out`</ph> parameter on the <ph id="ph2">&lt;xref:System.ServiceModel.Security.WSTrustChannel.Issue%2A&gt;</ph> method allows access to the RSTR for client-side inspection.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>So far, we’ve only seen how to obtain a token.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The token that is returned from the <ph id="ph1">&lt;xref:System.ServiceModel.Security.WSTrustChannel&gt;</ph> object is a <ph id="ph2">`GenericXmlSecurityToken`</ph> that contains all of the information that is necessary for authentication to a relying party.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The following code example shows how to use this token.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ChannelFactory%601.CreateChannelWithIssuedToken%2A&gt;</ph> extension method on the <ph id="ph2">`ChannelFactory`</ph> object indicates to WIF that you have obtained a token out of band, and that it should stop the normal WCF call to the issuer and instead use the token that you obtained to authenticate to the relying party.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This has the following benefits:</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>It gives you complete control over the token issuance process.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>It supports ActAs / OnBehalfOf scenarios by directly setting these properties on the outgoing RST.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>It enables dynamic client-side trust decisions to be made based on the contents of the RSTR.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>It lets you cache and reuse the token that is returned from the <ph id="ph1">&lt;xref:System.ServiceModel.Security.WSTrustChannel.Issue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Security.WSTrustChannelFactory&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Security.WSTrustChannel&gt;</ph> allow for control of channel caching, fault, and recovery semantics according to WCF best practices.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>WIF Features<ept id="p1">](../../../docs/framework/security/wif-features.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

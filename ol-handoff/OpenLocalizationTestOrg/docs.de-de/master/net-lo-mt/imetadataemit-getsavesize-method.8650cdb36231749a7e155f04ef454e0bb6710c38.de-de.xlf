@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5a7a90e0bc22e03964921b9723dc12f9526fcce3</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\unmanaged-api\metadata\imetadataemit-getsavesize-method.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7d4a6cbee73861c424b05addd3aa31daec64c023</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a05f58749af2390c2a636be7ba88b6a85e27321e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>IMetaDataEmit::GetSaveSize Method | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>IMetaDataEmit::GetSaveSize Method</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Gets the estimated binary size of the assembly and its metadata in the current scope.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Syntax</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Parameters</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>[in] A value of the <bpt id="p1">[</bpt>CorSaveSize<ept id="p1">](../../../../docs/framework/unmanaged-api/metadata/corsavesize-enumeration.md)</ept> enumeration that specifies whether to get an accurate or approximate size.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Only three values are valid: cssAccurate, cssQuick, and cssDiscardTransientCAs:</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>cssAccurate returns the exact save size but takes longer to calculate.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>cssQuick returns a size, padded for safety, but takes less time to calculate.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>cssDiscardTransientCAs tells <ph id="ph1">`GetSaveSize`</ph> that it can throw away discardable custom attributes.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>[out] A pointer to the size that is required to save the file.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Remarks</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`GetSaveSize`</ph> calculates the space required, in bytes, to save the assembly and all its metadata in the current scope.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>(A call to the <bpt id="p1">[</bpt>IMetaDataEmit::SaveToStream<ept id="p1">](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-savetostream-method.md)</ept> method would emit this number of bytes.)</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If the caller implements the <bpt id="p1">[</bpt>IMapToken<ept id="p1">](../../../../docs/framework/unmanaged-api/metadata/imaptoken-interface.md)</ept> interface (through <bpt id="p2">[</bpt>IMetaDataEmit::SetHandler<ept id="p2">](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-sethandler-method.md)</ept> or <bpt id="p3">[</bpt>IMetaDataEmit::Merge<ept id="p3">](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-merge-method.md)</ept>), <ph id="ph1">`GetSaveSize`</ph> will perform two passes over the metadata to optimize and compress it.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Otherwise, no optimizations are performed.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If optimization is performed, the first pass simply sorts the metadata structures to tune the performance of import-time searches.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This step typically results in moving records around, with the side effect that tokens retained by the tool for future reference are invalidated.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The metadata does not inform the caller of these token changes until after the second pass, however.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In the second pass, various optimizations are performed that are intended to reduce the overall size of the metadata, such as optimizing away (early binding) <ph id="ph1">`mdTypeRef`</ph> and <ph id="ph2">`mdMemberRef`</ph> tokens when the reference is to a type or member that is declared in the current metadata scope.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In this pass, another round of token mapping occurs.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>After this pass, the metadata engine notifies the caller, through its <ph id="ph1">`IMapToken`</ph> interface, of any changed token values.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Requirements</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Platforms:<ept id="p1">**</ept> See <bpt id="p2">[</bpt>System Requirements<ept id="p2">](../../../../docs/framework/get-started/system-requirements.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Header:<ept id="p1">**</ept> Cor.h</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Library:<ept id="p1">**</ept> Used as a resource in MSCorEE.dll</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>.NET Framework Versions:<ept id="p1">**</ept> <ph id="ph1">[!INCLUDE[net_current_v11plus](../../../../includes/net-current-v11plus-md.md)]</ph></source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>IMetaDataEmit Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>IMetaDataEmit2 Interface<ept id="p1">](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

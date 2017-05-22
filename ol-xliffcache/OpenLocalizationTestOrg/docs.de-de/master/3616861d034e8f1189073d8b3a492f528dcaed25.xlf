@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3616861d034e8f1189073d8b3a492f528dcaed25</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\security\how-to-enable-token-replay-detection.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">588e93df4fdca1ce30a7f38589a9fba4411ae1b2</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">911e17fba988a4e25b1ca8955989e3fa5a7b8108</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How To: Enable Token Replay Detection | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How To: Enable Token Replay Detection</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Applies To</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Microsoft® Windows® Identity Foundation (WIF)</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>ASP.NET® Web Forms</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Summary</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This How-To provides detailed step-by-step procedures for enabling token replay detection in an ASP.NET application that uses WIF.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>It also provides instructions for how to test the application to verify that token replay detection is enabled.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This How-To does not have detailed instructions for creating a Security Token Service (STS), and instead uses the Development STS that comes with the Identity and Access tool.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The Development STS does not perform real authentication and is intended for testing purposes only.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You will need to install the Identity and Access tool to complete this How-To.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>It can be downloaded from the following location: <bpt id="p1">[</bpt>Identity and Access Tool<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=245849)</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Contents</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Objectives</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Overview</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Summary of Steps</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Step 1 – Create a Simple ASP.NET Web Forms Application and Enable Replay Detection</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Step 2 – Test Your Solution</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Objectives</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Create a simple ASP.NET application that uses WIF and the Development STS from the Identity and Access Tool</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Enable token replay detection and verify that it is working</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Overview</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>A replay attack occurs when a client attempts to authenticate to a relying party with an STS token that the client has already used.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>To help prevent this attack, WIF contains a replay detection cache of previously used STS tokens.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>When enabled, replay detection checks the token of the incoming request and verifies whether or not the token has been previously used.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>If the token has been used already, the request is refused and a <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SecurityTokenReplayDetectedException&gt;</ph> exception is thrown.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The following steps demonstrate the configuration changes required to enable replay detection.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Summary of Steps</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Step 1 – Create a Simple ASP.NET Web Forms Application and Enable Replay Detection</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Step 2 – Test Your Solution</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Step 1 – Create a Simple ASP.NET Web Forms Application and Enable Replay Detection</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>In this step, you will create a new ASP.NET Web Forms application and modify the <bpt id="p1">*</bpt>Web.config<ept id="p1">*</ept> file to enable replay detection.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To create a simple ASP.NET application</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Start Visual Studio and click <bpt id="p1">**</bpt>File<ept id="p1">**</ept>, <bpt id="p2">**</bpt>New<ept id="p2">**</ept>, and then <bpt id="p3">**</bpt>Project<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>In the <bpt id="p1">**</bpt>New Project<ept id="p1">**</ept> window, click <bpt id="p2">**</bpt>ASP.NET Web Forms Application<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>In <bpt id="p1">**</bpt>Name<ept id="p1">**</ept>, enter <ph id="ph1">`TestApp`</ph> and press <bpt id="p2">**</bpt>OK<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Right-click the <bpt id="p1">**</bpt>TestApp<ept id="p1">**</ept> project under <bpt id="p2">**</bpt>Solution Explorer<ept id="p2">**</ept>, then select <bpt id="p3">**</bpt>Identity and Access<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Identity and Access<ept id="p1">**</ept> window appears.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Providers<ept id="p1">**</ept>, select <bpt id="p2">**</bpt>Test your application with the Local Development STS<ept id="p2">**</ept>, then click <bpt id="p3">**</bpt>Apply<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Add the following <bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>tokenReplayDetection&gt;<ept id="p1">**</ept> element to the <bpt id="p2">*</bpt>Web.config<ept id="p2">*</ept> configuration file immediately following the <bpt id="p3">**</bpt><ph id="ph2">\&lt;</ph>system.identityModel&gt;<ept id="p3">**</ept> and <bpt id="p4">**</bpt><ph id="ph3">\&lt;</ph>identityConfiguration&gt;<ept id="p4">**</ept> elements, like shown:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Step 2 – Test Your Solution</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In this step, you will test your WIF-enabled ASP.NET application to verify that replay detection has been enabled.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>To test your WIF-enabled ASP.NET application for replay detection</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Run the solution by pressing the <bpt id="p1">**</bpt>F5<ept id="p1">**</ept> key.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>You should be presented with the default ASP.NET Home Page and automatically authenticated with the username <bpt id="p1">*</bpt>Terry<ept id="p1">*</ept>, which is the default user that is returned by the Development STS.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Press the browser’s <bpt id="p1">**</bpt>Back<ept id="p1">**</ept> button.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>You should be presented with a <bpt id="p1">**</bpt>Server Error in ‘/’ Application<ept id="p1">**</ept> page with the following description: <bpt id="p2">*</bpt>ID1062: Replay has been detected for: Token: 'System.IdentityModel.Tokens.SamlSecurityToken'<ept id="p2">*</ept>, followed by an <bpt id="p3">*</bpt>AssertionId<ept id="p3">*</ept> and an <bpt id="p4">*</bpt>Issuer<ept id="p4">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>You are seeing this error page because an exception of type <ph id="ph1">&lt;xref:System.IdentityModel.Tokens.SecurityTokenReplayDetectedException&gt;</ph> was thrown when the token replay was detected.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This error occurs because you are attempting to re-send the initial POST request when the token was first presented.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Back<ept id="p1">**</ept> button will not cause this behavior on subsequent requests to the server.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

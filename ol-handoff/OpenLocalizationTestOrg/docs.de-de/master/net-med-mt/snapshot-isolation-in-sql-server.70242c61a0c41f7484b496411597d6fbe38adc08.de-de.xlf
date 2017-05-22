@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c9dd1a234cad44f4355595638a08f67b84afaa95</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\data\adonet\sql\snapshot-isolation-in-sql-server.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d0d8447c78fb414d7e7972aa9602f4aaba567b62</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0596b44add56cdb06208a5e7dc080b987d6f3426</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Snapshot Isolation in SQL Server | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Snapshot Isolation in SQL Server</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Snapshot isolation enhances concurrency for OLTP applications.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Understanding Snapshot Isolation and Row Versioning</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Once snapshot isolation is enabled, updated row versions for each transaction are maintained in <bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A unique transaction sequence number identifies each transaction, and these unique numbers are recorded for each row version.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The transaction works with the most recent row versions having a sequence number before the sequence number of the transaction.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Newer row versions created after the transaction has begun are ignored by the transaction.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The term "snapshot" reflects the fact that all queries in the transaction see the same version, or snapshot, of the database, based on the state of the database at the moment in time when the transaction begins.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>No locks are acquired on the underlying data rows or data pages in a snapshot transaction, which permits other transactions to execute without being blocked by a prior uncompleted transaction.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Transactions that modify data do not block transactions that read data, and transactions that read data do not block transactions that write data, as they normally would under the default READ COMMITTED isolation level in SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This non-blocking behavior also significantly reduces the likelihood of deadlocks for complex transactions.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Snapshot isolation uses an optimistic concurrency model.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If a snapshot transaction attempts to commit modifications to data that has changed since the transaction began, the transaction will roll back and an error will be raised.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>You can avoid this by using UPDLOCK hints for SELECT statements that access data to be modified.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>See "Locking Hints" in SQL Server Books Online for more information.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Snapshot isolation must be enabled by setting the ALLOW_SNAPSHOT_ISOLATION ON database option before it is used in transactions.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This activates the mechanism for storing row versions in the temporary database (<bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept>).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>You must enable snapshot isolation in each database that uses it with the Transact-SQL ALTER DATABASE statement.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In this respect, snapshot isolation differs from the traditional isolation levels of READ COMMITTED, REPEATABLE READ, SERIALIZABLE, and READ UNCOMMITTED, which require no configuration.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The following statements activate snapshot isolation and replace the default READ COMMITTED behavior with SNAPSHOT:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Setting the READ_COMMITTED_SNAPSHOT ON option allows access to versioned rows under the default READ COMMITTED isolation level.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>If the READ_COMMITTED_SNAPSHOT option is set to OFF, you must explicitly set the Snapshot isolation level for each session in order to access versioned rows.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Managing Concurrency with Isolation Levels</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The isolation level under which a Transact-SQL statement executes determines its locking and row versioning behavior.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>An isolation level has connection-wide scope, and once set for a connection with the SET TRANSACTION ISOLATION LEVEL statement, it remains in effect until the connection is closed or another isolation level is set.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>When a connection is closed and returned to the pool, the isolation level from the last SET TRANSACTION ISOLATION LEVEL statement is retained.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Subsequent connections reusing a pooled connection use the isolation level that was in effect at the time the connection is pooled.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Individual queries issued within a connection can contain lock hints that modify the isolation for a single statement or transaction but do not affect the isolation level of the connection.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Isolation levels or lock hints set in stored procedures or functions do not change the isolation level of the connection that calls them and are in effect only for the duration of the stored procedure or function call.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Four isolation levels defined in the SQL-92 standard were supported in early versions of SQL Server:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>READ UNCOMMITTED is the least restrictive isolation level because it ignores locks placed by other transactions.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Transactions executing under READ UNCOMMITTED can read modified data values that have not yet been committed by other transactions; these are called "dirty" reads.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>READ COMMITTED is the default isolation level for SQL Server.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>It prevents dirty reads by specifying that statements cannot read data values that have been modified but not yet committed by other transactions.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Other transactions can still modify, insert, or delete data between executions of individual statements within the current transaction, resulting in non-repeatable reads, or "phantom" data.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>REPEATABLE READ is a more restrictive isolation level than READ COMMITTED.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>It encompasses READ COMMITTED and additionally specifies that no other transactions can modify or delete data that has been read by the current transaction until the current transaction commits.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Concurrency is lower than for READ COMMITTED because shared locks on read data are held for the duration of the transaction instead of being released at the end of each statement.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>SERIALIZABLE is the most restrictive isolation level, because it locks entire ranges of keys and holds the locks until the transaction is complete.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>It encompasses REPEATABLE READ and adds the restriction that other transactions cannot insert new rows into ranges that have been read by the transaction until the transaction is complete.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For more information, see "Isolation Levels" in SQL Server Books Online.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Snapshot Isolation Level Extensions</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>SQL Server introduced extensions to the SQL-92 isolation levels with the introduction of the SNAPSHOT isolation level and an additional implementation of READ COMMITTED.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The READ_COMMITTED_SNAPSHOT isolation level can transparently replace READ COMMITTED for all transactions.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>SNAPSHOT isolation specifies that data read within a transaction will never reflect changes made by other simultaneous transactions.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The transaction uses the data row versions that exist when the transaction begins.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>No locks are placed on the data when it is read, so SNAPSHOT transactions do not block other transactions from writing data.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Transactions that write data do not block snapshot transactions from reading data.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You need to enable snapshot isolation by setting the ALLOW_SNAPSHOT_ISOLATION database option in order to use it.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The READ_COMMITTED_SNAPSHOT database option determines the behavior of the default READ COMMITTED isolation level when snapshot isolation is enabled in a database.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If you do not explicitly specify READ_COMMITTED_SNAPSHOT ON, READ COMMITTED is applied to all implicit transactions.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>This produces the same behavior as setting READ_COMMITTED_SNAPSHOT OFF (the default).</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>When READ_COMMITTED_SNAPSHOT OFF is in effect, the Database Engine uses shared locks to enforce the default isolation level.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If you set the READ_COMMITTED_SNAPSHOT database option to ON, the database engine uses row versioning and snapshot isolation as the default, instead of using locks to protect the data.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>How Snapshot Isolation and Row Versioning Work</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>When the SNAPSHOT isolation level is enabled, each time a row is updated, the SQL Server Database Engine stores a copy of the original row in <bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept>, and adds a transaction sequence number to the row.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The following is the sequence of events that occurs:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>A new transaction is initiated, and it is assigned a transaction sequence number.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The Database Engine reads a row within the transaction and retrieves the row version from <bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept> whose sequence number is closest to, and lower than, the transaction sequence number.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The Database Engine checks to see if the transaction sequence number is not in the list of transaction sequence numbers of the uncommitted transactions active when the snapshot transaction started.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The transaction reads the version of the row from <bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept> that was current as of the start of the transaction.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>It will not see new rows inserted after the transaction was started because those sequence number values will be higher than the value of the transaction sequence number.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The current transaction will see rows that were deleted after the transaction began, because there will be a row version in <bpt id="p1">**</bpt>tempdb<ept id="p1">**</ept> with a lower sequence number value.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The net effect of snapshot isolation is that the transaction sees all of the data as it existed at the start of the transaction, without honoring or placing any locks on the underlying tables.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>This can result in performance improvements in situations where there is contention.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>A snapshot transaction always uses optimistic concurrency control, withholding any locks that would prevent other transactions from updating rows.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>If a snapshot transaction attempts to commit an update to a row that was changed after the transaction began, the transaction is rolled back, and an error is raised.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Working with Snapshot Isolation in ADO.NET</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Snapshot isolation is supported in ADO.NET by the <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlTransaction&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If a database has been enabled for snapshot isolation but is not configured for READ_COMMITTED_SNAPSHOT ON, you must initiate a <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlTransaction&gt;</ph> using the <bpt id="p1">**</bpt>IsolationLevel.Snapshot<ept id="p1">**</ept> enumeration value when calling the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>This code fragment assumes that connection is an open <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates how the different isolation levels behave by attempting to access locked data, and it is not intended to be used in production code.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The code connects to the <bpt id="p1">**</bpt>AdventureWorks<ept id="p1">**</ept> sample database in SQL Server and creates a table named <bpt id="p2">**</bpt>TestSnapshot<ept id="p2">**</ept> and inserts one row of data.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The code uses the ALTER DATABASE Transact-SQL statement to turn on snapshot isolation for the database, but it does not set the READ_COMMITTED_SNAPSHOT option, leaving the default READ COMMITTED isolation-level behavior in effect.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The code then performs the following actions:</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>It begins, but does not complete, sqlTransaction1, which uses the SERIALIZABLE isolation level to start an update transaction.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>This has the effect of locking the table.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>It opens a second connection and initiates a second transaction using the SNAPSHOT isolation level to read the data in the <bpt id="p1">**</bpt>TestSnapshot<ept id="p1">**</ept> table.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Because snapshot isolation is enabled, this transaction can read the data that existed before sqlTransaction1 started.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>It opens a third connection and initiates a transaction using the READ COMMITTED isolation level to attempt to read the data in the table.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>In this case, the code cannot read the data because it cannot read past the locks placed on the table in the first transaction and times out.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The same result would occur if the REPEATABLE READ and SERIALIZABLE isolation levels were used because these isolation levels also cannot read past the locks placed in the first transaction.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>It opens a fourth connection and initiates a transaction using the READ UNCOMMITTED isolation level, which performs a dirty read of the uncommitted value in sqlTransaction1.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>This value may never actually exist in the database if the first transaction is not committed.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>It rolls back the first transaction and cleans up by deleting the <bpt id="p1">**</bpt>TestSnapshot<ept id="p1">**</ept> table and turning off snapshot isolation for the <bpt id="p2">**</bpt>AdventureWorks<ept id="p2">**</ept> database.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The following examples use the same connection string with connection pooling turned off.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>If a connection is pooled, resetting its isolation level does not reset the isolation level at the server.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>As a result, subsequent connections that use the same pooled inner connection start with their isolation levels set to that of the pooled connection.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>An alternative to turning off connection pooling is to set the isolation level explicitly for each connection.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>DataWorks SnapshotIsolation.Demo#1<ept id="p2">](../../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DataWorks SnapshotIsolation.Demo/CS/source.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>DataWorks SnapshotIsolation.Demo#1<ept id="p4">](../../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DataWorks SnapshotIsolation.Demo/VB/source.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The following example demonstrates the behavior of snapshot isolation when data is being modified.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The code performs the following actions:</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Connects to the <bpt id="p1">**</bpt>AdventureWorks<ept id="p1">**</ept> sample database and enables SNAPSHOT isolation.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Creates a table named <bpt id="p1">**</bpt>TestSnapshotUpdate<ept id="p1">**</ept> and inserts three rows of sample data.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Begins, but does not complete, sqlTransaction1 using SNAPSHOT isolation.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Three rows of data are selected in the transaction.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Creates a second <bpt id="p1">**</bpt>SqlConnection<ept id="p1">**</ept> to <bpt id="p2">**</bpt>AdventureWorks<ept id="p2">**</ept> and creates a second transaction using the READ COMMITTED isolation level that updates a value in one of the rows selected in sqlTransaction1.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Commits sqlTransaction2.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Returns to sqlTransaction1 and attempts to update the same row that sqlTransaction1 already committed.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Error 3960 is raised, and sqlTransaction1 is rolled back automatically.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>SqlException.Number<ept id="p1">**</ept> and <bpt id="p2">**</bpt>SqlException.Message<ept id="p2">**</ept> are displayed in the Console window.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Executes clean-up code to turn off snapshot isolation in <bpt id="p1">**</bpt>AdventureWorks<ept id="p1">**</ept> and delete the <bpt id="p2">**</bpt>TestSnapshotUpdate<ept id="p2">**</ept> table.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>DataWorks SnapshotIsolation.DemoUpdate#1<ept id="p2">](../../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DataWorks SnapshotIsolation.DemoUpdate/CS/source.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>DataWorks SnapshotIsolation.DemoUpdate#1<ept id="p4">](../../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DataWorks SnapshotIsolation.DemoUpdate/VB/source.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Using Lock Hints with Snapshot Isolation</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>In the previous example, the first transaction selects data, and a second transaction updates the data before the first transaction is able to complete, causing an update conflict when the first transaction tries to update the same row.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>You can reduce the chance of update conflicts in long-running snapshot transactions by supplying lock hints at the beginning of the transaction.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The following SELECT statement uses the UPDLOCK hint to lock the selected rows:</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Using the UPDLOCK lock hint blocks any rows attempting to update the rows before the first transaction completes.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>This guarantees that the selected rows have no conflicts when they are updated later in the transaction.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>See "Locking Hints" in SQL Server Books Online.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>If your application has many conflicts, snapshot isolation may not be the best choice.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Hints should only be used when really needed.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Your application should not be designed so that it constantly relies on lock hints for its operation.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>SQL Server and ADO.NET<ept id="p1">](../../../../../docs/framework/data/adonet/sql/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>ADO.NET Managed Providers and DataSet Developer Center<ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=217917)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

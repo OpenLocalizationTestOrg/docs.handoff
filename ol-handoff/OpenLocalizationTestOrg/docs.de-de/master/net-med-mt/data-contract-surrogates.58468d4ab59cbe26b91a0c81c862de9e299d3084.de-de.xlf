@@ -1,0 +1,648 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">60a4a6472a4eb65b6c7d2d9a99d73ba5cb48bc2e</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\data-contract-surrogates.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6ef36641f3cd7344277a431c05277aec6412588b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">72fceafe38bfa155d8493e8e5e784e5b3d08d9bb</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Data Contract Surrogates | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Data Contract Surrogates</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The data contract <bpt id="p1">*</bpt>surrogate<ept id="p1">*</ept> is an advanced feature built upon the Data Contract model.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This feature is designed to be used for type customization and substitution in situations where users want to change how a type is serialized, deserialized or projected into metadata.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Some scenarios where a surrogate may be used is when a data contract has not been specified for the type, fields and properties are not marked with the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataMemberAttribute&gt;</ph> attribute or users wish to dynamically create schema variations.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Serialization and deserialization are accomplished with the data contract surrogate when using <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph> to convert from .NET Framework to a suitable format, such as XML.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Data contract surrogate can also be used to modify the metadata exported for types, when producing metadata representations such as XML Schema Documents (XSD).</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Upon import, code is created from metadata and the surrogate can be used in this case to customize the generated code as well.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>How the Surrogate Works</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>A surrogate works by mapping one type (the "original" type) to another type (the "surrogated" type).</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The following example shows the original type <ph id="ph1">`Inventory`</ph> and a new surrogate <ph id="ph2">`InventorySurrogated`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Inventory`</ph> type is not serializable but the <ph id="ph2">`InventorySurrogated`</ph> type is:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#1)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Because a data contract has not been defined for this class, convert the class to a surrogate class with a data contract.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The surrogated class is shown in the following example:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#2)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Implementing the IDataContractSurrogate</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>To use the data contract surrogate, implement the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following is an overview of each method of <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate&gt;</ph> with a possible implementation.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>GetDataContractType</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDataContractType%2A&gt;</ph> method maps one type to another.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This method is required for serialization, deserialization, import, and export.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The first task is defining what types will be mapped to other types.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#3)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>On serialization, the mapping returned by this method is subsequently used to transform the original instance to a surrogated instance by calling the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetObjectToSerialize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>On deserialization, the mapping returned by this method is used by the serializer to deserialize into an instance of the surrogate type.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It subsequently calls <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDeserializedObject%2A&gt;</ph> to transform the surrogated instance into an instance of the original type.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>On export, the surrogate type returned by this method is reflected to get the data contract to use for generating metadata.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>On import, the initial type is changed to a surrogate type that is reflected to get the data contract to use for purposes like referencing support.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Type&gt;</ph> parameter is the type of the object that is being serialized, deserialized, imported, or exported.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDataContractType%2A&gt;</ph> method must return the input type if the surrogate does not handle the type.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Otherwise, return the appropriate surrogated type.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If several surrogate types exist, numerous mappings can be defined in this method.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDataContractType%2A&gt;</ph> method is not called for built-in data contract primitives, such as <ph id="ph2">&lt;xref:System.Int32&gt;</ph> or <ph id="ph3">&lt;xref:System.String&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For other types, such as arrays, user-defined types, and other data structures, this method will be called for each type.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>In the previous example, the method checks if the <ph id="ph1">`type`</ph> parameter and <ph id="ph2">`Inventory`</ph> are comparable.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If so, the method maps it to <ph id="ph1">`InventorySurrogated`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Whenever a serialization, deserialization, import schema, or export schema is called, this function is called first to determine the mapping between types.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>GetObjectToSerialize Method</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetObjectToSerialize%2A&gt;</ph> method converts the original type instance to the surrogated type instance.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The method is required for serialization.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The next step is to define the way the physical data will be mapped from the original instance to the surrogate by implementing the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetObjectToSerialize%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#4)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetObjectToSerialize%2A&gt;</ph> method is called when an object is serialized.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>This method transfers data from the original type to the fields of the surrogated type.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Fields can be directly mapped to surrogate fields, or manipulations of the original data may be stored in the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Some possible uses include: directly mapping the fields, performing operations on the data to be stored in the surrogated fields, or storing the XML of the original type in the surrogated field.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`targetType`</ph> parameter refers to the declared type of the member.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This parameter is the surrogated type returned by the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDataContractType%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The serializer does not enforce that the object returned is assignable to this type.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`obj`</ph> parameter is the object to serialize, and will be converted to its surrogate if necessary.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This method must return the input object if the surrogated does not handle the object.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Otherwise, the new surrogate object will be returned.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The surrogate is not called if the object is null.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Numerous surrogate mappings for different instances may be defined within this method.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>When creating a <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph>, you can instruct it to preserve object references.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>(<ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>Serialization and Deserialization<ept id="p1">](../../../../docs/framework/wcf/feature-details/serialization-and-deserialization.md)</ept>.) This is done by setting the <ph id="ph2">`preserveObjectReferences`</ph> parameter in its constructor to <ph id="ph3">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In that case, the surrogate is called only once for an object since all subsequent serializations just write the reference into the stream.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">`preserveObjectReferences`</ph> is set to <ph id="ph2">`false`</ph>, then the surrogate is called every time an instance is encountered.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If the type of the instance serialized differs from the declared type, type information is written into the stream, for example, <ph id="ph1">`xsi:type`</ph> to allow the instance to be deserialized at the other end.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This process occurs whether the object is surrogated or not.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The example above converts the data of the <ph id="ph1">`Inventory`</ph> instance to that of <ph id="ph2">`InventorySurrogated`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>It checks the type of the object and performs the necessary manipulations to convert to the surrogated type.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In this case, the fields of the <ph id="ph1">`Inventory`</ph> class are directly copied over to the <ph id="ph2">`InventorySurrogated`</ph> class fields.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>GetDeserializedObject Method</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetDeserializedObject%2A&gt;</ph> method converts the surrogated type instance to the original type instance.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>It is required for deserialization.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The next task is to define the way the physical data will be mapped from the surrogate instance to the original.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#5)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This method is called only during the deserialization of an object.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>It provides reverse data mapping for the deserialization from the surrogate type back to its original type.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Similar to the <ph id="ph1">`GetObjectToSerialize`</ph> method, some possible uses may be to directly exchange field data, perform operations on the data, and store XML data.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>When  deserializing, you may not always obtain the exact data values from original due to manipulations in the data conversion.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`targetType`</ph> parameter refers to the declared type of the member.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>This parameter is the surrogated type returned by the <ph id="ph1">`GetDataContractType`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`obj`</ph> parameter refers to the object that has been deserialized.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The object can be converted back to its original type if it is surrogated.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>This method returns the input object if the surrogate does not handle the object.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Otherwise, the deserialized object will be returned once its conversion has been completed.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If several surrogate types exist, you may provide data conversion from surrogate to primary type for each by indicating each type and its conversion.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>When returning an object, the internal object tables are updated with the object returned by this surrogate.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Any subsequent references to an instance will obtain the surrogated instance from the object tables.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The previous example converts objects of type <ph id="ph1">`InventorySurrogated`</ph> back to the initial type <ph id="ph2">`Inventory`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>In this case, data is directly transferred back from <ph id="ph1">`InventorySurrogated`</ph> to its corresponding fields in <ph id="ph2">`Inventory`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Because there are no data manipulations, the each of the member fields will contain the same values as before the serialization.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>GetCustomDataToExport Method</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>When exporting a schema, the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetCustomDataToExport%2A&gt;</ph> method is optional.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>It is used to insert additional data or hints into the exported schema.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Additional data can be inserted at the member level or type level.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#6<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#6)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>This method (with two overloads) enables the inclusion of extra information into the metadata either at the member or type level.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>It is possible to include hints about whether a member is public or private, and comments which would be preserved throughout the export and import of the schema.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Such information would be lost without this method.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>This method does not cause the insertion or deletion of members or types, but rather adds additional data to the schemas at either of these levels.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The method is overloaded and can take either a <ph id="ph1">`Type`</ph> (<ph id="ph2">`clrtype`</ph> parameter) or <ph id="ph3">&lt;xref:System.Reflection.MemberInfo&gt;</ph> (<ph id="ph4">`memberInfo`</ph> parameter).</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The second parameter is always a <ph id="ph1">`Type`</ph> (<ph id="ph2">`dataContractType`</ph> parameter).</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This method is called for every member and type of the surrogated <ph id="ph1">`dataContractType`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Either of these overloads must return either <ph id="ph1">`null`</ph> or a serializable object.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>A non-null object will be serialized as annotation into the exported schema.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>For the <ph id="ph1">`Type`</ph> overload, each type that is exported to schema is sent to this method in the first parameter along with the surrogated type as the <ph id="ph2">`dataContractType`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>For the <ph id="ph1">`MemberInfo`</ph> overload, each member that is exported to schema sends its information as the <ph id="ph2">`memberInfo`</ph> parameter with the surrogated type in the second parameter.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>GetCustomDataToExport Method (Type, Type)</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetCustomDataToExport%28System.Type%2CSystem.Type%29?displayProperty=fullName&gt;</ph> method is called during schema export for every type definition.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The method adds information to the types within the schema when exporting.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Each type defined is sent to this method to determine whether there is any additional data that needs to be included in the schema.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>GetCustomDataToExport Method (MemberInfo, Type)</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetCustomDataToExport%28System.Reflection.MemberInfo%2CSystem.Type%29?displayProperty=fullName&gt;</ph> is called during export for every member in the types that are exported.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>This function enables you to customize any comments for the members that will be included in the schema upon export.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The information for every member within the class is sent to this method to check whether any additional data need to be added in the schema.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The example above searches through the <ph id="ph1">`dataContractType`</ph> for each member of the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>It then returns the appropriate access modifier for each field.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Without this customization, the default value for access modifiers is public.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Therefore, all members would be defined as public in the code generated using the exported schema no matter what their actual access restrictions are.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>When not using this implementation, the member <ph id="ph1">`numpens`</ph> would be public in the exported schema even though it was defined in the surrogate as private.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Through the use of this method, in the exported schema, the access modifier can be generated as private.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>GetReferencedTypeOnImport Method</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>This method maps the <ph id="ph1">&lt;xref:System.Type&gt;</ph> of the surrogate to the original type.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>This method is optional for schema importation.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>When creating a surrogate that imports a schema and generates code for it, the next task is to define the type of a surrogate instance to its original type.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>If the generated code needs to reference an existing user type, this is done by implementing the <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetReferencedTypeOnImport%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>When importing a schema, this method is called for every type declaration to map the surrogated data contract to a type.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>The string parameters <ph id="ph1">`typeName`</ph> and <ph id="ph2">`typeNamespace`</ph> define the name and namespace of the surrogated type.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>The return value for <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetReferencedTypeOnImport%2A&gt;</ph> is used to determine whether a new type needs to be generated.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>This method must return either a valid type or null.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>For valid types, the type returned will be used as a referenced type in the generated code.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>If null is returned, no type will be referenced and a new type must be created.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>If several surrogates exist, it is possible to perform the mapping for each surrogate type back to its initial type.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`customData`</ph> parameter is the object originally returned from <ph id="ph2">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.GetCustomDataToExport%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>This <ph id="ph1">`customData`</ph> is used when surrogate authors want to insert extra data/hints into the metadata to use during import to generate code.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>ProcessImportedType Method</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.IDataContractSurrogate.ProcessImportedType%2A&gt;</ph> method customizes any type created from schema importation.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>This method is optional.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>When importing a schema, this method allows for any imported type and compilation information to be customized.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#7<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#7)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>During import, this method is called for every type generated.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Change the specified <ph id="ph1">&lt;xref:System.CodeDom.CodeTypeDeclaration&gt;</ph> or modify the <ph id="ph2">&lt;xref:System.CodeDom.CodeCompileUnit&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>This includes changing the name, members, attributes, and many other properties of the <ph id="ph1">`CodeTypeDeclaration`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>By processing the <ph id="ph1">`CodeCompileUnit`</ph>, it is possible to modify the directives, namespaces, referenced assemblies, and several other aspects.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CodeTypeDeclaration`</ph> parameter contains the code DOM type declaration.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CodeCompileUnit`</ph> parameter allows for modification for processing the code.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Returning <ph id="ph1">`null`</ph> results in the type declaration being discarded.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Conversely, when returning a <ph id="ph1">`CodeTypeDeclaration`</ph>, the modifications are preserved.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>If custom data is inserted during metadata export, it needs to be provided to the user during import so that it can be used.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>This custom data can be used for programming model hints, or other comments.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">`CodeTypeDeclaration`</ph> and <ph id="ph2">&lt;xref:System.CodeDom.CodeTypeMember&gt;</ph> instance includes custom data as the <ph id="ph3">&lt;xref:System.CodeDom.CodeObject.UserData%2A&gt;</ph> property, cast to the <ph id="ph4">`IDataContractSurrogate`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The example above performs some changes on the schema imported.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>The code preserves private members of the original type by using a surrogate.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>The default access modifier when importing a schema is <ph id="ph1">`public`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Therefore, all members of the surrogate schema will be public unless modified, as in this example.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>During export, custom data is inserted into the metadata about which members are private.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>The example looks up the custom data, checks whether the access modifier is private, and then modifies the appropriate member to be private by setting its attributes.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Without this customization, the <ph id="ph1">`numpens`</ph> member would be defined as public instead of private.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>GetKnownCustomDataTypes Method</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>This method obtains custom data types defined from the schema.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>The method is optional for schema importation.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>The method is called at the beginning of schema export and import.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The method returns the custom data types used in the schema exported or imported.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>The method is passed a <ph id="ph1">&lt;xref:System.Collections.ObjectModel.Collection%601&gt;</ph> (the <ph id="ph2">`customDataTypes`</ph> parameter), which is a collection of types.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>The method should add additional known types to this collection.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>The known custom data types are needed to enable serialization and deserialization of custom data using the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph><bpt id="p1">[</bpt>Data Contract Known Types<ept id="p1">](../../../../docs/framework/wcf/feature-details/data-contract-known-types.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Implementing a Surrogate</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>To use the data contract surrogate within <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, you must follow a few special procedures.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>To Use a Surrogate for Serialization and Deserialization</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph> to perform serialization and deserialization of data with the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.Serialization.DataContractSerializer&gt;</ph> is created by the <ph id="ph2">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The surrogate must also be specified.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>To implement serialization and deserialization</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>Create an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHost&gt;</ph> for your service.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>For complete instructions, see <bpt id="p1">[</bpt>Basic WCF Programming<ept id="p1">](../../../../docs/framework/wcf/basic-wcf-programming.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>For every <ph id="ph1">&lt;xref:System.ServiceModel.Description.ServiceEndpoint&gt;</ph> of the specified service host, find its <ph id="ph2">&lt;xref:System.ServiceModel.Description.OperationDescription&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>Search through the operation behaviors to determine if an instance of the <ph id="ph1">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior&gt;</ph> is found.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>If a <ph id="ph1">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior&gt;</ph> is found, set its <ph id="ph2">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior.DataContractSurrogate%2A&gt;</ph> property to a new instance of the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>If no <ph id="ph1">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior&gt;</ph> is found, then create a new instance and set the <ph id="ph2">&lt;xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior.DataContractSurrogate%2A&gt;</ph> member of the new behavior to a new instance of the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Finally, add this new behavior to the current operation behaviors, as shown in the following example:</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#8<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#8)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>To Use a Surrogate for Metadata Import</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>When importing metadata like WSDL and XSD to generate client-side code, the surrogate needs to be added to the component responsible for generating code from XSD schema, <ph id="ph1">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>To do this, directly modify the <ph id="ph1">&lt;xref:System.ServiceModel.Description.WsdlImporter&gt;</ph> used to import metadata.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>To implement a surrogate for metadata importation</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Import the metadata using the <ph id="ph1">&lt;xref:System.ServiceModel.Description.WsdlImporter&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> method to check whether an <ph id="ph2">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph> has been defined.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> method returns <ph id="ph2">`false`</ph>, create a new <ph id="ph3">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph> and set its <ph id="ph4">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter.Options%2A&gt;</ph> property to a new instance of the <ph id="ph5">&lt;xref:System.Runtime.Serialization.ImportOptions&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Otherwise, use the importer returned by the <ph id="ph1">`out`</ph> parameter of the <ph id="ph2">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph> has no <ph id="ph2">&lt;xref:System.Runtime.Serialization.ImportOptions&gt;</ph> defined, then set the property to be a new instance of the <ph id="ph3">&lt;xref:System.Runtime.Serialization.ImportOptions&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Runtime.Serialization.ImportOptions.DataContractSurrogate%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Runtime.Serialization.ImportOptions&gt;</ph> of the <ph id="ph3">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph> to a new instance of the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">&lt;xref:System.Runtime.Serialization.XsdDataContractImporter&gt;</ph> to the collection returned by the <ph id="ph2">&lt;xref:System.ServiceModel.Description.MetadataExporter.State%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.ServiceModel.Description.WsdlImporter&gt;</ph> (inherited from the <ph id="ph4">&lt;xref:System.ServiceModel.Description.MetadataExporter&gt;</ph> class.)</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.ServiceModel.Description.WsdlImporter.ImportAllContracts%2A&gt;</ph> method of the <ph id="ph2">&lt;xref:System.ServiceModel.Description.WsdlImporter&gt;</ph> to import all of the data contracts within the schema.</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>During the last step, code is generated from the schemas loaded by calling into the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#9<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#9)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>To Use a surrogate for Metadata Export</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>By default, when exporting metadata from <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> for a service, both WSDL and XSD schema needs to be generated.</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>The surrogate needs to be added to the component responsible for generating XSD schema for data contract types, <ph id="ph1">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>To do this, either use a behavior that implements <ph id="ph1">&lt;xref:System.ServiceModel.Description.IWsdlExportExtension&gt;</ph> to modify the <ph id="ph2">&lt;xref:System.ServiceModel.Description.WsdlExporter&gt;</ph>, or directly modify the <ph id="ph3">&lt;xref:System.ServiceModel.Description.WsdlExporter&gt;</ph> used to export metadata.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>To use a surrogate for metadata export</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">&lt;xref:System.ServiceModel.Description.WsdlExporter&gt;</ph> or use the <ph id="ph2">`wsdlExporter`</ph> parameter passed to the <ph id="ph3">&lt;xref:System.ServiceModel.Description.IWsdlExportExtension.ExportContract%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> function to check whether an <ph id="ph2">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter&gt;</ph> has been defined.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> returns <ph id="ph2">`false`</ph>, create a new <ph id="ph3">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter&gt;</ph> with the generated XML schemas from the <ph id="ph4">&lt;xref:System.ServiceModel.Description.WsdlExporter&gt;</ph>, and add it to the collection returned by the <ph id="ph5">&lt;xref:System.ServiceModel.Description.MetadataExporter.State%2A&gt;</ph> property of the <ph id="ph6">&lt;xref:System.ServiceModel.Description.WsdlExporter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>Otherwise, use the exporter returned by the <ph id="ph1">`out`</ph> parameter of the <ph id="ph2">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter&gt;</ph> has no <ph id="ph2">&lt;xref:System.Runtime.Serialization.ExportOptions&gt;</ph> defined, then set the <ph id="ph3">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter.Options%2A&gt;</ph> property to a new instance of the <ph id="ph4">&lt;xref:System.Runtime.Serialization.ExportOptions&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">&lt;xref:System.Runtime.Serialization.ExportOptions.DataContractSurrogate%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.Runtime.Serialization.ExportOptions&gt;</ph> of the <ph id="ph3">&lt;xref:System.Runtime.Serialization.XsdDataContractExporter&gt;</ph> to a new instance of the surrogate.</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Subsequent steps for exporting metadata do not require any changes.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>C_IDataContractSurrogate#10<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_idatacontractsurrogate/cs/source.cs#10)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Using Data Contracts<ept id="p1">](../../../../docs/framework/wcf/feature-details/using-data-contracts.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

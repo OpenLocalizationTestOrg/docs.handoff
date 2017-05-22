@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3515a15432d2b7ff68c19dbd966806d0df3be7a8</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\app-domains\type-forwarding-in-the-common-language-runtime.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">46b1295c53a0183b0b27fdf5e538b78bc158caaf</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">adff2ee639446877040895b9bce7fa9d9cb140fc</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Type Forwarding in the Common Language Runtime | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Type Forwarding in the Common Language Runtime</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Type forwarding allows you to move a type to another assembly without having to recompile applications that use the original assembly.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>For example, suppose an application uses the <ph id="ph1">`Example`</ph> class in an assembly named <ph id="ph2">`Utility.dll`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The developers of <ph id="ph1">`Utility.dll`</ph> might decide to refactor the assembly, and in the process they might move the <ph id="ph2">`Example`</ph> class to another assembly.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>If the old version of <ph id="ph1">`Utility.dll`</ph> is replaced by the new version of <ph id="ph2">`Utility.dll`</ph> and its companion assembly, the application that uses the <ph id="ph3">`Example`</ph> class fails because it cannot locate the <ph id="ph4">`Example`</ph> class in the new version of <ph id="ph5">`Utility.dll`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The developers of <ph id="ph1">`Utility.dll`</ph> can avoid this by forwarding requests for the <ph id="ph2">`Example`</ph> class, using the <ph id="ph3">&lt;xref:System.Runtime.CompilerServices.TypeForwardedToAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>If the attribute has been applied to the new version of <ph id="ph1">`Utility.dll`</ph>, requests for the <ph id="ph2">`Example`</ph> class are forwarded to the assembly that now contains the class.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>The existing application continues to function normally, without recompilation.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In the .NET Framework version 2.0, you cannot forward types from assemblies written in Visual Basic.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>However, an application written in Visual Basic can consume forwarded types.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>That is, if the application uses an assembly coded in C# or C++, and a type from that assembly is forwarded to another assembly, the Visual Basic application can use the forwarded type.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Forwarding Types</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>There are four steps to forwarding a type:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Move the source code for the type from the original assembly to the destination assembly.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In the assembly where the type used to be located, add a <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.TypeForwardedToAttribute&gt;</ph> for the type that was moved.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The following code shows the attribute for a type named <ph id="ph1">`Example`</ph> that was moved.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Compile the assembly that now contains the type.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Recompile the assembly where the type used to be located, with a reference to the assembly that now contains the type.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>For example, if you are compiling a C# file from the command line, use the <bpt id="p1">[</bpt>/reference (C# Compiler Options)<ept id="p1">](~/docs/csharp/language-reference/compiler-options/reference-compiler-option.md)</ept> option to specify the assembly that contains the type.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In C++, use the <bpt id="p1">[</bpt>#using<ept id="p1">](http://msdn.microsoft.com/library/870b15e5-f361-40a8-ba1c-c57d75c8809a)</ept> directive in the source file to specify the assembly that contains the type.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Type Forwarding (C++/CLI)<ept id="p1">](/cpp/windows/type-forwarding-cpp-cli)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>#using Directive<ept id="p1">](http://msdn.microsoft.com/library/870b15e5-f361-40a8-ba1c-c57d75c8809a)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

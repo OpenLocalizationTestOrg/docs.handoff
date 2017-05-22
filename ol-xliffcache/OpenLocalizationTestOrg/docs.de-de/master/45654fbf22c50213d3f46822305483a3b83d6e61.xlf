@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">45654fbf22c50213d3f46822305483a3b83d6e61</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\extending\creating-a-bindingelement.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ca737ca248a59766ab524c4c4db547810c0ea957</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">887798f7e74c0b1b192a7fef7707f0ad67bdd3c6</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Creating a BindingElement | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Creating a BindingElement</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Bindings and binding elements (objects that extend <ph id="ph1">&lt;xref:System.ServiceModel.Channels.Binding?displayProperty=fullName&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName&gt;</ph>, respectively) are the place where the <ph id="ph3">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> application model is associated with channel factories and channel listeners.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Without bindings, using custom channels requires programming at the channel level as described in <bpt id="p1">[</bpt>Service Channel-Level Programming<ept id="p1">](../../../../docs/framework/wcf/extending/service-channel-level-programming.md)</ept> and <bpt id="p2">[</bpt>Client Channel-Level Programming<ept id="p2">](../../../../docs/framework/wcf/extending/client-channel-level-programming.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This topic discusses the minimum requirement to enable using your channel in <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph>, the development of a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> for your channel, and enable use from the application as described in step 4 of <bpt id="p1">[</bpt>Developing Channels<ept id="p1">](../../../../docs/framework/wcf/extending/developing-channels.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Overview</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Creating a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> for your channel enables developers to use it in an <ph id="ph2">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> objects can be used from the <ph id="ph2">&lt;xref:System.ServiceModel.ServiceHost?displayProperty=fullName&gt;</ph> class to connect an <ph id="ph3">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> application to your channel without having to the precise type information of your channel.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Once a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> has been created, you can enable more functionality depending upon your requirements by following the remaining channel development steps described in <bpt id="p1">[</bpt>Developing Channels<ept id="p1">](../../../../docs/framework/wcf/extending/developing-channels.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Adding a Binding Element</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>To implement a custom <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph>, write a class that inherits from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, if you have developed a <ph id="ph1">`ChunkingChannel`</ph> that can break up large messages into chunks and reassemble them on the other end, you can use this channel in any binding by implementing a <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> and configuring the binding to use it.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The remainder of this topic uses the <ph id="ph1">`ChunkingChannel`</ph> as an example to demonstrate the requirements of implementing a binding element.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">`ChunkingBindingElement`</ph> is responsible for creating the <ph id="ph2">`ChunkingChannelFactory`</ph> and <ph id="ph3">`ChunkingChannelListener`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>It overrides <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.CanBuildChannelFactory%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.BindingElement.CanBuildChannelListener%2A&gt;</ph> implementations, and checks that the type parameter is <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> (in our example this is the only channel shape supported by the <ph id="ph4">`ChunkingChannel`</ph>) and that the other binding elements in the binding support this channel shape.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelFactory%2A&gt;</ph> first checks that the requested channel shape can be built and then gets a list of message actions to be chunked.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It then creates a new <ph id="ph1">`ChunkingChannelFactory`</ph>, passing it the inner channel factory.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>(If you are creating a transport binding element, that element is the last one in the binding stack and therefore must create a channel listener or channel factory.)</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.BuildChannelListener%2A&gt;</ph> has a similar implementation for creating <ph id="ph2">`ChunkingChannelListener`</ph> and passing it the inner channel listener.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>As another example using a transport channel, the <bpt id="p1">[</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept> sample provides the following override.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In the sample, the binding element is <ph id="ph1">`UdpTransportBindingElement`</ph>, which derives from <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It overrides the following methods to build the factories associated with the channel.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It also contains members for cloning the <ph id="ph1">`BindingElement`</ph> and returning our scheme (soap.udp).</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Protocol Binding Elements</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>New binding elements can replace or augment any of the included binding elements, adding new transports, encodings, or higher-level protocols.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To create a new Protocol Binding Element, start by extending the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>At a minimum, you must then implement the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A?displayProperty=fullName&gt;</ph> and implement the <ph id="ph2">`ChannelProtectionRequirements`</ph> using <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IChannel.GetProperty%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This returns the <ph id="ph1">&lt;xref:System.ServiceModel.Security.ChannelProtectionRequirements&gt;</ph> for this binding element.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.ServiceModel.Security.ChannelProtectionRequirements&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph> should return a fresh copy of this binding element.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>As a best practice, we recommend that binding element authors implement <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph> by using a copy constructor that calls the base copy constructor, then clones any additional fields in this class.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Transport Binding Elements</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>To create a new Transport Binding Element, extend the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportBindingElement&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>At a minimum, you must then implement the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph> method and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.Scheme%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph> – Should return a fresh copy of this Binding Element.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>As a best practice, we recommend that Binding Element authors implement Clone by way of a copy constructor that calls the base copy constructor, then clones any additional fields in this class.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.Scheme%2A&gt;</ph> – The <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.Scheme%2A&gt;</ph> get property returns the URI scheme for the transport protocol represented by the binding element.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.HttpTransportBindingElement?displayProperty=fullName&gt;</ph> and the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.TcpTransportBindingElement?displayProperty=fullName&gt;</ph> return "http" and "net.tcp" from their respective <ph id="ph3">&lt;xref:System.ServiceModel.Channels.TransportBindingElement.Scheme%2A&gt;</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Encoding Binding Elements</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>To create new Encoding Binding Elements, start by extending the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement&gt;</ph> class and implementing the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement?displayProperty=fullName&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>At a minimum, you must then implement the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement.CreateMessageEncoderFactory%2A?displayProperty=fullName&gt;</ph> methods and the <ph id="ph3">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement.MessageVersion%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Returns a fresh copy of this binding element.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>As a best practice, we recommend that binding element authors implement <ph id="ph1">&lt;xref:System.ServiceModel.Channels.BindingElement.Clone%2A&gt;</ph> by using a copy constructor that calls the base copy constructor, then clones any additional fields in this class.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement.CreateMessageEncoderFactory%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Returns a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoderFactory&gt;</ph>, which provides a handle to the actual class that implements your new encoder and which should extend <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For more information, see <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncoderFactory&gt;</ph> and <ph id="ph2">&lt;xref:System.ServiceModel.Channels.MessageEncoder&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement.MessageVersion%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Returns the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageVersion&gt;</ph> used in this encoding, which represents the versions of SOAP and WS-Addressing in use.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For a complete listing of optional methods and properties for user-defined encoding binding elements, see <ph id="ph1">&lt;xref:System.ServiceModel.Channels.MessageEncodingBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For more information on creating a new binding element, see <bpt id="p1">[</bpt>Creating User-Defined Bindings<ept id="p1">](../../../../docs/framework/wcf/extending/creating-user-defined-bindings.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Once you have created a binding element for your channel, return to the <bpt id="p1">[</bpt>Developing Channels<ept id="p1">](../../../../docs/framework/wcf/extending/developing-channels.md)</ept> topic to see whether you want to add configuration file support to your binding element, if and how to add metadata publication support, and whether and how to construct a user-defined binding that uses your binding element.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Developing Channels<ept id="p1">](../../../../docs/framework/wcf/extending/developing-channels.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Transport: UDP<ept id="p1">](../../../../docs/framework/wcf/samples/transport-udp.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

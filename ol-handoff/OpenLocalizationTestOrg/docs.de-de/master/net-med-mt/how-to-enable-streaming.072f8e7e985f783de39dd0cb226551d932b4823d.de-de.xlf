@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f011657c153b5e3a419d71cbb96d67148b3366e3</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\how-to-enable-streaming.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">65735c11888bac2a0551347fcfa90b3755106d12</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">96fd73c40f9f12d2fb0f0f7233ae8a89cdb87d68</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Enable Streaming | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Enable Streaming</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph> can send messages using either buffered or streamed transfers.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In the default buffered-transfer mode, a message must be completely delivered before a receiver can read it.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>In streaming transfer mode, the receiver can begin to process the message before it is completely delivered.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The streaming mode is useful when the information that is passed is lengthy and can be processed serially.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Streaming mode is also useful when the message is too large to be entirely buffered.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>To enable streaming, define the <ph id="ph1">`OperationContract`</ph> appropriately and enable streaming at the transport level.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To stream data</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To stream data, the <ph id="ph1">`OperationContract`</ph> for the service must satisfy two requirements:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The parameter that holds the data to be streamed must be the only parameter in the method.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, if the input message is the one to be streamed, the operation must have exactly one input parameter.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Similarly, if the output message is to be streamed, the operation must have either exactly one output parameter or a return value.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>At least one of the types of the parameter and return value must be either <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.Message&gt;</ph>, or <ph id="ph3">&lt;xref:System.Xml.Serialization.IXmlSerializable&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The following is an example of a contract for streamed data.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming#1<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming/cs/service.cs#1)</ept><ept id="p1">]</ept> <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_HowTo_EnableStreaming#1<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_howto_enablestreaming/vb/service.vb#1)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`GetStream`</ph> operation receives some buffered input data as a <ph id="ph2">`string`</ph>, which is buffered, and returns a <ph id="ph3">`Stream`</ph>, which is streamed.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Conversely <ph id="ph1">`UploadStream`</ph> takes in a <ph id="ph2">`Stream`</ph> (streamed) and returns a <ph id="ph3">`bool`</ph> (buffered).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`EchoStream`</ph> takes and returns <ph id="ph2">`Stream`</ph> and is an example of an operation whose input and output messages are both streamed.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Finally, <ph id="ph1">`GetReversedStream`</ph> takes no inputs and returns a <ph id="ph2">`Stream`</ph> (streamed).</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Streaming must be enabled on the binding.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You set a <ph id="ph1">`TransferMode`</ph> property, which can take one of the following values:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Buffered`</ph>,</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`Streamed`</ph>, which enables streaming communication in both directions.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StreamedRequest`</ph>, which enables streaming the request only.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`StreamedResponse`</ph>, which enables streaming the response only.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`BasicHttpBinding`</ph> exposes the <ph id="ph2">`TransferMode`</ph> property on the binding, as does <ph id="ph3">`NetTcpBinding`</ph> and <ph id="ph4">`NetNamedPipeBinding`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`TransferMode`</ph> property can also be set on the transport binding element and used in a custom binding.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The following samples show how to set <ph id="ph1">`TransferMode`</ph> by code and by changing the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The samples also both set the <ph id="ph1">`maxReceivedMessageSize`</ph> property to 64 MB, which places a cap on the maximum allowable size of messages on receive.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The default <ph id="ph1">`maxReceivedMessageSize`</ph> is 64 KB, which is usually too low for streaming scenarios.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Set this quota setting as appropriate depending on the maximum size of messages your application expects to receive.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Also note that <ph id="ph1">`maxBufferSize`</ph> controls the maximum size that is buffered, and set it appropriately.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The following configuration snippet from the sample shows setting the <ph id="ph1">`TransferMode`</ph> property to streaming on the <ph id="ph2">`basicHttpBinding`</ph> and a custom HTTP binding.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-xml</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming#103<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming/common/app.config#103)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The following code snippet shows setting the <ph id="ph1">`TransferMode`</ph> property to streaming on the <ph id="ph2">`basicHttpBinding`</ph> and a custom HTTP binding.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming_code#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming_code/cs/c_howto_enablestreaming_code.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_HowTo_EnableStreaming_code#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_howto_enablestreaming_code/vb/c_howto_enablestreaming_code.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The following code snippet shows setting the <ph id="ph1">`TransferMode`</ph> property to streaming on a custom TCP binding.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming_code#3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming_code/cs/c_howto_enablestreaming_code.cs#3)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_HowTo_EnableStreaming_code#3<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_howto_enablestreaming_code/vb/c_howto_enablestreaming_code.vb#3)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The operations <ph id="ph1">`GetStream`</ph>, <ph id="ph2">`UploadStream`</ph>, and <ph id="ph3">`EchoStream`</ph> all deal with sending data directly from a file or saving received data directly to a file.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The following code is for <ph id="ph1">`GetStream`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming#4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming/cs/service.cs#4)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_HowTo_EnableStreaming#4<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_howto_enablestreaming/vb/service.vb#4)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Writing a custom stream</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>To do special processing on each chunk of a data stream as it is being sent or received, derive a custom stream class from <ph id="ph1">&lt;xref:System.IO.Stream&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>As an example of a custom stream, the following code contains a <ph id="ph1">`GetReversedStream`</ph> method and a <ph id="ph2">`ReverseStream`</ph> class-.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`GetReversedStream`</ph> creates and returns a new instance of <ph id="ph2">`ReverseStream`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The actual processing happens as the system reads from the <ph id="ph1">`ReverseStream`</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ReverseStream.Read`</ph> method reads a chunk of bytes from the underlying file, reverses them, then returns the reversed bytes.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This method does not reverse the entire file content; it reverses one chunk of bytes at a time.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>This example shows how you can perform stream processing as the content is being read to or written from the stream.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>c_HowTo_EnableStreaming#2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_enablestreaming/cs/service.cs#2)</ept><ept id="p1">]</ept>  <bpt id="p3">[!code-vb</bpt><bpt id="p4">[</bpt>c_HowTo_EnableStreaming#2<ept id="p4">](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_howto_enablestreaming/vb/service.vb#2)</ept><ept id="p3">]</ept></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Large Data and Streaming<ept id="p1">](../../../../docs/framework/wcf/feature-details/large-data-and-streaming.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Stream<ept id="p1">](../../../../docs/framework/wcf/samples/stream.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

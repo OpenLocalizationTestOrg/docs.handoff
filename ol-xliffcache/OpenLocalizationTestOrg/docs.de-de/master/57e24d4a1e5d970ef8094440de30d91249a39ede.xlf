@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">57e24d4a1e5d970ef8094440de30d91249a39ede</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\xaml-services\type-converters-for-xaml-overview.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">50e6f76bf9945640951558b158b9c1471fbd6ddf</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b89f3051a6dd69932bdb1ac8bcd4e7aff1417058</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Type Converters for XAML Overview | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Type Converters for XAML Overview</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Type converters supply logic for an object writer that converts from a string in XAML markup into particular objects in an object graph.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In .NET Framework XAML Services, the type converter must be a class that derives from <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Some converters also support the XAML save path and can be used to serialize an object into a string form in serialization markup.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This topic describes how and when type converters in XAML are invoked, and provides implementation advice for the method overrides of <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Type Conversion Concepts</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The following sections explain basic concepts about how XAML uses strings, and how object writers in .NET Framework XAML Services use type converters to process some of the string values that are encountered in a XAML source.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>XAML and String Values</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When you set an attribute value in a XAML file, the initial type of that value is a string in a general sense, and a string attribute value in an XML sense.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Even other primitives such as <ph id="ph1">&lt;xref:System.Double&gt;</ph> are initially strings to a XAML processor.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In most cases, a XAML processor needs two pieces of information to process an attribute value.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The first piece of information is the value type of the property that is being set.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Any string that defines an attribute value and that is processed in XAML must ultimately be converted or resolved to a value of that type.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If the value is a primitive that is understood by the XAML parser (such as a numeric value), a direct conversion of the string is attempted.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>If the value for the attribute references an enumeration, the supplied string is checked for a name match to a named constant in that enumeration.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If the value is neither a parser-understood primitive nor a constant name from an enumeration, the applicable type must be able to provide a value or reference that is based on a converted string.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>XAML language directives do not use type converters.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Type Converters and Markup Extensions</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Markup extension usages must be handled by a XAML processor before it checks for property type and other considerations.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, if a property being set as an attribute normally has a type conversion, but in a particular case is set by a markup extension usage, then the markup extension behavior processes first.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>One common situation where a markup extension is necessary is to make a reference to an object that already exists.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>For this scenario, a stateless type converter can only generate a new instance, which might not be desirable.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For more information about markup extensions, see <bpt id="p1">[</bpt>Markup Extensions for XAML Overview<ept id="p1">](../../../docs/framework/xaml-services/markup-extensions-for-xaml-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Native Type Converters</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In the WPF and .NET XAML services implementations, there are certain CLR types that have native type conversion handling, however, hose CLR types are not conventionally thought of as primitives.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>An example of such a type is <ph id="ph1">&lt;xref:System.DateTime&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>One reason for this is how the .NET Framework architecture works: the type <ph id="ph1">&lt;xref:System.DateTime&gt;</ph> is defined in mscorlib, the most basic library in .NET.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.DateTime&gt;</ph> is not permitted to be attributed with an attribute that comes from another assembly that introduces a dependency (<ph id="ph2">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> is from System); therefore, the usual type converter discovery mechanism by attributing cannot be supported.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Instead, the XAML parser has a list of types that need native processing, and it processes these types similar to how the true primitives are processed.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In the case of <ph id="ph1">&lt;xref:System.DateTime&gt;</ph>, this processing involves a call to <ph id="ph2">&lt;xref:System.DateTime.Parse%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Implementing a Type Converter</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The following sections discuss the API of the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>TypeConverter</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Under .NET Framework XAML Services, all type converters that are used for XAML purposes are classes that derive from the base class <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> class existed in versions of the .NET Framework before XAML existed; one of the original <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> scenarios was to provide string conversion for property editors in visual designers.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>For XAML, the role of <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> is expanded.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For XAML purposes, <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> is the base class for providing support for certain to-string and from-string conversions.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>From-string enables parsing a string attribute value from XAML.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>To-string might enable processing a run-time value of a particular object property back into an attribute in XAML for serialization.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> defines four members that are relevant for converting to-string and from-string for XAML processing purposes:</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Of these members, the most important method is <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertFrom%2A&gt;</ph>, which converts the input string to the required object type.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertFrom%2A&gt;</ph> method can be implemented to convert a wider range of types into the intended destination type of the converter.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Therefore, it can serve purposes that extend beyond XAML, such as supporting run-time conversions.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>However, for XAML use, only the code path that can process a <ph id="ph1">&lt;xref:System.String&gt;</ph> input is important.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The second most important method is <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If an application is converted to a markup representation (for example, if it is saved to XAML as a file), <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> is involved in the larger scenario of a XAML text writers produce a markup representation.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>In this case, the important code path for XAML is when the caller passes a <ph id="ph1">`destinationType`</ph> of <ph id="ph2">&lt;xref:System.String&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertTo%2A&gt;</ph> and <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter.CanConvertFrom%2A&gt;</ph> are support methods that are used when a service queries the capabilities of the <ph id="ph3">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You must implement these methods to return <ph id="ph1">`true`</ph> for type-specific cases that the equivalent conversion methods of your converter support.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For XAML purposes, this generally means the <ph id="ph1">&lt;xref:System.String&gt;</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Culture Information and Type Converters for XAML</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation can uniquely interpret what is a valid string for a conversion, and it can also use or ignore the type description that is passed as parameters.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>An important consideration for culture and XAML type conversion is the following: although using localizable strings as attribute values is supported by XAML, you cannot use these localizable strings as type converter input with specific culture requirements.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This limitation is because type converters for XAML attribute values involve a necessarily fixed-language XAML-processing behavior that uses <ph id="ph1">`en-US`</ph> culture.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>For more information about the design reasons for this restriction, see the XAML language specification (<bpt id="p1">[</bpt><ph id="ph1">\[</ph>MS-XAML<ph id="ph2">\]</ph><ept id="p1">](http://go.microsoft.com/fwlink/?LinkId=114525)</ept>) or <bpt id="p2">[</bpt>WPF Globalization and Localization Overview<ept id="p2">](../../../docs/framework/wpf/advanced/wpf-globalization-and-localization-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>As an example where culture can be an issue, some cultures use a comma instead of a period as the decimal point delimiter for numbers in string form.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>This use collides with the behavior that many existing type converters have, which is to use a comma as a delimiter.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Passing a culture through <ph id="ph1">`xml:lang`</ph> in the surrounding XAML does not solve the issue.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Implementing ConvertFrom</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>To be usable as a <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation that supports XAML, the <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter.ConvertFrom%2A&gt;</ph> method for that converter must accept a string as the <ph id="ph3">`value`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>If the string is in a valid format and can be converted by the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation, the returned object must support a cast to the type that is expected by the property.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Otherwise, the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertFrom%2A&gt;</ph> implementation must return <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Each <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation can uniquely interpret what constitutes a valid string for a conversion, and it can also use or ignore the type description or culture contexts that are passed as parameters.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>However, the WPF XAML processing might not pass values to the type description context in all cases and also might not pass culture based on <ph id="ph1">`xml:lang`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Do not use the braces ({}), specifically the opening brace ({), as an element of your string format.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>These characters are reserved as the entry and exit for a markup extension sequence.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>It is appropriate to throw an exception when your type converter must have access to a XAML service from the .NET Framework XAML Services object writer, but the <ph id="ph1">&lt;xref:System.IServiceProvider.GetService%2A&gt;</ph> call that is made against the context does not return that service.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Implementing ConvertTo</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> is potentially used for serialization support.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Serialization support through <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> for your custom type and its type converter is not an absolute requirement.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>However, if you are implementing a control, or using serialization of as part of the features or design of your class, you should implement <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>To be usable as a <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter&gt;</ph> implementation that supports XAML, the <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> method for that converter must accept an instance of the type (or a value) that is supported as the <ph id="ph3">`value`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>When the <ph id="ph1">`destinationType`</ph> parameter is of type <ph id="ph2">&lt;xref:System.String&gt;</ph>, the returned object must be able to be cast as <ph id="ph3">&lt;xref:System.String&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The returned string must represent a serialized value of <ph id="ph1">`value`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Ideally, the serialization format that you choose should be able to generate the same value as if that string were passed to the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertFrom%2A&gt;</ph> implementation of the same converter, without significant loss of information.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If the value cannot be serialized or the converter does not support serialization, the <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> implementation must return <ph id="ph2">`null`</ph> and can throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>However, if you do throw exceptions, you should report the inability to use that conversion as part of your <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertTo%2A&gt;</ph> implementation so that the best practice of checking with <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverter.CanConvertTo%2A&gt;</ph> first to avoid exceptions is supported.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If the <ph id="ph1">`destinationType`</ph> parameter is not of type <ph id="ph2">&lt;xref:System.String&gt;</ph>, you can choose your own converter handling.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Typically, you revert to base implementation handling, which in the base <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.ConvertTo%2A&gt;</ph> raises a specific exception.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>It is appropriate to throw an exception when your type converter must have access to a XAML service from the .NET Framework XAML Services object writer, but the <ph id="ph1">&lt;xref:System.IServiceProvider.GetService%2A&gt;</ph> call that is made against the context does not return that service.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Implementing CanConvertFrom</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Your <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertFrom%2A&gt;</ph> implementation should return <ph id="ph2">`true`</ph> for <ph id="ph3">`sourceType`</ph> of type <ph id="ph4">&lt;xref:System.String&gt;</ph> and otherwise, defer to the base implementation.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Do not throw exceptions from <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertFrom%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Implementing CanConvertTo</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Your <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertTo%2A&gt;</ph> implementation should return <ph id="ph2">`true`</ph> for <ph id="ph3">`destinationType`</ph> of type <ph id="ph4">&lt;xref:System.String&gt;</ph>, and otherwise defer to the base implementation.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Do not throw exceptions from <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverter.CanConvertTo%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Applying the TypeConverterAttribute</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For your custom type converter to be used as the acting type converter for a custom class by .NET Framework XAML Services, you must apply the <ph id="ph1">[!INCLUDE[TLA#tla_netframewkattr](../../../includes/tlasharptla-netframewkattr-md.md)]</ph> <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> to your class definition.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverterAttribute.ConverterTypeName%2A&gt;</ph> that you specify through the attribute must be the type name of your custom type converter.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>If you apply this attribute, when a XAML processor handles values where the property type uses your custom class type, it can input strings and return object instances.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>You can also provide a type converter on a per-property basis.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Instead of applying a <ph id="ph1">[!INCLUDE[TLA#tla_netframewkattr](../../../includes/tlasharptla-netframewkattr-md.md)]</ph> <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> to the class definition, apply it to a property definition (the main definition, not the <ph id="ph3">`get`</ph><ph id="ph4">/</ph><ph id="ph5">`set`</ph> implementations within it).</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The type of the property must match the type that is processed by your custom type converter.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>With this attribute applied, when a XAML processor handles values of that property, it can process input strings and return object instances.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The per-property type converter technique is particularly useful if you choose to use a property type from <ph id="ph1">[!INCLUDE[TLA#tla_netframewk](../../../includes/tlasharptla-netframewk-md.md)]</ph> or from some other library where you cannot control the class definition and cannot apply a <ph id="ph2">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> there.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>To supply a type conversion behavior for a custom attached member, apply <ph id="ph1">&lt;xref:System.ComponentModel.TypeConverterAttribute&gt;</ph> to the <ph id="ph2">`Get`</ph> accessor method of the implementation pattern for the attached member.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Accessing Service Provider Context from a Markup Extension Implementation</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The available services are the same for any value converter.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The difference is in how each value converter receives the service context.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Accessing services and the services available are documented in the topic <bpt id="p1">[</bpt>Type Converters and Markup Extensions for XAML<ept id="p1">](../../../docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Type Converters in the XAML Node Stream</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>If you are working with a XAML node stream, the action or end result of a type converter is not yet executed.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>In a load path, the attribute string that eventually needs to be type-converted in order to load remains as a text value within a start member and end member.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The type converter that is eventually needed for this operation can be determined by using the <ph id="ph1">&lt;xref:System.Xaml.XamlMember.TypeConverter%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>However, obtaining a valid value from <ph id="ph1">&lt;xref:System.Xaml.XamlMember.TypeConverter%2A?displayProperty=fullName&gt;</ph> relies on having a XAML schema context, which can access such information through the underlying member, or the type of the object value that the member uses.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Invoking the type conversion behavior also requires the XAML schema context because that requires type-mapping and creating a converter instance.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Type Converters and Markup Extensions for XAML<ept id="p1">](../../../docs/framework/xaml-services/type-converters-and-markup-extensions-for-xaml.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>XAML Overview (WPF)<ept id="p1">](../../../docs/framework/wpf/advanced/xaml-overview-wpf.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

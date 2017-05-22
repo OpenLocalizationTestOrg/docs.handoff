@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">10369ecf98c0e3064c3fb3696ebe5b54acb151b6</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\specifying-and-handling-faults-in-contracts-and-services.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c340e735e380825904ae840da1e9c78ddcef1186</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9a785814147e8a48257f2400f4d2b645453acc86</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Specifying and Handling Faults in Contracts and Services | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Specifying and Handling Faults in Contracts and Services</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[indigo1](../../../includes/indigo1-md.md)]</ph> applications handle error situations by mapping managed exception objects to SOAP fault objects and SOAP fault objects to managed exception objects.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The topics in this section discuss how to design contracts to expose error conditions as custom SOAP faults, how to return such faults as part of service implementation, and how clients catch such faults.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Error Handling Overview</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In all managed applications, processing errors are represented by <ph id="ph1">&lt;xref:System.Exception&gt;</ph> objects.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>In SOAP-based applications such as <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> applications, service methods communicate processing error information using SOAP fault messages.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>SOAP faults are message types that are included in the metadata for a service operation and therefore create a fault contract that clients can use to make their operation more robust or interactive.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In addition, because SOAP faults are expressed to clients in XML form, it is a highly interoperable type system that clients on any SOAP platform can use, increasing the reach of your <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> application.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> applications run under both types of error systems, any managed exception information that is sent to the client must be converted from exceptions into SOAP faults on the service, sent, and converted from SOAP faults to fault exceptions in <ph id="ph2">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> clients.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>In the case of duplex clients, client contracts can also send SOAP faults back to a service.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>In either case, you can use the default service exception behaviors, or you can explicitly control whether—and how—exceptions are mapped to fault messages.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Two types of SOAP faults can be sent: <bpt id="p1">*</bpt>declared<ept id="p1">*</ept> and <bpt id="p2">*</bpt>undeclared<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Declared SOAP faults are those in which an operation has a <ph id="ph1">&lt;xref:System.ServiceModel.FaultContractAttribute?displayProperty=fullName&gt;</ph> attribute that specifies a custom SOAP fault type.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Undeclared<ept id="p1">*</ept> SOAP faults are not specified in the contract for an operation.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>It is strongly recommended that service operations declare their faults by using the <ph id="ph1">&lt;xref:System.ServiceModel.FaultContractAttribute&gt;</ph> attribute to formally specify all SOAP faults that a client can expect to receive in the normal course of an operation.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>It is also recommended that you return in a SOAP fault only the information that a client must know to minimize information disclosure.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Typically, services (and duplex clients) take the following steps to successfully integrate error handling into their applications:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Map exception conditions to custom SOAP faults.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Clients and services send and receive SOAP faults as exceptions.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In addition, <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> clients and services can use undeclared soap faults for debugging purposes and can extend the default error behavior.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The following sections discuss these tasks and concepts.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Map Exceptions to SOAP Faults</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The first step in creating an operation that handles error conditions is to decide under what conditions a client application should be informed about errors.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Some operations have error conditions specific to their functionality.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">`PurchaseOrder`</ph> operation might return specific information to customers who are no longer permitted to initiate a purchase order.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In other cases, such as a <ph id="ph1">`Calculator`</ph> service, a more general <ph id="ph2">`MathFault`</ph> SOAP fault may be able to describe all error conditions across an entire service.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Once the error conditions of clients of your service are identified, a custom SOAP fault can be constructed and the operation can be marked as returning that SOAP fault when its corresponding error condition arises.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../includes/crabout-md.md)]</ph> this step of developing your service or client, see <bpt id="p1">[</bpt>Defining and Specifying Faults<ept id="p1">](../../../docs/framework/wcf/defining-and-specifying-faults.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Clients and Services Handle SOAP Faults as Exceptions</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Identifying operation error conditions, defining custom SOAP faults, and marking those operations as returning those faults are the first steps in successful error handling in <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> applications.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The next step is to properly implement the sending and receiving of these faults.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Typically services send faults to inform client applications about error conditions, but duplex clients can also send SOAP faults to services.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../includes/crdefault-md.md)]</ph> <bpt id="p1">[</bpt>Sending and Receiving Faults<ept id="p1">](../../../docs/framework/wcf/sending-and-receiving-faults.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Undeclared SOAP Faults and Debugging</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Declared SOAP faults are extremely useful for building robust, interoperable, distributed applications.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>However, in some cases it is useful for a service (or duplex client) to send an undeclared SOAP fault, one that is not mentioned in the Web Services Description Language (WSDL) for that operation.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For example, when developing a service, unexpected situations can occur in which it is useful for debugging purposes to send information back to the client.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In addition, you can set the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> property or the <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> property to <ph id="ph3">`true`</ph> to permit <ph id="ph4">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> clients to obtain information about internal service operation exceptions.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Both sending individual faults and setting the debugging behavior properties are described in <bpt id="p1">[</bpt>Sending and Receiving Faults<ept id="p1">](../../../docs/framework/wcf/sending-and-receiving-faults.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Because managed exceptions can expose internal application information, setting <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> to <ph id="ph3">`true`</ph> can permit <ph id="ph4">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> clients to obtain information about internal service operation exceptions, including personally identifiable or other sensitive information.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Therefore, setting <ph id="ph1">&lt;xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=fullName&gt;</ph> to <ph id="ph3">`true`</ph> is recommended only as a way to temporarily debug a service application.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>In addition, the WSDL for a method that returns unhandled managed exceptions in this way does not contain the contract for the <ph id="ph1">&lt;xref:System.ServiceModel.FaultException%601&gt;</ph> of type <ph id="ph2">&lt;xref:System.ServiceModel.ExceptionDetail&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Clients must expect the possibility of an unknown SOAP fault (returned to <ph id="ph1">[!INCLUDE[indigo2](../../../includes/indigo2-md.md)]</ph> clients as <ph id="ph2">&lt;xref:System.ServiceModel.FaultException?displayProperty=fullName&gt;</ph> objects) to obtain the debugging information properly.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Customizing Error Handling with IErrorHandler</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If you have special requirements to either customize the response message to the client when an application-level exception happens or perform some custom processing after the response message is returned, implement the <ph id="ph1">&lt;xref:System.ServiceModel.Dispatcher.IErrorHandler?displayProperty=fullName&gt;</ph> interface.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Fault Serialization Issues</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>When deserializing a fault contract, WCF first attempts to match the fault contract name in the SOAP message with the fault contract type.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If it cannot find an exact match it will then search the list of available fault contracts in alphabetical order for a compatible type.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>If two fault contracts are compatible types (one is a subclass of another, for example) the wrong type may be used to de-serialize the fault.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This only occurs if the fault contract does not specify a name, namespace, and action.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>To prevent this issue from occurring, always fully qualify fault contracts by specifying the name, namespace, and action attributes.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Additionally if you have defined a number of related fault contracts derived from a shared base class, make sure to mark any new members with <ph id="ph1">`[DataMember(IsRequired=true)]`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For more information on this <ph id="ph1">`IsRequired`</ph> attribute see, <ph id="ph2">&lt;xref:System.Runtime.Serialization.DataMemberAttribute&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This will prevent a base class from being a compatible type and force the fault to be deserialized into the correct derived type.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Defining and Specifying Faults<ept id="p1">](../../../docs/framework/wcf/defining-and-specifying-faults.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

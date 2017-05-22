@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f34795dbca49121656b2c8de500d77ae4f17b97d</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\concepts\linq\retrieving-the-paragraphs-and-their-styles.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d4d59b47fdb24dcb614980eb9ade8ddaf05cad66</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8fb1750bd803f6763f4fc90efe9e51965d078dd8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Retrieving the Paragraphs and Their Styles (C#) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Retrieving the Paragraphs and Their Styles (C#)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In this example, we write a query that retrieves the paragraph nodes from a WordprocessingML document.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>It also identifies the style of each paragraph.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>This query builds on the query in the previous example, <bpt id="p1">[</bpt>Finding the Default Paragraph Style (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/finding-the-default-paragraph-style.md)</ept>, which retrieves the default style from the list of styles.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This information is required so that the query can identify the style of paragraphs that do not have a style explicitly set.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Paragraph styles are set through the <ph id="ph1">`w:pPr`</ph> element; if a paragraph does not contain this element, it is formatted with the default style.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This topic explains the significance of some pieces of the query, then shows the query as part of a complete, working example.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The source of the query to retrieve all the paragraphs in a document and their styles is as follows:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This expression is similar to the source of the query in the previous example, <bpt id="p1">[</bpt>Finding the Default Paragraph Style (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/finding-the-default-paragraph-style.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The main difference is that it uses the <ph id="ph1">&lt;xref:System.Xml.Linq.XContainer.Descendants%2A&gt;</ph> axis instead of the <ph id="ph2">&lt;xref:System.Xml.Linq.XContainer.Elements%2A&gt;</ph> axis.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The query uses the <ph id="ph1">&lt;xref:System.Xml.Linq.XContainer.Descendants%2A&gt;</ph> axis because in documents that have sections, the paragraphs will not be the direct children of the body element; rather, the paragraphs will be two levels down in the hierarchy.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>By using the <ph id="ph1">&lt;xref:System.Xml.Linq.XContainer.Descendants%2A&gt;</ph> axis, the code will work of whether or not the document uses sections.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The query uses a <ph id="ph1">`let`</ph> clause to determine the element that contains the style node.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If there is no element, then <ph id="ph1">`styleNode`</ph> is set to <ph id="ph2">`null`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`let`</ph> clause first uses the <ph id="ph2">&lt;xref:System.Xml.Linq.XContainer.Elements%2A&gt;</ph> axis to find all elements named <ph id="ph3">`pPr`</ph>, then uses the <ph id="ph4">&lt;xref:System.Xml.Linq.Extensions.Elements%2A&gt;</ph> extension method to find all child elements named <ph id="ph5">`pStyle`</ph>, and finally uses the <ph id="ph6">&lt;xref:System.Linq.Enumerable.FirstOrDefault%2A&gt;</ph> standard query operator to convert the collection to a singleton.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>If the collection is empty, <ph id="ph1">`styleNode`</ph> is set to <ph id="ph2">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This is a useful idiom to look for the <ph id="ph1">`pStyle`</ph> descendant node.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Note that if the <ph id="ph1">`pPr`</ph> child node does not exist, the code does nor fail by throwing an exception; instead, <ph id="ph2">`styleNode`</ph> is set to <ph id="ph3">`null`</ph>, which is the desired behavior of this <ph id="ph4">`let`</ph> clause.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The query projects a collection of an anonymous type with two members, <ph id="ph1">`StyleName`</ph> and <ph id="ph2">`ParagraphNode`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This example processes a WordprocessingML document, retrieving the paragraph nodes from a WordprocessingML document.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>It also identifies the style of each paragraph.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>This example builds on the previous examples in this tutorial.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The new query is called out in comments in the code below.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>You can find instructions for creating the source document for this example in <bpt id="p1">[</bpt>Creating the Source Office Open XML Document (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/creating-the-source-office-open-xml-document.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>This example uses classes found in the WindowsBase assembly.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>It uses types in the <ph id="ph1">&lt;xref:System.IO.Packaging?displayProperty=fullName&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This example produces the following output when applied to the document described in <bpt id="p1">[</bpt>Creating the Source Office Open XML Document (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/creating-the-source-office-open-xml-document.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Next Steps</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>In the next topic, <bpt id="p1">[</bpt>Retrieving the Text of the Paragraphs (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/retrieving-the-text-of-the-paragraphs.md)</ept>, you'll create a query to retrieve the text of paragraphs.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Tutorial: Manipulating Content in a WordprocessingML Document (C#)<ept id="p1">](../../../../csharp/programming-guide/concepts/linq/tutorial-manipulating-content-in-a-wordprocessingml-document.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

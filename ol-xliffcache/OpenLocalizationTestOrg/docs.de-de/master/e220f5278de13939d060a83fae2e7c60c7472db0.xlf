@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e220f5278de13939d060a83fae2e7c60c7472db0</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\troubleshooting-correlation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ab6d51be04520f2daf02dacf8ba6ef6f997ac805</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">856b8d311652b36987e9d0fc75f625e7c091c1ca</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Troubleshooting Correlation | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Troubleshooting Correlation</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Correlation is used to relate workflow service messages to each other and to the correct workflow instance, but if it is not configured correctly, messages will not be received and applications will not work correctly.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This topic provides an overview of several methods for troubleshooting correlation issues, and also lists some common issues that can occur when you use correlation.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Handle the UnknownMessageReceived Event</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHostBase.UnknownMessageReceived&gt;</ph> event occurs when an unknown message is received by a service, including messages that cannot be correlated to an existing instance.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For self-hosted services, this event can be handled in the host application.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For Web-hosted services, this event can be handled by deriving a class from <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory&gt;</ph> and overriding <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory.CreateWorkflowServiceHost%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>This custom <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Activation.WorkflowServiceHostFactory&gt;</ph> can then be specified in the <ph id="ph2">`svc`</ph> file for the service.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When this handler is invoked, the message can be retrieved by using the <ph id="ph1">&lt;xref:System.ServiceModel.UnknownMessageReceivedEventArgs.Message%2A&gt;</ph> property of the <ph id="ph2">&lt;xref:System.ServiceModel.UnknownMessageReceivedEventArgs&gt;</ph>, and will resemble the following message.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Inspecting messages dispatched to the <ph id="ph1">&lt;xref:System.ServiceModel.ServiceHostBase.UnknownMessageReceived&gt;</ph> handler may provide clues about why the message did not correlate to an instance of the workflow service.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Use Tracking to Monitor the Progress of the Workflow</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Tracking provides a way to monitor the progress of a workflow.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>By default, tracking records are emitted for workflow life-cycle events, activity life-cycle events, fault propagation, and bookmark resumption.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Additionally, custom tracking records can be emitted by custom activities.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>When troubleshooting correlation, the activity tracking records, the bookmark resumption records, and the fault propagation records are the most useful.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The activity tracking records can be used to determine the current progress of the workflow and can help identify which messaging activity is currently waiting for messages.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Bookmark resumption records are useful because they indicate that a message was received by the workflow, and fault propagation records provide a record of any faults in the workflow.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To enable tracking, specify the desired <ph id="ph1">&lt;xref:System.Activities.Tracking.TrackingParticipant&gt;</ph> in the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.WorkflowServiceHost.WorkflowExtensions%2A&gt;</ph> of the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.WorkflowServiceHost&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In the following example, the <ph id="ph1">`ConsoleTrackingParticipant`</ph> (from the <bpt id="p1">[</bpt>Custom Tracking<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/samples/custom-tracking.md)</ept> sample) is configured by using the default tracking profile.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>A tracking participant such as the ConsoleTrackingParticipant is useful for self-hosted workflow services that have a console window.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>For a Web-hosted service, a tracking participant that logs the tracking information to a durable store should be used, such as the built-in <ph id="ph1">&lt;xref:System.Activities.Tracking.EtwTrackingParticipant&gt;</ph>, or a custom tracking participant that logs the information to a file, such as the <ph id="ph2">`TextWriterTrackingParticpant`</ph> from the <bpt id="p1">[</bpt>Tracking Using a Text File<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/samples/tracking-using-a-text-file.md)</ept> sample.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> tracking and configuring tracking for a Web-hosted workflow service, see <bpt id="p1">[</bpt>Workflow Tracking and Tracing<ept id="p1">](../../../../docs/framework/windows-workflow-foundation/workflow-tracking-and-tracing.md)</ept>, <bpt id="p2">[</bpt>Configuring Tracking for a Workflow<ept id="p2">](../../../../docs/framework/windows-workflow-foundation/configuring-tracking-for-a-workflow.md)</ept>, and the <bpt id="p3">[</bpt>Tracking &amp;#91;WF Samples&amp;#93;<ept id="p3">](../../../../docs/framework/windows-workflow-foundation/samples/tracking.md)</ept> samples.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Use WCF Tracing</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>WCF tracing provides tracing of the flow of messages to and from a workflow service.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>This tracing information is useful when troubleshooting correlation issues, especially for content-based correlation.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To enable tracing, specify the desired trace listeners in the <ph id="ph1">`system.diagnostics`</ph> section of the <ph id="ph2">`web.config`</ph> file if the workflow service is Web-hosted, or the <ph id="ph3">`app.config`</ph> file if the workflow service is self-hosted.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>To include the contents of the messages in the trace file, specify <ph id="ph1">`true`</ph> for <ph id="ph2">`logEntireMessage`</ph> in the <ph id="ph3">`messageLogging`</ph> element in the <ph id="ph4">`diagnostics`</ph> section of <ph id="ph5">`system.serviceModel`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In the following example, tracing information, including the content of the messages, is configured to be written to a file that is named <ph id="ph1">`service.svclog`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To view the trace information that is contained in <ph id="ph1">`service.svclog`</ph>, the <bpt id="p1">[</bpt>Service Trace Viewer Tool (SvcTraceViewer.exe)<ept id="p1">](../../../../docs/framework/wcf/service-trace-viewer-tool-svctraceviewer-exe.md)</ept> is used.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This is especially useful when troubleshooting content-based correlation issues because you can view the message contents and see exactly what is being passed, and whether it matches the <ph id="ph1">&lt;xref:System.ServiceModel.CorrelationQuery&gt;</ph> for the content-based correlation.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> WCF tracing, see <bpt id="p1">[</bpt>Service Trace Viewer Tool (SvcTraceViewer.exe)<ept id="p1">](../../../../docs/framework/wcf/service-trace-viewer-tool-svctraceviewer-exe.md)</ept>, <bpt id="p2">[</bpt>Configuring Tracing<ept id="p2">](../../../../docs/framework/wcf/diagnostics/tracing/configuring-tracing.md)</ept>, and <bpt id="p3">[</bpt>Using Tracing to Troubleshoot Your Application<ept id="p3">](../../../../docs/framework/wcf/diagnostics/tracing/using-tracing-to-troubleshoot-your-application.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Common Context Exchange Correlation Issues</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Certain types of correlation require that a specific type of binding is used for the correlation to work correctly.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Examples include request-reply correlation, which requires a two-way binding such as <ph id="ph1">&lt;xref:System.ServiceModel.BasicHttpBinding&gt;</ph>, and context exchange correlation, which requires a context-based binding such as <ph id="ph2">&lt;xref:System.ServiceModel.BasicHttpContextBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Most bindings support two-way operations so this is not a common issue for request-reply correlation, but there are only a handful of context-based bindings including <ph id="ph1">&lt;xref:System.ServiceModel.BasicHttpContextBinding&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.WSHttpContextBinding&gt;</ph>, and <ph id="ph3">&lt;xref:System.ServiceModel.NetTcpContextBinding&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>If one of these bindings is not used, the initial call to a workflow service will succeed, but subsequent calls will fail with the following <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The context information that is used for context correlation can be returned by the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> to the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity that initializes the context correlation when using a two-way operation, or it can be specified by the caller if the operation is one-way.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If the context is not sent by the caller or returned by the workflow service, then the same <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph> described previously will be returned when a subsequent operation is invoked.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crdefault](../../../../includes/crdefault-md.md)]</ph> <bpt id="p1">[</bpt>Context Exchange<ept id="p1">](../../../../docs/framework/wcf/feature-details/context-exchange-correlation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Common Request-Reply Correlation Issues</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Request-reply correlation is used with a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> pair to implement a two-way operation in a workflow service and with a <ph id="ph4">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph><ph id="ph5">/</ph><ph id="ph6">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> pair that invokes a two-way operation in another Web service.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>When invoking a two-way operation in a WCF service, the service can be either a traditional imperative code-based <ph id="ph1">[!INCLUDE[indigo2](../../../../includes/indigo2-md.md)]</ph> service or it can be a workflow service.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>To use request-reply correlation a two-way binding must be used, such as <ph id="ph1">&lt;xref:System.ServiceModel.BasicHttpBinding&gt;</ph>, and the operations must be two-way.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If the workflow service has two-way operations in parallel, or overlapping <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> or <ph id="ph4">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph><ph id="ph5">/</ph><ph id="ph6">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> pairs, then the implicit correlation handle management provided by <ph id="ph7">&lt;xref:System.ServiceModel.Activities.WorkflowServiceHost&gt;</ph> may not be sufficient, especially in high-stress scenarios, and messages may not be correctly routed.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>To prevent this issue from occurring, we recommend that you always explicitly specify a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> when using request-reply correlation.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>When using the <bpt id="p1">**</bpt>SendAndReceiveReply<ept id="p1">**</ept> and <bpt id="p2">**</bpt>ReceiveAndSendReply<ept id="p2">**</ept> templates from the Messaging section of the <bpt id="p3">**</bpt>Toolbox<ept id="p3">**</ept> in the workflow designer, a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> is explicitly configured by default.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>When building a workflow by using code, the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.CorrelationHandle&gt;</ph> is specified in the <ph id="ph2">&lt;xref:System.ServiceModel.Activities.Receive.CorrelationInitializers%2A&gt;</ph> of the first activity in the pair.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>In the following example, a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity is configured with an explicit <ph id="ph2">&lt;xref:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle%2A&gt;</ph> specified in the <ph id="ph3">&lt;xref:System.ServiceModel.Activities.RequestReplyCorrelationInitializer&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Persistence is not permitted between a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph><ph id="ph2">/</ph><ph id="ph3">&lt;xref:System.ServiceModel.Activities.SendReply&gt;</ph> pair or a <ph id="ph4">&lt;xref:System.ServiceModel.Activities.Send&gt;</ph><ph id="ph5">/</ph><ph id="ph6">&lt;xref:System.ServiceModel.Activities.ReceiveReply&gt;</ph> pair.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>A no-persist zone is created that lasts until both activities have completed.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If an activity, such as a delay activity, is in this no-persist zone and causes the workflow to become idle, the workflow will not persist even if it the host is configured to persist workflows when they become idle.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If an activity, such as a persist activity, attempts to explicitly persist in the no-persist zone, a fatal exception is thrown, the workflow aborts, and a <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph> is returned to the caller.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The fatal exception message is "System.InvalidOperationException: Persist activities cannot be contained within no persistence blocks.".</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>This exception is not returned to the caller but can be observed if tracking is enabled.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The message for the <ph id="ph1">&lt;xref:System.ServiceModel.FaultException&gt;</ph> returned to the caller is "The operation could not be performed because WorkflowInstance '5836145b-7da2-49d0-a052-a49162adeab6' has completed".</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> request-reply correlation, see <bpt id="p1">[</bpt>Request-Reply<ept id="p1">](../../../../docs/framework/wcf/feature-details/request-reply-correlation.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Common Content Correlation Issues</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Content-based correlation is used when a workflow service receives multiple messages and a piece of data in the exchanged messages identifies the desired instance.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Content-based correlation uses this data in the message, such as a customer number or order ID, to route messages to the correct workflow instance.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>This section describes several common issues that may occur when using content-based correlation.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Ensure the Identifying Data Is Unique</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The data that is used to identify the instance is hashed into a correlation key.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Care must be taken to guarantee that the data that is used for correlation is unique or else collisions in the hashed key might occur and cause messages to be misrouted.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>For example, a correlation based only on a customer name may cause a collision because there may be multiple customers who have the same name.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The colon (:) should not be used as part of the data that is used to correlate the message because it is already used to delimit the message query’s key and value to form the string that is subsequently hashed.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>If persistence is being used, make sure that the current identifying data has not been used by a previously persisted instance.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Temporarily disabling persistence can help identify this issue.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>WCF tracing can be used to view the calculated correlation key and is useful for debugging this kind of issue.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Race Conditions</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>There is a small gap in time between the service receiving a message and the correlation actually being initialized, during which follow-up messages will be ignored.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>If a workflow service initializes the content-based correlation by using data passed from the client over a one-way operation, and the caller sends immediate follow-up messages, these messages will be ignored during this interval.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This can be avoided by using a two-way operation to initialize the correlation, or by using a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.TransactedReceiveScope&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Correlation Query Issues</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Correlation queries are used to specify what data in a message is used to correlate the message.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>This data is specified by using an XPath query.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If messages to a service are not being dispatched even though everything appears to be correct, one strategy for troubleshooting is to specify a literal value that matches the value of the message data instead of an XPath query.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>To specify a literal value, use the <ph id="ph1">`string`</ph> function.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>In the following example, a <ph id="ph1">&lt;xref:System.ServiceModel.MessageQuerySet&gt;</ph> is configured to use a literal value of <ph id="ph2">`11445`</ph> for the <ph id="ph3">`OrderId`</ph> and the XPath query is commented out.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If an XPath query is configured incorrectly such that no correlation data is retrieved, a fault is returned with the following message: "A correlation query yielded an empty result set.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Please ensure correlation queries for the endpoint are correctly configured."</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>One quick way to troubleshoot this is to replace the XPath query with a literal value as described in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This issue can occur if you use the XPath query builder in the <bpt id="p1">**</bpt>Add Correlation Initializers<ept id="p1">**</ept> or <bpt id="p2">**</bpt>CorrelatesOn Definition<ept id="p2">**</ept> dialog boxes and your workflow service uses message contracts.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>In the following example, a message contract class is defined.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>This message contract is used by a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity in a workflow.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`CartId`</ph> in the header of the message is used to correlate the message to the correct instance.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>If the XPath query that retrieves the <ph id="ph1">`CartId`</ph> is created using the correlation dialogs in the workflow designer, the following incorrect XPath query is generated.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>This XPath query would be correct if the <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity used parameters for the data, but since it is using a message contract it is incorrect.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The following XPath query is the correct XPath query to retrieve the <ph id="ph1">`CartId`</ph> from the header.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>This can be confirmed by examining the body of the message.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>The following example shows a <ph id="ph1">&lt;xref:System.ServiceModel.Activities.Receive&gt;</ph> activity configured for an <ph id="ph2">`AddItem`</ph> operation that uses the previous message contract to receive data.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The XPath query is correctly configured.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">[!INCLUDE[crabout](../../../../includes/crabout-md.md)]</ph> content-based correlation, see <bpt id="p1">[</bpt>Content Based<ept id="p1">](../../../../docs/framework/wcf/feature-details/content-based-correlation.md)</ept> and the <bpt id="p2">[</bpt>Correlated Calculator<ept id="p2">](../../../../docs/framework/windows-workflow-foundation/samples/correlated-calculator.md)</ept> sample.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

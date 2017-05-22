@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b38a26b5b4395dd41f3ceaa451c1f9e8e6e862e7</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\base-types\how-to-display-localized-date-and-time-information-to-web-users.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">59aa3f79832d696372f5f79cc12ac366711a3232</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0b03126c0c2fadffaceba3ac92a122eece2bc472</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>How to: Display Localized Date and Time Information to Web Users | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Display Localized Date and Time Information to Web Users</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Because a Web page can be displayed anywhere in the world, operations that parse and format date and time values should not rely on a default format (which most often is the format of the Web server's local culture) when interacting with the user.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Instead, Web forms that handle date and time strings input by the user should parse the strings using the user's preferred culture.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Similarly, date and time data should be displayed to the user in a format that conforms to the user's culture.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This topic shows how to do this.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To parse date and time strings input by the user</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Determine whether the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A?displayProperty=fullName&gt;</ph> property is populated.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If it is not, continue to step 6.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property is populated, retrieve its first element.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The first element indicates the user's default or preferred language and region.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Instantiate a <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object that represents the user's preferred culture by calling the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.%23ctor%28System.String%2CSystem.Boolean%29?displayProperty=fullName&gt;</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Call either the <ph id="ph1">`TryParse`</ph> or the <ph id="ph2">`Parse`</ph> method of the <ph id="ph3">&lt;xref:System.DateTime&gt;</ph> or <ph id="ph4">&lt;xref:System.DateTimeOffset&gt;</ph> type to try the conversion.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Use an overload of the <ph id="ph1">`TryParse`</ph> or the <ph id="ph2">`Parse`</ph> method with a <ph id="ph3">`provider`</ph> parameter, and pass it either of the following:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object created in step 3.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Globalization.DateTimeFormatInfo&gt;</ph> object that is returned by the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.DateTimeFormat%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object created in step 3.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>If the conversion fails, repeat steps 2 through 4 for each remaining element in the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>If the conversion still fails or if the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property is empty, parse the string by using the invariant culture, which is returned by the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>To parse the local date and time of the user's request</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Add a <ph id="ph1">&lt;xref:System.Web.UI.WebControls.HiddenField&gt;</ph> control to a Web form.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Create a JavaScript function that handles the <ph id="ph1">`onClick`</ph> event of a <ph id="ph2">`Submit`</ph> button by writing the current date and time and the local time zone's offset from Coordinated Universal Time (UTC) to the <ph id="ph3">&lt;xref:System.Web.UI.WebControls.HiddenField.Value%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Use a delimiter (such as a semicolon) to separate the two components of the string.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Use the Web form's <ph id="ph1">&lt;xref:System.Web.UI.Control.PreRender&gt;</ph> event to inject the function into the HTML output stream by passing the text of the script to the <ph id="ph2">&lt;xref:System.Web.UI.ClientScriptManager.RegisterClientScriptBlock%28System.Type%2CSystem.String%2CSystem.String%2CSystem.Boolean%29?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Connect the event handler to the <ph id="ph1">`Submit`</ph> button's <ph id="ph2">`onClick`</ph> event by providing the name of the JavaScript function to the <ph id="ph3">`OnClientClick`</ph> attribute of the <ph id="ph4">`Submit`</ph> button.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Create a handler for the <ph id="ph1">`Submit`</ph> button's <ph id="ph2">&lt;xref:System.Web.UI.WebControls.Button.Click&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In the event handler, determine whether the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A?displayProperty=fullName&gt;</ph> property is populated.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If it is not, continue to step 14.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property is populated, retrieve its first element.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The first element indicates the user's default or preferred language and region.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Instantiate a <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object that represents the user's preferred culture by calling the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.%23ctor%28System.String%2CSystem.Boolean%29?displayProperty=fullName&gt;</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Pass the string assigned to the <ph id="ph1">&lt;xref:System.Web.UI.WebControls.HiddenField.Value%2A&gt;</ph> property to the <ph id="ph2">&lt;xref:System.String.Split%2A&gt;</ph> method to store the string representation of the user's local date and time and the string representation of the user's local time zone offset in separate array elements.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Call either the <ph id="ph1">&lt;xref:System.DateTime.Parse%2A?displayProperty=fullName&gt;</ph> or <ph id="ph2">&lt;xref:System.DateTime.TryParse%28System.String%2CSystem.IFormatProvider%2CSystem.Globalization.DateTimeStyles%2CSystem.DateTime%40%29?displayProperty=fullName&gt;</ph> method to convert the date and time of the user's request to a <ph id="ph3">&lt;xref:System.DateTime&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Use an overload of the method with a <ph id="ph1">`provider`</ph> parameter, and pass it either of the following:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object created in step 8.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Globalization.DateTimeFormatInfo&gt;</ph> object that is returned by the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.DateTimeFormat%2A&gt;</ph> property of the <ph id="ph3">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object created in step 8.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>If the parse operation in step 10 fails, go to step 13.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Otherwise, call the <ph id="ph1">&lt;xref:System.UInt32.Parse%28System.String%29?displayProperty=fullName&gt;</ph> method to convert the string representation of the user's time zone offset to an integer.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Instantiate a <ph id="ph1">&lt;xref:System.DateTimeOffset&gt;</ph> that represents the user's local time by calling the <ph id="ph2">&lt;xref:System.DateTimeOffset.%23ctor%28System.DateTime%2CSystem.TimeSpan%29?displayProperty=fullName&gt;</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>If the conversion in step 10 fails, repeat steps 7 through 12 for each remaining element in the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>If the conversion still fails or if the string array returned by the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A&gt;</ph> property is empty, parse the string by using the invariant culture, which is returned by the <ph id="ph2">&lt;xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Then repeat steps 7 through 12.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The result is a <ph id="ph1">&lt;xref:System.DateTimeOffset&gt;</ph> object that represents the local time of the user of your Web page.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>You can then determine the equivalent UTC by calling the <ph id="ph1">&lt;xref:System.DateTimeOffset.ToUniversalTime%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>You can also determine the equivalent date and time on your Web server by calling the <ph id="ph1">&lt;xref:System.TimeZoneInfo.ConvertTime%28System.DateTimeOffset%2CSystem.TimeZoneInfo%29?displayProperty=fullName&gt;</ph> method and passing a value of <ph id="ph2">&lt;xref:System.TimeZoneInfo.Local%2A?displayProperty=fullName&gt;</ph> as the time zone to convert the time to.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following example contains both the HTML source and the code for an ASP.NET Web form that asks the user to input a date and time value.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A client-side script also writes information on the local date and time of the user's request and the offset of the user's time zone from UTC to a hidden field.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This information is then parsed by the server, which returns a Web page that displays the user's input.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>It also displays the date and time of the user's request using the user's local time, the time on the server, and UTC.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The client-side script calls the JavaScript <ph id="ph1">`toLocaleString`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>This produces a string that follows the formatting conventions of the user's locale, which is more likely to be successfully parsed on the server.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A?displayProperty=fullName&gt;</ph> property is populated from the culture names that are contained in <ph id="ph2">`Accept-Language`</ph> headers included in an HTTP request.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>However, not all browsers include <ph id="ph1">`Accept-Language`</ph> headers in their requests, and users can also suppress the headers completely.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This makes it important to have a fallback culture when parsing user input.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Typically the fallback culture is the invariant culture returned by <ph id="ph1">&lt;xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Users can also provide Internet Explorer with culture names that they input in a text box, which creates the possibility that the culture names may not be valid.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This makes it important to use exception handling when instantiating a <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>When retrieved from an HTTP request submitted by Internet Explorer, the <ph id="ph1">&lt;xref:System.Web.HttpRequest.UserLanguages%2A?displayProperty=fullName&gt;</ph> array is populated in order of user preference.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>The first element in the array contains the name of the user's primary culture/region.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>If the array contains any additional items, Internet Explorer arbitrarily assigns them a quality specifier, which is delimited from the culture name by a semicolon.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For example, an entry for the fr-FR culture might take the form <ph id="ph1">`fr-FR;q=0.7`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The example calls the <ph id="ph1">&lt;xref:System.Globalization.CultureInfo.%23ctor%2A&gt;</ph> constructor with its <ph id="ph2">`useUserOverride`</ph> parameter set to <ph id="ph3">`false`</ph> to create a new <ph id="ph4">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>This ensures that, if the culture name is the default culture name on the server, the new <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object created by the class constructor contains a culture's default settings and does not reflect any settings overridden by using the server's <bpt id="p1">**</bpt>Regional and Language Options<ept id="p1">**</ept> application.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The values from any overridden settings on the server are unlikely to exist on the user's system or to be reflected in the user's input.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Because this example parses two string representations of a date and time (one input by the user, the other stored to the hidden field), it defines the possible <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> objects that may be required in advance.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>It creates an array of <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> objects that is one greater than the number of elements returned by the <ph id="ph2">&lt;xref:System.Web.HttpRequest.UserLanguages%2A?displayProperty=fullName&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>It then instantiates a <ph id="ph1">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object for each language/region string, and also instantiates a <ph id="ph2">&lt;xref:System.Globalization.CultureInfo&gt;</ph> object that represents <ph id="ph3">&lt;xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Your code can call either the <ph id="ph1">&lt;xref:System.DateTime.Parse%2A&gt;</ph> or the <ph id="ph2">&lt;xref:System.DateTime.TryParse%2A&gt;</ph> method to convert the user's string representation of a date and time to a <ph id="ph3">&lt;xref:System.DateTime&gt;</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Repeated calls to a parse method may be required for a single parsing operation.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>As a result, the <ph id="ph1">&lt;xref:System.DateTime.TryParse%2A&gt;</ph> method is better because it returns <ph id="ph2">`false`</ph> if a parse operation fails.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>In contrast, handling the repeated exceptions that may be thrown by the <ph id="ph1">&lt;xref:System.DateTime.Parse%2A&gt;</ph> method can be a very expensive proposition in a Web application.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Compiling the Code</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>To compile the code, create an <ph id="ph1">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> Web page without a code-behind.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Then copy the example into the Web page so that it replaces all the existing code.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">[!INCLUDE[vstecasp](../../../includes/vstecasp-md.md)]</ph> Web page should contain the following controls:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Web.UI.WebControls.Label&gt;</ph> control, which is not referenced in code.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Set its <ph id="ph1">&lt;xref:System.Web.UI.WebControls.TextBox.Text%2A&gt;</ph> property to "Enter a Number:".</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Web.UI.WebControls.TextBox&gt;</ph> control named <ph id="ph2">`DateString`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Web.UI.WebControls.Button&gt;</ph> control named <ph id="ph2">`OKButton`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Set its <ph id="ph1">&lt;xref:System.Web.UI.WebControls.Button.Text%2A&gt;</ph> property to "OK".</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Web.UI.WebControls.HiddenField&gt;</ph> control named <ph id="ph2">`DateInfo`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>.NET Framework Security</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>To prevent a user from injecting script into the HTML stream, user input should never be directly echoed back in the server response.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Instead, it should be encoded by using the <ph id="ph1">&lt;xref:System.Web.HttpServerUtility.HtmlEncode%2A?displayProperty=fullName&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Performing Formatting Operations<ept id="p1">](../../../docs/standard/base-types/performing-formatting-operations.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Standard Date and Time Format Strings<ept id="p1">](../../../docs/standard/base-types/standard-date-and-time-format-strings.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Custom Date and Time Format Strings<ept id="p1">](../../../docs/standard/base-types/custom-date-and-time-format-strings.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Parsing Date and Time Strings<ept id="p1">](../../../docs/standard/base-types/parsing-datetime.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

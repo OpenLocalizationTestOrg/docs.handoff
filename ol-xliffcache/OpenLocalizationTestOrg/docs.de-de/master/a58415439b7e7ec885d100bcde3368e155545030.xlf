@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a58415439b7e7ec885d100bcde3368e155545030</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\context-exchange-protocol.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">95832af4c724cab6a3e062d8b4627da6cdefc664</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5b7049d33e37f0cbca8fb88e4cbbca57721bcc99</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Context Exchange Protocol | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Context Exchange Protocol</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This section describes the context exchange protocol introduced in <ph id="ph1">[!INCLUDE[indigo1](../../../../includes/indigo1-md.md)]</ph><ph id="ph2">[!INCLUDE[netfx35_long](../../../../includes/netfx35-long-md.md)]</ph> release.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This protocol allows the client channel to accept a context supplied by a service and apply it to all subsequent requests to that service sent over the same client channel instance.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The implementation of the context exchange protocol can use one of the following two mechanisms to propagate the context between the server and the client: HTTP cookies or a SOAP header.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The context exchange protocol is implemented in a custom channel layer.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The channel communicates the context to and from the application layer using a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For transmission between endpoints, the value of the context is either serialized as a SOAP header at the channel layer, or converted to or from the message properties that represent a HTTP request and response.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In the latter case, it is expected that one of the underlying channel layers converts the HTTP request and response message properties to and from HTTP cookies, respectively.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The choice of the mechanism used to exchange the context is done using the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextExchangeMechanism&gt;</ph> property on the <ph id="ph2">&lt;xref:System.ServiceModel.Channels.ContextBindingElement&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Valid values are <ph id="ph1">`HttpCookie`</ph> or <ph id="ph2">`SoapHeader`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>On the client, an instance of a channel can operate in two modes based on the settings on the channel property, <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IContextManager.Enabled%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Mode 1: Channel Context Management</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This is the default mode where <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IContextManager.Enabled%2A&gt;</ph> is set to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In this mode the context channel manages the context and caches the context during its lifetime.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Context can be retrieved from the channel through channel property <ph id="ph1">`IContextManager`</ph> by calling the <ph id="ph2">`GetContext`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The channel can also be pre-initialized with specific context before being opened by calling the <ph id="ph1">`SetContext`</ph> method on the channel property.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Once the channel is initialized with context it cannot be reset.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The following is a list of invariants in this mode:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Any attempt to reset the context using <ph id="ph1">`SetContext`</ph> after the channel has been opened throws an <ph id="ph2">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Any attempt to send context by using the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph> in an outgoing message throws an <ph id="ph2">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If a message is received from server with a specific context, when the channel has already been initialized with a specific context, this results in a <ph id="ph1">&lt;xref:System.ServiceModel.ProtocolException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It is appropriate to receive an initial context from the server only if the channel is opened without any context set explicitly.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph> on incoming message is always null.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Mode 2: Application Context Management</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>This is the mode when <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IContextManager.Enabled%2A&gt;</ph> is set to <ph id="ph2">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In this mode the context channel does not manage context.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>It is the application's responsibility to retrieve, manage and apply context by using the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Any attempt to call <ph id="ph1">`GetContext`</ph> or <ph id="ph2">`SetContext`</ph> results in an <ph id="ph3">&lt;xref:System.InvalidOperationException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>No matter which mode is chosen the client channel factory supports <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IRequestChannel&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IRequestSessionChannel&gt;</ph>, and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IDuplexSessionChannel&gt;</ph> message exchange patterns.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>On the service, an instance of the channel is responsible for converting the context supplied by the client on incoming messages to the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The message property can then be accessed by the application layer or other channels further up in the call stack.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The service channels also allow the application layer to specify a new context value to be propagated back to the client by attaching a <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextMessageProperty&gt;</ph> to the response message.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>This property is converted to the SOAP header or HTTP cookie that contains the context, which depends on the configuration of the binding.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The service channel listener supports <ph id="ph1">&lt;xref:System.ServiceModel.Channels.IReplyChannel&gt;</ph>, <ph id="ph2">&lt;xref:System.ServiceModel.Channels.IReplySessionChannel&gt;</ph>, and <ph id="ph3">&lt;xref:System.ServiceModel.Channels.IReplySessionChannel&gt;</ph> message exchange patterns.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The context exchange protocol introduces a new <ph id="ph1">`wsc:Context`</ph> SOAP header to represent the context information when HTTP cookies are not used to propagate the context.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The context header schema allows for any number of child elements, each with a string key and string content.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The following is an example of a context header.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>When in <ph id="ph1">`HttpCookie`</ph> mode, cookies are set using the <ph id="ph2">`SetCookie`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The cookie name is <ph id="ph1">`WscContext`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The value of the cookie is the Base64 encoding of the <ph id="ph1">`wsc:Context`</ph> header.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This value is enclosed in quotes.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The value of the context must be protected from modification while in transit for the same reason WS-Addressing headers are protected – the header is used to determine where to dispatch the request to on the service.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`wsc:Context`</ph> header is therefore required to be digitally signed or signed and encrypted at either the SOAP or transport level when the binding offers message protection capability.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>When HTTP cookies are used to propagate context, they should be protected using transport security.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Service endpoints that require support for the context exchange protocol can make it explicit in the published policy.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Two new policy assertions have been introduced to represent the requirement for the client to support the context exchange protocol at the SOAP level or to enable HTTP cookie support.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Generation of these assertions into the policy on the service is controlled by the value of the <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextBindingElement.ContextExchangeMechanism%2A&gt;</ph> property as follows:</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextExchangeMechanism&gt;</ph>, the following assertion is generated:</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>For <ph id="ph1">&lt;xref:System.ServiceModel.Channels.ContextExchangeMechanism&gt;</ph>, the following assertion is generated:</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Web Services Protocols Interoperability Guide<ept id="p1">](../../../../docs/framework/wcf/feature-details/web-services-protocols-interoperability-guide.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">680822fcf6081854ebf599bc0335579d1279d36f</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\design-guidelines\property.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">498ba28808fdf101ca83220cec713adfae7e68be</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4f59af1ef00bcb8ec1d7c0542222f37f7538426d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Property Design | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Property Design</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Although properties are technically very similar to methods, they are quite different in terms of their usage scenarios.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>They should be seen as smart fields.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>They have the calling syntax of fields, and the flexibility of methods.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> create get-only properties if the caller should not be able to change the value of the property.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Keep in mind that if the type of the property is a mutable reference type, the property value can be changed even if the property is get-only.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> provide set-only properties or properties with the setter having broader accessibility than the getter.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>For example, do not use properties with a public setter and a protected getter.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>If the property getter cannot be provided, implement the functionality as a method instead.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Consider starting the method name with <ph id="ph1">`Set`</ph> and follow with what you would have named the property.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> has a method called <ph id="ph2">`SetCachePath`</ph> instead of having a set-only property called <ph id="ph3">`CachePath`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> provide sensible default values for all properties, ensuring that the defaults do not result in a security hole or terribly inefficient code.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> allow properties to be set in any order even if this results in a temporary invalid state of the object.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>It is common for two or more properties to be interrelated to a point where some values of one property might be invalid given the values of other properties on the same object.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>In such cases, exceptions resulting from the invalid state should be postponed until the interrelated properties are actually used together by the object.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> preserve the previous value if a property setter throws an exception.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> throwing exceptions from property getters.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Property getters should be simple operations and should not have any preconditions.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If a getter can throw an exception, it should probably be redesigned to be a method.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Notice that this rule does not apply to indexers, where we do expect exceptions as a result of validating the arguments.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Indexed Property Design</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>An indexed property is a special property that can have parameters and can be called with special syntax similar to array indexing.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Indexed properties are commonly referred to as indexers.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Indexers should be used only in APIs that provide access to items in a logical collection.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>For example, a string is a collection of characters, and the indexer on <ph id="ph1">&lt;xref:System.String?displayProperty=fullName&gt;</ph> was added to access its characters.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> using indexers to provide access to data stored in an internal array.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> providing indexers on types representing collections of items.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> using indexed properties with more than one parameter.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>If the design requires multiple parameters, reconsider whether the property really represents an accessor to a logical collection.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If it does not, use methods instead.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Consider starting the method name with <ph id="ph1">`Get`</ph> or <ph id="ph2">`Set`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X AVOID<ept id="p1">**</ept> indexers with parameter types other than <ph id="ph1">&lt;xref:System.Int32?displayProperty=fullName&gt;</ph>, <ph id="ph2">&lt;xref:System.Int64?displayProperty=fullName&gt;</ph>, <ph id="ph3">&lt;xref:System.String?displayProperty=fullName&gt;</ph>, <ph id="ph4">&lt;xref:System.Object?displayProperty=fullName&gt;</ph>, or an enum.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If the design requires other types of parameters, strongly reevaluate whether the API really represents an accessor to a logical collection.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If it does not, use a method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Consider starting the method name with <ph id="ph1">`Get`</ph> or <ph id="ph2">`Set`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ DO<ept id="p1">**</ept> use the name <ph id="ph1">`Item`</ph> for indexed properties unless there is an obviously better name (e.g., see the <ph id="ph2">&lt;xref:System.String.Chars%2A&gt;</ph> property on <ph id="ph3">`System.String`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In C#, indexers are by default named Item.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Runtime.CompilerServices.IndexerNameAttribute&gt;</ph> can be used to customize this name.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> provide both an indexer and methods that are semantically equivalent.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> provide more than one family of overloaded indexers in one type.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>This is enforced by the C# compiler.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>X DO NOT<ept id="p1">**</ept> use nondefault indexed properties.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>This is enforced by the C# compiler.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Property Change Notification Events</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Sometimes it is useful to provide an event notifying the user of changes in a property value.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">`System.Windows.Forms.Control`</ph> raises a <ph id="ph2">`TextChanged`</ph> event after the value of its <ph id="ph3">`Text`</ph> property has changed.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> raising change notification events when property values in high-level APIs (usually designer components) are modified.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>If there is a good scenario for a user to know when a property of an object is changing, the object should raise a change notification event for the property.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>However, it is unlikely to be worth the overhead to raise such events for low-level APIs such as base types or collections.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">&lt;xref:System.Collections.Generic.List%601&gt;</ph> would not raise such events when a new item is added to the list and the <ph id="ph2">`Count`</ph> property changes.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>✓ CONSIDER<ept id="p1">**</ept> raising change notification events when the value of a property changes via external forces.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If a property value changes via some external force (in a way other than by calling methods on the object), raise events indicate to the developer that the value is changing and has changed.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>A good example is the <ph id="ph1">`Text`</ph> property of a text box control.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>When the user types text in a <ph id="ph1">`TextBox`</ph>, the property value automatically changes.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Portions © 2005, 2009 Microsoft Corporation. All rights reserved.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Reprinted by permission of Pearson Education, Inc. from <bpt id="p2">[</bpt>Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition<ept id="p2">](http://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)</ept> by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008 by Addison-Wesley Professional as part of the Microsoft Windows Development Series.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Member Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/member.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Framework Design Guidelines<ept id="p1">](../../../docs/standard/design-guidelines/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d15b606f835b3a3dbc23aac8e79991a349377a8c</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\classes-and-structs\polymorphism.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Human Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f1bc05218b8d857f6ecafd1fdbd7aa1dde6ddf4b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b99e47ed7617b8745057d0c9b569edf5395187dd</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Polymorphism (C# Programming Guide) | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Polymorphism (C# Programming Guide)</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Polymorphism is often referred to as the third pillar of object-oriented programming, after encapsulation and inheritance.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Polymorphism is a Greek word that means "many-shaped" and it has two distinct aspects:</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>At run time, objects of a derived class may be treated as objects of a base class in places such as method parameters and collections or arrays.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>When this occurs, the object's declared type is no longer identical to its run-time type.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Base classes may define and implement <bpt id="p1">[</bpt>virtual<ept id="p1">](../../../csharp/language-reference/keywords/virtual.md)</ept><bpt id="p2">*</bpt>methods<ept id="p2">*</ept>, and derived classes can <bpt id="p3">[</bpt>override<ept id="p3">](../../../csharp/language-reference/keywords/override.md)</ept> them, which means they provide their own definition and implementation.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>At run-time, when client code calls the method, the CLR looks up the run-time type of the object, and invokes that override of the virtual method.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Thus in your source code you can call a method on a base class, and cause a derived class's version of the method to be executed.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Virtual methods enable you to work with groups of related objects in a uniform way.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For example, suppose you have a drawing application that enables a user to create various kinds of shapes on a drawing surface.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>You do not know at compile time which specific types of shapes the user will create.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>However, the application has to keep track of all the various types of shapes that are created, and it has to update them in response to user mouse actions.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You can use polymorphism to solve this problem in two basic steps:</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Create a class hierarchy in which each specific shape class derives from a common base class.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Use a virtual method to invoke the appropriate method on any derived class through a single call to the base class method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>First, create a base class called <ph id="ph1">`Shape`</ph>, and derived classes such as <ph id="ph2">`Rectangle`</ph>, <ph id="ph3">`Circle`</ph>, and <ph id="ph4">`Triangle`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Give the <ph id="ph1">`Shape`</ph> class a virtual method called <ph id="ph2">`Draw`</ph>, and override it in each derived class to draw the particular shape that the class represents.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Create a <ph id="ph1">`List&lt;Shape&gt;`</ph> object and add a Circle, Triangle and Rectangle to it.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>To update the drawing surface, use a <bpt id="p1">[</bpt>foreach<ept id="p1">](../../../csharp/language-reference/keywords/foreach-in.md)</ept> loop to iterate through the list and call the <ph id="ph1">`Draw`</ph> method on each <ph id="ph2">`Shape`</ph> object in the list.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Even though each object in the list has a declared type of <ph id="ph1">`Shape`</ph>, it is the run-time type (the overridden version of the method in each derived class) that will be invoked.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#50<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_1.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In C#, every type is polymorphic because all types, including user-defined types, inherit from <ph id="ph1">&lt;xref:System.Object&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Polymorphism Overview</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Virtual Members</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When a derived class inherits from a base class, it gains all the methods, fields, properties and events of the base class.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The designer of the derived class can choose whether to</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>override virtual members in the base class,</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>inherit the closest base class method without overriding it</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>define new non-virtual implementation of those members that hide the base class implementations</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>A derived class can override a base class member only if the base class member is declared as <bpt id="p1">[</bpt>virtual<ept id="p1">](../../../csharp/language-reference/keywords/virtual.md)</ept> or <bpt id="p2">[</bpt>abstract<ept id="p2">](../../../csharp/language-reference/keywords/abstract.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>The derived member must use the <bpt id="p1">[</bpt>override<ept id="p1">](../../../csharp/language-reference/keywords/override.md)</ept> keyword to explicitly indicate that the method is intended to participate in virtual invocation.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#20<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_2.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Fields cannot be virtual; only methods, properties, events and indexers can be virtual.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>When a derived class overrides a virtual member, that member is called even when an instance of that class is being accessed as an instance of the base class.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#21<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_3.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Virtual methods and properties enable derived classes to extend a base class without needing to use the base class implementation of a method.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Versioning with the Override and New Keywords<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/versioning-with-the-override-and-new-keywords.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>An interface provides another way to define a method or set of methods whose implementation is left to derived classes.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>Interfaces<ept id="p1">](../../../csharp/programming-guide/interfaces/index.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Hiding Base Class Members with New Members</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>If you want your derived member to have the same name as a member in a base class, but you do not want it to participate in virtual invocation, you can use the <bpt id="p1">[</bpt>new<ept id="p1">](../../../csharp/language-reference/keywords/new.md)</ept> keyword.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`new`</ph> keyword is put before the return type of a class member that is being replaced.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#18<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_4.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Hidden base class members can still be accessed from client code by casting the instance of the derived class to an instance of the base class.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#19<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_5.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Preventing Derived Classes from Overriding Virtual Members</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Virtual members remain virtual indefinitely, regardless of how many classes have been declared between the virtual member and the class that originally declared it.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If class A declares a virtual member, and class B derives from A, and class C derives from B, class C inherits the virtual member, and has the option to override it, regardless of whether class B declared an override for that member.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#22<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_6.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>A derived class can stop virtual inheritance by declaring an override as <bpt id="p1">[</bpt>sealed<ept id="p1">](../../../csharp/language-reference/keywords/sealed.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>This requires putting the <ph id="ph1">`sealed`</ph> keyword before the <ph id="ph2">`override`</ph> keyword in the class member declaration.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#24<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_7.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In the previous example, the method <ph id="ph1">`DoWork`</ph> is no longer virtual to any class derived from C. It is still virtual for instances of C, even if they are cast to type B or type A. Sealed methods can be replaced by derived classes by using the <ph id="ph2">`new`</ph> keyword, as the following example shows:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#25<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_8.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>In this case, if <ph id="ph1">`DoWork`</ph> is called on D using a variable of type D, the new <ph id="ph2">`DoWork`</ph> is called.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>If a variable of type C, B, or A is used to access an instance of D, a call to <ph id="ph1">`DoWork`</ph> will follow the rules of virtual inheritance, routing those calls to the implementation of <ph id="ph2">`DoWork`</ph> on class C.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Accessing Base Class Virtual Members from Derived Classes</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>A derived class that has replaced or overridden a method or property can still access the method or property on the base class using the base keyword.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The following code provides an example:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[!code-cs</bpt><bpt id="p2">[</bpt>csProgGuideInheritance#26<ept id="p2">](../../../csharp/programming-guide/classes-and-structs/codesnippet/CSharp/polymorphism_9.cs)</ept><ept id="p1">]</ept></source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>base<ept id="p1">](../../../csharp/language-reference/keywords/base.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>It is recommended that virtual members use <ph id="ph1">`base`</ph> to call the base class implementation of that member in their own implementation.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Letting the base class behavior occur enables the derived class to concentrate on implementing behavior specific to the derived class.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If the base class implementation is not called, it is up to the derived class to make their behavior compatible with the behavior of the base class.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>In This Section</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Versioning with the Override and New Keywords<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/versioning-with-the-override-and-new-keywords.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Knowing When to Use Override and New Keywords<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Override the ToString Method<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/how-to-override-the-tostring-method.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>C# Programming Guide<ept id="p1">](../../../csharp/programming-guide/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>C# Programming Guide<ept id="p1">](../../../csharp/programming-guide/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Inheritance<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/inheritance.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Abstract and Sealed Classes and Class Members<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Methods<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/methods.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Events<ept id="p1">](../../../csharp/programming-guide/events/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Properties<ept id="p1">](../../../csharp/programming-guide/classes-and-structs/properties.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Indexers<ept id="p1">](../../../csharp/programming-guide/indexers/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Types<ept id="p1">](../../../csharp/programming-guide/types/index.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

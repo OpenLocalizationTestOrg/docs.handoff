@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">962bcd086cbc70fb98de12bb51e0b56dc846e9f1</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\marking-routed-events-as-handled-and-class-handling.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1f37dd7cd409cb2f998ff9a63920509d17f004df</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8cb785ac4e4e63889a8d7c4de83f998af4af7783</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Marking Routed Events as Handled, and Class Handling | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Marking Routed Events as Handled, and Class Handling</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Handlers for a routed event can mark the event handled within the event data.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Handling the event will effectively shorten the route.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Class handling is a programming concept that is supported by routed events.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A class handler has the opportunity to handle a particular routed event at a class level with a handler that is invoked before any instance handler on any instance of the class.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This topic elaborates on concepts introduced in the <bpt id="p1">[</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>When to Mark Events as Handled</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>When you set the value of the <ph id="ph1">&lt;xref:System.Windows.RoutedEventArgs.Handled%2A&gt;</ph> property to <ph id="ph2">`true`</ph> in the event data for a routed event, this is referred to as "marking the event handled".</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>There is no absolute rule for when you should mark routed events as handled, either as an application author, or as a control author who responds to existing routed events or implements new routed events.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>For the most part, the concept of "handled" as carried in the routed event's event data should be used as a limited protocol for your own application's responses to the various routed events exposed in <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> <ph id="ph2">[!INCLUDE[TLA2#tla_api#plural](../../../../includes/tla2sharptla-apisharpplural-md.md)]</ph> as well as for any custom routed events.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Another way to consider the "handled" issue is that you should generally mark a routed event handled if your code responded to the routed event in a significant and relatively complete way.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Typically, there should not be more than one significant response that requires separate handler implementations for any single routed event occurrence.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>If more responses are needed, then the necessary code should be implemented through application logic that is chained within a single handler rather than by using the routed event system for forwarding.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The concept of what is "significant" is also subjective, and depends on your application or code.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>As general guidance, some "significant response" examples include: setting focus, modifying public state, setting properties that affect the visual representation, and raising other new events.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Examples of nonsignificant responses include: modifying private state (with no visual impact, or programmatic representation), logging of events, or looking at arguments of an event and choosing not to respond to it.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The routed event system behavior reinforces this "significant response" model for using handled state of a routed event, because handlers added in <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> or the common signature of <ph id="ph2">&lt;xref:System.Windows.UIElement.AddHandler%2A&gt;</ph> are not invoked in response to a routed event where the event data is already marked handled.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You must go through the extra effort of adding a handler with the <ph id="ph1">`handledEventsToo`</ph> parameter version (<ph id="ph2">&lt;xref:System.Windows.UIElement.AddHandler%28System.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29&gt;</ph>) in order to handle routed events that are marked handled by earlier participants in the event route.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In some circumstances, controls themselves mark certain routed events as handled.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>A handled routed event represents a decision by <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> control authors that the control's actions in response to the routed event are significant or complete as part of the control implementation, and the event needs no further handling.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Usually this is done by adding a class handler for an event, or by overriding one of the class handler virtuals that exist on a base class.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>You can still work around this event handling if necessary; see <bpt id="p1">[</bpt>Working Around Event Suppression by Controls<ept id="p1">](#WorkingAroundEventSuppressionByControls)</ept> later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>"Preview" (Tunneling) Events vs. Bubbling Events, and Event Handling</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Preview routed events are events that follow a tunneling route through the element tree.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The "Preview" expressed in the naming convention is indicative of the general principle for input events that preview (tunneling) routed events are raised prior to the equivalent bubbling routed event.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Also, input routed events that have a tunneling and bubbling pair have a distinct handling logic.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If the tunneling/preview routed event is marked as handled by an event listener, then the bubbling routed event will be marked handled even before any listeners of the bubbling routed event receive it.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The tunneling and bubbling routed events are technically separate events, but they deliberately share the same instance of event data to enable this behavior.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The connection between the tunneling and bubbling routed events is accomplished by the internal implementation of how any given <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> class raises its own declared routed events, and this is true of the paired input routed events.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>But unless this class-level implementation exists, there is no connection between a tunneling routed event and a bubbling routed event that share the naming scheme: without such implementation they would be two entirely separate routed events and would not be raised in sequence or share event data.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For more information about how to implement tunnel/bubble input routed event pairs in a custom class, see <bpt id="p1">[</bpt>Create a Custom Routed Event<ept id="p1">](../../../../docs/framework/wpf/advanced/how-to-create-a-custom-routed-event.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Class Handlers and Instance Handlers</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Routed events consider two different types of listeners to the event: class listeners and instance listeners.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Class listeners exist because types have called a particular <ph id="ph1">&lt;xref:System.Windows.EventManager&gt;</ph> <ph id="ph2">[!INCLUDE[TLA2#tla_api](../../../../includes/tla2sharptla-api-md.md)]</ph> ,<ph id="ph3">&lt;xref:System.Windows.EventManager.RegisterClassHandler%2A&gt;</ph>, in their static constructor, or have overridden a class handler virtual method from an element base class.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Instance listeners are particular class instances/elements where one or more handlers have been attached for that routed event by a call to <ph id="ph1">&lt;xref:System.Windows.UIElement.AddHandler%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Existing <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> routed events make calls to <ph id="ph2">&lt;xref:System.Windows.UIElement.AddHandler%2A&gt;</ph> as part of the <ph id="ph3">[!INCLUDE[TLA#tla_clr](../../../../includes/tlasharptla-clr-md.md)]</ph> event wrapper add{} and remove{} implementations of the event, which is also how the simple <ph id="ph4">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> mechanism of attaching event handlers via an attribute syntax is enabled.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Therefore even the simple <ph id="ph1">[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]</ph> usage ultimately equates to an <ph id="ph2">&lt;xref:System.Windows.UIElement.AddHandler%2A&gt;</ph> call.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Elements within the visual tree are checked for registered handler implementations.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Handlers are potentially invoked throughout the route, in the order that is inherent in the type of the routing strategy for that routed event.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For instance, bubbling routed events will first invoke those handlers that are attached to the same element that raised the routed event.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Then the routed event "bubbles" to the next parent element and so on until the application root element is reached.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>From the perspective of the root element in a bubbling route, if class handling or any element closer to the source of the routed event invoke handlers that mark the event arguments as being handled, then handlers on the root elements are not invoked, and the event route is effectively shortened before reaching that root element.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>However, the route is not completely halted, because handlers can be added using a special conditional that they should still be invoked, even if a class handler or instance handler has marked the routed event as handled.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>This is explained in <bpt id="p1">[</bpt>Adding Instance Handlers That Are Raised Even When Events Are Marked Handled<ept id="p1">](#AddingInstanceHandlersthatAreRaisedEvenWhenEventsareMarkedHandled)</ept>, later in this topic.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>At a deeper level than the event route, there are also potentially multiple class handlers acting on any given instance of a class.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>This is because the class handling model for routed events enables all possible classes in a class hierarchy to each register its own class handler for each routed event.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Each class handler is added to an internal store, and when the event route for an application is constructed, the class handlers are all added to the event route.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Class handlers are added to the route such that the most-derived class handler is invoked first, and class handlers from each successive base class are invoked next.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Generally, class handlers are not registered such that they also respond to routed events that were already marked handled.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Therefore, this class handling mechanism enables one of two choices:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Derived classes can supplement the class handling that is inherited from the base class by adding a handler that does not mark the routed event handled, because the base class handler will be invoked sometime after the derived class handler.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Derived classes can replace the class handling from the base class by adding a class handler that marks the routed event handled.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>You should be cautious with this approach, because it will potentially change the intended base control design in areas such as visual appearance, state logic, input handling, and command handling.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Class Handling of Routed Events by Control Base Classes</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>On each given element node in an event route, class listeners have the opportunity to respond to the routed event before any instance listener on the element can.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>For this reason, class handlers are sometimes used to suppress routed events that a particular control class implementation does not wish to propagate further, or to provide special handling of that routed event that is a feature of the class.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For instance, a class might raise its own class-specific event that contains more specifics about what some user input condition means in the context of that particular class.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The class implementation might then mark the more general routed event as handled.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Class handlers are typically added such that they are not invoked for routed events where shared event data was already marked handled, but for atypical cases there is also a <ph id="ph1">&lt;xref:System.Windows.EventManager.RegisterClassHandler%28System.Type%2CSystem.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29&gt;</ph> signature that registers class handlers to invoke even when routed events are marked handled.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Class Handler Virtuals</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Some elements, particularly the base elements such as <ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph>, expose empty "On*Event" and "OnPreview<ph id="ph2">\*</ph>Event" virtual methods that correspond to their list of public routed events.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>These virtual methods can be overridden to implement a class handler for that routed event.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The base element classes register these virtual methods as their class handler for each such routed event using <ph id="ph1">&lt;xref:System.Windows.EventManager.RegisterClassHandler%28System.Type%2CSystem.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29&gt;</ph> as described earlier.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The On<ph id="ph1">\*</ph>Event virtual methods make it much simpler to implement class handling for the relevant routed events, without requiring special initialization in static constructors for each type.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>For instance, you can add class handling for the <ph id="ph1">&lt;xref:System.Windows.UIElement.DragEnter&gt;</ph> event in any <ph id="ph2">&lt;xref:System.Windows.UIElement&gt;</ph> derived class by overriding the <ph id="ph3">&lt;xref:System.Windows.UIElement.OnDragEnter%2A&gt;</ph> virtual method.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Within the override, you could handle the routed event, raise other events, initiate class-specific logic that might change element properties on instances, or any combination of those actions.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>You should generally call the base implementation in such overrides even if you mark the event handled.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Calling the base implementation is strongly recommended because the virtual method is on the base class.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The standard protected virtual pattern of calling the base implementations from each virtual essentially replaces and parallels a similar mechanism that is native to routed event class handling, whereby class handlers for all classes in a class hierarchy are called on any given instance, starting with the most-derived class' handler and continuing to the base class handler.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>You should only omit the base implementation call if your class has a deliberate requirement to change the base class handling logic.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Whether you call the base implementation before or after your overriding code will depend on the nature of your implementation.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Input Event Class Handling</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>The class handler virtual methods are all registered such that they are only invoked in cases where any shared event data are not already marked handled.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Also, for the input events uniquely, the tunneling and bubbling versions typically are raised in sequence and share event data.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This entails that for a given pair of class handlers of input events where one is the tunneling version and the other is the bubbling version, you may not want to mark the event handled immediately.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>If you implement the tunneling class handling virtual method to mark the event handled, that will prevent the bubbling class handler from being invoked (as well as preventing any normally registered instance handlers for either the tunneling or bubbling event from being invoked).</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Once class handling on a node is complete, the instance listeners are considered.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Adding Instance Handlers That Are Raised Even When Events Are Marked Handled</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.UIElement.AddHandler%2A&gt;</ph> method supplies a particular overload that allows you to add handlers that will be invoked by the event system whenever an event reaches the handling element in the route, even if some other handler has already adjusted the event data to mark that event as handled.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>This is not typically done.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Generally, handlers can be written to adjust all areas of application code that might be influenced by an event, regardless of where it was handled in an element tree, even if multiple end results are desired.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Also, typically there is really only one element that needs to respond to that event, and the appropriate application logic had already happened.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>But the <ph id="ph1">`handledEventsToo`</ph> overload is available for the exceptional cases where some other element in an element tree or control compositing has already marked an event as handled, but other elements either higher or lower in the element tree (depending on route) still wish to have their own handlers invoked.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>When to Mark Handled Events as Unhandled</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Generally, routed events that are marked handled should not be marked unhandled (<ph id="ph1">&lt;xref:System.Windows.RoutedEventArgs.Handled%2A&gt;</ph> set back to <ph id="ph2">`false`</ph>) even by handlers that act on <ph id="ph3">`handledEventsToo`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>However, some input events have high-level and lower-level event representations that can overlap when the high-level event is seen at one position in the tree and the low-level event at another position.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>For instance, consider the case where a child element listens to a high-level key event such as <ph id="ph1">&lt;xref:System.Windows.UIElement.TextInput&gt;</ph> while a parent element listens to a low-level event such as <ph id="ph2">&lt;xref:System.Windows.UIElement.KeyDown&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>If the parent element handles the low-level event, the higher-level event can be suppressed even in the child element that intuitively should have first opportunity to handle the event.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>In these situations it may be necessary to add handlers to both parent elements and child elements for the low-level event.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The child element handler implementation can mark the low-level event as handled, but the parent element handler implementation would set it unhandled again so that further elements up the tree (as well as the high-level event) can have the opportunity to respond.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>This situation is should be fairly rare.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Deliberately Suppressing Input Events for Control Compositing</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The main scenario where class handling of routed events is used is for input events and composited controls.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>A composited control is by definition composed of multiple practical controls or control base classes.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Often the author of the control wishes to amalgamate all of the possible input events that each of the subcomponents might raise, in order to report the entire control as the singular event source.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>In some cases the control author might wish to suppress the events from components entirely, or substitute a component-defined event that carries more information or implies a more specific behavior.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The canonical example that is immediately visible to any component author is how a <ph id="ph1">[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]</ph> <ph id="ph2">&lt;xref:System.Windows.Controls.Button&gt;</ph> handles any mouse event that will eventually resolve to the intuitive event that all buttons have: a <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Windows.Controls.Button&gt;</ph> base class (<ph id="ph2">&lt;xref:System.Windows.Controls.Primitives.ButtonBase&gt;</ph>) derives from <ph id="ph3">&lt;xref:System.Windows.Controls.Control&gt;</ph> which in turn derives from <ph id="ph4">&lt;xref:System.Windows.FrameworkElement&gt;</ph> and <ph id="ph5">&lt;xref:System.Windows.UIElement&gt;</ph>, and much of the event infrastructure needed for control input processing is available at the <ph id="ph6">&lt;xref:System.Windows.UIElement&gt;</ph> level.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In particular, <ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph> processes general <ph id="ph2">&lt;xref:System.Windows.Input.Mouse&gt;</ph> events that handle hit testing for the mouse cursor within its bounds, and provides distinct events for the most common button actions, such as <ph id="ph3">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Windows.UIElement&gt;</ph> also provides an empty virtual <ph id="ph2">&lt;xref:System.Windows.UIElement.OnMouseLeftButtonDown%2A&gt;</ph> as the preregistered class handler for <ph id="ph3">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph>, and <ph id="ph4">&lt;xref:System.Windows.Controls.Primitives.ButtonBase&gt;</ph> overrides it.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Similarly, <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.ButtonBase&gt;</ph> uses class handlers for <ph id="ph2">&lt;xref:System.Windows.UIElement.MouseLeftButtonUp&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>In the overrides, which are passed the event data, the implementations mark that <ph id="ph1">&lt;xref:System.Windows.RoutedEventArgs&gt;</ph> instance as handled by setting <ph id="ph2">&lt;xref:System.Windows.RoutedEventArgs.Handled%2A&gt;</ph> to <ph id="ph3">`true`</ph>, and that same event data is what continues along the remainder of the route to other class handlers and also to instance handlers or event setters.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Also, the <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp%2A&gt;</ph> override will next raise the <ph id="ph2">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The end result for most listeners will be that the <ph id="ph1">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> and <ph id="ph2">&lt;xref:System.Windows.UIElement.MouseLeftButtonUp&gt;</ph> events "disappear" and are replaced instead by <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph>, an event that holds more meaning because it is known that this event originated from a true button and not some composite piece of the button or from some other element entirely.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Working Around Event Suppression by Controls</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Sometimes this event suppression behavior within individual controls can interfere with some more general intentions of event handling logic for your application.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>For instance, if for some reason your application had a handler for <ph id="ph1">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> located at the application root element, you would notice that any mouse click on a button would not invoke <ph id="ph2">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> or <ph id="ph3">&lt;xref:System.Windows.UIElement.MouseLeftButtonUp&gt;</ph> handlers at the root level.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The event itself actually did bubble up (again, event routes are not truly ended, but the routed event system changes their handler invocation behavior after being marked handled).</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>When the routed event reached the button, the <ph id="ph1">&lt;xref:System.Windows.Controls.Primitives.ButtonBase&gt;</ph> class handling marked the <ph id="ph2">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> handled because it wished to substitute the <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event with more meaning.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Therefore, any standard <ph id="ph1">&lt;xref:System.Windows.UIElement.MouseLeftButtonDown&gt;</ph> handler further up the route would not be invoked.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>There are two techniques you can use to ensure that your handlers would be invoked in this circumstance.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The first technique is to deliberately add the handler using the <ph id="ph1">`handledEventsToo`</ph> signature of <ph id="ph2">&lt;xref:System.Windows.UIElement.AddHandler%28System.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>A limitation of this approach is that this technique for attaching an event handler is only possible from code, not from markup.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>The simple syntax of specifying the event handler name as an event attribute value via <ph id="ph1">[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]</ph> does not enable that behavior.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The second technique works only for input events, where the tunneling and bubbling versions of the routed event are paired.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>For these routed events, you can add handlers to the preview/tunneling equivalent routed event instead.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>That routed event will tunnel through the route starting from the root, so the button class handling code would not intercept it, presuming that you attached the Preview handler at some ancestor element level in the application's element tree.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>If you use this approach, be cautious about marking any Preview event handled.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>For the example given with <ph id="ph1">&lt;xref:System.Windows.UIElement.PreviewMouseLeftButtonDown&gt;</ph> being handled at the root element, if you marked the event as <ph id="ph2">&lt;xref:System.Windows.RoutedEventArgs.Handled%2A&gt;</ph> in the handler implementation, you would actually suppress the <ph id="ph3">&lt;xref:System.Windows.Controls.Primitives.ButtonBase.Click&gt;</ph> event.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>That is typically not desirable behavior.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Preview Events<ept id="p1">](../../../../docs/framework/wpf/advanced/preview-events.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Create a Custom Routed Event<ept id="p1">](../../../../docs/framework/wpf/advanced/how-to-create-a-custom-routed-event.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source><bpt id="p1"> [</bpt>Routed Events Overview<ept id="p1">](../../../../docs/framework/wpf/advanced/routed-events-overview.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="markdown" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3511d15f0fd2362182c5a8e0b60f3407fc9a3dab</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\using-libraries-from-partially-trusted-code.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c68ebaede41f32c2055a14ca66212407a3f0e40c</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">0b8dc8afadcd25cff6a69e7f62b833e484d2761f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve">
+          <source>Using Libraries from Partially Trusted Code | Microsoft Docs</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Using Libraries from Partially Trusted Code</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>This topic addresses the behavior of strong-named assemblies and applies only to <bpt id="p1">[</bpt>Level 1<ept id="p1">](../../../docs/framework/misc/security-transparent-code-level-1.md)</ept> assemblies.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Security-Transparent Code, Level 2<ept id="p1">](../../../docs/framework/misc/security-transparent-code-level-2.md)</ept> assemblies in the <ph id="ph1">[!INCLUDE[net_v40_long](../../../includes/net-v40-long-md.md)]</ph> or later are not affected by strong names.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>For more information about changes to the security system, see <bpt id="p1">[</bpt>Security Changes<ept id="p1">](../../../docs/framework/security/security-changes.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Applications that receive less than full trust from their host or sandbox are not allowed to call shared managed libraries unless the library writer specifically allows them to through the use of the <ph id="ph1">&lt;xref:System.Security.AllowPartiallyTrustedCallersAttribute&gt;</ph> attribute.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Therefore, application writers must be aware that some libraries will not be available to them from a partially trusted context.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>By default, all code that executes in a partial-trust <bpt id="p1">[</bpt>sandbox<ept id="p1">](../../../docs/framework/misc/how-to-run-partially-trusted-code-in-a-sandbox.md)</ept> and is not in the list of full-trust assemblies is partially trusted.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If you do not expect your code to be executed from a partially trusted context or to be called by partially trusted code, you do not have to be concerned about the information in this section.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>However, if you write code that must interact with partially trusted code or operate from a partially trusted context, you should consider the following factors:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Libraries must be signed with a strong name in order to be shared by multiple applications.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Strong names allow your code to be placed in the global assembly cache or added to the full-trust list of a sandboxing <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>, and allow consumers to verify that a particular piece of mobile code actually originates from you.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>By default, strong-named <bpt id="p1">[</bpt>Level 1<ept id="p1">](../../../docs/framework/misc/security-transparent-code-level-1.md)</ept> shared libraries perform an implicit <bpt id="p2">[</bpt>LinkDemand<ept id="p2">](../../../docs/framework/misc/link-demands.md)</ept> for full trust automatically, without the library writer having to do anything.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If a caller does not have full trust but still tries to call such a library, the runtime throws a <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph> and the caller is not allowed to link to the library.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In order to disable the automatic <bpt id="p1">**</bpt>LinkDemand<ept id="p1">**</ept> and prevent the exception from being thrown, you can place the <bpt id="p2">**</bpt>AllowPartiallyTrustedCallersAttribute<ept id="p2">**</ept> attribute on the assembly scope of a shared library.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>This attribute allows your libraries to be called from partially trusted managed code.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Partially trusted code that is granted access to a library with this attribute is still subject to further restrictions defined by the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>There is no programmatic way for partially trusted code to call a library that does not have the <bpt id="p1">**</bpt>AllowPartiallyTrustedCallersAttribute<ept id="p1">**</ept> attribute.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Libraries that are private to a specific application do not require a strong name or the <bpt id="p1">**</bpt>AllowPartiallyTrustedCallersAttribute<ept id="p1">**</ept> attribute and cannot be referenced by potentially malicious code outside the application.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Such code is protected against intentional or unintentional misuse by partially trusted mobile code without the developer having to do anything extra.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>You should consider explicitly enabling use by partially trusted code for the following types of code:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Code that has been diligently tested for security vulnerabilities and is in compliance with the guidelines described in <bpt id="p1">[</bpt>Secure Coding Guidelines<ept id="p1">](../../../docs/standard/security/secure-coding-guidelines.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Strong-named code libraries that are specifically written for partially trusted scenarios.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Any components (whether partially or fully trusted) signed with a strong name that will be called by code that is downloaded from the Internet.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Some classes in the .NET Framework class library do not have the <bpt id="p1">**</bpt>AllowPartiallyTrustedCallersAttribute<ept id="p1">**</ept> attribute and cannot be called by partially trusted code.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>See Also</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Code Access Security<ept id="p1">](../../../docs/framework/misc/code-access-security.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
