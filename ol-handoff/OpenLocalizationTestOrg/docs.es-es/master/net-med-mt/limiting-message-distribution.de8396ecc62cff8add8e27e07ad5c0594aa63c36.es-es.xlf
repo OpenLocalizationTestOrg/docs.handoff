@@ -2,17 +2,17 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" original="markdown" source-language="en-US" target-language="es-es">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b81d562" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-401ea83" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1cec9efebbfaa1c8d795fd3d92fc3763b1f1915b</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\feature-details\limiting-message-distribution.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
-      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b14bfe3ef700c69eda19acd8f0e145efa9257e60</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5e1f3e3659cd794e7248219b17f16470c1dfc169</xliffext:olxliffhash>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6c5f99a16be56bb5e4cf30dbe12d014da3c5ac47</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">32d57a7f4a63ff0f37f0718ed9247a2db1511b73</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
-        <trans-unit id="101" translate="yes" xml:space="preserve">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
           <source>Limiting Message Distribution | Microsoft Docs</source>
         </trans-unit>
         <trans-unit id="102" translate="yes" xml:space="preserve">
@@ -34,177 +34,174 @@
           <source>For example, if a new member joins a mesh and wants to retrieve the last message sent through the mesh, this request does not need to be flooded to every member of the mesh.</source>
         </trans-unit>
         <trans-unit id="108" translate="yes" xml:space="preserve">
-          <source>The request could be limited to near neighbors, or locally generated messages can be filtered out.</source>
+          <source>The request could be limited to near neighbors, or locally generated messages can be filtered out. Messages can also be sent to an individual node on the mesh.</source>
         </trans-unit>
         <trans-unit id="109" translate="yes" xml:space="preserve">
-          <source>Messages can also be sent to an individual node on the mesh.</source>
-        </trans-unit>
-        <trans-unit id="110" translate="yes" xml:space="preserve">
           <source>This topic discusses using Hop Count, a Message Propagation Filter, a local filter, or a direct connection to control how messages are forwarded throughout the mesh, and provides general guidelines for choosing an approach.</source>
         </trans-unit>
-        <trans-unit id="111" translate="yes" xml:space="preserve">
+        <trans-unit id="110" translate="yes" xml:space="preserve">
           <source>Hop Counts</source>
         </trans-unit>
-        <trans-unit id="112" translate="yes" xml:space="preserve">
+        <trans-unit id="111" translate="yes" xml:space="preserve">
           <source>The concept of <ph id="ph1">`PeerHopCount`</ph> is similar to TTL (Time-To-Live) used in IP protocol.</source>
         </trans-unit>
-        <trans-unit id="113" translate="yes" xml:space="preserve">
+        <trans-unit id="112" translate="yes" xml:space="preserve">
           <source>The value of <ph id="ph1">`PeerHopCount`</ph> is tied to a message instance, and it specifies how many times a message should be forwarded before being dropped.</source>
         </trans-unit>
-        <trans-unit id="114" translate="yes" xml:space="preserve">
+        <trans-unit id="113" translate="yes" xml:space="preserve">
           <source>Each time a message is received by a Peer Channel client, the client examines the message to see if <ph id="ph1">`PeerHopCount`</ph> is specified.</source>
         </trans-unit>
-        <trans-unit id="115" translate="yes" xml:space="preserve">
+        <trans-unit id="114" translate="yes" xml:space="preserve">
           <source>If it is specified, then the client decrements the hop count value by one before forwarding the message to neighboring nodes.</source>
         </trans-unit>
-        <trans-unit id="116" translate="yes" xml:space="preserve">
+        <trans-unit id="115" translate="yes" xml:space="preserve">
           <source>When a client receives a message with a hop count value of zero, the client processes the message, but does not forward the message to neighbors.</source>
         </trans-unit>
-        <trans-unit id="117" translate="yes" xml:space="preserve">
+        <trans-unit id="116" translate="yes" xml:space="preserve">
           <source>Hop count may be added to a message by adding <ph id="ph1">`PeerHopCount`</ph> as an attribute to the applicable property or field in the implementation of the message class.</source>
         </trans-unit>
-        <trans-unit id="118" translate="yes" xml:space="preserve">
+        <trans-unit id="117" translate="yes" xml:space="preserve">
           <source>You can set this to a specific value before sending the message to the mesh.</source>
         </trans-unit>
-        <trans-unit id="119" translate="yes" xml:space="preserve">
+        <trans-unit id="118" translate="yes" xml:space="preserve">
           <source>In this manner, you can use hop count to limit distribution of messages throughout the mesh when necessary, potentially avoiding unnecessary message duplication.</source>
         </trans-unit>
-        <trans-unit id="120" translate="yes" xml:space="preserve">
+        <trans-unit id="119" translate="yes" xml:space="preserve">
           <source>This is useful in cases where the mesh contains a high amount of redundant data, or for sending a message to immediate neighbors, or neighbors within a few hops.</source>
         </trans-unit>
-        <trans-unit id="121" translate="yes" xml:space="preserve">
+        <trans-unit id="120" translate="yes" xml:space="preserve">
           <source>For code snippets and related information, see the <bpt id="p1">[</bpt>Peer Channel blog<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=114531)</ept> (http://go.microsoft.com/fwlink/?LinkID=114531).</source>
         </trans-unit>
-        <trans-unit id="122" translate="yes" xml:space="preserve">
+        <trans-unit id="121" translate="yes" xml:space="preserve">
           <source>Message Propagation Filter</source>
         </trans-unit>
-        <trans-unit id="123" translate="yes" xml:space="preserve">
+        <trans-unit id="122" translate="yes" xml:space="preserve">
           <source><ph id="ph1">`MessagePropagationFilter`</ph> can be used for customized control of message flooding, especially when the content of the message or other specific scenarios determine propagation.</source>
         </trans-unit>
-        <trans-unit id="124" translate="yes" xml:space="preserve">
+        <trans-unit id="123" translate="yes" xml:space="preserve">
           <source>The filter makes propagation decisions for every message that passes through the node.</source>
         </trans-unit>
-        <trans-unit id="125" translate="yes" xml:space="preserve">
+        <trans-unit id="124" translate="yes" xml:space="preserve">
           <source>This is true for messages that originated elsewhere in the mesh that your node has received as well as messages created by your application.</source>
         </trans-unit>
-        <trans-unit id="126" translate="yes" xml:space="preserve">
+        <trans-unit id="125" translate="yes" xml:space="preserve">
           <source>The filter has access to both the message and its origination, so decisions about forwarding or dropping the message can be based on the full information available.</source>
         </trans-unit>
-        <trans-unit id="127" translate="yes" xml:space="preserve">
+        <trans-unit id="126" translate="yes" xml:space="preserve">
           <source><ph id="ph1">&lt;xref:System.ServiceModel.PeerMessagePropagationFilter&gt;</ph> is a base abstract class with a single function, <ph id="ph2">&lt;xref:System.ServiceModel.PeerMessagePropagationFilter.ShouldMessagePropagate%2A&gt;</ph>.</source>
         </trans-unit>
-        <trans-unit id="128" translate="yes" xml:space="preserve">
+        <trans-unit id="127" translate="yes" xml:space="preserve">
           <source>The first argument of the method call passes in a full copy of the message.</source>
         </trans-unit>
-        <trans-unit id="129" translate="yes" xml:space="preserve">
+        <trans-unit id="128" translate="yes" xml:space="preserve">
           <source>Any changes made to the message do not affect the actual message.</source>
         </trans-unit>
-        <trans-unit id="130" translate="yes" xml:space="preserve">
+        <trans-unit id="129" translate="yes" xml:space="preserve">
           <source>The last argument of the method call identifies the origin of the message (<ph id="ph1">`PeerMessageOrigination.Local`</ph> or <ph id="ph2">`PeerMessageOrigination.Remote`</ph>).</source>
         </trans-unit>
-        <trans-unit id="131" translate="yes" xml:space="preserve">
+        <trans-unit id="130" translate="yes" xml:space="preserve">
           <source>Concrete implementations of this method must return a constant from the <ph id="ph1">&lt;xref:System.ServiceModel.PeerMessagePropagation&gt;</ph> enumeration indicating that the message is to be forwarded to the local application (<ph id="ph2">`Local`</ph>), forwarded to remote clients (<ph id="ph3">`Remote`</ph>), both (<ph id="ph4">`LocalAndRemote`</ph>), or neither (<ph id="ph5">`None`</ph>).</source>
         </trans-unit>
-        <trans-unit id="132" translate="yes" xml:space="preserve">
+        <trans-unit id="131" translate="yes" xml:space="preserve">
           <source>This filter can be applied by accessing the corresponding <ph id="ph1">`PeerNode`</ph> object and specifying an instance of the derived propagation filter class in the <ph id="ph2">`PeerNode.MessagePropagationFilter`</ph> property.</source>
         </trans-unit>
-        <trans-unit id="133" translate="yes" xml:space="preserve">
+        <trans-unit id="132" translate="yes" xml:space="preserve">
           <source>Ensure that the propagation filter is attached before opening the Peer Channel.</source>
         </trans-unit>
-        <trans-unit id="134" translate="yes" xml:space="preserve">
+        <trans-unit id="133" translate="yes" xml:space="preserve">
           <source>For code snippets and related information, see the <bpt id="p1">[</bpt>Peer Channel blog<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=114532)</ept> (http://go.microsoft.com/fwlink/?LinkID=114532).</source>
         </trans-unit>
-        <trans-unit id="135" translate="yes" xml:space="preserve">
+        <trans-unit id="134" translate="yes" xml:space="preserve">
           <source>Contacting an Individual Node in the Mesh</source>
         </trans-unit>
-        <trans-unit id="136" translate="yes" xml:space="preserve">
+        <trans-unit id="135" translate="yes" xml:space="preserve">
           <source>An individual node in a mesh can be contacted by setting up a local filter, or by setting up a direct connection.</source>
         </trans-unit>
-        <trans-unit id="137" translate="yes" xml:space="preserve">
+        <trans-unit id="136" translate="yes" xml:space="preserve">
           <source>If the nodes in a mesh each have an individual ID, a destination ID can be specified in the implementation of your message.</source>
         </trans-unit>
-        <trans-unit id="138" translate="yes" xml:space="preserve">
+        <trans-unit id="137" translate="yes" xml:space="preserve">
           <source>A local filter can be set up by writing a function in your message contract that will only display the message to the current node if its ID matches the destination ID you specified.</source>
         </trans-unit>
-        <trans-unit id="139" translate="yes" xml:space="preserve">
+        <trans-unit id="138" translate="yes" xml:space="preserve">
           <source>The mesh transports the message, so the overhead of setting up a new connection does not have to be incurred.</source>
         </trans-unit>
-        <trans-unit id="140" translate="yes" xml:space="preserve">
+        <trans-unit id="139" translate="yes" xml:space="preserve">
           <source>However, there is a loss of efficiency since the message is sent many times throughout the mesh.</source>
         </trans-unit>
-        <trans-unit id="141" translate="yes" xml:space="preserve">
+        <trans-unit id="140" translate="yes" xml:space="preserve">
           <source>This works well for sending messages to individual members of a mesh as long as the messages are neither too big nor too frequent.</source>
         </trans-unit>
-        <trans-unit id="142" translate="yes" xml:space="preserve">
+        <trans-unit id="141" translate="yes" xml:space="preserve">
           <source>For long-lasting, high-bandwidth connections, direct connections are preferable.</source>
         </trans-unit>
-        <trans-unit id="143" translate="yes" xml:space="preserve">
+        <trans-unit id="142" translate="yes" xml:space="preserve">
           <source>You can send connection information over the mesh, and then set up a direct connection of your choosing to send/receive messages.</source>
         </trans-unit>
-        <trans-unit id="144" translate="yes" xml:space="preserve">
+        <trans-unit id="143" translate="yes" xml:space="preserve">
           <source>Choosing an Approach for Limiting Message Distribution</source>
         </trans-unit>
-        <trans-unit id="145" translate="yes" xml:space="preserve">
+        <trans-unit id="144" translate="yes" xml:space="preserve">
           <source>When you discover a scenario in which you need to limit message distribution, ask yourself the following questions:</source>
         </trans-unit>
-        <trans-unit id="146" translate="yes" xml:space="preserve">
+        <trans-unit id="145" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Who<ept id="p1">**</ept> needs to receive the message?</source>
         </trans-unit>
-        <trans-unit id="147" translate="yes" xml:space="preserve">
+        <trans-unit id="146" translate="yes" xml:space="preserve">
           <source>Just one neighbor node?</source>
         </trans-unit>
-        <trans-unit id="148" translate="yes" xml:space="preserve">
+        <trans-unit id="147" translate="yes" xml:space="preserve">
           <source>A node somewhere else in the mesh?</source>
         </trans-unit>
-        <trans-unit id="149" translate="yes" xml:space="preserve">
+        <trans-unit id="148" translate="yes" xml:space="preserve">
           <source>Half the mesh?</source>
         </trans-unit>
-        <trans-unit id="150" translate="yes" xml:space="preserve">
+        <trans-unit id="149" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>How often<ept id="p1">**</ept> will this message be sent?</source>
         </trans-unit>
-        <trans-unit id="151" translate="yes" xml:space="preserve">
+        <trans-unit id="150" translate="yes" xml:space="preserve">
           <source>What kind of <bpt id="p1">**</bpt>bandwidth<ept id="p1">**</ept> will this message use?</source>
         </trans-unit>
-        <trans-unit id="152" translate="yes" xml:space="preserve">
+        <trans-unit id="151" translate="yes" xml:space="preserve">
           <source>The answers to these questions can help you determine whether to use Hop Count, a Message Propagation Filter, a local filter, or a direct connection.</source>
         </trans-unit>
-        <trans-unit id="153" translate="yes" xml:space="preserve">
+        <trans-unit id="152" translate="yes" xml:space="preserve">
           <source>Consider the following general guidelines:</source>
         </trans-unit>
-        <trans-unit id="154" translate="yes" xml:space="preserve">
+        <trans-unit id="153" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Who<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="155" translate="yes" xml:space="preserve">
+        <trans-unit id="154" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Individual node<ept id="p1">*</ept>:  Local filter or direct connection.</source>
         </trans-unit>
-        <trans-unit id="156" translate="yes" xml:space="preserve">
+        <trans-unit id="155" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Neighbors within a certain vicinity<ept id="p1">*</ept>:  PeerHopCount.</source>
         </trans-unit>
-        <trans-unit id="157" translate="yes" xml:space="preserve">
+        <trans-unit id="156" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Complex subset of the mesh<ept id="p1">*</ept>:  MessagePropagationFilter.</source>
         </trans-unit>
-        <trans-unit id="158" translate="yes" xml:space="preserve">
+        <trans-unit id="157" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>How often<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="159" translate="yes" xml:space="preserve">
+        <trans-unit id="158" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Very frequent<ept id="p1">*</ept>:  Direct connection, PeerHopCount, MessagePropagationFilter.</source>
         </trans-unit>
-        <trans-unit id="160" translate="yes" xml:space="preserve">
+        <trans-unit id="159" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Occasional<ept id="p1">*</ept>:  Local filter.</source>
         </trans-unit>
-        <trans-unit id="161" translate="yes" xml:space="preserve">
+        <trans-unit id="160" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Bandwidth use<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="162" translate="yes" xml:space="preserve">
+        <trans-unit id="161" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>High<ept id="p1">*</ept>:  Direct connection, less advisable to use MessagePropagationFilter or local filter.</source>
         </trans-unit>
-        <trans-unit id="163" translate="yes" xml:space="preserve">
+        <trans-unit id="162" translate="yes" xml:space="preserve">
           <source><bpt id="p1">*</bpt>Low<ept id="p1">*</ept>:  Any, direct connection probably not needed.</source>
         </trans-unit>
-        <trans-unit id="164" translate="yes" xml:space="preserve">
+        <trans-unit id="163" translate="yes" xml:space="preserve">
           <source>See Also</source>
         </trans-unit>
-        <trans-unit id="165" translate="yes" xml:space="preserve">
+        <trans-unit id="164" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Building a Peer Channel Application<ept id="p1">](../../../../docs/framework/wcf/feature-details/building-a-peer-channel-application.md)</ept></source>
         </trans-unit>
       </group>
