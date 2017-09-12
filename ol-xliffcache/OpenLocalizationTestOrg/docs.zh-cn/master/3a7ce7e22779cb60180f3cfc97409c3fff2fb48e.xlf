@@ -2,13 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" original="optimizing-performance-object-behavior.md" source-language="en-US" target-language="zh-cn">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b2a8af3" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b7d726c" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3a7ce7e22779cb60180f3cfc97409c3fff2fb48e</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wpf\advanced\optimizing-performance-object-behavior.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
       <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">70bdedc652078f002fbfcd67f71c81d14abca5c5</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">31573a79f437d2ec73a420a501e4fec6a383b1d4</xliffext:olxliffhash>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fc1eaa128ee22325ff4a90efd559acedb920bd34</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ed7828b9b1d33bd822abe77de15c335922d17f26</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
@@ -160,183 +160,153 @@
           <source>Consider the following example in which each <ph id="ph1">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph> uses the same <ph id="ph2">&lt;xref:System.Windows.Media.Brush&gt;</ph> object:</source>
         </trans-unit>
         <trans-unit id="150" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet2<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet2)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="151" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet2<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet2)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="152" translate="yes" xml:space="preserve">
           <source>By default, <ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> provides an event handler for the <ph id="ph2">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph> object's <ph id="ph3">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event in order to invalidate the <ph id="ph4">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph> object's <ph id="ph5">&lt;xref:System.Windows.Shapes.Shape.Fill%2A&gt;</ph> property.</source>
         </trans-unit>
-        <trans-unit id="153" translate="yes" xml:space="preserve">
+        <trans-unit id="151" translate="yes" xml:space="preserve">
           <source>In this case, each time the <ph id="ph1">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph> has to fire its <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event it is required to invoke the callback function for each <ph id="ph3">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph>—the accumulation of these callback function invocations impose a significant performance penalty.</source>
         </trans-unit>
-        <trans-unit id="154" translate="yes" xml:space="preserve">
+        <trans-unit id="152" translate="yes" xml:space="preserve">
           <source>In addition, it is very performance intensive to add and remove handlers at this point since the application would have to traverse the entire list to do so.</source>
         </trans-unit>
-        <trans-unit id="155" translate="yes" xml:space="preserve">
+        <trans-unit id="153" translate="yes" xml:space="preserve">
           <source>If your application scenario never changes the <ph id="ph1">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph>, you will be paying the cost of maintaining <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event handlers unnecessarily.</source>
         </trans-unit>
-        <trans-unit id="156" translate="yes" xml:space="preserve">
+        <trans-unit id="154" translate="yes" xml:space="preserve">
           <source>Freezing a <ph id="ph1">&lt;xref:System.Windows.Freezable&gt;</ph> can improve its performance, because it no longer needs to expend resources on maintaining change notifications.</source>
         </trans-unit>
-        <trans-unit id="157" translate="yes" xml:space="preserve">
+        <trans-unit id="155" translate="yes" xml:space="preserve">
           <source>The table below shows the size of a simple <ph id="ph1">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph> when its <ph id="ph2">&lt;xref:System.Windows.Freezable.IsFrozen%2A&gt;</ph> property is set to <ph id="ph3">`true`</ph>, compared to when it is not.</source>
         </trans-unit>
-        <trans-unit id="158" translate="yes" xml:space="preserve">
+        <trans-unit id="156" translate="yes" xml:space="preserve">
           <source>This assumes applying one brush to the <ph id="ph1">&lt;xref:System.Windows.Shapes.Shape.Fill%2A&gt;</ph> property of ten <ph id="ph2">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph> objects.</source>
         </trans-unit>
-        <trans-unit id="159" translate="yes" xml:space="preserve">
+        <trans-unit id="157" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>State<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="160" translate="yes" xml:space="preserve">
+        <trans-unit id="158" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Size<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="161" translate="yes" xml:space="preserve">
+        <trans-unit id="159" translate="yes" xml:space="preserve">
           <source>Frozen <ph id="ph1">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph></source>
         </trans-unit>
-        <trans-unit id="162" translate="yes" xml:space="preserve">
+        <trans-unit id="160" translate="yes" xml:space="preserve">
           <source>212 Bytes</source>
         </trans-unit>
-        <trans-unit id="163" translate="yes" xml:space="preserve">
+        <trans-unit id="161" translate="yes" xml:space="preserve">
           <source>Non-frozen <ph id="ph1">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph></source>
         </trans-unit>
-        <trans-unit id="164" translate="yes" xml:space="preserve">
+        <trans-unit id="162" translate="yes" xml:space="preserve">
           <source>972 Bytes</source>
         </trans-unit>
-        <trans-unit id="165" translate="yes" xml:space="preserve">
+        <trans-unit id="163" translate="yes" xml:space="preserve">
           <source>The following code sample demonstrates this concept:</source>
         </trans-unit>
-        <trans-unit id="166" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet3<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet3)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="167" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet3<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet3)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="168" translate="yes" xml:space="preserve">
+        <trans-unit id="164" translate="yes" xml:space="preserve">
           <source>Changed Handlers on Unfrozen Freezables may Keep Objects Alive</source>
         </trans-unit>
-        <trans-unit id="169" translate="yes" xml:space="preserve">
+        <trans-unit id="165" translate="yes" xml:space="preserve">
           <source>The delegate that an object passes to a <ph id="ph1">&lt;xref:System.Windows.Freezable&gt;</ph> object's <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event is effectively a reference to that object.</source>
         </trans-unit>
-        <trans-unit id="170" translate="yes" xml:space="preserve">
+        <trans-unit id="166" translate="yes" xml:space="preserve">
           <source>Therefore, <ph id="ph1">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event handlers can keep objects alive longer than expected.</source>
         </trans-unit>
-        <trans-unit id="171" translate="yes" xml:space="preserve">
+        <trans-unit id="167" translate="yes" xml:space="preserve">
           <source>When performing clean up of an object that has registered to listen to a <ph id="ph1">&lt;xref:System.Windows.Freezable&gt;</ph> object's <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event, it is essential to remove that delegate before releasing the object.</source>
         </trans-unit>
-        <trans-unit id="172" translate="yes" xml:space="preserve">
+        <trans-unit id="168" translate="yes" xml:space="preserve">
           <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> also hooks up <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> events internally.</source>
         </trans-unit>
-        <trans-unit id="173" translate="yes" xml:space="preserve">
+        <trans-unit id="169" translate="yes" xml:space="preserve">
           <source>For example, all dependency properties which take <ph id="ph1">&lt;xref:System.Windows.Freezable&gt;</ph> as a value will listen to <ph id="ph2">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> events automatically.</source>
         </trans-unit>
-        <trans-unit id="174" translate="yes" xml:space="preserve">
+        <trans-unit id="170" translate="yes" xml:space="preserve">
           <source>The <ph id="ph1">&lt;xref:System.Windows.Shapes.Shape.Fill%2A&gt;</ph> property, which takes a <ph id="ph2">&lt;xref:System.Windows.Media.Brush&gt;</ph>, illustrates this concept.</source>
         </trans-unit>
-        <trans-unit id="175" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet4<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet4)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="176" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet4<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet4)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="177" translate="yes" xml:space="preserve">
+        <trans-unit id="171" translate="yes" xml:space="preserve">
           <source>On the assignment of <ph id="ph1">`myBrush`</ph> to <ph id="ph2">`myRectangle.Fill`</ph>, a delegate pointing back to the <ph id="ph3">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph> object will be added to the <ph id="ph4">&lt;xref:System.Windows.Media.SolidColorBrush&gt;</ph> object's <ph id="ph5">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event.</source>
         </trans-unit>
-        <trans-unit id="178" translate="yes" xml:space="preserve">
+        <trans-unit id="172" translate="yes" xml:space="preserve">
           <source>This means the following code does not actually make <ph id="ph1">`myRect`</ph> eligible for garbage collection:</source>
         </trans-unit>
-        <trans-unit id="179" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet5<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet5)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="180" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet5<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet5)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="181" translate="yes" xml:space="preserve">
+        <trans-unit id="173" translate="yes" xml:space="preserve">
           <source>In this case <ph id="ph1">`myBrush`</ph> is still keeping <ph id="ph2">`myRectangle`</ph> alive and will call back to it when it fires its <ph id="ph3">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event.</source>
         </trans-unit>
-        <trans-unit id="182" translate="yes" xml:space="preserve">
+        <trans-unit id="174" translate="yes" xml:space="preserve">
           <source>Note that assigning <ph id="ph1">`myBrush`</ph> to the <ph id="ph2">&lt;xref:System.Windows.Shapes.Shape.Fill%2A&gt;</ph> property of a new <ph id="ph3">&lt;xref:System.Windows.Shapes.Rectangle&gt;</ph> will simply add another event handler to <ph id="ph4">`myBrush`</ph>.</source>
         </trans-unit>
-        <trans-unit id="183" translate="yes" xml:space="preserve">
+        <trans-unit id="175" translate="yes" xml:space="preserve">
           <source>The recommended way to clean up these types of objects is to remove the <ph id="ph1">&lt;xref:System.Windows.Media.Brush&gt;</ph> from the <ph id="ph2">&lt;xref:System.Windows.Shapes.Shape.Fill%2A&gt;</ph> property, which will in turn remove the <ph id="ph3">&lt;xref:System.Windows.Freezable.Changed&gt;</ph> event handler.</source>
         </trans-unit>
-        <trans-unit id="184" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet6<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Wpf/Performance/CSharp/Window1.xaml.cs#performancesnippet6)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="185" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>Performance#PerformanceSnippet6<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Wpf/Performance/visualbasic/window1.xaml.vb#performancesnippet6)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="186" translate="yes" xml:space="preserve">
+        <trans-unit id="176" translate="yes" xml:space="preserve">
           <source>User Interface Virtualization</source>
         </trans-unit>
-        <trans-unit id="187" translate="yes" xml:space="preserve">
+        <trans-unit id="177" translate="yes" xml:space="preserve">
           <source><ph id="ph1">[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]</ph> also provides a variation of the <ph id="ph2">&lt;xref:System.Windows.Controls.StackPanel&gt;</ph> element that automatically "virtualizes" data-bound child content.</source>
         </trans-unit>
-        <trans-unit id="188" translate="yes" xml:space="preserve">
+        <trans-unit id="178" translate="yes" xml:space="preserve">
           <source>In this context, the word virtualize refers to a technique by which a subset of objects are generated from a larger number of data items based upon which items are visible on-screen.</source>
         </trans-unit>
-        <trans-unit id="189" translate="yes" xml:space="preserve">
+        <trans-unit id="179" translate="yes" xml:space="preserve">
           <source>It is intensive, both in terms of memory and processor, to generate a large number of UI elements when only a few may be on the screen at a given time.</source>
         </trans-unit>
-        <trans-unit id="190" translate="yes" xml:space="preserve">
+        <trans-unit id="180" translate="yes" xml:space="preserve">
           <source><ph id="ph1">&lt;xref:System.Windows.Controls.VirtualizingStackPanel&gt;</ph> (through functionality provided by <ph id="ph2">&lt;xref:System.Windows.Controls.VirtualizingPanel&gt;</ph>) calculates visible items and works with the <ph id="ph3">&lt;xref:System.Windows.Controls.ItemContainerGenerator&gt;</ph> from an <ph id="ph4">&lt;xref:System.Windows.Controls.ItemsControl&gt;</ph> (such as <ph id="ph5">&lt;xref:System.Windows.Controls.ListBox&gt;</ph> or <ph id="ph6">&lt;xref:System.Windows.Controls.ListView&gt;</ph>) to only create elements for visible items.</source>
         </trans-unit>
-        <trans-unit id="191" translate="yes" xml:space="preserve">
+        <trans-unit id="181" translate="yes" xml:space="preserve">
           <source>As a performance optimization, visual objects for these items are only generated or kept alive if they are visible on the screen.</source>
         </trans-unit>
-        <trans-unit id="192" translate="yes" xml:space="preserve">
+        <trans-unit id="182" translate="yes" xml:space="preserve">
           <source>When they are no longer in the viewable area of the control, the visual objects may be removed.</source>
         </trans-unit>
-        <trans-unit id="193" translate="yes" xml:space="preserve">
+        <trans-unit id="183" translate="yes" xml:space="preserve">
           <source>This is not to be confused with data virtualization, where data objects are not all present in the local collection- rather streamed in as needed.</source>
         </trans-unit>
-        <trans-unit id="194" translate="yes" xml:space="preserve">
+        <trans-unit id="184" translate="yes" xml:space="preserve">
           <source>The table below shows the elapsed time adding and rendering 5000 <ph id="ph1">&lt;xref:System.Windows.Controls.TextBlock&gt;</ph> elements to a <ph id="ph2">&lt;xref:System.Windows.Controls.StackPanel&gt;</ph> and a <ph id="ph3">&lt;xref:System.Windows.Controls.VirtualizingStackPanel&gt;</ph>.</source>
         </trans-unit>
-        <trans-unit id="195" translate="yes" xml:space="preserve">
+        <trans-unit id="185" translate="yes" xml:space="preserve">
           <source>In this scenario, the measurements represent the time between attaching a text string to the <ph id="ph1">&lt;xref:System.Windows.Controls.ItemsControl.ItemsSource%2A&gt;</ph> property of an <ph id="ph2">&lt;xref:System.Windows.Controls.ItemsControl&gt;</ph> object to the time when the panel elements display the text string.</source>
         </trans-unit>
-        <trans-unit id="196" translate="yes" xml:space="preserve">
+        <trans-unit id="186" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Host panel<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="197" translate="yes" xml:space="preserve">
+        <trans-unit id="187" translate="yes" xml:space="preserve">
           <source><bpt id="p1">**</bpt>Render time (ms)<ept id="p1">**</ept></source>
         </trans-unit>
-        <trans-unit id="198" translate="yes" xml:space="preserve">
+        <trans-unit id="188" translate="yes" xml:space="preserve">
           <source>3210</source>
         </trans-unit>
-        <trans-unit id="199" translate="yes" xml:space="preserve">
+        <trans-unit id="189" translate="yes" xml:space="preserve">
           <source>46</source>
         </trans-unit>
-        <trans-unit id="200" translate="yes" xml:space="preserve">
+        <trans-unit id="190" translate="yes" xml:space="preserve">
           <source>See Also</source>
         </trans-unit>
-        <trans-unit id="201" translate="yes" xml:space="preserve">
+        <trans-unit id="191" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Optimizing WPF Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-wpf-application-performance.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="202" translate="yes" xml:space="preserve">
+        <trans-unit id="192" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Planning for Application Performance<ept id="p1">](../../../../docs/framework/wpf/advanced/planning-for-application-performance.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="203" translate="yes" xml:space="preserve">
+        <trans-unit id="193" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Taking Advantage of Hardware<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-taking-advantage-of-hardware.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="204" translate="yes" xml:space="preserve">
+        <trans-unit id="194" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Layout and Design<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-layout-and-design.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="205" translate="yes" xml:space="preserve">
+        <trans-unit id="195" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>2D Graphics and Imaging<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-2d-graphics-and-imaging.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="206" translate="yes" xml:space="preserve">
+        <trans-unit id="196" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Application Resources<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-application-resources.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="207" translate="yes" xml:space="preserve">
+        <trans-unit id="197" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Text<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-text.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="208" translate="yes" xml:space="preserve">
+        <trans-unit id="198" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Data Binding<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-data-binding.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="209" translate="yes" xml:space="preserve">
+        <trans-unit id="199" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Other Performance Recommendations<ept id="p1">](../../../../docs/framework/wpf/advanced/optimizing-performance-other-recommendations.md)</ept></source>
         </trans-unit>
       </group>
