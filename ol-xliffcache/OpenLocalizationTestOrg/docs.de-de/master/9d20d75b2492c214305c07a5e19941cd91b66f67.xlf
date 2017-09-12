@@ -2,13 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" original="how-to-add-and-remove-items.md" source-language="en-US" target-language="de-de">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b2a8af3" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b7d726c" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9d20d75b2492c214305c07a5e19941cd91b66f67</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\collections\thread-safe\how-to-add-and-remove-items.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-hi-ht</xliffext:oltranslationpriority>
       <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b9bd3a36e39cb6c4bdf4be9b6a394d08b1b4232f</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d8dddb7bf64a8a98430f0ad128db233824511a27</xliffext:olxliffhash>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f47e21c4073ff6d225a4fe86e770831188a1a426</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b0b04a5762095a02e2cc938bc89095cc4441d256</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
@@ -61,54 +61,48 @@
           <source>The example also shows how to use the <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.AddOrUpdate%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Collections.Generic.Dictionary%602.TryGetValue%2A&gt;</ph>, and <ph id="ph3">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.GetOrAdd%2A&gt;</ph> methods to add, update, and retrieve  items from the collection.</source>
         </trans-unit>
         <trans-unit id="117" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>CDS#16<ept id="p2">](../../../../samples/snippets/csharp/VS_Snippets_Misc/cds/cs/cds_dictionaryhowto.cs#16)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="118" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>CDS#16<ept id="p2">](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/cds/vb/cds_concdict.vb#16)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="119" translate="yes" xml:space="preserve">
           <source><ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602&gt;</ph> is designed for multithreaded scenarios.</source>
         </trans-unit>
-        <trans-unit id="120" translate="yes" xml:space="preserve">
+        <trans-unit id="118" translate="yes" xml:space="preserve">
           <source>You do not have to use locks in your code to add or remove items from the collection.</source>
         </trans-unit>
-        <trans-unit id="121" translate="yes" xml:space="preserve">
+        <trans-unit id="119" translate="yes" xml:space="preserve">
           <source>However, it is always possible for one thread to retrieve a value, and another thread to immediately update the collection by giving the same key a new value.</source>
         </trans-unit>
-        <trans-unit id="122" translate="yes" xml:space="preserve">
+        <trans-unit id="120" translate="yes" xml:space="preserve">
           <source>Also, although all methods of <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602&gt;</ph> are thread-safe, not all methods are atomic, specifically <ph id="ph2">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.GetOrAdd%2A&gt;</ph> and <ph id="ph3">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.AddOrUpdate%2A&gt;</ph>.</source>
         </trans-unit>
-        <trans-unit id="123" translate="yes" xml:space="preserve">
+        <trans-unit id="121" translate="yes" xml:space="preserve">
           <source>The user delegate that is passed to these methods is invoked outside of the dictionary's internal lock.</source>
         </trans-unit>
-        <trans-unit id="124" translate="yes" xml:space="preserve">
+        <trans-unit id="122" translate="yes" xml:space="preserve">
           <source>(This is done to prevent unknown code from blocking all threads.) Therefore it is possible for this sequence of events to occur:</source>
         </trans-unit>
-        <trans-unit id="125" translate="yes" xml:space="preserve">
+        <trans-unit id="123" translate="yes" xml:space="preserve">
           <source>1<ph id="ph1">\)</ph> threadA calls <ph id="ph2">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.GetOrAdd%2A&gt;</ph>, finds no item and creates a new item to Add by invoking the valueFactory delegate.</source>
         </trans-unit>
-        <trans-unit id="126" translate="yes" xml:space="preserve">
+        <trans-unit id="124" translate="yes" xml:space="preserve">
           <source>2<ph id="ph1">\)</ph> threadB calls <ph id="ph2">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.GetOrAdd%2A&gt;</ph> concurrently, its valueFactory delegate is invoked and it arrives at the internal lock before threadA, and so its new key-value pair is added to the dictionary.</source>
         </trans-unit>
-        <trans-unit id="127" translate="yes" xml:space="preserve">
+        <trans-unit id="125" translate="yes" xml:space="preserve">
           <source>3<ph id="ph1">\)</ph> threadA's user delegate completes, and the thread arrives at the lock, but now sees that the item exists already</source>
         </trans-unit>
-        <trans-unit id="128" translate="yes" xml:space="preserve">
+        <trans-unit id="126" translate="yes" xml:space="preserve">
           <source>4<ph id="ph1">\)</ph> threadA performs a "Get", and returns the data that was previously added by threadB.</source>
         </trans-unit>
-        <trans-unit id="129" translate="yes" xml:space="preserve">
+        <trans-unit id="127" translate="yes" xml:space="preserve">
           <source>Therefore, it is not guaranteed that the data that is returned by <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.GetOrAdd%2A&gt;</ph> is the same data that was created by the thread's valueFactory.</source>
         </trans-unit>
-        <trans-unit id="130" translate="yes" xml:space="preserve">
+        <trans-unit id="128" translate="yes" xml:space="preserve">
           <source>A similar sequence of events can occur when <ph id="ph1">&lt;xref:System.Collections.Concurrent.ConcurrentDictionary%602.AddOrUpdate%2A&gt;</ph> is called.</source>
         </trans-unit>
-        <trans-unit id="131" translate="yes" xml:space="preserve">
+        <trans-unit id="129" translate="yes" xml:space="preserve">
           <source>See Also</source>
         </trans-unit>
-        <trans-unit id="132" translate="yes" xml:space="preserve">
+        <trans-unit id="130" translate="yes" xml:space="preserve">
           <source><ph id="ph1">&lt;xref:System.Collections.Concurrent?displayProperty=fullName&gt;</ph></source>
         </trans-unit>
-        <trans-unit id="133" translate="yes" xml:space="preserve">
+        <trans-unit id="131" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Thread-Safe Collections<ept id="p1">](../../../../docs/standard/collections/thread-safe/index.md)</ept></source>
         </trans-unit>
       </group>
