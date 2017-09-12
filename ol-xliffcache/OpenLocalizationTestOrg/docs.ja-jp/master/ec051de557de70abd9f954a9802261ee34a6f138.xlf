@@ -2,13 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" original="potential-pitfalls-in-data-and-task-parallelism.md" source-language="en-US" target-language="ja-jp">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b2a8af3" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-b7d726c" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ec051de557de70abd9f954a9802261ee34a6f138</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\potential-pitfalls-in-data-and-task-parallelism.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
       <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">b5c9531b4373a163624deb87e63a3df3ae31510f</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9c38aee01cbf96f750f6f684345f59e16ae0672c</xliffext:olxliffhash>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">893b4131461a48c2a97d22aa0b510dfea429456b</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">87f1d125491c1d65988df1e270c21ccc6694b064</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
@@ -109,156 +109,132 @@
           <source>In the following example, multiple threads would be attempting to call the <ph id="ph1">&lt;xref:System.IO.FileStream.WriteByte%2A?displayProperty=fullName&gt;</ph> method simultaneously, which is not supported by the class.</source>
         </trans-unit>
         <trans-unit id="133" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#04<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_pitfalls/cs/pitfalls.cs#04)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="134" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#04<ept id="p2">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_pitfalls/vb/pitfalls_vb.vb#04)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="135" translate="yes" xml:space="preserve">
           <source>Limit Calls to Thread-Safe Methods</source>
         </trans-unit>
-        <trans-unit id="136" translate="yes" xml:space="preserve">
+        <trans-unit id="134" translate="yes" xml:space="preserve">
           <source>Most static methods in the .NET Framework are thread-safe and can be called from multiple threads concurrently.</source>
         </trans-unit>
-        <trans-unit id="137" translate="yes" xml:space="preserve">
+        <trans-unit id="135" translate="yes" xml:space="preserve">
           <source>However, even in these cases, the synchronization involved can lead to significant slowdown in the query.</source>
         </trans-unit>
-        <trans-unit id="138" translate="yes" xml:space="preserve">
+        <trans-unit id="136" translate="yes" xml:space="preserve">
           <source>You can test for this yourself by inserting some calls to <ph id="ph1">&lt;xref:System.Console.WriteLine%2A&gt;</ph> in your queries.</source>
         </trans-unit>
-        <trans-unit id="139" translate="yes" xml:space="preserve">
+        <trans-unit id="137" translate="yes" xml:space="preserve">
           <source>Although this method is used in the documentation examples for demonstration purposes, do not use it in parallel loops unless necessary.</source>
         </trans-unit>
-        <trans-unit id="140" translate="yes" xml:space="preserve">
+        <trans-unit id="138" translate="yes" xml:space="preserve">
           <source>Be Aware of Thread Affinity Issues</source>
         </trans-unit>
-        <trans-unit id="141" translate="yes" xml:space="preserve">
+        <trans-unit id="139" translate="yes" xml:space="preserve">
           <source>Some technologies, for example, COM interoperability for Single-Threaded Apartment (STA) components, Windows Forms, and Windows Presentation Foundation (WPF), impose thread affinity restrictions that require code to run on a specific thread.</source>
         </trans-unit>
-        <trans-unit id="142" translate="yes" xml:space="preserve">
+        <trans-unit id="140" translate="yes" xml:space="preserve">
           <source>For example, in both Windows Forms and WPF, a control can only be accessed on the thread on which it was created.</source>
         </trans-unit>
-        <trans-unit id="143" translate="yes" xml:space="preserve">
+        <trans-unit id="141" translate="yes" xml:space="preserve">
           <source>This means, for example, that you cannot update a list control from a parallel loop unless you configure the thread scheduler to schedule work only on the UI thread.</source>
         </trans-unit>
-        <trans-unit id="144" translate="yes" xml:space="preserve">
+        <trans-unit id="142" translate="yes" xml:space="preserve">
           <source>For more information, see <bpt id="p1">[</bpt>How to: Schedule Work on the User Interface (UI) Thread<ept id="p1">](http://msdn.microsoft.com/library/32a846a5-d628-4933-907b-4888ff72c663)</ept>.</source>
         </trans-unit>
-        <trans-unit id="145" translate="yes" xml:space="preserve">
+        <trans-unit id="143" translate="yes" xml:space="preserve">
           <source>Use Caution When Waiting in Delegates That Are Called by Parallel.Invoke</source>
         </trans-unit>
-        <trans-unit id="146" translate="yes" xml:space="preserve">
+        <trans-unit id="144" translate="yes" xml:space="preserve">
           <source>In certain circumstances, the Task Parallel Library will inline a task, which means it runs on the task on the currently executing thread.</source>
         </trans-unit>
-        <trans-unit id="147" translate="yes" xml:space="preserve">
+        <trans-unit id="145" translate="yes" xml:space="preserve">
           <source>(For more information, see <bpt id="p1">[</bpt>Task Schedulers<ept id="p1">](http://msdn.microsoft.com/library/638f8ea5-21db-47a2-a934-86e1e961bf65)</ept>.) This performance optimization can lead to deadlock in certain cases.</source>
         </trans-unit>
-        <trans-unit id="148" translate="yes" xml:space="preserve">
+        <trans-unit id="146" translate="yes" xml:space="preserve">
           <source>For example, two tasks might run the same delegate code, which signals when an event occurs, and then waits for the other task to signal.</source>
         </trans-unit>
-        <trans-unit id="149" translate="yes" xml:space="preserve">
+        <trans-unit id="147" translate="yes" xml:space="preserve">
           <source>If the second task is inlined on the same thread as the first, and the first goes into a Wait state, the second task will never be able to signal its event.</source>
         </trans-unit>
-        <trans-unit id="150" translate="yes" xml:space="preserve">
+        <trans-unit id="148" translate="yes" xml:space="preserve">
           <source>To avoid such an occurrence, you can specify a timeout on the Wait operation, or use explicit thread constructors to help ensure that one task cannot block the other.</source>
         </trans-unit>
-        <trans-unit id="151" translate="yes" xml:space="preserve">
+        <trans-unit id="149" translate="yes" xml:space="preserve">
           <source>Do Not Assume that Iterations of ForEach, For and ForAll Always Execute in Parallel</source>
         </trans-unit>
-        <trans-unit id="152" translate="yes" xml:space="preserve">
+        <trans-unit id="150" translate="yes" xml:space="preserve">
           <source>It is important to keep in mind that individual iterations in a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph>, <ph id="ph2">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A&gt;</ph> or <ph id="ph3">&lt;xref:System.Linq.ParallelEnumerable.ForAll%2A&gt;</ph> loop may but do not have to execute in parallel.</source>
         </trans-unit>
-        <trans-unit id="153" translate="yes" xml:space="preserve">
+        <trans-unit id="151" translate="yes" xml:space="preserve">
           <source>Therefore, you should avoid writing any code that depends for correctness on parallel execution of iterations or on the execution of iterations in any particular order.</source>
         </trans-unit>
-        <trans-unit id="154" translate="yes" xml:space="preserve">
+        <trans-unit id="152" translate="yes" xml:space="preserve">
           <source>For example, this code is likely to deadlock:</source>
         </trans-unit>
-        <trans-unit id="155" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#01<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_pitfalls/cs/pitfalls.cs#01)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="156" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#01<ept id="p2">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_pitfalls/vb/pitfalls_vb.vb#01)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="157" translate="yes" xml:space="preserve">
+        <trans-unit id="153" translate="yes" xml:space="preserve">
           <source>In this example, one iteration sets an event, and all other iterations wait on the event.</source>
         </trans-unit>
-        <trans-unit id="158" translate="yes" xml:space="preserve">
+        <trans-unit id="154" translate="yes" xml:space="preserve">
           <source>None of the waiting iterations can complete until the event-setting iteration has completed.</source>
         </trans-unit>
-        <trans-unit id="159" translate="yes" xml:space="preserve">
+        <trans-unit id="155" translate="yes" xml:space="preserve">
           <source>However, it is possible that the waiting iterations block all threads that are used to execute the parallel loop, before the event-setting iteration has had a chance to execute.</source>
         </trans-unit>
-        <trans-unit id="160" translate="yes" xml:space="preserve">
+        <trans-unit id="156" translate="yes" xml:space="preserve">
           <source>This results in a deadlock – the event-setting iteration will never execute, and the waiting iterations will never wake up.</source>
         </trans-unit>
-        <trans-unit id="161" translate="yes" xml:space="preserve">
+        <trans-unit id="157" translate="yes" xml:space="preserve">
           <source>In particular, one iteration of a parallel loop should never wait on another iteration of the loop to make progress.</source>
         </trans-unit>
-        <trans-unit id="162" translate="yes" xml:space="preserve">
+        <trans-unit id="158" translate="yes" xml:space="preserve">
           <source>If the parallel loop decides to schedule the iterations sequentially but in the opposite order, a deadlock will occur.</source>
         </trans-unit>
-        <trans-unit id="163" translate="yes" xml:space="preserve">
+        <trans-unit id="159" translate="yes" xml:space="preserve">
           <source>Avoid Executing Parallel Loops on the UI Thread</source>
         </trans-unit>
-        <trans-unit id="164" translate="yes" xml:space="preserve">
+        <trans-unit id="160" translate="yes" xml:space="preserve">
           <source>It is important to keep your application's user interface (UI) responsive.</source>
         </trans-unit>
-        <trans-unit id="165" translate="yes" xml:space="preserve">
+        <trans-unit id="161" translate="yes" xml:space="preserve">
           <source>If an operation contains enough work to warrant parallelization, then it likely should not be run that operation on the UI thread.</source>
         </trans-unit>
-        <trans-unit id="166" translate="yes" xml:space="preserve">
+        <trans-unit id="162" translate="yes" xml:space="preserve">
           <source>Instead, it should offload that operation to be run on a background thread.</source>
         </trans-unit>
-        <trans-unit id="167" translate="yes" xml:space="preserve">
+        <trans-unit id="163" translate="yes" xml:space="preserve">
           <source>For example, if you want to use a parallel loop to compute some data that should then be rendered into a UI control, you should consider executing the loop within a task instance rather than directly in a UI event handler.</source>
         </trans-unit>
-        <trans-unit id="168" translate="yes" xml:space="preserve">
+        <trans-unit id="164" translate="yes" xml:space="preserve">
           <source>Only when the core computation has completed should you then marshal the UI update back to the UI thread.</source>
         </trans-unit>
-        <trans-unit id="169" translate="yes" xml:space="preserve">
+        <trans-unit id="165" translate="yes" xml:space="preserve">
           <source>If you do run parallel loops on the UI thread, be careful to avoid updating UI controls from within the loop.</source>
         </trans-unit>
-        <trans-unit id="170" translate="yes" xml:space="preserve">
+        <trans-unit id="166" translate="yes" xml:space="preserve">
           <source>Attempting to update UI controls from within a parallel loop that is executing on the UI thread can lead to state corruption, exceptions, delayed updates, and even deadlocks, depending on how the UI update is invoked.</source>
         </trans-unit>
-        <trans-unit id="171" translate="yes" xml:space="preserve">
+        <trans-unit id="167" translate="yes" xml:space="preserve">
           <source>In the following example, the parallel loop blocks the UI thread on which it’s executing until all iterations are complete.</source>
         </trans-unit>
-        <trans-unit id="172" translate="yes" xml:space="preserve">
+        <trans-unit id="168" translate="yes" xml:space="preserve">
           <source>However, if an iteration of the loop is running on a background thread (as <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph> may do), the call to Invoke causes a message to be submitted to the UI thread and blocks waiting for that message to be processed.</source>
         </trans-unit>
-        <trans-unit id="173" translate="yes" xml:space="preserve">
+        <trans-unit id="169" translate="yes" xml:space="preserve">
           <source>Since the UI thread is blocked running the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph>, the message can never be processed, and the UI thread deadlocks.</source>
         </trans-unit>
-        <trans-unit id="174" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#02<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_pitfalls/cs/pitfalls.cs#02)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="175" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#02<ept id="p2">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_pitfalls/vb/pitfalls_vb.vb#02)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="176" translate="yes" xml:space="preserve">
+        <trans-unit id="170" translate="yes" xml:space="preserve">
           <source>The following example shows how to avoid the deadlock, by running the loop inside a task instance.</source>
         </trans-unit>
-        <trans-unit id="177" translate="yes" xml:space="preserve">
+        <trans-unit id="171" translate="yes" xml:space="preserve">
           <source>The UI thread is not blocked by the loop, and the message can be processed.</source>
         </trans-unit>
-        <trans-unit id="178" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-csharp</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#03<ept id="p2">](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_pitfalls/cs/pitfalls.cs#03)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="179" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[!code-vb</bpt><bpt id="p2">[</bpt>TPL_Pitfalls#03<ept id="p2">](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_pitfalls/vb/pitfalls_vb.vb#03)</ept><ept id="p1">]</ept></source>
-        </trans-unit>
-        <trans-unit id="180" translate="yes" xml:space="preserve">
+        <trans-unit id="172" translate="yes" xml:space="preserve">
           <source>See Also</source>
         </trans-unit>
-        <trans-unit id="181" translate="yes" xml:space="preserve">
+        <trans-unit id="173" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Parallel Programming<ept id="p1">](../../../docs/standard/parallel-programming/index.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="182" translate="yes" xml:space="preserve">
+        <trans-unit id="174" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Potential Pitfalls with PLINQ<ept id="p1">](../../../docs/standard/parallel-programming/potential-pitfalls-with-plinq.md)</ept><ph id="ph1"> </ph></source>
         </trans-unit>
-        <trans-unit id="183" translate="yes" xml:space="preserve">
+        <trans-unit id="175" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Patterns for Parallel Programming: Understanding and Applying Parallel Patterns with the .NET Framework 4<ept id="p1">](http://go.microsoft.com/fwlink/?LinkID=185142)</ept></source>
         </trans-unit>
       </group>
