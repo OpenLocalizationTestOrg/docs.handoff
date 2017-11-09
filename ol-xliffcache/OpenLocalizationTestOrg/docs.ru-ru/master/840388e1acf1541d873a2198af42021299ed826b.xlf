@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" original="markdown" source-language="en-US" target-language="ru-ru">
+  <file datatype="xml" original="using-the-assert-method.md" source-language="en-US" target-language="ru-ru">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-868c4f2" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-4ca6b38" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">840388e1acf1541d873a2198af42021299ed826b</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\misc\using-the-assert-method.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
-      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">Machine Translation</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">df0f1370317d8b8269b1b4e85ad15d5b304128e5</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a74928a9a1ce4fd980c4b2dc5f11d34c97809567</xliffext:olxliffhash>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d1a5f8780ed9ee5a3c8ef76b70a8cc68d7c88dd9</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">981067690dd0e525802a828a8e92b3be48f8f0c4</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
-        <trans-unit id="101" translate="yes" xml:space="preserve">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
           <source>Using the Assert Method | Microsoft Docs</source>
         </trans-unit>
         <trans-unit id="102" translate="yes" xml:space="preserve">
@@ -103,117 +103,120 @@
           <source>Method A is contained in assembly A, method B is contained in assembly B, and so on.</source>
         </trans-unit>
         <trans-unit id="131" translate="yes" xml:space="preserve">
-          <source>Using Assert</source>
+          <source><bpt id="p1">![</bpt><ept id="p1">]</ept><bpt id="p2">(../../../docs/framework/misc/media/assert.gif "</bpt>assert<ept id="p2">")</ept></source>
         </trans-unit>
         <trans-unit id="132" translate="yes" xml:space="preserve">
-          <source>In this scenario, method A calls B, B calls C, C calls E, and E calls F. Method C asserts permission to read files on the C drive (permission P1), and method E demands permission to read .txt files on the C drive (permission P1A).</source>
+          <source>Using Assert</source>
         </trans-unit>
         <trans-unit id="133" translate="yes" xml:space="preserve">
-          <source>When the demand in F is encountered at run time, a stack walk is performed to check the permissions of all callers of F, starting with E. E has been granted P1A permission, so the stack walk proceeds to examine the permissions of C, where C's assertion is discovered.</source>
+          <source>In this scenario, method A calls B, B calls C, C calls E, and E calls F. Method C asserts permission to read files on the C drive (permission P1), and method E demands permission to read .txt files on the C drive (permission P1A).</source>
         </trans-unit>
         <trans-unit id="134" translate="yes" xml:space="preserve">
-          <source>Because the demanded permission (P1A) is a subset of the asserted permission (P1), the stack walk stops and the security check automatically succeeds.</source>
+          <source>When the demand in F is encountered at run time, a stack walk is performed to check the permissions of all callers of F, starting with E. E has been granted P1A permission, so the stack walk proceeds to examine the permissions of C, where C's assertion is discovered.</source>
         </trans-unit>
         <trans-unit id="135" translate="yes" xml:space="preserve">
-          <source>It does not matter that assemblies A and B have not been granted permission P1A.</source>
+          <source>Because the demanded permission (P1A) is a subset of the asserted permission (P1), the stack walk stops and the security check automatically succeeds.</source>
         </trans-unit>
         <trans-unit id="136" translate="yes" xml:space="preserve">
-          <source>By asserting P1, method C ensures that its callers can access the resource protected by P1, even if the callers have not been granted permission to access that resource.</source>
+          <source>It does not matter that assemblies A and B have not been granted permission P1A.</source>
         </trans-unit>
         <trans-unit id="137" translate="yes" xml:space="preserve">
-          <source>If you design a class library and a class accesses a protected resource, you should, in most cases, make a security demand requiring that the callers of the class have the appropriate permission.</source>
+          <source>By asserting P1, method C ensures that its callers can access the resource protected by P1, even if the callers have not been granted permission to access that resource.</source>
         </trans-unit>
         <trans-unit id="138" translate="yes" xml:space="preserve">
-          <source>If the class then performs an operation for which you know most of its callers will not have permission, and if you are willing to take the responsibility for letting these callers call your code, you can assert the permission by calling the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method on a permission object that represents the operation the code is performing.</source>
+          <source>If you design a class library and a class accesses a protected resource, you should, in most cases, make a security demand requiring that the callers of the class have the appropriate permission.</source>
         </trans-unit>
         <trans-unit id="139" translate="yes" xml:space="preserve">
-          <source>Using <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> in this way lets callers that normally could not do so call your code.</source>
+          <source>If the class then performs an operation for which you know most of its callers will not have permission, and if you are willing to take the responsibility for letting these callers call your code, you can assert the permission by calling the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method on a permission object that represents the operation the code is performing.</source>
         </trans-unit>
         <trans-unit id="140" translate="yes" xml:space="preserve">
-          <source>Therefore, if you assert a permission, you should be sure to perform appropriate security checks beforehand to prevent your component from being misused.</source>
+          <source>Using <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> in this way lets callers that normally could not do so call your code.</source>
         </trans-unit>
         <trans-unit id="141" translate="yes" xml:space="preserve">
-          <source>For example, suppose your highly trusted library class has a method that deletes files.</source>
+          <source>Therefore, if you assert a permission, you should be sure to perform appropriate security checks beforehand to prevent your component from being misused.</source>
         </trans-unit>
         <trans-unit id="142" translate="yes" xml:space="preserve">
-          <source>It accesses the file by calling an unmanaged Win32 function.</source>
+          <source>For example, suppose your highly trusted library class has a method that deletes files.</source>
         </trans-unit>
         <trans-unit id="143" translate="yes" xml:space="preserve">
-          <source>A caller invokes your code's <bpt id="p1">**</bpt>Delete<ept id="p1">**</ept> method, passing in the name of the file to be deleted, C:\Test.txt.</source>
+          <source>It accesses the file by calling an unmanaged Win32 function.</source>
         </trans-unit>
         <trans-unit id="144" translate="yes" xml:space="preserve">
-          <source>Within the <bpt id="p1">**</bpt>Delete<ept id="p1">**</ept> method, your code creates a <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph> object representing write access to C:\Test.txt.</source>
+          <source>A caller invokes your code's <bpt id="p1">**</bpt>Delete<ept id="p1">**</ept> method, passing in the name of the file to be deleted, C:\Test.txt.</source>
         </trans-unit>
         <trans-unit id="145" translate="yes" xml:space="preserve">
-          <source>(Write access is required to delete a file.) Your code then invokes an imperative security check by calling the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object's <bpt id="p2">**</bpt>Demand<ept id="p2">**</ept> method.</source>
+          <source>Within the <bpt id="p1">**</bpt>Delete<ept id="p1">**</ept> method, your code creates a <ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph> object representing write access to C:\Test.txt.</source>
         </trans-unit>
         <trans-unit id="146" translate="yes" xml:space="preserve">
-          <source>If one of the callers in the call stack does not have this permission, a <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph> is thrown.</source>
+          <source>(Write access is required to delete a file.) Your code then invokes an imperative security check by calling the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object's <bpt id="p2">**</bpt>Demand<ept id="p2">**</ept> method.</source>
         </trans-unit>
         <trans-unit id="147" translate="yes" xml:space="preserve">
-          <source>If no exception is thrown, you know that all callers have the right to access C:\Test.txt.</source>
+          <source>If one of the callers in the call stack does not have this permission, a <ph id="ph1">&lt;xref:System.Security.SecurityException&gt;</ph> is thrown.</source>
         </trans-unit>
         <trans-unit id="148" translate="yes" xml:space="preserve">
-          <source>Because you believe that most of your callers will not have permission to access unmanaged code, your code then creates a <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> object that represents the right to call unmanaged code and calls the object's <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
+          <source>If no exception is thrown, you know that all callers have the right to access C:\Test.txt.</source>
         </trans-unit>
         <trans-unit id="149" translate="yes" xml:space="preserve">
-          <source>Finally, it calls the unmanaged Win32 function to delete C:\Text.txt and returns control to the caller.</source>
+          <source>Because you believe that most of your callers will not have permission to access unmanaged code, your code then creates a <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph> object that represents the right to call unmanaged code and calls the object's <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
         </trans-unit>
         <trans-unit id="150" translate="yes" xml:space="preserve">
-          <source>You must be sure that your code does not use assertions in situations where your code can be used by other code to access a resource that is protected by the permission you are asserting.</source>
+          <source>Finally, it calls the unmanaged Win32 function to delete C:\Text.txt and returns control to the caller.</source>
         </trans-unit>
         <trans-unit id="151" translate="yes" xml:space="preserve">
-          <source>For example, in code that writes to a file whose name is specified by the caller as a parameter, you would not assert the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> for writing to files because your code would be open to misuse by a third party.</source>
+          <source>You must be sure that your code does not use assertions in situations where your code can be used by other code to access a resource that is protected by the permission you are asserting.</source>
         </trans-unit>
         <trans-unit id="152" translate="yes" xml:space="preserve">
-          <source>When you use the imperative security syntax, calling the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method on multiple permissions in the same method causes a security exception to be thrown.</source>
+          <source>For example, in code that writes to a file whose name is specified by the caller as a parameter, you would not assert the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> for writing to files because your code would be open to misuse by a third party.</source>
         </trans-unit>
         <trans-unit id="153" translate="yes" xml:space="preserve">
-          <source>Instead, you should create a <bpt id="p1">**</bpt>PermissionSet<ept id="p1">**</ept> object, pass it the individual permissions you want to invoke, and then call the <bpt id="p2">**</bpt>Assert<ept id="p2">**</ept> method on the <bpt id="p3">**</bpt>PermissionSet<ept id="p3">**</ept> object.</source>
+          <source>When you use the imperative security syntax, calling the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method on multiple permissions in the same method causes a security exception to be thrown.</source>
         </trans-unit>
         <trans-unit id="154" translate="yes" xml:space="preserve">
-          <source>You can call the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method more than once when you use the declarative security syntax.</source>
+          <source>Instead, you should create a <bpt id="p1">**</bpt>PermissionSet<ept id="p1">**</ept> object, pass it the individual permissions you want to invoke, and then call the <bpt id="p2">**</bpt>Assert<ept id="p2">**</ept> method on the <bpt id="p3">**</bpt>PermissionSet<ept id="p3">**</ept> object.</source>
         </trans-unit>
         <trans-unit id="155" translate="yes" xml:space="preserve">
-          <source>The following example shows declarative syntax for overriding security checks using the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
+          <source>You can call the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method more than once when you use the declarative security syntax.</source>
         </trans-unit>
         <trans-unit id="156" translate="yes" xml:space="preserve">
-          <source>Notice that the <bpt id="p1">**</bpt>FileIOPermissionAttribute<ept id="p1">**</ept> syntax takes two values: a <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> enumeration and the location of the file or directory to which permission is to be granted.</source>
+          <source>The following example shows declarative syntax for overriding security checks using the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
         </trans-unit>
         <trans-unit id="157" translate="yes" xml:space="preserve">
-          <source>The call to <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> causes demands for access to <ph id="ph1">`C:\Log.txt`</ph> to succeed, even though callers are not checked for permission to access the file.</source>
+          <source>Notice that the <bpt id="p1">**</bpt>FileIOPermissionAttribute<ept id="p1">**</ept> syntax takes two values: a <ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph> enumeration and the location of the file or directory to which permission is to be granted.</source>
         </trans-unit>
         <trans-unit id="158" translate="yes" xml:space="preserve">
-          <source>The following code fragments show imperative syntax for overriding security checks using the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
+          <source>The call to <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> causes demands for access to <ph id="ph1">`C:\Log.txt`</ph> to succeed, even though callers are not checked for permission to access the file.</source>
         </trans-unit>
         <trans-unit id="159" translate="yes" xml:space="preserve">
-          <source>In this example, an instance of the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object is declared.</source>
+          <source>The following code fragments show imperative syntax for overriding security checks using the <bpt id="p1">**</bpt>Assert<ept id="p1">**</ept> method.</source>
         </trans-unit>
         <trans-unit id="160" translate="yes" xml:space="preserve">
-          <source>Its constructor is passed <bpt id="p1">**</bpt>FileIOPermissionAccess.AllAccess<ept id="p1">**</ept> to define the type of access allowed, followed by a string describing the file's location.</source>
+          <source>In this example, an instance of the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object is declared.</source>
         </trans-unit>
         <trans-unit id="161" translate="yes" xml:space="preserve">
-          <source>Once the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object is defined, you only need to call its <bpt id="p2">**</bpt>Assert<ept id="p2">**</ept> method to override the security check.</source>
+          <source>Its constructor is passed <bpt id="p1">**</bpt>FileIOPermissionAccess.AllAccess<ept id="p1">**</ept> to define the type of access allowed, followed by a string describing the file's location.</source>
         </trans-unit>
         <trans-unit id="162" translate="yes" xml:space="preserve">
-          <source>See Also</source>
+          <source>Once the <bpt id="p1">**</bpt>FileIOPermission<ept id="p1">**</ept> object is defined, you only need to call its <bpt id="p2">**</bpt>Assert<ept id="p2">**</ept> method to override the security check.</source>
         </trans-unit>
         <trans-unit id="163" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">&lt;xref:System.Security.PermissionSet&gt;</ph></source>
+          <source>See Also</source>
         </trans-unit>
         <trans-unit id="164" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph></source>
+          <source><ph id="ph1">&lt;xref:System.Security.PermissionSet&gt;</ph></source>
         </trans-unit>
         <trans-unit id="165" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph></source>
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityPermission&gt;</ph></source>
         </trans-unit>
         <trans-unit id="166" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph></source>
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.FileIOPermission&gt;</ph></source>
         </trans-unit>
         <trans-unit id="167" translate="yes" xml:space="preserve">
-          <source><bpt id="p1">[</bpt>Attributes<ept id="p1">](../../../docs/standard/attributes/index.md)</ept><ph id="ph1"> </ph></source>
+          <source><ph id="ph1">&lt;xref:System.Security.Permissions.SecurityAction&gt;</ph></source>
         </trans-unit>
         <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Attributes<ept id="p1">](../../../docs/standard/attributes/index.md)</ept><ph id="ph1"> </ph></source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>Code Access Security<ept id="p1">](../../../docs/framework/misc/code-access-security.md)</ept></source>
         </trans-unit>
       </group>
