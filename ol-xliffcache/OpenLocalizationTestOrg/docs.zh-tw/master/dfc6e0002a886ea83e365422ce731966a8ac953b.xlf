@@ -2,13 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" original="how-to-verify-that-strings-are-in-valid-email-format.md" source-language="en-US" target-language="zh-tw">
     <header>
-      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-5a638bf" tool-company="Microsoft" />
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-5ae97a8" tool-company="Microsoft" />
       <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dfc6e0002a886ea83e365422ce731966a8ac953b</xliffext:olfilehash>
       <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\base-types\how-to-verify-that-strings-are-in-valid-email-format.md</xliffext:olfilepath>
       <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
       <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
-      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">03b8c662a60626508cbec2f650612f9511809af1</xliffext:olskeletonhash>
-      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">203f2497f3a434d35d182386f01e97ff4d2fc10b</xliffext:olxliffhash>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3946152b1854b05102da53b696d901a4d4e04eea</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">35899fd356213e88ca028d72c61782eb87dec9fa</xliffext:olxliffhash>
     </header>
     <body>
       <group id="content" extype="content">
@@ -127,81 +127,75 @@
           <source><ph id="ph1">`(?!\.)`</ph> is a zero-width negative lookahead assertion that prevents two consecutive periods from appearing in the local part of an email address.</source>
         </trans-unit>
         <trans-unit id="139" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">`&amp;#124;[-!#\$%&amp;'\*\+/=\?\^`</ph><ph id="ph2">{}</ph><ph id="ph3">\&amp;</ph>#124;~\w]`</source>
+          <source><ph id="ph1">`&amp;#124;[-!#\$%&amp;'\*\+/=\?\^`</ph><ph id="ph2">{}</ph><ph id="ph3">\&amp;</ph>#124;~\w]<ph id="ph4">`|If the next character is not a period, match any word character or one of the following characters: -!#$%'*+=?^`</ph><ph id="ph5">{}</ph>&amp;#124;~.</source>
         </trans-unit>
         <trans-unit id="140" translate="yes" xml:space="preserve">
-          <source>If the next character is not a period, match any word character or one of the following characters: -!#$%'*+=?^`<ph id="ph1">{}</ph>&amp;#124;~.</source>
+          <source><ph id="ph1">`((\.(?!\.))&amp;#124;[-!#\$%'\*\+/=\?\^`</ph><ph id="ph2">{}</ph><ph id="ph3">\&amp;</ph>#124;~\w])*`|Match the alternation pattern (a period followed by a non-period, or one of a number of characters) zero or more times.</source>
         </trans-unit>
         <trans-unit id="141" translate="yes" xml:space="preserve">
-          <source><ph id="ph1">`((\.(?!\.))&amp;#124;[-!#\$%'\*\+/=\?\^`</ph><ph id="ph2">{}</ph><ph id="ph3">\&amp;</ph>#124;~\w])*`</source>
-        </trans-unit>
-        <trans-unit id="142" translate="yes" xml:space="preserve">
-          <source>Match the alternation pattern (a period followed by a non-period, or one of a number of characters) zero or more times.</source>
-        </trans-unit>
-        <trans-unit id="143" translate="yes" xml:space="preserve">
           <source>Match the @ character.</source>
         </trans-unit>
-        <trans-unit id="144" translate="yes" xml:space="preserve">
+        <trans-unit id="142" translate="yes" xml:space="preserve">
           <source>Continue the match if the character that precedes the @ character is A through Z, a through z, or 0 through 9.</source>
         </trans-unit>
-        <trans-unit id="145" translate="yes" xml:space="preserve">
+        <trans-unit id="143" translate="yes" xml:space="preserve">
           <source>The <ph id="ph1">`(?&lt;=[0-9a-z])`</ph> construct defines a zero-width positive lookbehind assertion.</source>
         </trans-unit>
-        <trans-unit id="146" translate="yes" xml:space="preserve">
+        <trans-unit id="144" translate="yes" xml:space="preserve">
           <source>Check whether the character that follows @ is an opening bracket.</source>
         </trans-unit>
-        <trans-unit id="147" translate="yes" xml:space="preserve">
+        <trans-unit id="145" translate="yes" xml:space="preserve">
           <source>If it is an opening bracket, match the opening bracket followed by an IP address (four sets of one to three digits, with each set separated by a period) and a closing bracket.</source>
         </trans-unit>
-        <trans-unit id="148" translate="yes" xml:space="preserve">
+        <trans-unit id="146" translate="yes" xml:space="preserve">
           <source>If the character that follows @ is not an opening bracket, match one alphanumeric character with a value of A-Z, a-z, or 0-9, followed by zero or more occurrences of a word character or a hyphen, followed by zero or one alphanumeric character with a value of A-Z, a-z, or 0-9, followed by a period.</source>
         </trans-unit>
-        <trans-unit id="149" translate="yes" xml:space="preserve">
+        <trans-unit id="147" translate="yes" xml:space="preserve">
           <source>This pattern can be repeated one or more times, and must be followed by the top-level domain name.</source>
         </trans-unit>
-        <trans-unit id="150" translate="yes" xml:space="preserve">
+        <trans-unit id="148" translate="yes" xml:space="preserve">
           <source>The top-level domain name must begin and end with an alphanumeric character (a-z, A-Z, and 0-9).</source>
         </trans-unit>
-        <trans-unit id="151" translate="yes" xml:space="preserve">
+        <trans-unit id="149" translate="yes" xml:space="preserve">
           <source>It can also include from zero to 22 ASCII characters that are either alphanumeric or hyphens.</source>
         </trans-unit>
-        <trans-unit id="152" translate="yes" xml:space="preserve">
+        <trans-unit id="150" translate="yes" xml:space="preserve">
           <source>End the match at the end of the string.</source>
         </trans-unit>
-        <trans-unit id="153" translate="yes" xml:space="preserve">
+        <trans-unit id="151" translate="yes" xml:space="preserve">
           <source>Instead of using a regular expression to validate an email address, you can use the <ph id="ph1">&lt;xref:System.Net.Mail.MailAddress?displayProperty=fullName&gt;</ph> class.</source>
         </trans-unit>
-        <trans-unit id="154" translate="yes" xml:space="preserve">
+        <trans-unit id="152" translate="yes" xml:space="preserve">
           <source>To determine whether an email address is valid, pass the email address to the <ph id="ph1">&lt;xref:System.Net.Mail.MailAddress.%23ctor%28System.String%29?displayProperty=fullName&gt;</ph> class constructor.</source>
         </trans-unit>
-        <trans-unit id="155" translate="yes" xml:space="preserve">
+        <trans-unit id="153" translate="yes" xml:space="preserve">
           <source>Compiling the Code</source>
         </trans-unit>
-        <trans-unit id="156" translate="yes" xml:space="preserve">
+        <trans-unit id="154" translate="yes" xml:space="preserve">
           <source>The <ph id="ph1">`IsValidEmail`</ph> and <ph id="ph2">`DomainMapper`</ph> methods can be included in a library of regular expression utility methods, or they can be included as private static or instance methods in the application class.</source>
         </trans-unit>
-        <trans-unit id="157" translate="yes" xml:space="preserve">
+        <trans-unit id="155" translate="yes" xml:space="preserve">
           <source>To include them in a regular expression library, either copy and paste the code into a Visual Studio Class Library project, or copy and paste it into a text file and compile it from the command line with a command like the following (assuming that the name of the source code file is RegexUtilities.cs or RegexUtilities.vb:</source>
         </trans-unit>
-        <trans-unit id="158" translate="yes" xml:space="preserve">
+        <trans-unit id="156" translate="yes" xml:space="preserve">
           <source>You can also use the <ph id="ph1">&lt;xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A?displayProperty=fullName&gt;</ph> method to include this regular expression in a regular expression library.</source>
         </trans-unit>
-        <trans-unit id="159" translate="yes" xml:space="preserve">
+        <trans-unit id="157" translate="yes" xml:space="preserve">
           <source>If they are used in a regular expression library, you can call them by using code such as the following:</source>
         </trans-unit>
-        <trans-unit id="160" translate="yes" xml:space="preserve">
+        <trans-unit id="158" translate="yes" xml:space="preserve">
           <source>Assuming you've created a class library named RegexUtilities.dll that includes your email validation regular expression, you can compile this example in either of the following ways:</source>
         </trans-unit>
-        <trans-unit id="161" translate="yes" xml:space="preserve">
+        <trans-unit id="159" translate="yes" xml:space="preserve">
           <source>In Visual Studio, by creating a Console Application and adding a reference to RegexUtilities.dll to your project.</source>
         </trans-unit>
-        <trans-unit id="162" translate="yes" xml:space="preserve">
+        <trans-unit id="160" translate="yes" xml:space="preserve">
           <source>From the command line, by copying and pasting the source code into a text file and compiling it with a command like the following (assuming that the name of the source code file is Example.cs or Example.vb:</source>
         </trans-unit>
-        <trans-unit id="163" translate="yes" xml:space="preserve">
+        <trans-unit id="161" translate="yes" xml:space="preserve">
           <source>See Also</source>
         </trans-unit>
-        <trans-unit id="164" translate="yes" xml:space="preserve">
+        <trans-unit id="162" translate="yes" xml:space="preserve">
           <source><bpt id="p1">[</bpt>.NET Framework Regular Expressions<ept id="p1">](../../../docs/standard/base-types/regular-expressions.md)</ept></source>
         </trans-unit>
       </group>
