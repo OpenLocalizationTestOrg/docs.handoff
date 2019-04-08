@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="work-with-syntax.md" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a48d48168dffdb439c984f5b4209019514b3b970</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\roslyn-sdk\work-with-syntax.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">75ffb4c59baa7783f556c6b4f773eda7e49374e7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">27e692a4c84e5cbd2f11275aaa554b8f13d11597</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Use the .NET Compiler Platform SDK syntax model</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>This overview provides an understanding of the types you use to understand and manipulate syntax nodes.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Work with syntax</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>syntax tree<ept id="p1">**</ept> is a fundamental data structure exposed by the compiler APIs.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>These trees represent the lexical and syntactic structure of source code.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>They serve two important purposes:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>To allow tools - such as an IDE, add-ins, code analysis tools, and refactorings - to see and process the syntactic structure of source code in a user’s project.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>To enable tools - such as refactorings and an IDE - to create, modify, and rearrange source code in a natural manner without having use direct text edits.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>By creating and manipulating trees, tools can easily create and rearrange source code.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Syntax trees</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Syntax trees are the primary structure used for compilation, code analysis, binding, refactoring, IDE features, and code generation.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>No part of the source code is understood without it first being identified and categorized into one of many well-known structural language elements.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Syntax trees have three key attributes.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The first attribute is that syntax trees hold all the source information in full fidelity.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This means that the syntax tree contains every piece of information found in the source text, every grammatical construct, every lexical token, and everything else in between, including white space, comments, and preprocessor directives.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For example, each literal mentioned in the source is represented exactly as it was typed.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The syntax trees also represent errors in source code when the program is incomplete or malformed by representing skipped or missing tokens in the syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This enables the second attribute of syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>A syntax tree obtained from the parser can produce the exact text it was parsed from.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>From any syntax node, it is possible to get the text representation of the sub-tree rooted at that node.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This means that syntax trees can be used as a way to construct and edit source text.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>By creating a tree you have by implication created the equivalent text, and by editing a syntax tree, making a new tree out of changes to an existing tree, you have effectively edited the text.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The third attribute of syntax trees is that they are immutable and thread-safe.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This means that after a tree is obtained, it is a snapshot of the current state of the code, and never changes.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This allows multiple users to interact with the same syntax tree at the same time in different threads without locking or duplication.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Because the trees are immutable and no modifications can be made directly to a tree, factory methods help create and modify syntax trees by creating additional snapshots of the tree.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The trees are efficient in the way they reuse underlying nodes, so a new version can be rebuilt fast and with little extra memory.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A syntax tree is literally a tree data structure, where non-terminal structural elements parent other elements.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Each syntax tree is made up of nodes, tokens, and trivia.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Syntax nodes</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Syntax nodes are one of the primary elements of syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>These nodes represent syntactic constructs such as declarations, statements, clauses, and expressions.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Each category of syntax nodes is represented by a separate class derived from <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The set of node classes is not extensible.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>All syntax nodes are non-terminal nodes in the syntax tree, which means they always have other nodes and tokens as children.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>As a child of another node, each node has a parent node that can be accessed through the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.Parent?displayProperty=nameWithType&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Because nodes and trees are immutable, the parent of a node never changes.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The root of the tree has a null parent.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Each node has a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.ChildNodes?displayProperty=nameWithType&gt;</ph> method, which returns a list of child nodes in sequential order based on their position in the source text.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>This list does not contain tokens.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Each node also has methods to examine Descendants, such as <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.DescendantNodes%2A&gt;</ph>, <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.DescendantTokens%2A&gt;</ph>, or <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.DescendantTrivia%2A&gt;</ph> - that represent a list of all the nodes, tokens, or trivia, that exist in the sub-tree rooted by that node.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In addition, each syntax node subclass exposes all the same children through strongly typed properties.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>For example, a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax&gt;</ph> node class has three additional properties specific to binary operators: <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Left&gt;</ph>, <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.OperatorToken&gt;</ph>, and <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Right&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The type of <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Left&gt;</ph> and <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Right&gt;</ph> is <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax&gt;</ph>, and the type of <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.OperatorToken&gt;</ph> is <ph id="ph5">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Some syntax nodes have optional children.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>For example, an <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax&gt;</ph> has an optional <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>If the child is not present, the property returns null.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Syntax tokens</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Syntax tokens are the terminals of the language grammar, representing the smallest syntactic fragments of the code.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>They are never parents of other nodes or tokens.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Syntax tokens consist of keywords, identifiers, literals, and punctuation.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For efficiency purposes, the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken&gt;</ph> type is a CLR value type.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Therefore, unlike syntax nodes, there is only one structure for all kinds of tokens with a mix of properties that have meaning depending on the kind of token that is being represented.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For example, an integer literal token represents a numeric value.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>In addition to the raw source text the token spans, the literal token has a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.Value&gt;</ph> property that tells you the exact decoded integer value.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>This property is typed as <ph id="ph1">&lt;xref:System.Object&gt;</ph> because it may be one of many primitive types.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.ValueText&gt;</ph> property tells you the same information as the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.Value&gt;</ph> property; however this property is always typed as <ph id="ph3">&lt;xref:System.String&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>An identifier in C# source text may include Unicode escape characters, yet the syntax of the escape sequence itself is not considered part of the identifier name.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>So although the raw text spanned by the token does include the escape sequence, the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.ValueText&gt;</ph> property does not.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Instead, it includes the Unicode characters identified by the escape.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>For example, if the source text contains an identifier written as <ph id="ph1">`\u03C0`</ph>, then the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.ValueText&gt;</ph> property for this token will return <ph id="ph3">`π`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Syntax trivia</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Syntax trivia represent the parts of the source text that are largely insignificant for normal understanding of the code, such as white space, comments, and preprocessor directives.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Like syntax tokens, trivia are value types.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The single <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTrivia?displayProperty=nameWithType&gt;</ph> type is used to describe all kinds of trivia.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Because trivia are not part of the normal language syntax and can appear anywhere between any two tokens, they are not included in the syntax tree as a child of a node.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Yet, because they are important when implementing a feature like refactoring and to maintain full fidelity with the source text, they do exist as part of the syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>You can access trivia by inspecting a token’s <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.LeadingTrivia?displayProperty=nameWithType&gt;</ph> or <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.TrailingTrivia?displayProperty=nameWithType&gt;</ph> collections.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>When source text is parsed, sequences of trivia are associated with tokens.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>In general, a token owns any trivia after it on the same line up to the next token.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Any trivia after that line is associated with the following token.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The first token in the source file gets all the initial trivia, and the last sequence of trivia in the file is tacked onto the end-of-file token, which otherwise has zero width.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Unlike syntax nodes and tokens, syntax trivia do not have parents.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Yet, because they are part of the tree and each is associated with a single token, you may access the token it is associated with using the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTrivia.Token?displayProperty=nameWithType&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Spans</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Each node, token, or trivia knows its position within the source text and the number of characters it consists of.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>A text position is represented as a 32-bit integer, which is a zero-based <ph id="ph1">`char`</ph> index.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Text.TextSpan&gt;</ph> object is the beginning position and a count of characters, both represented as integers.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>If <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Text.TextSpan&gt;</ph> has a zero length, it refers to a location between two characters.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Each node has two <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Text.TextSpan&gt;</ph> properties: <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.Span*&gt;</ph> and <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.FullSpan*&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.Span*&gt;</ph> property is the text span from the start of the first token in the node’s sub-tree to the end of the last token.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>This span does not include any leading or trailing trivia.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.FullSpan*&gt;</ph> property is the text span that includes the node’s normal span, plus the span of any leading or trailing trivia.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>For example:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The statement node inside the block has a span indicated by the single vertical bars (|).</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>It includes the characters <ph id="ph1">`throw new Exception("Not right.");`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The full span is indicated by the double vertical bars (||).</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>It includes the same characters as the span and the characters associated with the leading and trailing trivia.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Kinds</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Each node, token, or trivia has a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.RawKind?displayProperty=nameWithType&gt;</ph> property, of type <ph id="ph2">&lt;xref:System.Int32?displayProperty=nameWithType&gt;</ph>, that identifies the exact syntax element represented.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>This value can be cast to a language-specific enumeration; each language, C# or VB, has a single <ph id="ph1">`SyntaxKind`</ph> enumeration  (<ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind?displayProperty=nameWithType&gt;</ph> and <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.VisualBasic.SyntaxKind?displayProperty=nameWithType&gt;</ph>, respectively) that lists all the possible nodes, tokens, and trivia elements in the grammar.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>This conversion can be done automatically by accessing the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpExtensions.Kind*?displayProperty=nameWithType&gt;</ph> or <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.VisualBasic.VisualBasicExtensions.Kind*?displayProperty=nameWithType&gt;</ph> extension methods.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken.RawKind&gt;</ph> property allows for easy disambiguation of syntax node types that share the same node class.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>For tokens and trivia, this property is the only way to distinguish one type of element from another.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>For example, a single <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax&gt;</ph> class has <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Left&gt;</ph>, <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.OperatorToken&gt;</ph>, and <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.BinaryExpressionSyntax.Right&gt;</ph> as children.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpExtensions.Kind*&gt;</ph> property distinguishes whether it is an <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind.AddExpression&gt;</ph>, <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind.SubtractExpression&gt;</ph>, or <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind.MultiplyExpression&gt;</ph> kind of syntax node.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Errors</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Even when the source text contains syntax errors, a full syntax tree that is round-trippable to the source is exposed.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>When the parser encounters code that does not conform to the defined syntax of the language, it uses one of two techniques to create a syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>First, if the parser expects a particular kind of token but does not find it, it may insert a missing token into the syntax tree in the location that the token was expected.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>A missing token represents the actual token that was expected, but it has an empty span, and its <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.IsMissing?displayProperty=nameWithType&gt;</ph> property returns <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Second, the parser may skip tokens until it finds one where it can continue parsing.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>In this case, the skipped tokens are attached as a trivia node with the kind <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind.SkippedTokensTrivia&gt;</ph>.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="ref-returns.md" source-language="en-US" target-language="ja-jp">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">fcac162f63438b6cbe54908383467d4b0f227c39</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\programming-guide\classes-and-structs\ref-returns.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f78553496203a4693a980df8ee499a0f32383da7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">357abf7d05514944dd014439b27770b3ca3c075c</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Ref return values and ref locals (C# Guide)</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn how to define and use ref return and ref local values</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Ref returns and ref locals</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Starting with C# 7.0, C# supports reference return values (ref returns).</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>A reference return value allows a method to return a reference to a variable, rather than a value, back to a caller.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>The caller can then choose to treat the returned variable as if it were returned by value or by reference.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The caller can create a new variable that is itself a reference to the returned value, called a ref local.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>What is a reference return value?</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Most developers are familiar with passing an argument to a called method <bpt id="p1">*</bpt>by reference<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>A called method's argument list includes a variable passed by reference.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Any changes made to its value by the called method are observed by the caller.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">*</bpt>reference return value<ept id="p1">*</ept> means that a method returns a <bpt id="p2">*</bpt>reference<ept id="p2">*</ept> (or an alias) to some variable.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>That variable's scope must include the method.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>That variable's lifetime must extend beyond the return of the method.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Modifications to the method's return value by the caller are made to the variable that is returned by the method.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Declaring that a method returns a <bpt id="p1">*</bpt>reference return value<ept id="p1">*</ept> indicates that the method returns an alias to a variable.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The design intent is often that the calling code should have access to that variable through the alias, including to modify it.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>It follows that methods returning by reference can't have the return type <ph id="ph1">`void`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>There are some restrictions on the expression that a method can return as a reference return value.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Restrictions include:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The return value must have a lifetime that extends beyond the execution of the method.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>In other words, it cannot be a local variable in the method that returns it.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>It can be an instance or static field of a class, or it can be an argument passed to the method.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Attempting to return a local variable generates compiler error CS8168, "Cannot return local 'obj' by reference because it is not a ref local."</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The return value cannot be the literal <ph id="ph1">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Returning <ph id="ph1">`null`</ph> generates compiler error CS8156, "An expression cannot be used in this context because it may not be returned by reference."</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>A method with a ref return can return an alias to a variable whose value is currently the null (uninstantiated) value or a <bpt id="p1">[</bpt>nullable type<ept id="p1">](../nullable-types/index.md)</ept> for a value type.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The return value cannot be a constant, an enumeration member, the by-value return value from a property, or a method of a <ph id="ph1">`class`</ph> or <ph id="ph2">`struct`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Violating this rule generates compiler error CS8156, "An expression cannot be used in this context because it may not be returned by reference."</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In addition, reference return values are not allowed on async methods.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>An asynchronous method may return before it has finished execution, while its return value is still unknown.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Defining a ref return value</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>A method that returns a <bpt id="p1">*</bpt>reference return value<ept id="p1">*</ept> must satisfy the following two conditions:</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The method signature includes the <bpt id="p1">[</bpt>ref<ept id="p1">](../../language-reference/keywords/ref.md)</ept> keyword in front of the return type.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Each <bpt id="p1">[</bpt>return<ept id="p1">](../../language-reference/keywords/return.md)</ept> statement in the method body includes the <bpt id="p2">[</bpt>ref<ept id="p2">](../../language-reference/keywords/ref.md)</ept> keyword in front of the name of the returned instance.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The following example shows a method that satisfies those conditions and returns a reference to a <ph id="ph1">`Person`</ph> object named <ph id="ph2">`p`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Consuming a ref return value</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The ref return value is an alias to another variable in the called method's scope.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>You can interpret any use of the ref return as using the variable it aliases:</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>When you assign its value, you are assigning a value to the variable it aliases.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>When you read its value, you are reading the value of the variable it aliases.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>If you return it <bpt id="p1">*</bpt>by reference<ept id="p1">*</ept>, you are returning an alias to that same variable.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>If you pass it to another method <bpt id="p1">*</bpt>by reference<ept id="p1">*</ept>, you are passing a reference to the variable it aliases.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>When you make a <bpt id="p1">[</bpt>ref local<ept id="p1">](#ref-locals)</ept> alias, you make a new alias to the same variable.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Ref locals</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Assume the <ph id="ph1">`GetContactInformation`</ph> method is declared as a ref return:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A by-value assignment reads the value of a variable and assigns it to a new variable:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The preceding assignment declares <ph id="ph1">`p`</ph> as a local variable.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Its initial value is copied from reading the value returned by <ph id="ph1">`GetContactInformation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Any future assignments to <ph id="ph1">`p`</ph> will not change the value of the variable returned by <ph id="ph2">`GetContactInformation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The variable <ph id="ph1">`p`</ph> is no longer an alias to the variable returned.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>You declare a <bpt id="p1">*</bpt>ref local<ept id="p1">*</ept> variable to copy the alias to the original value.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In the following assignment, <ph id="ph1">`p`</ph> is an alias to the variable returned from <ph id="ph2">`GetContactInformation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Subsequent usage of <ph id="ph1">`p`</ph> is the same as using the variable returned by <ph id="ph2">`GetContactInformation`</ph> because <ph id="ph3">`p`</ph> is an alias for that variable.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Changes to <ph id="ph1">`p`</ph> also change the variable returned from <ph id="ph2">`GetContactInformation`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ref`</ph> keyword is used both before the local variable declaration <bpt id="p1">*</bpt>and<ept id="p1">*</ept> before the method call.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>You can access a value by reference in the same way.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>In some cases, accessing a value by reference increases performance by avoiding a potentially expensive copy operation.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>For example, the following statement shows how one can define a ref local value that is used to reference a value.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ref`</ph> keyword is used both before the local variable declaration <bpt id="p1">*</bpt>and<ept id="p1">*</ept> before the value in the second example.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Failure to include both <ph id="ph1">`ref`</ph> keywords in the variable declaration and assignment in both examples results in compiler error CS8172, "Cannot initialize a by-reference variable with a value."</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Prior to C# 7.3, ref local variables couldn't be reassigned to refer to different storage after being initialized.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>That restriction has been removed.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The following example shows a reassignment:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Ref local variables must still be initialized when they are declared.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Ref returns and ref locals: an example</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The following example defines a <ph id="ph1">`NumberStore`</ph> class that stores an array of integer values.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`FindNumber`</ph> method returns by reference the first number that is greater than or equal to the number passed as an argument.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>If no number is greater than or equal to the argument, the method returns the number in index 0.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The following example calls the <ph id="ph1">`NumberStore.FindNumber`</ph> method to retrieve the first value that is greater than or equal to 16.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The caller then doubles the value returned by the method.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The output from the example shows the change reflected in the value of the array elements of the <ph id="ph1">`NumberStore`</ph> instance.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Without support for reference return values, such an operation is performed by returning the index of the array element along with its value.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The caller can then use this index to modify the value in a separate method call.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>However, the caller can also modify the index to access and possibly modify other array values.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The following example shows how the <ph id="ph1">`FindNumber`</ph> method could be rewritten after C# 7.3 to use ref local reassignment:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This second version is more efficient with longer sequences in scenarios where the number sought is closer to the end of the array.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ref keyword<ept id="p1">](../../language-reference/keywords/ref.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Write safe efficient code<ept id="p1">](../../write-safe-efficient-code.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
