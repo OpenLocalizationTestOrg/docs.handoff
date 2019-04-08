@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="runtime-store.md" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2f37e0de4b6fcb1b2047470b0a9df3753fe87d71</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\deploying\runtime-store.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">56b80a64c4f4c014ffa4424bd1140a50d2290d52</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">73016b1e9bf759bab9a76cc6e38f642e1f7bda61</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Runtime package store</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn how to use the runtime package store to target manifests used by .NET Core.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Runtime package store</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Core 2.0, it's possible to package and deploy apps against a known set of packages that exist in the target environment.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The benefits are faster deployments, lower disk space usage, and improved startup performance in some cases.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This feature is implemented as a <bpt id="p1">*</bpt>runtime package store<ept id="p1">*</ept>, which is a directory on disk where packages are stored (typically at <bpt id="p2">*</bpt>/usr/local/share/dotnet/store<ept id="p2">*</ept> on macOS/Linux and <bpt id="p3">*</bpt>C:/Program Files/dotnet/store<ept id="p3">*</ept> on Windows).</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Under this directory, there are subdirectories for architectures and <bpt id="p1">[</bpt>target frameworks<ept id="p1">](../../standard/frameworks.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The file layout is similar to the way that <bpt id="p1">[</bpt>NuGet assets are laid out on disk<ept id="p1">](/nuget/create-packages/supporting-multiple-target-frameworks#framework-version-folder-structure)</ept>:</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">*</bpt>target manifest<ept id="p1">*</ept> file lists the packages in the runtime package store.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Developers can target this manifest when publishing their app.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>The target manifest is typically provided by the owner of the targeted production environment.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Preparing a runtime environment</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The administrator of a runtime environment can optimize apps for faster deployments and lower disk space use by building a runtime package store and the corresponding target manifest.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The first step is to create a <bpt id="p1">*</bpt>package store manifest<ept id="p1">*</ept> that lists the packages that compose the runtime package store.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This file format is compatible with the project file format (<bpt id="p1">*</bpt>csproj<ept id="p1">*</ept>).</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Example<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The following example package store manifest (<bpt id="p1">*</bpt>packages.csproj<ept id="p1">*</ept>) is used to add <bpt id="p2">[</bpt><ph id="ph1">`Newtonsoft.Json`</ph><ept id="p2">](https://www.nuget.org/packages/Newtonsoft.Json/)</ept> and <bpt id="p3">[</bpt><ph id="ph2">`Moq`</ph><ept id="p3">](https://www.nuget.org/packages/moq/)</ept> to a runtime package store:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Provision the runtime package store by executing <ph id="ph1">`dotnet store`</ph> with the package store manifest, runtime, and framework:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Example<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You can pass multiple target package store manifest paths to a single <bpt id="p1">[</bpt><ph id="ph1">`dotnet store`</ph><ept id="p1">](../tools/dotnet-store.md)</ept> command by repeating the option and path in the command.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>By default, the output of the command is a package store under the <bpt id="p1">*</bpt>.dotnet/store<ept id="p1">*</ept> subdirectory of the user's profile.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can specify a different location using the <ph id="ph1">`--output &lt;OUTPUT_DIRECTORY&gt;`</ph> option.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The root directory of the store contains a target manifest <bpt id="p1">*</bpt>artifact.xml<ept id="p1">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This file can be made available for download and be used by app authors who want to target this store when publishing.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Example<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The following <bpt id="p1">*</bpt>artifact.xml<ept id="p1">*</ept> file is produced after running the previous example.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Note that <bpt id="p1">[</bpt><ph id="ph1">`Castle.Core`</ph><ept id="p1">](https://www.nuget.org/packages/Castle.Core/)</ept> is a dependency of <ph id="ph2">`Moq`</ph>, so it's included automatically and appears in the <bpt id="p2">*</bpt>artifacts.xml<ept id="p2">*</ept> manifest file.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Publishing an app against a target manifest</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If you have a target manifest file on disk, you specify the path to the file when publishing your app with the <bpt id="p1">[</bpt><ph id="ph1">`dotnet publish`</ph><ept id="p1">](../tools/dotnet-publish.md)</ept> command:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Example<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>You deploy the resulting published app to an environment that has the packages described in the target manifest.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Failing to do so results in the app failing to start.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Specify multiple target manifests when publishing an app by repeating the option and path (for example, <ph id="ph1">`--manifest manifest1.xml --manifest manifest2.xml`</ph>).</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>When you do so, the app is trimmed for the union of packages specified in the target manifest files provided to the command.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Specifying target manifests in the project file</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>An alternative to specifying target manifests with the <bpt id="p1">[</bpt><ph id="ph1">`dotnet publish`</ph><ept id="p1">](../tools/dotnet-publish.md)</ept> command is to specify them in the project file as a semicolon-separated list of paths under a <bpt id="p2">**</bpt><ph id="ph2">\&lt;</ph>TargetManifestFiles&gt;<ept id="p2">**</ept> tag.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Specify the target manifests in the project file only when the target environment for the app is well-known, such as for .NET Core projects.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This isn't the case for open-source projects.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The users of an open-source project typically deploy it to different production environments.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>These production environments generally have different sets of packages pre-installed.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>You can't make assumptions about the target manifest in such environments, so you should use the <ph id="ph1">`--manifest`</ph> option of <bpt id="p1">[</bpt><ph id="ph2">`dotnet publish`</ph><ept id="p1">](../tools/dotnet-publish.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>ASP.NET Core implicit store</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The ASP.NET Core implicit store applies only to ASP.NET Core 2.0.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>We strongly recommend applications use ASP.NET Core 2.1 and later, which does <bpt id="p1">**</bpt>not<ept id="p1">**</ept> use the implicit store.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>ASP.NET Core 2.1 and later use the shared framework.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The runtime package store feature is used implicitly by an ASP.NET Core app when the app is deployed as a <bpt id="p1">[</bpt>framework-dependent deployment (FDD)<ept id="p1">](index.md#framework-dependent-deployments-fdd)</ept> app.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The targets in <bpt id="p1">[</bpt><ph id="ph1">`Microsoft.NET.Sdk.Web`</ph><ept id="p1">](https://github.com/aspnet/websdk)</ept> include manifests referencing the implicit package store on the target system.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Additionally, any FDD app that depends on the <ph id="ph1">`Microsoft.AspNetCore.All`</ph> package results in a published app that contains only the app and its assets and not the packages listed in the <ph id="ph2">`Microsoft.AspNetCore.All`</ph> metapackage.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>It's assumed that those packages are present on the target system.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The runtime package store is installed on the host when the .NET Core SDK is installed.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Other installers may provide the runtime package store, including Zip/tarball installations of the .NET Core SDK, <ph id="ph1">`apt-get`</ph>, Red Hat Yum, the .NET Core Windows Server Hosting bundle, and manual runtime package store installations.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>When deploying a <bpt id="p1">[</bpt>framework-dependent deployment (FDD)<ept id="p1">](index.md#framework-dependent-deployments-fdd)</ept> app, make sure that the target environment has the .NET Core SDK installed.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>If the app is deployed to an environment that doesn't include ASP.NET Core, you can opt out of the implicit store by specifying  <bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>PublishWithAspNetCoreTargetManifest&gt;<ept id="p1">**</ept> set to <ph id="ph2">`false`</ph> in the project file as in the following example:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For <bpt id="p1">[</bpt>self-contained deployment (SCD)<ept id="p1">](index.md#self-contained-deployments-scd)</ept> apps, it's assumed that the target system doesn't necessarily contain the required manifest packages.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Therefore, <bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>PublishWithAspNetCoreTargetManifest&gt;<ept id="p1">**</ept> cannot be set to <ph id="ph2">`true`</ph> for an SCD app.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If you deploy an application with a manifest dependency that's present in the deployment (the assembly is present in the <bpt id="p1">*</bpt>bin<ept id="p1">*</ept> folder), the runtime package store <bpt id="p2">*</bpt>isn't used<ept id="p2">*</ept> on the host for that assembly.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">*</bpt>bin<ept id="p1">*</ept> folder assembly is used regardless of its presence in the runtime package store on the host.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The version of the dependency indicated in the manifest must match the version of the dependency in the runtime package store.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>If you have a version mismatch between the dependency in the target manifest and the version that exists in the runtime package store and the app doesn't include the required version of the package in its deployment, the app fails to start.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The exception includes the name of the target manifest that called for the runtime package store assembly, which helps you troubleshoot the mismatch.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>When the deployment is <bpt id="p1">*</bpt>trimmed<ept id="p1">*</ept> on publish, only the specific versions of the manifest packages you indicate are withheld from the published output.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The packages at the versions indicated must be present on the host for the app to start.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>dotnet-publish<ept id="p1">](../tools/dotnet-publish.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>dotnet-store<ept id="p1">](../tools/dotnet-store.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

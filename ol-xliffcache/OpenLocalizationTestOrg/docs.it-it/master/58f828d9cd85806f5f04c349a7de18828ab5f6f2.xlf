@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="use-close-abort-release-wcf-client-resources.md" source-language="en-US" target-language="it-it">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">58f828d9cd85806f5f04c349a7de18828ab5f6f2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\wcf\samples\use-close-abort-release-wcf-client-resources.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a0e9d644daeaad662926e82f683b7ce3a8381431</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dad0ae379ff2a5401e8e098e5fbf651eb0e8f848</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Use Close and Abort to release WCF client resources</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Dispose can fail and throw exceptions when the network fails.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>That can cause unwanted behavior.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Instead, use Close and Abort to release client resources when the network has failed.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Close and Abort release resources safely when network connections have dropped</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>This sample demonstrates using the <ph id="ph1">`Close`</ph> and <ph id="ph2">`Abort`</ph> methods to clean up resources when using a typed client.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`using`</ph> statement causes exceptions when the network connection is not robust.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>This sample is based on the <bpt id="p1">[</bpt>Getting Started<ept id="p1">](../../../../docs/framework/wcf/samples/getting-started-sample.md)</ept> that implements a calculator service.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In this sample, the client is a console application (.exe) and the service is hosted by Internet Information Services (IIS).</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The setup procedure and build instructions for this sample are located at the end of this topic.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>This sample shows two of the common problems that occur when using the C# "using" statement with typed clients, as well as code that correctly cleans up after exceptions.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The C# "using" statement results in a call to <ph id="ph1">`Dispose`</ph>().</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This is the same as <ph id="ph1">`Close`</ph>(), which may throw exceptions when a network error occurs.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Because the call to <ph id="ph1">`Dispose`</ph>() happens implicitly at the closing brace of the "using" block, this source of exceptions is likely to go unnoticed both by people writing the code and reading the code.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This represents a potential source of application errors.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The first problem, illustrated in the <ph id="ph1">`DemonstrateProblemUsingCanThrow`</ph> method, is that the closing brace throws an exception and the code after the closing brace does not execute:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Even if nothing inside the using block throws an exception or all exceptions inside the using block are caught, the <ph id="ph1">`Console.WriteLine`</ph> might not happen because the implicit <ph id="ph2">`Dispose`</ph>() call at the closing brace might throw an exception.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The second problem, illustrated in the <ph id="ph1">`DemonstrateProblemUsingCanThrowAndMask`</ph> method, is another implication of the closing brace throwing an exception:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Because the <ph id="ph1">`Dispose`</ph>() occurs inside a "finally" block, the <ph id="ph2">`ApplicationException`</ph> is never seen outside the using block if the <ph id="ph3">`Dispose`</ph>() fails.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>If the code outside must know about when the <ph id="ph1">`ApplicationException`</ph> occurs, the "using" construct may cause problems by masking this exception.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Finally, the sample demonstrates how to clean up correctly when exceptions occur in <ph id="ph1">`DemonstrateCleanupWithExceptions`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This uses a try/catch block to report errors and call <ph id="ph1">`Abort`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>Expected Exceptions<ept id="p1">](../../../../docs/framework/wcf/samples/expected-exceptions.md)</ept> sample for more details about catching exceptions from client calls.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The using statement and ServiceHost: Many self-hosting applications do little more than host a service, and ServiceHost.Close rarely throws an exception, so such applications can safely use the using statement with ServiceHost.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>However, be aware that ServiceHost.Close can throw a <ph id="ph1">`CommunicationException`</ph>, so if your application continues after closing the ServiceHost, you should avoid the using statement and follow the pattern previously given.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When you run the sample, the operation responses and exceptions are displayed in the client console window.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>The client process runs three scenarios, each of which attempts to call <ph id="ph1">`Divide`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The first scenario demonstrates code being skipped because of an exception from <ph id="ph1">`Dispose`</ph>().</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The second scenario demonstrates an important exception being masked because of an exception from <ph id="ph1">`Dispose`</ph>().</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The third scenario demonstrates correct clean up.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The expected output from the client process is:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>To set up, build, and run the sample</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Ensure that you have performed the <bpt id="p1">[</bpt>One-Time Setup Procedure for the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>To build the C# or Visual Basic .NET edition of the solution, follow the instructions in <bpt id="p1">[</bpt>Building the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/building-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>To run the sample in a single- or cross-machine configuration, follow the instructions in <bpt id="p1">[</bpt>Running the Windows Communication Foundation Samples<ept id="p1">](../../../../docs/framework/wcf/samples/running-the-samples.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The samples may already be installed on your machine.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Check for the following (default) directory before continuing.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If this directory does not exist, go to <bpt id="p1">[</bpt>Windows Communication Foundation (WCF) and Windows Workflow Foundation (WF) Samples for .NET Framework 4<ept id="p1">](https://go.microsoft.com/fwlink/?LinkId=150780)</ept> to download all Windows Communication Foundation (WCF) and <ph id="ph1">[!INCLUDE[wf1](../../../../includes/wf1-md.md)]</ph> samples.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This sample is located in the following directory.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
