@@ -1,0 +1,489 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="syntax-transformation.md" source-language="en-US" target-language="ru-ru">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3ca6ba19f84366b4e1f74ac4a0dea1edef3cee05</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\roslyn-sdk\get-started\syntax-transformation.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a893e6fc2079d94f2384e1bff2751d04bc9ba7fb</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">4a741009bd918f44ea7df9293f0f3fbefb24d8a7</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Get started with syntax transformation (Roslyn APIs)</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>An introduction to traversing, querying and walking syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Get started with syntax transformation</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This tutorial builds on concepts and techniques explored in the <bpt id="p1">[</bpt>Get started with syntax analysis<ept id="p1">](syntax-analysis.md)</ept> and <bpt id="p2">[</bpt>Get started with semantic analysis<ept id="p2">](semantic-analysis.md)</ept> quickstarts.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If you haven't already, you should complete those quickstarts before beginning this one.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In this quickstart, you explore techniques for creating and transforming syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>In combination with the techniques you learned in previous quickstarts, you create your first command-line refactoring!</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Immutability and the .NET compiler platform</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Immutability<ept id="p1">**</ept> is a fundamental tenet of the .NET compiler platform.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Immutable data structures can't be changed after they're created.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Immutable data structures can be safely shared and analyzed by multiple consumers simultaneously.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>There's no danger that one consumer affects another in unpredictable ways.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Your analyzer doesn't need locks or other concurrency measures.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>This rule applies to syntax trees, compilations, symbols, semantic models, and every other data structure you encounter.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Instead of modifying existing structures, APIs create new objects based on specified differences to the old ones.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You apply this concept to syntax trees to create new trees using transformations.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Create and transform trees</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>You choose one of two strategies for syntax transformations.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Factory methods<ept id="p1">**</ept> are best used when you're searching for specific nodes to replace, or specific locations where you want to insert new code.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Rewriters<ept id="p1">**</ept> are best when you want to scan an entire project for code patterns that you want to replace.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Create nodes with factory methods</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The first syntax transformation demonstrates the factory methods.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You're going to replace a <ph id="ph1">`using System.Collections;`</ph> statement with a <ph id="ph2">`using System.Collections.Generic;`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>This example demonstrates how you create <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?displayProperty=nameWithType&gt;</ph> objects using the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory?displayProperty=nameWithType&gt;</ph> factory methods.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For each kind of <bpt id="p1">**</bpt>node<ept id="p1">**</ept>, <bpt id="p2">**</bpt>token<ept id="p2">**</ept>, or <bpt id="p3">**</bpt>trivia<ept id="p3">**</ept> there's a factory method that creates an instance of that type.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>You create syntax trees by composing nodes hierarchically in a bottom-up fashion.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Then, you'll transform the existing program be replacing existing nodes with the new tree you've created.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Start Visual Studio, and create a new C# <bpt id="p1">**</bpt>Stand-Alone Code Analysis Tool<ept id="p1">**</ept> project.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>File<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>New<ept id="p2">**</ept><ph id="ph2"> &gt; </ph><bpt id="p3">**</bpt>Project<ept id="p3">**</ept> to display the New Project dialog.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Visual C#<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Extensibility<ept id="p2">**</ept> choose a <bpt id="p3">**</bpt>Stand-Alone Code Analysis Tool<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This quickstart has two example projects, so name the solution <bpt id="p1">**</bpt>SyntaxTransformationQuickStart<ept id="p1">**</ept>, and name the project <bpt id="p2">**</bpt>ConstructionCS<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Click <bpt id="p1">**</bpt>OK<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>This project uses the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory?displayProperty=nameWithType&gt;</ph> class methods to construct a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax?displayProperty=nameWithType&gt;</ph> representing the <ph id="ph3">`System.Collections.Generic`</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Add the following using directive to the top of the <ph id="ph1">`Program.cs`</ph> file to import the factory methods of the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory&gt;</ph> class and the methods of <ph id="ph3">&lt;xref:System.Console&gt;</ph> so that you can use them later without qualifying them:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>You'll create <bpt id="p1">**</bpt>name syntax nodes<ept id="p1">**</ept> to build the tree that represents the <ph id="ph1">`using System.Collections.Generic;`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax&gt;</ph> is the base class for four types of names that appear in C#.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>You compose these four types of names together to create any name that can appear in the C# language:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax?displayProperty=nameWithType&gt;</ph>, which represents simple single identifier names like <ph id="ph2">`System`</ph> and <ph id="ph3">`Microsoft`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.GenericNameSyntax?displayProperty=nameWithType&gt;</ph>, which represents a generic type or method name such as <ph id="ph2">`List&lt;int&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax?displayProperty=nameWithType&gt;</ph>, which represents a qualified name of the form <ph id="ph2">`&lt;left-name&gt;.&lt;right-identifier-or-generic-name&gt;`</ph> such as <ph id="ph3">`System.IO`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.AliasQualifiedNameSyntax?displayProperty=nameWithType&gt;</ph>, which represents a name using an assembly extern alias such a <ph id="ph2">`LibraryV2::Foo`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>You use the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory.IdentifierName(System.String)&gt;</ph> method to create a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax&gt;</ph> node.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Add the following code in your <ph id="ph1">`Main`</ph> method in <ph id="ph2">`Program.cs`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The preceding code creates an <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax&gt;</ph> object and assigns it to the variable <ph id="ph2">`name`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Many of the Roslyn APIs return base classes to make it easier to work with related types.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The variable <ph id="ph1">`name`</ph>, an <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax&gt;</ph>, can be reused as you build the <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Don't use type inference as you build the sample.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>You'll automate that step in this project.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>You've created the name.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Now, it's time to build more nodes into the tree by building a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The new tree uses <ph id="ph1">`name`</ph> as the left of the name, and a new <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax&gt;</ph> for the <ph id="ph3">`Collections`</ph> namespace as the right side of the <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Add the following code to <ph id="ph1">`program.cs`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Run the code again, and see the results.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>You're building a tree of nodes that represents code.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>You'll continue this pattern to build the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax&gt;</ph> for the namespace <ph id="ph2">`System.Collections.Generic`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Add the following code to <ph id="ph1">`Program.cs`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Run the program again to see that you've build the tree for the code to add.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Create a modified tree</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>You've built a small syntax tree that contains one statement.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The APIs to create new nodes are the right choice to create single statements or other small code blocks.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>However, to build larger blocks of code, you should use methods that replace nodes or insert nodes into an existing tree.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Remember that syntax trees are immutable.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Syntax API<ept id="p1">**</ept> doesn't provide any mechanism for modifying an existing syntax tree after construction.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Instead, it provides methods that produce new trees based on changes to existing ones.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`With*`</ph> methods are defined in concrete classes that derive from <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode&gt;</ph> or in extension methods declared in the <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.SyntaxNodeExtensions&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>These methods create a new node by applying changes to an existing node's child properties.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Additionally, the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode%2A&gt;</ph> extension method can be used to replace a descendent node in a subtree.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>This method also updates the parent to point to the newly created child and repeats this process up the entire tree - a process known as <bpt id="p1">_</bpt>re-spining<ept id="p1">_</ept> the tree.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The next step is to create a tree that represents an entire (small) program and then modify it.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Add the following code to the beginning of the <ph id="ph1">`Program`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The example code uses the <ph id="ph1">`System.Collections`</ph> namespace and not the <ph id="ph2">`System.Collections.Generic`</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Next, add the following code to the bottom of the <ph id="ph1">`Main`</ph> method to parse the text and create a tree:</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>This example uses the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)?displayProperty=NameWithType&gt;</ph> method to replace the name in a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax&gt;</ph> node with the one constructed in the preceding code.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Create a new <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax&gt;</ph> node using the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)&gt;</ph> method to update the <ph id="ph3">`System.Collections`</ph> name with the name you created in the preceding code.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Add the following code to the bottom of the <ph id="ph1">`Main`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Run the program and look carefully at the output.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`newusing`</ph> hasn't been placed in the root tree.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The original tree hasn't been changed.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Add the following code using the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode%2A&gt;</ph> extension method to create a new tree.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The new tree is the result of replacing the existing import with the updated <ph id="ph1">`newUsing`</ph> node.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>You assign this new tree to the existing <ph id="ph1">`root`</ph> variable:</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Run the program again.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This time the tree now correctly imports the <ph id="ph1">`System.Collections.Generic`</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Transform trees using <ph id="ph1">`SyntaxRewriters`</ph></source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`With*`</ph> and <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode%2A&gt;</ph> methods provide convenient means to transform individual branches of a syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter?displayProperty=nameWithType&gt;</ph> class performs multiple transformations on a syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter?displayProperty=nameWithType&gt;</ph> class is a subclass of <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor%601?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter&gt;</ph> applies a transformation to a specific type of <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>You can apply transformations to multiple types of <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode&gt;</ph> objects wherever they appear in a syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The second project in this quickstart creates a command-line refactoring that removes explicit types in local variable declarations anywhere that type inference could be used.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Create a new C# <bpt id="p1">**</bpt>Stand-Alone Code Analysis Tool<ept id="p1">**</ept> project.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, right-click the <ph id="ph1">`SyntaxTransformationQuickStart`</ph> solution node.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Choose <bpt id="p1">**</bpt>Add<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>New Project<ept id="p2">**</ept> to display the <bpt id="p3">**</bpt>New Project dialog<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Visual C#<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Extensibility<ept id="p2">**</ept>, choose <bpt id="p3">**</bpt>Stand-Alone Code Analysis Tool<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Name your project <ph id="ph1">`TransformationCS`</ph> and click OK.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The first step is to create a class that derives from <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter&gt;</ph> to perform your transformations.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Add a new class file to the project.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>Project<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Add Class...<ept id="p2">**</ept>. In the <bpt id="p3">**</bpt>Add New Item<ept id="p3">**</ept> dialog type <ph id="ph2">`TypeInferenceRewriter.cs`</ph> as the filename.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Add the following using directives to the <ph id="ph1">`TypeInferenceRewriter.cs`</ph> file:</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Next, make the <ph id="ph1">`TypeInferenceRewriter`</ph> class extend the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter&gt;</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>Add the following code to declare a private read-only field to hold a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SemanticModel&gt;</ph> and initialize it in the constructor.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>You will need this field later on to determine where type inference can be used:</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Override the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitLocalDeclarationStatement(Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax)&gt;</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>Many of the Roslyn APIs declare return types that are base classes of the actual runtime types returned.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>In many scenarios, one kind of node may be replaced by another kind of node entirely - or even removed.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>In this example, the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitLocalDeclarationStatement(Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax)&gt;</ph> method returns a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode&gt;</ph>, instead of the derived type of   <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>This rewriter returns a new <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax&gt;</ph> node based on the existing one.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>This quickstart handles local variable declarations.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>You could extend it to other declarations such as <ph id="ph1">`foreach`</ph> loops, <ph id="ph2">`for`</ph> loops, LINQ expressions, and lambda expressions.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Furthermore this rewriter will only transform declarations of the simplest form:</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>If you want to explore on your own, consider extending the finished sample for these types of variable declarations:</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Add the following code to the body of the <ph id="ph1">`VisitLocalDeclarationStatement`</ph> method to skip rewriting these forms of declarations:</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>The method indicates that no rewriting takes place by returning the <ph id="ph1">`node`</ph> parameter unmodified.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>If neither of those <ph id="ph1">`if`</ph> expressions are true, the node represents a possible declaration with initialization.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Add these statements to extract the type name specified in the declaration and bind it using the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SemanticModel&gt;</ph> field to obtain a type symbol:</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Now, add this statement to bind the initializer expression:</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Finally, add the following <ph id="ph1">`if`</ph> statement to replace the existing type name with the <ph id="ph2">`var`</ph> keyword if the type of the initializer expression matches the type specified:</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The conditional is required because the declaration may cast the initializer expression to a base class or interface.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>If that's desired, the types on the left and right-hand side of the assignment don't match.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Removing the explicit type in these cases would change the semantics of a program.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`var`</ph> is specified as an identifier rather than a keyword because <ph id="ph2">`var`</ph> is a contextual keyword.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The leading and trailing trivia (white space) are transferred from the old type name to the <ph id="ph1">`var`</ph> keyword to maintain vertical white space and indentation.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>It's simpler to use <ph id="ph1">`ReplaceNode`</ph> rather than <ph id="ph2">`With*`</ph> to transform the <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax&gt;</ph> because the type name is actually the grandchild of the declaration statement.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>You've finished the <ph id="ph1">`TypeInferenceRewriter`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>Now return to your <ph id="ph1">`Program.cs`</ph> file to finish the example.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Create a test <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Compilation&gt;</ph> and obtain the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SemanticModel&gt;</ph> from it.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Use that <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SemanticModel&gt;</ph> to try your <ph id="ph2">`TypeInferenceRewriter`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>You'll do this step last.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>In the meantime declare a placeholder variable representing your test compilation:</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>After pausing a moment, you should see an error squiggle appear reporting that no <ph id="ph1">`CreateTestCompilation`</ph> method exists.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Press <bpt id="p1">**</bpt>Ctrl+Period<ept id="p1">**</ept> to open the light-bulb and then press Enter to invoke the <bpt id="p2">**</bpt>Generate Method Stub<ept id="p2">**</ept> command.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>This command will generate a method stub for the <ph id="ph1">`CreateTestCompilation`</ph> method in the <ph id="ph2">`Program`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>You'll come back to fill in this method later:</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>C# Generate method from usage</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Write the following code to iterate over each <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTree&gt;</ph> in the test <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.Compilation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>For each one, initialize a new <ph id="ph1">`TypeInferenceRewriter`</ph> with the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SemanticModel&gt;</ph> for that tree:</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Inside the <ph id="ph1">`foreach`</ph> statement you created, add the following code to perform the transformation on each source tree.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>This code conditionally writes out the new transformed tree if any edits were made.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Your rewriter should only modify a tree if it encounters one or more local variable declarations that could be simplified using type inference:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>You should see squiggles under the <ph id="ph1">`File.WriteAllText`</ph> code.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Select the light bulb, and add the necessary <ph id="ph1">`using System.IO;`</ph> statement.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>You're almost done!</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>There's once step left: creating a test <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Compilation&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Since you haven't been using type inference at all during this quickstart, it would have made a perfect test case.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Unfortunately, creating a Compilation from a C# project file is beyond the scope of this walkthrough.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>But fortunately, if you've been following instructions carefully, there's hope.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Replace the contents of the <ph id="ph1">`CreateTestCompilation`</ph> method with the following code.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>It creates a test compilation that coincidentally matches the project described in this quickstart:</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Cross your fingers and run the project.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>Debug<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Start Debugging<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>You should be prompted by Visual Studio that the files in your project have changed.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Click "<bpt id="p1">**</bpt>Yes to All<ept id="p1">**</ept>" to reload the modified files.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Examine them to observe your awesomeness.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>Note how much cleaner the code looks without all those explicit and redundant type specifiers.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Congratulations!</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>You've used the <bpt id="p1">**</bpt>Compiler APIs<ept id="p1">**</ept> to write your own refactoring that searches all files in a C# project for certain syntactic patterns, analyzes the semantics of source code that matches those patterns, and transforms it.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>You're now officially refactoring author!</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
