@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="create-custom-template.md" source-language="en-US" target-language="de-de">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">3b45a24c8a249eeb99fb1a4b14918483b978980b</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\tutorials\create-custom-template.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8553ba2e53f34860f4dec63e9455bfef3f1a4acc</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">97e7a3d14bd22e2eb22590a1af2e66c4c6378bf8</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Create a custom template for dotnet new</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn how to create a custom template for the dotnet new command in this fun tutorial.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Create a custom template for dotnet new</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This tutorial shows you how to:</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Create a basic template from an existing project or a new console app project.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Pack the template for distribution at nuget.org or from a local <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Install the template from nuget.org, a local <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file, or the local file system.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Uninstall the template.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>If you prefer to proceed through the tutorial with a complete sample, download the <bpt id="p1">[</bpt>sample project template<ept id="p1">](https://github.com/dotnet/dotnet-template-samples/tree/master/16-nuget-package)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The sample template is configured for NuGet distribution.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>If you wish to use the downloaded sample with file system distribution, do the following:</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Move the contents of the <bpt id="p1">*</bpt>content<ept id="p1">*</ept> folder of the sample up one level into the <bpt id="p2">*</bpt>GarciaSoftware.ConsoleTemplate.CSharp<ept id="p2">*</ept> folder.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Delete the empty <bpt id="p1">*</bpt>content<ept id="p1">*</ept> folder.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Delete the <bpt id="p1">*</bpt>nuspec<ept id="p1">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Install the <bpt id="p1">[</bpt>.NET Core 2.0 SDK<ept id="p1">](https://www.microsoft.com/net/core)</ept> or later versions.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Read the reference topic <bpt id="p1">[</bpt>Custom templates for dotnet new<ept id="p1">](../tools/custom-templates.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Create a template from a project</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Use an existing project that you've confirmed compiles and runs, or create a new console app project in a folder on your hard drive.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>This tutorial assumes that the name of the project folder is <bpt id="p1">*</bpt>GarciaSoftware.ConsoleTemplate.CSharp<ept id="p1">*</ept> stored at <bpt id="p2">*</bpt>Documents\Templates<ept id="p2">*</ept> in the user's profile.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>The tutorial project template name is in the format <bpt id="p1">*</bpt><ph id="ph1">\&lt;</ph>Company Name&gt;.<ph id="ph2">\&lt;</ph>Template Type&gt;.<ph id="ph3">\&lt;</ph>Programming Language&gt;<ept id="p1">*</ept>, but you're free to name your project and template anything you wish.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Add a folder to the root of the project named <bpt id="p1">*</bpt>.template.config<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Inside the <bpt id="p1">*</bpt>.template.config<ept id="p1">*</ept> folder, create a <bpt id="p2">*</bpt>template.json<ept id="p2">*</ept> file to configure your template.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For more information and member definitions for the <bpt id="p1">*</bpt>template.json<ept id="p1">*</ept> file, see the <bpt id="p2">[</bpt>Custom templates for dotnet new<ept id="p2">](../tools/custom-templates.md#templatejson)</ept> topic and the <bpt id="p3">[</bpt><bpt id="p4">*</bpt>template.json<ept id="p4">*</ept> schema at the JSON Schema Store<ept id="p3">](http://json.schemastore.org/template)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The template is finished.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>At this point, you have two options for template distribution.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>To continue this tutorial, choose one path or the other:</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>NuGet distribution<ept id="p1">](#use-nuget-distribution)</ept>: install the template from NuGet or from the local <bpt id="p2">*</bpt>nupkg<ept id="p2">*</ept> file, and use the installed template.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>File system distribution<ept id="p1">](#use-file-system-distribution)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Use NuGet Distribution</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Pack the template into a NuGet package</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Create a folder for the NuGet package.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For the tutorial, the folder name <bpt id="p1">*</bpt>GarciaSoftware.ConsoleTemplate.CSharp<ept id="p1">*</ept> is used, and the folder is created inside a <bpt id="p2">*</bpt>Documents\NuGetTemplates<ept id="p2">*</ept> folder in the user's profile.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Create a folder named <bpt id="p1">*</bpt>content<ept id="p1">*</ept> inside of the new template folder to hold the project files.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Copy the contents of your project folder, together with its <bpt id="p1">*</bpt>.template.config/template.json<ept id="p1">*</ept> file, into the <bpt id="p2">*</bpt>content<ept id="p2">*</ept> folder you created.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Next to the <bpt id="p1">*</bpt>content<ept id="p1">*</ept> folder, add a <bpt id="p2">[</bpt><bpt id="p3">*</bpt>nuspec<ept id="p3">*</ept> file<ept id="p2">](/nuget/create-packages/creating-a-package)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The nuspec file is an XML manifest file that describes a package's contents and drives the process of creating the NuGet package.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Directory structure showing the layout of the NuGet package</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Inside of a <bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>packageTypes&gt;<ept id="p1">**</ept> element in the <bpt id="p2">*</bpt>nuspec<ept id="p2">*</ept> file, include a <bpt id="p3">**</bpt><ph id="ph2">\&lt;</ph>packageType&gt;<ept id="p3">**</ept> element with a <ph id="ph3">`name`</ph> attribute value of <ph id="ph4">`Template`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Both the <bpt id="p1">*</bpt>content<ept id="p1">*</ept> folder and the <bpt id="p2">*</bpt>nuspec<ept id="p2">*</ept> file should reside in the same directory.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>The table shows the minimum <bpt id="p1">*</bpt>nuspec<ept id="p1">*</ept> file elements required to produce a template as a NuGet package.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Element</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Type</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>authors&gt;<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>string</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>A comma-separated list of packages authors, matching the profile names on nuget.org. Authors are displayed in the NuGet Gallery on nuget.org and are used to cross-reference packages by the same authors.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>description&gt;<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>string</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>A long description of the package for UI display.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>id&gt;<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>string</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The case-insensitive package identifier, which must be unique across nuget.org or whatever gallery the package will reside in.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>IDs may not contain spaces or characters that are not valid for a URL and generally follow .NET namespace rules.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Choosing a unique package identifier and setting the version number<ept id="p1">](/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number)</ept> for guidance.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>packageType&gt;<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>string</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Place this element inside a <bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>packageTypes&gt;<ept id="p1">**</ept> element among the <bpt id="p2">**</bpt><ph id="ph2">\&lt;</ph>metadata&gt;<ept id="p2">**</ept> elements.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">`name`</ph> attribute of the <bpt id="p1">**</bpt><ph id="ph2">\&lt;</ph>packageType&gt;<ept id="p1">**</ept> element to <ph id="ph3">`Template`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt><ph id="ph1">\&lt;</ph>version&gt;<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>string</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The version of the package, following the major.minor.patch pattern.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Version numbers may include a pre-release suffix as described in <bpt id="p1">[</bpt>Pre-release versions<ept id="p1">](/nuget/create-packages/prerelease-packages#semantic-versioning)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>.nuspec reference<ept id="p1">](/nuget/schema/nuspec)</ept> for the complete <bpt id="p2">*</bpt>nuspec<ept id="p2">*</ept> file schema.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">*</bpt>nuspec<ept id="p1">*</ept> file for the tutorial is named <bpt id="p2">*</bpt>GarciaSoftware.ConsoleTemplate.CSharp.nuspec<ept id="p2">*</ept> and contains the following content:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Create the package<ept id="p1">](/nuget/create-packages/creating-a-package#creating-the-package)</ept> using the <ph id="ph1">`nuget pack &lt;PATH_TO_NUSPEC_FILE&gt;`</ph> command.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The following command assumes that the folder that holds the NuGet assets is at <bpt id="p1">*</bpt>C:\Users<ph id="ph1">\\</ph><ph id="ph2">\&lt;</ph>USER&gt;\Documents\Templates\GarciaSoftware.ConsoleTemplate.CSharp<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>But wherever you place the folder on your system, the <ph id="ph1">`nuget pack`</ph> command accepts the path to the <bpt id="p1">*</bpt>nuspec<ept id="p1">*</ept> file:</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Publishing the package to nuget.org</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>To publish a NuGet package, follow the instructions in the <bpt id="p1">[</bpt>Create and publish a package<ept id="p1">](/nuget/quickstart/create-and-publish-a-package#publish-the-package)</ept> topic.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>However, we recommend that you don't publish the tutorial template to NuGet as it can never be deleted once published, only delisted.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Now that you have the NuGet package in the form of a <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file, we suggest that you follow the instructions below to install the template directly from the local <bpt id="p2">*</bpt>nupkg<ept id="p2">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Install the template from a NuGet package</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Install the template from the local <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>To install the template from the <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file that you produced, use the <ph id="ph1">`dotnet new`</ph> command with the <ph id="ph2">`-i|--install`</ph> option and provide the path to the <bpt id="p2">*</bpt>nupkg<ept id="p2">*</ept> file:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Install the template from a NuGet package stored at nuget.org</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>If you wish to install a template from a NuGet package stored at nuget.org, use the <ph id="ph1">`dotnet new`</ph> command with the <ph id="ph2">`-i|--install`</ph> option and supply the name of the NuGet package:</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The example is for demonstration purposes only.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>There isn't a <ph id="ph1">`GarciaSoftware.ConsoleTemplate.CSharp`</ph> NuGet package at nuget.org, and we don't recommend that you publish and consume test templates from NuGet.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>If you run the command, no template is installed.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>However, you can install a template that hasn't been published to nuget.org by referencing the <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file directly on your local file system as shown in the previous section <bpt id="p2">[</bpt>Install the template from the local nupkg file<ept id="p2">](#install-the-template-from-the-local-nupkg-file)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>If you'd like a live example of how to install a template from a package at nuget.org, you can use the <bpt id="p1">[</bpt>NUnit 3 template for dotnet-new<ept id="p1">](https://www.nuget.org/packages/NUnit3.DotNetNew.Template/)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>This template sets up a project to use NUnit unit testing.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>Use the following command to install it:</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>When you list the templates with <ph id="ph1">`dotnet new -l`</ph>, you see the <bpt id="p1">*</bpt>NUnit 3 Test Project<ept id="p1">*</ept> with a short name of <bpt id="p2">*</bpt>nunit<ept id="p2">*</ept> in the template list.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>You're ready to use the template in the next section.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Console window showing the NUnit template with other templates</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Create a project from the template</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>After the template is installed from NuGet, use the template by executing the <ph id="ph1">`dotnet new &lt;TEMPLATE&gt;`</ph> command from the directory where you want to the template engine's output placed (unless you're using the <ph id="ph2">`-o|--output`</ph> option to specify a specific directory).</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt><ph id="ph1">`dotnet new`</ph> Options<ept id="p1">](~/docs/core/tools/dotnet-new.md#options)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Supply the template's short name directly to the <ph id="ph1">`dotnet new`</ph> command.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>To create a project from the NUnit template, run the following command:</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>The console shows that the project is created and that the project's packages are restored.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>After the command is run, the project is ready for use.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Console window shows the output of dotnet new nunit including restoring the project dependencies</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>To uninstall a template from a NuGet package stored at nuget.org</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The example is for demonstration purposes only.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>There isn't a <ph id="ph1">`GarciaSoftware.ConsoleTemplate.CSharp`</ph> NuGet package at nuget.org or installed with the .NET Core SDK.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>If you run the command, no package/template is uninstalled and you receive the following exception:</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Could not find something to uninstall called 'GarciaSoftware.ConsoleTemplate.CSharp'.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>If you installed the <bpt id="p1">[</bpt>NUnit 3 template for dotnet-new<ept id="p1">](https://www.nuget.org/packages/NUnit3.DotNetNew.Template/)</ept> and wish to uninstall it, use the following command:</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Uninstall the template from a local nupkg file</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>When you wish to uninstall the template, don't attempt to use the path to the <bpt id="p1">*</bpt>nupkg<ept id="p1">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">*</bpt>Attempting to uninstall a template using <ph id="ph1">`dotnet new -u &lt;PATH_TO_NUPKG_FILE&gt;`</ph> fails.<ept id="p1">*</ept></source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Reference the package by its <ph id="ph1">`id`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Use file system distribution</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>To distribute the template, place the project template folder in a location accessible to users on your network.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`dotnet new`</ph> command with the <ph id="ph2">`-i|--install`</ph> option and specify the path to the template folder (the project folder containing the project and the <bpt id="p1">*</bpt>.template.config<ept id="p1">*</ept> folder).</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The tutorial assumes the project template is stored in the <bpt id="p1">*</bpt>Documents/Templates<ept id="p1">*</ept> folder of the user's profile.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>From that location, install the template with the following command replacing <ph id="ph1">\&lt;</ph>USER&gt; with the user's profile name:</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Create a project from the template</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>After the template is installed from the file system, use the template by executing the <ph id="ph1">`dotnet new &lt;TEMPLATE&gt;`</ph> command from the directory where you want to the template engine's output placed (unless you're using the <ph id="ph2">`-o|--output`</ph> option to specify a specific directory).</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt><ph id="ph1">`dotnet new`</ph> Options<ept id="p1">](~/docs/core/tools/dotnet-new.md#options)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Supply the template's short name directly to the <ph id="ph1">`dotnet new`</ph> command.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>From a new project folder created at <bpt id="p1">*</bpt>C:\Users<ph id="ph1">\\</ph><ph id="ph2">\&lt;</ph>USER&gt;\Documents\Projects\MyConsoleApp<ept id="p1">*</ept>, create a project from the <ph id="ph3">`garciaconsole`</ph> template:</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Uninstall the template</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>If you created the template on your local file system at <bpt id="p1">*</bpt>C:\Users<ph id="ph1">\\</ph><ph id="ph2">\&lt;</ph>USER&gt;\Documents\Templates\GarciaSoftware.ConsoleTemplate.CSharp<ept id="p1">*</ept>, uninstall it with the <ph id="ph3">`-u|--uninstall`</ph> switch and the path to the template folder:</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>To uninstall the template from your local file system, you need to fully qualify the path.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>For example, <bpt id="p1">*</bpt>C:\Users<ph id="ph1">\\</ph><ph id="ph2">\&lt;</ph>USER&gt;\Documents\Templates\GarciaSoftware.ConsoleTemplate.CSharp<ept id="p1">*</ept> will work, but <bpt id="p2">*</bpt>./GarciaSoftware.ConsoleTemplate.CSharp<ept id="p2">*</ept> from the containing folder will not.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Additionally, do not include a final terminating directory slash on your template path.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>dotnet/templating GitHub repo Wiki<ept id="p1">](https://github.com/dotnet/templating/wiki)</ept></source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>dotnet/dotnet-template-samples GitHub repo<ept id="p1">](https://github.com/dotnet/dotnet-template-samples)</ept></source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to create your own templates for dotnet new<ept id="p1">](https://devblogs.microsoft.com/dotnet/how-to-create-your-own-templates-for-dotnet-new/)</ept></source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt><bpt id="p2">*</bpt>template.json<ept id="p2">*</ept> schema at the JSON Schema Store<ept id="p1">](http://json.schemastore.org/template)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
