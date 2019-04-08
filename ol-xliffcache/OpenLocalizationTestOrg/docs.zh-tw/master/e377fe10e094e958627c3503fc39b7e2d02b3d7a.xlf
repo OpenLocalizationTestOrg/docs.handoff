@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="syntax-analysis.md" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e377fe10e094e958627c3503fc39b7e2d02b3d7a</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\roslyn-sdk\get-started\syntax-analysis.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a21584979916b2a0f429736622424715a0ffacbc</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">8dd5f21f9c1615613ce53f6ee4338d357a443ba9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Get started with syntax analysis (Roslyn APIs)</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>An introduction to traversing, querying and walking syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Get started with syntax analysis</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>In this tutorial, you'll explore the <bpt id="p1">**</bpt>Syntax API<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The Syntax API provides access to the data structures that describe a C# or Visual Basic program.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>These data structures have enough detail that they can fully represent any program of any size.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>These structures can describe complete programs that compile and run correctly.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>They can also describe incomplete programs, as you write them, in the editor.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To enable this rich expression, the data structures and APIs that make up the Syntax API are necessarily complex.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Let's start with what the data structure looks like for the typical "Hello World" program:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Look at the text of the previous program.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>You recognize familiar elements.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The entire text represents a single source file, or a <bpt id="p1">**</bpt>compilation unit<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The first three lines of that source file are <bpt id="p1">**</bpt>using directives<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The remaining source is contained in a <bpt id="p1">**</bpt>namespace declaration<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The namespace declaration contains a child <bpt id="p1">**</bpt>class declaration<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The class declaration contains one <bpt id="p1">**</bpt>method declaration<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>The Syntax API creates a tree structure with the root representing the compilation unit.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Nodes in the tree represent the using directives, namespace declaration and all the other elements of the program.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The tree structure continues down to the lowest levels: the string "Hello World!"</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>is a <bpt id="p1">**</bpt>string literal token<ept id="p1">**</ept> that is a descendent of an <bpt id="p2">**</bpt>argument<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>The Syntax API provides access to the structure of the program.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can query for specific code practices, walk the entire tree to understand the code, and create new trees by modifying the existing tree.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>That brief description provides an overview of the kind of information accessible using the Syntax API.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The Syntax API is nothing more than a formal API that describes the familiar code constructs you know from C#.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>The full capabilities include information about how the code is formatted including line breaks, white space, and indenting.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Using this information, you can fully represent the code as written and read by human programmers or the compiler.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Using this structure enables you to interact with the source code on a deeply meaningful level.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>It's no longer text strings, but data that represents the structure of a C# program.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To get started, you'll need to install the <bpt id="p1">**</bpt>.NET Compiler Platform SDK<ept id="p1">**</ept>:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Understanding syntax trees</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>You use the Syntax API for any analysis of the structure of C# code.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>Syntax API<ept id="p1">**</ept> exposes the parsers, the syntax trees, and utilities for analyzing and constructing syntax trees.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>It's how you search code for specific syntax elements or read the code for a program.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A syntax tree is a data structure used by the C# and Visual Basic compilers to understand C# and Visual Basic programs.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Syntax trees are produced by the same parser that runs when a project is built or a developer hits F5.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The syntax trees have full-fidelity with the language; every bit of information in a code file is represented in the tree.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Writing a syntax tree to text reproduces the exact original text that was parsed.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The syntax trees are also <bpt id="p1">**</bpt>immutable<ept id="p1">**</ept>; once created a syntax tree can never be changed.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Consumers of the trees can analyze the trees on multiple threads, without locks or other concurrency measures, knowing the data never changes.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>You can use APIs to create new trees that are the result of modifying an existing tree.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The four primary building blocks of syntax trees are:</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTree?displayProperty=nameWithType&gt;</ph> class, an instance of which represents an entire parse tree.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTree&gt;</ph> is an abstract class that has language-specific derivatives.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>You use the parse methods of the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree?displayProperty=nameWithType&gt;</ph> (or <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxTree?displayProperty=nameWithType&gt;</ph>) class to parse text in C# or VB.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode?displayProperty=nameWithType&gt;</ph> class, instances of which represent syntactic constructs such as declarations, statements, clauses, and expressions.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxToken?displayProperty=nameWithType&gt;</ph> structure, which represents an individual keyword, identifier, operator, or punctuation.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>And lastly the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxTrivia?displayProperty=nameWithType&gt;</ph> structure, which represents syntactically insignificant bits of information such as the white space between tokens, preprocessing directives, and comments.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Trivia, tokens, and nodes are composed hierarchically to form a tree that completely represents everything in a fragment of Visual Basic or C# code.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You can see this structure using the <bpt id="p1">**</bpt>Syntax Visualizer<ept id="p1">**</ept> window.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>View<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Other Windows<ept id="p2">**</ept><ph id="ph2"> &gt; </ph><bpt id="p3">**</bpt>Syntax Visualizer<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>For example, the preceding C# source file examined using the <bpt id="p1">**</bpt>Syntax Visualizer<ept id="p1">**</ept> looks like the following figure:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>SyntaxNode<ept id="p1">**</ept>: Blue | <bpt id="p2">**</bpt>SyntaxToken<ept id="p2">**</ept>: Green | <bpt id="p3">**</bpt>SyntaxTrivia<ept id="p3">**</ept>: Red <ph id="ph1">![</ph>C# Code File<ph id="ph2">](media/walkthrough-csharp-syntax-figure1.png)</ph></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>By navigating this tree structure, you can find any statement, expression, token, or bit of white space in a code file.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>While you can find anything in a code file using the Syntax APIs, most scenarios involve examining small snippets of code, or searching for particular statements or fragments.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>The two examples that follow show typical uses to browse the structure of code, or search for single statements.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Traversing trees</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>You can examine the nodes in a syntax tree in two ways.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>You can traverse the tree to examine each node, or you can query for specific elements or nodes.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Manual traversal</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>You can see the finished code for this sample in <bpt id="p1">[</bpt>our GitHub repository<ept id="p1">](https://github.com/dotnet/samples/tree/master/csharp/roslyn-sdk/SyntaxQuickStart)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The Syntax Tree types use inheritance to describe the different syntax elements that are valid at different locations in the program.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Using these APIs often means casting properties or collection members to specific derived types.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>In the following examples, the assignment and the casts are separate statements, using explicitly typed variables.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>You can read the code to see the return types of the API and the runtime type of the objects returned.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>In practice, it's more common to use implicitly typed variables and rely on API names to describe the type of objects being examined.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Create a new C# <bpt id="p1">**</bpt>Stand-Alone Code Analysis Tool<ept id="p1">**</ept> project:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>File<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>New<ept id="p2">**</ept><ph id="ph2"> &gt; </ph><bpt id="p3">**</bpt>Project<ept id="p3">**</ept> to display the New Project dialog.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Visual C#<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Extensibility<ept id="p2">**</ept>, choose <bpt id="p3">**</bpt>Stand-Alone Code Analysis Tool<ept id="p3">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Name your project "<bpt id="p1">**</bpt>SyntaxTreeManualTraversal<ept id="p1">**</ept>" and click OK.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>You're going to analyze the basic "Hello World!"</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>program shown earlier.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Add the text for the Hello World program as a constant in your <ph id="ph1">`Program`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Next, add the following code to build the <bpt id="p1">**</bpt>syntax tree<ept id="p1">**</ept> for the code text in the <ph id="ph1">`programText`</ph> constant.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Add the following line to your <ph id="ph1">`Main`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Those two lines create the tree and retrieve the root node of that tree.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>You can now examine the nodes in the tree.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Add these lines to your <ph id="ph1">`Main`</ph> method to display some of the properties of the root node in the tree:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Run the application to see what your code has discovered about the root node in this tree.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Typically, you'd traverse the tree to learn about the code.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>In this example, you're analyzing code you know to explore the APIs.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Add the following code to examine the first member of the <ph id="ph1">`root`</ph> node:</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>That member is a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>It represents everything in the scope of the <ph id="ph1">`namespace HelloWorld`</ph> declaration.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Add the following code to examine what nodes are declared inside the <ph id="ph1">`HelloWorld`</ph> namespace:</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Run the program to see what you've learned.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Now that you know the declaration is a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax?displayProperty=nameWithType&gt;</ph>, declare a new variable of that type to examine the class declaration.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>This class only contains one member: the <ph id="ph1">`Main`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Add the following code to find the <ph id="ph1">`Main`</ph> method, and cast it to a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>The method declaration node contains all the syntactic information about the method.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Let's display the return type of the <ph id="ph1">`Main`</ph> method, the number and types of the arguments, and the body text of the method.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Add the following code:</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Run the program to see all the information you've discovered about this program:</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Query methods</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>In addition to traversing trees, you can also explore the syntax tree using the query methods defined on <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>These methods should be immediately familiar to anyone familiar with XPath.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>You can use these methods with LINQ to quickly find things in a tree.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode&gt;</ph> has query methods such as <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.DescendantNodes%2A&gt;</ph>, <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.AncestorsAndSelf%2A&gt;</ph> and <ph id="ph4">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.ChildNodes%2A&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>You can use these query methods to find the argument to the <ph id="ph1">`Main`</ph> method as an alternative to navigating the tree.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Add the following code to the bottom of your <ph id="ph1">`Main`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The first statement uses a LINQ expression and the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SyntaxNode.DescendantNodes%2A&gt;</ph> method to locate the same parameter as in the previous example.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Run the program, and you can see that the LINQ expression found the same parameter as manually navigating the tree.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>The sample uses <ph id="ph1">`WriteLine`</ph> statements to display information about the syntax trees as they are traversed.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>You can also learn much more by running the finished program under the debugger.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>You can examine more of the properties and methods that are part of the syntax tree created for the hello world program.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Syntax walkers</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Often you want to find all nodes of a specific type in a syntax tree, for example, every property declaration in a file.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>By extending the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker?displayProperty=nameWithType&gt;</ph> class and overriding the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitPropertyDeclaration(Microsoft.CodeAnalysis.CSharp.Syntax.PropertyDeclarationSyntax)&gt;</ph> method, you process every property declaration in a syntax tree without knowing its structure beforehand.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph> is a specific kind of <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor&gt;</ph> that recursively visits a node and each of its children.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>This example implements a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph> that examines a syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>It collects <ph id="ph1">`using`</ph> directives it finds that aren't importing a <ph id="ph2">`System`</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Create a new C# <bpt id="p1">**</bpt>Stand-Alone Code Analysis Tool<ept id="p1">**</ept> project; name it "<bpt id="p2">**</bpt>SyntaxWalker<ept id="p2">**</ept>."</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>You can see the finished code for this sample in <bpt id="p1">[</bpt>our GitHub repository<ept id="p1">](https://github.com/dotnet/samples/tree/master/csharp/roslyn-sdk/SyntaxQuickStart)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>The sample on GitHub contains both projects described in this tutorial.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>As in the previous sample, you can define a string constant to hold the text of the program you're going to analyze:</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>This source text contains <ph id="ph1">`using`</ph> directives scattered across four different locations: the file-level, in the top-level namespace, and in the two nested namespaces.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>This example highlights a core scenario for using the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph> class to query code.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>It would be cumbersome to visit every node in the root syntax tree to find using declarations.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Instead, you create a derived class and override the method that gets called only when the current node in the tree is a using directive.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Your visitor does not do any work on any other node types.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>This single method examines each of the <ph id="ph1">`using`</ph> statements and builds a collection of the namespaces that aren't in the <ph id="ph2">`System`</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>You build a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph> that examines all the <ph id="ph2">`using`</ph> statements, but only the <ph id="ph3">`using`</ph> statements.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Now that you've defined the program text, you need to create a <ph id="ph1">`SyntaxTree`</ph> and get the root of that tree:</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Next, create a new class.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>Project<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Add New Item<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>In the <bpt id="p1">**</bpt>Add New Item<ept id="p1">**</ept> dialog type <bpt id="p2">*</bpt>UsingCollector.cs<ept id="p2">*</ept> as the filename.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>You implement the <ph id="ph1">`using`</ph> visitor functionality in the <ph id="ph2">`UsingCollector`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Start by making the <ph id="ph1">`UsingCollector`</ph> class derive from <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>You need storage to hold the namespace nodes that you're collecting.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>Declare a public read-only property in the <ph id="ph1">`UsingCollector`</ph> class; you use this variable to store the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax&gt;</ph> nodes you find:</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>The base class, <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker&gt;</ph> implements the logic to visit each node in the syntax tree.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>The derived class overrides the methods called for the specific nodes you're interested in.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>In this case, you're interested in any <ph id="ph1">`using`</ph> directive.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>That means you must override the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitUsingDirective(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax)&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>The one argument to this method is a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax?displayProperty=nameWithType&gt;</ph> object.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>That's an important advantage to using the visitors: they call the overridden methods with arguments already cast to the specific node type.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax?displayProperty=nameWithType&gt;</ph> class has a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.Name&gt;</ph> property that stores the name of the namespace being imported.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>It is a <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Add the following code in the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitUsingDirective(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax)&gt;</ph> override:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>As with the earlier example, you've added a variety of <ph id="ph1">`WriteLine`</ph> statements to aid in understanding of this method.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>You can see when it's called, and what arguments are passed to it each time.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Finally, you need to add two lines of code to create the <ph id="ph1">`UsingCollector`</ph> and have it visit the root node, collecting all the <ph id="ph2">`using`</ph> statements.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Then, add a <ph id="ph1">`foreach`</ph> loop to display all the <ph id="ph2">`using`</ph> statements your collector found:</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Compile and run the program.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>You should see the following output:</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Congratulations!</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>You've used the <bpt id="p1">**</bpt>Syntax API<ept id="p1">**</ept> to locate specific kinds of C# statements and declarations in C# source code.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

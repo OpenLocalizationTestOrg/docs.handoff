@@ -1,0 +1,900 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="how-to-write-csharp-analyzer-code-fix.md" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">665dac9d36933c35be19cc826b8b4dc614c38ed2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\roslyn-sdk\tutorials\how-to-write-csharp-analyzer-code-fix.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1aea26bf11e1ba0eab84461724d02c3c0d98ee75</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">71c7b08222e3951adf4445084aa2eaa8d1d78e9e</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Tutorial: Write your first analyzer and code fix</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>This tutorial provides step-by-step instructions to build an analyzer and code fix using the .NET Compiler SDK (Roslyn APIs).</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Tutorial: Write your first analyzer and code fix</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The .NET Compiler Platform SDK provides the tools you need to create custom warnings that target C# or Visual Basic code.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Your <bpt id="p1">**</bpt>analyzer<ept id="p1">**</ept> contains code that recognizes violations of your rule.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Your <bpt id="p1">**</bpt>code fix<ept id="p1">**</ept> contains the code that fixes the violation.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The rules you implement can be anything from code structure to coding style to naming conventions and more.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The .NET Compiler Platform provides the framework for running analysis as developers are writing code, and all the Visual Studio UI features for fixing code: showing squiggles in the editor, populating the Visual Studio Error List, creating the "light bulb" suggestions and showing the rich preview of the suggested fixes.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>In this tutorial, you'll explore the creation of an <bpt id="p1">**</bpt>analyzer<ept id="p1">**</ept> and an accompanying <bpt id="p2">**</bpt>code fix<ept id="p2">**</ept> using the Roslyn APIs.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>An analyzer is a way to perform source code analysis and report a problem to the user.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Optionally, an analyzer can also provide a code fix that represents a modification to the user's source code.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This tutorial creates an analyzer that finds local variable declarations that could be declared using the <ph id="ph1">`const`</ph> modifier but are not.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The accompanying code fix modifies those declarations to add the <ph id="ph1">`const`</ph> modifier.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Visual Studio 2017<ept id="p1">](https://www.visualstudio.com/downloads)</ept></source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You'll need to install the <bpt id="p1">**</bpt>.NET Compiler Platform SDK<ept id="p1">**</ept>:</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>There are several steps to creating and validating your analyzer:</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Create the solution.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Register the analyzer name and description.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Report analyzer warnings and recommendations.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Implement the code fix to accept recommendations.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Improve the analysis through unit tests.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Explore the analyzer template</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Your analyzer reports to the user any local variable declarations that can be converted to local constants.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For example, consider the following code:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>In the code above, <ph id="ph1">`x`</ph> is assigned a constant value and is never modified.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>It can be declared using the <ph id="ph1">`const`</ph> modifier:</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The analysis to determine whether a variable can be made constant is involved, requiring syntactic analysis, constant analysis of the initializer expression and dataflow analysis to ensure that the variable is never written to.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>The .NET Compiler Platform provides APIs that make it easier to perform this analysis.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The first step is to create a new C# <bpt id="p1">**</bpt>Analyzer with code fix<ept id="p1">**</ept> project.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="p1">**</bpt>File &gt; New &gt; Project...<ept id="p1">**</ept> to display the New Project dialog.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Under <bpt id="p1">**</bpt>Visual C# &gt; Extensibility<ept id="p1">**</ept>, choose <bpt id="p2">**</bpt>Analyzer with code fix (.NET Standard)<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Name your project "<bpt id="p1">**</bpt>MakeConst<ept id="p1">**</ept>" and click OK.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>The analyzer with code fix template creates three projects: one contains the analyzer and code fix, the second is a unit test project, and the third is the VSIX project.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The default startup project is the VSIX project.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Press <bpt id="p1">**</bpt>F5<ept id="p1">**</ept> to start the VSIX project.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>This starts a second instance of Visual Studio that has loaded your new analyzer.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>When you run your analyzer, you start a second copy of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>This second copy uses a different registry hive to store settings.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>That enables you to differentiate the visual settings in the two copies of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>You can pick a different theme for the experimental run of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In addition, don't roam your settings or login to your Visual Studio account using the experimental run of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>That keeps the settings different.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>In the second Visual Studio instance that you just started, create a new C# Console Application project (either .NET Core or .NET Framework project will work -- analyzers work at the source level.) Hover over the token with a wavy underline, and the warning text provided by an analyzer appears.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The template creates an analyzer that reports a warning on each type declaration where the type name contains lowercase letters, as shown in the following figure:</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Analyzer reporting warning</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The template also provides a code fix that changes any type name containing lower case characters to all upper case.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>You can click on the light bulb displayed with the warning to see the suggested changes.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Accepting the suggested changes updates the type name and all references to that type in the solution.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Now that you've seen the initial analyzer in action, close the second Visual Studio instance and return to your analyzer project.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You don't have to start a second copy of Visual Studio and create new code to test every change in your analyzer.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>The template also creates a unit test project for you.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>That project contains two tests.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TestMethod1`</ph> shows the typical format of a test that analyzes code without triggering a diagnostic.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TestMethod2`</ph> shows the format of a test that triggers a diagnostic, and then applies a suggested code fix.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>As you build your analyzer and code fix, you'll write tests for different code structures to verify your work.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Unit tests for analyzers are much quicker than testing them interactively with Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Analyzer unit tests are a great tool when you know what code constructs should and shouldn't trigger your analyzer.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Loading your analyzer in another copy of Visual Studio is a great tool to explore and find constructs you may not have thought about yet.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Create analyzer registrations</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The template creates the initial <ph id="ph1">`DiagnosticAnalyzer`</ph> class, in the <bpt id="p1">**</bpt>MakeConstAnalyzer.cs<ept id="p1">**</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>This initial analyzer shows two important properties of every analyzer.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Every diagnostic analyzer must provide a <ph id="ph1">`[DiagnosticAnalyzer]`</ph> attribute that describes the language it operates on.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Every diagnostic analyzer must derive from the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>The template also shows the basic features that are part of any analyzer:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Register actions.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The actions represent code changes that should trigger your analyzer to examine code for violations.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>When Visual Studio detects code edits that match a registered action, it calls your analyzer's registered method.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>Create diagnostics.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>When your analyzer detects a violation, it creates a diagnostic object that Visual Studio uses to notify the user of the violation.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>You register actions in your override of <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer.Initialize(Microsoft.CodeAnalysis.Diagnostics.AnalysisContext)?displayProperty=nameWithType&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>In this tutorial, you'll visit <bpt id="p1">**</bpt>syntax nodes<ept id="p1">**</ept> looking for local declarations, and see which of those have constant values.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>If a declaration could be constant, your analyzer will create and report a diagnostic.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The first step is to update the registration constants and <ph id="ph1">`Initialize`</ph> method so these constants indicate your "Make Const" analyzer.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Most of the string constants are defined in the string resource file.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>You should follow that practice for easier localization.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Open the <bpt id="p1">**</bpt>Resources.resx<ept id="p1">**</ept> file for the <bpt id="p2">**</bpt>MakeConst<ept id="p2">**</ept> analyzer project.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>This displays the resource editor.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Update the string resources as follows:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Change <ph id="ph1">`AnalyzerTitle`</ph> to "Variable can be made constant".</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Change <ph id="ph1">`AnalyzerMessageFormat`</ph> to "Can be made constant".</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Change <ph id="ph1">`AnalyzerDescription`</ph> to "Make Constant".</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Also, change the <bpt id="p1">**</bpt>Access Modifier<ept id="p1">**</ept> drop-down to <ph id="ph1">`public`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>That makes it easier to use these constants in unit tests.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>When you have finished, the resource editor should appear as follow figure shows:</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Update string resources</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The remaining changes are in the analyzer file.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>Open <bpt id="p1">**</bpt>MakeConstAnalyzer.cs<ept id="p1">**</ept> in Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Change the registered action from one that acts on symbols to one that acts on syntax.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>In the <ph id="ph1">`MakeConstAnalyzerAnalyzer.Initialize`</ph> method, find the line that registers the action on symbols:</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Replace it with the following line:</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>After that change, you can delete the <ph id="ph1">`AnalyzeSymbol`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>This analyzer examines <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CSharp.SyntaxKind.LocalDeclarationStatement?displayProperty=nameWithType&gt;</ph>, not <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.SymbolKind.NamedType?displayProperty=nameWithType&gt;</ph> statements.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Notice that <ph id="ph1">`AnalyzeNode`</ph> has red squiggles under it.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The code you just added references an <ph id="ph1">`AnalyzeNode`</ph> method that hasn't been declared.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>Declare that method using the following code:</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Change the <ph id="ph1">`Category`</ph> to "Usage" in <bpt id="p1">**</bpt>MakeConstAnalyzer.cs<ept id="p1">**</ept> as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Find local declarations that could be const</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>It's time to write the first version of the <ph id="ph1">`AnalyzeNode`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>It should look for a single local declaration that could be <ph id="ph1">`const`</ph> but is not, like the following code:</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>The first step is to find local declarations.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Add the following code to <ph id="ph1">`AnalyzeNode`</ph> in <bpt id="p1">**</bpt>MakeConstAnalyzer.cs<ept id="p1">**</ept>:</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>This cast always succeeds because your analyzer registered for changes to local declarations, and only local declarations.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>No other node type triggers a call to your <ph id="ph1">`AnalyzeNode`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Next, check the declaration for any <ph id="ph1">`const`</ph> modifiers.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>If you find them, return immediately.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>The following code looks for any <ph id="ph1">`const`</ph> modifiers on the local declaration:</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Finally, you need to check that the variable could be <ph id="ph1">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>That means making sure it is never assigned after it is initialized.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>You'll perform some semantic analysis using the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>You use the <ph id="ph1">`context`</ph> argument to determine whether the local variable declaration can be made <ph id="ph2">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SemanticModel?displayProperty=nameWithType&gt;</ph> represents of all semantic information in a single source file.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>You can learn more in the article that covers <bpt id="p1">[</bpt>semantic models<ept id="p1">](../work-with-semantics.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>You'll use the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.SemanticModel?displayProperty=nameWithType&gt;</ph> to perform data flow analysis on the local declaration statement.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Then, you use the results of this data flow analysis to ensure that the local variable isn't written with a new value anywhere else.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Call the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.ModelExtensions.GetDeclaredSymbol%2A&gt;</ph> extension method to retrieve the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.ILocalSymbol&gt;</ph> for the variable and check that it isn't contained with the <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.DataFlowAnalysis.WrittenOutside%2A?displayProperty=nameWithType&gt;</ph> collection of the data flow analysis.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Add the following code to the end of the <ph id="ph1">`AnalyzeNode`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>The code just added ensures that the variable isn't modified, and can therefore be made <ph id="ph1">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>It's time to raise the diagnostic.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Add the following code as the last line in <ph id="ph1">`AnalyzeNode`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>You can check your progress by pressing <bpt id="p1">**</bpt>F5<ept id="p1">**</ept> to run your analyzer.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>You can load the console application you created earlier and then add the following test code:</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>The light bulb should appear, and your analyzer should report a diagnostic.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>However, the light bulb still uses the template generated code fix, and tells you it can be made upper case.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The next section explains how to write the code fix.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Write the code fix</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>An analyzer can provide one or more code fixes.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>A code fix defines an edit that addresses the reported issue.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>For the analyzer that you created, you can provide a code fix that inserts the const keyword:</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>The user chooses it from the light bulb UI in the editor and Visual Studio changes the code.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>Open the <bpt id="p1">**</bpt>MakeConstCodeFixProvider.cs<ept id="p1">**</ept> file added by the template.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>This code fix is already wired up to the Diagnostic ID produced by your diagnostic analyzer, but it doesn't yet implement the right code transform.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>First you should remove some of the template code.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>Change the title string to "Make constant":</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Next, delete the <ph id="ph1">`MakeUppercaseAsync`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>It no longer applies.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>All code fixes derive from <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>They all override <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider.RegisterCodeFixesAsync(Microsoft.CodeAnalysis.CodeFixes.CodeFixContext)?displayProperty=nameWithType&gt;</ph> to report available code fixes.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>In <ph id="ph1">`RegisterCodeFixesAsync`</ph>, change the ancestor node type you're searching for to a <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax&gt;</ph> to match the diagnostic:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Next, change the last line to register a code fix.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Your fix will create a new document that results from adding the <ph id="ph1">`const`</ph> modifier to an existing declaration:</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>You'll notice red squiggles in the code you just added on the symbol <ph id="ph1">`MakeConstAsync`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Add a declaration for <ph id="ph1">`MakeConstAsync`</ph> like the following code:</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Your new <ph id="ph1">`MakeConstAsync`</ph> method will transform the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.Document&gt;</ph> representing the user's source file into a new <ph id="ph3">&lt;xref:Microsoft.CodeAnalysis.Document&gt;</ph> that now contains a <ph id="ph4">`const`</ph> declaration.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>You create a new <ph id="ph1">`const`</ph> keyword token to insert at the front of the declaration statement.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Be careful to first remove any leading trivia from the first token of the declaration statement and attach it to the <ph id="ph1">`const`</ph> token.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>Add the following code to the <ph id="ph1">`MakeConstAsync`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>Next, add the <ph id="ph1">`const`</ph> token to the declaration using the following code:</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Next, format the new declaration to match C# formatting rules.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>Formatting your changes to match existing code creates a better experience.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Add the following statement immediately after the existing code:</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>A new namespace is required for this code.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Add the following <ph id="ph1">`using`</ph> statement to the top of the file:</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>The final step is to make your edit.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>There are three steps to this process:</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Get a handle to the existing document.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Create a new document by replacing the existing declaration with the new declaration.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>Return the new document.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Add the following code to the end of the <ph id="ph1">`MakeConstAsync`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Your code fix is ready to try.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>Press F5 to run the analyzer project in a second instance of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>In the second Visual Studio instance, create a new C# Console Application project and add a few local variable declarations initialized with constant values to the Main method.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>You'll see that they are reported as warnings as below.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>Can make const warnings</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>You've made a lot of progress.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>There are squiggles under the declarations that can be made <ph id="ph1">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>But there is still work to do.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>This works fine if you add <ph id="ph1">`const`</ph> to the declarations starting with <ph id="ph2">`i`</ph>, then <ph id="ph3">`j`</ph> and finally <ph id="ph4">`k`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>But, if you add the <ph id="ph1">`const`</ph> modifier i a different order, starting with <ph id="ph2">`k`</ph>, your analyzer creates errors: <ph id="ph3">`k`</ph> can't be declared <ph id="ph4">`const`</ph>, unless <ph id="ph5">`i`</ph> and <ph id="ph6">`j`</ph> are both already <ph id="ph7">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>You've got to do more analysis to ensure you handle the different ways variables can be declared and initialized.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>Build data driven tests</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>Your analyzer and code fix work on a simple case of a single declaration that can be made const.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>There are numerous possible declaration statements where this implementation makes mistakes.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>You'll address these cases by working with the unit test library written by the template.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>It's much faster than repeatedly opening a second copy of Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>Open the <bpt id="p1">**</bpt>MakeConstUnitTests.cs<ept id="p1">**</ept> file in the unit test project.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>The template created two tests that follow the two common patterns for an analyzer and code fix unit test.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TestMethod1`</ph> shows the pattern for a test that ensures the analyzer doesn't report a diagnostic when it shouldn't.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`TestMethod2`</ph> shows the pattern for reporting a diagnostic and running the code fix.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>The code for almost every test for your analyzer follows one of these two patterns.</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source>For the first step, you can rework these tests as data driven tests.</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>Then, it will be easy to create new tests by adding new string constants to represent different test inputs.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>For efficiency, the first step is to refactor the two tests into data driven tests.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>Then, you only need to define a couple string constants for each new test.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>While your refactoring, rename both methods to better names.</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source>Replace <ph id="ph1">`TestMethod1`</ph> with this test that ensures no diagnostic is raised:</source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source>You can create a new data row for this test by defining any code fragment that should not cause your diagnostic to trigger a warning.</source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>This overload of <ph id="ph1">`VerifyCSharpDiagnostic`</ph> passes when there are no diagnostics triggered for the source code fragment.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Next, replace <ph id="ph1">`TestMethod2`</ph> with this test that ensures a diagnostic is raised and a code fix applied for the source code fragment:</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>The preceding code also made a couple changes to the code that builds the expected diagnostic result.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>It uses the public constants registered in the <ph id="ph1">`MakeConst`</ph> analyzer.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>In addition, it uses two string constants for the input and fixed source.</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>Add the following string constants to the <ph id="ph1">`UnitTest`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>Run these two tests to make sure they pass.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source>In Visual Studio, open the <bpt id="p1">**</bpt>Test Explorer<ept id="p1">**</ept> by selecting <bpt id="p2">**</bpt>Test<ept id="p2">**</ept><ph id="ph1"> &gt; </ph><bpt id="p3">**</bpt>Windows<ept id="p3">**</ept><ph id="ph2"> &gt; </ph><bpt id="p4">**</bpt>Test Explorer<ept id="p4">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>The press the <bpt id="p1">**</bpt>Run All<ept id="p1">**</ept> link.</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source>Create tests for valid declarations</source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source>As a general rule, analyzers should exit as quickly as possible, doing minimal work.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>Visual Studio calls registered analyzers as the user edits code.</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>Responsiveness is a key requirement.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source>There are several test cases for code that should not raise your diagnostic.</source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>Your analyzer already handles one of those tests, the case where a variable is assigned after being initialized.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source>Add the following string constant to your tests to represent that case:</source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source>Then, add a data row for this test as shown in the snippet below:</source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>This test passes as well.</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Next, add constants for conditions you haven't handled yet:</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Declarations that are already <ph id="ph1">`const`</ph>, because they are already const:</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>Declarations that have no initializer, because there is no value to use:</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>Declarations where the initializer is not a constant, because they can't be compile-time constants:</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>It can be even more complicated because C# allows multiple declarations as one statement.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>Consider the following test case string constant:</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>The variable <ph id="ph1">`i`</ph> can be made constant, but the variable <ph id="ph2">`j`</ph> cannot.</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>Therefore, this statement cannot be made a const declaration.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`DataRow`</ph> declarations for all these tests:</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Run your tests again, and you'll see these new test cases fail.</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>Update your analyzer to ignore correct declarations</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>You need some enhancements to your analyzer's <ph id="ph1">`AnalyzeNode`</ph> method to filter out code that matches these conditions.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>They are all related conditions, so similar changes will fix all these conditions.</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>Make the following changes to <ph id="ph1">`AnalyzeNode`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>Your semantic analysis examined a single variable declaration.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>This code needs to be in a <ph id="ph1">`foreach`</ph> loop that examines all the variables declared in the same statement.</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>Each declared variable needs to have an initializer.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>Each declared variable's initializer must be a compile-time constant.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source>In your <ph id="ph1">`AnalyzeNode`</ph> method, replace the original semantic analysis:</source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>with the following code snippet:</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>The first <ph id="ph1">`foreach`</ph> loop examines each variable declaration using syntactic analysis.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source>The first check guarantees that the variable has an initializer.</source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source>The second check guarantees that the initializer is a constant.</source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>The second loop has the original semantic analysis.</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>The semantic checks are in a separate loop because it has a greater impact on performance.</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source>Run your tests again, and you should see them all pass.</source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>Add the final polish</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source>You're almost done.</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source>There are a few more conditions for your analyzer to handle.</source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>Visual Studio calls analyzers while the user is writing code.</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source>It's often the case that your analyzer will be called for code that doesn't compile.</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve">
+          <source>The diagnostic analyzer's <ph id="ph1">`AnalyzeNode`</ph> method does not check to see if the constant value is convertible to the variable type.</source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve">
+          <source>So, the current implementation will happily convert an incorrect declaration such as int i = "abc"' to a local constant.</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>Add a source string constant for that condition:</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source>In addition, reference types are not handled properly.</source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve">
+          <source>The only constant value allowed for a reference type is <ph id="ph1">`null`</ph>, except in this case of <ph id="ph2">&lt;xref:System.String?displayProperty=nameWIthType&gt;</ph>, which allows string literals.</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve">
+          <source>In other words, <ph id="ph1">`const string s = "abc"`</ph> is legal, but <ph id="ph2">`const object s = "abc"`</ph> is not.</source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve">
+          <source>This code snippet verifies that condition:</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve">
+          <source>To be thorough, you need to add another test to make sure that you can create a constant declaration for a string.</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve">
+          <source>The following snippet defines both the code that raises the diagnostic, and the code after the fix has been applied:</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve">
+          <source>Finally, if a variable is declared with the <ph id="ph1">`var`</ph> keyword, the code fix does the wrong thing and generates a <ph id="ph2">`const var`</ph> declaration, which is not supported by the C# language.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>To fix this bug, the code fix must replace the <ph id="ph1">`var`</ph> keyword with the inferred type's name:</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source>These changes update the data row declarations for both tests.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>The following code shows these tests with all data row attributes:</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>Fortunately, all of the above bugs can be addressed using the same techniques that you just learned.</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>To fix the first bug, first open <bpt id="p1">**</bpt>DiagnosticAnalyzer.cs<ept id="p1">**</ept> and locate the foreach loop where each of the local declaration's initializers are checked to ensure that they're assigned with constant values.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source>Immediately <bpt id="p1">_</bpt>before<ept id="p1">_</ept> the first foreach loop, call <ph id="ph1">`context.SemanticModel.GetTypeInfo()`</ph> to retrieve detailed information about the declared type of the local declaration:</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>Then, inside your <ph id="ph1">`foreach`</ph> loop, check each initializer to make sure it's convertible to the variable type.</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>Add the following check after ensuring that the initializer is a constant:</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>The next change builds upon the last one.</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>Before the closing curly brace of the first foreach loop, add the following code to check the type of the local declaration when the constant is a string or null.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>You must write a bit more code in your code fix provider to replace the var' keyword with the correct type name.</source>
+        </trans-unit>
+        <trans-unit id="358" translate="yes" xml:space="preserve">
+          <source>Return to <bpt id="p1">**</bpt>CodeFixProvider.cs<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="359" translate="yes" xml:space="preserve">
+          <source>The code you'll add does the following steps:</source>
+        </trans-unit>
+        <trans-unit id="360" translate="yes" xml:space="preserve">
+          <source>Check if the declaration is a <ph id="ph1">`var`</ph> declaration, and if it is:</source>
+        </trans-unit>
+        <trans-unit id="361" translate="yes" xml:space="preserve">
+          <source>Create a new type for the inferred type.</source>
+        </trans-unit>
+        <trans-unit id="362" translate="yes" xml:space="preserve">
+          <source>Make sure the type declaration is not an alias.</source>
+        </trans-unit>
+        <trans-unit id="363" translate="yes" xml:space="preserve">
+          <source>If so, it is legal to declare <ph id="ph1">`const var`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="364" translate="yes" xml:space="preserve">
+          <source>Make sure that <ph id="ph1">`var`</ph> isn't a type name in this program.</source>
+        </trans-unit>
+        <trans-unit id="365" translate="yes" xml:space="preserve">
+          <source>(If so, <ph id="ph1">`const var`</ph> is legal).</source>
+        </trans-unit>
+        <trans-unit id="366" translate="yes" xml:space="preserve">
+          <source>Simplify the full type name</source>
+        </trans-unit>
+        <trans-unit id="367" translate="yes" xml:space="preserve">
+          <source>That sounds like a lot of code.</source>
+        </trans-unit>
+        <trans-unit id="368" translate="yes" xml:space="preserve">
+          <source>It's not.</source>
+        </trans-unit>
+        <trans-unit id="369" translate="yes" xml:space="preserve">
+          <source>Replace the line that declares and initializes <ph id="ph1">`newLocal`</ph> with the following code.</source>
+        </trans-unit>
+        <trans-unit id="370" translate="yes" xml:space="preserve">
+          <source>It goes immediately after the initialization of <ph id="ph1">`newModifiers`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="371" translate="yes" xml:space="preserve">
+          <source>You'll need to add one <ph id="ph1">`using`</ph> statement to use the <ph id="ph2">&lt;xref:Microsoft.CodeAnalysis.Simplification.Simplifier&gt;</ph> type:</source>
+        </trans-unit>
+        <trans-unit id="372" translate="yes" xml:space="preserve">
+          <source>Run your tests, and they should all pass.</source>
+        </trans-unit>
+        <trans-unit id="373" translate="yes" xml:space="preserve">
+          <source>Congratulate yourself by running your finished analyzer.</source>
+        </trans-unit>
+        <trans-unit id="374" translate="yes" xml:space="preserve">
+          <source>Press Ctrl+F5 to run the analyzer project in a second instance of Visual Studio with the Roslyn Preview extension loaded.</source>
+        </trans-unit>
+        <trans-unit id="375" translate="yes" xml:space="preserve">
+          <source>In the second Visual Studio instance, create a new C# Console Application project and add <ph id="ph1">`int x = "abc";`</ph> to the Main method.</source>
+        </trans-unit>
+        <trans-unit id="376" translate="yes" xml:space="preserve">
+          <source>Thanks to the first bug fix, no warning should be reported for this local variable declaration (though there's a compiler error as expected).</source>
+        </trans-unit>
+        <trans-unit id="377" translate="yes" xml:space="preserve">
+          <source>Next, add <ph id="ph1">`object s = "abc";`</ph> to the Main method.</source>
+        </trans-unit>
+        <trans-unit id="378" translate="yes" xml:space="preserve">
+          <source>Because of the second bug fix, no warning should be reported.</source>
+        </trans-unit>
+        <trans-unit id="379" translate="yes" xml:space="preserve">
+          <source>Finally, add another local variable that uses the <ph id="ph1">`var`</ph> keyword.</source>
+        </trans-unit>
+        <trans-unit id="380" translate="yes" xml:space="preserve">
+          <source>You'll see that a warning is reported and a suggestion appears beneath to the left.</source>
+        </trans-unit>
+        <trans-unit id="381" translate="yes" xml:space="preserve">
+          <source>Move the editor caret over the squiggly underline and press Ctrl+.</source>
+        </trans-unit>
+        <trans-unit id="382" translate="yes" xml:space="preserve">
+          <source>to display the suggested code fix.</source>
+        </trans-unit>
+        <trans-unit id="383" translate="yes" xml:space="preserve">
+          <source>Upon selecting your code fix, note that the var' keyword is now handled correctly.</source>
+        </trans-unit>
+        <trans-unit id="384" translate="yes" xml:space="preserve">
+          <source>Finally, add the following code:</source>
+        </trans-unit>
+        <trans-unit id="385" translate="yes" xml:space="preserve">
+          <source>After these changes, you get red squiggles only on the first two variables.</source>
+        </trans-unit>
+        <trans-unit id="386" translate="yes" xml:space="preserve">
+          <source>Add <ph id="ph1">`const`</ph> to both <ph id="ph2">`i`</ph> and <ph id="ph3">`j`</ph>, and you get a new warning on <ph id="ph4">`k`</ph> because it can now be <ph id="ph5">`const`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="387" translate="yes" xml:space="preserve">
+          <source>Congratulations!</source>
+        </trans-unit>
+        <trans-unit id="388" translate="yes" xml:space="preserve">
+          <source>You've created your first .NET Compiler Platform extension that performs on-the-fly code analysis to detect an issue and provides a quick fix to correct it.</source>
+        </trans-unit>
+        <trans-unit id="389" translate="yes" xml:space="preserve">
+          <source>Along the way, you've learned many of the code APIs that are part of the .NET Compiler Platform SDK (Roslyn APIs).</source>
+        </trans-unit>
+        <trans-unit id="390" translate="yes" xml:space="preserve">
+          <source>You can check your work against the <bpt id="p1">[</bpt>completed sample<ept id="p1">](https://github.com/dotnet/samples/tree/master/csharp/roslyn-sdk/Tutorials/MakeConst)</ept> in our samples GitHub repository.</source>
+        </trans-unit>
+        <trans-unit id="391" translate="yes" xml:space="preserve">
+          <source>Or you can download <bpt id="p1">[</bpt>zip file of the completed project<ept id="p1">](https://github.com/dotnet/samples/blob/master/csharp/roslyn-sdk/Tutorials/MakeConst.zip)</ept></source>
+        </trans-unit>
+        <trans-unit id="392" translate="yes" xml:space="preserve">
+          <source>Other resources</source>
+        </trans-unit>
+        <trans-unit id="393" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Get started with syntax analysis<ept id="p1">](../get-started/syntax-analysis.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="394" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Get started with semantic analysis<ept id="p1">](../get-started/semantic-analysis.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

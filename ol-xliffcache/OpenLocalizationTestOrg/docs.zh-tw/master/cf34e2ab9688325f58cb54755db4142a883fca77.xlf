@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="work-with-semantics.md" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cf34e2ab9688325f58cb54755db4142a883fca77</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\roslyn-sdk\work-with-semantics.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_lo-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e26aa95c526ccc9fdd6fdc307aa749ca88404247</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ce11a338989d0cfddf4d997759fcf89bf72c7032</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Work with the .NET Compiler Platform SDK semantic model</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>This overview provides an understanding of the type you use to understand and manipulate the semantic model of your code.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Work with semantics</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Syntax trees<ept id="p1">](work-with-syntax.md)</ept> represent the lexical and syntactic structure of source code.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Although this information alone is enough to describe all the declarations and logic in the source, it is not enough information to identify what is being referenced.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A name may represent:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>a type</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>a field</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>a method</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>a local variable</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Although each of these is uniquely different, determining which one an identifier actually refers to often requires a deep understanding of the language rules.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>There are program elements represented in source code, and programs can also refer to previously compiled libraries, packaged in assembly files.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Although no source code, and therefore no syntax nodes or trees, are available for assemblies, programs can still refer to elements inside them.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>For those tasks, you need the <bpt id="p1">**</bpt>Semantic model<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In addition to a syntactic model of the source code, a semantic model encapsulates the language rules, giving you an easy way to correctly match identifiers with the correct program element being referenced.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Compilation</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>A compilation is a representation of everything needed to compile a C# or Visual Basic program, which includes all the assembly references, compiler options, and source files.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Because all this information is in one place, the elements contained in the source code can be described in more detail.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The compilation represents each declared type, member, or variable as a symbol.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The compilation contains a variety of methods that help you find and relate the symbols that have either been declared in the source code or imported as metadata from an assembly.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Similar to syntax trees, compilations are immutable.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>After you create a compilation, it cannot be changed by you or anyone else you might be sharing it with.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>However, you can create a new compilation from an existing compilation, specifying a change as you do so.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For example, you might create a compilation that is the same in every way as an existing compilation, except it may include an additional source file or assembly reference.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Symbols</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>A symbol represents a distinct element declared by the source code or imported from an assembly as metadata.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Every namespace, type, method, property, field, event, parameter, or local variable is represented by a symbol.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>A variety of methods and properties on the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.Compilation&gt;</ph> type help you find symbols.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For example, you can find a symbol for a declared type by its common metadata name.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>You can also access the entire symbol table as a tree of symbols rooted by the global namespace.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Symbols also contain additional information that the compiler determines from the source or metadata, such as other referenced symbols.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Each kind of symbol is represented by a separate interface derived from <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.ISymbol&gt;</ph>, each with its own methods and properties detailing the information the compiler has gathered.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Many of these properties directly reference other symbols.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.IMethodSymbol.ReturnType?displayProperty=nameWithType&gt;</ph> property tells you the actual type symbol that the method declaration references.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Symbols present a common representation of namespaces, types, and members, between source code and metadata.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For example, a method that was declared in source code and a method that was imported from metadata are both represented by an <ph id="ph1">&lt;xref:Microsoft.CodeAnalysis.IMethodSymbol&gt;</ph> with the same properties.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Symbols are similar in concept to the CLR type system as represented by the <ph id="ph1">&lt;xref:System.Reflection&gt;</ph> API, yet they are richer in that they model more than just types.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Namespaces, local variables, and labels are all symbols.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In addition, symbols are a representation of language concepts, not CLR concepts.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>There is a lot of overlap, but there are many meaningful distinctions as well.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For instance, an iterator method in C# or Visual Basic is a single symbol.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>However, when the iterator method is translated to CLR metadata, it is a type and multiple methods.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Semantic model</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>A semantic model represents all the semantic information for a single source file.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>You can use it to discover the following:</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>The symbols referenced at a specific location in source.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>The resultant type of any expression.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>All diagnostics, which are errors and warnings.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>How variables flow in and out of regions of source.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>The answers to more speculative questions.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="tls.md" source-language="en-US" target-language="zh-tw">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">cb2dd26d3f111e8de0dc9c7904837d9b053d17bb</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\framework\network-programming\tls.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">1a81ae3b44a5982c2191b47195c36ac511ef2584</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">de9ecf37b888e0437b9d39af31c82ca27fdae011</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Transport Layer Security (TLS) best practices with the .NET Framework</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Describes best practices using Transport Layer Security (TLS) with the .NET Framework</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Transport Layer Security (TLS) best practices with the .NET Framework</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>The Transport Layer Security (TLS) protocol is an industry standard designed to help protect the privacy of information communicated over the Internet.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>TLS 1.2<ept id="p1">](https://tools.ietf.org/html/rfc5246)</ept> is a standard that provides security improvements over previous versions.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>TLS 1.2 will eventually be replaced by the newest released standard <bpt id="p1">[</bpt>TLS 1.3<ept id="p1">](https://tools.ietf.org/html/rfc8446)</ept> which is faster and has improved security.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This article presents recommendations to secure .NET Framework applications that use the TLS protocol.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>To ensure .NET Framework applications remain secure, the TLS version should <bpt id="p1">**</bpt>not<ept id="p1">**</ept> be hardcoded.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>.NET Framework applications should use the TLS version the operating system (OS) supports.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This document targets developers who are:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Directly using the <ph id="ph1">&lt;xref:System.Net&gt;</ph> APIs (for example, <ph id="ph2">&lt;xref:System.Net.Http.HttpClient?displayProperty=nameWithType&gt;</ph> and <ph id="ph3">&lt;xref:System.Net.Security.SslStream?displayProperty=nameWithType&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Directly using WCF clients and services using the <ph id="ph1">&lt;xref:System.ServiceModel?displayProperty=nameWithType&gt;</ph> namespace.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Using <bpt id="p1">[</bpt>Azure Cloud Services<ept id="p1">](https://azure.microsoft.com/services/cloud-services/)</ept> Web and Worker roles to host and run your application.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>Azure Cloud Services<ept id="p1">](#azure-cloud-services)</ept> section.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>We recommend that you:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Target .NET Framework 4.7 or later versions on your apps.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Target .NET Framework 4.7.1 or later versions on your WCF apps.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Do not specify the TLS version.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Configure your code to let the OS decide on the TLS version.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Perform a thorough code audit to verify you're not specifying a TLS or SSL version.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When your app lets the OS choose the TLS version:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It automatically takes advantage of new protocols added in the future, such as TLS 1.3.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The OS blocks protocols that are discovered not to be secure.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The section <bpt id="p1">[</bpt>Audit your code and make code changes<ept id="p1">](#audit-your-code-and-make-code-changes)</ept> covers auditing and updating your code.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>This article explains how to enable the strongest security available for the version of the .NET Framework that your app targets and runs on.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>When an app explicitly sets a security protocol and version, it opts out of any other alternative, and opts out of .NET Framework and OS default behavior.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>If you want your app to be able to negotiate a TLS 1.2 connection, explicitly setting to a lower TLS version prevents a TLS 1.2 connection.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>If you can't avoid hardcoding a protocol version, we strongly recommend that you specify TLS 1.2.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>For guidance on identifying and removing TLS 1.0 dependencies, download the <bpt id="p1">[</bpt>Solving the TLS 1.0 Problem<ept id="p1">](https://www.microsoft.com/download/details.aspx?id=55266)</ept> whitepaper.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>WCF Supports TLS1.0, 1.1 and 1.2 as the default in .NET Framework 4.7.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Framework 4.7.1, WCF defaults to the operating system configured version.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If an application is explicitly configured with <ph id="ph1">`SslProtocols.None`</ph>, WCF uses the operating system default setting when using the NetTcp transport.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>You can ask questions about this document in the GitHub issue <bpt id="p1">[</bpt>Transport Layer Security (TLS) best practices with the .NET Framework<ept id="p1">](https://github.com/dotnet/docs/issues/4675)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Audit your code and make code changes</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>For ASP.NET applications, inspect the <ph id="ph1">`&lt;system.web&gt;&lt;httpRuntime targetFramework&gt;`</ph> element of <bpt id="p1">_</bpt>web.config<ept id="p1">_</ept> to verify you're using the intended version of the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>For Windows Forms and other applications, see <bpt id="p1">[</bpt>How to: Target a Version of the .NET Framework<ept id="p1">](/visualstudio/ide/how-to-target-a-version-of-the-dotnet-framework)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Use the following sections to verify you're not using a specific TLS or SSL version.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 4.7 or later versions</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The following sections show how to verify you're not using a specific TLS or SSL version.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For HTTP networking</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Net.ServicePointManager&gt;</ph>, using .NET Framework 4.7 and later versions, defaults to the OS choosing the best security protocol and version.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>To get the default OS best choice, if possible, don't set a value for the <ph id="ph1">&lt;xref:System.Net.ServicePointManager.SecurityProtocol&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Otherwise, set it to <ph id="ph1">&lt;xref:System.Net.SecurityProtocolType.SystemDefault&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The remainder of this article is not relevant when targeting .NET Framework 4.7 or later versions for HTTP networking.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>For TCP sockets networking</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Net.Security.SslStream&gt;</ph>, using .NET Framework 4.7 and later versions, defaults to the OS choosing the best security protocol and version.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>To get the default OS best choice, if possible, don't use the method overloads of <ph id="ph1">&lt;xref:System.Net.Security.SslStream&gt;</ph> that take an explicit <ph id="ph2">&lt;xref:System.Security.Authentication.SslProtocols&gt;</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Otherwise, pass <ph id="ph1">&lt;xref:System.Security.Authentication.SslProtocols.None?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>We recommend that you don't use <ph id="ph1">&lt;xref:System.Security.Authentication.SslProtocols.Default&gt;</ph>; setting <ph id="ph2">`SslProtocols.Default`</ph> forces the use of SSL 3.0 /TLS 1.0 and prevents TLS 1.2.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Don't set a value for the <ph id="ph1">&lt;xref:System.Net.ServicePointManager.SecurityProtocol&gt;</ph> property (for HTTP networking).</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Don't use the method overloads of <ph id="ph1">&lt;xref:System.Net.Security.SslStream&gt;</ph> that take an explicit <ph id="ph2">&lt;xref:System.Security.Authentication.SslProtocols&gt;</ph> parameter (for TCP sockets networking).</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>When you retarget your app to .NET Framework 4.7 or later versions, you'll be following the best practices recommendation.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The remainder of this topic is not relevant when targeting .NET Framework 4.7 or later versions for TCP sockets networking.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>For WCF TCP transport using transport security with certificate credentials</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>WCF uses the same networking stack as the rest of the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>If you are targeting 4.7.1, WCF is configured to allow the OS to choose the best security protocol by default unless explicitly configured:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>In your application configuration file.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Or<ept id="p1">**</ept>, in your application in the source code.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>By default, .NET Framework 4.7 and later versions is configured to use TLS 1.2 and allows connections using TLS 1.1 or TLS 1.0.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>Configure WCF to allow the OS to choose the best security protocol by configuring your binding to use <ph id="ph1">&lt;xref:System.Security.Authentication.SslProtocols.None?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>This can be set on <ph id="ph1">&lt;xref:System.ServiceModel.TcpTransportSecurity.SslProtocols&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`SslProtocols.None`</ph> can be accessed from <ph id="ph2">&lt;xref:System.ServiceModel.NetTcpSecurity.Transport&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`NetTcpSecurity.Transport`</ph> can be accessed from <ph id="ph2">&lt;xref:System.ServiceModel.NetTcpBinding.Security&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>If you're using a custom binding:</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Configure WCF to allow the OS to choose the best security protocol by setting <ph id="ph1">&lt;xref:System.ServiceModel.Channels.SslStreamSecurityBindingElement.SslProtocols&gt;</ph> to use <ph id="ph2">&lt;xref:System.Security.Authentication.SslProtocols.None?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Or<ept id="p1">**</ept> configure the protocol used with the configuration path <ph id="ph1">`system.serviceModel/bindings/customBinding/binding/sslStreamSecurity:sslProtocols`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>If you're <bpt id="p1">**</bpt>not<ept id="p1">**</ept> using a custom binding <bpt id="p2">**</bpt>and<ept id="p2">**</ept> you're setting your WCF binding using configuration, set the protocol used with the configuration path <ph id="ph1">`system.serviceModel/bindings/netTcpBinding/binding/security/transport:sslProtocols`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>For WCF Message Security with certificate credentials</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>.NET Framework 4.7 and later versions by default uses the protocol specified in the <ph id="ph1">&lt;xref:System.Net.ServicePointManager.SecurityProtocol&gt;</ph> property.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>When the <bpt id="p1">[</bpt>AppContextSwitch<ept id="p1">](../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)</ept> <ph id="ph1">`Switch.System.ServiceModel.DisableUsingServicePointManagerSecurityProtocols`</ph> is set to <ph id="ph2">`true`</ph>, WCF chooses the best protocol, up to TLS 1.0.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>If your app targets a .NET Framework version earlier than 4.7</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Audit your code to verify you're not setting a specific TLS or SSL version using the following sections:</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For .NET Framework 4.6 - 4.6.2 and not WCF</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">`DontEnableSystemDefaultTlsVersions`</ph> <ph id="ph2">`AppContext`</ph> switch to <ph id="ph3">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Configuring security via AppContext switches<ept id="p1">](#configuring-security-via-appcontext-switches)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>For WCF using .NET Framework 4.6 - 4.6.2 using TCP transport security with Certificate Credentials</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>You must install the latest OS patches.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Security updates<ept id="p1">](#security-updates)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The WCF framework automatically chooses the highest protocol available up to TLS 1.2 unless you explicitly configure a protocol version.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>For more information, see the preceding section <bpt id="p1">[</bpt>For WCF TCP transport using transport security with certificate credentials<ept id="p1">](#wcf-tcp-cert)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For .NET Framework 3.5 - 4.5.2 and not WCF</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>We recommend you upgrade your app to .NET Framework 4.7 or later versions.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If you cannot upgrade, take the following steps.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>At some point in the future, your application may fail until you upgrade to .NET Framework 4.7 or later versions.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Set the <bpt id="p1">[</bpt>SchUseStrongCrypto<ept id="p1">](#schusestrongcrypto)</ept> and <bpt id="p2">[</bpt>SystemDefaultTlsVersions<ept id="p2">](#systemdefaulttlsversions)</ept> registry keys to 1.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Configuring security via the Windows Registry<ept id="p1">](#configuring-security-via-the-windows-registry)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The .NET Framework version 3.5 supports the <ph id="ph1">`SchUseStrongCrypto`</ph> flag only when an explicit TLS value is passed.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>If you are running on .NET Framework 3.5, you need to install a hot patch so that TLS 1.2 can be specified by your program:</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>KB3154518<ept id="p1">](https://support.microsoft.com/kb/3154518)</ept></source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Reliability Rollup HR-1605 - Support for TLS System Default Versions included in the .NET Framework 3.5.1 on Windows 7 SP1 and Server 2008 R2 SP1</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>KB3154519<ept id="p1">](https://support.microsoft.com/kb/3154519)</ept></source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>Reliability Rollup HR-1605 - Support for TLS System Default Versions included in the .NET Framework 3.5 on Windows Server 2012</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>KB3154520<ept id="p1">](https://support.microsoft.com/kb/3154520)</ept></source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Reliability Rollup HR-1605 -Support for TLS System Default Versions included in the .NET Framework 3.5 on Windows 8.1 and Windows Server 2012 R2</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>KB3156421<ept id="p1">](https://support.microsoft.com/kb/3156421)</ept></source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>1605 Hotfix rollup 3154521 for the .NET Framework 4.5.2 and 4.5.1 on Windows</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For WCF using .NET Framework 3.5 - 4.5.2 using TCP transport security with Certificate Credentials</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>These versions of the WCF framework are hardcoded to use values SSL 3.0 and TLS 1.0.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>These values cannot be changed.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>You must update and retarget to NET Framework 4.6 or later versions to use TLS 1.1 and 1.2.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 3.5</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>If you must explicitly set a security protocol instead of letting the .NET framework or the OS pick the security protocol, add <ph id="ph1">`SecurityProtocolTypeExtensions`</ph> and <ph id="ph2">`SslProtocolsExtension`</ph> enumerations to your code.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`SecurityProtocolTypeExtensions`</ph> and <ph id="ph2">`SslProtocolsExtension`</ph> include values for <ph id="ph3">`Tls12`</ph>, <ph id="ph4">`Tls11`</ph>, and the <ph id="ph5">`SystemDefault`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Support for TLS System Default Versions included in .NET Framework 3.5 on Windows 8.1 and Windows Server 2012 R2<ept id="p1">](https://support.microsoft.com/help/3154520/support-for-tls-system-default-versions-included-in-the--net-framework)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Configuring security via AppContext switches (for .NET Framework 4.6 or later versions)</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>AppContext<ept id="p1">](../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)</ept> switches described in this section are relevant if your app targets, or runs on, .NET Framework 4.6 or later versions.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Whether by default, or by setting them explicitly, the switches should be <ph id="ph1">`false`</ph> if possible.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>If you want to configure security via one or both switches, then don't specify a security protocol value in your code; doing so would override the switch(es).</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>The switches have the same effect whether you're doing HTTP networking (<ph id="ph1">&lt;xref:System.Net.ServicePointManager&gt;</ph>) or TCP sockets networking (<ph id="ph2">&lt;xref:System.Net.Security.SslStream&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Switch.System.Net.DontEnableSchUseStrongCrypto</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> for <ph id="ph2">`Switch.System.Net.DontEnableSchUseStrongCrypto`</ph> causes your app to use strong cryptography.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> for <ph id="ph2">`DontEnableSchUseStrongCrypto`</ph> uses more secure network protocols (TLS 1.2, TLS 1.1, and TLS 1.0) and blocks protocols that are not secure.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>For more info, see <bpt id="p1">[</bpt>The SCH_USE_STRONG_CRYPTO flag<ept id="p1">](#the-sch_use_strong_crypto-flag)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`true`</ph> disables strong cryptography for your app.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 4.6 or later versions, this switch defaults to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>That's a secure default, which we recommend.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>If your app runs on .NET Framework 4.6, but targets an earlier version, the switch defaults to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>In that case, you should explicitly set it to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`DontEnableSchUseStrongCrypto`</ph> should only have a value of <ph id="ph2">`true`</ph> if you need to connect to legacy services that don't support strong cryptography and can't be upgraded.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Switch.System.Net.DontEnableSystemDefaultTlsVersions</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> for <ph id="ph2">`Switch.System.Net.DontEnableSystemDefaultTlsVersions`</ph> causes your app to allow the operating system to choose the protocol.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`true`</ph> causes your app to use protocols picked by the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 4.7 or later versions, this switch defaults to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>That's a secure default that we recommend.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>If your app runs on .NET Framework 4.7 or later versions, but targets an earlier version, the switch defaults to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>In that case, you should explicitly set it to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Switch.System.ServiceModel.DisableUsingServicePointManagerSecurityProtocols</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> for <ph id="ph2">`Switch.System.ServiceModel.DisableUsingServicePointManagerSecurityProtocols`</ph> causes your application to use the value defined in <ph id="ph3">`ServicePointManager.SecurityProtocols`</ph> for message security using certificate credentials.</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`true`</ph> uses the highest protocol available, up to TLS1.0</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>For applications targeting .NET Framework 4.7 and later versions, this value defaults to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>For applications targeting .NET Framework 4.6.2 and earlier, this value defaults to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>Switch.System.ServiceModel.DontEnableSystemDefaultTlsVersions</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`false`</ph> for <ph id="ph2">`Switch.System.ServiceModel.DontEnableSystemDefaultTlsVersions`</ph> sets the default configuration to allow the operating system to choose the protocol.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>A value of <ph id="ph1">`true`</ph> sets the default to the highest protocol available, up to TLS1.2.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>For applications targeting .NET Framework 4.7.1 and later versions, this value defaults to <ph id="ph1">`false`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>For applications targeting .NET Framework 4.7 and earlier, this value defaults to <ph id="ph1">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>For more information about TLS protocols, see <bpt id="p1">[</bpt>Mitigation: TLS Protocols<ept id="p1">](../migration-guide/mitigation-tls-protocols.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>For more information about <ph id="ph1">`AppContext`</ph> switches, see <bpt id="p1">[</bpt><ph id="ph2">`&lt;AppContextSwitchOverrides&gt; Element`</ph><ept id="p1">](../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Configuring security via the Windows Registry</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>Setting registry keys affects all applications on the system.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>Use this option only if you are in full control of the machine and can control changes to the registry.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>If setting one or both <ph id="ph1">`AppContext`</ph> switches isn't an option, you can control the security protocols that your app uses with the Windows Registry keys described in this section.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>You might not be able to use one or both the <ph id="ph1">`AppContext`</ph> switches if your app runs on .NET Framework 4.5.2 or earlier versions, or if you can't edit the configuration file.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>If you want to configure security with the registry, don't specify a security protocol value in your code; doing so overrides the registry setting.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>The names of the registry keys are similar to the names of the corresponding <ph id="ph1">`AppContext`</ph> switches but without a <ph id="ph2">`DontEnable`</ph> prepended to the name.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`AppContext`</ph> switch <ph id="ph2">`DontEnableSchUseStrongCrypto`</ph> is the registry key called <bpt id="p1">[</bpt>SchUseStrongCrypto<ept id="p1">](#schusestrongcrypto)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>These keys are available in all .NET Framework versions for which there's a recent security patch.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Security updates<ept id="p1">](#security-updates)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>All of the registry keys described below have the same effect whether you're doing HTTP networking (<ph id="ph1">&lt;xref:System.Net.ServicePointManager&gt;</ph>) or TCP sockets networking (<ph id="ph2">&lt;xref:System.Net.Security.SslStream&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>SchUseStrongCrypto</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`HKEY_LOCAL_MACHINE\SOFTWARE\[Wow6432Node\]Microsoft\.NETFramework\&lt;VERSION&gt;: SchUseStrongCrypto`</ph> registry key has a value of type DWORD.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>A value of 1 causes your app to use strong cryptography.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>The strong cryptography uses more secure network protocols (TLS 1.2, TLS 1.1, and TLS 1.0) and blocks protocols that are not secure.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>A value of 0 disables strong cryptography.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>The SCH_USE_STRONG_CRYPTO flag<ept id="p1">](#the-sch_use_strong_crypto-flag)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 4.6 or later versions, this key defaults to a value of 1.</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>That's a secure default that we recommend.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>If your app runs on .NET Framework 4.6, but targets an earlier version, then the key defaults to 0.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>In that case, you should explicitly set its value to 1.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>This key should only have a value of 0 if you need to connect to legacy services that don't support strong cryptography and can't be upgraded.</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>SystemDefaultTlsVersions</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`HKEY_LOCAL_MACHINE\SOFTWARE\[Wow6432Node\]Microsoft\.NETFramework\&lt;VERSION&gt;: SystemDefaultTlsVersions`</ph> registry key has a value of type DWORD.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>A value of 1 causes your app to allow the operating system to choose the protocol.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>A value of 0 causes your app to use protocols picked by the .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`&lt;VERSION&gt;`</ph> must be v4.0.30319 (for .NET Framework 4 and above) or v2.0.50727 (for .NET Framework 3.5).</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>If your app targets .NET Framework 4.7 or later versions, this key defaults to a value of 1.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>That's a secure default that we recommend.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>If your app runs on .NET Framework 4.7 or later versions, but targets an earlier version, the key defaults to 0.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>In that case, you should explicitly set its value to 1.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>For more info, see <bpt id="p1">[</bpt>Cumulative Update for Windows 10 Version 1511 and Windows Server 2016 Technical Preview 4: May 10, 2016<ept id="p1">](https://support.microsoft.com/help/3156421/cumulative-update-for-windows-10-version-1511-and-windows-server-2016)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>For more information with .NET framework 3.5.1, see <bpt id="p1">[</bpt>Support for TLS System Default Versions included in .NET Framework 3.5.1 on Windows 7 SP1 and Server 2008 R2 SP1<ept id="p1">](https://support.microsoft.com/help/3154518/support-for-tls-system-default-versions-included-in-the--net-framework)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The following <bpt id="p1">_</bpt>.REG<ept id="p1">_</ept> file sets the registry keys and their variants to their most safe values:</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>Configuring Schannel protocols in the Windows Registry</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>You can use the registry for fine-grained control over the protocols that your client and/or server app negotiates.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>Your app's networking goes through Schannel (which is another name for <bpt id="p1">[</bpt>Secure Channel<ept id="p1">](/windows/desktop/SecAuthN/secure-channel)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>By configuring <ph id="ph1">`Schannel`</ph>, you can configure your app's behavior.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>Start with the <ph id="ph1">`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols`</ph> registry key.</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source>Under that key you can create any subkeys in the set <ph id="ph1">`SSL 2.0`</ph>, <ph id="ph2">`SSL 3.0`</ph>, <ph id="ph3">`TLS 1.0`</ph>, <ph id="ph4">`TLS 1.1`</ph>, and <ph id="ph5">`TLS 1.2`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source>Under each of those subkeys, you can create subkeys <ph id="ph1">`Client`</ph> and/or <ph id="ph2">`Server`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="280" translate="yes" xml:space="preserve">
+          <source>Under <ph id="ph1">`Client`</ph> and <ph id="ph2">`Server`</ph>, you can create DWORD values <ph id="ph3">`DisabledByDefault`</ph> (0 or 1) and <ph id="ph4">`Enabled`</ph> (0 or 0xFFFFFFFF).</source>
+        </trans-unit>
+        <trans-unit id="281" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">&lt;a name="the-sch_use_strong_crypto-flag"&gt;</bpt><ept id="p1">&lt;/a&gt;</ept>The SCH_USE_STRONG_CRYPTO flag</source>
+        </trans-unit>
+        <trans-unit id="282" translate="yes" xml:space="preserve">
+          <source>When it's enabled (by default, by an <ph id="ph1">`AppContext`</ph> switch, or by the Windows Registry), the .NET Framework uses the <ph id="ph2">`SCH_USE_STRONG_CRYPTO`</ph> flag when your app requests a TLS security protocol.</source>
+        </trans-unit>
+        <trans-unit id="283" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SCH_USE_STRONG_CRYPTO`</ph> flag can be enabled by default, with the <ph id="ph2">`AppContext`</ph> switch, or with the Registry.</source>
+        </trans-unit>
+        <trans-unit id="284" translate="yes" xml:space="preserve">
+          <source>The OS passes the flag to <ph id="ph1">`Schannel`</ph>to instruct it to disable known weak cryptographic algorithms, cipher suites, and TLS/SSL protocol versions that may be otherwise enabled for better interoperability.</source>
+        </trans-unit>
+        <trans-unit id="285" translate="yes" xml:space="preserve">
+          <source>For more information, see:</source>
+        </trans-unit>
+        <trans-unit id="286" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Secure Channel<ept id="p1">](/windows/desktop/SecAuthN/secure-channel)</ept></source>
+        </trans-unit>
+        <trans-unit id="287" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>SCHANNEL_CRED structure<ept id="p1">](/windows/desktop/api/schannel/ns-schannel-_schannel_cred)</ept></source>
+        </trans-unit>
+        <trans-unit id="288" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`SCH_USE_STRONG_CRYPTO`</ph> flag is also passed to <ph id="ph2">`Schannel`</ph> when you explicitly use the <ph id="ph3">`Tls`</ph> (TLS 1.0), <ph id="ph4">`Tls11`</ph>, or <ph id="ph5">`Tls12`</ph> enumerated values of <ph id="ph6">&lt;xref:System.Net.SecurityProtocolType&gt;</ph> or <ph id="ph7">&lt;xref:System.Security.Authentication.SslProtocols&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="289" translate="yes" xml:space="preserve">
+          <source>Security updates</source>
+        </trans-unit>
+        <trans-unit id="290" translate="yes" xml:space="preserve">
+          <source>The best practices in this article depend on recent security updates being installed.</source>
+        </trans-unit>
+        <trans-unit id="291" translate="yes" xml:space="preserve">
+          <source>These updates include the ability to use advanced .NET Framework 4.7 and later features.</source>
+        </trans-unit>
+        <trans-unit id="292" translate="yes" xml:space="preserve">
+          <source>Recent security updates are important if your app runs on .NET Framework 4.7 and later versions (even if it targets an earlier version).</source>
+        </trans-unit>
+        <trans-unit id="293" translate="yes" xml:space="preserve">
+          <source>To update the .NET Framework to allow the operating system to choose the best version of TLS to use, you must install at least:</source>
+        </trans-unit>
+        <trans-unit id="294" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>.NET Framework August 2017 Preview of Quality Rollup<ept id="p1">](https://devblogs.microsoft.com/dotnet/net-framework-august-2017-preview-of-quality-rollup/)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="295" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Or<ept id="p1">**</ept> the <bpt id="p2">[</bpt>.NET Framework September 2017 Security and Quality Rollup<ept id="p2">](https://devblogs.microsoft.com/dotnet/net-framework-september-2017-security-and-quality-rollup/)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="296" translate="yes" xml:space="preserve">
+          <source>See also:</source>
+        </trans-unit>
+        <trans-unit id="297" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>.NET Framework Versions and Dependencies<ept id="p1">](../migration-guide/versions-and-dependencies.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="298" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Determine Which .NET Framework Versions Are Installed<ept id="p1">](../migration-guide/how-to-determine-which-versions-are-installed.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="299" translate="yes" xml:space="preserve">
+          <source>Support for TLS 1.2</source>
+        </trans-unit>
+        <trans-unit id="300" translate="yes" xml:space="preserve">
+          <source>For your app to negotiate TLS 1.2, the OS and the .NET Framework version both need to support TLS 1.2.</source>
+        </trans-unit>
+        <trans-unit id="301" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Operating system requirements to support TLS 1.2<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="302" translate="yes" xml:space="preserve">
+          <source>To enable or re-enable TLS 1.2 and/or TLS 1.1 on a system that supports them, see <bpt id="p1">[</bpt>Transport Layer Security (TLS) registry settings<ept id="p1">](/windows-server/security/tls/tls-registry-settings)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="303" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>OS<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="304" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>TLS 1.2 support<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="305" translate="yes" xml:space="preserve">
+          <source>Windows 10</source>
+        </trans-unit>
+        <trans-unit id="306" translate="yes" xml:space="preserve">
+          <source>Windows Server 2016</source>
+        </trans-unit>
+        <trans-unit id="307" translate="yes" xml:space="preserve">
+          <source>Supported, and enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="308" translate="yes" xml:space="preserve">
+          <source>Windows 8.1</source>
+        </trans-unit>
+        <trans-unit id="309" translate="yes" xml:space="preserve">
+          <source>Windows Server 2012 R2</source>
+        </trans-unit>
+        <trans-unit id="310" translate="yes" xml:space="preserve">
+          <source>Supported, and enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="311" translate="yes" xml:space="preserve">
+          <source>Windows 8.0</source>
+        </trans-unit>
+        <trans-unit id="312" translate="yes" xml:space="preserve">
+          <source>Windows Server 2012</source>
+        </trans-unit>
+        <trans-unit id="313" translate="yes" xml:space="preserve">
+          <source>Supported, and enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="314" translate="yes" xml:space="preserve">
+          <source>Windows 7 SP1</source>
+        </trans-unit>
+        <trans-unit id="315" translate="yes" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1</source>
+        </trans-unit>
+        <trans-unit id="316" translate="yes" xml:space="preserve">
+          <source>Supported, but not enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="317" translate="yes" xml:space="preserve">
+          <source>See the <bpt id="p1">[</bpt>Transport Layer Security (TLS) registry settings<ept id="p1">](/windows-server/security/tls/tls-registry-settings)</ept> web page for details on how to enable TLS 1.2.</source>
+        </trans-unit>
+        <trans-unit id="318" translate="yes" xml:space="preserve">
+          <source>Windows Server 2008</source>
+        </trans-unit>
+        <trans-unit id="319" translate="yes" xml:space="preserve">
+          <source>Support for TLS 1.2 and TLS 1.1 requires an update.</source>
+        </trans-unit>
+        <trans-unit id="320" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Update to add support for TLS 1.1 and TLS 1.2 in Windows Server 2008 SP2<ept id="p1">](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="321" translate="yes" xml:space="preserve">
+          <source>Windows Vista</source>
+        </trans-unit>
+        <trans-unit id="322" translate="yes" xml:space="preserve">
+          <source>Not supported.</source>
+        </trans-unit>
+        <trans-unit id="323" translate="yes" xml:space="preserve">
+          <source>For information about which TLS/SSL protocols are enabled by default on each version of Windows, see <bpt id="p1">[</bpt>Protocols in TLS/SSL (Schannel SSP)<ept id="p1">](/windows/desktop/SecAuthN/protocols-in-tls-ssl--schannel-ssp-)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="324" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Requirements to support TLS 1.2 with .NET Framework 3.5<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="325" translate="yes" xml:space="preserve">
+          <source>This table shows the OS update you'll need to support TLS 1.2 with .NET Framework 3.5.</source>
+        </trans-unit>
+        <trans-unit id="326" translate="yes" xml:space="preserve">
+          <source>We recommend you apply all OS updates.</source>
+        </trans-unit>
+        <trans-unit id="327" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>OS<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="328" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Minimum update needed to support TLS 1.2 with .NET Framework 3.5<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="329" translate="yes" xml:space="preserve">
+          <source>Windows 10</source>
+        </trans-unit>
+        <trans-unit id="330" translate="yes" xml:space="preserve">
+          <source>Windows Server 2016</source>
+        </trans-unit>
+        <trans-unit id="331" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Cumulative Update for Windows 10 Version 1511 and Windows Server 2016 Technical Preview 4: May 10, 2016<ept id="p1">](https://support.microsoft.com/help/3156421/cumulative-update-for-windows-10-version-1511-and-windows-server-2016)</ept></source>
+        </trans-unit>
+        <trans-unit id="332" translate="yes" xml:space="preserve">
+          <source>Windows 8.1</source>
+        </trans-unit>
+        <trans-unit id="333" translate="yes" xml:space="preserve">
+          <source>Windows Server 2012 R2</source>
+        </trans-unit>
+        <trans-unit id="334" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Support for TLS System Default Versions included in the .NET Framework 3.5 on Windows 8.1 and Windows Server 2012 R2<ept id="p1">](https://support.microsoft.com/help/3154520/support-for-tls-system-default-versions-included-in-the--net-framework)</ept></source>
+        </trans-unit>
+        <trans-unit id="335" translate="yes" xml:space="preserve">
+          <source>Windows 8.0</source>
+        </trans-unit>
+        <trans-unit id="336" translate="yes" xml:space="preserve">
+          <source>Windows Server 2012</source>
+        </trans-unit>
+        <trans-unit id="337" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Support for TLS System Default Versions included in the .NET Framework 3.5 on Windows Server 2012<ept id="p1">](https://support.microsoft.com/help/3154519/support-for-tls-system-default-versions-included-in-the--net-framework)</ept></source>
+        </trans-unit>
+        <trans-unit id="338" translate="yes" xml:space="preserve">
+          <source>Windows 7 SP1</source>
+        </trans-unit>
+        <trans-unit id="339" translate="yes" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1</source>
+        </trans-unit>
+        <trans-unit id="340" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Support for TLS System Default Versions included in the .NET Framework 3.5.1 on Windows 7 SP1 and Server 2008 R2 SP1<ept id="p1">](https://support.microsoft.com/help/3154518/support-for-tls-system-default-versions-included-in-the--net-framework)</ept></source>
+        </trans-unit>
+        <trans-unit id="341" translate="yes" xml:space="preserve">
+          <source>Windows Server 2008</source>
+        </trans-unit>
+        <trans-unit id="342" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Support for TLS System Default Versions included in the .NET Framework 2.0 SP2 on Windows Vista SP2 and Server 2008 SP2<ept id="p1">](https://support.microsoft.com/help/3154517/support-for-tls-system-default-versions-included-in-the--net-framework)</ept></source>
+        </trans-unit>
+        <trans-unit id="343" translate="yes" xml:space="preserve">
+          <source>Windows Vista</source>
+        </trans-unit>
+        <trans-unit id="344" translate="yes" xml:space="preserve">
+          <source>Not supported</source>
+        </trans-unit>
+        <trans-unit id="345" translate="yes" xml:space="preserve">
+          <source>Azure Cloud Services</source>
+        </trans-unit>
+        <trans-unit id="346" translate="yes" xml:space="preserve">
+          <source>If you are using <bpt id="p1">[</bpt>Azure Cloud Services<ept id="p1">](https://azure.microsoft.com/services/cloud-services/)</ept> Web and Worker roles to host and run your application, there are some considerations that you need to take into account to support TLS 1.2.</source>
+        </trans-unit>
+        <trans-unit id="347" translate="yes" xml:space="preserve">
+          <source>.NET Framework 4.7 is not installed on Azure Guest OS by default</source>
+        </trans-unit>
+        <trans-unit id="348" translate="yes" xml:space="preserve">
+          <source>The latest version installed in the latest Azure Guest OS Family 5 release (Windows Server 2016) is 4.6.2.</source>
+        </trans-unit>
+        <trans-unit id="349" translate="yes" xml:space="preserve">
+          <source>To see which versions of .NET Framework are installed on each Azure Guest OS, see the <bpt id="p1">[</bpt>Azure Guest OS releases and SDK compatibility matrix<ept id="p1">](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="350" translate="yes" xml:space="preserve">
+          <source>If your app targets a .NET Framework version that is not available on the Azure Guest OS version, then you need to install it yourself.</source>
+        </trans-unit>
+        <trans-unit id="351" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Install .NET on Azure Cloud Service Roles<ept id="p1">](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="352" translate="yes" xml:space="preserve">
+          <source>If the framework installation requires a restart, the service roles might also restart before entering the Ready state.</source>
+        </trans-unit>
+        <trans-unit id="353" translate="yes" xml:space="preserve">
+          <source>Azure Guest OS registry settings</source>
+        </trans-unit>
+        <trans-unit id="354" translate="yes" xml:space="preserve">
+          <source>The Azure Guest OS Family 5 image for <bpt id="p1">[</bpt>Azure Cloud Services<ept id="p1">](https://azure.microsoft.com/services/cloud-services/)</ept> already has the <ph id="ph1">`SchUseStrongCrypto`</ph> registry key set to a value of 1.</source>
+        </trans-unit>
+        <trans-unit id="355" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>SchUseStrongCrypto<ept id="p1">](#schusestrongcrypto)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="356" translate="yes" xml:space="preserve">
+          <source>Set the <bpt id="p1">[</bpt>SystemDefaultTlsVersions<ept id="p1">](#systemdefaulttlsversions)</ept> registry key to 1.</source>
+        </trans-unit>
+        <trans-unit id="357" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Configuring security via the Windows Registry<ept id="p1">](#configuring-security-via-the-windows-registry)</ept>.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
