@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="how-to-write-a-parallel-foreach-loop-with-partition-local-variables.md" source-language="en-US" target-language="zh-cn">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">2f27d1f11e4517653c9beb2d868d798c215741a9</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\parallel-programming\how-to-write-a-parallel-foreach-loop-with-partition-local-variables.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">6e1eac166e922bf3e3961d495eee590f72f7bb2e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">072c96f5398ee922a0a562d6b504c3892c19aba9</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>How to: Write a Parallel.ForEach loop with partition-local variables</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>How to: Write a Parallel.ForEach loop with partition-local variables</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>The following example shows how to write a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A&gt;</ph> method that uses partition-local variables.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>When a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A&gt;</ph> loop executes, it divides its source collection into multiple partitions.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Each partition has its own copy of the partition-local variable.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>A partition-local variable is similar to a <bpt id="p1">[</bpt>thread-local variable<ept id="p1">](xref:System.Threading.ThreadLocal%601)</ept>, except that multiple partitions can run on a single thread.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>The code and parameters in this example closely resemble the corresponding <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.For%2A&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>For more information, see <bpt id="p1">[</bpt>How to: Write a Parallel.For Loop with Thread-Local Variables<ept id="p1">](../../../docs/standard/parallel-programming/how-to-write-a-parallel-for-loop-with-thread-local-variables.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>To use a partition-local variable in a <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A&gt;</ph> loop, you must call one of the method overloads that takes two type parameters.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>The first type parameter, <ph id="ph1">`TSource`</ph>, specifies the type of the source element, and the second type parameter, <ph id="ph2">`TLocal`</ph>, specifies the type of the partition-local variable.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Example</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The following example calls the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%60%602%28System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%601%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.ParallelLoopState%2C%60%601%2C%60%601%7D%2CSystem.Action%7B%60%601%7D%29?displayProperty=nameWithType&gt;</ph> overload to compute the sum of an array of one million elements.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>This overload has four parameters:</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`source`</ph>, which is the data source.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>It must implement <ph id="ph1">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>The data source in our example is the one million member <ph id="ph1">`IEnumerable&lt;Int32&gt;`</ph> object returned by the <ph id="ph2">&lt;xref:System.Linq.Enumerable.Range%2A?displayProperty=nameWithType&gt;</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`localInit`</ph>, or the function that initializes the partition-local variable.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This function is called once for each partition in which the <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType&gt;</ph> operation executes.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Our example initializes the partition-local variable to zero.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`body`</ph>, a <ph id="ph2">&lt;xref:System.Func%604&gt;</ph> that is invoked by the parallel loop on each iteration of the loop.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Its signature is <ph id="ph1">`Func\&lt;TSource, ParallelLoopState, TLocal, TLocal&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You supply the code for the delegate, and the loop passes in the input parameters, which are:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The current element of the <ph id="ph1">&lt;xref:System.Collections.Generic.IEnumerable%601&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>A <ph id="ph1">&lt;xref:System.Threading.Tasks.ParallelLoopState&gt;</ph> variable that you can use in your delegate's code to examine the state of the loop.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The partition-local variable.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Your delegate returns the partition-local variable, which is then passed to the next iteration of the loop that executes in that particular partition.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Each loop partition maintains a separate instance of this variable.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>In the example, the delegate adds the value of each integer to the partition-local variable, which maintains a running total of the values of the integer elements in that partition.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`localFinally`</ph>, an <ph id="ph2">`Action&lt;TLocal&gt;`</ph> delegate that the <ph id="ph3">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType&gt;</ph> invokes when the looping operations in each partition have completed.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">&lt;xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType&gt;</ph> method passes your <ph id="ph2">`Action&lt;TLocal&gt;`</ph> delegate the final value of the partition-local variable for this loop partition, and you provide the code that performs the required action for combining the result from this partition with the results from the other partitions.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>This delegate can be invoked concurrently by multiple tasks.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Because of this, the example uses the <ph id="ph1">&lt;xref:System.Threading.Interlocked.Add%28System.Int32%40%2CSystem.Int32%29?displayProperty=nameWithType&gt;</ph> method to synchronize access to the <ph id="ph2">`total`</ph> variable.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Because the delegate type is an <ph id="ph1">&lt;xref:System.Action%601&gt;</ph>, there is no return value.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Data Parallelism<ept id="p1">](../../../docs/standard/parallel-programming/data-parallelism-task-parallel-library.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to: Write a Parallel.For Loop with Thread-Local Variables<ept id="p1">](../../../docs/standard/parallel-programming/how-to-write-a-parallel-for-loop-with-thread-local-variables.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Lambda Expressions in PLINQ and TPL<ept id="p1">](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
