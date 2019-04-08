@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="write-safe-efficient-code.md" source-language="en-US" target-language="fr-fr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d363e357d3749bb2014456c0064c4de7dd7f1acb</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\write-safe-efficient-code.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_med-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">98af83fc8f20f7dbe004bb295e951b2c5f1e3909</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5d41f142cbab89ac6c285c2876c9c103b65915b5</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Write safe and efficient C# code</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Recent enhancements to the C# language enable you to write verifiable safe code that the performance previously associated with unsafe code.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Write safe and efficient C# code</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>New features in C# enable you to write verifiable safe code with better performance.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If you carefully apply these techniques, fewer scenarios require unsafe code.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>These features make it easier to use references to value types as method arguments and method returns.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>When done safely, these techniques minimize copying value types.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>By using value types, you can minimize the number of allocations and garbage collection passes.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Much of the sample code in this article uses features added in C# 7.2.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>To use those features, you must configure your project to use C# 7.2 or later.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>For more information on setting the language version, see <bpt id="p1">[</bpt>configure the language version<ept id="p1">](language-reference/configure-language-version.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>This article focuses on techniques for efficient resource management.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>One advantage to using value types is that they often avoid heap allocations.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>The disadvantage is that they're copied by value.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>This tradeoff makes it harder to optimize algorithms that operate on large amounts of data.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>New language features in C# 7.2 provide mechanisms that enable safe efficient code using references to value types.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Use these features wisely to minimize both allocations and copy operations.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This article explores those new features.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>This article focuses on the following resource management techniques:</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Declare a <bpt id="p1">[</bpt><ph id="ph1">`readonly struct`</ph><ept id="p1">](language-reference/keywords/readonly.md#readonly-struct-example)</ept> to express that a type is <bpt id="p2">**</bpt>immutable<ept id="p2">**</ept> and enables the compiler to save copies when using <bpt id="p3">[</bpt><ph id="ph2">`in`</ph><ept id="p3">](language-reference/keywords/in-parameter-modifier.md)</ept> parameters.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>Use a <bpt id="p1">[</bpt><ph id="ph1">`ref readonly`</ph><ept id="p1">](language-reference/keywords/ref.md#reference-return-values)</ept> return when the return value is a <ph id="ph2">`struct`</ph> larger than <ph id="ph3">&lt;xref:System.IntPtr.Size?displayProperty=nameWithType&gt;</ph> and the storage lifetime is greater than the method returning the value.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>When the size of a <ph id="ph1">`readonly struct`</ph> is bigger than <ph id="ph2">&lt;xref:System.IntPtr.Size?displayProperty=nameWithType&gt;</ph>, you should pass it as an <ph id="ph3">`in`</ph> parameter for performance reasons.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Never pass a <ph id="ph1">`struct`</ph> as an <ph id="ph2">`in`</ph> parameter unless it's declared with the <ph id="ph3">`readonly`</ph> modifier because it may negatively affect performance and could lead to an obscure behavior.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Use a <bpt id="p1">[</bpt><ph id="ph1">`ref struct`</ph><ept id="p1">](language-reference/keywords/ref.md#ref-struct-types)</ept>, or a <ph id="ph2">`readonly ref struct`</ph> such as <ph id="ph3">&lt;xref:System.Span%601&gt;</ph> or <ph id="ph4">&lt;xref:System.ReadOnlySpan%601&gt;</ph> to work with memory as a sequence of bytes.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>These techniques force you to balance two competing goals with regard to <bpt id="p1">**</bpt>references<ept id="p1">**</ept> and <bpt id="p2">**</bpt>values<ept id="p2">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Variables that are <bpt id="p1">[</bpt>reference types<ept id="p1">](programming-guide/types/index.md#reference-types)</ept> hold a reference to the location in memory.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Variables that are <bpt id="p1">[</bpt>value types<ept id="p1">](programming-guide/types/index.md#value-types)</ept> directly contain their value.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>These differences highlight the key differences that are important for managing memory resources.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Value types<ept id="p1">**</ept> are typically copied when passed to a method or returned from a method.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>This behavior includes copying the value of <ph id="ph1">`this`</ph> when calling members of a value type.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The cost of the copy is related to the size of the type.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Reference types<ept id="p1">**</ept> are allocated on the managed heap.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Each new object requires a new allocation, and subsequently must be reclaimed.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Both these operations take time.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>The reference is copied when a reference type is passed as an argument to a method or returned from a method.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>This article uses the following example concept of the 3D-point structure to explain these recommendations:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Different examples use different implementations of this concept.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Declare readonly structs for immutable value types</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Declaring a <ph id="ph1">`struct`</ph> using the <ph id="ph2">`readonly`</ph> modifier informs the compiler that your intent is to create an immutable type.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The compiler enforces that design decision with the following rules:</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>All field members must be <ph id="ph1">`readonly`</ph></source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>All properties must be read-only, including auto-implemented properties.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>These two rules are sufficient to ensure that no member of a <ph id="ph1">`readonly struct`</ph> modifies the state of that struct.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`struct`</ph> is immutable.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Point3D`</ph> structure could be defined as an immutable struct as shown in the following example:</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Follow this recommendation whenever your design intent is to create an immutable value type.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Any performance improvements are an added benefit.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`readonly struct`</ph> clearly expresses your design intent.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">`ref readonly return`</ph> statements for large structures when possible</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You can return values by reference when the value being returned isn't local to the returning method.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Returning by reference means that only the reference is copied, not the structure.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>In the following example, the <ph id="ph1">`Origin`</ph> property can't use a <ph id="ph2">`ref`</ph> return because the value being returned is a local variable:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>However, the following property definition can be returned by reference because the returned value is a static member:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>You don't want callers modifying the origin, so you should return the value by <ph id="ph1">`readonly ref`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Returning <ph id="ph1">`ref readonly`</ph> enables you to save copying larger structures and preserve the immutability of your internal data members.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>At the call site, callers make the choice to use the <ph id="ph1">`Origin`</ph> property as a <ph id="ph2">`readonly ref`</ph> or as a value:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The first assignment in the preceding code makes a copy of the <ph id="ph1">`Origin`</ph> constant and assigns that copy.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The second assigns a reference.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Notice that the <ph id="ph1">`readonly`</ph> modifier must be part of the declaration of the variable.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>The reference to which it refers can't be modified.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Attempts to do so result in a compile-time error.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`readonly`</ph> modifier is required on the declaration of <ph id="ph2">`originReference`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The compiler enforces that the caller can't modify the reference.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Attempts to assign the value directly generate a compile-time error.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>However, the compiler can't know if any member method modifies the state of the struct.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>To ensure that the object isn't modified, the compiler creates a copy and calls member references using that copy.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Any modifications are to that defensive copy.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Apply the <ph id="ph1">`in`</ph> modifier to <ph id="ph2">`readonly struct`</ph> parameters larger than <ph id="ph3">`System.IntPtr.Size`</ph></source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`in`</ph> keyword complements the existing <ph id="ph2">`ref`</ph> and <ph id="ph3">`out`</ph> keywords to pass arguments by reference.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`in`</ph> keyword specifies passing the argument by reference, but the called method doesn't modify the value.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>This addition provides a full vocabulary to express your design intent.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Value types are copied when passed to a called method when you don't specify any of the following modifiers in the method signature.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Each of these modifiers specifies that a variable is passed by reference, avoiding the copy.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>Each modifier expresses a different intent:</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`out`</ph>: This method sets the value of the argument used as this parameter.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ref`</ph>: This method may set the value of the argument used as this parameter.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`in`</ph>: This method doesn't modify the value of the argument used as this parameter.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`in`</ph> modifier to pass an argument by reference and declare your design intent to pass arguments by reference to avoid unnecessary copying.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>You don't intend to modify the object used as that argument.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This practice often improves performance for readonly value types that are larger than <ph id="ph1">&lt;xref:System.IntPtr.Size?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>For simple types (<ph id="ph1">`sbyte`</ph>, <ph id="ph2">`byte`</ph>, <ph id="ph3">`short`</ph>, <ph id="ph4">`ushort`</ph>, <ph id="ph5">`int`</ph>, <ph id="ph6">`uint`</ph>, <ph id="ph7">`long`</ph>, <ph id="ph8">`ulong`</ph>, <ph id="ph9">`char`</ph>, <ph id="ph10">`float`</ph>, <ph id="ph11">`double`</ph>, <ph id="ph12">`decimal`</ph> and <ph id="ph13">`bool`</ph>, and <ph id="ph14">`enum`</ph> types), any potential performance gains are minimal.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>In fact, performance may degrade by using pass-by-reference for types smaller than <ph id="ph1">&lt;xref:System.IntPtr.Size?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>The following code shows an example of a method that calculates the distance between two points in 3D space.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The arguments are two structures that each contain three doubles.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>A double is 8 bytes, so each argument is 24 bytes.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>By specifying the <ph id="ph1">`in`</ph> modifier, you pass a 4 byte or 8-byte reference to those arguments, depending on the architecture of the machine.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>The difference in size is small, but it adds up when your application calls this method in a tight loop using many different values.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`in`</ph> modifier complements <ph id="ph2">`out`</ph> and <ph id="ph3">`ref`</ph> in other ways as well.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>You can't create overloads of a method that differ only in the presence of <ph id="ph1">`in`</ph>, <ph id="ph2">`out`</ph>, or <ph id="ph3">`ref`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>These new rules extend the same behavior that had always been defined for <ph id="ph1">`out`</ph> and <ph id="ph2">`ref`</ph> parameters.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>Like the <ph id="ph1">`out`</ph> and <ph id="ph2">`ref`</ph> modifiers, value types aren't boxed because the <ph id="ph3">`in`</ph> modifier is applied.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`in`</ph> modifier may be applied to any member that takes parameters: methods, delegates, lambdas, local functions, indexers, operators.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Another feature of <ph id="ph1">`in`</ph> parameters is that you may use literal values or constants for the argument to an <ph id="ph2">`in`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Also, unlike a <ph id="ph1">`ref`</ph> or <ph id="ph2">`out`</ph> parameter, you don't need to apply the <ph id="ph3">`in`</ph> modifier at the call site.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>The following code shows you two examples of calling the <ph id="ph1">`CalculateDistance`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>The first uses two local variables passed by reference.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>The second includes a temporary variable created as part of the method call.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>There are several ways in which the compiler enforces the read-only nature of an <ph id="ph1">`in`</ph> argument.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>First of all, the called method can't directly assign to an <ph id="ph1">`in`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>It can't directly assign to any field of an <ph id="ph1">`in`</ph> parameter when that value is a <ph id="ph2">`struct`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>In addition, you can't pass an <ph id="ph1">`in`</ph> parameter to any method using the <ph id="ph2">`ref`</ph> or <ph id="ph3">`out`</ph> modifier.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>These rules apply to any field of an <ph id="ph1">`in`</ph> parameter, provided the field is a <ph id="ph2">`struct`</ph> type and the parameter is also a <ph id="ph3">`struct`</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>In fact, these rules apply for multiple layers of member access provided the types at all levels of member access are <ph id="ph1">`structs`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The compiler enforces that <ph id="ph1">`struct`</ph> types passed as  <ph id="ph2">`in`</ph> arguments and their <ph id="ph3">`struct`</ph> members are read-only variables when used as arguments to other methods.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>The use of <ph id="ph1">`in`</ph> parameters can avoid the potential performance costs of making copies.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>It doesn't change the semantics of any method call.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>Therefore, you don't need to specify the <ph id="ph1">`in`</ph> modifier at the call site.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Omitting the <ph id="ph1">`in`</ph> modifier at the call site informs the compiler that it's allowed to make a copy of the argument for the following reasons:</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>There exists an implicit conversion but not an identity conversion from the argument type to the parameter type.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>The argument is an expression but doesn't have a known storage variable.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>An overload exists that differs by the presence or absence of <ph id="ph1">`in`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>In that case, the by value overload is a better match.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>These rules are useful as you update existing code to use read-only reference arguments.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Inside the called method, you can call any instance method that uses by value parameters.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>In those instances, a copy of the <ph id="ph1">`in`</ph> parameter is created.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Because the compiler may create a temporary variable for any <ph id="ph1">`in`</ph> parameter, you can also specify default values for any <ph id="ph2">`in`</ph> parameter.</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>The following code specifies the origin (point 0,0) as the default value for the second point:</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>To force the compiler to pass read-only arguments by reference, specify the <ph id="ph1">`in`</ph> modifier on the arguments at the call site, as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>This behavior makes it easier to adopt <ph id="ph1">`in`</ph> parameters over time in large codebases where performance gains are possible.</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>You add the <ph id="ph1">`in`</ph> modifier to method signatures first.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Then, you can add the <ph id="ph1">`in`</ph> modifier at call sites and create <ph id="ph2">`readonly struct`</ph> types to enable the compiler to avoid creating defensive copies of <ph id="ph3">`in`</ph> parameters in more locations.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`in`</ph> parameter designation can also be used with reference types or numeric values.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>However, the benefits in both cases are minimal, if any.</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>Never use mutable structs as in <ph id="ph1">`in`</ph> argument</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>The techniques described above explain how to avoid copies by returning references and passing values by reference.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>These techniques work best when the argument types are declared as <ph id="ph1">`readonly struct`</ph> types.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Otherwise, the compiler must create <bpt id="p1">**</bpt>defensive copies<ept id="p1">**</ept> in many situations to enforce the readonly-ness of any arguments.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>Consider the following example that calculates the distance of a 3D point from the origin:</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`Point3D`</ph> structure is <bpt id="p1">*</bpt>not<ept id="p1">*</ept> a readonly struct.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source>There are six different property access calls in the body of this method.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source>On first examination, you may have thought these accesses were safe.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source>After all, a <ph id="ph1">`get`</ph> accessor shouldn't modify the state of the object.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>But there's no language rule that enforces that.</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>It's only a common convention.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>Any type could implement a <ph id="ph1">`get`</ph> accessor that modified the internal state.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>Without some language guarantee, the compiler must create a temporary copy of the argument before calling any member.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>The temporary storage is created on the stack, the values of the argument are copied to the temporary storage, and the value is copied to the stack for each member access as the <ph id="ph1">`this`</ph> argument.</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>In many situations, these copies harm performance enough that pass-by-value is faster than pass-by-readonly-reference when the argument type isn't a <ph id="ph1">`readonly struct`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>Instead, if the distance calculation uses the immutable struct, <ph id="ph1">`ReadonlyPoint3D`</ph>, temporary objects are not needed:</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>The compiler generates more efficient code when you call members of a <ph id="ph1">`readonly struct`</ph>: The <ph id="ph2">`this`</ph> reference, instead of a copy of the receiver, is always an <ph id="ph3">`in`</ph> parameter passed by reference to the member method.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>This optimization saves copying when you use a <ph id="ph1">`readonly struct`</ph> as an <ph id="ph2">`in`</ph> argument.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>You can see an example program that demonstrates the performance differences using <bpt id="p1">[</bpt>Benchmark.net<ept id="p1">](https://www.nuget.org/packages/BenchmarkDotNet/)</ept> in our <bpt id="p2">[</bpt>samples repository<ept id="p2">](https://github.com/dotnet/samples/tree/master/csharp/safe-efficient-code/benchmark)</ept> on GitHub.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>It compares passing a mutable struct by value and by reference with passing an immutable struct by value and by reference.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>The use of the immutable struct and pass by reference is fastest.</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>Use <ph id="ph1">`ref struct`</ph> types to work with blocks or memory on a single stack frame</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>A related language feature is the ability to declare a value type that must be constrained to a single stack frame.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>This restriction enables the compiler to make several optimizations.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The primary motivation for this feature was <ph id="ph1">&lt;xref:System.Span%601&gt;</ph> and related structures.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>You'll achieve performance improvements from these enhancements by using new and updated .NET APIs that make use of the <ph id="ph1">&lt;xref:System.Span%601&gt;</ph> type.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>You may have similar requirements working with memory created using <bpt id="p1">[</bpt><ph id="ph1">`stackalloc`</ph><ept id="p1">](language-reference/keywords/stackalloc.md)</ept> or when using memory from interop APIs.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>You can define your own <ph id="ph1">`ref struct`</ph> types for those needs.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`readonly ref struct`</ph> type</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>Declaring a struct as <ph id="ph1">`readonly ref`</ph> combines the benefits and restrictions of <ph id="ph2">`ref struct`</ph> and <ph id="ph3">`readonly struct`</ph> declarations.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>The memory used by the readonly span is restricted to a single stack frame, and the memory used by the readonly span can't be modified.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>Conclusions</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>Using value types minimizes the number of allocation operations:</source>
+        </trans-unit>
+        <trans-unit id="257" translate="yes" xml:space="preserve">
+          <source>Storage for value types is stack allocated for local variables and method arguments.</source>
+        </trans-unit>
+        <trans-unit id="258" translate="yes" xml:space="preserve">
+          <source>Storage for value types that are members of other objects is allocated as part of that object, not as a separate allocation.</source>
+        </trans-unit>
+        <trans-unit id="259" translate="yes" xml:space="preserve">
+          <source>Storage for value type return values is stack allocated.</source>
+        </trans-unit>
+        <trans-unit id="260" translate="yes" xml:space="preserve">
+          <source>Contrast that with reference types in those same situations:</source>
+        </trans-unit>
+        <trans-unit id="261" translate="yes" xml:space="preserve">
+          <source>Storage for reference types are heap allocated for local variables and method arguments.</source>
+        </trans-unit>
+        <trans-unit id="262" translate="yes" xml:space="preserve">
+          <source>The reference is stored on the stack.</source>
+        </trans-unit>
+        <trans-unit id="263" translate="yes" xml:space="preserve">
+          <source>Storage for reference types that are members of other objects are separately allocated on the heap.</source>
+        </trans-unit>
+        <trans-unit id="264" translate="yes" xml:space="preserve">
+          <source>The containing object stores the reference.</source>
+        </trans-unit>
+        <trans-unit id="265" translate="yes" xml:space="preserve">
+          <source>Storage for reference type return values is heap allocated.</source>
+        </trans-unit>
+        <trans-unit id="266" translate="yes" xml:space="preserve">
+          <source>The reference to that storage is stored on the stack.</source>
+        </trans-unit>
+        <trans-unit id="267" translate="yes" xml:space="preserve">
+          <source>Minimizing allocations comes with tradeoffs.</source>
+        </trans-unit>
+        <trans-unit id="268" translate="yes" xml:space="preserve">
+          <source>You copy more memory when the size of the <ph id="ph1">`struct`</ph> is larger than the size of a reference.</source>
+        </trans-unit>
+        <trans-unit id="269" translate="yes" xml:space="preserve">
+          <source>A reference is typically 64 bits or 32 bits, and depends on the target machine CPU.</source>
+        </trans-unit>
+        <trans-unit id="270" translate="yes" xml:space="preserve">
+          <source>These tradeoffs generally have minimal performance impact.</source>
+        </trans-unit>
+        <trans-unit id="271" translate="yes" xml:space="preserve">
+          <source>However, for large structs or larger collections, the performance impact increases.</source>
+        </trans-unit>
+        <trans-unit id="272" translate="yes" xml:space="preserve">
+          <source>The impact can be large in tight loops and hot paths for programs.</source>
+        </trans-unit>
+        <trans-unit id="273" translate="yes" xml:space="preserve">
+          <source>These enhancements to the C# language are designed for performance critical algorithms where minimizing memory allocations is a major factor in achieving the necessary performance.</source>
+        </trans-unit>
+        <trans-unit id="274" translate="yes" xml:space="preserve">
+          <source>You may find that you don't often use these features in the code you write.</source>
+        </trans-unit>
+        <trans-unit id="275" translate="yes" xml:space="preserve">
+          <source>However, these enhancements have been adopted throughout .NET.</source>
+        </trans-unit>
+        <trans-unit id="276" translate="yes" xml:space="preserve">
+          <source>As more and more APIs make use of these features, you'll see the performance of your applications improve.</source>
+        </trans-unit>
+        <trans-unit id="277" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="278" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>ref keyword<ept id="p1">](language-reference/keywords/ref.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="279" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Ref returns and ref locals<ept id="p1">](programming-guide/classes-and-structs/ref-returns.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
