@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="upgrade-to-nullable-references.md" source-language="en-US" target-language="es-es">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">57f738771a6f1d2cebe7af546d06ac7d7289a338</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\tutorials\upgrade-to-nullable-references.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_hi-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7a7719edd2bc537add77edaaa96778334c25a002</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7c130c8db7a2e9af6f0fce260fcc8b8f7e732e56</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Design with nullable reference types</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>This advanced tutorial provides an introduction to nullable reference types.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>You'll learn to express your design intent on when reference values may be null, and have the compiler enforce when they cannot be null.</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Tutorial: Migrate existing code with nullable reference types</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>C# 8 introduces <bpt id="p1">**</bpt>nullable reference types<ept id="p1">**</ept>, which complement reference types the same way nullable value types complement value types.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>You declare a variable to be a <bpt id="p1">**</bpt>nullable reference type<ept id="p1">**</ept> by appending a <ph id="ph1">`?`</ph> to the type.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>For example, <ph id="ph1">`string?`</ph> represents a nullable <ph id="ph2">`string`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>You can use these new types to more clearly express your design intent: some variables <bpt id="p1">*</bpt>must always have a value<ept id="p1">*</ept>, others <bpt id="p2">*</bpt>may be missing a value<ept id="p2">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Any existing variables of a reference type would be interpreted as a non-nullable reference type.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>In this tutorial, you'll learn how to:</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Enable null reference checks as you work with code.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>Diagnose and correct different warnings related to null values.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Manage the interface between nullable enabled and nullable disabled contexts.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>Control nullable annotation contexts.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>You'll need to set up your machine to run .NET Core, including the C# 8.0 beta compiler.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The C# 8 beta compiler is available with <bpt id="p1">[</bpt>Visual Studio 2019 preview 2 and later<ept id="p1">](https://visualstudio.microsoft.com/vs/preview/?utm_medium=microsoft&amp;utm_source=docs.microsoft.com&amp;utm_campaign=inline+link&amp;utm_content=download+vs2019+preview)</ept>, or <bpt id="p2">[</bpt>.NET Core 3.0 preview 2<ept id="p2">](https://dotnet.microsoft.com/download/dotnet-core/3.0)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>This tutorial assumes you're familiar with C# and .NET, including either Visual Studio or the .NET Core CLI.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Explore the sample application</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The sample application that you'll migrate is an RSS feed reader web app.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>It reads from a single RSS feed and displays summaries for the most recent articles.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>You can click on any of the articles to visit the site.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>The application is relatively new but was written before nullable reference types were available.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The design decisions for the application represented sound principles, but don't take advantage of this important language feature.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>The sample application includes a unit test library that validates the major functionality of the app.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>That project will make it easier to upgrade safely, if you change any of the implementation based on the warnings generated.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>You can download the starter code from the <bpt id="p1">[</bpt>dotnet/samples<ept id="p1">](https://github.com/dotnet/samples/tree/master/csharp/tutorials/nullable-reference-migration/start)</ept> GitHub repository.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Your goal migrating a project should be to leverage the new language features so that you clearly express your intent on the nullability of variables, and do so in such a way that the compiler doesn't generate warnings when you have the nullable annotation context and nullable warning context set to <ph id="ph1">`enabled`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Upgrade the projects to C# 8</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>A good first step is to determine the scope of the migration task.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Start by upgrading the project to C# 8.0 (or newer).</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`LangVersion`</ph> element to both csproj files for the web project and the unit test project:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Upgrading the language version selects C# 8.0, but does not enable the nullable annotation context or the nullable warning context.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Rebuild the project to ensure that it builds without warnings.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A good next step is to turn on the nullable annotation context and see how many warnings are generated.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Add the following element to both csproj files in the solution, directly under the <ph id="ph1">`LangVersion`</ph> element:</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Do a test build, and notice the warning list.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>In this small application, the compiler generates five warnings, so it's likely you'd leave the nullable annotation context enabled and start fixing warnings for the entire project.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>That strategy works only for smaller projects.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>For any larger projects, the number of warnings generated by enabling the nullable annotation context for the entire codebase makes it harder to fix the warnings systematically.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>For larger enterprise projects, you'll often want to migrate one project at a time.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>In each project, migrate one class or file at a time.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Warnings help discover original design intent</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>There are two classes that generate multiple warnings.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Start with the <ph id="ph1">`NewsStoryViewModel`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Remove the <ph id="ph1">`NullableContextOptions`</ph> element from both csproj files so that you can limit the scope of warnings to the sections of code you're working with.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Open the <bpt id="p1">*</bpt>NewsStoryViewModel.cs<ept id="p1">*</ept> file and add the following directives to enable the nullable annotation context for the <ph id="ph1">`NewsStoryViewModel`</ph> and restore it following that class definition:</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>These two directives help you focus your migration efforts.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The nullable warnings are generated for the area of code you're actively working on.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>You'll leave them on until you're ready to turn on the warnings for the entire project.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You should use the <ph id="ph1">`restore`</ph> rather than <ph id="ph2">`disable`</ph> value so that you don't accidentally disable the context later when you've turned on nullable annotations for the entire project.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Once you've turned on the nullable annotation context for the entire project, you can remove all the <ph id="ph1">`#nullable`</ph> pragmas from that project.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`NewsStoryViewModel`</ph> class is a data transfer object (DTO) and two of the properties are read/write strings:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>These two properties cause <ph id="ph1">`CS8618`</ph>, "Non-nullable property is uninitialized".</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>That's clear enough: both <ph id="ph1">`string`</ph> properties have the default value of <ph id="ph2">`null`</ph> when a <ph id="ph3">`NewsStoryViewModel`</ph> is constructed.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>What's important to discover is how <ph id="ph1">`NewsStoryViewModel`</ph> objects are constructed.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Looking at this class, you can't tell if the <ph id="ph1">`null`</ph> value is part of the design, or if these objects are set to non-null values whenever one is created.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>The news stories are created in the <ph id="ph1">`GetNews`</ph> method of the <ph id="ph2">`NewsService`</ph> class:</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>There's quite a bit going on in the preceding block of code.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>This application uses the <bpt id="p1">[</bpt>AutoMapper<ept id="p1">](http://automapper.org/)</ept> NuGet package to construct a news item from an <ph id="ph1">`ISyndicationItem`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>You've discovered that the news story items are constructed and the properties are set in that one statement.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>That means the design for the <ph id="ph1">`NewsStoryViewModel`</ph> indicates that these properties should never have the <ph id="ph2">`null`</ph> value.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>These properties should be <bpt id="p1">**</bpt>nonnullable reference types<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>That best expresses the original design intent.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>In fact, any <ph id="ph1">`NewsStoryViewModel`</ph> <bpt id="p1">*</bpt>is<ept id="p1">*</ept> correctly instantiated with non-null values.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>That makes the following initialization code a valid fix:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The assignment of <ph id="ph1">`Title`</ph> and <ph id="ph2">`Uri`</ph> to <ph id="ph3">`default`</ph> which is <ph id="ph4">`null`</ph> for the <ph id="ph5">`string`</ph> type doesn't change the runtime behavior of the program.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`NewsStoryViewModel`</ph> is still constructed with null values, but now the compiler reports no warnings.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>null-forgiving operator<ept id="p1">**</ept>, the <ph id="ph1">`!`</ph> character following the <ph id="ph2">`default`</ph> expression tells the compiler that the preceding expression is not null.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This technique may be expedient when other changes force much larger changes to a code base, but in this application there is a relatively quick and better solution: Make the <ph id="ph1">`NewsStoryViewModel`</ph> an immutable type where all the properties are set in the constructor.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Make the following changes to the <ph id="ph1">`NewsStoryViewModel`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Once that's done, you need to update the code that configures the AutoMapper so that it uses the constructor rather than setting properties.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Open <ph id="ph1">`NewsService.cs`</ph> and look for the following code at the bottom of the file:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>That code maps properties of the <ph id="ph1">`ISyndicationItem`</ph> object to the <ph id="ph2">`NewsStoryViewModel`</ph> properties.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>You want the AutoMapper to provide the mapping using a constructor instead.</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Replace the above code with the following automapper configuration:</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Notice that because this class is small, and you've examined carefully, you should turn on the <ph id="ph1">`#nullable enable`</ph> directive above this class declaration.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The change to the constructor could have broken something, so it's worthwhile to run all the tests and test the application before moving on.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>The first set of changes showed you how to discover when the original design indicated that variables shouldn't be set to <ph id="ph1">`null`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The technique is referred to as <bpt id="p1">**</bpt>correct by construction<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>You declare that an object and its properties cannot be <ph id="ph1">`null`</ph> when it's constructed.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>The compiler's flow analysis provides assurance that those properties aren't set to <ph id="ph1">`null`</ph> after construction.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Note that this constructor is called by external code, and that code is <bpt id="p1">**</bpt>nullable oblivious<ept id="p1">**</ept>.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The new syntax doesn't provide runtime checking.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>External code might circumvent the compiler's flow analysis.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Other times, the structure of a class provides different clues to the intent.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Open the <bpt id="p1">*</bpt>Error.cshtml.cs<ept id="p1">*</ept> file in the <bpt id="p2">*</bpt>Pages<ept id="p2">*</ept> folder.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ErrorViewModel`</ph> contains the following code:</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`#nullable enable`</ph> directive before the class declaration, and a <ph id="ph2">`#nullable restore`</ph> directive after it.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>You'll get one warning that <ph id="ph1">`RequestId`</ph> is not initialized.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>By looking at the class, you should decide that the <ph id="ph1">`RequestId`</ph> property should be null in some cases.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>The existence of the <ph id="ph1">`ShowRequestId`</ph> property indicates that missing values are possible.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">`null`</ph> is valid, add the <ph id="ph2">`?`</ph> on the <ph id="ph3">`string`</ph> type to indicate the <ph id="ph4">`RequestId`</ph> property is a <bpt id="p1">*</bpt>nullable reference type<ept id="p1">*</ept>.</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>The final class looks like the following example:</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Check for the uses of the property, and you see that in the associated page, the property is checked for null before rendering it in markup.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>That's a safe use of a nullable reference type, so you're done with this class.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>Fixing nulls causes change</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>Frequently, the fix for one set of warnings creates new warnings in related code.</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>Let's see the warnings in action by fixing the <ph id="ph1">`index.cshtml.cs`</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Open the <ph id="ph1">`index.cshtml.cs`</ph> file and examine the code.</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>This file contains the code behind for the index page:</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>Add the <ph id="ph1">`#nullable enable`</ph> directive and you'll see two warnings.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>Neither the <ph id="ph1">`ErrorText`</ph> property nor the <ph id="ph2">`NewsItems`</ph> property is initialized.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>An examination of this class would lead you to believe that both properties should be nullable reference types: Both have private setters.</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>Exactly one is assigned in the <ph id="ph1">`OnGet`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>Before making changes, look at the consumers of both properties.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>In the page itself, the <ph id="ph1">`ErrorText`</ph> is checked against null before generating markup for any errors.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`NewsItems`</ph> collection is checked against <ph id="ph2">`null`</ph>, and checked to ensure the collection has items.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>A quick fix would be to make both properties nullable reference types.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>A better fix would be to make the collection a nonnullable reference type, and add items to the existing collection when retrieving news.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>The first fix is to add the <ph id="ph1">`?`</ph> to the <ph id="ph2">`string`</ph> type for the <ph id="ph3">`ErrorText`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>That change won't ripple through other code, because any access to the <ph id="ph1">`ErrorText`</ph> property was already guarded by null checks.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>Next, initialize the <ph id="ph1">`NewsItems`</ph> list and remove the property setter, making it a readonly property:</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>That fixed the warning but introduced an error.</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`NewsItems`</ph> list is now <bpt id="p1">**</bpt>correct by construction<ept id="p1">**</ept>, but the code that sets the list in <ph id="ph2">`OnGet`</ph> must change to match the new API.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Instead of an assignment, call <ph id="ph1">`AddRange`</ph> to add the news items to the existing list:</source>
+        </trans-unit>
+        <trans-unit id="217" translate="yes" xml:space="preserve">
+          <source>Using <ph id="ph1">`AddRange`</ph> instead of an assignment means that the <ph id="ph2">`GetNews`</ph> method can return an <ph id="ph3">`IEnumerable`</ph> instead of a <ph id="ph4">`List`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="218" translate="yes" xml:space="preserve">
+          <source>That saves one allocation.</source>
+        </trans-unit>
+        <trans-unit id="219" translate="yes" xml:space="preserve">
+          <source>Change the signature of the method, and remove the <ph id="ph1">`ToList`</ph> call, as shown in the following code sample:</source>
+        </trans-unit>
+        <trans-unit id="220" translate="yes" xml:space="preserve">
+          <source>Changing the signature breaks one of tests as well.</source>
+        </trans-unit>
+        <trans-unit id="221" translate="yes" xml:space="preserve">
+          <source>Open the <ph id="ph1">`NewsServiceTests.cs`</ph> file in the <ph id="ph2">`Services`</ph> folder of the <ph id="ph3">`SimpleFeedReader.Tests`</ph> project.</source>
+        </trans-unit>
+        <trans-unit id="222" translate="yes" xml:space="preserve">
+          <source>Navigate to the <ph id="ph1">`Returns_News_Stories_Given_Valid_Uri`</ph> test and change the type of the <ph id="ph2">`result`</ph> variable to <ph id="ph3">`IEnumerable&lt;NewsItem&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="223" translate="yes" xml:space="preserve">
+          <source>Changing the type means the <ph id="ph1">`Count`</ph> property is no longer available, so replace the <ph id="ph2">`Count`</ph> property in the <ph id="ph3">`Assert`</ph> with a call to <ph id="ph4">`Any()`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="224" translate="yes" xml:space="preserve">
+          <source>You'll need to add a <ph id="ph1">`using System.Linq`</ph> statement to the beginning of the file as well.</source>
+        </trans-unit>
+        <trans-unit id="225" translate="yes" xml:space="preserve">
+          <source>This set of changes highlights special consideration when updating code that includes generic instantiations.</source>
+        </trans-unit>
+        <trans-unit id="226" translate="yes" xml:space="preserve">
+          <source>Both the list and the elements in the list of non-nullable types.</source>
+        </trans-unit>
+        <trans-unit id="227" translate="yes" xml:space="preserve">
+          <source>Either or both could be nullable types.</source>
+        </trans-unit>
+        <trans-unit id="228" translate="yes" xml:space="preserve">
+          <source>All the following declarations are allowed:</source>
+        </trans-unit>
+        <trans-unit id="229" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`List&lt;NewsStoryViewModel&gt;`</ph>: nonnullable list of nonullable view models.</source>
+        </trans-unit>
+        <trans-unit id="230" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`List&lt;NewsStoryViewModel?&gt;`</ph>: nonnullable list of nullable view models.</source>
+        </trans-unit>
+        <trans-unit id="231" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`List&lt;NewsStoryViewModel&gt;?`</ph>: nullable list of nonnullable view models.</source>
+        </trans-unit>
+        <trans-unit id="232" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`List&lt;NewsStoryViewModel?&gt;?`</ph>: nullable list of nullable view models.</source>
+        </trans-unit>
+        <trans-unit id="233" translate="yes" xml:space="preserve">
+          <source>Interfaces with external code</source>
+        </trans-unit>
+        <trans-unit id="234" translate="yes" xml:space="preserve">
+          <source>You've made changes to the <ph id="ph1">`NewsService`</ph> class, so turn on the <ph id="ph2">`#nullable enable`</ph> annotation for that class.</source>
+        </trans-unit>
+        <trans-unit id="235" translate="yes" xml:space="preserve">
+          <source>This won't generate any new warnings.</source>
+        </trans-unit>
+        <trans-unit id="236" translate="yes" xml:space="preserve">
+          <source>However, careful examination of the class helps to illustrate some of the limitations of the compiler's flow analysis.</source>
+        </trans-unit>
+        <trans-unit id="237" translate="yes" xml:space="preserve">
+          <source>Examine the constructor:</source>
+        </trans-unit>
+        <trans-unit id="238" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`IMapper`</ph> parameter is typed as a nonnullable reference.</source>
+        </trans-unit>
+        <trans-unit id="239" translate="yes" xml:space="preserve">
+          <source>It's called by ASP.NET Core infrastructure code, so the compiler doesn't really know that the <ph id="ph1">`IMapper`</ph> will never be null.</source>
+        </trans-unit>
+        <trans-unit id="240" translate="yes" xml:space="preserve">
+          <source>The default ASP.NET Core dependency injection (DI) container throws an exception if it can't resolve a necessary service, so the code is correct.</source>
+        </trans-unit>
+        <trans-unit id="241" translate="yes" xml:space="preserve">
+          <source>The compiler can't validate all calls to your public APIs, even if your code is compiled with nullable annotation contexts enabled.</source>
+        </trans-unit>
+        <trans-unit id="242" translate="yes" xml:space="preserve">
+          <source>Furthermore, your libraries may be consumed by projects that have not yet opted into using nullable reference types.</source>
+        </trans-unit>
+        <trans-unit id="243" translate="yes" xml:space="preserve">
+          <source>Validate inputs to public APIs even though you've declared them as nonnullable types.</source>
+        </trans-unit>
+        <trans-unit id="244" translate="yes" xml:space="preserve">
+          <source>Get the code</source>
+        </trans-unit>
+        <trans-unit id="245" translate="yes" xml:space="preserve">
+          <source>You've fixed the warnings you identified in the initial test compile, so now you can turn on the nullable annotation context for both projects.</source>
+        </trans-unit>
+        <trans-unit id="246" translate="yes" xml:space="preserve">
+          <source>Rebuild the projects; the compiler reports no warnings.</source>
+        </trans-unit>
+        <trans-unit id="247" translate="yes" xml:space="preserve">
+          <source>You can get the code for the finished project in the <bpt id="p1">[</bpt>dotnet/samples<ept id="p1">](https://github.com/dotnet/samples/tree/master/csharp/tutorials/nullable-reference-migration/finished)</ept> GitHub repository.</source>
+        </trans-unit>
+        <trans-unit id="248" translate="yes" xml:space="preserve">
+          <source>The new features that support nullable reference types help you find and fix potential errors in how you handle <ph id="ph1">`null`</ph> values in your code.</source>
+        </trans-unit>
+        <trans-unit id="249" translate="yes" xml:space="preserve">
+          <source>Enabling the nullable annotation context allows you to express your design intent: some variables should never be null, other variables may contain null values.</source>
+        </trans-unit>
+        <trans-unit id="250" translate="yes" xml:space="preserve">
+          <source>These features make it easier for you to declare your design intent.</source>
+        </trans-unit>
+        <trans-unit id="251" translate="yes" xml:space="preserve">
+          <source>Similarly, the nullable warning context instructs the compiler to issue warnings when you have violated that intent.</source>
+        </trans-unit>
+        <trans-unit id="252" translate="yes" xml:space="preserve">
+          <source>Those warnings guide you to make updates that make your code more resilient and less likely to throw a <ph id="ph1">`NullReferenceException`</ph> during execution.</source>
+        </trans-unit>
+        <trans-unit id="253" translate="yes" xml:space="preserve">
+          <source>You can control the scope of these contexts so that you can focus on local areas of code to migrate while the remaining codebase is untouched.</source>
+        </trans-unit>
+        <trans-unit id="254" translate="yes" xml:space="preserve">
+          <source>In practice, you can make this migration task a part of regular maintenance to your classes.</source>
+        </trans-unit>
+        <trans-unit id="255" translate="yes" xml:space="preserve">
+          <source>This tutorial demonstrated the process to migrate an application to use nullable reference types.</source>
+        </trans-unit>
+        <trans-unit id="256" translate="yes" xml:space="preserve">
+          <source>You can explore a larger real-world example of this process by examining the PR <bpt id="p1">[</bpt>Jon Skeet<ept id="p1">](https://github.com/jskeet)</ept> made to incorporate nullable reference types into <bpt id="p2">[</bpt>NodaTime<ept id="p2">](https://github.com/nodatime/nodatime/pull/1240/commits)</ept>.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
