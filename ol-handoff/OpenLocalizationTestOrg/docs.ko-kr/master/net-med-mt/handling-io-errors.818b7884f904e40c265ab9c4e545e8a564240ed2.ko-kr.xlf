@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="handling-io-errors.md" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d2ff4e69596e721f485d107317f261231615c5a6</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\standard\io\handling-io-errors.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">net-med-mt</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">MT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">317a02558b33e2563bf71ab293426728f6f68084</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7d43e9cd0b880fb388678504ce42e203dc8b957f</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Handling I/O errors in .NET</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve">
+          <source>Handling I/O errors in .NET</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>In addition to the exceptions that can be thrown in any method call (such as an <ph id="ph1">&lt;xref:System.OutOfMemoryException&gt;</ph> when a system is stressed or an <ph id="ph2">&lt;xref:System.NullReferenceException&gt;</ph> due to programmer error), .NET file system methods can throw the following exceptions:</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.IOException?displayProperty=nameWithType&gt;</ph>, the base class of all <ph id="ph2">&lt;xref:System.IO&gt;</ph> exception types.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>It is thrown for errors whose return codes from the operating system don't directly map to any other exception type.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.FileNotFoundException?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.DirectoryNotFoundException?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.DriveNotFoundException??displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.IO.PathTooLongException?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.OperationCanceledException?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.UnauthorizedAccessException?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.ArgumentException?displayProperty=nameWithType&gt;</ph>, which is thrown for invalid path characters on .NET Framework and on .NET Core 2.0 and previous versions.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.NotSupportedException?displayProperty=nameWithType&gt;</ph>, which is thrown for invalid colons in .NET Framework.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">&lt;xref:System.Security.SecurityException?displayProperty=nameWithType&gt;</ph>, which is thrown for applications running in limited trust that lack the necessary permissions on .NET Framework only.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>(Full trust is the default on .NET Framework.)</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Mapping error codes to exceptions</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Because the file system is an operating system resource, I/O methods in both .NET Core and .NET Framework wrap calls to the underlying operating system.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>When an I/O error occurs in code executed by the operating system, the operating system returns error information to the .NET I/O method.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The method then translates the error information, typically in the form of an error code, into a .NET exception type.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>In most cases, it does this by directly translating the error code into its corresponding exception type; it does not perform any special mapping of the error based on the context of the method call.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>For example, on the Windows operating system, a method call that returns an error code of <ph id="ph1">`ERROR_FILE_NOT_FOUND`</ph> (or 0x02) maps to a <ph id="ph2">&lt;xref:System.IO.FileNotFoundException&gt;</ph>, and an error code of <ph id="ph3">`ERROR_PATH_NOT_FOUND`</ph> (or 0x03) maps to a <ph id="ph4">&lt;xref:System.IO.DirectoryNotFoundException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>However, the precise conditions under which the operating system returns particular error codes is often undocumented or poorly documented.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>As a result, unexpected exceptions can occur.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For example, because you are working with a directory rather than a file, you would expect that providing an invalid directory path to the <ph id="ph1">&lt;xref:System.IO.DirectoryInfo.%23ctor%2A?displayProperty=nameWithType&gt;</ph> constructor throws a <ph id="ph2">&lt;xref:System.IO.DirectoryNotFoundException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>However, it may also throw a <ph id="ph1">&lt;xref:System.IO.FileNotFoundException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Exception handling in I/O operations</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Because of this reliance on the operating system, identical exception conditions (such as the directory not found error in our example) can result in an I/O method throwing any one of the entire class of I/O exceptions.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>This means that, when calling I/O APIs, your code should be prepared to handle most or all of these exceptions, as shown in the following table:</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Exception type</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>.NET Core</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>.NET Framework</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>.NET Core 2.0 and earlier</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>No</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>Limited trust only</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>Handling IOException</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>As the base class for exceptions in the <ph id="ph1">&lt;xref:System.IO&gt;</ph> namespace, <ph id="ph2">&lt;xref:System.IO.IOException&gt;</ph> is also thrown for any error code that does not map to a predefined exception type.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This means that it can be thrown by any I/O operation.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>Because <ph id="ph1">&lt;xref:System.IO.IOException&gt;</ph> is the base class of the other exception types in the <ph id="ph2">&lt;xref:System.IO&gt;</ph> namespace, you should handle in a <ph id="ph3">`catch`</ph> block after you've handled the other I/O-related exceptions.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>In addition, starting with .NET Core 2.1, validation checks for path correctness (for example, to ensure that invalid characters are not present in a path) have been removed, and the runtime throws an exception mapped from an operating system error code rather than from its own validation code.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>The most likely exception to be thrown in this case is an <ph id="ph1">&lt;xref:System.IO.IOException&gt;</ph>, although any other exception type could also be thrown.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>Note that, in your exception handling code, you should always handle the <ph id="ph1">&lt;xref:System.IO.IOException&gt;</ph> last.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Otherwise, because it is the base class of all other IO exceptions, the catch blocks of derived classes will not be evaluated.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>In the case of an <ph id="ph1">&lt;xref:System.IO.IOException&gt;</ph>, you can get additional error information from the <bpt id="p1">[</bpt>IOException.HResult<ept id="p1">](xref:System.Exception.HResult)</ept> property.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>To convert the HResult value to a Win32 error code, you strip out the upper 16 bits of the 32-bit value.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>The following table lists error codes that may be wrapped in an <ph id="ph1">&lt;xref:System.IO.IOException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>HResult</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Constant</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>ERROR_SHARING_VIOLATION</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>32</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>The file name is missing, or the file or directory is in use.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>ERROR_FILE_EXISTS</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>80</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The file already exists.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>ERROR_INVALID_PARAMETER</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>87</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>An argument supplied to the method is invalid.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>ERROR_ALREADY_EXISTS</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>183</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>The file or directory already exists.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>You can handle these using a <ph id="ph1">`When`</ph> clause in a catch statement, as the following example shows.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Handling and throwing exceptions in .NET<ept id="p1">](../exceptions/index.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Exception handling (Task Parallel Library)<ept id="p1">](../parallel-programming/exception-handling-task-parallel-library.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Best practices for exceptions<ept id="p1">](../exceptions/best-practices-for-exceptions.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>How to use specific exceptions in a catch block<ept id="p1">](../exceptions/how-to-use-specific-exceptions-in-a-catch-block.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

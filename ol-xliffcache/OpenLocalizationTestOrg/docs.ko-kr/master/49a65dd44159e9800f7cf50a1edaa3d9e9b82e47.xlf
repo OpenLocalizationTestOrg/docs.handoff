@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="dotnet-core-2-2.md" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">49a65dd44159e9800f7cf50a1edaa3d9e9b82e47</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\whats-new\dotnet-core-2-2.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ff57c1153e0801bb87e39224f4131da0c88dd366</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">bad806e8f09b7d5f0ebadace2057bcf92d79de3d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>What's new in .NET Core 2.2</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn about the new features found in .NET Core 2.2.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>What's new in .NET Core 2.2</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>.NET Core 2.2 includes enhancements in application deployment, event handling for runtime services, authentication to Azure SQL databases, JIT compiler performance, and code injection prior to the execution of the <ph id="ph1">`Main`</ph> method.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>New deployment mode</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Core 2.2, you can deploy <bpt id="p1">[</bpt>framework-dependent executables<ept id="p1">](../deploying/index.md#framework-dependent-executables-fde)</ept>, which are <bpt id="p2">**</bpt>.exe<ept id="p2">**</ept> files instead of <bpt id="p3">**</bpt>.dll<ept id="p3">**</ept> files.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Functionally similar to framework-dependent deployments, framework-dependent executables (FDE) still rely on the presence of a shared system-wide version of .NET Core to run.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Your app contains only your code and any third-party dependencies.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Unlike framework-dependent deployments, FDEs are platform-specific.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>This new deployment mode has the distinct advantage of building an executable instead of a library, which means you can run your app directly without invoking <ph id="ph1">`dotnet`</ph> first.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Core</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Handling events in runtime services<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>You may often want to monitor your application's use of runtime services, such as the GC, JIT, and ThreadPool, to understand how they impact your application.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source> On Windows systems, this is commonly done by monitoring the ETW events of the current process.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source> While this continues to work well, it's not always possible to use ETW if you're running in a low-privilege environment or on Linux or macOS.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Core 2.2, CoreCLR events can now be consumed using the <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventListener?displayProperty=nameWithType&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>These events describe the behavior of such runtime services as GC, JIT, ThreadPool, and interop.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>These are the same events that are exposed as part of the CoreCLR ETW provider.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>  This allows for applications to consume these events or use a transport mechanism to send them to a telemetry aggregation service.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>You can see how to subscribe to events in the following code sample:</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>In addition, .NET Core 2.2 adds the following two properties to the <ph id="ph1">&lt;xref:System.Diagnostics.Tracing.EventWrittenEventArgs&gt;</ph> class to provide additional information about ETW events:</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Data</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>AAD authentication to Azure SQL databases with the SqlConnection.AccessToken property<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Core 2.2, an access token issued by Azure Active Directory can be used to authenticate to an Azure SQL database.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To support access tokens, the <ph id="ph1">&lt;xref:System.Data.SqlClient.SqlConnection.AccessToken&gt;</ph> property has been added to the <ph id="ph2">&lt;xref:System.Data.SqlClient.SqlConnection&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>To take advantage of AAD authentication, download version 4.6 of the System.Data.SqlClient NuGet package.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>In order to use the feature, you can obtain the access token value using the <bpt id="p1">[</bpt>Active Directory Authentication Library for .NET<ept id="p1">](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)</ept> contained in the <bpt id="p2">[</bpt><ph id="ph1">`Microsoft.IdentityModel.Clients.ActiveDirectory`</ph><ept id="p2">](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)</ept> NuGet package.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>JIT compiler improvements</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Tiered compilation remains an opt-in feature<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>In .NET Core 2.1, the JIT compiler implemented a new compiler technology, <bpt id="p1">*</bpt>tiered compilation<ept id="p1">*</ept>, as an opt-in feature.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>The goal of tiered compilation is improved performance.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>One of the important tasks performed by the JIT compiler is optimizing code execution.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>For little-used code paths, however, the compiler may spend more time optimizing code than the runtime spends executing unoptimized code.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Tiered compilation introduces two stages in JIT compilation:</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">**</bpt>first tier<ept id="p1">**</ept>, which generates code as quickly as possible.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>A <bpt id="p1">**</bpt>second tier<ept id="p1">**</ept>, which generates optimized code for those methods that are executed frequently.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The second tier of compilation is performed in parallel for enhanced performance.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>For information on the performance improvement that can result from tiered compilation, see <bpt id="p1">[</bpt>Announcing .NET Core 2.2 Preview 2<ept id="p1">](https://devblogs.microsoft.com/dotnet/announcing-net-core-2-2-preview-2/)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>In .NET Core 2.2 Preview 2, tiered compilation was enabled by default.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>However, we've decided that we are still not ready to enable tiered compilation by default.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>So in .NET Core 2.2, tiered compilation continues to be an opt-in feature.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>For information on opting in to tiered compilation, see <bpt id="p1">[</bpt>Jit compiler improvements<ept id="p1">](dotnet-core-2-1.md#jit-compiler-improvements)</ept> in <bpt id="p2">[</bpt>What's new in .NET Core 2.1<ept id="p2">](dotnet-core-2-1.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Runtime</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Injecting code prior to executing the Main method<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Starting with .NET Core 2.2, you can use a startup hook to inject code prior to running an application's Main method.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Startup hooks make it possible for a host to customize the behavior of applications after they have been deployed without needing to recompile or change the application.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>We expect hosting providers to define custom configuration and policy, including settings that potentially influence the load behavior of the main entry point, such as the<ph id="ph1"> &lt;xref:System.Runtime.Loader.AssemblyLoadContext?displayProperty=nameWithType&gt;</ph><ph id="ph2"> </ph>behavior.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>The hook can be used to set up tracing or telemetry injection, to set up callbacks for handling, or to define other environment-dependent behavior.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>The hook is separate from the entry point, so that user code doesn't need to be modified.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>See <bpt id="p1">[</bpt>Host startup hook<ept id="p1">](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/host-startup-hook.md)</ept> for more information.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>See also</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>What's new in .NET Core<ept id="p1">](index.md)</ept></source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>What's new in ASP.NET Core 2.2<ept id="p1">](/aspnet/core/release-notes/aspnetcore-2.2)</ept></source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>New features in EF Core 2.2<ept id="p1">](/ef/core/what-is-new/ef-core-2.2)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

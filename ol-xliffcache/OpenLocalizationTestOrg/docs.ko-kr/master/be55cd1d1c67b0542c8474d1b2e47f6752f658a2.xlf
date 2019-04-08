@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="net-framework-tech-unavailable.md" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">be55cd1d1c67b0542c8474d1b2e47f6752f658a2</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\porting\net-framework-tech-unavailable.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">ad593925b718bb9434f5cff9d4e8bf645658ed83</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">f93a0a413dbe93e0f90bbc214298d06a4ad51c7d</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>.NET Framework technologies unavailable on .NET Core</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn about .NET Framework technologies that are unavailable on .NET Core</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>.NET Framework technologies unavailable on .NET Core</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>Several technologies available to .NET Framework libraries aren't available for use with .NET Core, such as AppDomains, Remoting, Code Access Security (CAS), and Security Transparency.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>If your libraries rely on one or more of these technologies, consider the alternative approaches outlined below.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>For more information on API compatibility, the CoreFX team maintains a <bpt id="p1">[</bpt>List of behavioral changes/compat breaks and deprecated/legacy APIs<ept id="p1">](https://github.com/dotnet/corefx/wiki/ApiCompat)</ept> at GitHub.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Just because an API or technology isn't currently implemented doesn't imply it's intentionally unsupported.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>You should first search the GitHub repositories for .NET Core to see if a particular issue you encounter is by design, but if you cannot find such an indicator, please file an issue in the <bpt id="p1">[</bpt>dotnet/corefx repository issues<ept id="p1">](https://github.com/dotnet/corefx/issues)</ept> at GitHub to ask for specific APIs and technologies.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Porting requests in the issues<ept id="p1">](https://github.com/dotnet/corefx/labels/port-to-core)</ept> are marked with the <ph id="ph1">`port-to-core`</ph> label.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>AppDomains</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Application domains (AppDomains) isolate apps from one another.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>AppDomains require runtime support and are generally quite expensive.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Creating additional app domains is not supported..</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>We don't plan on adding this capability in future.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>For code isolation, we recommend separate processes or using containers as an alternative.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>For the dynamic loading of assemblies, we recommend the new <ph id="ph1">&lt;xref:System.Runtime.Loader.AssemblyLoadContext&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To make code migration from .NET Framework easier, .NET Core exposes some of the <ph id="ph1">&lt;xref:System.AppDomain&gt;</ph> API surface.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Some of the APIs function normally (for example, <ph id="ph1">&lt;xref:System.AppDomain.UnhandledException?displayProperty=nameWithType&gt;</ph>), some members do nothing (for example, <ph id="ph2">&lt;xref:System.AppDomain.SetCachePath%2A&gt;</ph>), and some of them throw <ph id="ph3">&lt;xref:System.PlatformNotSupportedException&gt;</ph> (for example, <ph id="ph4">&lt;xref:System.AppDomain.CreateDomain%2A&gt;</ph>).</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Check the types you use against the <bpt id="p1">[</bpt><ph id="ph1">`System.AppDomain`</ph> reference source<ept id="p1">](https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/AppDomain.cs)</ept> in the <bpt id="p2">[</bpt>dotnet/corefx GitHub repository<ept id="p2">](https://github.com/dotnet/corefx)</ept>, making sure to select the branch that matches your implemented version.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Remoting</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>.NET Remoting was identified as a problematic architecture.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>It's used for cross-AppDomain communication, which is no longer supported.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>Also, Remoting requires runtime support, which is expensive to maintain.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>For these reasons, .NET Remoting isn't supported on .NET Core, and we don't plan on adding support for it in the future.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>For communication across processes, consider inter-process communication (IPC) mechanisms as an alternative to Remoting, such as the <ph id="ph1">&lt;xref:System.IO.Pipes&gt;</ph> or the <ph id="ph2">&lt;xref:System.IO.MemoryMappedFiles.MemoryMappedFile&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Across machines, use a network-based solution as an alternative.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Preferably, use a low-overhead plain text protocol, such as HTTP.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Kestrel web server<ept id="p1">](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel)</ept>, the web server used by ASP.NET Core, is an option here.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Also consider using <ph id="ph1">&lt;xref:System.Net.Sockets&gt;</ph> for network-based, cross-machine scenarios.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>For more options, see <bpt id="p1">[</bpt>.NET Open Source Developer Projects: Messaging<ept id="p1">](https://github.com/Microsoft/dotnet/blob/master/dotnet-developer-projects.md#messaging)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Code Access Security (CAS)</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>Sandboxing, which relies on the runtime or the framework to constrain which resources a managed application or library uses or runs, <bpt id="p1">[</bpt>isn't supported on .NET Framework<ept id="p1">](~/docs/framework/misc/code-access-security.md)</ept> and therefore is also not supported on .NET Core.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>There are too many cases in the .NET Framework and the runtime where an elevation of privileges occurs to continue treating CAS as a security boundary.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>In addition, CAS makes the implementation more complicated and often has correctness-performance implications for applications that don't intend to use it.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Use security boundaries provided by the operating system, such as virtualization, containers, or user accounts for running processes with the minimum set of privileges.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Security Transparency</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Similar to CAS, Security Transparency separates sandboxed code from security critical code in a declarative fashion but is <bpt id="p1">[</bpt>no longer supported as a security boundary<ept id="p1">](~/docs/framework/misc/security-transparent-code.md)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>This feature is heavily used by Silverlight.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>Use security boundaries provided by the operating system, such as virtualization, containers, or user accounts for running processes with the least set of privileges.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Next<ept id="p1">](third-party-deps.md)</ept></source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="wpf.md" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">80c55b45067405b1204cad0435b46b376f783c57</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\porting\wpf.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">d8bf3a5133550503169b8eab759abebd754e9f3e</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">621899a58d07857a9f5115c34af77d46ce19e9c1</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Port a WPF app to .NET Core 3.0</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Teaches you how to port a .NET Framework Windows Presentation Foundation application to .NET Core 3.0 for Windows.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>How to: Port a WPF desktop app to .NET Core</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This article describes how to port your Windows Presentation Foundation-based (WPF) desktop app from .NET Framework to .NET Core 3.0.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>The .NET Core 3.0 SDK includes support for WPF applications.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>WPF is still a Windows-only framework and only runs on Windows.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This example uses the .NET Core SDK CLI to create and manage your project.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>In this article, various names are used to identify types of files used for migration.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>When migrating your project, your files will be named differently, so mentally match them to the ones listed below:</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>File</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Description</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>MyApps.sln<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>The name of the solution file.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>MyWPF.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>The name of the .NET Framework WPF project to port.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>The name of the new .NET Core project you create.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>MyAppCore.exe<ept id="p1">**</ept></source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>The .NET Core WPF app executable.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt>Visual Studio 2019<ept id="p1">](https://visualstudio.microsoft.com/vs/preview/?utm_medium=microsoft&amp;utm_source=docs.microsoft.com&amp;utm_campaign=inline+link&amp;utm_content=wpf+core)</ept> for any designer work you want to do.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Install the following Visual Studio workloads:</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>.NET desktop development</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>.NET cross-platform development</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>A working WPF project in a solution that builds and runs without issue.</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Your project must be coded in C#.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Install the latest <bpt id="p1">[</bpt>.NET Core 3.0<ept id="p1">](https://aka.ms/netcore3download)</ept> preview.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Visual Studio 2017<ept id="p1">**</ept> doesn't support .NET Core 3.0 projects.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>Visual Studio 2019 Preview/RC<ept id="p1">**</ept> supports .NET Core 3.0 projects but doesn't yet support the visual designer for .NET Core 3.0 WPF projects.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>To use the visual designer, you must have a .NET WPF project in your solution that shares its files with the .NET Core project.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Consider</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>When porting a .NET Framework WPF application, there are a few things you must consider.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Check that your application is a good candidate for migration.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Use the <bpt id="p1">[</bpt>.NET Portability Analyzer<ept id="p1">](../../standard/analyzers/portability-analyzer.md)</ept> to determine if your project will migrate to .NET Core 3.0.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If your project has issues with .NET Core 3.0, the analyzer helps you identify those problems.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>You're using a different version of WPF.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>When .NET Core 3.0 Preview 1 was released, WPF went open-source on GitHub.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>The code for .NET Core WPF is a fork of the .NET Framework WPF code base.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>It's possible some differences exist and your app won't port.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Windows Compatibility Pack<ept id="p1">]</ept><bpt id="p2">[</bpt><ept id="p2">compat-pack]</ept> may help you migrate.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>Some APIs that are available in .NET Framework aren't available in .NET Core 3.0.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">[</bpt>Windows Compatibility Pack<ept id="p1">]</ept><bpt id="p2">[</bpt><ept id="p2">compat-pack]</ept> adds many of these APIs and may help your WPF app become compatible with .NET Core.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Update the NuGet packages used by your project.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>It's always a good practice to use the latest versions of NuGet packages before any migration.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>If your application is referencing any NuGet packages, update them to the latest version.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Ensure your application builds successfully.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>After upgrading, if there are any package errors, downgrade the package to the latest version that doesn't break your code.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Visual Studio 2019 Preview/RC doesn't yet support the WPF Designer for .NET Core 3.0</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Currently, you need to keep your existing .NET Framework WPF project file if you want to use the WPF Designer from Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Create a new SDK project</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>The new .NET Core 3.0 project you create must be in a different directory from your .NET Framework project.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>If they're both in the same directory, you may run into conflicts with the files that are generated in the <bpt id="p1">**</bpt>obj<ept id="p1">**</ept> directory.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>In this example, you'll create a directory named <bpt id="p1">**</bpt>MyWPFAppCore<ept id="p1">**</ept> in the <bpt id="p2">**</bpt>SolutionFolder<ept id="p2">**</ept> directory:</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Next, you need to create the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept> project in the <bpt id="p2">**</bpt>MyWPFAppCore<ept id="p2">**</ept> directory.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>You can create this file manually by using the text editor of choice.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>Paste in the following XML:</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>If you don't want to create the project file manually, you can use Visual Studio or the .NET Core SDK to generate the project.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>However, you must delete all other files generated by the project template except for the project file.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>To use the SDK, run the following command from the <bpt id="p1">**</bpt>SolutionFolder<ept id="p1">**</ept> directory:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>After you create the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept>, your directory structure should look like the following:</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>You'll want to add the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept> project to <bpt id="p2">**</bpt>MyApps.sln<ept id="p2">**</ept> with either Visual Studio or the .NET Core CLI from the <bpt id="p3">**</bpt>SolutionFolder<ept id="p3">**</ept> directory:</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Fix assembly info generation</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Windows Presentation Foundation projects that were created with .NET Framework include an <ph id="ph1">`AssemblyInfo.cs`</ph> file, which contains assembly attributes such as the version of the assembly to be generated.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>SDK-style projects automatically generate this information for you based on the SDK project file.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>Having both types of "assembly info" creates a conflict.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>Resolve this problem by disabling automatic generation, which forces the project to use your existing <ph id="ph1">`AssemblyInfo.cs`</ph> file.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>There are three settings to add to the main <ph id="ph1">`&lt;PropertyGroup&gt;`</ph> node.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>GenerateAssemblyInfo<ept id="p1">**</ept><ph id="ph1">\</ph></source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>When you set this property to <ph id="ph1">`false`</ph>, it won't generate the assembly attributes.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>This avoids the conflict with the existing <ph id="ph1">`AssemblyInfo.cs`</ph> file from the .NET Framework project.</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>AssemblyName<ept id="p1">**</ept><ph id="ph1">\</ph></source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The value of this property is the output binary created when you compile.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>The name doesn't need an extension added to it.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>For example, using <ph id="ph1">`MyCoreApp`</ph> produces <ph id="ph2">`MyCoreApp.exe`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">**</bpt>RootNamespace<ept id="p1">**</ept><ph id="ph1">\</ph></source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>The default namespace used by your project.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>This should match the default namespace of the .NET Framework project.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>Add these three elements to the <ph id="ph1">`&lt;PropertyGroup&gt;`</ph> node in the <ph id="ph2">`MyWPFCore.csproj`</ph> file:</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>Add source code</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>Right now, the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept> project doesn't compile any code.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>By default, .NET Core projects automatically include all source code in the current directory and any child directories.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>You must configure the project to include code from the .NET Framework project using a relative path.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>If your .NET Framework project used <bpt id="p1">**</bpt>.resx<ept id="p1">**</ept> files for icons and resources for your windows and controls, you'll need to include those too.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The first <ph id="ph1">`&lt;ItemGroup&gt;`</ph> node you need to add to your project includes the <bpt id="p1">**</bpt>App.xaml<ept id="p1">**</ept> file that represents the startup config and resources your app uses.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>App.xaml<ept id="p1">**</ept> file also has an accompanying <bpt id="p2">**</bpt>App.xaml.cs<ept id="p2">**</ept> file, but it will be automatically included in a different <ph id="ph1">`&lt;ItemGroup&gt;`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>Next, add the following <ph id="ph1">`&lt;ItemGroup&gt;`</ph> node to your project.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>Each statement includes a file glob pattern that includes child directories.</source>
+        </trans-unit>
+        <trans-unit id="188" translate="yes" xml:space="preserve">
+          <source>It includes the source code for your project, any settings files, and any resources.</source>
+        </trans-unit>
+        <trans-unit id="189" translate="yes" xml:space="preserve">
+          <source>The <bpt id="p1">**</bpt>obj<ept id="p1">**</ept> directory is explicitly excluded.</source>
+        </trans-unit>
+        <trans-unit id="190" translate="yes" xml:space="preserve">
+          <source>Next, include another <ph id="ph1">`&lt;ItemGroup&gt;`</ph> node that contains a <ph id="ph2">`&lt;Page&gt;`</ph> entry for every <bpt id="p1">**</bpt>xaml<ept id="p1">**</ept> file in your project except the <bpt id="p2">**</bpt>App.xaml<ept id="p2">**</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="191" translate="yes" xml:space="preserve">
+          <source>These contain all of the windows, pages, and resources that are in <bpt id="p1">**</bpt>xaml<ept id="p1">**</ept> format.</source>
+        </trans-unit>
+        <trans-unit id="192" translate="yes" xml:space="preserve">
+          <source>You cannot use a glob pattern here and must add an entry for every file and indicate the <ph id="ph1">`&lt;Generator&gt;`</ph> used.</source>
+        </trans-unit>
+        <trans-unit id="193" translate="yes" xml:space="preserve">
+          <source>Add NuGet packages</source>
+        </trans-unit>
+        <trans-unit id="194" translate="yes" xml:space="preserve">
+          <source>Add each NuGet package referenced by the .NET Framework project to the .NET Core project.</source>
+        </trans-unit>
+        <trans-unit id="195" translate="yes" xml:space="preserve">
+          <source>Most likely your .NET Framework WPF app has a <bpt id="p1">**</bpt>packages.config<ept id="p1">**</ept> file that contains a list of all of the NuGet packages that are referenced by your project.</source>
+        </trans-unit>
+        <trans-unit id="196" translate="yes" xml:space="preserve">
+          <source>You can look at this list to determine which NuGet packages to add to the .NET Core project.</source>
+        </trans-unit>
+        <trans-unit id="197" translate="yes" xml:space="preserve">
+          <source>For example, if the .NET Framework project references the <ph id="ph1">`MahApps.Metro`</ph> NuGet package, add it to the project with Visual Studio.</source>
+        </trans-unit>
+        <trans-unit id="198" translate="yes" xml:space="preserve">
+          <source>You can also add the package reference with the .NET Core CLI from the <bpt id="p1">**</bpt>SolutionFolder<ept id="p1">**</ept> directory:</source>
+        </trans-unit>
+        <trans-unit id="199" translate="yes" xml:space="preserve">
+          <source>The previous command would add the following NuGet reference to the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept> project:</source>
+        </trans-unit>
+        <trans-unit id="200" translate="yes" xml:space="preserve">
+          <source>Problems compiling</source>
+        </trans-unit>
+        <trans-unit id="201" translate="yes" xml:space="preserve">
+          <source>If you have problems compiling your projects, you may be using some Windows-only APIs that are available in .NET Framework but not available in .NET Core.</source>
+        </trans-unit>
+        <trans-unit id="202" translate="yes" xml:space="preserve">
+          <source>You can try adding the <bpt id="p1">[</bpt>Windows Compatibility Pack<ept id="p1">]</ept><bpt id="p2">[</bpt><ept id="p2">compat-pack]</ept> NuGet package to your project.</source>
+        </trans-unit>
+        <trans-unit id="203" translate="yes" xml:space="preserve">
+          <source>This package only runs on Windows and adds about 20,000 Windows APIs to .NET Core and .NET Standard projects.</source>
+        </trans-unit>
+        <trans-unit id="204" translate="yes" xml:space="preserve">
+          <source>The previous command adds the following to the <bpt id="p1">**</bpt>MyWPFCore.csproj<ept id="p1">**</ept> project:</source>
+        </trans-unit>
+        <trans-unit id="205" translate="yes" xml:space="preserve">
+          <source>WPF Designer</source>
+        </trans-unit>
+        <trans-unit id="206" translate="yes" xml:space="preserve">
+          <source>As detailed in this article, Visual Studio 2019 Preview/RC only supports the WPF Designer in .NET Framework projects.</source>
+        </trans-unit>
+        <trans-unit id="207" translate="yes" xml:space="preserve">
+          <source>By creating a side-by-side .NET Core project, you can test your project with .NET Core while you use the .NET Framework project to design forms.</source>
+        </trans-unit>
+        <trans-unit id="208" translate="yes" xml:space="preserve">
+          <source>Your solution file includes both the .NET Framework and .NET Core projects.</source>
+        </trans-unit>
+        <trans-unit id="209" translate="yes" xml:space="preserve">
+          <source>Add and design your forms and controls in the .NET Framework project, and based on the file glob patterns we added to the .NET Core projects, any new or changed files will automatically be included in the .NET Core projects.</source>
+        </trans-unit>
+        <trans-unit id="210" translate="yes" xml:space="preserve">
+          <source>Once Visual Studio 2019 supports the WPF Designer, you can copy/paste the content of your .NET Core project file into the .NET Framework project file.</source>
+        </trans-unit>
+        <trans-unit id="211" translate="yes" xml:space="preserve">
+          <source>Then delete the file glob patterns added with the <ph id="ph1">`&lt;Source&gt;`</ph> and <ph id="ph2">`&lt;EmbeddedResource&gt;`</ph> items.</source>
+        </trans-unit>
+        <trans-unit id="212" translate="yes" xml:space="preserve">
+          <source>Fix the paths to any project reference used by your app.</source>
+        </trans-unit>
+        <trans-unit id="213" translate="yes" xml:space="preserve">
+          <source>This effectively upgrades the .NET Framework project to a .NET Core project.</source>
+        </trans-unit>
+        <trans-unit id="214" translate="yes" xml:space="preserve">
+          <source>Next steps</source>
+        </trans-unit>
+        <trans-unit id="215" translate="yes" xml:space="preserve">
+          <source>Read more about the <bpt id="p1">[</bpt>Windows Compatibility Pack<ept id="p1">]</ept><bpt id="p2">[</bpt><ept id="p2">compat-pack]</ept>.</source>
+        </trans-unit>
+        <trans-unit id="216" translate="yes" xml:space="preserve">
+          <source>Watch a <bpt id="p1">[</bpt>video on porting<ept id="p1">](https://www.youtube.com/watch?v=5MomsgkWkVw&amp;list=PLS__JrkRveTMiWxG-Lv4cBwYfMQ6m2gmt)</ept> your .NET Framework WPF project to .NET Core.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

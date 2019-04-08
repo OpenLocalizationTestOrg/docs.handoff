@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="creating-app-with-plugin-support.md" source-language="en-US" target-language="ko-kr">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a9431ee28c7df21a8688f845be20e062eca21887</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\tutorials\creating-app-with-plugin-support.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">a54ecaee9f12c63345c255a076f307df4dbd0d06</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7f44deb5fd78c17d37997d09251b848d3b0be988</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Create a .NET Core application with plugins</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn how to create a .NET Core application that supports plugins.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Create a .NET Core application with plugins</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>This tutorial shows you how to:</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Structure a project to support plugins.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>Create a custom <ph id="ph1">&lt;xref:System.Runtime.Loader.AssemblyLoadContext&gt;</ph> to load each plugin.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Use the <ph id="ph1">`System.Runtime.Loader.AssemblyDependencyResolver`</ph> type to allow plugins to have dependencies.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Author plugins that can be easily deployed by just copying the build artifacts.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Install the <bpt id="p1">[</bpt>.NET Core 3.0 Preview 2 SDK<ept id="p1">](https://www.microsoft.com/net/core)</ept> or a newer version.</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>Create the application</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The first step is to create the application:</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Create a new folder, and in that folder run <ph id="ph1">`dotnet new console -o AppWithPlugin`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>To make building the project easier, create a Visual Studio solution file.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Run <ph id="ph1">`dotnet new sln`</ph> in the same folder.</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>Run <ph id="ph1">`dotnet sln add AppWithPlugin/AppWithPlugin.csproj`</ph> to add the app project to the solution.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>Now we can fill in the skeleton of our application.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Replace the code in the <bpt id="p1">*</bpt>AppWithPlugin/Program.cs<ept id="p1">*</ept> file with the following code:</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Create the plugin interfaces</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>The next step in building an app with plugins is defining the interface the plugins need to implement.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>We suggest that you make a class library that contains any types that you plan to use for communicating between your app and plugins.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>This division allows you to publish your plugin interface as a package without having to ship your full application.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>In the root folder of the project, run <ph id="ph1">`dotnet new classlib -o PluginBase`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Also, run <ph id="ph1">`dotnet sln add PluginBase/PluginBase.csproj`</ph> to add the project to the solution file.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Delete the <ph id="ph1">`PluginBase/Class1.cs`</ph> file, and create a new file in the <ph id="ph2">`PluginBase`</ph> folder named <ph id="ph3">`ICommand.cs`</ph> with the following interface definition:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>This <ph id="ph1">`ICommand`</ph> interface is the interface that all of the plugins will implement.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Now that the <ph id="ph1">`ICommand`</ph> interface is defined, the application project can be filled in a little more.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>Add a reference from the <ph id="ph1">`AppWithPlugin`</ph> project to the <ph id="ph2">`PluginBase`</ph> project with the <ph id="ph3">`dotnet add AppWithPlugin\AppWithPlugin.csproj reference PluginBase\PluginBase.csproj`</ph>  command from the root folder.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Replace the <ph id="ph1">`// Load commands from plugins`</ph> comment with the following code snippet to enable it to load plugins from given file paths:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Then replace the <ph id="ph1">`// Output the loaded commands`</ph> comment with the following code snippet:</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>Replace the <ph id="ph1">`// Execute the command with the name passed as an argument`</ph> comment with the following snippet:</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>And finally, add static methods to the <ph id="ph1">`Program`</ph> class named <ph id="ph2">`LoadPlugin`</ph> and <ph id="ph3">`CreateCommands`</ph>, as shown here:</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Load plugins</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Now the application can correctly load and instantiate commands from loaded plugin assemblies, but it is still unable to load the plugin assemblies.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Create a file named <bpt id="p1">*</bpt>PluginLoadContext.cs<ept id="p1">*</ept> in the <bpt id="p2">*</bpt>AppWithPlugin<ept id="p2">*</ept> folder with the following contents:</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PluginLoadContext`</ph> type derives from <ph id="ph2">&lt;xref:System.Runtime.Loader.AssemblyLoadContext&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`AssemblyLoadContext`</ph> type is a special type in the runtime that allows developers to isolate loaded assemblies into different groups to ensure that assembly versions do not conflict.</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Additionally, a custom <ph id="ph1">`AssemblyLoadContext`</ph> can choose different paths to load assemblies from and override the default behavior.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`PluginLoadContext`</ph> uses an instance of the <ph id="ph2">`AssemblyDependencyResolver`</ph> type introduced in .NET Core 3.0 to resolve assembly names to paths.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`AssemblyDependencyResolver`</ph> object is constructed with the path to a .NET class library.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>It resolves assemblies and native libraries to their relative paths based on the <bpt id="p1">*</bpt>deps.json<ept id="p1">*</ept> file for the class library whose path was passed to the <ph id="ph1">`AssemblyDependencyResolver`</ph> constructor.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The custom <ph id="ph1">`AssemblyLoadContext`</ph> enables plugins to have their own dependencies, and the <ph id="ph2">`AssemblyDependencyResolver`</ph> makes it easy to correctly load the dependencies.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>Now that the <ph id="ph1">`AppWithPlugin`</ph> project has the <ph id="ph2">`PluginLoadContext`</ph> type, update the <ph id="ph3">`Program.LoadPlugin`</ph> method with the following body:</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>By using a different <ph id="ph1">`PluginLoadContext`</ph> instance for each plugin, the plugins can have different or even conflicting dependencies without issue.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>Create a simple plugin with no dependencies</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>Back in the root folder, do the following:</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>Run <ph id="ph1">`dotnet new classlib -o HelloPlugin`</ph> to create a new class library project named <ph id="ph2">`HelloPlugin`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Run <ph id="ph1">`dotnet sln add HelloPlugin/HelloPlugin.csproj`</ph> to add the project to the <ph id="ph2">`AppWithPlugin`</ph> solution.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>Replace the <bpt id="p1">*</bpt>HelloPlugin/Class1.cs<ept id="p1">*</ept> file with a file named <bpt id="p2">*</bpt>HelloCommand.cs<ept id="p2">*</ept> with the following contents:</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>Now, open the <bpt id="p1">*</bpt>HelloPlugin.csproj<ept id="p1">*</ept> file.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>It should look similar to the following:</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>In between the <ph id="ph1">`&lt;Project&gt;`</ph> tags, add the following elements:</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`&lt;Private&gt;false&lt;/Private&gt;`</ph> element is very important.</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>This tells MSBuild to not copy <bpt id="p1">*</bpt>PluginBase.dll<ept id="p1">*</ept> to the output directory for HelloPlugin.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>If the <bpt id="p1">*</bpt>PluginBase.dll<ept id="p1">*</ept> assembly is present in the output directory, <ph id="ph1">`PluginLoadContext`</ph> will find the assembly there and load it when it loads the <bpt id="p2">*</bpt>HelloPlugin.dll<ept id="p2">*</ept> assembly.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>At this point, the <ph id="ph1">`HelloPlugin.HelloCommand`</ph> type will implement the <ph id="ph2">`ICommand`</ph> interface from the <bpt id="p1">*</bpt>PluginBase.dll<ept id="p1">*</ept> in the output directory of the <ph id="ph3">`HelloPlugin`</ph> project, not the <ph id="ph4">`ICommand`</ph> interface that is loaded into the default load context.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>Since the runtime sees these two types as different types from different assemblies, the <ph id="ph1">`AppWithPlugin.Program.CreateCommands`</ph> method will not find the commands.</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>As a result, the <ph id="ph1">`&lt;Private&gt;false&lt;/Private&gt;`</ph> metadata is required for the reference to the assembly containing the plugin interfaces.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>Now that the <ph id="ph1">`HelloPlugin`</ph> project is complete, we should update the <ph id="ph2">`AppWithPlugin`</ph> project to know where the <ph id="ph3">`HelloPlugin`</ph> plugin can be found.</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>After the <ph id="ph1">`// Paths to plugins to load`</ph> comment, add <ph id="ph2">`@"HelloPlugin\bin\Debug\netcoreapp3.0\HelloPlugin.dll"`</ph> as an element of the <ph id="ph3">`pluginPaths`</ph> array.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>Create a plugin with library dependencies</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source>Almost all plugins are more complex than a simple "Hello World", and many plugins have dependencies on other libraries.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`JsonPlugin`</ph> and <ph id="ph2">`OldJson`</ph> plugin projects in the sample show two examples of plugins with NuGet package dependencies on <ph id="ph3">`Newtonsoft.Json`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>The project files themselves do not have any special information for the project references, and (after adding the plugin paths to the <ph id="ph1">`pluginPaths`</ph> array) the plugins run perfectly, even if run in the same execution of the AppWithPlugin app.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>However, these projects do not copy the referenced assemblies to their output directory, so the assemblies need to be present on the user's machine for the plugins to work.</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>There are two ways to work around this problem.</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>The first option is to use the <ph id="ph1">`dotnet publish`</ph> command to publish the class library.</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>Alternatively, if you want to be able to use the output of <ph id="ph1">`dotnet build`</ph> for your plugin, you can add the <ph id="ph2">`&lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;`</ph> property between the <ph id="ph3">`&lt;PropertyGroup&gt;`</ph> tags in the plugin's project file.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>See the <ph id="ph1">`XcopyablePlugin`</ph> plugin project for an example.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>Other plugin examples in the sample</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>The complete source code for this tutorial can be found in <bpt id="p1">[</bpt>the dotnet/samples repository<ept id="p1">](https://github.com/dotnet/samples/tree/master/core/extensions/AppWithPlugin)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>The completed sample includes a few other examples of <ph id="ph1">`AssemblyDependencyResolver`</ph> behavior.</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>For example, the <ph id="ph1">`AssemblyDependencyResolver`</ph> object can also resolve native libraries as well as localized satellite assemblies included in NuGet packages.</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`UVPlugin`</ph> and <ph id="ph2">`FrenchPlugin`</ph> in the samples repository demonstrate these scenarios.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>How to reference a plugin interface assembly defined in a NuGet package</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Let's say that there is an app A that has a plugin interface defined in the NuGet package named <ph id="ph1">`A.PluginBase`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>How do you reference the package correctly in your plugin project?</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>For project references, using the <ph id="ph1">`&lt;Private&gt;false&lt;/Private&gt;`</ph> metadata on the <ph id="ph2">`ProjectReference`</ph> element in the project file prevented the dll from being copied to the output.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>To correctly reference the <ph id="ph1">`A.PluginBase`</ph> package, you want to change the <ph id="ph2">`&lt;PackageReference&gt;`</ph> element in the project file to the following:</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>This prevents the <ph id="ph1">`A.PluginBase`</ph> assemblies from being copied to the output directory of your plugin and ensures that your plugin will use A's version of <ph id="ph2">`A.PluginBase`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Plugin target framework recommendations</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>Because plugin dependency loading uses the <bpt id="p1">*</bpt>deps.json<ept id="p1">*</ept> file, there is a gotcha related to the plugin's target framework.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>Specifically, your plugins should target a runtime, such as .NET Core 3.0, instead of a version of .NET Standard.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`deps.json`</ph> file is generated based on which framework the project targets, and since many .NET Standard-compatible packages ship reference assemblies for building against .NET Standard and implementation assemblies for specific runtimes, the <ph id="ph2">`deps.json`</ph> may not correctly see implementation assemblies, or it may grab the .NET Standard version of an assembly instead of the .NET Core version you expect.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
