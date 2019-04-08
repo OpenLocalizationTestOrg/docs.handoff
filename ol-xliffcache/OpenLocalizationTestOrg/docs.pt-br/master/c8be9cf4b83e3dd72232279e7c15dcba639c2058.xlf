@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="generate-consume-asynchronous-stream.md" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">c8be9cf4b83e3dd72232279e7c15dcba639c2058</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\csharp\tutorials\generate-consume-asynchronous-stream.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">vbcs_hi-ht</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">7b7cb8cd0881639ce298a101f06c2baa178403f7</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">e99f2fca28cbbc4e6008e5cae42c0c1442e8d703</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Generate and consume async streams</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>This advanced tutorial illustrates scenarios where generating and consuming async streams provides a more natural way to work with sequences of data that may be generated asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Tutorial: Generate and consume async streams using C# 8.0 and .NET Core 3.0</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>C# 8.0 introduces <bpt id="p1">**</bpt>async streams<ept id="p1">**</ept>, which model a streaming source of data when the elements in the data stream may be retrieved or generated asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Async streams rely on new interfaces introduced in .NET Standard 2.1 and implemented in .NET Core 3.0 to provide a natural programming model for asynchronous streaming data sources.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>In this tutorial, you'll learn how to:</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>Create a data source that generates a sequence of data elements asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>Consume that data source asynchronously.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Recognize when the new interface and data source are preferred to earlier synchronous data sequences.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Prerequisites</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source>You’ll need to set up your machine to run .NET Core, including the C# 8.0 beta compiler.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The C# 8 beta compiler is available starting with <bpt id="p1">[</bpt>Visual Studio 2019 preview 1<ept id="p1">](https://visualstudio.microsoft.com/vs/preview/)</ept>, or <bpt id="p2">[</bpt>.NET Core 3.0 preview 1 SDK<ept id="p2">](https://dotnet.microsoft.com/download/dotnet-core/3.0)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>Async streams are first available in .NET Core 3.0 preview 1.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>You'll need to create a <bpt id="p1">[</bpt>GitHub access token<ept id="p1">](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token)</ept> so that you can access the GitHub GraphQL endpoint.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>Select the following permissions for your GitHub Access Token:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>repo:status</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>public_repo</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Save the access token in a safe place so you can use it to gain access to the GitHub API endpoint.</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source>Keep your personal access token secure.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>Any software with your personal access token could make GitHub API calls using your access rights.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>This tutorial assumes you're familiar with C# and .NET, including either Visual Studio or the .NET Core CLI.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>Run the starter application</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>You can get the code for the starter application used in this tutorial from our <bpt id="p1">[</bpt>dotnet/samples<ept id="p1">](https://github.com/dotnet/samples)</ept> repository in the <bpt id="p2">[</bpt>csharp/tutorials/AsyncStreams<ept id="p2">](https://github.com/dotnet/samples/tree/master/csharp/tutorials/AsyncStreams/start)</ept> folder.</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>The starter application is a console application that uses the <bpt id="p1">[</bpt>GitHub GraphQL<ept id="p1">](https://developer.github.com/v4/)</ept> interface to retrieve recent issues written in the <bpt id="p2">[</bpt>dotnet/docs<ept id="p2">](https://github.com/dotnet/docs)</ept> repository.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>Start by looking at the following code for the starter app <ph id="ph1">`Main`</ph> method:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>You can either set a <ph id="ph1">`GitHubKey`</ph> environment variable to your personal access token, or you can replace the last argument in the call to <ph id="ph2">`GenEnvVariable`</ph> with your personal access token.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Don't put your access code in source code if you'll be saving the source with others, or putting it in a shared source repository.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>After creating the GitHub client, the code in <ph id="ph1">`Main`</ph> creates a progress reporting object and a cancellation token.</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>Once those objects are created, <ph id="ph1">`Main`</ph> calls <ph id="ph2">`runPagedQueryAsync`</ph> to retrieve the most recent 250 created issues.</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>After that task has finished, the results are displayed.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>When you run the starter application, you can make some important observations about how this application runs.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>You'll see progress reported for each page returned from GitHub.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>You can observe a noticeable pause before GitHub returns each new page of issues.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>Finally, the issues are displayed only after all 10 pages have been retrieved from GitHub.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>Examine the implementation</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>The implementation reveals why you observed the behavior discussed in the previous section.</source>
+        </trans-unit>
+        <trans-unit id="137" translate="yes" xml:space="preserve">
+          <source>Examine the code for <ph id="ph1">`runPagedQueryAsync`</ph>:</source>
+        </trans-unit>
+        <trans-unit id="138" translate="yes" xml:space="preserve">
+          <source>Let's concentrate on the paging algorithm and async structure of the preceding code.</source>
+        </trans-unit>
+        <trans-unit id="139" translate="yes" xml:space="preserve">
+          <source>(You can consult the <bpt id="p1">[</bpt>GitHub GraphQL documentation<ept id="p1">](https://developer.github.com/v4/guides/)</ept> for details on the GitHub GraphQL API.) The <ph id="ph1">`runPagedQueryAsync`</ph> method enumerates the issues from most recent to oldest.</source>
+        </trans-unit>
+        <trans-unit id="140" translate="yes" xml:space="preserve">
+          <source>It requests 25 issues per page and examines the <ph id="ph1">`pageInfo`</ph> structure of the response to continue with the previous page.</source>
+        </trans-unit>
+        <trans-unit id="141" translate="yes" xml:space="preserve">
+          <source>That follows GraphQL's standard paging support for multi-page responses.</source>
+        </trans-unit>
+        <trans-unit id="142" translate="yes" xml:space="preserve">
+          <source>The response includes a <ph id="ph1">`pageInfo`</ph> object that includes a <ph id="ph2">`hasPreviousPages`</ph> value and a <ph id="ph3">`startCursor`</ph> value used to request the previous page.</source>
+        </trans-unit>
+        <trans-unit id="143" translate="yes" xml:space="preserve">
+          <source>The issues are in the <ph id="ph1">`nodes`</ph> array.</source>
+        </trans-unit>
+        <trans-unit id="144" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`runPagedQueryAsync`</ph> method appends these nodes to an array that contains all the results from all pages.</source>
+        </trans-unit>
+        <trans-unit id="145" translate="yes" xml:space="preserve">
+          <source>After retrieving and restoring a page of results, <ph id="ph1">`runPagedQueryAsync`</ph> reports progress and checks for cancellation.</source>
+        </trans-unit>
+        <trans-unit id="146" translate="yes" xml:space="preserve">
+          <source>If cancellation has been requested, <ph id="ph1">`runPagedQueryAsync`</ph> throws an <ph id="ph2">&lt;xref:System.OperationCanceledException&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="147" translate="yes" xml:space="preserve">
+          <source>There are several elements in this code that can be improved.</source>
+        </trans-unit>
+        <trans-unit id="148" translate="yes" xml:space="preserve">
+          <source>Most importantly, <ph id="ph1">`runPagedQueryAsync`</ph> must allocate storage for all the issues returned.</source>
+        </trans-unit>
+        <trans-unit id="149" translate="yes" xml:space="preserve">
+          <source>This sample stops at 250 issues because retrieving all open issues would require much more memory to store all the retrieved issues.</source>
+        </trans-unit>
+        <trans-unit id="150" translate="yes" xml:space="preserve">
+          <source>In addition, the protocols for supporting progress and supporting cancellation make the algorithm harder to understand on its first reading.</source>
+        </trans-unit>
+        <trans-unit id="151" translate="yes" xml:space="preserve">
+          <source>You must look for the progress class to find where progress is reported.</source>
+        </trans-unit>
+        <trans-unit id="152" translate="yes" xml:space="preserve">
+          <source>You also have to trace the communications through the <ph id="ph1">&lt;xref:System.Threading.CancellationTokenSource&gt;</ph> and its associated <ph id="ph2">&lt;xref:System.Threading.CancellationToken&gt;</ph> to understand where cancellation is requested and where it's granted.</source>
+        </trans-unit>
+        <trans-unit id="153" translate="yes" xml:space="preserve">
+          <source>Async streams provide a better way</source>
+        </trans-unit>
+        <trans-unit id="154" translate="yes" xml:space="preserve">
+          <source>Async streams and the associated language support address all those concerns.</source>
+        </trans-unit>
+        <trans-unit id="155" translate="yes" xml:space="preserve">
+          <source>The code that generates the sequence can now use <ph id="ph1">`yield return`</ph> to return elements in a method that was declared with the <ph id="ph2">`async`</ph> modifier.</source>
+        </trans-unit>
+        <trans-unit id="156" translate="yes" xml:space="preserve">
+          <source>You can consume an async stream using an <ph id="ph1">`await foreach`</ph> loop just as you consume any sequence using a <ph id="ph2">`foreach`</ph> loop.</source>
+        </trans-unit>
+        <trans-unit id="157" translate="yes" xml:space="preserve">
+          <source>These new language features depend on three new interfaces added to .NET Standard 2.1 and implemented in .NET Core 3.0:</source>
+        </trans-unit>
+        <trans-unit id="158" translate="yes" xml:space="preserve">
+          <source>These three interfaces should be familiar to most C# developers.</source>
+        </trans-unit>
+        <trans-unit id="159" translate="yes" xml:space="preserve">
+          <source>They behave in a manner similar to their synchronous counterparts:</source>
+        </trans-unit>
+        <trans-unit id="160" translate="yes" xml:space="preserve">
+          <source>One type that may be unfamiliar is <ph id="ph1">&lt;xref:System.Threading.Tasks.ValueTask?displayProperty=nameWithType&gt;</ph>.</source>
+        </trans-unit>
+        <trans-unit id="161" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`ValueTask`</ph> struct provides a similar API to the <ph id="ph2">&lt;xref:System.Threading.Tasks.Task?displayProperty=nameWithType&gt;</ph> class.</source>
+        </trans-unit>
+        <trans-unit id="162" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`ValueTask`</ph> is used in these interfaces for performance reasons.</source>
+        </trans-unit>
+        <trans-unit id="163" translate="yes" xml:space="preserve">
+          <source>Convert to async streams</source>
+        </trans-unit>
+        <trans-unit id="164" translate="yes" xml:space="preserve">
+          <source>Next, convert the <ph id="ph1">`runPagedQueryAsync`</ph> method to generate an async stream.</source>
+        </trans-unit>
+        <trans-unit id="165" translate="yes" xml:space="preserve">
+          <source>First, change the signature of <ph id="ph1">`runPagedQueryAsync`</ph> to return an <ph id="ph2">`IAsyncEnumerable&lt;JToken&gt;`</ph>, and remove the cancellation token and progress objects from the parameter list as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="166" translate="yes" xml:space="preserve">
+          <source>The starter code processes each page as the page is retrieved, as shown in the following code:</source>
+        </trans-unit>
+        <trans-unit id="167" translate="yes" xml:space="preserve">
+          <source>Replace those three lines with the following code:</source>
+        </trans-unit>
+        <trans-unit id="168" translate="yes" xml:space="preserve">
+          <source>You can also remove the declaration of <ph id="ph1">`finalResults`</ph> earlier in this method and the <ph id="ph2">`return`</ph> statement that follows the loop you modified.</source>
+        </trans-unit>
+        <trans-unit id="169" translate="yes" xml:space="preserve">
+          <source>You've finished the changes to generate an async stream.</source>
+        </trans-unit>
+        <trans-unit id="170" translate="yes" xml:space="preserve">
+          <source>The finished method should resemble the code below:</source>
+        </trans-unit>
+        <trans-unit id="171" translate="yes" xml:space="preserve">
+          <source>Next, you change the code that consumes the collection to consume the async stream.</source>
+        </trans-unit>
+        <trans-unit id="172" translate="yes" xml:space="preserve">
+          <source>Find the following code in <ph id="ph1">`Main`</ph> that processes the collection of issues:</source>
+        </trans-unit>
+        <trans-unit id="173" translate="yes" xml:space="preserve">
+          <source>Replace that code with the following <ph id="ph1">`await foreach`</ph> loop:</source>
+        </trans-unit>
+        <trans-unit id="174" translate="yes" xml:space="preserve">
+          <source>You can get the code for the finished tutorial from the <bpt id="p1">[</bpt>dotnet/samples<ept id="p1">](https://github.com/dotnet/samples)</ept> repository in the <bpt id="p2">[</bpt>csharp/tutorials/AsyncStreams<ept id="p2">](https://github.com/dotnet/samples/tree/master/csharp/tutorials/AsyncStreams/finished)</ept> folder.</source>
+        </trans-unit>
+        <trans-unit id="175" translate="yes" xml:space="preserve">
+          <source>Run the finished application</source>
+        </trans-unit>
+        <trans-unit id="176" translate="yes" xml:space="preserve">
+          <source>Run the application again.</source>
+        </trans-unit>
+        <trans-unit id="177" translate="yes" xml:space="preserve">
+          <source>Contrast its behavior with the behavior of the starter application.</source>
+        </trans-unit>
+        <trans-unit id="178" translate="yes" xml:space="preserve">
+          <source>The first page of results is enumerated as soon as it's available.</source>
+        </trans-unit>
+        <trans-unit id="179" translate="yes" xml:space="preserve">
+          <source>There's an observable pause as each new page is requested and retrieved, then the next page's results are quickly enumerated.</source>
+        </trans-unit>
+        <trans-unit id="180" translate="yes" xml:space="preserve">
+          <source>The <ph id="ph1">`try`</ph><ph id="ph2"> / </ph><ph id="ph3">`catch`</ph> block isn't needed to handle cancellation: the caller can stop enumerating the collection.</source>
+        </trans-unit>
+        <trans-unit id="181" translate="yes" xml:space="preserve">
+          <source>Progress is clearly reported because the async stream generates results as each page is downloaded.</source>
+        </trans-unit>
+        <trans-unit id="182" translate="yes" xml:space="preserve">
+          <source>You can see improvements in memory use by examining the code.</source>
+        </trans-unit>
+        <trans-unit id="183" translate="yes" xml:space="preserve">
+          <source>You no longer need to allocate a collection to store all the results before they're enumerated.</source>
+        </trans-unit>
+        <trans-unit id="184" translate="yes" xml:space="preserve">
+          <source>The caller can determine how to consume the results and if a storage collection is needed.</source>
+        </trans-unit>
+        <trans-unit id="185" translate="yes" xml:space="preserve">
+          <source>Run both the starter and finished applications and you can observe the differences between the implementations for yourself.</source>
+        </trans-unit>
+        <trans-unit id="186" translate="yes" xml:space="preserve">
+          <source>You can delete the GitHub access token you created when you started this tutorial after you've finished.</source>
+        </trans-unit>
+        <trans-unit id="187" translate="yes" xml:space="preserve">
+          <source>If an attacker gained access to that token, they could access GitHub APIs using your credentials.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

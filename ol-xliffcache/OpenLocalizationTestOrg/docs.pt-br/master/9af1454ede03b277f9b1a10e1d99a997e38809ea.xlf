@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" original="runtime-patch-selection.md" source-language="en-US" target-language="pt-br">
+    <header>
+      <tool tool-id="mdxliff" tool-name="mdxliff" tool-version="1.0-0a91294" tool-company="Microsoft" />
+      <xliffext:olfilehash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">9af1454ede03b277f9b1a10e1d99a997e38809ea</xliffext:olfilehash>
+      <xliffext:olfilepath xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">docs\core\deploying\runtime-patch-selection.md</xliffext:olfilepath>
+      <xliffext:oltranslationpriority xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">dotnet-core</xliffext:oltranslationpriority>
+      <xliffext:oltranslationtype xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">HT</xliffext:oltranslationtype>
+      <xliffext:olskeletonhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">5e6b7d9f8eaa8ee6f870c24d11321fbb50a94b6f</xliffext:olskeletonhash>
+      <xliffext:olxliffhash xmlns:xliffext="urn:microsoft:content:schema:xliffextensions">47ab4fff9a82a10bf4eeebbc0e4f5ba296a4dcef</xliffext:olxliffhash>
+    </header>
+    <body>
+      <group id="content" extype="content">
+        <trans-unit id="101" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Runtime roll forward for .NET Core self-contained app deployments.</source>
+        </trans-unit>
+        <trans-unit id="102" translate="yes" xml:space="preserve" restype="x-metadata">
+          <source>Learn about dotnet publish changes for self-contained deployments.</source>
+        </trans-unit>
+        <trans-unit id="103" translate="yes" xml:space="preserve">
+          <source>Self-contained deployment runtime roll forward</source>
+        </trans-unit>
+        <trans-unit id="104" translate="yes" xml:space="preserve">
+          <source>.NET Core <bpt id="p1">[</bpt>self-contained application deployments<ept id="p1">](index.md)</ept> include both the .NET Core libraries and the .NET Core runtime.</source>
+        </trans-unit>
+        <trans-unit id="105" translate="yes" xml:space="preserve">
+          <source>Starting in .NET Core 2.1 SDK (version 2.1.300), a self-contained application deployment <bpt id="p1">[</bpt>publishes the highest patch runtime on your machine<ept id="p1">](https://github.com/dotnet/designs/pull/36)</ept>.</source>
+        </trans-unit>
+        <trans-unit id="106" translate="yes" xml:space="preserve">
+          <source>By default, <bpt id="p1">[</bpt><ph id="ph1">`dotnet publish`</ph><ept id="p1">](../tools/dotnet-publish.md)</ept> for a self-contained deployment selects the latest version installed as part of the SDK on the publishing machine.</source>
+        </trans-unit>
+        <trans-unit id="107" translate="yes" xml:space="preserve">
+          <source>This enables your deployed application to run with security fixes (and other fixes) available during <ph id="ph1">`publish`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="108" translate="yes" xml:space="preserve">
+          <source>The application must be re-published to obtain a new patch.</source>
+        </trans-unit>
+        <trans-unit id="109" translate="yes" xml:space="preserve">
+          <source>Self-contained applications are created by specifying <ph id="ph1">`-r &lt;RID&gt;`</ph> on the <ph id="ph2">`dotnet publish`</ph> command or by specifying the <bpt id="p1">[</bpt>runtime identifier (RID)<ept id="p1">](../rid-catalog.md)</ept> in the project file (csproj / vbproj) or on the command line.</source>
+        </trans-unit>
+        <trans-unit id="110" translate="yes" xml:space="preserve">
+          <source>Patch version roll forward overview</source>
+        </trans-unit>
+        <trans-unit id="111" translate="yes" xml:space="preserve">
+          <source><bpt id="p1">[</bpt><ph id="ph1">`restore`</ph><ept id="p1">](../tools/dotnet-restore.md)</ept>, <bpt id="p2">[</bpt><ph id="ph2">`build`</ph><ept id="p2">](../tools/dotnet-build.md)</ept> and <bpt id="p3">[</bpt><ph id="ph3">`publish`</ph><ept id="p3">](../tools/dotnet-publish.md)</ept> are <ph id="ph4">`dotnet`</ph> commands that can run separately.</source>
+        </trans-unit>
+        <trans-unit id="112" translate="yes" xml:space="preserve">
+          <source>The runtime choice is part of the <ph id="ph1">`restore`</ph> operation, not <ph id="ph2">`publish`</ph> or <ph id="ph3">`build`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="113" translate="yes" xml:space="preserve">
+          <source>If you call <ph id="ph1">`publish`</ph>, the latest patch version will be chosen.</source>
+        </trans-unit>
+        <trans-unit id="114" translate="yes" xml:space="preserve">
+          <source>If you call <ph id="ph1">`publish`</ph> with the <ph id="ph2">`--no-restore`</ph> argument, then you may not get the desired patch version because a prior <ph id="ph3">`restore`</ph> may not have been executed with the new self-contained application publishing policy.</source>
+        </trans-unit>
+        <trans-unit id="115" translate="yes" xml:space="preserve">
+          <source>In this case, a build error is generated with text similar to the following:</source>
+        </trans-unit>
+        <trans-unit id="116" translate="yes" xml:space="preserve">
+          <source>"The project was restored using Microsoft.NETCore.App version 2.0.0, but with current settings, version 2.0.6 would be used instead.</source>
+        </trans-unit>
+        <trans-unit id="117" translate="yes" xml:space="preserve">
+          <source>To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish.</source>
+        </trans-unit>
+        <trans-unit id="118" translate="yes" xml:space="preserve">
+          <source>Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore."</source>
+        </trans-unit>
+        <trans-unit id="119" translate="yes" xml:space="preserve">
+          <source><ph id="ph1">`restore`</ph> and <ph id="ph2">`build`</ph> can be run implicitly as part of another command, like <ph id="ph3">`publish`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="120" translate="yes" xml:space="preserve">
+          <source>When run implicitly as part of another command, they are provided with additional context so that the right artifacts are produced.</source>
+        </trans-unit>
+        <trans-unit id="121" translate="yes" xml:space="preserve">
+          <source>When you <ph id="ph1">`publish`</ph> with a runtime (for example, <ph id="ph2">`dotnet publish -r linux-x64`</ph>), the implicit <ph id="ph3">`restore`</ph> restores packages for the linux-x64 runtime.</source>
+        </trans-unit>
+        <trans-unit id="122" translate="yes" xml:space="preserve">
+          <source>If you call <ph id="ph1">`restore`</ph> explicitly, it does not restore runtime packages by default, because it doesn't have that context.</source>
+        </trans-unit>
+        <trans-unit id="123" translate="yes" xml:space="preserve">
+          <source>How to avoid restore during publish</source>
+        </trans-unit>
+        <trans-unit id="124" translate="yes" xml:space="preserve">
+          <source>Running <ph id="ph1">`restore`</ph> as part of the <ph id="ph2">`publish`</ph> operation may be undesirable for your scenario.</source>
+        </trans-unit>
+        <trans-unit id="125" translate="yes" xml:space="preserve">
+          <source>To avoid <ph id="ph1">`restore`</ph> during <ph id="ph2">`publish`</ph> while creating self-contained applications, do the following:</source>
+        </trans-unit>
+        <trans-unit id="126" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">`RuntimeIdentifiers`</ph> property to a semicolon-separated list of all the <bpt id="p1">[</bpt>RIDs<ept id="p1">](../rid-catalog.md)</ept> to be published.</source>
+        </trans-unit>
+        <trans-unit id="127" translate="yes" xml:space="preserve">
+          <source>Set the <ph id="ph1">`TargetLatestRuntimePatch`</ph> property to <ph id="ph2">`true`</ph>.</source>
+        </trans-unit>
+        <trans-unit id="128" translate="yes" xml:space="preserve">
+          <source>No-restore argument with dotnet publish options</source>
+        </trans-unit>
+        <trans-unit id="129" translate="yes" xml:space="preserve">
+          <source>If you want to create both self-contained applications and <bpt id="p1">[</bpt>framework-dependent applications<ept id="p1">](index.md)</ept> with the same project file, and you want to use the <ph id="ph1">`--no-restore`</ph> argument with <ph id="ph2">`dotnet publish`</ph>, then choose one of the following:</source>
+        </trans-unit>
+        <trans-unit id="130" translate="yes" xml:space="preserve">
+          <source>Prefer the framework-dependent behavior.</source>
+        </trans-unit>
+        <trans-unit id="131" translate="yes" xml:space="preserve">
+          <source>If the application is framework-dependent, this is the default behavior.</source>
+        </trans-unit>
+        <trans-unit id="132" translate="yes" xml:space="preserve">
+          <source>If the application is self-contained, and can use an unpatched 2.1.0 local runtime, set the <ph id="ph1">`TargetLatestRuntimePatch`</ph> to <ph id="ph2">`false`</ph> in the project file.</source>
+        </trans-unit>
+        <trans-unit id="133" translate="yes" xml:space="preserve">
+          <source>Prefer the self-contained behavior.</source>
+        </trans-unit>
+        <trans-unit id="134" translate="yes" xml:space="preserve">
+          <source>If the application is self-contained, this is the default behavior.</source>
+        </trans-unit>
+        <trans-unit id="135" translate="yes" xml:space="preserve">
+          <source>If the application is framework-dependent, and requires the latest patch installed, set <ph id="ph1">`TargetLatestRuntimePatch`</ph> to <ph id="ph2">`true`</ph> in the project file.</source>
+        </trans-unit>
+        <trans-unit id="136" translate="yes" xml:space="preserve">
+          <source>Take explicit control of the runtime framework version by setting <ph id="ph1">`RuntimeFrameworkVersion`</ph> to the specific patch version in the project file.</source>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
